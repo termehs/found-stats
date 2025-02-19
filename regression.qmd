@@ -1,0 +1,17 @@
+# Regression Analysis
+
+- Simple Linear Regression 
+- Multiple Linear Regression
+- OLS estimation
+- Gauss Markov Theorem
+- Model Assumptions and Diagnostics
+- Dummy variables and Interaction Terms
+- Endogeneity and IV estimation
+
+
+
+
+
+```{r}
+1 + 1
+```

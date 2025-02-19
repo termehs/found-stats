@@ -1,0 +1,10 @@
+# Probability Theory
+
+- Definition and Interpretation of probabilities
+- Set theory
+- Counting rules for probabilities (Complement rule, addition rule, Bayes, Independence, etc)
+
+
+```{r}
+1 + 1
+```
