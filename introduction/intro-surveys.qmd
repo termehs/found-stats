@@ -37,7 +37,7 @@ The method chosen for collecting data in a survey plays a crucial role in determ
 
 ### Experimental Surveys
 
-\*\*Experimental surveys\* are designed to explore causal relationships between variables.Here, researchers have control over certain conditions, manipulating one or more variables while keeping others constant to observe the effects. A key feature of experimental surveys is randomization, where participants are randomly assigned to different groups to eliminate bias. By ensuring that external factors do not influence the results, researchers can draw strong conclusions about cause and effect.
+**Experimental surveys** are designed to explore causal relationships between variables.Here, researchers have control over certain conditions, manipulating one or more variables while keeping others constant to observe the effects. A key feature of experimental surveys is randomization, where participants are randomly assigned to different groups to eliminate bias. By ensuring that external factors do not influence the results, researchers can draw strong conclusions about cause and effect.
 
 One common application of experimental surveys is in medical research, where clinical trials are conducted to test the effectiveness of a new drug. In such cases, patients might be randomly assigned to either a treatment group receiving the drug or a control group receiving a placebo. The outcomes are then compared to determine the drug’s efficacy. Similarly, in marketing, companies may experiment with different advertising strategies by exposing randomly selected groups to different promotional campaigns and then measuring their purchasing behavior.
 

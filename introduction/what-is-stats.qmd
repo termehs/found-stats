@@ -9,8 +9,7 @@ Using statistical terminology (*in parenthesis*) we can sunmmarize as following:
 The uncertainty comes from the fact that the world is messy, unpredictable, and full of unknowns. No data is perfect, randomness exist everywhere. Further to this, even if we collect tons of data, there’s always some level of error. Instead of making absolute claims, statistics helps us express how confident we are in our conclusions using quantified uncertainty. Just remember that there is no magic formula that turns uncertainty into certainty, we cannot escape it!
 
 
-Statistics has two main branches, descriptive statistics and inferential statistics, each tackling uncertainty differently. The relationship between the two is visualized in FIgure.
-
+Statistics has two main branches, descriptive statistics and inferential statistics, each tackling uncertainty differently. 
 ## Descriptive Statistics
 This is like taking a selfie of your data. It summarizes and reports what’s there, showing us things like averages, spreads, and patterns. Think of it as data gossip — who’s the biggest, smallest, most popular, or way off in the corner doing their own thing (*yes, outliers, I'm looking at you!*).
 
@@ -27,6 +26,42 @@ Then you ask the big question: *Does our data make the null hypothesis look comp
 
 Statistics isn’t about finding the ultimate truth, but about making the best possible decisions with the information available. We estimate, test, and adjust—because in the end, being less wrong is the best we can do.
 In the words of the famous statistician George Box: *"All models are wrong, but some are useful"*.
+
+## This Book
+
+The Statistical Inference Pipeline”
+
+This diagram illustrates the statistical pipeline, a structured process for drawing conclusions from data:
+	1.	Producing Data – A sample is extracted from the population.
+	2.	Descriptive Analysis – The sample is summarized using descriptive statistics.
+	3.	Probability Modeling – Statistical models estimate the relationship between the sample and the population.
+	4.	Inference – Conclusions about the entire population are made based on the sample data.
+
+This pipeline is fundamental in statistics, enabling researchers to make data-driven decisions with limited information.
+
+
+
+“The Statistical Data Pipeline”
+
+This diagram represents the pipeline of statistical analysis, outlining the key steps in drawing insights from data:
+	1.	Producing Data – A sample is selected from the population to represent the whole.
+	2.	Descriptive Statistics – The sample is analyzed to summarize patterns and trends.
+	3.	Probability Modeling – Statistical methods establish connections between the sample and population.
+	4.	Inference – Findings from the sample are generalized to make conclusions about the population.
+
+This structured pipeline is essential in statistics, ensuring reliable and data-driven decision-making.
+The analysis process is visualized in @fig-popsamp.
+
+
+::: center
+![The Statistical Data Pipeline](imgs/‎popsamp-pipe.png){#fig-popsamp fig-align="center" width="100%"}
+:::
+
+
+
+We will cover each of the steps depicted in @fig-popsamp in this book. Step 1 refers to the data collection phase which is covered in chapter The sample is analyzed to summarize key characteristics.....
+Step 2 is on the xploratory analysis of data and is covered in chapters....
+Next is the rhid step concerning the relationship between sample data and the population is modeled. is covered in chaopters.. and finally, inferential statistic where we Conclusions are drawn about the population based on the sample.
 ---
 
 

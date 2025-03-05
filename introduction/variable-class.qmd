@@ -53,7 +53,7 @@ Finally, ratio scale has all of the above properties but also a natural zero poi
 
 ::: {#tbl-measurement-levels}
 |   | Distinguish | Rank | Equal Step Length | Absolute Zero Point | Example |
-|------------|------------|------------|------------|------------|---------------|
+|------------|------------|------------|------------|------------|------------|
 | **Nominal** | Yes | No | No | No | gender, city, religion |
 | **Ordinal** | Yes | Yes | No | No | grades, preference, customer satisfaction ratings |
 | **Interval** | Yes | Yes | Yes | No | temperature in Celsius. credit scores, calender years |
