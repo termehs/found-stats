@@ -8,7 +8,7 @@
 
 <meta name="author" content="Termeh Shafie">
 
-<title>Foundational Statistics - 9&nbsp; Summary</title>
+<title>Foundational Statistics - 3&nbsp; Variable Classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +31,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
-<link href="./regression.html" rel="prev">
+<link href="./describe-data.html" rel="next">
+<link href="./intro-surveys.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,7 +69,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<meta name="mermaid-theme" content="default">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -116,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summary.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-math.html">Introduction</a></li><li class="breadcrumb-item"><a href="./variable-class.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variable Classification</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,83 +143,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./intro-math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./descript-stats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span></a>
+  <a href="./intro-surveys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prob-theory.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  <a href="./variable-class.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rv-probdists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Random Variables and Probability Distributions</span></span></a>
+  <a href="./describe-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sampling-dists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sampling and Sampling Distributions</span></span></a>
+  <a href="./central-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inferential Statistics</span></span></a>
+  <a href="./dispersion-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Probability Theory</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Random Variables and Probability Distributions</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Sampling and Sampling Distributions</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Inferential Statistics</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Chi Square Tests</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></a>
+  <a href="./slr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Summary</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">References</span></span>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link active" data-scroll-target="#types-of-variables"><span class="header-section-number">3.1</span> Types of Variables</a>
+  <ul class="collapse">
+  <li><a href="#quantitative-numerical" id="toc-quantitative-numerical" class="nav-link" data-scroll-target="#quantitative-numerical"><span class="header-section-number">3.1.1</span> Quantitative (Numerical)</a></li>
+  <li><a href="#qualitative-categorical-variables" id="toc-qualitative-categorical-variables" class="nav-link" data-scroll-target="#qualitative-categorical-variables"><span class="header-section-number">3.1.2</span> Qualitative (Categorical) Variables</a></li>
+  </ul></li>
+  <li><a href="#levels-of-measurement" id="toc-levels-of-measurement" class="nav-link" data-scroll-target="#levels-of-measurement"><span class="header-section-number">3.2</span> Levels of Measurement</a></li>
+  <li><a href="#types-of-numbers" id="toc-types-of-numbers" class="nav-link" data-scroll-target="#types-of-numbers"><span class="header-section-number">3.3</span> Types of Numbers</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro-math.html">Introduction</a></li><li class="breadcrumb-item"><a href="./variable-class.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variable Classification</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variable Classification</span></h1>
 </div>
 
 
@@ -237,15 +291,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In summary, this book has no content whatsoever.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<p>A <strong>variable</strong> is a property that can vary between different units in a population. Understanding the classification of variables is fundamental to selecting appropriate statistical methods and interpreting results accurately. The nature of a variable will for example determine:</p>
+<ul>
+<li><p>The choice of measures of central tendency and dispersion</p></li>
+<li><p>The choice of correlation measures</p></li>
+<li><p>The selection of appropriate graphical representations</p></li>
+</ul>
+<section id="types-of-variables" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="types-of-variables"><span class="header-section-number">3.1</span> Types of Variables</h2>
+<p>To facilitate analysis, we focus on measurable variables, which are broadly categorized into <strong>quantitative</strong> and <strong>qualitative</strong> types. There are further sub-classes for each of these main classes, as shown in <a href="#fig-simple" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> and exemplified further in the following.</p>
+<div id="fig-simple" class="center quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-simple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD;
+    A(Variable) --&gt; B(Qualitative);
+    A(Variable) --&gt; C(Quantitative);
+    C --&gt; D(Discrete);
+    C --&gt; E(Continuous);
+</pre>
+</div>
+<p></p></figure><p></p>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Variable classification flowchart.
+</figcaption>
+</figure>
+</div>
+<section id="quantitative-numerical" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="quantitative-numerical"><span class="header-section-number">3.1.1</span> Quantitative (Numerical)</h3>
+<p>These variables are represented by numbers and can be measured. Depending on the type of numbers a variable takes, it can be classified as <strong>discrete</strong> or <strong>continuous</strong>.</p>
+<p>Discrete variables take specific, distinct values and cannot be subdivided (natural, integer, or rational numbers). Think of these as variables holding countable values. Examples include number of children in a family, number of goals ina football match, and number of sales transactions per day.</p>
+<p>Continuous variables can take any value within a given range of values within an interval and can be infinitely divided (real numbers). Examples include hegiht, weight, stock price and distance.</p>
+</section>
+<section id="qualitative-categorical-variables" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="qualitative-categorical-variables"><span class="header-section-number">3.1.2</span> Qualitative (Categorical) Variables</h3>
+<p>These variables represent data that can be divided into distinct groups or categories. These values do not have a natural numerical order (except for ordinal variables) and must be coded into numerical values for statistical analysis. Examples include political affiliation, blood type, movie genre and social media platform.</p>
+<p>A special case of qualitative variables that take only two possible values, so called dichotomous or binary variable. Examples include smoking status (Smoker/Non-smoker) and COVID-19 test result (positive/negative).</p>
+</section>
+</section>
+<section id="levels-of-measurement" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="levels-of-measurement"><span class="header-section-number">3.2</span> Levels of Measurement</h2>
+<p>The characteristics of collected data allow us to classify them into four different measurement levels. These levels determine the statistical operations that can be performed. <a href="#tbl-measurement-levels" class="quarto-xref">Table&nbsp;<span>3.1</span></a> summarizes the different measurement levels described in the following.</p>
+<p>Nominal scale categorizes data without any inherent order. For example, there is no inherent ordering in the variable eye color (blue, brown, green), gender or nationality. You can only distinguish between the values nominal variables take.</p>
+<p>Ordinal scale is when data can be ranked in a meaningful order, but differences between values are not necessarily equal or meaningful, for example when looking at the variable fruit preference ranking or customer satisfaction levels (low, medium, high). In other words, interval lengths between one variable value and another are not of the same length.</p>
+<p>Interval scale is similar to the ordinal scale but with equal intervals between values. However, it lacks a true zero point. Examples include Temperature in Celsius and calendar years (the year 2000 is 100 years after 1900, but the year 0 does not represent the “beginning of time”).</p>
+<p>Finally, ratio scale has all of the above properties but also a natural zero point, allowing meaningful calculations of differences and ratios. Examples here include salary, distance traveled, height, and weight.</p>
+<div id="tbl-measurement-levels" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-measurement-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Table Summary of Measurement Levels
+</figcaption>
+<div aria-describedby="tbl-measurement-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Distinguish</th>
+<th>Rank</th>
+<th>Equal Step Length</th>
+<th>Absolute Zero Point</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Nominal</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>gender, city, religion</td>
+</tr>
+<tr class="even">
+<td><strong>Ordinal</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>grades, preference, customer satisfaction ratings</td>
+</tr>
+<tr class="odd">
+<td><strong>Interval</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>temperature in Celsius. credit scores, calender years</td>
+</tr>
+<tr class="even">
+<td><strong>Ratio</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>length, weight, time, salary</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="types-of-numbers" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="types-of-numbers"><span class="header-section-number">3.3</span> Types of Numbers</h2>
+<p>Understanding the nature of numbers is crucial when classifying variables because it directly influences statistical analysis, measurement accuracy, and the interpretation of data. The classification of numbers into natural, whole, integer, rational, irrational, and real numbers helps in determining which mathematical operations and statistical techniques are valid for a given data set:</p>
+<ul>
+<li><strong>Natural Numbers</strong>: <span class="math inline">\(0, 1, 2, 3, \ldots\)</span></li>
+<li><strong>Integers</strong>: <span class="math inline">\(\dots , -3, -2, -1, 0, 1, 2, 3, \ldots\)</span></li>
+<li><strong>Rational Numbers</strong>: Numbers that can be expressed as a fraction <span class="math inline">\(\frac{a}{b}\)</span> , where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are integers. Examples include:
+<ul>
+<li><span class="math inline">\(-14 = \frac{-14}{1}\)</span></li>
+<li><span class="math inline">\(\frac{3}{4} = 0.75\)</span></li>
+<li><span class="math inline">\(\frac{2}{7} = 0.285714285714 \dots\)</span></li>
+</ul></li>
+<li><strong>Real Numbers</strong>: Non-repeating decimal numbers, such as:
+<ul>
+<li><span class="math inline">\(\pi = 3.14159265358979 \dots\)</span></li>
+</ul></li>
+</ul>
+<p>For example you cannot calculate an average zip code (nominal) or say that “a temperature of 20°C is twice as hot as 10°C” (interval), but you can say “a person earning €50,000 earns twice as much as someone earning €25,000” (ratio). An another example, you cannot consider the mean of a categorical variable like “favorite color,” but you can analyze the frequency distribution.</p>
+<hr>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -637,13 +821,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./regression.html" class="pagination-link" aria-label="Regression Analysis">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis</span></span>
+      <a href="./intro-surveys.html" class="pagination-link" aria-label="Surveys: Key Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./describe-data.html" class="pagination-link" aria-label="Describing a Dataset">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

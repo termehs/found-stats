@@ -1,0 +1,55 @@
+# The Unavoidable Math
+
+While some math concepts fall into the *“nice to know but not always necessary”* category, others are inescapable. Whether you’re designing a survey, analyzing data, or just trying to make sense of numbers, a basic grasp of algebra, probability, and statistics is essential. Understanding fractions, percentages, and averages helps interpret results, while probability is crucial for assessing uncertainty and making predictions. Basic algebra sneaks in when solving equations or working with formulas, and statistical measures like mean, median, and standard deviation provide insight into data patterns. Even if math isn’t your favorite subject, these core concepts will save you from misinterpretations, bad decisions, and the embarrassment of wildly inaccurate estimates. So, let’s tackle the unavoidable math—quick, painless, and as useful as possible!
+
+## The Sum and The Product
+
+We write the sum of $n$ numbers denoted $x_1,x_2,\ldots,x_n$ as $$\sum_{i=1}^n x_i = x_1 +x_2 + \cdots + x_n $$ This is read as *the sum of* $x_i$ where $i$ goes from 1 to $n$. The letter $i$ is called the summation index and can be chosen to be any other letter.
+
+Similarly, the product of $n$ numbers denoted $x_1,x_2,\ldots,x_n$ is written as $$\prod_{i=1}^n x_i = x_1 \times x_2 \times  \cdots \times x_n $$.
+
+### Example
+
+Assume 5 values on $x$ denoted $x_1,x_2,x_3,x_4,x_5$. How can we write the sum of the squared difference of each of these values to their mean value $\overline{x}$? $$(x_1-\overline{x})^2 + (x_2-\overline{x})^2 + (x_3-\overline{x})^2 + (x_4-\overline{x})^2 + (x_1-\overline{x})^5 $$
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+$$\sum_{i=1}^n (x_i-\overline{x})^2$$
+:::
+
+## Combinatorics
+
+The next couple of mathematical concepts covered here are closely linked to the theory of probability which we will cover later in this book. Combinatorics is about counting the number of possibilities to do something. *In how many ways?*, is a common question here. **The rule of product**, also knows as the multiplication principle, is a basic counting principle (a.k.a. the fundamental principle of counting). Assume that you have to perform $k$ tasks in turn (one after the other). The first task can be performed in $n_1$ different ways, the second in $n_2$ different ways, etc. In how many different ways can one perform the $k$ tasks in turn? The number of possible ways to perform the $k$ tasks in turn is given by $$n_1 \times n_2 \times  \cdots \times n_k$$
+
+### Example
+
+Assume you are looking at a menu with 3 starters, 4 main courses and 2 desserts. In how many ways can a three-course meal be composed?
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+$$3\cdot   4 \cdot 2 = 24$$
+:::
+
+## Permutations
+
+Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged. An arrangement of $n$ different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from $n$ different objects is $$n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 $$ This is read as $n$-factorial.
+
+::: callout-warning
+## Note
+
+$$ 0!=1 $$
+:::
+
+### Example
+
+In how many different ways can we permute the three objects $A$, $B$ and $C$?
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+$$3! = 3 \cdot 2 \cdot 1 = 6$$ namely: $ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA$
+:::
+
+------------------------------------------------------------------------

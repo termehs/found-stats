@@ -1,0 +1,56 @@
+# Surveys: Key Concepts
+
+Surveys are a fundamental method of gathering information in various fields, including business, social sciences, and policy making. They help us understand populations without needing to examine every individual within them.
+
+## Census vs. Sample Surveys
+
+The **population** refers to the complete set of elements (individuals, objects, or units) relevant to the study. The definition of a population can vary based on the research objective and can be finite (e.g., employees in a company) or infinite (e.g., potential customers in a market). A **sample** is a selected subset of the population. (inlcude figure)
+
+A **census** (or **total survey**) involves collecting data from every individual in a given population. This is common in national population counts but is often impractical for other types of research due to cost and time constraints. Instead, most studies rely on **sample surveys** which aim to generalize findings from the sample to the entire population with reasonable accuracy. The size of the sample (sample size) plays a crucial role in determining the reliability of the conclusions drawn.
+
+One way to understand sampling is through the urn metaphor (@fig-urn): Imagine an urn filled with different-colored balls representing different individuals in a population. Drawing balls at random with/without replacement simulates the process of selecting a sample from a population, emphasizing the role of randomness in reducing bias.
+
+::: center
+![The urn metaphor.](imgs/urn.png){#fig-urn fig-align="center" width="50%"}
+:::
+
+## Characteristics of a Population
+
+Each individual in a population has measurable attributes, such as height, weight, income, or opinions. When measuring a particular characteristic, we can calculate various population metrics such as:
+
+-   Mean (average), e.g., the average height of individuals in a population.
+-   Proportion, e.g., the percentage of women in a population.
+-   Total values, e.g., the total number of items owned by a group.
+-   Counts of specific attributes, e.g., the number of people with a particular qualification.
+
+The main challenge in survey research is determining how accurately a sample represents the entire population. Statistical methods help estimate key characteristics of a population based on sample data.
+
+These population characteristics are fixed parameters values which are usually unknown. Common parameters are the mean ($\mu$) representing the true average of a characteristic in the population, or the proportion ($p$) representing the fraction of the population with a certain attribute.
+
+Since parameters cannot always be measured directly, they are estimated using sample statistics. For example, the sample mean ($\bar{x}$) based on sampled observations $x_1,x_2,\ldots, x_n$ is used to estimate the population mean ($\mu$). (include figure)
+
+To distinguish between parameters and estimates, Greek letters are typically used for population parameters, while Latin letters are used for sample estimates. We will however avoid using already taken parameters, for example $\pi$ is not here used for population parameter as this already has a value assigned to it. In such cases we use the Latin letter to indicate the parameter and a 'hat' over the letter indicate the sample estimate (that is $\hat{p}$).
+
+## Types of Surveys
+
+The method chosen for collecting data in a survey plays a crucial role in determining the accuracy and reliability of the results. Broadly, survey research can be classified into experimental and non-experimental approaches, each serving different research purposes.
+
+### Experimental Surveys
+
+\*\*Experimental surveys\* are designed to explore causal relationships between variables.Here, researchers have control over certain conditions, manipulating one or more variables while keeping others constant to observe the effects. A key feature of experimental surveys is randomization, where participants are randomly assigned to different groups to eliminate bias. By ensuring that external factors do not influence the results, researchers can draw strong conclusions about cause and effect.
+
+One common application of experimental surveys is in medical research, where clinical trials are conducted to test the effectiveness of a new drug. In such cases, patients might be randomly assigned to either a treatment group receiving the drug or a control group receiving a placebo. The outcomes are then compared to determine the drug’s efficacy. Similarly, in marketing, companies may experiment with different advertising strategies by exposing randomly selected groups to different promotional campaigns and then measuring their purchasing behavior.
+
+While experimental surveys provide strong evidence of causal relationships, they do have some limitations. They tend to be resource-intensive, requiring significant time and financial investment. Furthermore, ethical considerations may restrict certain types of experiments, especially in cases where withholding treatment or intervention from a control group could have serious consequences. Another challenge is that controlled settings may not fully capture real-world complexities, making it difficult to generalize findings beyond the experimental conditions.
+
+## Non-Experimental Surveys: Observing Trends and Patterns
+
+Unlike experimental surveys, **non-experimental surveys** focus on observing and describing characteristics, trends, and relationships within a population without direct intervention. These surveys are widely used in fields such as social sciences, market research, and public policy analysis, where the goal is often to collect descriptive data rather than establish causality.
+
+One of the most common types of non-experimental surveys is the **cross-sectional survey**, which captures data from a population at a single point in time. This method is frequently used in opinion polls, customer satisfaction studies, and demographic research. For example, a company might conduct a survey to understand consumer preferences for a new product just before its launch. Because cross-sectional surveys are quick and cost-effective, they are widely used.
+
+For studies that require tracking changes over time, researchers may turn to **longitudinal surveys**, which collect data from the same subjects at multiple intervals. Longitudinal surveys are especially useful for understanding long-term trends, such as how consumer behavior evolves over the years or how health outcomes change in response to lifestyle choices. In a **panel study**, the same individuals are followed over time, whereas in a **cohort study**, a specific group—such as people born in a particular year—is tracked to observe changes as they age. These methods are valuable in policy research, where understanding the long-term effects of interventions, such as educational reforms or public health initiatives, is critical.
+
+Some non-experimental surveys rely on **observational data**, where researchers study behaviors and interactions without directly questioning participants. Observational studies often aim to identify associations and generate hypotheses for further research. This method is commonly used in consumer behavior research. For example, a supermarket might analyze shopping patterns by tracking how customers navigate store aisles without them being aware of the observation. Another example is web tracking which is a modern form of observational research where companies monitor users’ online activities to analyze behavior, predict preferences, and personalize experiences. Unlike traditional observational studies, which are typically conducted with ethical oversight and clear participant consent, the presented examples often operates in the background without users’ full awareness or control. Thus, while observational studies provide authentic behavioral insights, they raise ethical concerns about privacy and cannot establish direct cause-and-effect relationships.
+
+------------------------------------------------------------------------

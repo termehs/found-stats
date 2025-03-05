@@ -4,33 +4,47 @@ project:
 book:
   title: "Foundational Statistics"
   author: "Termeh Shafie"
-  date: "2025"
+  date: "April 1,2025"
   page-footer:
     left: |
       Foundational Statistics by Termeh Shafie.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
+    background: light
   chapters:
     - index.qmd
-    - intro.qmd
-    - descript-stats.qmd
-    - prob-theory.qmd
-    - rv-probdists.qmd
-    - sampling-dists.qmd
-    - inference.qmd
-    - chi2.qmd
-    - regression.qmd
-    - summary.qmd
-    - references.qmd
-
+    - part: "Introduction"
+      chapters: 
+      - introduction/what-is-stats.qmd
+      - introduction/intro-math.qmd
+      - introduction/intro-surveys.qmd
+      - introduction/variable-class.qmd
+    - part: "Descriptive Statistics"
+      chapters: 
+      - descriptive-stats/describe-data.qmd
+      - descriptive-stats/central-measures.qmd
+      - descriptive-stats/dispersion-measures.qmd
+    - part: prob-theory.qmd
+    - part: rv-probdists.qmd
+    - part: sampling-dists.qmd
+    - part: inference.qmd
+    - part: chi2.qmd
+    - part: regression.qmd
+      chapters:
+      - slr.qmd
+    - part: summary.qmd
+    - part: references.qmd
 bibliography: references.bib
+
+number-sections: true 
 
 format:
   html:
+    mermaid:
+      theme: default
     theme: cosmo
     code-link: true
     author-meta: "Termeh Shafie"
-
 editor: visual
 
 
