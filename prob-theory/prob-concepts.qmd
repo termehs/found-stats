@@ -1,0 +1,202 @@
+# Probability Concepts
+
+We now focus on the middle part of @fig-probbridge, where we transition from simply summarizing data to drawing broader conclusions. Probability theory serves as the bridge between descriptive statistics, which tells us “how it is,” and inferential statistics, which helps us predict “how it will be.” By understanding why certain patterns appear in our sample data and combining that with probabilistic assumptions, we can move toward generalizing from the sample to the entire population.
+
+::: center
+![Probability as the bridge between descriptive and inferential statistics.](imgs/‎desc-prob-inf){#fig-probbridge fig-align="center" width="100%"}
+:::
+
+## Random Experiments
+
+Probability theory is the branch of mathematics that deals with random experiments, where the outcome of each trial is uncertain and cannot be determined in advance. These experiments can be repeated under similar conditions, but due to inherent randomness, different trials may produce different results. No matter how hard you stare at a die before rolling, you won’t magically force it to land on a 6 (unless you’re a magician... or cheating).
+
+A **random experiment** is an event or process that, when performed, leads to one of several possible outcomes, but the exact outcome is not known beforehand. The key characteristic of a random experiment is that even though individual outcomes are unpredictable, patterns may emerge when the experiment is repeated multiple times. This allows us to quantify uncertainty and make probabilistic predictions.
+
+### Properties of Random Experiments
+
+1.  **Uncertainty in Individual Outcomes**: The result of a single trial is unpredictable. You never really know what’s coming (just like your WiFi signal when you really need it).
+2.  **Reproducibility Under Similar Conditions**: The experiment can be performed multiple times under the same setup but the result may change every time (kind of like baking—you follow the same recipe, yet somehow, things go wrong).
+3.  **Patterns in the Long Run**: While single outcomes are uncertain, probability theory helps reveal long-term statistical regularities. In other words, while each trial is a mystery, repeat something enough times, and trends start to emerge (like realizing your cat will always knock things off the table).
+
+Examples of random experiments include:
+
+-   Rolling a die (What number will appear: 1, 2, 3, 4, 5, or 6?)
+-   Drawing a lottery ticket (Win or no win?)
+-   Random sampling from a population (Who will be selected?)
+-   Fertilization of an egg (Boy or girl?)
+-   Radioactive decay (Number of particles decayed in a given time?)
+-   Manufacturing of a product (Defective or non-defective?)
+
+While randomness may seem chaotic, probability theory helps us bring order to the madness. It allows us to assign mathematical probabilities to outcomes, making it possible to predict patterns, measure risk, and, if you’re lucky, win at poker.
+
+## Outcomes, Sample Space and Events
+
+The result of a random experiment is called an **outcome**, and the set of all possible outcomes is known as the **sample space**, denoted as $\Omega$. A couple of examples are shown below:
+
+**Experiment:** Rolling a six-sided die\
+**Sample Space:** $\Omega = \{1, 2, 3, 4, 5, 6\}$
+
+**Experiment:** Flipping a coin twice\
+**Sample Space:** $\Omega = \{\text{heads, tails}), (\text{heads, heads}), (\text{tails, heads}), (\text{tails, tails})\}$
+
+In probability theory, we are often more interested in the characteristics of outcomes rather than the individual outcomes themselves. An **event** is a collection of outcomes that share a common feature, allowing us to analyze probabilities more efficiently and identify meaningful patterns within the data. Events are typically denoted by uppercase letters such as $A, B, C, \ldots$ and are formally defined as subsets of the sample space $\Omega$ Each event is characterized by the set of outcomes for which it occurs, meaning that an event is said to happen if and only if at least one of its associated outcomes is observed.
+
+Consider the follwing example. In a standard six-sided die roll 🎲, the **sample space** is given by: $$
+\Omega =\{1, 2, 3, 4, 5, 6\}
+$$
+
+Different **events** can be defined as subsets of the sample space:
+
+| **Event**                   | **Subset of Sample Space**  |
+|-----------------------------|-----------------------------|
+| $A$ = Rolling an odd number | $A = \{1, 3, 5\}$           |
+| $B$ = Rolling at most three | $B = \{1, 2, 3\}$           |
+| $C$ = Rolling a six         | $C = \{6\}$                 |
+| $D$ = Not rolling a six     | $D = \{1, 2, 3, 4, 5\}$     |
+| $E$ = Rolling a seven       | $E = \emptyset$ (empty set) |
+
+In this table, event $E$ represents an impossible event since rolling a seven is not possible with a six-sided die, making its subset the **empty set** $\emptyset$.
+
+##### Example 8.1 {.unnumbered}
+
+Imagine randomly selecting a person from a lecture room. The **sample space** consists of all individuals present in the room. However, we are often more interested in certain **characteristics** rather than the specific individuals themselves.
+
+Let’s define the following events:
+
+-   $A$ = The selected person **wears glasses**\
+-   $B$ = The selected person **cycled to the university**
+
+Each event consists of all outcomes where the selected individual satisfies the given condition. Suppose the randomly chosen person is Alex. If Alex wears glasses, then event $A$ has occurred. If Alex also cycled to the university, then both events $A$ and $B$ have occurred simultaneously.
+
+Note that we here only considered one random experiment. In many real-world situations, random experiments are repeated multiple times instead of occurring just once. In such cases, each possible sample drawn represents an individual outcome.
+
+For example, suppose we randomly select three students from the lecture room and ask them: *"Did you cycle to today’s lecture?"*.
+
+If we let $Y$ represent "Yes" and $N$ represent "No", the sample space consists of all possible sequences of answers: $$
+\Omega = \{YYY, YYN, YNY, NYY, YNN, NYN, NNY, NNN\}
+$$
+
+and each outcome represents a specific combination of answers from the three selected students.
+
+Rather than focusing on individual outcomes, we may be interested in how many of the selected students cycled to the lecture. This allows us to define events based on counts. For example, let’s define:
+
+-   $B_2$ = Exactly two students cycled to the lecture
+
+This event consists of all sequences where two of the three selected students answered "Yes", i.e. $$
+B_2 = \{YYN, YNY, NYY\}
+$$ Similarly, we can define:
+
+-   $B_0$ = No students cycled to the lecture\
+-   $B_1$ = Exactly one student cycled to the lecture\
+-   $B_3$ = All three students cycled to the lecture
+
+Since one and only one of these events must occur, they are considered:
+
+1.  **Exhaustive** – Together, they cover the entire sample space.\
+2.  **Mutually Exclusive** – No two of these events can occur at the same time.
+
+By structuring probability problems in this way, we can analyze patterns in data and make probability calculations more intuitive.
+
+## Venn Diagram
+
+Probability theory frequently utilizes conecpts from **set theory** to describe relationships between events. **Venn diagrams** provide a visual representation of these concepts and illustrate how different events relate to one another within the sample space. By using *set operations*, we can define and show new events effectively.
+
+The sample space $\Omega$ is often represented as a rectangle, where individual outcomes may be shown as dots inside. However, for simplicity, the dots are usually omitted (and sometimes even the rectangle is omitted).\
+An event is typically represented as a circle within the rectangle. If multiple events are considered, their circles may overlap, reflecting cases where both events can occur simultaneously.
+
+Returning to our previous example, imagine we again randomly select a student from a lecture hall. We define the following events:
+
+-   $A$ = The selected student wears glasses
+-   $B$ = The selected student cycled to the university
+
+These events can be visualized in a Venn diagram, where each event is a circle, as shown in @fig-venn. Their overlap represents students who meet both conditions. These is called the intersection of events $A$ and $B$ and is one of three interesting areas that are of particular interest. We will cover each fo these in the following with reference to @fig-venn-comb below.
+
+::: center
+![Events $A$ and $B$ in sample space $\Omega$.](imgs/‎venn1.png){#fig-venn fig-align="left" width="100%"}
+:::
+
+### The Intersection of Events
+
+Here we look for outcomes that belong to both events $A$ and $B$. The **intersection** of two events $A$ and $B$ is denoted as: $$A \cap B$$
+
+and represents the set of all outcomes where both events occur simultaneously. This is shown in top-left diagram of @fig-venn-comb.
+
+#### Example 8.2 {.unnumbered}
+
+Consider a standard six-sided die where the sample space is: $\Omega = \{1, 2, 3, 4, 5, 6\}$ Define the following events:
+
+-   $A$ = Rolling an odd number; $A = \{1, 3, 5\}$
+-   $B$ = Rolling a number that is at most 3; $B = \{1, 2, 3\}$
+
+The intersection of $A$ and $B$ includes only the numbers that appear in both sets: $$
+A \cap B = \{1, 3\}
+$$ Thus, the intersection contains only the numbers 1 and 3, since these are the only values present in both events.
+
+### The Union of Events
+
+We now look for outcomes that belong to at least one of the two events $A$ and $B$. The **union** of events, denoted as: $$ A \cup B $$ and represents the event that either $A$, $B$, or both occur. This is shown in bottom-left diagram of @fig-venn-comb.
+
+#### Example 8.3 {.unnumbered}
+
+Consider a standard six-sided die where the sample space is: $\Omega = \{1, 2, 3, 4, 5, 6\}$ Define the following events:
+
+-   $A$ = Rolling an odd number; $A = \{1, 3, 5\}$
+-   $B$ = Rolling a number that is at most 3; $B = \{1, 2, 3\}$
+
+The union of $A$ and $B$ includes all outcomes that belong to either event or both:
+
+$$A \cup B = \{1, 2, 3, 5\}$$
+
+Thus, the union contains the numbers 1, 2, 3, and 5, since at least one of the events $A$ or $B$ includes each of these numbers.
+
+### Complement of an Event
+
+For every event $A$, there exists a complement event, which consists of all outcomes that do not belong to event $A$.
+
+The complement of $A$ is denoted as: $$ \overline{A} $$ and represents the event that $A$ does not occur. This is shown in bottom-right diagram of @fig-venn-comb.
+
+#### Example 8.4 {.unnumbered}
+
+Consider rolling a standard six-sided die, where the sample space is: $$S=\{1,2,3,4,5,6\}$$ Define the following event:
+
+-   $A$ = Rolling an odd number; $A=\{1,3,5\}$
+
+The complement of $A$ consists of all outcomes not included in $A$: $$\overline{A}=\{2,4,6\}$$ Thus, the complement of rolling an odd number is rolling an even number.
+
+### Mutually Exclusive Events
+
+In some cases, events $A$ and $B$ do not share any outcomes. Such events are called **disjoint events**, meaning they cannot occur simultaneously. Mathematically, this is written as: $$A \cap B = \emptyset$$ where $\emptyset$ represents the empty set, meaning a set with no elements. This is shown in top-right diagram of @fig-venn-comb.
+
+#### Example 8.4 {.unnumbered}
+
+Consider rolling a standard six-sided die, where the **sample space** is: $$S=\{1,2,3,4,5,6\}$$
+
+Define the following events:
+
+-   $A$ = Rolling an odd number; $A=\{1,3,5\}$
+-   $B$ = Rolling an even number; $B=\{2,4,6\}$
+
+Since $A$ and $B$ do not have any numbers in common, we conclude: $$A \cap B = \emptyset$$
+
+Thus, rolling an odd number and rolling an even number are mutually exclusive events.
+
+::: center
+![The intersection of events $A$ and $B$ (top-left), mutually exhaustive events (top-right), the union of events $A$ and $B$ (bottom-left) and the complement of event $A$ (bottom-right).](imgs/‎venn2.png){#fig-venn-comb fig-align="center" width="100%"}
+:::
+
+## Exercises {.unnumbered}
+
+Let the sample space be: $$\Omega = {1,2,3,4,5,6} $$ Define the following events:
+
+-   $A$ = “Odd numbers”; $A = {1,3,5}$
+-   $B$ = “At most three”; $B = {1,2,3}$
+
+Draw Venn diagrams to verify that the following statements hold:
+
+1.  $\overline{A \cup B} = {4,6}$
+
+2.  $\overline{A} \cap \overline{B} = {4,6}$
+
+3.  $A \cup \overline{A} = {1,2,3,4,5,6} = \Omega$
+
+4.  $A \cap \overline{A} = \emptyset$

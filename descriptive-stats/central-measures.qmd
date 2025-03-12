@@ -15,7 +15,7 @@ Measures of central tendency are numerical indicators that describe a "typical" 
 
 We will use the follwing running example in this chapter.
 
-#### Example: Income {.unnumbered}
+#### Example 6.1: Income {.unnumbered}
 
 We have income data (in thousands of €) for 18 individuals:
 
@@ -65,7 +65,7 @@ where $N$ is the population size. For a sample, the mean ($\bar{x}$) is an estim
 \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} 
 $$ where $n$ is the sample size.
 
-#### Example: Income {.unnumbered}
+#### Example 6.1: Income {.unnumbered}
 
 The mean income is: $$\bar{x} = \frac{20 + 22 + 24 + 24 + \cdots + 85 + 90}{18} = 44.7 $$ Thus, the mean income is 44 700 €.
 
@@ -75,7 +75,7 @@ The **median** is the middle value of a dataset when arranged in ascending order
 \frac{n + 1}{2}
 $$
 
-#### Example: Income {.unnumbered}
+#### Example 6.1: Income {.unnumbered}
 
 For our sorted income data we get that the median is located at the position $$
 \frac{19}{2} = 9.5
@@ -87,7 +87,7 @@ $$ Thus, the median income is 42 000 €.
 
 The **mode** is the most frequently occurring value in a data set. A data set can have one mode (unimodal), multiple modes (multimodal), or no mode at all if all values are unique. The mode is particularly useful for categorical data, such as identifying the most popular product in a sales dataset or the most common salary range in a workforce. In a histogram, the mode corresponds to the peak of the distribution, highlighting where data points concentrate the most.
 
-#### Example: Income {.unnumbered}
+#### Example 6.1: Income {.unnumbered}
 
 The most frequently occurring values in the income example is 24.
 

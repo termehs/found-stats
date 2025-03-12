@@ -24,7 +24,10 @@ book:
       - descriptive-stats/describe-data.qmd
       - descriptive-stats/central-measures.qmd
       - descriptive-stats/dispersion-measures.qmd
-    - part: prob-theory.qmd
+    - part: "Probability Theory"
+      chapters:
+      - prob-theory/prob-concepts.qmd
+      - prob-theory/what-is-prob.qmd
     - part: rv-probdists.qmd
     - part: sampling-dists.qmd
     - part: inference.qmd

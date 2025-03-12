@@ -1,4 +1,4 @@
-# Surveys: Key Concepts
+# Surveys: Key Concepts  {#sec-surveys}
 
 Surveys are a fundamental method of gathering information in various fields, including business, social sciences, and policy making. They help us understand populations without needing to examine every individual within them.
 

@@ -189,9 +189,28 @@ window.Quarto = {
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Probability Theory</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Random Variables and Probability Distributions</span></span>
@@ -220,7 +239,7 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -275,7 +294,7 @@ window.Quarto = {
 <strong>Mode</strong>: The most frequently occurring value in the data set.</li>
 </ul>
 <p>We will use the follwing running example in this chapter.</p>
-<section id="example-income" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-income">Example: Income</h4>
+<section id="example-6.1-income" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income">Example 6.1: Income</h4>
 <p>We have income data (in thousands of €) for 18 individuals:</p>
 <pre><code>20 22 24 24  26 27  30 34  40 44  45 47 55 57  60  75  85 90</code></pre>
 <p>We will in the following show how we compute each of the shown measure of central tendency in the follwing.</p>
@@ -297,14 +316,14 @@ window.Quarto = {
 <p>where <span class="math inline">\(N\)</span> is the population size. For a sample, the mean (<span class="math inline">\(\bar{x}\)</span>) is an estimate of <span class="math inline">\(\mu\)</span> and is calculated as: <span class="math display">\[
 \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
 \]</span> where <span class="math inline">\(n\)</span> is the sample size.</p>
-<section id="example-income-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-income-1">Example: Income</h4>
+<section id="example-6.1-income-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-1">Example 6.1: Income</h4>
 <p>The mean income is: <span class="math display">\[\bar{x} = \frac{20 + 22 + 24 + 24 + \cdots + 85 + 90}{18} = 44.7 \]</span> Thus, the mean income is 44 700 €.</p>
 </section></section><section id="median" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="median">
 <span class="header-section-number">6.2</span> Median</h2>
 <p>The <strong>median</strong> is the middle value of a dataset when arranged in ascending order. It represents the point where half of the observations are below and half are above, making it a useful measure of central tendency for skewed distributions. Unlike the mean, the median is not affected by outliers, making it a more robust indicator of typical values in cases where extreme values exist. For example, in income data, the median often provides a better reflection of the typical salary than the mean, which can be skewed by very high incomes. If there is an even number of observations, the median is the average of the two middle values. The median position is found using: <span class="math display">\[
 \frac{n + 1}{2}
 \]</span></p>
-<section id="example-income-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-income-2">Example: Income</h4>
+<section id="example-6.1-income-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-2">Example 6.1: Income</h4>
 <p>For our sorted income data we get that the median is located at the position <span class="math display">\[
 \frac{19}{2} = 9.5
 \]</span> The median is then the average of the 9th and 10th values (40 and 44):** <span class="math display">\[
@@ -313,7 +332,7 @@ window.Quarto = {
 </section></section><section id="mode" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="mode">
 <span class="header-section-number">6.3</span> Mode</h2>
 <p>The <strong>mode</strong> is the most frequently occurring value in a data set. A data set can have one mode (unimodal), multiple modes (multimodal), or no mode at all if all values are unique. The mode is particularly useful for categorical data, such as identifying the most popular product in a sales dataset or the most common salary range in a workforce. In a histogram, the mode corresponds to the peak of the distribution, highlighting where data points concentrate the most.</p>
-<section id="example-income-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-income-3">Example: Income</h4>
+<section id="example-6.1-income-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-3">Example 6.1: Income</h4>
 <p>The most frequently occurring values in the income example is 24.</p>
 </section></section><section id="which-measure-should-you-choose" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="which-measure-should-you-choose">
 <span class="header-section-number">6.4</span> Which Measure Should You Choose?</h2>

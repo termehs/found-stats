@@ -8,7 +8,7 @@
 
 <meta name="author" content="Termeh Shafie">
 
-<title>Foundational Statistics - 4&nbsp; Variable Classification</title>
+<title>Foundational Statistics - 8&nbsp; Probability Concepts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../descriptive-stats/describe-data.html" rel="next">
-<link href="../introduction/intro-surveys.html" rel="prev">
+<link href="../prob-theory/what-is-prob.html" rel="next">
+<link href="../descriptive-stats/dispersion-measures.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,10 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="mermaid-theme" content="default">
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -115,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../introduction/what-is-stats.html">Introduction</a></li><li class="breadcrumb-item"><a href="../introduction/variable-class.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -175,7 +171,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link active">
+  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
   </div>
 </li>
@@ -221,7 +217,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
   </div>
 </li>
@@ -284,22 +280,28 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#types-of-variables" id="toc-types-of-variables" class="nav-link active" data-scroll-target="#types-of-variables"><span class="header-section-number">4.1</span> Types of Variables</a>
+  <li><a href="#random-experiments" id="toc-random-experiments" class="nav-link active" data-scroll-target="#random-experiments"><span class="header-section-number">8.1</span> Random Experiments</a>
   <ul class="collapse">
-  <li><a href="#quantitative-numerical" id="toc-quantitative-numerical" class="nav-link" data-scroll-target="#quantitative-numerical"><span class="header-section-number">4.1.1</span> Quantitative (Numerical)</a></li>
-  <li><a href="#qualitative-categorical-variables" id="toc-qualitative-categorical-variables" class="nav-link" data-scroll-target="#qualitative-categorical-variables"><span class="header-section-number">4.1.2</span> Qualitative (Categorical) Variables</a></li>
+  <li><a href="#properties-of-random-experiments" id="toc-properties-of-random-experiments" class="nav-link" data-scroll-target="#properties-of-random-experiments"><span class="header-section-number">8.1.1</span> Properties of Random Experiments</a></li>
   </ul></li>
-  <li><a href="#levels-of-measurement" id="toc-levels-of-measurement" class="nav-link" data-scroll-target="#levels-of-measurement"><span class="header-section-number">4.2</span> Levels of Measurement</a></li>
-  <li><a href="#types-of-numbers" id="toc-types-of-numbers" class="nav-link" data-scroll-target="#types-of-numbers"><span class="header-section-number">4.3</span> Types of Numbers</a></li>
+  <li><a href="#outcomes-sample-space-and-events" id="toc-outcomes-sample-space-and-events" class="nav-link" data-scroll-target="#outcomes-sample-space-and-events"><span class="header-section-number">8.2</span> Outcomes, Sample Space and Events</a></li>
+  <li><a href="#venn-diagram" id="toc-venn-diagram" class="nav-link" data-scroll-target="#venn-diagram"><span class="header-section-number">8.3</span> Venn Diagram</a>
+  <ul class="collapse">
+  <li><a href="#the-intersection-of-events" id="toc-the-intersection-of-events" class="nav-link" data-scroll-target="#the-intersection-of-events"><span class="header-section-number">8.3.1</span> The Intersection of Events</a></li>
+  <li><a href="#the-union-of-events" id="toc-the-union-of-events" class="nav-link" data-scroll-target="#the-union-of-events"><span class="header-section-number">8.3.2</span> The Union of Events</a></li>
+  <li><a href="#complement-of-an-event" id="toc-complement-of-an-event" class="nav-link" data-scroll-target="#complement-of-an-event"><span class="header-section-number">8.3.3</span> Complement of an Event</a></li>
+  <li><a href="#mutually-exclusive-events" id="toc-mutually-exclusive-events" class="nav-link" data-scroll-target="#mutually-exclusive-events"><span class="header-section-number">8.3.4</span> Mutually Exclusive Events</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../introduction/what-is-stats.html">Introduction</a></li><li class="breadcrumb-item"><a href="../introduction/variable-class.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></h1>
 </div>
 
 
@@ -316,142 +318,233 @@ window.Quarto = {
 </header>
 
 
-<p>A <strong>variable</strong> is a property that can vary between different units in a population. Understanding the classification of variables is fundamental to selecting appropriate statistical methods and interpreting results accurately. The nature of a variable will for example determine:</p>
-<ul>
-<li><p>The choice of measures of central tendency and dispersion</p></li>
-<li><p>The choice of correlation measures</p></li>
-<li><p>The selection of appropriate graphical representations</p></li>
-</ul>
-<section id="types-of-variables" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="types-of-variables"><span class="header-section-number">4.1</span> Types of Variables</h2>
-<p>To facilitate analysis, we focus on measurable variables, which are broadly categorized into <strong>quantitative</strong> and <strong>qualitative</strong> types. There are further sub-classes for each of these main classes, as shown in <a href="#fig-simple" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> and exemplified further in the following.</p>
-<div id="fig-simple" class="center quarto-figure quarto-figure-center quarto-float anchored">
+<p>We now focus on the middle part of <a href="#fig-probbridge" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, where we transition from simply summarizing data to drawing broader conclusions. Probability theory serves as the bridge between descriptive statistics, which tells us “how it is,” and inferential statistics, which helps us predict “how it will be.” By understanding why certain patterns appear in our sample data and combining that with probabilistic assumptions, we can move toward generalizing from the sample to the entire population.</p>
+<div class="center">
+<div id="fig-probbridge" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-simple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD;
-    A(Variable) --&gt; B(Qualitative);
-    A(Variable) --&gt; C(Quantitative);
-    C --&gt; D(Discrete);
-    C --&gt; E(Continuous);
-</pre>
+<div aria-describedby="fig-probbridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎desc-prob-inf.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Variable classification flowchart.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-probbridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Probability as the bridge between descriptive and inferential statistics.
 </figcaption>
 </figure>
 </div>
-<section id="quantitative-numerical" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="quantitative-numerical"><span class="header-section-number">4.1.1</span> Quantitative (Numerical)</h3>
-<p>These variables are represented by numbers and can be measured. Depending on the type of numbers a variable takes, it can be classified as <strong>discrete</strong> or <strong>continuous</strong>.</p>
-<p>Discrete variables take specific, distinct values and cannot be subdivided (natural, integer, or rational numbers). Think of these as variables holding countable values. Examples include number of children in a family, number of goals ina football match, and number of sales transactions per day.</p>
-<p>Continuous variables can take any value within a given range of values within an interval and can be infinitely divided (real numbers). Examples include hegiht, weight, stock price and distance.</p>
+</div>
+<section id="random-experiments" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="random-experiments"><span class="header-section-number">8.1</span> Random Experiments</h2>
+<p>Probability theory is the branch of mathematics that deals with random experiments, where the outcome of each trial is uncertain and cannot be determined in advance. These experiments can be repeated under similar conditions, but due to inherent randomness, different trials may produce different results. No matter how hard you stare at a die before rolling, you won’t magically force it to land on a 6 (unless you’re a magician… or cheating).</p>
+<p>A <strong>random experiment</strong> is an event or process that, when performed, leads to one of several possible outcomes, but the exact outcome is not known beforehand. The key characteristic of a random experiment is that even though individual outcomes are unpredictable, patterns may emerge when the experiment is repeated multiple times. This allows us to quantify uncertainty and make probabilistic predictions.</p>
+<section id="properties-of-random-experiments" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="properties-of-random-experiments"><span class="header-section-number">8.1.1</span> Properties of Random Experiments</h3>
+<ol type="1">
+<li><strong>Uncertainty in Individual Outcomes</strong>: The result of a single trial is unpredictable. You never really know what’s coming (just like your WiFi signal when you really need it).</li>
+<li><strong>Reproducibility Under Similar Conditions</strong>: The experiment can be performed multiple times under the same setup but the result may change every time (kind of like baking—you follow the same recipe, yet somehow, things go wrong).</li>
+<li><strong>Patterns in the Long Run</strong>: While single outcomes are uncertain, probability theory helps reveal long-term statistical regularities. In other words, while each trial is a mystery, repeat something enough times, and trends start to emerge (like realizing your cat will always knock things off the table).</li>
+</ol>
+<p>Examples of random experiments include:</p>
+<ul>
+<li>Rolling a die (What number will appear: 1, 2, 3, 4, 5, or 6?)</li>
+<li>Drawing a lottery ticket (Win or no win?)</li>
+<li>Random sampling from a population (Who will be selected?)</li>
+<li>Fertilization of an egg (Boy or girl?)</li>
+<li>Radioactive decay (Number of particles decayed in a given time?)</li>
+<li>Manufacturing of a product (Defective or non-defective?)</li>
+</ul>
+<p>While randomness may seem chaotic, probability theory helps us bring order to the madness. It allows us to assign mathematical probabilities to outcomes, making it possible to predict patterns, measure risk, and, if you’re lucky, win at poker.</p>
 </section>
-<section id="qualitative-categorical-variables" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="qualitative-categorical-variables"><span class="header-section-number">4.1.2</span> Qualitative (Categorical) Variables</h3>
-<p>These variables represent data that can be divided into distinct groups or categories. These values do not have a natural numerical order (except for ordinal variables) and must be coded into numerical values for statistical analysis. Examples include political affiliation, blood type, movie genre and social media platform.</p>
-<p>A special case of qualitative variables that take only two possible values, so called dichotomous or binary variable. Examples include smoking status (Smoker/Non-smoker) and COVID-19 test result (positive/negative).</p>
 </section>
-</section>
-<section id="levels-of-measurement" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="levels-of-measurement"><span class="header-section-number">4.2</span> Levels of Measurement</h2>
-<p>The characteristics of collected data allow us to classify them into four different measurement levels. These levels determine the statistical operations that can be performed. <a href="#tbl-measurement-levels" class="quarto-xref">Table&nbsp;<span>4.1</span></a> summarizes the different measurement levels described in the following.</p>
-<p>Nominal scale categorizes data without any inherent order. For example, there is no inherent ordering in the variable eye color (blue, brown, green), gender or nationality. You can only distinguish between the values nominal variables take.</p>
-<p>Ordinal scale is when data can be ranked in a meaningful order, but differences between values are not necessarily equal or meaningful, for example when looking at the variable fruit preference ranking or customer satisfaction levels (low, medium, high). In other words, interval lengths between one variable value and another are not of the same length.</p>
-<p>Interval scale is similar to the ordinal scale but with equal intervals between values. However, it lacks a true zero point. Examples include Temperature in Celsius and calendar years (the year 2000 is 100 years after 1900, but the year 0 does not represent the “beginning of time”).</p>
-<p>Finally, ratio scale has all of the above properties but also a natural zero point, allowing meaningful calculations of differences and ratios. Examples here include salary, distance traveled, height, and weight.</p>
-<div id="tbl-measurement-levels" class="quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-measurement-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Table Summary of Measurement Levels
-</figcaption>
-<div aria-describedby="tbl-measurement-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<section id="outcomes-sample-space-and-events" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="outcomes-sample-space-and-events"><span class="header-section-number">8.2</span> Outcomes, Sample Space and Events</h2>
+<p>The result of a random experiment is called an <strong>outcome</strong>, and the set of all possible outcomes is known as the <strong>sample space</strong>, denoted as <span class="math inline">\(\Omega\)</span>. A couple of examples are shown below:</p>
+<p><strong>Experiment:</strong> Rolling a six-sided die<br>
+<strong>Sample Space:</strong> <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p>
+<p><strong>Experiment:</strong> Flipping a coin twice<br>
+<strong>Sample Space:</strong> <span class="math inline">\(\Omega = \{\text{heads, tails}), (\text{heads, heads}), (\text{tails, heads}), (\text{tails, tails})\}\)</span></p>
+<p>In probability theory, we are often more interested in the characteristics of outcomes rather than the individual outcomes themselves. An <strong>event</strong> is a collection of outcomes that share a common feature, allowing us to analyze probabilities more efficiently and identify meaningful patterns within the data. Events are typically denoted by uppercase letters such as <span class="math inline">\(A, B, C, \ldots\)</span> and are formally defined as subsets of the sample space <span class="math inline">\(\Omega\)</span> Each event is characterized by the set of outcomes for which it occurs, meaning that an event is said to happen if and only if at least one of its associated outcomes is observed.</p>
+<p>Consider the follwing example. In a standard six-sided die roll 🎲, the <strong>sample space</strong> is given by: <span class="math display">\[
+\Omega =\{1, 2, 3, 4, 5, 6\}
+\]</span></p>
+<p>Different <strong>events</strong> can be defined as subsets of the sample space:</p>
 <table class="table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>Distinguish</th>
-<th>Rank</th>
-<th>Equal Step Length</th>
-<th>Absolute Zero Point</th>
-<th>Example</th>
+<th><strong>Event</strong></th>
+<th><strong>Subset of Sample Space</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Nominal</strong></td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>gender, city, religion</td>
+<td><span class="math inline">\(A\)</span> = Rolling an odd number</td>
+<td><span class="math inline">\(A = \{1, 3, 5\}\)</span></td>
 </tr>
 <tr class="even">
-<td><strong>Ordinal</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
-<td>grades, preference, customer satisfaction ratings</td>
+<td><span class="math inline">\(B\)</span> = Rolling at most three</td>
+<td><span class="math inline">\(B = \{1, 2, 3\}\)</span></td>
 </tr>
 <tr class="odd">
-<td><strong>Interval</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
-<td>temperature in Celsius. credit scores, calender years</td>
+<td><span class="math inline">\(C\)</span> = Rolling a six</td>
+<td><span class="math inline">\(C = \{6\}\)</span></td>
 </tr>
 <tr class="even">
-<td><strong>Ratio</strong></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>length, weight, time, salary</td>
+<td><span class="math inline">\(D\)</span> = Not rolling a six</td>
+<td><span class="math inline">\(D = \{1, 2, 3, 4, 5\}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(E\)</span> = Rolling a seven</td>
+<td><span class="math inline">\(E = \emptyset\)</span> (empty set)</td>
 </tr>
 </tbody>
 </table>
+<p>In this table, event <span class="math inline">\(E\)</span> represents an impossible event since rolling a seven is not possible with a six-sided die, making its subset the <strong>empty set</strong> <span class="math inline">\(\emptyset\)</span>.</p>
+<section id="example-8.1" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="example-8.1">Example 8.1</h5>
+<p>Imagine randomly selecting a person from a lecture room. The <strong>sample space</strong> consists of all individuals present in the room. However, we are often more interested in certain <strong>characteristics</strong> rather than the specific individuals themselves.</p>
+<p>Let’s define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = The selected person <strong>wears glasses</strong><br>
+</li>
+<li><span class="math inline">\(B\)</span> = The selected person <strong>cycled to the university</strong></li>
+</ul>
+<p>Each event consists of all outcomes where the selected individual satisfies the given condition. Suppose the randomly chosen person is Alex. If Alex wears glasses, then event <span class="math inline">\(A\)</span> has occurred. If Alex also cycled to the university, then both events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have occurred simultaneously.</p>
+<p>Note that we here only considered one random experiment. In many real-world situations, random experiments are repeated multiple times instead of occurring just once. In such cases, each possible sample drawn represents an individual outcome.</p>
+<p>For example, suppose we randomly select three students from the lecture room and ask them: <em>“Did you cycle to today’s lecture?”</em>.</p>
+<p>If we let <span class="math inline">\(Y\)</span> represent “Yes” and <span class="math inline">\(N\)</span> represent “No”, the sample space consists of all possible sequences of answers: <span class="math display">\[
+\Omega = \{YYY, YYN, YNY, NYY, YNN, NYN, NNY, NNN\}
+\]</span></p>
+<p>and each outcome represents a specific combination of answers from the three selected students.</p>
+<p>Rather than focusing on individual outcomes, we may be interested in how many of the selected students cycled to the lecture. This allows us to define events based on counts. For example, let’s define:</p>
+<ul>
+<li><span class="math inline">\(B_2\)</span> = Exactly two students cycled to the lecture</li>
+</ul>
+<p>This event consists of all sequences where two of the three selected students answered “Yes”, i.e.&nbsp;<span class="math display">\[
+B_2 = \{YYN, YNY, NYY\}
+\]</span> Similarly, we can define:</p>
+<ul>
+<li><span class="math inline">\(B_0\)</span> = No students cycled to the lecture<br>
+</li>
+<li><span class="math inline">\(B_1\)</span> = Exactly one student cycled to the lecture<br>
+</li>
+<li><span class="math inline">\(B_3\)</span> = All three students cycled to the lecture</li>
+</ul>
+<p>Since one and only one of these events must occur, they are considered:</p>
+<ol type="1">
+<li><strong>Exhaustive</strong> – Together, they cover the entire sample space.<br>
+</li>
+<li><strong>Mutually Exclusive</strong> – No two of these events can occur at the same time.</li>
+</ol>
+<p>By structuring probability problems in this way, we can analyze patterns in data and make probability calculations more intuitive.</p>
+</section>
+</section>
+<section id="venn-diagram" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="venn-diagram"><span class="header-section-number">8.3</span> Venn Diagram</h2>
+<p>Probability theory frequently utilizes conecpts from <strong>set theory</strong> to describe relationships between events. <strong>Venn diagrams</strong> provide a visual representation of these concepts and illustrate how different events relate to one another within the sample space. By using <em>set operations</em>, we can define and show new events effectively.</p>
+<p>The sample space <span class="math inline">\(\Omega\)</span> is often represented as a rectangle, where individual outcomes may be shown as dots inside. However, for simplicity, the dots are usually omitted (and sometimes even the rectangle is omitted).<br>
+An event is typically represented as a circle within the rectangle. If multiple events are considered, their circles may overlap, reflecting cases where both events can occur simultaneously.</p>
+<p>Returning to our previous example, imagine we again randomly select a student from a lecture hall. We define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = The selected student wears glasses</li>
+<li><span class="math inline">\(B\)</span> = The selected student cycled to the university</li>
+</ul>
+<p>These events can be visualized in a Venn diagram, where each event is a circle, as shown in <a href="#fig-venn" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>. Their overlap represents students who meet both conditions. These is called the intersection of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> and is one of three interesting areas that are of particular interest. We will cover each fo these in the following with reference to <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a> below.</p>
+<div class="center">
+<div id="fig-venn" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎venn1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in sample space <span class="math inline">\(\Omega\)</span>.
+</figcaption>
 </figure>
 </div>
-</section>
-<section id="types-of-numbers" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="types-of-numbers"><span class="header-section-number">4.3</span> Types of Numbers</h2>
-<p>Understanding the nature of numbers is crucial when classifying variables because it directly influences statistical analysis, measurement accuracy, and the interpretation of data. The classification of numbers into natural, whole, integer, rational, irrational, and real numbers helps in determining which mathematical operations and statistical techniques are valid for a given data set:</p>
+</div>
+<section id="the-intersection-of-events" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="the-intersection-of-events"><span class="header-section-number">8.3.1</span> The Intersection of Events</h3>
+<p>Here we look for outcomes that belong to both events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The <strong>intersection</strong> of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is denoted as: <span class="math display">\[A \cap B\]</span></p>
+<p>and represents the set of all outcomes where both events occur simultaneously. This is shown in top-left diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.2">Example 8.2</h4>
+<p>Consider a standard six-sided die where the sample space is: <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> Define the following events:</p>
 <ul>
-<li><strong>Natural Numbers</strong>: <span class="math inline">\(0, 1, 2, 3, \ldots\)</span></li>
-<li><strong>Integers</strong>: <span class="math inline">\(\dots , -3, -2, -1, 0, 1, 2, 3, \ldots\)</span></li>
-<li><strong>Rational Numbers</strong>: Numbers that can be expressed as a fraction <span class="math inline">\(\frac{a}{b}\)</span> , where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are integers. Examples include:
-<ul>
-<li><span class="math inline">\(-14 = \frac{-14}{1}\)</span></li>
-<li><span class="math inline">\(\frac{3}{4} = 0.75\)</span></li>
-<li><span class="math inline">\(\frac{2}{7} = 0.285714285714 \dots\)</span></li>
-</ul></li>
-<li><strong>Real Numbers</strong>: Non-repeating decimal numbers, such as:
-<ul>
-<li><span class="math inline">\(\pi = 3.14159265358979 \dots\)</span></li>
-</ul></li>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A = \{1, 3, 5\}\)</span></li>
+<li><span class="math inline">\(B\)</span> = Rolling a number that is at most 3; <span class="math inline">\(B = \{1, 2, 3\}\)</span></li>
 </ul>
-<p>For example you cannot calculate an average zip code (nominal) or say that “a temperature of 20°C is twice as hot as 10°C” (interval), but you can say “a person earning €50,000 earns twice as much as someone earning €25,000” (ratio). An another example, you cannot consider the mean of a categorical variable like “favorite color,” but you can analyze the frequency distribution.</p>
-<hr>
+<p>The intersection of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> includes only the numbers that appear in both sets: <span class="math display">\[
+A \cap B = \{1, 3\}
+\]</span> Thus, the intersection contains only the numbers 1 and 3, since these are the only values present in both events.</p>
+</section>
+</section>
+<section id="the-union-of-events" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="the-union-of-events"><span class="header-section-number">8.3.2</span> The Union of Events</h3>
+<p>We now look for outcomes that belong to at least one of the two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The <strong>union</strong> of events, denoted as: <span class="math display">\[ A \cup B \]</span> and represents the event that either <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, or both occur. This is shown in bottom-left diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.3">Example 8.3</h4>
+<p>Consider a standard six-sided die where the sample space is: <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A = \{1, 3, 5\}\)</span></li>
+<li><span class="math inline">\(B\)</span> = Rolling a number that is at most 3; <span class="math inline">\(B = \{1, 2, 3\}\)</span></li>
+</ul>
+<p>The union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> includes all outcomes that belong to either event or both:</p>
+<p><span class="math display">\[A \cup B = \{1, 2, 3, 5\}\]</span></p>
+<p>Thus, the union contains the numbers 1, 2, 3, and 5, since at least one of the events <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> includes each of these numbers.</p>
+</section>
+</section>
+<section id="complement-of-an-event" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="complement-of-an-event"><span class="header-section-number">8.3.3</span> Complement of an Event</h3>
+<p>For every event <span class="math inline">\(A\)</span>, there exists a complement event, which consists of all outcomes that do not belong to event <span class="math inline">\(A\)</span>.</p>
+<p>The complement of <span class="math inline">\(A\)</span> is denoted as: <span class="math display">\[ \overline{A} \]</span> and represents the event that <span class="math inline">\(A\)</span> does not occur. This is shown in bottom-right diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.4">Example 8.4</h4>
+<p>Consider rolling a standard six-sided die, where the sample space is: <span class="math display">\[S=\{1,2,3,4,5,6\}\]</span> Define the following event:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A=\{1,3,5\}\)</span></li>
+</ul>
+<p>The complement of <span class="math inline">\(A\)</span> consists of all outcomes not included in <span class="math inline">\(A\)</span>: <span class="math display">\[\overline{A}=\{2,4,6\}\]</span> Thus, the complement of rolling an odd number is rolling an even number.</p>
+</section>
+</section>
+<section id="mutually-exclusive-events" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="mutually-exclusive-events"><span class="header-section-number">8.3.4</span> Mutually Exclusive Events</h3>
+<p>In some cases, events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do not share any outcomes. Such events are called <strong>disjoint events</strong>, meaning they cannot occur simultaneously. Mathematically, this is written as: <span class="math display">\[A \cap B = \emptyset\]</span> where <span class="math inline">\(\emptyset\)</span> represents the empty set, meaning a set with no elements. This is shown in top-right diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.4-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.4-1">Example 8.4</h4>
+<p>Consider rolling a standard six-sided die, where the <strong>sample space</strong> is: <span class="math display">\[S=\{1,2,3,4,5,6\}\]</span></p>
+<p>Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A=\{1,3,5\}\)</span></li>
+<li><span class="math inline">\(B\)</span> = Rolling an even number; <span class="math inline">\(B=\{2,4,6\}\)</span></li>
+</ul>
+<p>Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do not have any numbers in common, we conclude: <span class="math display">\[A \cap B = \emptyset\]</span></p>
+<p>Thus, rolling an odd number and rolling an even number are mutually exclusive events.</p>
+<div class="center">
+<div id="fig-venn-comb" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-venn-comb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎venn2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venn-comb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: The intersection of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (top-left), mutually exhaustive events (top-right), the union of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (bottom-left) and the complement of event <span class="math inline">\(A\)</span> (bottom-right).
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Let the sample space be: <span class="math display">\[\Omega = {1,2,3,4,5,6} \]</span> Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = “Odd numbers”; <span class="math inline">\(A = {1,3,5}\)</span></li>
+<li><span class="math inline">\(B\)</span> = “At most three”; <span class="math inline">\(B = {1,2,3}\)</span></li>
+</ul>
+<p>Draw Venn diagrams to verify that the following statements hold:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\overline{A \cup B} = {4,6}\)</span></p></li>
+<li><p><span class="math inline">\(\overline{A} \cap \overline{B} = {4,6}\)</span></p></li>
+<li><p><span class="math inline">\(A \cup \overline{A} = {1,2,3,4,5,6} = \Omega\)</span></p></li>
+<li><p><span class="math inline">\(A \cap \overline{A} = \emptyset\)</span></p></li>
+</ol>
 
 
 </section>
@@ -846,13 +939,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../introduction/intro-surveys.html" class="pagination-link" aria-label="Surveys: Key Concepts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span>
+      <a href="../descriptive-stats/dispersion-measures.html" class="pagination-link" aria-label="Measures of Dispersion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../descriptive-stats/describe-data.html" class="pagination-link" aria-label="Describing a Dataset">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../prob-theory/what-is-prob.html" class="pagination-link" aria-label="What is Probability?">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,4 @@
-# The Unavoidable Math
+# The Unavoidable Math {#sec-math}
 
 While some math concepts fall into the *“nice to know but not always necessary”* category, others are inescapable. Whether you’re designing a survey, analyzing data, or just trying to make sense of numbers, a basic grasp of algebra, probability, and statistics is essential. Understanding fractions, percentages, and averages helps interpret results, while probability is crucial for assessing uncertainty and making predictions. Basic algebra sneaks in when solving equations or working with formulas, and statistical measures like mean, median, and standard deviation provide insight into data patterns. Even if math isn’t your favorite subject, these core concepts will save you from misinterpretations, bad decisions, and the embarrassment of wildly inaccurate estimates. So, let’s tackle the unavoidable math—quick, painless, and as useful as possible!
 
@@ -20,21 +20,53 @@ $$\sum_{i=1}^n (x_i-\overline{x})^2$$
 
 ## Combinatorics
 
-The next couple of mathematical concepts covered here are closely linked to the theory of probability which we will cover later in this book. Combinatorics is about counting the number of possibilities to do something. *In how many ways?*, is a common question here. **The rule of product**, also knows as the multiplication principle, is a basic counting principle (a.k.a. the fundamental principle of counting). Assume that you have to perform $k$ tasks in turn (one after the other). The first task can be performed in $n_1$ different ways, the second in $n_2$ different ways, etc. In how many different ways can one perform the $k$ tasks in turn? The number of possible ways to perform the $k$ tasks in turn is given by $$n_1 \times n_2 \times  \cdots \times n_k$$
+The next couple of mathematical concepts covered here are closely linked to the theory of probability which we will cover later in this book. 
 
-### Example
+Combinatorics studies different ways to count, arrange, and select objects. 
+Essentially combinatorics helps answer questions like:  
 
-Assume you are looking at a menu with 3 starters, 4 main courses and 2 desserts. In how many ways can a three-course meal be composed?
+- In how many ways can we arrange a set of items? 
+- In how many ways can we select a group of objects?  
+- What are the possible ways to distribute objects into groups?  
 
-::: {.callout-tip collapse="true"}
-## Solution
+The following concepts help answer these questions.
 
-$$3\cdot   4 \cdot 2 = 24$$
-:::
+### Counting Principles 
+Combinatorics is built on two fundamental counting rules:
 
-## Permutations
+- **Multiplication Principle**: also known as **The rule of product**, is a basic counting principle. Assume that you have to perform $k$ tasks in turn (one after the other). The first task can be performed in $n_1$ different ways, the second in $n_2$ different ways, etc. The number of possible ways to perform the $k$ tasks in turn is given by $$n_1 \times n_2 \times  \cdots \times n_k$$
+- **Addition Principle**: If we have mutually exclusive choices,  the total number of ways they can happen is the sum of the ways each event can occur; $n_1 + n_2 \cdots +  n_k$.  
 
-Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged. An arrangement of $n$ different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from $n$ different objects is $$n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 $$ This is read as $n$-factorial.
+
+#### Examples  {.unnumbered}
+
+- If a restaurant has 3 appetizers and 4 main courses, the total number of different meal combinations is:  
+  $$3 \times 4 = 12 $$  
+  
+- A person needs to travel from City A to City B and has the following options:  
+  + By Car:  3 different routes  
+  + By Train: 2 available train services  
+  + By Plane: 1 direct flight  
+Since a person can only take one mode of transport, the number of ways to travel is:
+$$3 + 2 + 1 = 6 $$  
+
+
+
+### Combinations 
+Generally, a combination refers to a selection of objects where **order does not matter**. If we have $n$ distinct objects and want to select $r$ of them, the number of ways to do so is given by the **combination formula**:
+
+$$C(n,r) = \binom{n}{r} = \frac{n!}{r!(n - r)!} $$  
+
+where:  
+
+- $n!$ (read as n-factorial) represents the total number of ways to arrange $n$ items.  
+- $r!$ accounts for the fact that order does not matter.  
+- $(n - r)!$ accounts for the unselected objects.
+
+#### Example  {.unnumbered}
+Choosing 3 students from a class of 10 for a group project means there are 
+  $$ C(10,3) = \frac{10!}{3!(10-3)!} = \frac{10!}{3!7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120$$  
+different combinations.
 
 ::: callout-warning
 ## Note
@@ -42,14 +74,62 @@ Permutations refers to the mathematical calculation of the number of ways a part
 $$ 0!=1 $$
 :::
 
-### Example
+## Permutations
+Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e. **order matters**. An arrangement of $n$ different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from $n$ different objects is $$n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 $$.
+
+If we have $n$ distinct objects and want to arrange $r$ of them in a specific order, the number of ways to do so is given by the **permutation formula**:
+
+$$ P(n,r) = \frac{n!}{(n - r)!} $$  
+
+where:
+
+- $n!$ (n factorial) represents the total number of ways to arrange $n$ items.  
+- $(n - r)!$ accounts for the unselected objects.  
+
+
+
+#### Example 2.2 {.unnumbered}
 
 In how many different ways can we permute the three objects $A$, $B$ and $C$?
+The asnwer is
+$$3! = 3 \cdot 2 \cdot 1 = 6$$ namely: $ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA$
+
+
+
+# Exercises {.unnumbered}
+1. A company has 10 employees and needs to select a 5-person committee. In how many ways can it do so?
+
 
 ::: {.callout-tip collapse="true"}
-## Solution
-
-$$3! = 3 \cdot 2 \cdot 1 = 6$$ namely: $ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA$
+## Solution 
+Since the order does not matter (choosing A,B,C,D,E is the same as B,A,C,E,D), we use the combination formula:
+$$C(10,3) = \binom{10}{5} = \frac{10!}{5!(10-5)!} = \frac{10!}{5!5!} = \frac{10 \times 9 \times 8 \times 7 \times 6}{5!} =  \frac{30240}{120} = 252$$  
+Thus, there are 252 different ways to form the committee.
 :::
 
-------------------------------------------------------------------------
+2. A teacher randomly arranges 6 students in a line for a class photo. Each student is assigned a unique position. How many different ways can the 6 students be arranged in a line?
+
+::: {.callout-tip collapse="true"}
+## Solution 
+Since each student takes a unique position, the number of arrangements follows the permutation rule:
+
+$$ P(6,6) = 6! = 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720 $$  
+Thus, there are 720 different ways to arrange the students in a line.
+:::
+
+-------
+
+3. In how many number of ways can a manager assign five different tasks to five employees?
+
+
+::: {.callout-tip collapse="true"}
+## Solution 
+Since:  
+- Each task is unique (no task is repeated).  
+- The order in which tasks are assigned matters (giving Task A to Employee 1 is different from giving Task A to Employee 2).  
+We use the **permutation rule**, as we are assigning unique items in a **specific order without replacement**.
+
+The number of ways to assign the five tasks to the five employees is:
+$$5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$$  
+
+:::-----------------------------------------------------------------

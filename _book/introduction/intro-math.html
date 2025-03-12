@@ -207,8 +207,27 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Probability Theory</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -238,7 +257,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -267,12 +286,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#combinatorics" id="toc-combinatorics" class="nav-link" data-scroll-target="#combinatorics"><span class="header-section-number">2.2</span> Combinatorics</a>
   <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">2.2.1</span> Example</a></li>
+  <li><a href="#counting-principles" id="toc-counting-principles" class="nav-link" data-scroll-target="#counting-principles"><span class="header-section-number">2.2.1</span> Counting Principles</a></li>
+  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations"><span class="header-section-number">2.2.2</span> Combinations</a></li>
   </ul></li>
-  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">2.3</span> Permutations</a>
-  <ul class="collapse">
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">2.3.1</span> Example</a></li>
-  </ul></li>
+  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">2.3</span> Permutations</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -281,7 +299,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../introduction/what-is-stats.html">Introduction</a></li><li class="breadcrumb-item"><a href="../introduction/intro-math.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></h1>
+<h1 class="title"><span id="sec-math" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></h1>
 </div>
 
 
@@ -326,31 +344,55 @@ Solution
 </section>
 <section id="combinatorics" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="combinatorics"><span class="header-section-number">2.2</span> Combinatorics</h2>
-<p>The next couple of mathematical concepts covered here are closely linked to the theory of probability which we will cover later in this book. Combinatorics is about counting the number of possibilities to do something. <em>In how many ways?</em>, is a common question here. <strong>The rule of product</strong>, also knows as the multiplication principle, is a basic counting principle (a.k.a. the fundamental principle of counting). Assume that you have to perform <span class="math inline">\(k\)</span> tasks in turn (one after the other). The first task can be performed in <span class="math inline">\(n_1\)</span> different ways, the second in <span class="math inline">\(n_2\)</span> different ways, etc. In how many different ways can one perform the <span class="math inline">\(k\)</span> tasks in turn? The number of possible ways to perform the <span class="math inline">\(k\)</span> tasks in turn is given by <span class="math display">\[n_1 \times n_2 \times  \cdots \times n_k\]</span></p>
-<section id="example-1" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">2.2.1</span> Example</h3>
-<p>Assume you are looking at a menu with 3 starters, 4 main courses and 2 desserts. In how many ways can a three-course meal be composed?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[3\cdot   4 \cdot 2 = 24\]</span></p>
-</div>
-</div>
-</div>
+<p>The next couple of mathematical concepts covered here are closely linked to the theory of probability which we will cover later in this book.</p>
+<p>Combinatorics studies different ways to count, arrange, and select objects. Essentially combinatorics helps answer questions like:</p>
+<ul>
+<li>In how many ways can we arrange a set of items?</li>
+<li>In how many ways can we select a group of objects?<br>
+</li>
+<li>What are the possible ways to distribute objects into groups?</li>
+</ul>
+<p>The following concepts help answer these questions.</p>
+<section id="counting-principles" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="counting-principles"><span class="header-section-number">2.2.1</span> Counting Principles</h3>
+<p>Combinatorics is built on two fundamental counting rules:</p>
+<ul>
+<li><strong>Multiplication Principle</strong>: also known as <strong>The rule of product</strong>, is a basic counting principle. Assume that you have to perform <span class="math inline">\(k\)</span> tasks in turn (one after the other). The first task can be performed in <span class="math inline">\(n_1\)</span> different ways, the second in <span class="math inline">\(n_2\)</span> different ways, etc. The number of possible ways to perform the <span class="math inline">\(k\)</span> tasks in turn is given by <span class="math display">\[n_1 \times n_2 \times  \cdots \times n_k\]</span></li>
+<li><strong>Addition Principle</strong>: If we have mutually exclusive choices, the total number of ways they can happen is the sum of the ways each event can occur; <span class="math inline">\(n_1 + n_2 \cdots +  n_k\)</span>.</li>
+</ul>
+<section id="examples" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="examples">Examples</h4>
+<ul>
+<li><p>If a restaurant has 3 appetizers and 4 main courses, the total number of different meal combinations is:<br>
+<span class="math display">\[3 \times 4 = 12 \]</span></p></li>
+<li><p>A person needs to travel from City A to City B and has the following options:</p>
+<ul>
+<li>By Car: 3 different routes<br>
+</li>
+<li>By Train: 2 available train services<br>
+</li>
+<li>By Plane: 1 direct flight<br>
+Since a person can only take one mode of transport, the number of ways to travel is: <span class="math display">\[3 + 2 + 1 = 6 \]</span></li>
+</ul></li>
+</ul>
 </section>
 </section>
-<section id="permutations" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="permutations"><span class="header-section-number">2.3</span> Permutations</h2>
-<p>Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged. An arrangement of <span class="math inline">\(n\)</span> different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from <span class="math inline">\(n\)</span> different objects is <span class="math display">\[n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 \]</span> This is read as <span class="math inline">\(n\)</span>-factorial.</p>
+<section id="combinations" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="combinations"><span class="header-section-number">2.2.2</span> Combinations</h3>
+<p>Generally, a combination refers to a selection of objects where <strong>order does not matter</strong>. If we have <span class="math inline">\(n\)</span> distinct objects and want to select <span class="math inline">\(r\)</span> of them, the number of ways to do so is given by the <strong>combination formula</strong>:</p>
+<p><span class="math display">\[C(n,r) = \binom{n}{r} = \frac{n!}{r!(n - r)!} \]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(n!\)</span> (read as n-factorial) represents the total number of ways to arrange <span class="math inline">\(n\)</span> items.<br>
+</li>
+<li><span class="math inline">\(r!\)</span> accounts for the fact that order does not matter.<br>
+</li>
+<li><span class="math inline">\((n - r)!\)</span> accounts for the unselected objects.</li>
+</ul>
+<section id="example-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-1">Example</h4>
+<p>Choosing 3 students from a class of 10 for a group project means there are <span class="math display">\[ C(10,3) = \frac{10!}{3!(10-3)!} = \frac{10!}{3!7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120\]</span><br>
+different combinations.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -364,9 +406,50 @@ Note
 <p><span class="math display">\[ 0!=1 \]</span></p>
 </div>
 </div>
-<section id="example-2" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">2.3.1</span> Example</h3>
-<p>In how many different ways can we permute the three objects <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>?</p>
+</section>
+</section>
+</section>
+<section id="permutations" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="permutations"><span class="header-section-number">2.3</span> Permutations</h2>
+<p>Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e.&nbsp;<strong>order matters</strong>. An arrangement of <span class="math inline">\(n\)</span> different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from <span class="math inline">\(n\)</span> different objects is <span class="math display">\[n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 \]</span>.</p>
+<p>If we have <span class="math inline">\(n\)</span> distinct objects and want to arrange <span class="math inline">\(r\)</span> of them in a specific order, the number of ways to do so is given by the <strong>permutation formula</strong>:</p>
+<p><span class="math display">\[ P(n,r) = \frac{n!}{(n - r)!} \]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(n!\)</span> (n factorial) represents the total number of ways to arrange <span class="math inline">\(n\)</span> items.<br>
+</li>
+<li><span class="math inline">\((n - r)!\)</span> accounts for the unselected objects.</li>
+</ul>
+<section id="example-2.2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-2.2">Example 2.2</h4>
+<p>In how many different ways can we permute the three objects <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>? The asnwer is <span class="math display">\[3! = 3 \cdot 2 \cdot 1 = 6\]</span> namely: <span class="math inline">\(ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA\)</span></p>
+</section>
+</section>
+<section id="exercises" class="level1 unnumbered">
+<h1 class="unnumbered">Exercises</h1>
+<ol type="1">
+<li>A company has 10 employees and needs to select a 5-person committee. In how many ways can it do so?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since the order does not matter (choosing A,B,C,D,E is the same as B,A,C,E,D), we use the combination formula: <span class="math display">\[C(10,3) = \binom{10}{5} = \frac{10!}{5!(10-5)!} = \frac{10!}{5!5!} = \frac{10 \times 9 \times 8 \times 7 \times 6}{5!} =  \frac{30240}{120} = 252\]</span><br>
+Thus, there are 252 different ways to form the committee.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A teacher randomly arranges 6 students in a line for a class photo. Each student is assigned a unique position. How many different ways can the 6 students be arranged in a line?</li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -379,14 +462,24 @@ Solution
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[3! = 3 \cdot 2 \cdot 1 = 6\]</span> namely: <span class="math inline">\(ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA\)</span></p>
+<p>Since each student takes a unique position, the number of arrangements follows the permutation rule:</p>
+<p><span class="math display">\[ P(6,6) = 6! = 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720 \]</span><br>
+Thus, there are 720 different ways to arrange the students in a line.</p>
 </div>
 </div>
 </div>
 <hr>
+<ol start="3" type="1">
+<li>In how many number of ways can a manager assign five different tasks to five employees?</li>
+</ol>
+<p>::: {.callout-tip collapse=“true”} ## Solution Since:<br>
+- Each task is unique (no task is repeated).<br>
+- The order in which tasks are assigned matters (giving Task A to Employee 1 is different from giving Task A to Employee 2).<br>
+We use the <strong>permutation rule</strong>, as we are assigning unique items in a <strong>specific order without replacement</strong>.</p>
+<p>The number of ways to assign the five tasks to the five employees is: <span class="math display">\[5! = 5 \times 4 \times 3 \times 2 \times 1 = 120\]</span></p>
+<p>:::—————————————————————–</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

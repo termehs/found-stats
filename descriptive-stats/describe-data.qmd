@@ -155,7 +155,7 @@ Quantitative variables are numeric and can be either discrete (specific values, 
 
 ### Frequency and Cumulative Frequency Tables
 
-#### Example: Mathematics Grade {.unnumbered}
+#### Example 5.1: Mathematics Grade {.unnumbered}
 
 We begin by examining a **discrete variable** with a small number of observations. Assume the mathematics grades (ranging from 1-5) of 25 students are:
 
@@ -226,7 +226,7 @@ ggplot(data, aes(x = as.numeric(as.character(Grade)), y = Cumulative)) +
 
 When dealing with a continuous variable or a discrete variable with many values, it is common to create **class intervals** and then display frequencies in a frequency table or graph.
 
-#### Example: Candy Bar Weights {.unnumbered}
+#### Example 5.2: Candy Bar Weights {.unnumbered}
 
 ![](imgs/candy.png){fig-align="center" width="20%"}
 
