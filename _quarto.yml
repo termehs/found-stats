@@ -12,6 +12,12 @@ book:
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
     background: light
+  cover-image: cover.png
+  favicon: cover.png
+  site-url: https://termehs.github.io/found-stats/
+  repo-url: https://github.com/termehs/found-stats
+  repo-branch: main
+  repo-actions: [edit, issue]
   chapters:
     - index.qmd
     - part: "Introduction"
