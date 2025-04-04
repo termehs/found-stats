@@ -167,6 +167,4 @@ Conditional probability is like getting insider information:
 - Is your package arriving today? If it was shipped yesterday, chances are better.  
 - Are you likely to pass your exam? If you've studied, your odds are much higher!  
 
-
-test
 ---
