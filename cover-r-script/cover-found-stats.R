@@ -1,11 +1,7 @@
-
-
 library(ggplot2)
 library(ggridges)
 library(dplyr)
 library(viridis) 
-
-set.seed(123)
 
 
 # Parameters
@@ -25,7 +21,7 @@ data <- lapply(1:n_lines, function(i) {
 
 
 ggplot(data, aes(x = x, y = group, height = y, group = group, fill = group)) +
-  geom_ridgeline(alpha = 0.7, color = "black", scale = 20) +
+  geom_ridgeline(alpha = 0.5, color = "black", scale = 20) +
   scale_fill_viridis_d(option = "magma") +  
   theme_void() +
   theme(
@@ -33,3 +29,4 @@ ggplot(data, aes(x = x, y = group, height = y, group = group, fill = group)) +
     plot.background = element_rect(fill = "white", color = NA),
     legend.position = "none"  
   )
+
