@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Foundational Statistics"
@@ -28,6 +29,8 @@ book:
       chapters:
       - prob-theory/prob-concepts.qmd
       - prob-theory/what-is-prob.qmd
+      - prob-theory/count-rules.qmd
+      - prob-theory/prob-rules.qmd
     - part: rv-probdists.qmd
     - part: sampling-dists.qmd
     - part: inference.qmd

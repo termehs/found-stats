@@ -1,0 +1,170 @@
+# Probability Rules
+
+While some probabilities can be determined directly from counting outcomes, others require **probability rules** that help us break down complex situations.  Several fundamental rules govern probability calculations, ensuring consistency and logical reasoning:
+
+- **The Complement Rule**: If an event $A$ has probability $P(A)$, then the probability of $A$ not occurring is:  $$P(\overline{A}) = 1 - P(A)$$
+- **The Addition Rule**: When dealing with the probability of the union of events, we apply:
+  $$P(A \cup B) = P(A) + P(B) - P(A \cap B) $$
+  (For **mutually exclusive** events, the formula simplifies to $P(A \cup B) = P(A) + P(B)$.)
+
+- **Conditional Probability**: The probability of $A$ occurring given that $B$ has already occurred is:  
+  $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$  
+  
+- **Multiplication Rule**: The probability of the joint occurrence of two events is:
+$$P(A \cap B) = P(A) \cdot P(B \mid A)$$  
+- **Independence**: Two events $A$ and $B$ are independent if the occurrence of one does not affect the probability of the other:
+$$P(A \mid B) = P(A) \quad \text{or equivalently} \quad P(A \cap B) = P(A) P(B)$$  
+- **Bayes' Theorem**: Used to reverse conditional probabilities, particularly in inference problems:  
+  $$P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}$$  
+
+We'll cover these in more details and examples in the following.
+
+## The Complement Rule
+
+he complement rule states that if an event $A$ has probability $P(A)$, then the probability that $A$ does not occur is:  
+$$P(\overline{A}) = 1 - P(A)$$  
+This rule is particularly useful when calculating the probability of "at least one" occurrences by considering the opposite event. See @fig-venn-comp.
+
+::: center
+![The complement of event $A$.](imgs/‎venn-comp.png){#fig-venn-comp fig-align="center" width="100%"}
+:::
+
+
+
+#### Example 11.1: Deck of Cards {.unnumbered}
+
+Determine the probability of drawing a ♦ (diamond), ♥ (heart), or ♠ (spade) when randomly selecting a card from a standard deck of 52 cards.
+
+::: {.callout-tip collapse="true"}
+## Solution 
+The sample space consists of all 52 cards, so:  $\Omega = \{1, 2, 3, \dots, 52\}$  
+
+Let $A$ be the event of drawing a ♦, ♥, or ♠.  The complement of $A$, denoted as $\overline{A}$, is the event of drawing a ♣ (club). Since there are 13 clubs in a deck, the probability of $\overline{A}$ is:  
+$$P(\overline{A}) = \frac{13}{52}$$  
+
+Using the complement rule we get that:
+$$P(A) = 1 - P(\overline{A}) = 1 - \frac{13}{52} = \frac{39}{52} = \frac{3}{4}$$
+Thus, the probability of drawing a ♦, ♥, or ♠ is 3/4 (75%).
+:::
+
+
+
+## The Addition Rule
+The **addition rule** helps compute the probability of the union of two events (see @fig-venn-union):  
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$ 
+
+::: center
+![The union of events $A$ and $B$.](imgs/‎venn-union.png){#fig-venn-union fig-align="center" width="100%"}
+:::
+
+
+If $A$ and $B$ are mutually exclusive (disjoint), then it follows that 
+$$P(A \cup B) = P(A) + P(B)$$ 
+since there is no intersection between the two events. 
+
+
+#### Example 11.2: Dice Roll 🎲   {.unnumbered}
+
+Determine the probability of rolling an even number or a number greater than three when rolling a fair six-sided die.
+
+::: {.callout-tip collapse="true"}
+## Solution
+The sample space consists of all possible outcomes of a die roll:  
+$$\Omega = \{1, 2, 3, 4, 5, 6\}$$  
+Define the events:  
+
+- $A$ = rolling an even number: $A = \{2, 4, 6\}$  
+- $B$ = rolling a number greater than three: $B = \{4, 5, 6\}$  
+- The intersection of these events ($A \cap B$) = numbers that are both even and greater than three:  $$A \cap B = \{4, 6\}$$  
+
+The probabilities are
+$$P(A) = \frac{3}{6}, \quad P(B) = \frac{3}{6}, \quad P(A \cap B) = \frac{2}{6}$$  
+Using the addition rule
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+ we get that
+$$P(A \cup B) = \frac{3}{6} + \frac{3}{6} - \frac{2}{6} = \frac{4}{6} $$  
+
+Thus, the probability of rolling either an even number or a number greater than three is $\frac{4}{6}$ or approximately 0.667 (66.7%).
+
+:::
+
+
+#### Example 11.2: Product Defects   {.unnumbered}
+In the manufacturing process of a product, two types of defects, $A$ and $B$, can occur. Sometimes both defects appear together.  We are given the probabilities:  
+$$P(A) = 0.01, \quad P(B) = 0.02, \quad P(A \cap B) = 0.005$$  
+a. Determine the probability that a product has at least one of the two defects.
+
+::: {.callout-tip collapse="true"}
+## Solution
+We are looking for the union of the events $A$ and $B$:
+$$P (A \cup  B) = 0.01 + 0.02 − 0.005 = 0.025 = 2.5\%$$
+:::
+
+b. What is the probability that a product will be defect-free?
+
+::: {.callout-tip collapse="true"}
+## Solution
+We are looking for the complement of the union of the events $A$ and $B$:
+$$P (\overline{A \cup B}) = 1 − P (A \cup B) = 1 − 0.025 = 0.975 = 97.5\%$$
+:::
+
+c. What is the probability that a product will have exactly one defect?
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+We are looking for the shaded area in @fig-venn-ex which is given by
+$$P(A \cup  B) − P (A \cap B) = 0.025 − 0.005 = 0.02 = 2\%$$
+
+::: center
+![The area shaded corresponds to exactly one defect.](imgs/‎venn-ex.png){#fig-venn-ex fig-align="center" width="100%"}
+:::
+
+:::
+
+### The Union of Three or More Events
+
+To compute the probability of the union of three events $A$, $B$, and $C$ as shown in @fig-venn-three we use the generalized addition rule:
+
+$\qquad \qquad \qquad  P(A \cup B \cup C) = P(A) + P(B) + P(C)$
+
+$$\quad \qquad \qquad  - P(A \cap B) - P(A \cap C) - P(B \cap C)$$
+
+$$+P(A \cap B \cap C)$$  
+This formula ensures that overlapping probabilities are not double-counted when summing individual event probabilities.
+
+::: center
+![The union of three events.](imgs/‎venn-three.png){#fig-venn-three fig-align="center" width="100%"}
+:::
+
+To generalize it even further for $n$ events $A_1, A_2, \ldots, A_n$, the probability of their union follows the **principle of inclusion-exclusion**:
+
+$P\left(\bigcup_{i=1}^{n} A_i \right) =
+\sum_{i=1}^{n} P(A_i) - 
+\sum_{1 \leq i < j \leq n} P(A_i \cap A_j)$
+
+$$
+\qquad + \sum_{1 \leq i < j < k \leq n} P(A_i \cap A_j \cap A_k) 
+- \dots + (-1)^{n+1} P(A_1 \cap A_2 \cap \dots \cap A_n)  
+$$
+This pattern continues, alternating between adding and subtracting intersections of increasing size.
+
+## Conditional Probability
+Imagine you’re waiting for a pizza delivery. Normally, the probability of the delivery driver being on time (event $B$) might not be great. But then you receive a text message saying, *“Your order is on the way!”* (event $A$ has occurred).  Now that you have extra information, your estimate of $P(B)$ should change, right? That’s the essence of conditional probability; updating what we know when we gain new insight.  
+
+We originally wanted to find the probability of $B$ happening, i.e., $P(B)$. But now we’ve been given a game-changing update: $A$ has happened. That means our world is now limited to the subset of outcomes where $A$ is true.  In other words, we’re no longer looking at the whole sample space $\Omega$ - our new reality is just $A$!  
+
+So, the updated probability of $B$ given that $A$ has occurred, the so called **conditional probability** of $B$ given $A$, written as $P(B \mid A)$, is calculated using:
+
+$$
+P(B \mid A) = \frac{P(A \cap B)}{P(A)}
+$$  
+where **$P(A) > 0$** (because if $A$ didn’t happen, there’s no reason to update anything). This formula quantifies how the probability of $B$ changes when we have additional information that $A$ has occurred.
+
+Conditional probability is like getting insider information: 
+
+- Did your team win the game? If they were leading at halftime, the probability changes.  
+- Is your package arriving today? If it was shipped yesterday, chances are better.  
+- Are you likely to pass your exam? If you've studied, your odds are much higher!  
+
+---

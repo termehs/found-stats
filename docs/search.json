@@ -1,0 +1,644 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Foundational Statistics",
+    "section": "",
+    "text": "Welcome\nThis book is work in progress.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-stats.html",
+    "href": "introduction/what-is-stats.html",
+    "title": "1  What is Statistics?",
+    "section": "",
+    "text": "1.1 Descriptive Statistics\nThis is like taking a selfie of your data. It summarizes and reports what’s there, showing us things like averages, spreads, and patterns. Think of it as data gossip — who’s the biggest, smallest, most popular, or way off in the corner doing their own thing (yes, outliers, I’m looking at you!).\nFor example, a histogram or boxplot can reveal whether our data is skewed, normally distributed, or hiding some unexpected surprises. Without descriptive analysis, we risk making assumptions that could lead to misleading conclusions—kind of like blindly trusting a GPS without checking if the road exists!",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is Statistics?</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-stats.html#inferential-statistics",
+    "href": "introduction/what-is-stats.html#inferential-statistics",
+    "title": "1  What is Statistics?",
+    "section": "1.2 Inferential Statistics",
+    "text": "1.2 Inferential Statistics\nInstead of just describing what we see, we here aim to gain insight or make predictions about the big picture based on a small sample. It’s like tasting one donut from the box and guessing if the whole batch is good 🍩.\nConsider you have a hypothesis you wish to test (alternative hypothesis). Using data collected, you express the rules of the game through probabilities, distributions, and statistical models. This helps create a “toy model” of the world based on your hypothesis. The null hypothesis is then the “default world,” and your working hypothesis is literally everything else. You pretend you know how things work, and then check if reality agrees with you (hypothesis testing). Then you ask the big question: Does our data make the null hypothesis look completely ridiculous? If yes, we might just reject it and revise the null world accordingly.\nStatistics isn’t about finding the ultimate truth, but about making the best possible decisions with the information available. We estimate, test, and adjust—because in the end, being less wrong is the best we can do. In the words of the famous statistician George Box: “All models are wrong, but some are useful”.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is Statistics?</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-stats.html#statistical-analysis-the-process",
+    "href": "introduction/what-is-stats.html#statistical-analysis-the-process",
+    "title": "1  What is Statistics?",
+    "section": "1.3 Statistical Analysis: The Process",
+    "text": "1.3 Statistical Analysis: The Process\nThe diagram in Figure 1.1 represents the pipeline of statistical analysis, outlining the key steps in drawing insights from data:\n\nData Collection – A sample is selected from the population to be used for the analysis and posed research questions.\nDescriptive Statistics – The sample is analyzed to summarize patterns and trends.\nProbability Modeling – Statistical methods establish connections between the sample and population.\nInference – Findings from the sample are generalized to make conclusions about the population.\n\n\n\n\n\n\n\n\nFigure 1.1: The main branches of Statistics, together with associations between them.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is Statistics?</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-math.html",
+    "href": "introduction/intro-math.html",
+    "title": "2  The Unavoidable Math",
+    "section": "",
+    "text": "2.1 The Sum and The Product\nWe write the sum of \\(n\\) numbers denoted \\(x_1,x_2,\\ldots,x_n\\) as \\[\\sum_{i=1}^n x_i = x_1 +x_2 + \\cdots + x_n \\] This is read as the sum of \\(x_i\\) where \\(i\\) goes from 1 to \\(n\\). The letter \\(i\\) is called the summation index and can be chosen to be any other letter.\nSimilarly, the product of \\(n\\) numbers denoted \\(x_1,x_2,\\ldots,x_n\\) is written as \\[\\prod_{i=1}^n x_i = x_1 \\times x_2 \\times  \\cdots \\times x_n \\].",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Unavoidable Math</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-math.html#the-sum-and-the-product",
+    "href": "introduction/intro-math.html#the-sum-and-the-product",
+    "title": "2  The Unavoidable Math",
+    "section": "",
+    "text": "2.1.1 Example\nAssume 5 values on \\(x\\) denoted \\(x_1,x_2,x_3,x_4,x_5\\). How can we write the sum of the squared difference of each of these values to their mean value \\(\\overline{x}\\)? \\[(x_1-\\overline{x})^2 + (x_2-\\overline{x})^2 + (x_3-\\overline{x})^2 + (x_4-\\overline{x})^2 + (x_1-\\overline{x})^5 \\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\[\\sum_{i=1}^n (x_i-\\overline{x})^2\\]",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Unavoidable Math</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-math.html#combinatorics",
+    "href": "introduction/intro-math.html#combinatorics",
+    "title": "2  The Unavoidable Math",
+    "section": "2.2 Combinatorics",
+    "text": "2.2 Combinatorics\nThe next couple of mathematical concepts covered here are closely linked to the theory of probability which we will cover later in this book.\nCombinatorics studies different ways to count, arrange, and select objects. Essentially combinatorics helps answer questions like:\n\nIn how many ways can we arrange a set of items?\nIn how many ways can we select a group of objects?\n\nWhat are the possible ways to distribute objects into groups?\n\nThe following concepts help answer these questions.\n\n2.2.1 Counting Principles\nCombinatorics is built on two fundamental counting rules:\n\nMultiplication Principle: also known as The rule of product, is a basic counting principle. Assume that you have to perform \\(k\\) tasks in turn (one after the other). The first task can be performed in \\(n_1\\) different ways, the second in \\(n_2\\) different ways, etc. The number of possible ways to perform the \\(k\\) tasks in turn is given by \\[n_1 \\times n_2 \\times  \\cdots \\times n_k\\]\nAddition Principle: If we have mutually exclusive choices, the total number of ways they can happen is the sum of the ways each event can occur; \\(n_1 + n_2 \\cdots +  n_k\\).\n\n\nExamples\n\nIf a restaurant has 3 appetizers and 4 main courses, the total number of different meal combinations is:\n\\[3 \\times 4 = 12 \\]\nA person needs to travel from City A to City B and has the following options:\n\nBy Car: 3 different routes\n\nBy Train: 2 available train services\n\nBy Plane: 1 direct flight\nSince a person can only take one mode of transport, the number of ways to travel is: \\[3 + 2 + 1 = 6 \\]\n\n\n\n\n\n2.2.2 Combinations\nGenerally, a combination refers to a selection of objects where order does not matter. If we have \\(n\\) distinct objects and want to select \\(r\\) of them, the number of ways to do so is given by the combination formula:\n\\[C(n,r) = \\binom{n}{r} = \\frac{n!}{r!(n - r)!} \\]\nwhere:\n\n\\(n!\\) (read as n-factorial) represents the total number of ways to arrange \\(n\\) items.\n\n\\(r!\\) accounts for the fact that order does not matter.\n\n\\((n - r)!\\) accounts for the unselected objects.\n\n\nExample\nChoosing 3 students from a class of 10 for a group project means there are \\[ C(10,3) = \\frac{10!}{3!(10-3)!} = \\frac{10!}{3!7!} = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120\\]\ndifferent combinations.\n\n\n\n\n\n\nNote\n\n\n\n\\[ 0!=1 \\]",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Unavoidable Math</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-math.html#permutations",
+    "href": "introduction/intro-math.html#permutations",
+    "title": "2  The Unavoidable Math",
+    "section": "2.3 Permutations",
+    "text": "2.3 Permutations\nPermutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e. order matters. An arrangement of \\(n\\) different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from \\(n\\) different objects is \\[n! = n\\cdot (n-1)\\cdot (n-2)\\cdot 2\\cdot 1 \\].\nIf we have \\(n\\) distinct objects and want to arrange \\(r\\) of them in a specific order, the number of ways to do so is given by the permutation formula:\n\\[ P(n,r) = \\frac{n!}{(n - r)!} \\]\nwhere:\n\n\\(n!\\) (n factorial) represents the total number of ways to arrange \\(n\\) items.\n\n\\((n - r)!\\) accounts for the unselected objects.\n\n\nExample 2.2\nIn how many different ways can we permute the three objects \\(A\\), \\(B\\) and \\(C\\)? The asnwer is \\[3! = 3 \\cdot 2 \\cdot 1 = 6\\] namely: \\(ABC,\\  ACB, \\ BAC, \\ BCA,\\  CAB, \\ CBA\\)",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Unavoidable Math</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-surveys.html",
+    "href": "introduction/intro-surveys.html",
+    "title": "3  Surveys: Key Concepts",
+    "section": "",
+    "text": "3.1 Census vs. Sample Surveys\nThe population refers to the complete set of elements (individuals, objects, or units) relevant to the study. The definition of a population can vary based on the research objective and can be finite (e.g., employees in a company) or infinite (e.g., potential customers in a market). A sample is a selected subset of the population. (inlcude figure)\nA census (or total survey) involves collecting data from every individual in a given population. This is common in national population counts but is often impractical for other types of research due to cost and time constraints. Instead, most studies rely on sample surveys which aim to generalize findings from the sample to the entire population with reasonable accuracy. The size of the sample (sample size) plays a crucial role in determining the reliability of the conclusions drawn.\nOne way to understand sampling is through the urn metaphor (Figure 3.1): Imagine an urn filled with different-colored balls representing different individuals in a population. Drawing balls at random with/without replacement simulates the process of selecting a sample from a population, emphasizing the role of randomness in reducing bias.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Surveys: Key Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-surveys.html#census-vs.-sample-surveys",
+    "href": "introduction/intro-surveys.html#census-vs.-sample-surveys",
+    "title": "3  Surveys: Key Concepts",
+    "section": "",
+    "text": "Figure 3.1: The urn metaphor.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Surveys: Key Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-surveys.html#characteristics-of-a-population",
+    "href": "introduction/intro-surveys.html#characteristics-of-a-population",
+    "title": "3  Surveys: Key Concepts",
+    "section": "3.2 Characteristics of a Population",
+    "text": "3.2 Characteristics of a Population\nEach individual in a population has measurable attributes, such as height, weight, income, or opinions. When measuring a particular characteristic, we can calculate various population metrics such as:\n\nMean (average), e.g., the average height of individuals in a population.\nProportion, e.g., the percentage of women in a population.\nTotal values, e.g., the total number of items owned by a group.\nCounts of specific attributes, e.g., the number of people with a particular qualification.\n\nThe main challenge in survey research is determining how accurately a sample represents the entire population. Statistical methods help estimate key characteristics of a population based on sample data.\nThese population characteristics are fixed parameters values which are usually unknown. Common parameters are the mean (\\(\\mu\\)) representing the true average of a characteristic in the population, or the proportion (\\(p\\)) representing the fraction of the population with a certain attribute.\nSince parameters cannot always be measured directly, they are estimated using sample statistics. For example, the sample mean (\\(\\bar{x}\\)) based on sampled observations \\(x_1,x_2,\\ldots, x_n\\) is used to estimate the population mean (\\(\\mu\\)). (include figure)\nTo distinguish between parameters and estimates, Greek letters are typically used for population parameters, while Latin letters are used for sample estimates. We will however avoid using already taken parameters, for example \\(\\pi\\) is not here used for population parameter as this already has a value assigned to it. In such cases we use the Latin letter to indicate the parameter and a ‘hat’ over the letter indicate the sample estimate (that is \\(\\hat{p}\\)).",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Surveys: Key Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-surveys.html#types-of-surveys",
+    "href": "introduction/intro-surveys.html#types-of-surveys",
+    "title": "3  Surveys: Key Concepts",
+    "section": "3.3 Types of Surveys",
+    "text": "3.3 Types of Surveys\nThe method chosen for collecting data in a survey plays a crucial role in determining the accuracy and reliability of the results. Broadly, survey research can be classified into experimental and non-experimental approaches, each serving different research purposes.\n\n3.3.1 Experimental Surveys\nExperimental surveys are designed to explore causal relationships between variables.Here, researchers have control over certain conditions, manipulating one or more variables while keeping others constant to observe the effects. A key feature of experimental surveys is randomization, where participants are randomly assigned to different groups to eliminate bias. By ensuring that external factors do not influence the results, researchers can draw strong conclusions about cause and effect.\nOne common application of experimental surveys is in medical research, where clinical trials are conducted to test the effectiveness of a new drug. In such cases, patients might be randomly assigned to either a treatment group receiving the drug or a control group receiving a placebo. The outcomes are then compared to determine the drug’s efficacy. Similarly, in marketing, companies may experiment with different advertising strategies by exposing randomly selected groups to different promotional campaigns and then measuring their purchasing behavior.\nWhile experimental surveys provide strong evidence of causal relationships, they do have some limitations. They tend to be resource-intensive, requiring significant time and financial investment. Furthermore, ethical considerations may restrict certain types of experiments, especially in cases where withholding treatment or intervention from a control group could have serious consequences. Another challenge is that controlled settings may not fully capture real-world complexities, making it difficult to generalize findings beyond the experimental conditions.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Surveys: Key Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/intro-surveys.html#non-experimental-surveys-observing-trends-and-patterns",
+    "href": "introduction/intro-surveys.html#non-experimental-surveys-observing-trends-and-patterns",
+    "title": "3  Surveys: Key Concepts",
+    "section": "3.4 Non-Experimental Surveys: Observing Trends and Patterns",
+    "text": "3.4 Non-Experimental Surveys: Observing Trends and Patterns\nUnlike experimental surveys, non-experimental surveys focus on observing and describing characteristics, trends, and relationships within a population without direct intervention. These surveys are widely used in fields such as social sciences, market research, and public policy analysis, where the goal is often to collect descriptive data rather than establish causality.\nOne of the most common types of non-experimental surveys is the cross-sectional survey, which captures data from a population at a single point in time. This method is frequently used in opinion polls, customer satisfaction studies, and demographic research. For example, a company might conduct a survey to understand consumer preferences for a new product just before its launch. Because cross-sectional surveys are quick and cost-effective, they are widely used.\nFor studies that require tracking changes over time, researchers may turn to longitudinal surveys, which collect data from the same subjects at multiple intervals. Longitudinal surveys are especially useful for understanding long-term trends, such as how consumer behavior evolves over the years or how health outcomes change in response to lifestyle choices. In a panel study, the same individuals are followed over time, whereas in a cohort study, a specific group—such as people born in a particular year—is tracked to observe changes as they age. These methods are valuable in policy research, where understanding the long-term effects of interventions, such as educational reforms or public health initiatives, is critical.\nSome non-experimental surveys rely on observational data, where researchers study behaviors and interactions without directly questioning participants. Observational studies often aim to identify associations and generate hypotheses for further research. This method is commonly used in consumer behavior research. For example, a supermarket might analyze shopping patterns by tracking how customers navigate store aisles without them being aware of the observation. Another example is web tracking which is a modern form of observational research where companies monitor users’ online activities to analyze behavior, predict preferences, and personalize experiences. Unlike traditional observational studies, which are typically conducted with ethical oversight and clear participant consent, the presented examples often operates in the background without users’ full awareness or control. Thus, while observational studies provide authentic behavioral insights, they raise ethical concerns about privacy and cannot establish direct cause-and-effect relationships.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Surveys: Key Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/variable-class.html",
+    "href": "introduction/variable-class.html",
+    "title": "4  Variable Classification",
+    "section": "",
+    "text": "4.1 Types of Variables\nTo facilitate analysis, we focus on measurable variables, which are broadly categorized into quantitative and qualitative types. There are further sub-classes for each of these main classes, as shown in Figure 4.1 and exemplified further in the following.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variable Classification</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/variable-class.html#types-of-variables",
+    "href": "introduction/variable-class.html#types-of-variables",
+    "title": "4  Variable Classification",
+    "section": "",
+    "text": "graph TD;\n    A(Variable) --&gt; B(Qualitative);\n    A(Variable) --&gt; C(Quantitative);\n    C --&gt; D(Discrete);\n    C --&gt; E(Continuous);\n\n\n\n\n\n\n\n\nFigure 4.1: Variable classification flowchart.\n\n\n\n\n4.1.1 Quantitative (Numerical)\nThese variables are represented by numbers and can be measured. Depending on the type of numbers a variable takes, it can be classified as discrete or continuous.\nDiscrete variables take specific, distinct values and cannot be subdivided (natural, integer, or rational numbers). Think of these as variables holding countable values. Examples include number of children in a family, number of goals ina football match, and number of sales transactions per day.\nContinuous variables can take any value within a given range of values within an interval and can be infinitely divided (real numbers). Examples include hegiht, weight, stock price and distance.\n\n\n4.1.2 Qualitative (Categorical) Variables\nThese variables represent data that can be divided into distinct groups or categories. These values do not have a natural numerical order (except for ordinal variables) and must be coded into numerical values for statistical analysis. Examples include political affiliation, blood type, movie genre and social media platform.\nA special case of qualitative variables that take only two possible values, so called dichotomous or binary variable. Examples include smoking status (Smoker/Non-smoker) and COVID-19 test result (positive/negative).",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variable Classification</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/variable-class.html#levels-of-measurement",
+    "href": "introduction/variable-class.html#levels-of-measurement",
+    "title": "4  Variable Classification",
+    "section": "4.2 Levels of Measurement",
+    "text": "4.2 Levels of Measurement\nThe characteristics of collected data allow us to classify them into four different measurement levels. These levels determine the statistical operations that can be performed. Table 4.1 summarizes the different measurement levels described in the following.\nNominal scale categorizes data without any inherent order. For example, there is no inherent ordering in the variable eye color (blue, brown, green), gender or nationality. You can only distinguish between the values nominal variables take.\nOrdinal scale is when data can be ranked in a meaningful order, but differences between values are not necessarily equal or meaningful, for example when looking at the variable fruit preference ranking or customer satisfaction levels (low, medium, high). In other words, interval lengths between one variable value and another are not of the same length.\nInterval scale is similar to the ordinal scale but with equal intervals between values. However, it lacks a true zero point. Examples include Temperature in Celsius and calendar years (the year 2000 is 100 years after 1900, but the year 0 does not represent the “beginning of time”).\nFinally, ratio scale has all of the above properties but also a natural zero point, allowing meaningful calculations of differences and ratios. Examples here include salary, distance traveled, height, and weight.\n\n\n\nTable 4.1: Table Summary of Measurement Levels\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDistinguish\nRank\nEqual Step Length\nAbsolute Zero Point\nExample\n\n\n\n\nNominal\nYes\nNo\nNo\nNo\ngender, city, religion\n\n\nOrdinal\nYes\nYes\nNo\nNo\ngrades, preference, customer satisfaction ratings\n\n\nInterval\nYes\nYes\nYes\nNo\ntemperature in Celsius. credit scores, calender years\n\n\nRatio\nYes\nYes\nYes\nYes\nlength, weight, time, salary",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variable Classification</span>"
+    ]
+  },
+  {
+    "objectID": "introduction/variable-class.html#types-of-numbers",
+    "href": "introduction/variable-class.html#types-of-numbers",
+    "title": "4  Variable Classification",
+    "section": "4.3 Types of Numbers",
+    "text": "4.3 Types of Numbers\nUnderstanding the nature of numbers is crucial when classifying variables because it directly influences statistical analysis, measurement accuracy, and the interpretation of data. The classification of numbers into natural, whole, integer, rational, irrational, and real numbers helps in determining which mathematical operations and statistical techniques are valid for a given data set:\n\nNatural Numbers: \\(0, 1, 2, 3, \\ldots\\)\nIntegers: \\(\\dots , -3, -2, -1, 0, 1, 2, 3, \\ldots\\)\nRational Numbers: Numbers that can be expressed as a fraction \\(\\frac{a}{b}\\) , where \\(a\\) and \\(b\\) are integers. Examples include:\n\n\\(-14 = \\frac{-14}{1}\\)\n\\(\\frac{3}{4} = 0.75\\)\n\\(\\frac{2}{7} = 0.285714285714 \\dots\\)\n\nReal Numbers: Non-repeating decimal numbers, such as:\n\n\\(\\pi = 3.14159265358979 \\dots\\)\n\n\nFor example you cannot calculate an average zip code (nominal) or say that “a temperature of 20°C is twice as hot as 10°C” (interval), but you can say “a person earning €50,000 earns twice as much as someone earning €25,000” (ratio). An another example, you cannot consider the mean of a categorical variable like “favorite color,” but you can analyze the frequency distribution.",
+    "crumbs": [
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Variable Classification</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/describe-data.html",
+    "href": "descriptive-stats/describe-data.html",
+    "title": "\n5  Describing a Dataset\n",
+    "section": "",
+    "text": "5.1 Describing Qualitative Variables\nQualitative (categorical) variables represent data grouped into distinct categories, such as gender, marital status, or election participation. These variables are best summarized using frequency tables and graphs such as bar charts and pie charts.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describing a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/describe-data.html#describing-qualitative-variables",
+    "href": "descriptive-stats/describe-data.html#describing-qualitative-variables",
+    "title": "\n5  Describing a Dataset\n",
+    "section": "",
+    "text": "5.1.1 Frequency Tables for Qualitative Data\nA frequency table lists the categories of a variable along with their corresponding counts (absolute frequency) and percentages (relative frequency). Assume we surveyed 300 people about their favorite hot beverage and found that 60% prefer coffee and 40% prefer tea. This preference distribution, also presented in the table below, will be used as a running example in the following.\n\n\nPreference\nCount (\\(f_i\\))\nPercentage (\\(f_i\\) in %)\n\n\n\nTea\n120\n40%\n\n\nCoffee\n180\n60%\n\n\nTotal\n300\n100%\n\n\n\nThe relative frequency is calculated as:\n\\[\\frac{120}{300} \\times 100 = 40\\%\\]\nand shown in the third column.\n\n5.1.2 Pie Chart\nPie charts are one of the most commonly used tools for representing categorical data in a simple, visual format. They break down a whole into proportional slices, making it easy to see relative differences between categories at a glance. Whether you’re comparing sales across different product categories, analyzing survey responses, or breaking down a budget, a well-made pie chart provides an intuitive way to present proportions.\nEach slice represents a category’s percentage of the total, with the entire pie equaling 100%. The size of each slice is determined by the proportion of the category it represents. For example, if 60% of survey respondents prefer coffee over tea, that category would take up 60% of the pie chart, or 60% of 360°, that is \\(0.60 × 360° = 216°\\) of the full circle. Pie charts are particularly effective when comparing a few distinct categories but lose clarity when too many slices are included.\n\n\n\n\n\n\n\n\nWhile a standard pie chart is a great way to visualize data, 3D pie charts are the dark side of data visualization. They may look fancy, but they distort proportions, making it difficult to accurately compare slice sizes. Due to the perspective effect, some slices appear larger or smaller than they actually are, leading to misleading interpretations. In short: if you want your data to be clear and not just flashy, stick to 2D pies - your audience will thank you.\n\n5.1.3 Bar Chart\nBar charts are a great way to visualize qualitative data, making it easy to compare different categories. Each category is represented by a bar, with the height corresponding to its frequency or percentage. For example, a bar chart would clearly display the difference between coffee and tea lovers, making it easy to interpret at a glance. Unlike pie charts, bar charts work well even when multiple categories are involved, ensuring your audience can quickly grasp the data - without any risk of 3D chart-induced confusion!\n\n\n\n\n\n\n\n\n\n5.1.4 Contingency Tables\nWhen we have observations on two qualitative variables, we can create two separate frequency tables. However, if we want to study the relationship between the two variables, we use a contingency table.\nA contingency table organizes paired observations, showing the frequency distribution across the two categorical variables.\nFor example, consider the following data where individuals are classified into two groups based on their marital status (Married (M) or Not Married (NM)) and their voting behavior (Voted (1) or Did Not Vote (0)). This results in four possible outcome combinations:\n\n(M, 0) - Married, Did Not Vote\n(M, 1) - Married, Voted\n(NM, 0) - Not Married, Did Not Vote\n(NM, 1) - Not Married, Voted\n\nAssume the first four observations are: (G, 0), (EG, 1), (G, 1), (G, 1) Which we create the following table over:\n\n\n\n0 (Did Not Vote)\n1 (Voted)\n\n\n\nM (Married)\n✔️\n✔️✔️\n\n\nNM (Not Married)\n\n✔️\n\n\n\nOnce all observations have been recorded, we can create the following contingency table:\n\n\n\nDid Not Vote\nVoted\nTotal\n\n\n\nMarried\n54\n1496\n1550\n\n\nNot Married\n85\n628\n713\n\n\nTotal\n139\n2124\n2263\n\n\n\nThis table displays the distribution of voting behavior by marital status, where we can analyze differences between the groups.\nMarginal Distributions\nA marginal distribution summarizes the totals for each row and column in a contingency table. This helps us understand the overall distribution of each variable separately.\nFor example, the absolute and relative marginal distributions for marital status is shown below:\n\n\nMarital Status\nCount\nPercentage (%)\n\n\n\nMarried\n1550\n68.5%\n\n\nNot Married\n713\n31.5%\n\n\nTotal\n2263\n100%\n\n\n\nSimilarly, the absolute and relative marginal distributions for voting behvaior is shown below:\n\n\nVoting Behavior\nCount\nPercentage (%)\n\n\n\nDid Not Vote\n139\n6.1%\n\n\nVoted\n2124\n93.9%\n\n\nTotal\n2263\n100%\n\n\n\nThese tables summarize how many people are in each category without considering the second variable.\nConditional Distributions\nTo compare voting behavior between married and non-married individuals, we calculate row percentages.\n\n\n\nDid Not Vote (%)\nVoted (%)\nTotal (%)\n\n\n\nMarried\n3.5%\n96.5%\n100%\n\n\nNot Married\n11.9%\n88.1%\n100%\n\n\n\nThis table shows the conditional distribution of voting behavior, given marital status.\n\nAmong married individuals, 1496 × 100 = 0.965= 96.5% voted while 54 × 100 = 0.035 =3.5% did not.\nAmong non-married individuals, 88.1% voted, while 11.9% did not.\n\nBy comparing these row percentages, we can see that married individuals were more likely to vote compared to non-married individuals. We have calculated the percentages horizontally but compare the percentage values in the vertical columns. We can also compute column percentages instead of row percentages if needed.\nTo determine whether a relationship exists between voting behavior and marital status, we compare conditional distributions. Since the voting percentages differ between married and non-married groups, we conclude that marital status influences voting behavior. If the two variables were independent, the percentages in the columns would be nearly the same. The fact that they differ suggests an association between the two variables.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describing a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/describe-data.html#describing-quantitative-variables",
+    "href": "descriptive-stats/describe-data.html#describing-quantitative-variables",
+    "title": "\n5  Describing a Dataset\n",
+    "section": "\n5.2 Describing Quantitative Variables",
+    "text": "5.2 Describing Quantitative Variables\nUnlike qualitative data, which can be subjective and harder to categorize, quantitative data enables direct comparisons, making it easier to identify patterns, test hypotheses, and make data-driven decisions.\nQuantitative variables are numeric and can be either discrete (specific values, such as test scores) or continuous (measured on a scale, such as weight). These variables are best summarized using frequency tables, histograms, and cumulative distributions.\n\n5.2.1 Frequency and Cumulative Frequency Tables\nExample 5.1: Mathematics Grade\nWe begin by examining a discrete variable with a small number of observations. Assume the mathematics grades (ranging from 1-5) of 25 students are:\n5 4 1 4 4 3 2 3 3 3 4 2 3 1 3 3 5 4 2 2 2 4 3 5 3\nWhen data is presented in this way, it is referred to as ungrouped data. Let:\n\n\n\\(x_i\\) = observed values, where \\(i = 1, \\ldots , n\\)\n\n\n\\(f_i\\) = frequency of the \\(i\\)-th variable value, where \\(i = 1, 2, \\ldots, k\\).\n\nFor our example here, \\(n = 25\\) (total observations) and \\(k = 5\\) (five distinct values of the variable “Mathematics Grades”).\nLet’s summarize this data by counting how many we have in each grade category:\n\n\nGrade (\\(x_i\\))\nCount\nFrequency (\\(f_i\\))\n\n\n\n1\n✔️✔️\n2\n\n\n2\n✔️✔️✔️✔️✔️\n5\n\n\n3\n✔️✔️✔️✔️✔️✔️✔️✔️✔\n9\n\n\n4\n✔️✔️✔️✔️✔️✔️\n6\n\n\n5\n✔️✔️✔️\n3\n\n\nTotal\n\n25\n\n\n\nThe sum of all frequencies equals the total number of observations: [ _{i=1}^{k} f_i = n ]\nWe have created a frequency table by grouping the data into categories which can be visualized using a bar chart:\n\n\n\n\n\n\n\n\nThe cumulative frequency tells us how many observations are less than or equal to a given value.\n\n\n\n\n\n\n\nScore (\\(x_i\\))\nAbsolute Frequency (\\(f_i\\))\nCumulative Frequency (\\(F_i\\))\n\n\n\n1\n2\n2\n\n\n2\n5\n7\n\n\n3\n9\n16\n\n\n4\n6\n22\n\n\n5\n3\n25\n\n\n\nCumulative frequencies are often displayed using a cumulative step graph:",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describing a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/describe-data.html#histograms",
+    "href": "descriptive-stats/describe-data.html#histograms",
+    "title": "\n5  Describing a Dataset\n",
+    "section": "\n5.3 Histograms",
+    "text": "5.3 Histograms\nWhen dealing with a continuous variable or a discrete variable with many values, it is common to create class intervals and then display frequencies in a frequency table or graph.\nExample 5.2: Candy Bar Weights\n\n\n\n\nWe have observed 40 candy bars of a specific brand and recorded their weighs which are given in the following in ascending order:\n20.5 20.7 20.8 21.0 21.0 21.4 21.5 22.0 22.1 22.5\n22.6 22.6 22.7 22.7 22.9 22.9 23.1 23.3 23.4 23.5\n23.6 23.6 23.6 23.9 24.1 24.3 24.5 24.5 24.8 24.8\n24.9 24.9 25.1 25.1 25.2 25.6 25.8 25.9 26.1 26.7\nSince weight is a continuous variable, we must group the observations into classes. We choose five class intervals, each with a width of 1.3 grams, starting from 20.4 grams:\n\n\nClass 1: 20.4 - 21.6\n\nClass 2: 21.7 - 22.9\n\nClass 3: 23.0 - 24.2\n\nClass 4: 24.3 - 25.5\n\nClass 5: 25.6 - 26.9\n\nWe can then create a frequency table as before:\n\n\nWeight Range (grams)\nFrequency (\\(f_i\\))\n\n\n\n20.4 - 21.6\n7\n\n\n21.7 - 22.9\n9\n\n\n23.0 - 24.2\n9\n\n\n24.3 - 25.5\n10\n\n\n25.6 - 26.9\n5\n\n\nTotal\n40\n\n\n\nWe then can visualize the frequency distribution using a histogram:\n\n\n\n\n\n\n\n\nGenerally, A histogram represents continuous data by grouping values into intervals, with bar heights corresponding to frequencies.\nTo determine how many observations fall below a given value, we calculate the cumulative frequencies as before and visualize using a step chart.\n\n\n\n\n\n\n\n\n\nWeight Range (grams)\nAbsolute Frequency (fi)\nCumulative Frequency (Fi)\nRelative Frequency (%)\nCumulative Relative Frequency (%)\n\n\n\n20.4 - 21.6\n7\n7\n17.5\n17.5\n\n\n21.7 - 22.9\n9\n16\n22.5\n40.0\n\n\n23.0 - 24.2\n9\n25\n22.5\n62.5\n\n\n24.3 - 25.5\n10\n35\n25.0\n87.5\n\n\n25.6 - 26.9\n5\n40\n12.5\n100\n\n\nTotal\n40\n40\n100%\n100%",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describing a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/describe-data.html#stem-and-leaf-plot",
+    "href": "descriptive-stats/describe-data.html#stem-and-leaf-plot",
+    "title": "\n5  Describing a Dataset\n",
+    "section": "\n5.4 Stem-and-Leaf Plot",
+    "text": "5.4 Stem-and-Leaf Plot\nA Stem-and-leaf plot is a compact way to display numerical data while preserving individual values. It organizes data into stems (representing the leading digits) and leaves (the following digits), providing a good display of the distribution.\nFor example, in the dataset of candy bar weights, a stem-and-leaf plot can show whether weights cluster around a certain value and help identify any inconsistencies. This is shown in the follwing.\nWe split each value from our candy bar weight dataset into - Stem (e.g., 20, 21, 22, etc.) - Leaf (the decimal part, such as .1, .2, .3, etc.)\nThe Stem-and-Leaf Table is then given as:\n\n\nStem\nLeaf\n\n\n\n20\n5 7 8\n\n\n21\n0 0 4 5\n\n\n22\n0 1 5 6 6 7 7 9 9\n\n\n23\n1 3 4 5 6 6 6 9\n\n\n24\n1 3 5 5 8 8 9 9\n\n\n25\n1 1 2 6 8 9\n\n\n26\n1 7\n\n\n\nIf you tilt your head to the right or rotate the table 90° you get a fairly good view on the distribution of the data. The distribution appears fairly symmetric, with a slight skew toward the higher weights. Overall, the data is well distributed across the entire range, but there is a higher density of observations between 22.0 g and 24.9 g, indicating that the most frequent range appears to be 22 to 24 grams, with many values concentrated in these stems. The least frequent weights occur at the lower (20-21 g) and higher (25-26 g) ends. In a quality control one might check this distribution and note whether a large amount of candy bars end up in the tails of the distribution, thus indicating inconsistent production of candy bars.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describing a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/central-measures.html",
+    "href": "descriptive-stats/central-measures.html",
+    "title": "\n6  Measures of Central Tendency\n",
+    "section": "",
+    "text": "Example 6.1: Income\nWe have income data (in thousands of €) for 18 individuals:\nWe will in the following show how we compute each of the shown measure of central tendency in the follwing.\nWe will see that for this example, the median income is the most representative value, as it is less affected by high-income extreme values.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Measures of Central Tendency</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/central-measures.html#arithmetic-mean",
+    "href": "descriptive-stats/central-measures.html#arithmetic-mean",
+    "title": "\n6  Measures of Central Tendency\n",
+    "section": "\n6.1 Arithmetic Mean",
+    "text": "6.1 Arithmetic Mean\nThe mean is calculated by summing all values and dividing by the number of observations. It is often used as a measure of central tendency because it incorporates all data points, making it a valuable summary statistic. However, the mean is sensitive to outliers, meaning that extreme values can pull it higher or lower, potentially misrepresenting the typical value in a skewed distribution. Despite this, in normally distributed data, the mean is a reliable and widely used indicator of the data set’s center.\nThe mean is calculated differently depending on whether we are working with an entire population or a sample: For a population, the mean (\\(\\mu\\)) is given by: \\[\n\\mu = \\frac{\\sum_{i=1}^{N} x_i}{N}\n\\]\nwhere \\(N\\) is the population size. For a sample, the mean (\\(\\bar{x}\\)) is an estimate of \\(\\mu\\) and is calculated as: \\[\n\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n}\n\\] where \\(n\\) is the sample size.\nExample 6.1: Income\nThe mean income is: \\[\\bar{x} = \\frac{20 + 22 + 24 + 24 + \\cdots + 85 + 90}{18} = 44.7 \\] Thus, the mean income is 44 700 €.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Measures of Central Tendency</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/central-measures.html#median",
+    "href": "descriptive-stats/central-measures.html#median",
+    "title": "\n6  Measures of Central Tendency\n",
+    "section": "\n6.2 Median",
+    "text": "6.2 Median\nThe median is the middle value of a dataset when arranged in ascending order. It represents the point where half of the observations are below and half are above, making it a useful measure of central tendency for skewed distributions. Unlike the mean, the median is not affected by outliers, making it a more robust indicator of typical values in cases where extreme values exist. For example, in income data, the median often provides a better reflection of the typical salary than the mean, which can be skewed by very high incomes. If there is an even number of observations, the median is the average of the two middle values. The median position is found using: \\[\n\\frac{n + 1}{2}\n\\]\nExample 6.1: Income\nFor our sorted income data we get that the median is located at the position \\[\n\\frac{19}{2} = 9.5\n\\] The median is then the average of the 9th and 10th values (40 and 44):** \\[\n\\frac{40 + 44}{2} =42\n\\] Thus, the median income is 42 000 €.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Measures of Central Tendency</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/central-measures.html#mode",
+    "href": "descriptive-stats/central-measures.html#mode",
+    "title": "\n6  Measures of Central Tendency\n",
+    "section": "\n6.3 Mode",
+    "text": "6.3 Mode\nThe mode is the most frequently occurring value in a data set. A data set can have one mode (unimodal), multiple modes (multimodal), or no mode at all if all values are unique. The mode is particularly useful for categorical data, such as identifying the most popular product in a sales dataset or the most common salary range in a workforce. In a histogram, the mode corresponds to the peak of the distribution, highlighting where data points concentrate the most.\nExample 6.1: Income\nThe most frequently occurring values in the income example is 24.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Measures of Central Tendency</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/central-measures.html#which-measure-should-you-choose",
+    "href": "descriptive-stats/central-measures.html#which-measure-should-you-choose",
+    "title": "\n6  Measures of Central Tendency\n",
+    "section": "\n6.4 Which Measure Should You Choose?",
+    "text": "6.4 Which Measure Should You Choose?\nThe appropriate measure of central tendency depends on the data type:\n\n\nData Type\nSuitable Measure(s)\n\n\n\n\nNominal Data (categories)\nMode\n\n\n\nOrdinal Data (ranked categories)\nMode, Median\n\n\n\nInterval Data (e.g., temperature)\nMode, Median, Mean\n\n\n\nRatio Data (e.g., income, weight)\nMode, Median, Mean\n\n\n\nWhen deciding between the mean and median, the mean is preferred for normally distributed data without outliers, while the median is better suited for skewed distributions or data sets with extreme values since it is not influenced by outliers. The mode, while useful for categorical and multimodal data, may not always provide meaningful insights in numerical data sets.\nIn our example, the median income (42 thousand euros) is a better representation of a “typical” income than the mean (44.7 thousand euros) due to high-income values skewing the mean upward.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Measures of Central Tendency</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html",
+    "href": "descriptive-stats/dispersion-measures.html",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "",
+    "text": "Example: Test Scores\nConsider two sets of scores from two different groups of students. Each data set contains eight observations, representing the scores students received on a test:\nData A\nData B\nBoth data sets have the same mean: \\[\\bar{x}_A = \\frac{4 + 4 + 5 + 5 + 5 + 6 + 6 + 7}{8} = 5.25\\] \\[\\bar{x}_B = \\frac{0+1+4+5+6+7+8+11}{8} = 5.25\\]\nHowever, data set B has a much wider spread of values, ranging from 0 to 11, while data set A is more compact, with values between 4 and 7. The greater spread in data set B suggests higher variability in scores, meaning individual performances were less consistent compared to data set A. In contrast, data set A shows more uniform performance, suggesting students’ scores were relatively close to each other. The two data set distributions are visualized below:\nSeveral statistical measures help quantify dispersion in a dataset, some of which are covered in the following.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html#quartiles-and-percentiles",
+    "href": "descriptive-stats/dispersion-measures.html#quartiles-and-percentiles",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "\n7.1 Quartiles and Percentiles",
+    "text": "7.1 Quartiles and Percentiles\nQuartiles and percentiles divide data into sections, helping us understand the distribution more effectively. The most commonly used quartiles are the first quartile (Q1), median (Q2), and third quartile (Q3).\nFirst Quartile (Q1) - 25th Percentile\nThe first quartile (Q1) marks the value below which 25% of the observations fall. It helps us understand the lower range of the dataset and is computed as: \\[\nQ1 = \\text{value at position } 0.25(n+1)\n\\] where \\(n\\) is the total number of observations.\nSecond Quartile (Q2) – 50th Percentile (Median)\nThe second quartile (Q2) is simply the median, dividing the dataset into two equal halves. This is calculated as: \\[\nQ2 = \\text{value at position } 0.50(n+1)\n\\] Since 50% of values are below this point, the median represents the central value in the distribution.\nThird Quartile (Q3) - 75th Percentile\nThe third quartile (Q3) is the value below which 75% of the observations fall. This is particularly useful for understanding the upper range of the dataset and is calculated as: \\[\nQ3 = \\text{value at position } 0.75(n+1)\n\\]\nQuartiles provide valuable information about how data is spread across different sections. They allow us to:\n\nIdentify skewness: If Q1 and Q3 are unevenly spaced around Q2 (the median), the data may be skewed.\nDetect outliers: Any value that is significantly lower than Q1 or higher than Q3 can be considered an outlier.\nCalculate the Interquartile Range (\\(IQR\\)), which is the difference between Q3 and Q1, providing a robust measure of spread that is less sensitive to extreme values (not to be confused with range which is the difference between minimum and maximum observation values \\(x_{max}-x_{min}\\)).\nCalculate the Quartile Deviation which is another measure that is robust against extreme values and defined as half the difference between the third quartile (Q3) and the first quartile (Q1): \\[\\frac{Q3-Q1}{2} .\\]",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html#five-number-summary-and-boxplot",
+    "href": "descriptive-stats/dispersion-measures.html#five-number-summary-and-boxplot",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "\n7.2 Five-Number Summary and Boxplot",
+    "text": "7.2 Five-Number Summary and Boxplot\nA Five-Number Summary is a set of five descriptive statistics that provide insights into the distribution of a data set. These include:\n\n\nMinimum – The smallest observed value.\n\nFirst Quartile (Q1) – The 25th percentile, below which 25% of the data falls.\n\nSecond Quartile (Median, Q2) – The 50th percentile, the middle value of the data set.\n\nThird Quartile (Q3) – The 75th percentile, below which 75% of the data falls.\n\nMaximum – The largest observed value.\n\nThe Five-Number Summary helps in constructing a boxplot, which visually represents the spread and skewness of the data, as well as potential outliers. An example is shown in Figure 7.1.\nThe boxplot visually represents the distribution and spread of the data using the five-number summary. The minimum and maximum values mark the range of the data, while the first quartile (Q1), median (Q2), and third quartile (Q3) divide the data into four equal parts. The interquartile range (IQR), which spans from Q1 to Q3, highlights the middle 50% of the data, giving insights into variability.\nThe median (Q2) represents the central value, while outliers (if any) are shown as red points beyond the whiskers of the box. This boxplot effectively summarizes the data set, making it easy to identify skewness, dispersion, and potential outliers at a glance.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7.1: Boxplot with labels for each component of the Five-Number Summary\n\n\nExample: Test Scores\nWe compute the Five-Number Summary for the two datasets, A and B, representing test scores.\nData A\n4 4 5 5 5 6 6 7\nData B\n0 1 4 5 6 7 8 11\n1 and 5: The range is the difference between the maximum and minimum values (thus allowig us to see the minimum and maximum as well):\n\nA: (7 - 4 = 3)\nB: (11 - 0 = 11)\n\n2: The first quartile is found at position:\\[\nQ1 = 0.25(n+1) = 0.25(9) = 2.25\n\\]\n\nA: \\(Q1 = 4 + 0.25(5-4) = 4.25\\)\n\nB: \\(Q1 = 1 + 0.25(4-1) = 1.75\\)\n\n\n3: The median is found at position:\\[\nQ2 = 0.50(n+1) = 0.50(9) = 4.5\n\\]\n\nA: \\(Q2 = 5\\)\n\nB: \\(Q2 = 5.5\\)\n\n\n4: The third quartile is found at position:\\[\nQ3 = 0.75(n+1) = 0.75(9) = 6.75\n\\]\n\nA: \\(Q3 = 6 + 0.75(6-6) = 6\\)\n\nB: \\(Q3 = 7 + 0.75(8-7) = 7.75\\)\n\n\nFinal Five-Number Summaries\n\n\nDataset\nMinimum\nQ1\nMedian (Q2)\nQ3\nMaximum\n\n\n\nA\n4\n4.25\n5\n6\n7\n\n\nB\n0\n1.75\n5.5\n7.75\n11\n\n\n\nTo better understand the distribution of the two datasets, we use a boxplot to visualize the Five-Number Summary.\n\n\n\n\n\n\n\n\nThe boxplot visually highlights key aspects of dispersion, skewness, and potential outliers. In our example:\n\nDataset A has a smaller range (3) and is more compact.\nDataset B has a wider range (11), indicating greater variability in scores.\n\nBy using these descriptive statistics, we can better interpret datasets and make informed comparisons in various fields, including education, business, and research.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html#variance-and-standard-deviation",
+    "href": "descriptive-stats/dispersion-measures.html#variance-and-standard-deviation",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "\n7.3 Variance and Standard Deviation",
+    "text": "7.3 Variance and Standard Deviation\nWhen analyzing data, calculating the mean provides insight into the average value of a dataset. However, to understand how spread out the data is, we need to measure its variability. This is where variance and standard deviation become essential.\nVariance quantifies the average squared deviation of each data point from the mean. It provides a measure of how much the data points differ from the central value. For an entire population, the variance (\\(\\sigma^2\\)) is calculated as: \\[\nσ^2 = \\frac{\\sum_{i=1}^{N} (x_i - \\mu)^2}{N}\n\\] where:\n\n\n\\(N\\) = total number of data points in the population,\n\n\\(x_i\\) = individual data points,\n\n\\(\\mu\\) = population mean.\n\nWhen working with a sample instead of an entire population, we use the sample variance (\\(s^2\\)): \\[\ns^2 = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n-1}\n\\] where:\n\n\n\\(n\\) = sample size,\n\n\\(x_i\\) = individual data points,\n\n\\(\\bar{x}\\)= sample mean.\n\nThe denominator \\((n-1)\\) instead of \\(n\\) accounts for the loss of one degree of freedom, making it an unbiased estimator of population variance (we’ll return to this later).\nAn alternative formula for calculating sample variance can be found by noting that the sum of all deviations from the mean is zero: \\(\\sum_{i=1}^{n} x_i = n\\bar{x}\\) so that we get \\[\n\\sum_{i=1}^{n} x_i \\bar{x} = \\bar{x} \\sum_{i=1}^{n} x_i = n \\bar{x}^2.\n\\] Substituting this back into original equation yields: \\[\ns^2 = \\frac{\\sum_{i=1}^{n} x_i^2 - 2n\\bar{x}^2 + n\\bar{x}^2}{n-1}\n= \\frac{\\sum_{i=1}^{n} x_i^2 - n\\bar{x}^2}{n-1}\n\\] Rewriting using summation notation: \\[\ns^2 = \\frac{n \\sum_{i=1}^{n} x_i^2 - (\\sum_{i=1}^{n} x_i)^2}{n(n-1)}\n\\] This formulation simplifies calculations by hand when working with moderately large data sets.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html#standard-deviation",
+    "href": "descriptive-stats/dispersion-measures.html#standard-deviation",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "\n7.4 Standard Deviation",
+    "text": "7.4 Standard Deviation\nThe standard deviation is the square root of variance, bringing it back to the same units as the data, for example if measuring weight in kg, standard deviation is in kg as well. Thus, it is better to use when you need an intuitive, practical measure of data spread in real-world scenarios.\nFor a population, the standard deviation (\\(\\sigma\\)) is: \\[\n\\sigma = \\sqrt{\\frac{\\sum_{i=1}^{N} (x_i - \\mu)^2}{N}}\n\\] For a sample, the standard deviation (\\(s\\)) is: \\[\ns = \\sqrt{\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n-1}}\n\\] which can also be rewritten as: \\[\ns = \\sqrt{\\frac{n \\sum_{i=1}^{n} x_i^2 - (\\sum_{i=1}^{n} x_i)^2}{n(n-1)}}\n\\] following the alternative variance formula shown above.\nTo better understand the concept of standard deviation, we visualize the distribution of a data set in Figure 7.2 where the mean (blue) and standard deviation bands (red) are overlayed.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7.2: Histogram of data set of 100 0bservations with standard deviation bands included.\n\n\nExample: Test Scores\nReturning to our example on test scores, we previously calculated the sample mean as \\(\\bar{x} = 5.25\\). Now, we compute the variance (\\(s^2\\)) for each data set: \\[\ns^2_A = \\frac{(4−5.25)^2 + (4−5.25)^2 + \\dots + (7−5.25)^2}{8-1}  \\approx 1.074\n\\] \\[\ns^2_B = \\frac{(0−5.25)^2 + (1−5.25)^2 + \\dots + (11−5.25)^2}{8-1} \\approx 13.071\n\\]\nThe standard deviation (\\(s\\)) is then simply the square root of the variance: \\[\ns_A = \\sqrt{1.071} \\approx 1.035\n\\] and \\[\ns_B = \\sqrt{13.071} \\approx 3.615\n\\] We see that for data set A, the standard deviation is 1.035, indicating that most scores are relatively close to the mean (5.25), while for data set B, the standard deviation is 3.615, suggesting a wider spread of scores and greater variability. This comparison shows that data set B has a significantly higher variability than data set A, meaning the scores are more dispersed from the average.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html#the-empirical-rule",
+    "href": "descriptive-stats/dispersion-measures.html#the-empirical-rule",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "\n7.5 The Empirical Rule",
+    "text": "7.5 The Empirical Rule\nThe Empirical Rule, also known as the 68-95-99.7 Rule, describes how data is distributed in a normal (bell-shaped) distribution. It states that for a large population following a normal distribution:\n\n\nApproximately 68% of all observations lie within one standard deviation from the mean (\\(\\mu ± 1\\sigma\\)).\n\nApproximately 95% of all observations lie within two standard deviations from the mean (\\(\\mu ± 2\\sigma\\)).\n\nNearly all observations (99.7%) lie within three standard deviations from the mean (\\(\\mu ± 3\\sigma\\)).\n\nThis rule helps us understand the probability of an observation falling within a given range and is widely used in quality control, finance, and science to assess variability and expected outcomes. It is particularly useful when analyzing data distributions. If data follows a normal distribution most values cluster around the mean, and extreme values are rare. This also means that outliers can be identified if they fall beyond 3 standard deviations from the mean.\nThe empricial rule is visualized in Figure 7.3 showing the percentages of data falling within each standard deviation range.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7.3: The Empirical Rule: Normal Distribution.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "descriptive-stats/dispersion-measures.html#covariance-and-correlation",
+    "href": "descriptive-stats/dispersion-measures.html#covariance-and-correlation",
+    "title": "\n7  Measures of Dispersion\n",
+    "section": "\n7.6 Covariance and Correlation",
+    "text": "7.6 Covariance and Correlation\nWhen analyzing data, it is often important to understand the relationship between two variables. Measures such as covariance and correlation help quantify the degree to which two variables change together, allowing us to assess their association.\nCovariance measures the direction of the linear relationship between two variables, \\(X\\) and \\(Y\\). It tells us whether an increase in one variable is associated with an increase or decrease in the other. For an entire population, the covariance is calculated as: \\[\nCov(X, Y) = \\sigma_{xy} = \\frac{\\sum_{i=1}^{N} (x_i - \\mu_x)(y_i - \\mu_y)}{N}\n\\] where:\n\n\n\\(N\\) = total number of observations,\n\n\\(x_i, y_i\\) = individual data points,\n\n\\(\\mu_x \\mu_y\\) = means of \\(X\\) and \\(Y\\).\n\nFor a sample, we estimate covariance using: \\[\nCov(X, Y) = s_{xy} = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{n - 1}\n\\] where:\n\n\n\\(n\\) = sample size,\n\n\\(\\bar{x} ,\\bar{y}\\) = sample means of \\(X\\) and \\(Y\\).\n\nHow do we interpret the covariance?\n\nIf we have positive covariance it means that when \\(X\\) increases, then \\(Y\\) also tends to increase (e.g., study time and exam scores).\nIf we have negative covariance it means that when \\(X\\) increases, then \\(Y\\) tends to decrease (e.g., speed and time taken to reach a destination).\nIf we have near zero covariance, then this indicates no significant linear relationship between \\(X\\) and \\(Y\\) (note however that it does not detect patterns where variables are related in a non-linear way e.g., quadratic or exponential relationships).\n\nOne limitation of covariance is that it depends on the units of measurement (same as for variance), making it difficult to interpret. This is where correlation comes in as it standardizes covariance by adjusting for the scales of the variables, providing a dimensionless measure that is easier to interpret. The population correlation (\\(\\rho\\)) is given by \\[\n\\rho = \\frac{Cov(X, Y)}{\\sigma_x \\sigma_y}\n\\] where \\(\\sigma_x,\\sigma_y\\) are the standard deviations of \\(X\\) and \\(Y\\). The sample correlation (\\(r\\)) \\[\nr = \\frac{Cov(X, Y)}{s_x s_y}\n\\] where \\(s_x, s_y\\) are the sample standard deviations. Correlation values fall within the range -1 to 1, with the following interpretations (we use sample correlation as example):\n\n\n\\(r = 1\\): perfect positive correlation; \\(X\\) and \\(Y\\) move together exactly in a straight line.\n\n\\(0.8 \\leq r &lt; 1\\): strong positive correlation; \\(X\\) and \\(Y\\) tend to increase together.\n\n\\(0.5 \\leq r &lt; 0.8\\): moderate positive correlation; \\(X\\) and \\(Y\\) show a noticeable increasing relationship.\n\n\\(0 &lt; r &lt; 0.5\\): weak positive correlation; \\(X\\) and \\(Y\\) tend to increase together, but with variability.\n\n\\(r = 0\\): no linear relationship; \\(X\\) and \\(Y\\) are not linearly related (but might be non-linearly associated).\n\n\\(-0.5 &lt; r &lt; 0\\): weak negative correlation; as \\(X\\) increases, \\(Y\\) tends to decrease slightly.\n\n\\(-0.8 &lt; r \\leq -0.5\\): moderate negative correlation; \\(X\\) and \\(Y\\) shown an inverse relationship.\n\n\\(-1 ≤ r ≤ -0.8\\): strong negative correlation; \\(X\\) and \\(Y\\) move in opposite directions strongly.\n\n\\(r = -1\\): perfect negative correlation; \\(X\\) and \\(Y\\) move in exactly opposite directions in a straight line.\n\nA few examples are shown in Figure 7.4.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7.4: Simulated data showing different correlations.",
+    "crumbs": [
+      "Descriptive Statistics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Measures of Dispersion</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-concepts.html",
+    "href": "prob-theory/prob-concepts.html",
+    "title": "8  Probability Concepts",
+    "section": "",
+    "text": "8.1 Random Experiments\nProbability theory is the branch of mathematics that deals with random experiments, where the outcome of each trial is uncertain and cannot be determined in advance. These experiments can be repeated under similar conditions, but due to inherent randomness, different trials may produce different results. No matter how hard you stare at a die before rolling, you won’t magically force it to land on a 6 (unless you’re a magician… or cheating).\nA random experiment is an event or process that, when performed, leads to one of several possible outcomes, but the exact outcome is not known beforehand. The key characteristic of a random experiment is that even though individual outcomes are unpredictable, patterns may emerge when the experiment is repeated multiple times. This allows us to quantify uncertainty and make probabilistic predictions.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Probability Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-concepts.html#random-experiments",
+    "href": "prob-theory/prob-concepts.html#random-experiments",
+    "title": "8  Probability Concepts",
+    "section": "",
+    "text": "8.1.1 Properties of Random Experiments\n\nUncertainty in Individual Outcomes: The result of a single trial is unpredictable. You never really know what’s coming (just like your WiFi signal when you really need it).\nReproducibility Under Similar Conditions: The experiment can be performed multiple times under the same setup but the result may change every time (kind of like baking—you follow the same recipe, yet somehow, things go wrong).\nPatterns in the Long Run: While single outcomes are uncertain, probability theory helps reveal long-term statistical regularities. In other words, while each trial is a mystery, repeat something enough times, and trends start to emerge (like realizing your cat will always knock things off the table).\n\nExamples of random experiments include:\n\nRolling a die (What number will appear: 1, 2, 3, 4, 5, or 6?)\nDrawing a lottery ticket (Win or no win?)\nRandom sampling from a population (Who will be selected?)\nFertilization of an egg (Boy or girl?)\nRadioactive decay (Number of particles decayed in a given time?)\nManufacturing of a product (Defective or non-defective?)\n\nWhile randomness may seem chaotic, probability theory helps us bring order to the madness. It allows us to assign mathematical probabilities to outcomes, making it possible to predict patterns, measure risk, and, if you’re lucky, win at poker.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Probability Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-concepts.html#outcomes-sample-space-and-events",
+    "href": "prob-theory/prob-concepts.html#outcomes-sample-space-and-events",
+    "title": "8  Probability Concepts",
+    "section": "8.2 Outcomes, Sample Space and Events",
+    "text": "8.2 Outcomes, Sample Space and Events\nThe result of a random experiment is called an outcome, and the set of all possible outcomes is known as the sample space, denoted as \\(\\Omega\\). A couple of examples are shown below:\nExperiment: Rolling a six-sided die\nSample Space: \\(\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\)\nExperiment: Flipping a coin twice\nSample Space: \\(\\Omega = \\{\\text{heads, tails}), (\\text{heads, heads}), (\\text{tails, heads}), (\\text{tails, tails})\\}\\)\nIn probability theory, we are often more interested in the characteristics of outcomes rather than the individual outcomes themselves. An event is a collection of outcomes that share a common feature, allowing us to analyze probabilities more efficiently and identify meaningful patterns within the data. Events are typically denoted by uppercase letters such as \\(A, B, C, \\ldots\\) and are formally defined as subsets of the sample space \\(\\Omega\\) Each event is characterized by the set of outcomes for which it occurs, meaning that an event is said to happen if and only if at least one of its associated outcomes is observed.\nConsider the follwing example. In a standard six-sided die roll 🎲, the sample space is given by: \\[\n\\Omega =\\{1, 2, 3, 4, 5, 6\\}\n\\]\nDifferent events can be defined as subsets of the sample space:\n\n\n\nEvent\nSubset of Sample Space\n\n\n\n\n\\(A\\) = Rolling an odd number\n\\(A = \\{1, 3, 5\\}\\)\n\n\n\\(B\\) = Rolling at most three\n\\(B = \\{1, 2, 3\\}\\)\n\n\n\\(C\\) = Rolling a six\n\\(C = \\{6\\}\\)\n\n\n\\(D\\) = Not rolling a six\n\\(D = \\{1, 2, 3, 4, 5\\}\\)\n\n\n\\(E\\) = Rolling a seven\n\\(E = \\emptyset\\) (empty set)\n\n\n\nIn this table, event \\(E\\) represents an impossible event since rolling a seven is not possible with a six-sided die, making its subset the empty set \\(\\emptyset\\).\n\nExample 8.1\nImagine randomly selecting a person from a lecture room. The sample space consists of all individuals present in the room. However, we are often more interested in certain characteristics rather than the specific individuals themselves.\nLet’s define the following events:\n\n\\(A\\) = The selected person wears glasses\n\n\\(B\\) = The selected person cycled to the university\n\nEach event consists of all outcomes where the selected individual satisfies the given condition. Suppose the randomly chosen person is Alex. If Alex wears glasses, then event \\(A\\) has occurred. If Alex also cycled to the university, then both events \\(A\\) and \\(B\\) have occurred simultaneously.\nNote that we here only considered one random experiment. In many real-world situations, random experiments are repeated multiple times instead of occurring just once. In such cases, each possible sample drawn represents an individual outcome.\nFor example, suppose we randomly select three students from the lecture room and ask them: “Did you cycle to today’s lecture?”.\nIf we let \\(Y\\) represent “Yes” and \\(N\\) represent “No”, the sample space consists of all possible sequences of answers: \\[\n\\Omega = \\{YYY, YYN, YNY, NYY, YNN, NYN, NNY, NNN\\}\n\\]\nand each outcome represents a specific combination of answers from the three selected students.\nRather than focusing on individual outcomes, we may be interested in how many of the selected students cycled to the lecture. This allows us to define events based on counts. For example, let’s define:\n\n\\(B_2\\) = Exactly two students cycled to the lecture\n\nThis event consists of all sequences where two of the three selected students answered “Yes”, i.e. \\[\nB_2 = \\{YYN, YNY, NYY\\}\n\\] Similarly, we can define:\n\n\\(B_0\\) = No students cycled to the lecture\n\n\\(B_1\\) = Exactly one student cycled to the lecture\n\n\\(B_3\\) = All three students cycled to the lecture\n\nSince one and only one of these events must occur, they are considered:\n\nExhaustive – Together, they cover the entire sample space.\n\nMutually Exclusive – No two of these events can occur at the same time.\n\nBy structuring probability problems in this way, we can analyze patterns in data and make probability calculations more intuitive.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Probability Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-concepts.html#venn-diagram",
+    "href": "prob-theory/prob-concepts.html#venn-diagram",
+    "title": "8  Probability Concepts",
+    "section": "8.3 Venn Diagram",
+    "text": "8.3 Venn Diagram\nProbability theory frequently utilizes conecpts from set theory to describe relationships between events. Venn diagrams provide a visual representation of these concepts and illustrate how different events relate to one another within the sample space. By using set operations, we can define and show new events effectively.\nThe sample space \\(\\Omega\\) is often represented as a rectangle, where individual outcomes may be shown as dots inside. However, for simplicity, the dots are usually omitted (and sometimes even the rectangle is omitted).\nAn event is typically represented as a circle within the rectangle. If multiple events are considered, their circles may overlap, reflecting cases where both events can occur simultaneously.\nReturning to our previous example, imagine we again randomly select a student from a lecture hall. We define the following events:\n\n\\(A\\) = The selected student wears glasses\n\\(B\\) = The selected student cycled to the university\n\nThese events can be visualized in a Venn diagram, where each event is a circle, as shown in Figure 8.2. Their overlap represents students who meet both conditions. These is called the intersection of events \\(A\\) and \\(B\\) and is one of three interesting areas that are of particular interest. We will cover each fo these in the following with reference to Figure 8.3 below.\n\n\n\n\n\n\n\nFigure 8.2: Events \\(A\\) and \\(B\\) in sample space \\(\\Omega\\).\n\n\n\n\n\n8.3.1 The Intersection of Events\nHere we look for outcomes that belong to both events \\(A\\) and \\(B\\). The intersection of two events \\(A\\) and \\(B\\) is denoted as: \\[A \\cap B\\]\nand represents the set of all outcomes where both events occur simultaneously. This is shown in top-left diagram of Figure 8.3.\n\nExample 8.2\nConsider a standard six-sided die where the sample space is: \\(\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\) Define the following events:\n\n\\(A\\) = Rolling an odd number; \\(A = \\{1, 3, 5\\}\\)\n\\(B\\) = Rolling a number that is at most 3; \\(B = \\{1, 2, 3\\}\\)\n\nThe intersection of \\(A\\) and \\(B\\) includes only the numbers that appear in both sets: \\[\nA \\cap B = \\{1, 3\\}\n\\] Thus, the intersection contains only the numbers 1 and 3, since these are the only values present in both events.\n\n\n\n8.3.2 The Union of Events\nWe now look for outcomes that belong to at least one of the two events \\(A\\) and \\(B\\). The union of events, denoted as: \\[ A \\cup B \\] and represents the event that either \\(A\\), \\(B\\), or both occur. This is shown in bottom-left diagram of Figure 8.3.\n\nExample 8.3\nConsider a standard six-sided die where the sample space is: \\(\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\) Define the following events:\n\n\\(A\\) = Rolling an odd number; \\(A = \\{1, 3, 5\\}\\)\n\\(B\\) = Rolling a number that is at most 3; \\(B = \\{1, 2, 3\\}\\)\n\nThe union of \\(A\\) and \\(B\\) includes all outcomes that belong to either event or both:\n\\[A \\cup B = \\{1, 2, 3, 5\\}\\]\nThus, the union contains the numbers 1, 2, 3, and 5, since at least one of the events \\(A\\) or \\(B\\) includes each of these numbers.\n\n\n\n8.3.3 Complement of an Event\nFor every event \\(A\\), there exists a complement event, which consists of all outcomes that do not belong to event \\(A\\).\nThe complement of \\(A\\) is denoted as: \\[ \\overline{A} \\] and represents the event that \\(A\\) does not occur. This is shown in bottom-right diagram of Figure 8.3.\n\nExample 8.4\nConsider rolling a standard six-sided die, where the sample space is: \\[S=\\{1,2,3,4,5,6\\}\\] Define the following event:\n\n\\(A\\) = Rolling an odd number; \\(A=\\{1,3,5\\}\\)\n\nThe complement of \\(A\\) consists of all outcomes not included in \\(A\\): \\[\\overline{A}=\\{2,4,6\\}\\] Thus, the complement of rolling an odd number is rolling an even number.\n\n\n\n8.3.4 Mutually Exclusive Events\nIn some cases, events \\(A\\) and \\(B\\) do not share any outcomes. Such events are called disjoint events, meaning they cannot occur simultaneously. Mathematically, this is written as: \\[A \\cap B = \\emptyset\\] where \\(\\emptyset\\) represents the empty set, meaning a set with no elements. This is shown in top-right diagram of Figure 8.3.\n\nExample 8.4\nConsider rolling a standard six-sided die, where the sample space is: \\[S=\\{1,2,3,4,5,6\\}\\]\nDefine the following events:\n\n\\(A\\) = Rolling an odd number; \\(A=\\{1,3,5\\}\\)\n\\(B\\) = Rolling an even number; \\(B=\\{2,4,6\\}\\)\n\nSince \\(A\\) and \\(B\\) do not have any numbers in common, we conclude: \\[A \\cap B = \\emptyset\\]\nThus, rolling an odd number and rolling an even number are mutually exclusive events.\n\n\n\n\n\n\n\nFigure 8.3: The intersection of events \\(A\\) and \\(B\\) (top-left), mutually exhaustive events (top-right), the union of events \\(A\\) and \\(B\\) (bottom-left) and the complement of event \\(A\\) (bottom-right).",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Probability Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-concepts.html#exercises",
+    "href": "prob-theory/prob-concepts.html#exercises",
+    "title": "8  Probability Concepts",
+    "section": "Exercises",
+    "text": "Exercises\nLet the sample space be: \\[\\Omega = {1,2,3,4,5,6} \\] Define the following events:\n\n\\(A\\) = “Odd numbers”; \\(A = {1,3,5}\\)\n\\(B\\) = “At most three”; \\(B = {1,2,3}\\)\n\nDraw Venn diagrams to verify that the following statements hold:\n\n\\(\\overline{A \\cup B} = {4,6}\\)\n\\(\\overline{A} \\cap \\overline{B} = {4,6}\\)\n\\(A \\cup \\overline{A} = {1,2,3,4,5,6} = \\Omega\\)\n\\(A \\cap \\overline{A} = \\emptyset\\)",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Probability Concepts</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/what-is-prob.html",
+    "href": "prob-theory/what-is-prob.html",
+    "title": "\n9  What is Probability?\n",
+    "section": "",
+    "text": "9.1 Fundamental Assumptions of Probability\nProbability theory provides a framework for modeling randomness and quantifying uncertainty. At its core, it relies on three fundamental assumptions that define how probabilities are assigned to different outcomes in a random experiment.\n\\[P(O_1) + P(O_2) + \\dots + P(O_n) = \\sum_{i=1}^{n} P(O_i) = 1\\]\nThese fundamental principles form the backbone of probability theory, ensuring a structured and consistent way to reason about uncertain events. By defining probabilities within these constraints, we can build models that capture real-world randomness and variability in a mathematically rigorous way.\nThe probability of an event \\(A\\), denoted as \\(P(A)\\), is determined by summing the probabilities of all individual outcomes that make up \\(A\\): \\[ P(A) = \\sum_{O_i \\in A} P(O_i) \\]\nThis rule ensures that if an event consists of multiple possible outcomes, its probability is found by adding up the probabilities of each contributing outcome.\nSince probability values must be assigned consistently, we require a formal system that ensures logical coherence in probability calculations. This leads us to Kolmogorov axioms, which form the foundation of modern probability theory.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>What is Probability?</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/what-is-prob.html#fundamental-assumptions-of-probability",
+    "href": "prob-theory/what-is-prob.html#fundamental-assumptions-of-probability",
+    "title": "\n9  What is Probability?\n",
+    "section": "",
+    "text": "First, every probability calculation begins with a random experiment that has a well-defined sample space, denoted as \\(\\Omega = \\{O_1, O_2, \\dots, O_n\\}\\). This sample space represents all possible outcomes of the experiment, ensuring that every event of interest is accounted for.\nSecond, once the sample space is established, each outcome \\(O_i\\) is assigned a probability \\(P(O_i)\\) for \\(i = 1,2,\\ldots, n\\), representing the likelihood of that specific event occurring. These probabilities must follow\n\n\n\nnon-negativity, meaning that probabilities must always fall within the range \\(0 \\leq P(O_i) \\leq 1\\) for all outcomes. This ensures that an event can never have a negative probability, and the probability of a certain event is at most 1.\n\nand the total probability principle, stating that the sum of all assigned probabilities must equal 1:",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>What is Probability?</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/what-is-prob.html#kolmogorovs-axioms",
+    "href": "prob-theory/what-is-prob.html#kolmogorovs-axioms",
+    "title": "\n9  What is Probability?\n",
+    "section": "\n9.2 Kolmogorov’s Axioms",
+    "text": "9.2 Kolmogorov’s Axioms\nTo maintain consistency in probability assignments, Andrey Kolmogorov formulated three fundamental axioms:\n\nNon-Negativity: The probability of any event \\(A\\) is always greater than or equal to zero:\\[P(A) \\geq 0\\]\nThis ensures that probabilities are never negative.\nTotal Probability: The probability of the entire sample space \\(\\Omega\\) (i.e., the event that some outcome must occur) is exactly 1:\\[P(\\Omega) = 1\\]\nThis guarantees that probability is correctly distributed among all possible outcomes.\nAdditivity for Mutually Exclusive Events: If two events \\(A\\) and \\(B\\) cannot occur at the same time (i.e., they are mutually exclusive), then the probability of either occurring is the sum of their individual probabilities:\\[P(A \\cup B) = P(A) + P(B)\\]\nThis principle extends to any finite or countable number of mutually exclusive events. If \\(A_1, A_2, \\dots, A_k\\) are pairwise disjoint events, then the probability of their union is the sum of their individual probabilities: \\[P(A_1 \\cup A_2 \\cup \\dots \\cup A_k) = P(A_1) + P(A_2) + \\dots + P(A_k)\\]\n\nThese axioms are not just abstract rules; they provide the backbone for all probability calculations, from simple games of chance to risk assessments in finance, medicine, and machine learning. By defining probability through outcome summation and enforcing consistency through these axioms, we build a powerful and reliable framework for understanding and modeling uncertainty, thus allowing for meaningful calculations and predictions about uncertain events.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>What is Probability?</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/what-is-prob.html#defining-probability",
+    "href": "prob-theory/what-is-prob.html#defining-probability",
+    "title": "\n9  What is Probability?\n",
+    "section": "\n9.3 Defining Probability",
+    "text": "9.3 Defining Probability\nThe probability of an event \\(A\\), denoted as \\(P(A)\\), is a measure of how likely it is that the event will occur. Different interpretations of probability exist, leading to various probability definitions.\n\n9.3.1 The Classical Definition\nThe classical definition of probability, derived from basic counting principles, states that if a random experiment has \\(N\\) possible outcomes, and exactly \\(N_A\\) of these correspond to event \\(A\\) occurring, then the probability of \\(A\\) is given by: \\[P(A) = \\frac{N_A}{N}\\] This is known as a theoretical probability assignment, as it assumes that all outcomes are equally likely.\n\n9.3.2 The Frequentist Definition\nAn alternative way to define probability is through relative frequency. In the frequentist interpretation, the probability of an event \\(A\\) is understood as the proportion of times \\(A\\) occurs in a very long sequence of repeated random experiments. This can be expressed mathematically as: \\[P(A) \\approx \\frac{n_A}{n}\\] where:\n\n\n\\(n_A\\) is the number of times event \\(A\\) occurs.\n\n\\(n\\) is the total number of trials.\n\nAs the number of trials \\(n\\) increases, the relative frequency of event \\(A\\) stabilizes and approaches its probability \\(P(A)\\), aligning with the classical probability definition. In other words, if we repeat an experiment an extremely large number of times, the empirical probability we observe will converge toward a fixed value. This phenomenon is known as the stability of relative frequencies and serves as the empirical foundation of probability theory. It explains why probabilities can be estimated by repeated experimentation, as observed frequencies tend to settle around a fixed value over a large number of trials. AN example of this is shown below in Example 9.1.\nThis probability defintion is known as the empirical probability assignment, meaning that probabilities are assigned based on observed data rather than theoretical assumptions.\n\n9.3.3 The Subjective Definition\nAnother way to interpret probability is through subjective probability, where probability is understood as a*measure of personal belief in the occurrence of an event. Formally, the probability of an event \\(A\\) in this interpretation is given by:\n\\[P(A) = \\text{a measure of how strongly a person believes that } A \\text{ will occur}\\] For example, one might estimate the probability of rain tomorrow as 30%, or believe that the chance of Germany winning the next Eurovision Song Contest is 70%. These probabilities are not derived from mathematical models or repeated experiments but instead reflect an individual’s degree of confidence in a given outcome.\nThis approach known as the subjective probability assignment is commonly used in decision-making under uncertainty, such as betting, economics, and risk assessment, where probabilities are assigned based on available information, intuition, or expert judgment rather than empirical frequency or formal statistical models.\nExample 9.1: Stability of Relative Frequencies\nHow many sixes can we expect if we roll a die 10 times? 1000 times? 10,000 times?\nLet event \\(A\\) represent rolling a six when tossing a fair die. The theoretical probability of rolling a six is:\n\\[P(A) = \\frac{1}{6} \\approx 0.167\\]\nThis suggests that in 10 rolls, we should expect approximately 1 to 2 sixes.\nTo illustrate this, nine people each rolled a die 10 times, producing the following results for the number of sixes obtained: \\(1, 3, 1, 2, 2, 5, 4, 0, 2\\)\nIn total, there were 90 rolls, with a total of: \\(1+3+1+2+2+5+4+0+2 = 20\\) occurrences of a six. The relative frequency of rolling a six in this experiment was: \\[\\frac{n_A}{n} = \\frac{20}{90} = 0.22\\]\nWhat happens if we roll the die many more times? Using a computer simulation, the die was rolled 1000, 10 000 and 100 000 times, resulting in 140, 1726, and 16 745 sixes. The results are summarized in Table 9.1.\n\n\nTable 9.1: Summary of rolling a fair six-sided die multiple times, showing how the relative frequency of rolling a six approaches the theoretical probability 0.167 (16.7%) as the number of trials increases.\n\n\n\nNumber of 🎲 Rolls\nNumber of Sixes\nRelative Frequency\n\n\n\n10\n2\n0.20 (20%)\n\n\n90\n20\n0.22 (22%)\n\n\n1,000\n140\n0.14 (14%)\n\n\n10,000\n1,726\n0.173 (17.3%)\n\n\n100,000\n16,745\n0.167 (16.75%)\n\n\n\n\n\n\nAs the number of trials increases, the observed relative frequency tends to stabilize around the theoretical probability. This illustrates the law of large numbers, which states that the empirical probability of an event converges to its theoretical probability as the number of trials increases. We’ll return to this later on.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>What is Probability?</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/what-is-prob.html#uniform-probabilitis",
+    "href": "prob-theory/what-is-prob.html#uniform-probabilitis",
+    "title": "\n9  What is Probability?\n",
+    "section": "\n9.4 Uniform Probabilitis",
+    "text": "9.4 Uniform Probabilitis\nIn many practical situations, it is reasonable to assume that all outcomes of a random experiment are equally likely. This is known as a uniform probability model.\nFor an experiment where each outcome occurs with equal probability, the probability of an event \\(A\\) can be calculated as:\n\\[P(A) = \\frac{N_A}{N}\\]\nwhere:\n\n\n\\(N\\) is the total number of possible outcomes.\n\n\\(N_A\\) is the number of favorable outcomes (i.e., outcomes where event \\(A\\) occurs).\n\nThis applies to all situations where each outcome has the same probability of occurring.\nExample 9.2: Rolling Two Dice 🎲🎲\nConsider rolling two fair six-sided dice. Since each die has six faces, there are a total of:\n\\[6 \\times 6 = 36\\]\npossible outcomes, all of which are assumed to be equally likely. This is illustrated below where each star represents a possible combination of each roll of the two dice:\n\n\n\n\n\n\n\n\nWhat is the probability of rolling two sixes?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nDefine event \\(A\\) as the event of rolling a six on both dice. Since there is only one way to get this outcome \\((6,6)\\) among the 36 possible outcomes, the probability of \\(A\\) is: \\[P(A) = \\frac{1}{36} \\]\nThus, the likelihood of rolling double sixes in a single roll is 1 in 36, or approximately 2.78%.\nBelow in Table 9.2, all possible outcome combinations and their corresponding probaiblitis are given. The probability of rolling double sixes in a single roll is given the last row of this table.\n\n\nTable 9.2: The probability distribution of sums when rolling two six-sided dice.\n\n\n\nSum\nNumber of Outcomes\nProbability\n\n\n\n2\n1\n1/36 (2.78%)\n\n\n3\n2\n2/36 (5.56%)\n\n\n4\n3\n3/36 (8.33%)\n\n\n5\n4\n4/36 (11.11%)\n\n\n6\n5\n5/36 (13.89%)\n\n\n7\n6\n6/36 (16.67%)\n\n\n8\n5\n5/36 (13.89%)\n\n\n9\n4\n4/36 (11.11%)\n\n\n10\n3\n3/36 (8.33%)\n\n\n11\n2\n2/36 (5.56%)\n\n\n12\n1\n1/36 (2.78%)",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>What is Probability?</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/what-is-prob.html#exercises",
+    "href": "prob-theory/what-is-prob.html#exercises",
+    "title": "\n9  What is Probability?\n",
+    "section": "Exercises",
+    "text": "Exercises\n\nConsider rolling two fair six-sided dice. What is the probability of rolling doubles (both dice show the same number)?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nFrom earlier we know that the dice rolling follows a uniform probability model with \\(6 \\times 6 = 36\\) total possible outcomes.\nThe event ‘Doubles’ occur when both dice show the same number:(1,1), (2,2), (3,3), (4,4), (5,5), (6,6), implying we have 6 outcomes of interest and the probaiblity of this event is given by \\[P(\\text{doubles}) = \\frac{6}{36} = \\frac{1}{6} \\approx 0.167 \\text{ (16.7\\%)} \\]",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>What is Probability?</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/count-rules.html",
+    "href": "prob-theory/count-rules.html",
+    "title": "10  Counting Rules",
+    "section": "",
+    "text": "10.1 With/Without Replacement? Order Matters or Not?\nOne key distinction in counting problems is whether selection is with or without replacement.\nAnother important factor is whether the order of selection matters when counting possibilities.\nBy understanding whether we are dealing with replacement or no replacement and ordered or unordered selection, we can use combinatorial techniques to systematically count possible outcomes in probability problems.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Counting Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/count-rules.html#withwithout-replacement-order-matters-or-not",
+    "href": "prob-theory/count-rules.html#withwithout-replacement-order-matters-or-not",
+    "title": "10  Counting Rules",
+    "section": "",
+    "text": "If a ball is drawn from an urn and returned before the next draw, then every selection remains independent, and the number of available choices does not change. This is known as drawing with replacement. For example, if an urn contains six balls, each ball has a \\(1/6\\) probability of being chosen, and this probability remains the same for every draw.\nIn contrast, drawing without replacement means that once a ball is selected, it is not returned to the urn. This affects the probability of subsequent draws. A common example is a lottery draw, where seven winning numbers are selected from a total of 35 balls. Since each number can only appear once, this is an example of drawing without replacement.\n\n\n\nIn some cases, order does matter. For example, imagine that a company requires employees to create five-letter security codes using the letters A, B, C, D, and E. Here the order of the letters celarly matters since password ABCDE is different from password ACBDE. This means the number of possible passwords availbale to choose from is determined by permutations, where order plays a role.\nIn other cases, order does not matter. Returning to the lottery example, suppose the machine selects the balls in the order 1,2,3,4,5,6,7. This sequence represents the same lottery result as if the balls had been drawn in the order 7,6,5,4,3,2,1. Since the order of selection does not change the outcome, this scenario follows combinations, where only the chosen numbers matter, not their sequence.\n\n\n\n10.1.1 Drawing with Replacement, Order Matters\n\nExample 9.3: PIN Code Generation\nConsider a four-digit PIN code, where each digit can be any number from 0 to 9. Since each digit is chosen independently and can be repeated, every unique sequence forms a distinct PIN code.\nThis is an example of permutations with repetition, where the total number of possible PIN codes is given by: \\[N^n\\] where:\n\n\\(N\\) is the number of available choices for each digit (10 digits: 0–9).\n\\(n\\) is the number of digits in the PIN code (4-digit code). Applying the formula: \\[10^4 = 10,000 \\]\n\nThis means there are 10,000 unique PIN codes that can be generated under these conditions.\n\n\nExample 9.4: Vehicle Registration Numbers in Sweden\nHow many possible vehicle registration numbers exist in Sweden? In Swedish license plates, a registration number consists of three letters followed by three digits. Since letters and digits can be repeated, this follows the rule of permutations with repetition.\nTo calculate the total number of possible license plates, we consider:\n\nThe first three characters are letters, chosen from 26 available options.\n\nThe last three characters are digits, chosen from 10 available options (0–9).\n\nUsing the multiplication principle, the total number of possible registration numbers is:\n\\[ 26 \\times 26 \\times 26 \\times 10 \\times 10 \\times 10 = 26^3 \\times 10^3 = 17,576,000 \\]\nThis means that Sweden can issue up to 17.58 million unique vehicle registration numbers under this system. The formaula is generally written as \\(N_1^{n_1} \\times N_2^{n_2}\\) where:\n\n\\(N_1 = 26\\) (number of available letters), \\(n_1 = 3\\) (three letters chosen).\n\n\\(N_2 = 10\\) (number of available digits), \\(n_2 = 3\\) (three digits chosen).\n\n\n\n\n10.1.2 Drawing with Replacement, Ignoring Order\n\nExample 9.5: Selecting Ice Cream Flavors 🍦\nImagine an ice cream shop that offers six different flavors. A customer selects three scoops of ice cream, where:\n\nThe same flavor can be chosen multiple times (replacement).\n\nThe order of the scoops does not matter— choosing (vanilla, chocolate, vanilla) is the same as (chocolate, vanilla, vanilla).\n\nSince order is ignored, but repetition is allowed, we calculate the number of possible selections using combinations with replacement, given by the formula: \\[\\binom{N + n - 1}{n} = \\frac{(N + n - 1)!}{n!(N - 1)!} \\]\nwhere:\n\n\\(N = 6\\) (number of available flavors).\n\n\\(n = 3\\) (number of scoops selected).\n\nApplying the formula:\n\\[ \\binom{6+3-1}{3} = \\binom{8}{3} = \\frac{8!}{3!(5!)} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56 \\]\nThus, there are 56 different ways to choose three scoops of ice cream when order does not matter, but flavors can be repeated.\n\n\n\n10.1.3 Drawing without Replacement, Order Matters\n\nExample 9.6: Finalist Selection in ESC 🎤🎶\nIn the semi-final rounds of the Eurovision Song Contest, five countries have reached the last stage. The final ranking must be determined, where each country is assigned a unique position from 1st place to 5th place.\nSince the order of ranking is important, we need to determine how many different ways the top five positions can be arranged. This follows the permutation rule, as once a country’s submission is assigned a position, it cannot be placed elsewhere. The total number of possible rankings is calculated as: \\[5 \\times 4 \\times 3 \\times 2 \\times 1 = 5! = 120 \\]\nThus, there are 120 possible ways to assign the final rankings to the five finalists.\nThis follows the principle of permutations without replacement, meaning that each finalist is placed in a unique ranking, and no two countries can hold the same position.\n\n\n\n10.1.4 Drawing without Replacement, Ignoring Order\n\nExample 9.7: Poker Hands 🎴\nIn a standard game of five-card poker, a player is dealt five random cards from a standard deck of 52 playing cards. Since:\n\nThe order of the cards does not matter (a hand with A♠ K♠ Q♠ J♠ 10♠ is the same regardless of the order drawn).\nCards are drawn without replacement (once a card is drawn, it cannot be selected again), we calculate the total number of different poker hands using combinations without replacement: \\[\\binom{52}{5} = \\frac{52!}{(52-5)!5!} = \\frac{52 \\times 51 \\times 50 \\times 49 \\times 48}{5!} = 2 598 960 \\]\nThus, there are 2 598 960 unique five-card poker hands in a standard deck.\n\nWhat is the probability of getting a flush on the first draw?\nA flush in poker means that all five cards in the hand belong to the same suit (♠, ♥, ♦, or ♣). We define event \\(A\\) as the event of being dealt a flush directly, meaning that all five cards in the hand belong to the same suit (♠, ♥, ♦, or ♣).\nTo compute the probability \\(A\\), consider that:\n\nIf we focus on only hearts, there are 13 hearts in the deck, and we need to choose 5 of them: \\[\\binom{13}{5} = \\frac{13!}{(13-5)!5!} = 1287 \\]\nThe same calculation applies for the other three suits (spades, diamonds, and clubs), so the total number of flush hands is: \\[4 \\times 1287 = 5148 \\]\n\nSince all poker hands are equally likely, the probability of being dealt a flush is: \\[P(A) = \\frac{5148}{2598960} \\approx 0.00198\\]\nThis means that the probability of being dealt a flush on the first draw is approximately 0.198%.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Counting Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/count-rules.html#exercises",
+    "href": "prob-theory/count-rules.html#exercises",
+    "title": "10  Counting Rules",
+    "section": "Exercises",
+    "text": "Exercises\n\nA full house in poker consists of three cards of one rank and two cards of another (e.g., Q♠ Q♥ Q♦ 7♣ 7♦). What is the probability of getting a full house on the first draw?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nSince the order does not matter, and cards are drawn without replacement, we use combinations to determine the number of possible full house hands.\nSelecting one of 13 ranks for the three-of-a-kind: \\(\\binom{13}{1} = 13\\). Choosing three suits out of four for that rank: \\(\\binom{4}{3} = 4\\).\nTotal ways to select the three-of-a-kind: \\[13 \\times 4 = 52 \\]\nSelecting one of 12 remaining ranks for the pair: $ = 12 $. Choosing two suits out of four for that rank: \\(\\binom{4}{2} = 6\\). Total ways to select the pair: \\[12 \\times 6 = 72 \\]\nMultiplying both parts together we get: \\[52 \\times 72 = 3 744 \\]\nThus, there are 3 744 unique full house hands in a standard deck.\nSince we already know that there are 2 598 960 total poker hands, the probability of being dealt a full house is (defined as event \\(A\\)):\n\\[P(A) = \\frac{3744}{2598960} \\approx 0.00144\\]\nThis means the probability of being dealt a full house on the first draw is 0.144%.\n\n\n\n\nA teacher randomly arranges 6 students in a line for a class photo. Each student is assigned a unique position.\n\n\nHow many different ways can the 6 students be arranged in a line?\nWhat is the probability that a specific student (A) is in the first position?\nWhat is the probability that student A is first and student B is second in the lineup?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nThere are \\(P(6,6) = 6! = 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1 = 720\\) different ways to arrange the students in a line (see Chapter 2 exercises for more details)\nSince all arrangements are equally likely, student A can be in any of the 6 positions. If we fix A in the first position, the remaining 5 students can be arranged freely: \\[5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\]\nThe probability of A being first is then given by \\[P(A)  = \\frac{120}{720} = \\frac{1}{6} \\approx 0.167 \\text{ (16.7\\%)}\\]\nIf A is fixed in the first position, there are 5 students remaining. If B is fixed in the second position, there are 4 students left to be arranged: \\[4! = 4 \\times 3 \\times 2 \\times 1 = 24\\]\nThe probability of A being first and B being second is then given by: \\[P(B) = \\frac{24}{720} = \\frac{1}{30} \\approx 0.0333 \\text{ (3.33\\%)}\\]",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Counting Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html",
+    "href": "prob-theory/prob-rules.html",
+    "title": "11  Probability Rules",
+    "section": "",
+    "text": "11.1 The Complement Rule\nhe complement rule states that if an event \\(A\\) has probability \\(P(A)\\), then the probability that \\(A\\) does not occur is:\n\\[P(\\overline{A}) = 1 - P(A)\\]\nThis rule is particularly useful when calculating the probability of “at least one” occurrences by considering the opposite event. See Figure 11.1.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#the-complement-rule",
+    "href": "prob-theory/prob-rules.html#the-complement-rule",
+    "title": "11  Probability Rules",
+    "section": "",
+    "text": "Figure 11.1: The complement of event \\(A\\).\n\n\n\n\n\nExample 11.1: Deck of Cards\nDetermine the probability of drawing a ♦ (diamond), ♥ (heart), or ♠ (spade) when randomly selecting a card from a standard deck of 52 cards.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe sample space consists of all 52 cards, so: \\(\\Omega = \\{1, 2, 3, \\dots, 52\\}\\)\nLet \\(A\\) be the event of drawing a ♦, ♥, or ♠. The complement of \\(A\\), denoted as \\(\\overline{A}\\), is the event of drawing a ♣ (club). Since there are 13 clubs in a deck, the probability of \\(\\overline{A}\\) is:\n\\[P(\\overline{A}) = \\frac{13}{52}\\]\nUsing the complement rule we get that: \\[P(A) = 1 - P(\\overline{A}) = 1 - \\frac{13}{52} = \\frac{39}{52} = \\frac{3}{4}\\] Thus, the probability of drawing a ♦, ♥, or ♠ is 3/4 (75%).",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#the-addition-rule",
+    "href": "prob-theory/prob-rules.html#the-addition-rule",
+    "title": "11  Probability Rules",
+    "section": "11.2 The Addition Rule",
+    "text": "11.2 The Addition Rule\nThe addition rule helps compute the probability of the union of two events (see Figure 11.2):\n\\[P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\]\n\n\n\n\n\n\n\nFigure 11.2: The union of events \\(A\\) and \\(B\\).\n\n\n\n\nIf \\(A\\) and \\(B\\) are mutually exclusive (disjoint), then it follows that \\[P(A \\cup B) = P(A) + P(B)\\] since there is no intersection between the two events.\n\nExample 11.2: Dice Roll 🎲\nDetermine the probability of rolling an even number or a number greater than three when rolling a fair six-sided die.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe sample space consists of all possible outcomes of a die roll:\n\\[\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\]\nDefine the events:\n\n\\(A\\) = rolling an even number: \\(A = \\{2, 4, 6\\}\\)\n\n\\(B\\) = rolling a number greater than three: \\(B = \\{4, 5, 6\\}\\)\n\nThe intersection of these events (\\(A \\cap B\\)) = numbers that are both even and greater than three: \\[A \\cap B = \\{4, 6\\}\\]\n\nThe probabilities are \\[P(A) = \\frac{3}{6}, \\quad P(B) = \\frac{3}{6}, \\quad P(A \\cap B) = \\frac{2}{6}\\]\nUsing the addition rule \\[P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\] we get that \\[P(A \\cup B) = \\frac{3}{6} + \\frac{3}{6} - \\frac{2}{6} = \\frac{4}{6} \\]\nThus, the probability of rolling either an even number or a number greater than three is \\(\\frac{4}{6}\\) or approximately 0.667 (66.7%).\n\n\n\n\n\nExample 11.2: Product Defects\nIn the manufacturing process of a product, two types of defects, \\(A\\) and \\(B\\), can occur. Sometimes both defects appear together. We are given the probabilities:\n\\[P(A) = 0.01, \\quad P(B) = 0.02, \\quad P(A \\cap B) = 0.005\\]\na. Determine the probability that a product has at least one of the two defects.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe are looking for the union of the events \\(A\\) and \\(B\\): \\[P (A \\cup  B) = 0.01 + 0.02 − 0.005 = 0.025 = 2.5\\%\\]\n\n\n\n\nWhat is the probability that a product will be defect-free?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe are looking for the complement of the union of the events \\(A\\) and \\(B\\): \\[P (\\overline{A \\cup B}) = 1 − P (A \\cup B) = 1 − 0.025 = 0.975 = 97.5\\%\\]\n\n\n\n\nWhat is the probability that a product will have exactly one defect?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe are looking for the shaded area in Figure 11.3 which is given by \\[P(A \\cup  B) − P (A \\cap B) = 0.025 − 0.005 = 0.02 = 2\\%\\]\n\n\n\n\n\n\n\nFigure 11.3: The area shaded corresponds to exactly one defect.\n\n\n\n\n\n\n\n\n\n11.2.1 The Union of Three or More Events\nTo compute the probability of the union of three events \\(A\\), \\(B\\), and \\(C\\) as shown in Figure 11.4 we use the generalized addition rule:\n\\(\\qquad \\qquad \\qquad  P(A \\cup B \\cup C) = P(A) + P(B) + P(C)\\)\n\\[\\quad \\qquad \\qquad  - P(A \\cap B) - P(A \\cap C) - P(B \\cap C)\\]\n\\[+P(A \\cap B \\cap C)\\]\nThis formula ensures that overlapping probabilities are not double-counted when summing individual event probabilities.\n\n\n\n\n\n\n\nFigure 11.4: The union of three events.\n\n\n\n\nTo generalize it even further for \\(n\\) events \\(A_1, A_2, \\ldots, A_n\\), the probability of their union follows the principle of inclusion-exclusion:\n\\(P\\left(\\bigcup_{i=1}^{n} A_i \\right) =\n\\sum_{i=1}^{n} P(A_i) -\n\\sum_{1 \\leq i &lt; j \\leq n} P(A_i \\cap A_j)\\)\n\\[\n\\qquad + \\sum_{1 \\leq i &lt; j &lt; k \\leq n} P(A_i \\cap A_j \\cap A_k)\n- \\dots + (-1)^{n+1} P(A_1 \\cap A_2 \\cap \\dots \\cap A_n)  \n\\] This pattern continues, alternating between adding and subtracting intersections of increasing size.",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#conditional-probability",
+    "href": "prob-theory/prob-rules.html#conditional-probability",
+    "title": "11  Probability Rules",
+    "section": "11.3 Conditional Probability",
+    "text": "11.3 Conditional Probability\nImagine you’re waiting for a pizza delivery. Normally, the probability of the delivery driver being on time (event \\(B\\)) might not be great. But then you receive a text message saying, “Your order is on the way!” (event \\(A\\) has occurred). Now that you have extra information, your estimate of \\(P(B)\\) should change, right? That’s the essence of conditional probability; updating what we know when we gain new insight.\nWe originally wanted to find the probability of \\(B\\) happening, i.e., \\(P(B)\\). But now we’ve been given a game-changing update: \\(A\\) has happened. That means our world is now limited to the subset of outcomes where \\(A\\) is true. In other words, we’re no longer looking at the whole sample space \\(\\Omega\\) - our new reality is just \\(A\\)!\nSo, the updated probability of \\(B\\) given that \\(A\\) has occurred, the so called conditional probability of \\(B\\) given \\(A\\), written as \\(P(B \\mid A)\\), is calculated using:\n\\[\nP(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}\n\\]\nwhere \\(P(A) &gt; 0\\) (because if \\(A\\) didn’t happen, there’s no reason to update anything). This formula quantifies how the probability of \\(B\\) changes when we have additional information that \\(A\\) has occurred.\nConditional probability is like getting insider information:\n\nDid your team win the game? If they were leading at halftime, the probability changes.\n\nIs your package arriving today? If it was shipped yesterday, chances are better.\n\nAre you likely to pass your exam? If you’ve studied, your odds are much higher!",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "rv-probdists.html",
+    "href": "rv-probdists.html",
+    "title": "Random Variables and Probability Distributions",
+    "section": "",
+    "text": "Discrete random variables and distributions\nContinuous random variables and distributons\nMultivariate Random Variables\n\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Random Variables and Probability Distributions"
+    ]
+  },
+  {
+    "objectID": "sampling-dists.html",
+    "href": "sampling-dists.html",
+    "title": "Sampling and Sampling Distributions",
+    "section": "",
+    "text": "Sampling Distribution for a sample mean\nSampling Distribution for a sample proportion\nCentral Limit Theorem\n\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Sampling and Sampling Distributions"
+    ]
+  },
+  {
+    "objectID": "inference.html",
+    "href": "inference.html",
+    "title": "Inferential Statistics",
+    "section": "",
+    "text": "Estimation: point and interval estimation\nHypothesis testing for a sample mean and sample proportion\nHypothesis testing with confidence intervals\nHypothesis testing for the difference of two means or proportions\n\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Inferential Statistics"
+    ]
+  },
+  {
+    "objectID": "chi2.html",
+    "href": "chi2.html",
+    "title": "Chi Square Tests",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Chi Square Tests"
+    ]
+  },
+  {
+    "objectID": "regression.html",
+    "href": "regression.html",
+    "title": "Regression Analysis",
+    "section": "",
+    "text": "Simple Linear Regression\nMultiple Linear Regression\nOLS estimation\nGauss Markov Theorem\nModel Assumptions and Diagnostics\nDummy variables and Interaction Terms\nEndogeneity and IV estimation\n\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Regression Analysis"
+    ]
+  },
+  {
+    "objectID": "slr.html",
+    "href": "slr.html",
+    "title": "\n12  Simple Linear Regression\n",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Regression Analysis",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Simple Linear Regression</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Summary"
+    ]
+  }
+]

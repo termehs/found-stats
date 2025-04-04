@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Termeh Shafie">
+
+<title>Foundational Statistics - 8&nbsp; Probability Concepts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../prob-theory/what-is-prob.html" rel="next">
+<link href="../descriptive-stats/dispersion-measures.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Foundational Statistics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-surveys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/central-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/dispersion-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/count-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Counting Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probability Rules</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Random Variables and Probability Distributions</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Sampling and Sampling Distributions</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Inferential Statistics</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Chi Square Tests</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Summary</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">References</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#random-experiments" id="toc-random-experiments" class="nav-link active" data-scroll-target="#random-experiments"><span class="header-section-number">8.1</span> Random Experiments</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-random-experiments" id="toc-properties-of-random-experiments" class="nav-link" data-scroll-target="#properties-of-random-experiments"><span class="header-section-number">8.1.1</span> Properties of Random Experiments</a></li>
+  </ul></li>
+  <li><a href="#outcomes-sample-space-and-events" id="toc-outcomes-sample-space-and-events" class="nav-link" data-scroll-target="#outcomes-sample-space-and-events"><span class="header-section-number">8.2</span> Outcomes, Sample Space and Events</a></li>
+  <li><a href="#venn-diagram" id="toc-venn-diagram" class="nav-link" data-scroll-target="#venn-diagram"><span class="header-section-number">8.3</span> Venn Diagram</a>
+  <ul class="collapse">
+  <li><a href="#the-intersection-of-events" id="toc-the-intersection-of-events" class="nav-link" data-scroll-target="#the-intersection-of-events"><span class="header-section-number">8.3.1</span> The Intersection of Events</a></li>
+  <li><a href="#the-union-of-events" id="toc-the-union-of-events" class="nav-link" data-scroll-target="#the-union-of-events"><span class="header-section-number">8.3.2</span> The Union of Events</a></li>
+  <li><a href="#complement-of-an-event" id="toc-complement-of-an-event" class="nav-link" data-scroll-target="#complement-of-an-event"><span class="header-section-number">8.3.3</span> Complement of an Event</a></li>
+  <li><a href="#mutually-exclusive-events" id="toc-mutually-exclusive-events" class="nav-link" data-scroll-target="#mutually-exclusive-events"><span class="header-section-number">8.3.4</span> Mutually Exclusive Events</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We now focus on the middle part of <a href="#fig-probbridge" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, where we transition from simply summarizing data to drawing broader conclusions. Probability theory serves as the bridge between descriptive statistics, which tells us “how it is,” and inferential statistics, which helps us predict “how it will be.” By understanding why certain patterns appear in our sample data and combining that with probabilistic assumptions, we can move toward generalizing from the sample to the entire population.</p>
+<div class="center">
+<div id="fig-probbridge" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-probbridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎desc-prob-inf.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-probbridge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Probability as the bridge between descriptive and inferential statistics.
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="random-experiments" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="random-experiments"><span class="header-section-number">8.1</span> Random Experiments</h2>
+<p>Probability theory is the branch of mathematics that deals with random experiments, where the outcome of each trial is uncertain and cannot be determined in advance. These experiments can be repeated under similar conditions, but due to inherent randomness, different trials may produce different results. No matter how hard you stare at a die before rolling, you won’t magically force it to land on a 6 (unless you’re a magician… or cheating).</p>
+<p>A <strong>random experiment</strong> is an event or process that, when performed, leads to one of several possible outcomes, but the exact outcome is not known beforehand. The key characteristic of a random experiment is that even though individual outcomes are unpredictable, patterns may emerge when the experiment is repeated multiple times. This allows us to quantify uncertainty and make probabilistic predictions.</p>
+<section id="properties-of-random-experiments" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="properties-of-random-experiments"><span class="header-section-number">8.1.1</span> Properties of Random Experiments</h3>
+<ol type="1">
+<li><strong>Uncertainty in Individual Outcomes</strong>: The result of a single trial is unpredictable. You never really know what’s coming (just like your WiFi signal when you really need it).</li>
+<li><strong>Reproducibility Under Similar Conditions</strong>: The experiment can be performed multiple times under the same setup but the result may change every time (kind of like baking—you follow the same recipe, yet somehow, things go wrong).</li>
+<li><strong>Patterns in the Long Run</strong>: While single outcomes are uncertain, probability theory helps reveal long-term statistical regularities. In other words, while each trial is a mystery, repeat something enough times, and trends start to emerge (like realizing your cat will always knock things off the table).</li>
+</ol>
+<p>Examples of random experiments include:</p>
+<ul>
+<li>Rolling a die (What number will appear: 1, 2, 3, 4, 5, or 6?)</li>
+<li>Drawing a lottery ticket (Win or no win?)</li>
+<li>Random sampling from a population (Who will be selected?)</li>
+<li>Fertilization of an egg (Boy or girl?)</li>
+<li>Radioactive decay (Number of particles decayed in a given time?)</li>
+<li>Manufacturing of a product (Defective or non-defective?)</li>
+</ul>
+<p>While randomness may seem chaotic, probability theory helps us bring order to the madness. It allows us to assign mathematical probabilities to outcomes, making it possible to predict patterns, measure risk, and, if you’re lucky, win at poker.</p>
+</section>
+</section>
+<section id="outcomes-sample-space-and-events" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="outcomes-sample-space-and-events"><span class="header-section-number">8.2</span> Outcomes, Sample Space and Events</h2>
+<p>The result of a random experiment is called an <strong>outcome</strong>, and the set of all possible outcomes is known as the <strong>sample space</strong>, denoted as <span class="math inline">\(\Omega\)</span>. A couple of examples are shown below:</p>
+<p><strong>Experiment:</strong> Rolling a six-sided die<br>
+<strong>Sample Space:</strong> <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p>
+<p><strong>Experiment:</strong> Flipping a coin twice<br>
+<strong>Sample Space:</strong> <span class="math inline">\(\Omega = \{\text{heads, tails}), (\text{heads, heads}), (\text{tails, heads}), (\text{tails, tails})\}\)</span></p>
+<p>In probability theory, we are often more interested in the characteristics of outcomes rather than the individual outcomes themselves. An <strong>event</strong> is a collection of outcomes that share a common feature, allowing us to analyze probabilities more efficiently and identify meaningful patterns within the data. Events are typically denoted by uppercase letters such as <span class="math inline">\(A, B, C, \ldots\)</span> and are formally defined as subsets of the sample space <span class="math inline">\(\Omega\)</span> Each event is characterized by the set of outcomes for which it occurs, meaning that an event is said to happen if and only if at least one of its associated outcomes is observed.</p>
+<p>Consider the follwing example. In a standard six-sided die roll 🎲, the <strong>sample space</strong> is given by: <span class="math display">\[
+\Omega =\{1, 2, 3, 4, 5, 6\}
+\]</span></p>
+<p>Different <strong>events</strong> can be defined as subsets of the sample space:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>Event</strong></th>
+<th><strong>Subset of Sample Space</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A\)</span> = Rolling an odd number</td>
+<td><span class="math inline">\(A = \{1, 3, 5\}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(B\)</span> = Rolling at most three</td>
+<td><span class="math inline">\(B = \{1, 2, 3\}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C\)</span> = Rolling a six</td>
+<td><span class="math inline">\(C = \{6\}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(D\)</span> = Not rolling a six</td>
+<td><span class="math inline">\(D = \{1, 2, 3, 4, 5\}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(E\)</span> = Rolling a seven</td>
+<td><span class="math inline">\(E = \emptyset\)</span> (empty set)</td>
+</tr>
+</tbody>
+</table>
+<p>In this table, event <span class="math inline">\(E\)</span> represents an impossible event since rolling a seven is not possible with a six-sided die, making its subset the <strong>empty set</strong> <span class="math inline">\(\emptyset\)</span>.</p>
+<section id="example-8.1" class="level5 unnumbered">
+<h5 class="unnumbered anchored" data-anchor-id="example-8.1">Example 8.1</h5>
+<p>Imagine randomly selecting a person from a lecture room. The <strong>sample space</strong> consists of all individuals present in the room. However, we are often more interested in certain <strong>characteristics</strong> rather than the specific individuals themselves.</p>
+<p>Let’s define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = The selected person <strong>wears glasses</strong><br>
+</li>
+<li><span class="math inline">\(B\)</span> = The selected person <strong>cycled to the university</strong></li>
+</ul>
+<p>Each event consists of all outcomes where the selected individual satisfies the given condition. Suppose the randomly chosen person is Alex. If Alex wears glasses, then event <span class="math inline">\(A\)</span> has occurred. If Alex also cycled to the university, then both events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have occurred simultaneously.</p>
+<p>Note that we here only considered one random experiment. In many real-world situations, random experiments are repeated multiple times instead of occurring just once. In such cases, each possible sample drawn represents an individual outcome.</p>
+<p>For example, suppose we randomly select three students from the lecture room and ask them: <em>“Did you cycle to today’s lecture?”</em>.</p>
+<p>If we let <span class="math inline">\(Y\)</span> represent “Yes” and <span class="math inline">\(N\)</span> represent “No”, the sample space consists of all possible sequences of answers: <span class="math display">\[
+\Omega = \{YYY, YYN, YNY, NYY, YNN, NYN, NNY, NNN\}
+\]</span></p>
+<p>and each outcome represents a specific combination of answers from the three selected students.</p>
+<p>Rather than focusing on individual outcomes, we may be interested in how many of the selected students cycled to the lecture. This allows us to define events based on counts. For example, let’s define:</p>
+<ul>
+<li><span class="math inline">\(B_2\)</span> = Exactly two students cycled to the lecture</li>
+</ul>
+<p>This event consists of all sequences where two of the three selected students answered “Yes”, i.e.&nbsp;<span class="math display">\[
+B_2 = \{YYN, YNY, NYY\}
+\]</span> Similarly, we can define:</p>
+<ul>
+<li><span class="math inline">\(B_0\)</span> = No students cycled to the lecture<br>
+</li>
+<li><span class="math inline">\(B_1\)</span> = Exactly one student cycled to the lecture<br>
+</li>
+<li><span class="math inline">\(B_3\)</span> = All three students cycled to the lecture</li>
+</ul>
+<p>Since one and only one of these events must occur, they are considered:</p>
+<ol type="1">
+<li><strong>Exhaustive</strong> – Together, they cover the entire sample space.<br>
+</li>
+<li><strong>Mutually Exclusive</strong> – No two of these events can occur at the same time.</li>
+</ol>
+<p>By structuring probability problems in this way, we can analyze patterns in data and make probability calculations more intuitive.</p>
+</section>
+</section>
+<section id="venn-diagram" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="venn-diagram"><span class="header-section-number">8.3</span> Venn Diagram</h2>
+<p>Probability theory frequently utilizes conecpts from <strong>set theory</strong> to describe relationships between events. <strong>Venn diagrams</strong> provide a visual representation of these concepts and illustrate how different events relate to one another within the sample space. By using <em>set operations</em>, we can define and show new events effectively.</p>
+<p>The sample space <span class="math inline">\(\Omega\)</span> is often represented as a rectangle, where individual outcomes may be shown as dots inside. However, for simplicity, the dots are usually omitted (and sometimes even the rectangle is omitted).<br>
+An event is typically represented as a circle within the rectangle. If multiple events are considered, their circles may overlap, reflecting cases where both events can occur simultaneously.</p>
+<p>Returning to our previous example, imagine we again randomly select a student from a lecture hall. We define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = The selected student wears glasses</li>
+<li><span class="math inline">\(B\)</span> = The selected student cycled to the university</li>
+</ul>
+<p>These events can be visualized in a Venn diagram, where each event is a circle, as shown in <a href="#fig-venn" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>. Their overlap represents students who meet both conditions. These is called the intersection of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> and is one of three interesting areas that are of particular interest. We will cover each fo these in the following with reference to <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a> below.</p>
+<div class="center">
+<div id="fig-venn" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎venn1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> in sample space <span class="math inline">\(\Omega\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="the-intersection-of-events" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="the-intersection-of-events"><span class="header-section-number">8.3.1</span> The Intersection of Events</h3>
+<p>Here we look for outcomes that belong to both events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The <strong>intersection</strong> of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is denoted as: <span class="math display">\[A \cap B\]</span></p>
+<p>and represents the set of all outcomes where both events occur simultaneously. This is shown in top-left diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.2">Example 8.2</h4>
+<p>Consider a standard six-sided die where the sample space is: <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A = \{1, 3, 5\}\)</span></li>
+<li><span class="math inline">\(B\)</span> = Rolling a number that is at most 3; <span class="math inline">\(B = \{1, 2, 3\}\)</span></li>
+</ul>
+<p>The intersection of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> includes only the numbers that appear in both sets: <span class="math display">\[
+A \cap B = \{1, 3\}
+\]</span> Thus, the intersection contains only the numbers 1 and 3, since these are the only values present in both events.</p>
+</section>
+</section>
+<section id="the-union-of-events" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="the-union-of-events"><span class="header-section-number">8.3.2</span> The Union of Events</h3>
+<p>We now look for outcomes that belong to at least one of the two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The <strong>union</strong> of events, denoted as: <span class="math display">\[ A \cup B \]</span> and represents the event that either <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, or both occur. This is shown in bottom-left diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.3">Example 8.3</h4>
+<p>Consider a standard six-sided die where the sample space is: <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A = \{1, 3, 5\}\)</span></li>
+<li><span class="math inline">\(B\)</span> = Rolling a number that is at most 3; <span class="math inline">\(B = \{1, 2, 3\}\)</span></li>
+</ul>
+<p>The union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> includes all outcomes that belong to either event or both:</p>
+<p><span class="math display">\[A \cup B = \{1, 2, 3, 5\}\]</span></p>
+<p>Thus, the union contains the numbers 1, 2, 3, and 5, since at least one of the events <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> includes each of these numbers.</p>
+</section>
+</section>
+<section id="complement-of-an-event" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="complement-of-an-event"><span class="header-section-number">8.3.3</span> Complement of an Event</h3>
+<p>For every event <span class="math inline">\(A\)</span>, there exists a complement event, which consists of all outcomes that do not belong to event <span class="math inline">\(A\)</span>.</p>
+<p>The complement of <span class="math inline">\(A\)</span> is denoted as: <span class="math display">\[ \overline{A} \]</span> and represents the event that <span class="math inline">\(A\)</span> does not occur. This is shown in bottom-right diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.4">Example 8.4</h4>
+<p>Consider rolling a standard six-sided die, where the sample space is: <span class="math display">\[S=\{1,2,3,4,5,6\}\]</span> Define the following event:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A=\{1,3,5\}\)</span></li>
+</ul>
+<p>The complement of <span class="math inline">\(A\)</span> consists of all outcomes not included in <span class="math inline">\(A\)</span>: <span class="math display">\[\overline{A}=\{2,4,6\}\]</span> Thus, the complement of rolling an odd number is rolling an even number.</p>
+</section>
+</section>
+<section id="mutually-exclusive-events" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="mutually-exclusive-events"><span class="header-section-number">8.3.4</span> Mutually Exclusive Events</h3>
+<p>In some cases, events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do not share any outcomes. Such events are called <strong>disjoint events</strong>, meaning they cannot occur simultaneously. Mathematically, this is written as: <span class="math display">\[A \cap B = \emptyset\]</span> where <span class="math inline">\(\emptyset\)</span> represents the empty set, meaning a set with no elements. This is shown in top-right diagram of <a href="#fig-venn-comb" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<section id="example-8.4-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-8.4-1">Example 8.4</h4>
+<p>Consider rolling a standard six-sided die, where the <strong>sample space</strong> is: <span class="math display">\[S=\{1,2,3,4,5,6\}\]</span></p>
+<p>Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Rolling an odd number; <span class="math inline">\(A=\{1,3,5\}\)</span></li>
+<li><span class="math inline">\(B\)</span> = Rolling an even number; <span class="math inline">\(B=\{2,4,6\}\)</span></li>
+</ul>
+<p>Since <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> do not have any numbers in common, we conclude: <span class="math display">\[A \cap B = \emptyset\]</span></p>
+<p>Thus, rolling an odd number and rolling an even number are mutually exclusive events.</p>
+<div class="center">
+<div id="fig-venn-comb" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-venn-comb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎venn2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venn-comb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: The intersection of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (top-left), mutually exhaustive events (top-right), the union of events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (bottom-left) and the complement of event <span class="math inline">\(A\)</span> (bottom-right).
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Let the sample space be: <span class="math display">\[\Omega = {1,2,3,4,5,6} \]</span> Define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = “Odd numbers”; <span class="math inline">\(A = {1,3,5}\)</span></li>
+<li><span class="math inline">\(B\)</span> = “At most three”; <span class="math inline">\(B = {1,2,3}\)</span></li>
+</ul>
+<p>Draw Venn diagrams to verify that the following statements hold:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\overline{A \cup B} = {4,6}\)</span></p></li>
+<li><p><span class="math inline">\(\overline{A} \cap \overline{B} = {4,6}\)</span></p></li>
+<li><p><span class="math inline">\(A \cup \overline{A} = {1,2,3,4,5,6} = \Omega\)</span></p></li>
+<li><p><span class="math inline">\(A \cap \overline{A} = \emptyset\)</span></p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../descriptive-stats/dispersion-measures.html" class="pagination-link" aria-label="Measures of Dispersion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../prob-theory/what-is-prob.html" class="pagination-link" aria-label="What is Probability?">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Foundational Statistics by Termeh Shafie.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
