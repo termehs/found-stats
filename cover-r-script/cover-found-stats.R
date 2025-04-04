@@ -3,10 +3,6 @@ library(ggridges)
 library(dplyr)
 library(viridis) 
 
-set.seed(123)
-
-
-# Parameters
 n_lines <- 40
 x_vals <- seq(-10, 10, length.out = 100)
 
