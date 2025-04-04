@@ -132,4 +132,5 @@ We use the **permutation rule**, as we are assigning unique items in a **specifi
 The number of ways to assign the five tasks to the five employees is:
 $$5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$$  
 
-:::-----------------------------------------------------------------
+:::
+-----------------------------------------------------------------
