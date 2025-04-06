@@ -303,9 +303,11 @@ window.Quarto = {
   <li><a href="#combinatorics" id="toc-combinatorics" class="nav-link" data-scroll-target="#combinatorics"><span class="header-section-number">2.2</span> Combinatorics</a>
   <ul class="collapse">
   <li><a href="#counting-principles" id="toc-counting-principles" class="nav-link" data-scroll-target="#counting-principles"><span class="header-section-number">2.2.1</span> Counting Principles</a></li>
-  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations"><span class="header-section-number">2.2.2</span> Combinations</a></li>
   </ul></li>
-  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">2.3</span> Permutations</a></li>
+  <li><a href="#permutations" id="toc-permutations" class="nav-link" data-scroll-target="#permutations"><span class="header-section-number">2.3</span> Permutations</a>
+  <ul class="collapse">
+  <li><a href="#combinations" id="toc-combinations" class="nav-link" data-scroll-target="#combinations"><span class="header-section-number">2.3.1</span> Combinations</a></li>
+  </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/introduction/intro-math.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -393,22 +395,18 @@ Since a person can only take one mode of transport, the number of ways to travel
 </ul>
 </section>
 </section>
-<section id="combinations" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="combinations"><span class="header-section-number">2.2.2</span> Combinations</h3>
-<p>Generally, a combination refers to a selection of objects where <strong>order does not matter</strong>. If we have <span class="math inline">\(n\)</span> distinct objects and want to select <span class="math inline">\(r\)</span> of them, the number of ways to do so is given by the <strong>combination formula</strong>:</p>
-<p><span class="math display">\[C(n,r) = \binom{n}{r} = \frac{n!}{r!(n - r)!} \]</span></p>
+</section>
+<section id="permutations" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="permutations"><span class="header-section-number">2.3</span> Permutations</h2>
+<p>Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e.&nbsp;<strong>order matters</strong>. An arrangement of <span class="math inline">\(n\)</span> different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from <span class="math inline">\(n\)</span> different objects is <span class="math display">\[n! = n\cdot (n-1)\cdot (n-2) \cdots 2\cdot 1 \]</span>.</p>
+<p>If we have <span class="math inline">\(n\)</span> distinct objects and want to arrange <span class="math inline">\(r\)</span> of them in a specific order, the number of ways to do so is given by the <strong>permutation formula</strong>:</p>
+<p><span class="math display">\[ P(n,r) = \frac{n!}{(n - r)!} \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(n!\)</span> (read as n-factorial) represents the total number of ways to arrange <span class="math inline">\(n\)</span> items.<br>
-</li>
-<li><span class="math inline">\(r!\)</span> accounts for the fact that order does not matter.<br>
+<li><span class="math inline">\(n!\)</span> (n factorial) represents the total number of ways to arrange <span class="math inline">\(n\)</span> items.<br>
 </li>
 <li><span class="math inline">\((n - r)!\)</span> accounts for the unselected objects.</li>
 </ul>
-<section id="example-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-1">Example</h4>
-<p>Choosing 3 students from a class of 10 for a group project means there are <span class="math display">\[ C(10,3) = \frac{10!}{3!(10-3)!} = \frac{10!}{3!7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120\]</span><br>
-different combinations.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -422,23 +420,27 @@ Note
 <p><span class="math display">\[ 0!=1 \]</span></p>
 </div>
 </div>
+<section id="example-2.1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-2.1">Example 2.1</h4>
+<p>In how many different ways can we permute the three objects <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>? The asnwer is <span class="math display">\[3! = 3 \cdot 2 \cdot 1 = 6\]</span> namely: <span class="math inline">\(ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA\)</span></p>
 </section>
-</section>
-</section>
-<section id="permutations" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="permutations"><span class="header-section-number">2.3</span> Permutations</h2>
-<p>Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e.&nbsp;<strong>order matters</strong>. An arrangement of <span class="math inline">\(n\)</span> different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from <span class="math inline">\(n\)</span> different objects is <span class="math display">\[n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 \]</span>.</p>
-<p>If we have <span class="math inline">\(n\)</span> distinct objects and want to arrange <span class="math inline">\(r\)</span> of them in a specific order, the number of ways to do so is given by the <strong>permutation formula</strong>:</p>
-<p><span class="math display">\[ P(n,r) = \frac{n!}{(n - r)!} \]</span></p>
+<section id="combinations" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="combinations"><span class="header-section-number">2.3.1</span> Combinations</h3>
+<p>Generally, a combination refers to a selection of objects where <strong>order does not matter</strong>. If we have <span class="math inline">\(n\)</span> distinct objects and want to select <span class="math inline">\(r\)</span> of them, the number of ways to do so is given by the <strong>combination formula</strong>:</p>
+<p><span class="math display">\[C(n,r) = \binom{n}{r} = \frac{n!}{r!(n - r)!} \]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(n!\)</span> (n factorial) represents the total number of ways to arrange <span class="math inline">\(n\)</span> items.<br>
+<li><span class="math inline">\(n!\)</span> (read as n-factorial) represents the total number of ways to arrange <span class="math inline">\(n\)</span> items.<br>
+</li>
+<li><span class="math inline">\(r!\)</span> accounts for the fact that order does not matter.<br>
 </li>
 <li><span class="math inline">\((n - r)!\)</span> accounts for the unselected objects.</li>
 </ul>
 <section id="example-2.2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="example-2.2">Example 2.2</h4>
-<p>In how many different ways can we permute the three objects <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>? The asnwer is <span class="math display">\[3! = 3 \cdot 2 \cdot 1 = 6\]</span> namely: <span class="math inline">\(ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA\)</span></p>
+<p>Choosing 3 students from a class of 10 for a group project means there are <span class="math display">\[ C(10,3) = \frac{10!}{3!(10-3)!} = \frac{10!}{3!7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120\]</span><br>
+different combinations.</p>
+</section>
 </section>
 </section>
 <section id="exercises" class="level1 unnumbered">

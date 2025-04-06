@@ -51,6 +51,32 @@ Since a person can only take one mode of transport, the number of ways to travel
 $$3 + 2 + 1 = 6 $$  
 
 
+## Permutations
+Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e. **order matters**. An arrangement of $n$ different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from $n$ different objects is $$n! = n\cdot (n-1)\cdot (n-2) \cdots 2\cdot 1 $$.
+
+If we have $n$ distinct objects and want to arrange $r$ of them in a specific order, the number of ways to do so is given by the **permutation formula**:
+
+$$ P(n,r) = \frac{n!}{(n - r)!} $$  
+
+where:
+
+- $n!$ (n factorial) represents the total number of ways to arrange $n$ items.  
+- $(n - r)!$ accounts for the unselected objects.  
+
+::: callout-warning
+## Note
+
+$$ 0!=1 $$
+:::
+
+
+#### Example 2.1 {.unnumbered}
+
+In how many different ways can we permute the three objects $A$, $B$ and $C$?
+The asnwer is
+$$3! = 3 \cdot 2 \cdot 1 = 6$$ namely: $ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA$
+
+
 
 ### Combinations 
 Generally, a combination refers to a selection of objects where **order does not matter**. If we have $n$ distinct objects and want to select $r$ of them, the number of ways to do so is given by the **combination formula**:
@@ -63,36 +89,10 @@ where:
 - $r!$ accounts for the fact that order does not matter.  
 - $(n - r)!$ accounts for the unselected objects.
 
-#### Example  {.unnumbered}
+#### Example 2.2 {.unnumbered}
 Choosing 3 students from a class of 10 for a group project means there are 
   $$ C(10,3) = \frac{10!}{3!(10-3)!} = \frac{10!}{3!7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120$$  
 different combinations.
-
-::: callout-warning
-## Note
-
-$$ 0!=1 $$
-:::
-
-## Permutations
-Permutations refers to the mathematical calculation of the number of ways a particular set can be arranged, i.e. **order matters**. An arrangement of $n$ different objects in a specific order is called a permutation of the objects. The number of permutations that can be formed from $n$ different objects is $$n! = n\cdot (n-1)\cdot (n-2)\cdot 2\cdot 1 $$.
-
-If we have $n$ distinct objects and want to arrange $r$ of them in a specific order, the number of ways to do so is given by the **permutation formula**:
-
-$$ P(n,r) = \frac{n!}{(n - r)!} $$  
-
-where:
-
-- $n!$ (n factorial) represents the total number of ways to arrange $n$ items.  
-- $(n - r)!$ accounts for the unselected objects.  
-
-
-
-#### Example 2.2 {.unnumbered}
-
-In how many different ways can we permute the three objects $A$, $B$ and $C$?
-The asnwer is
-$$3! = 3 \cdot 2 \cdot 1 = 6$$ namely: $ABC,\  ACB, \ BAC, \ BCA,\  CAB, \ CBA$
 
 
 
