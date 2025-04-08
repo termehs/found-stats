@@ -167,4 +167,129 @@ Conditional probability is like getting insider information:
 - Is your package arriving today? If it was shipped yesterday, chances are better.  
 - Are you likely to pass your exam? If you've studied, your odds are much higher!  
 
----
+
+
+#### Example 11.3: Conditional Probability   {.unnumbered}
+
+We are given a population of individuals where:
+
+- 40% are men  
+- 60% are women  
+
+Furthermore, we know that:
+
+- 28% of the population are smokers, of which 8% are male and 20% are female  
+
+A person is randomly selected from the population.
+
+We are interested in finding the following conditional probabilities:
+
+(a) What is the probability that the person is a smoker, given that the person is male?
+
+(b) What is the probability that the person is a smoker, given that the person is female?
+
+(c) What is the probability that the person is female, given that the person is a smoker?
+
+We define the following events:
+
+- $A$: the person is a woman  
+- $\bar{A}$: the person is a man  
+- $B$: the person is a smoker  
+- $\bar{B}$: the person is a non-smoker  
+
+and the probabilities given for the events:
+
+- $P(A) = 0.6$
+- $P(\bar{A}) = 0.4$
+- $P(B) = 0.28$
+- $P(\bar{B}) = 0.72$
+- $P(A \cap B) = 0.20$
+- $P(\bar{A} \cap B) = 0.08$
+
+To help us calculate conditional probabilities, we construct a **contingency table** that shows joint and marginal probabilities. We fill in the parts given to us:
+
+|                  | Woman ($A$) | Man ($\bar{A}$) | Total |
+|------------------|-----------|-------------------|-------|
+| **Smoker ($B$)**       | 0.20      | 0.08              | 0.28  |
+| **Non-smoker ($\bar{B}$)** | ?         | ?                 | 0.72  |
+| **Total**        | 0.60      | 0.40              | 1.00  |
+
+To fill in the remaining cells, we use subtraction:
+$$P(A \cap \bar{B}) = P(A) - P(A \cap B) = 0.60 - 0.20 = 0.40$$
+$$P(\bar{A} \cap \bar{B}) = P(\bar{A}) - P(\bar{A} \cap B) = 0.40 - 0.08 = 0.32$$
+
+The complete table is then given below:
+
+|                  | Woman ($A$) | Man ($\bar{A}$) | Total |
+|------------------|-----------|-------------------|-------|
+| **Smoker ($B$)**       | 0.20      | 0.08              | 0.28  |
+| **Non-smoker ($\bar{B}$)** | 0.40         | 0.32                 | 0.72  |
+| **Total**        | 0.60      | 0.40              | 1.00  |
+
+With the help of this table, and the equation for conditional probability above, we can now find the asked probabilities (a)--(c).
+
+
+::: {.callout-tip collapse="true"}
+## Solution (a)
+(a) Smoker given man:  
+$$P(B \mid \bar{A}) = \frac{P(B \cap \bar{A})}{P(\bar{A})}
+= \frac{0.08}{0.40} = 0.2$$
+So, the probability that a person is a smoker given that he is a man is 20%.
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution (b)
+Smoker given woman:
+$$
+   P(B \mid A) = \frac{P(A \cap B)}{P(A)} = \frac{0.20}{0.60} = \frac{1}{3} \approx 0.333
+$$
+:::
+
+::: {.callout-tip collapse="true"}
+## Solution (c)
+Woman given smoker:
+$$
+   P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{0.20}{0.28} \approx 0.714
+$$
+:::
+
+## The Multiplication Rule
+From the definition of conditional probability, we can derive what is known as the **multiplication rule**.
+
+For two events $A$ and $B$, the following holds:  
+$$
+P(A \cap B) = P(A) \cdot P(B \mid A)
+$$
+
+This rule is particularly useful when determining the joint probability of two events that are not independent.
+
+#### Example 11.4: Defective Items  {.unnumbered}
+
+Consider a batch of 100 items, out of which 5 are defective.
+
+We randomly select one item from the 100. Then, without replacing the first, we randomly select another from the remaining 99 items.
+
+We want to find the probability that both selected items are defective.
+
+Define the events:
+
+- $A$: "The first selected item is defective"  
+- $B$: "The second selected item is defective"
+
+We are interested in computing $P(A \cap B)$
+and we know that $P(A) = \frac{5}{100}$   and $P(B \mid A) = \frac{4}{99}$  (since one defective item has been removed, 4 defective remain out of 99 items.)
+Now we apply the multiplication rule:
+$$P(A \cap B) = P(A) \cdot P(B \mid A) = \frac{5}{100} \cdot \frac{4}{99} = \frac{20}{9900} = \frac{1}{495}$$
+Alternatively, we could have used combinatorics to solve the problem. Can you see how? 
+
+::: {.callout-tip collapse="true"}
+## Solution 
+We want the probability of choosing 2 defective items out of 5, from a total of 100:
+
+$$P(\text{both defective}) = \frac{\binom{5}{2} \cdot \binom{95}{0}}{\binom{100}{2}} = \frac{10 \cdot 1}{4950} = \frac{1}{495}$$
+
+So, both the multiplication rule and combinatorics give us the same result: the probability is $\frac{1}{495}$
+:::
+
+
+## Independence

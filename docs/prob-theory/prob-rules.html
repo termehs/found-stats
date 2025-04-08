@@ -302,6 +302,8 @@ window.Quarto = {
   <li><a href="#the-union-of-three-or-more-events" id="toc-the-union-of-three-or-more-events" class="nav-link" data-scroll-target="#the-union-of-three-or-more-events"><span class="header-section-number">11.2.1</span> The Union of Three or More Events</a></li>
   </ul></li>
   <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">11.3</span> Conditional Probability</a></li>
+  <li><a href="#the-multiplication-rule" id="toc-the-multiplication-rule" class="nav-link" data-scroll-target="#the-multiplication-rule"><span class="header-section-number">11.4</span> The Multiplication Rule</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">11.5</span> Independence</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/prob-theory/prob-rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -549,7 +551,214 @@ where <strong><span class="math inline">\(P(A) &gt; 0\)</span></strong> (because
 </li>
 <li>Are you likely to pass your exam? If you’ve studied, your odds are much higher!</li>
 </ul>
-<hr>
+<section id="example-11.3-conditional-probability" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-11.3-conditional-probability">Example 11.3: Conditional Probability</h4>
+<p>We are given a population of individuals where:</p>
+<ul>
+<li>40% are men<br>
+</li>
+<li>60% are women</li>
+</ul>
+<p>Furthermore, we know that:</p>
+<ul>
+<li>28% of the population are smokers, of which 8% are male and 20% are female</li>
+</ul>
+<p>A person is randomly selected from the population.</p>
+<p>We are interested in finding the following conditional probabilities:</p>
+<ol type="a">
+<li><p>What is the probability that the person is a smoker, given that the person is male?</p></li>
+<li><p>What is the probability that the person is a smoker, given that the person is female?</p></li>
+<li><p>What is the probability that the person is female, given that the person is a smoker?</p></li>
+</ol>
+<p>We define the following events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span>: the person is a woman<br>
+</li>
+<li><span class="math inline">\(\bar{A}\)</span>: the person is a man<br>
+</li>
+<li><span class="math inline">\(B\)</span>: the person is a smoker<br>
+</li>
+<li><span class="math inline">\(\bar{B}\)</span>: the person is a non-smoker</li>
+</ul>
+<p>and the probabilities given for the events:</p>
+<ul>
+<li><span class="math inline">\(P(A) = 0.6\)</span></li>
+<li><span class="math inline">\(P(\bar{A}) = 0.4\)</span></li>
+<li><span class="math inline">\(P(B) = 0.28\)</span></li>
+<li><span class="math inline">\(P(\bar{B}) = 0.72\)</span></li>
+<li><span class="math inline">\(P(A \cap B) = 0.20\)</span></li>
+<li><span class="math inline">\(P(\bar{A} \cap B) = 0.08\)</span></li>
+</ul>
+<p>To help us calculate conditional probabilities, we construct a <strong>contingency table</strong> that shows joint and marginal probabilities. We fill in the parts given to us:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Woman (<span class="math inline">\(A\)</span>)</th>
+<th>Man (<span class="math inline">\(\bar{A}\)</span>)</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Smoker (<span class="math inline">\(B\)</span>)</strong></td>
+<td>0.20</td>
+<td>0.08</td>
+<td>0.28</td>
+</tr>
+<tr class="even">
+<td><strong>Non-smoker (<span class="math inline">\(\bar{B}\)</span>)</strong></td>
+<td>?</td>
+<td>?</td>
+<td>0.72</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>0.60</td>
+<td>0.40</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<p>To fill in the remaining cells, we use subtraction: <span class="math display">\[P(A \cap \bar{B}) = P(A) - P(A \cap B) = 0.60 - 0.20 = 0.40\]</span> <span class="math display">\[P(\bar{A} \cap \bar{B}) = P(\bar{A}) - P(\bar{A} \cap B) = 0.40 - 0.08 = 0.32\]</span></p>
+<p>The complete table is then given below:</p>
+<table class="table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 20%">
+<col style="width: 34%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Woman (<span class="math inline">\(A\)</span>)</th>
+<th>Man (<span class="math inline">\(\bar{A}\)</span>)</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Smoker (<span class="math inline">\(B\)</span>)</strong></td>
+<td>0.20</td>
+<td>0.08</td>
+<td>0.28</td>
+</tr>
+<tr class="even">
+<td><strong>Non-smoker (<span class="math inline">\(\bar{B}\)</span>)</strong></td>
+<td>0.40</td>
+<td>0.32</td>
+<td>0.72</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>0.60</td>
+<td>0.40</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<p>With the help of this table, and the equation for conditional probability above, we can now find the asked probabilities (a)–(c).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution (a)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Smoker given man:<br>
+<span class="math display">\[P(B \mid \bar{A}) = \frac{P(B \cap \bar{A})}{P(\bar{A})}
+= \frac{0.08}{0.40} = 0.2\]</span> So, the probability that a person is a smoker given that he is a man is 20%.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution (b)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Smoker given woman: <span class="math display">\[
+   P(B \mid A) = \frac{P(A \cap B)}{P(A)} = \frac{0.20}{0.60} = \frac{1}{3} \approx 0.333
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution (c)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Woman given smoker: <span class="math display">\[
+   P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{0.20}{0.28} \approx 0.714
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-multiplication-rule" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="the-multiplication-rule"><span class="header-section-number">11.4</span> The Multiplication Rule</h2>
+<p>From the definition of conditional probability, we can derive what is known as the <strong>multiplication rule</strong>.</p>
+<p>For two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the following holds:<br>
+<span class="math display">\[
+P(A \cap B) = P(A) \cdot P(B \mid A)
+\]</span></p>
+<p>This rule is particularly useful when determining the joint probability of two events that are not independent.</p>
+<section id="example-11.4-defective-items" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-11.4-defective-items">Example 11.4: Defective Items</h4>
+<p>Consider a batch of 100 items, out of which 5 are defective.</p>
+<p>We randomly select one item from the 100. Then, without replacing the first, we randomly select another from the remaining 99 items.</p>
+<p>We want to find the probability that both selected items are defective.</p>
+<p>Define the events:</p>
+<ul>
+<li><span class="math inline">\(A\)</span>: “The first selected item is defective”<br>
+</li>
+<li><span class="math inline">\(B\)</span>: “The second selected item is defective”</li>
+</ul>
+<p>We are interested in computing <span class="math inline">\(P(A \cap B)\)</span> and we know that <span class="math inline">\(P(A) = \frac{5}{100}\)</span> and <span class="math inline">\(P(B \mid A) = \frac{4}{99}\)</span> (since one defective item has been removed, 4 defective remain out of 99 items.) Now we apply the multiplication rule: <span class="math display">\[P(A \cap B) = P(A) \cdot P(B \mid A) = \frac{5}{100} \cdot \frac{4}{99} = \frac{20}{9900} = \frac{1}{495}\]</span> Alternatively, we could have used combinatorics to solve the problem. Can you see how?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We want the probability of choosing 2 defective items out of 5, from a total of 100:</p>
+<p><span class="math display">\[P(\text{both defective}) = \frac{\binom{5}{2} \cdot \binom{95}{0}}{\binom{100}{2}} = \frac{10 \cdot 1}{4950} = \frac{1}{495}\]</span></p>
+<p>So, both the multiplication rule and combinatorics give us the same result: the probability is <span class="math inline">\(\frac{1}{495}\)</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="independence" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="independence"><span class="header-section-number">11.5</span> Independence</h2>
 
 
 </section>

@@ -564,7 +564,7 @@
     "href": "prob-theory/prob-rules.html#conditional-probability",
     "title": "11  Probability Rules",
     "section": "11.3 Conditional Probability",
-    "text": "11.3 Conditional Probability\nImagine you’re waiting for a pizza delivery. Normally, the probability of the delivery driver being on time (event \\(B\\)) might not be great. But then you receive a text message saying, “Your order is on the way!” (event \\(A\\) has occurred). Now that you have extra information, your estimate of \\(P(B)\\) should change, right? That’s the essence of conditional probability; updating what we know when we gain new insight.\nWe originally wanted to find the probability of \\(B\\) happening, i.e., \\(P(B)\\). But now we’ve been given a game-changing update: \\(A\\) has happened. That means our world is now limited to the subset of outcomes where \\(A\\) is true. In other words, we’re no longer looking at the whole sample space \\(\\Omega\\) - our new reality is just \\(A\\)!\nSo, the updated probability of \\(B\\) given that \\(A\\) has occurred, the so called conditional probability of \\(B\\) given \\(A\\), written as \\(P(B \\mid A)\\), is calculated using:\n\\[\nP(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}\n\\]\nwhere \\(P(A) &gt; 0\\) (because if \\(A\\) didn’t happen, there’s no reason to update anything). This formula quantifies how the probability of \\(B\\) changes when we have additional information that \\(A\\) has occurred.\nConditional probability is like getting insider information:\n\nDid your team win the game? If they were leading at halftime, the probability changes.\n\nIs your package arriving today? If it was shipped yesterday, chances are better.\n\nAre you likely to pass your exam? If you’ve studied, your odds are much higher!",
+    "text": "11.3 Conditional Probability\nImagine you’re waiting for a pizza delivery. Normally, the probability of the delivery driver being on time (event \\(B\\)) might not be great. But then you receive a text message saying, “Your order is on the way!” (event \\(A\\) has occurred). Now that you have extra information, your estimate of \\(P(B)\\) should change, right? That’s the essence of conditional probability; updating what we know when we gain new insight.\nWe originally wanted to find the probability of \\(B\\) happening, i.e., \\(P(B)\\). But now we’ve been given a game-changing update: \\(A\\) has happened. That means our world is now limited to the subset of outcomes where \\(A\\) is true. In other words, we’re no longer looking at the whole sample space \\(\\Omega\\) - our new reality is just \\(A\\)!\nSo, the updated probability of \\(B\\) given that \\(A\\) has occurred, the so called conditional probability of \\(B\\) given \\(A\\), written as \\(P(B \\mid A)\\), is calculated using:\n\\[\nP(B \\mid A) = \\frac{P(A \\cap B)}{P(A)}\n\\]\nwhere \\(P(A) &gt; 0\\) (because if \\(A\\) didn’t happen, there’s no reason to update anything). This formula quantifies how the probability of \\(B\\) changes when we have additional information that \\(A\\) has occurred.\nConditional probability is like getting insider information:\n\nDid your team win the game? If they were leading at halftime, the probability changes.\n\nIs your package arriving today? If it was shipped yesterday, chances are better.\n\nAre you likely to pass your exam? If you’ve studied, your odds are much higher!\n\n\nExample 11.3: Conditional Probability\nWe are given a population of individuals where:\n\n40% are men\n\n60% are women\n\nFurthermore, we know that:\n\n28% of the population are smokers, of which 8% are male and 20% are female\n\nA person is randomly selected from the population.\nWe are interested in finding the following conditional probabilities:\n\nWhat is the probability that the person is a smoker, given that the person is male?\nWhat is the probability that the person is a smoker, given that the person is female?\nWhat is the probability that the person is female, given that the person is a smoker?\n\nWe define the following events:\n\n\\(A\\): the person is a woman\n\n\\(\\bar{A}\\): the person is a man\n\n\\(B\\): the person is a smoker\n\n\\(\\bar{B}\\): the person is a non-smoker\n\nand the probabilities given for the events:\n\n\\(P(A) = 0.6\\)\n\\(P(\\bar{A}) = 0.4\\)\n\\(P(B) = 0.28\\)\n\\(P(\\bar{B}) = 0.72\\)\n\\(P(A \\cap B) = 0.20\\)\n\\(P(\\bar{A} \\cap B) = 0.08\\)\n\nTo help us calculate conditional probabilities, we construct a contingency table that shows joint and marginal probabilities. We fill in the parts given to us:\n\n\n\n\nWoman (\\(A\\))\nMan (\\(\\bar{A}\\))\nTotal\n\n\n\n\nSmoker (\\(B\\))\n0.20\n0.08\n0.28\n\n\nNon-smoker (\\(\\bar{B}\\))\n?\n?\n0.72\n\n\nTotal\n0.60\n0.40\n1.00\n\n\n\nTo fill in the remaining cells, we use subtraction: \\[P(A \\cap \\bar{B}) = P(A) - P(A \\cap B) = 0.60 - 0.20 = 0.40\\] \\[P(\\bar{A} \\cap \\bar{B}) = P(\\bar{A}) - P(\\bar{A} \\cap B) = 0.40 - 0.08 = 0.32\\]\nThe complete table is then given below:\n\n\n\n\n\n\n\n\n\n\nWoman (\\(A\\))\nMan (\\(\\bar{A}\\))\nTotal\n\n\n\n\nSmoker (\\(B\\))\n0.20\n0.08\n0.28\n\n\nNon-smoker (\\(\\bar{B}\\))\n0.40\n0.32\n0.72\n\n\nTotal\n0.60\n0.40\n1.00\n\n\n\nWith the help of this table, and the equation for conditional probability above, we can now find the asked probabilities (a)–(c).\n\n\n\n\n\n\nSolution (a)\n\n\n\n\n\n\nSmoker given man:\n\\[P(B \\mid \\bar{A}) = \\frac{P(B \\cap \\bar{A})}{P(\\bar{A})}\n= \\frac{0.08}{0.40} = 0.2\\] So, the probability that a person is a smoker given that he is a man is 20%.\n\n\n\n\n\n\n\n\n\n\nSolution (b)\n\n\n\n\n\nSmoker given woman: \\[\n   P(B \\mid A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{0.20}{0.60} = \\frac{1}{3} \\approx 0.333\n\\]\n\n\n\n\n\n\n\n\n\nSolution (c)\n\n\n\n\n\nWoman given smoker: \\[\n   P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0.20}{0.28} \\approx 0.714\n\\]",
     "crumbs": [
       "Probability Theory",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
@@ -639,6 +639,50 @@
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "Summary"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#solution-c",
+    "href": "prob-theory/prob-rules.html#solution-c",
+    "title": "11  Probability Rules",
+    "section": "11.4 Solution (c)",
+    "text": "11.4 Solution (c)\nWoman given smoker: \\[\n   P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{0.20}{0.28} \\approx 0.714\n\\] :::",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#the-multiplication-rule",
+    "href": "prob-theory/prob-rules.html#the-multiplication-rule",
+    "title": "11  Probability Rules",
+    "section": "11.4 The Multiplication Rule",
+    "text": "11.4 The Multiplication Rule\nFrom the definition of conditional probability, we can derive what is known as the multiplication rule.\nFor two events \\(A\\) and \\(B\\), the following holds:\n\\[\nP(A \\cap B) = P(A) \\cdot P(B \\mid A)\n\\]\nThis rule is particularly useful when determining the joint probability of two events that are not independent.\n\nExample 11.4: Defective Items\nConsider a batch of 100 items, out of which 5 are defective.\nWe randomly select one item from the 100. Then, without replacing the first, we randomly select another from the remaining 99 items.\nWe want to find the probability that both selected items are defective.\nDefine the events:\n\n\\(A\\): “The first selected item is defective”\n\n\\(B\\): “The second selected item is defective”\n\nWe are interested in computing \\(P(A \\cap B)\\) and we know that \\(P(A) = \\frac{5}{100}\\) and \\(P(B \\mid A) = \\frac{4}{99}\\) (since one defective item has been removed, 4 defective remain out of 99 items.) Now we apply the multiplication rule: \\[P(A \\cap B) = P(A) \\cdot P(B \\mid A) = \\frac{5}{100} \\cdot \\frac{4}{99} = \\frac{20}{9900} = \\frac{1}{495}\\] Alternatively, we could have used combinatorics to solve the problem. Can you see how?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe want the probability of choosing 2 defective items out of 5, from a total of 100:\n\\[P(\\text{both defective}) = \\frac{\\binom{5}{2} \\cdot \\binom{95}{0}}{\\binom{100}{2}} = \\frac{10 \\cdot 1}{4950} = \\frac{1}{495}\\]\nSo, both the multiplication rule and combinatorics give us the same result: the probability is \\(\\frac{1}{495}\\)",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#example-defective-items",
+    "href": "prob-theory/prob-rules.html#example-defective-items",
+    "title": "11  Probability Rules",
+    "section": "11.5 Example: Defective Items",
+    "text": "11.5 Example: Defective Items\nConsider a batch of 100 items, out of which 5 are defective.\nWe randomly select one item from the 100. Then, without replacing the first, we randomly select another from the remaining 99 items.\nWe want to find the probability that both selected items are defective.\nDefine the events: - \\(A\\): “The first selected item is defective”\n- \\(B\\): “The second selected item is defective”\nWe are interested in computing \\(P(A \\cap B)\\) and we know that \\(P(A) = \\frac{5}{100}\\) and \\(P(B \\mid A) = \\frac{4}{99}\\) (since one defective item has been removed, 4 defective remain out of 99 items.) Now we apply the multiplication rule: \\[P(A \\cap B) = P(A) \\cdot P(B \\mid A) = \\frac{5}{100} \\cdot \\frac{4}{99} = \\frac{20}{9900} = \\frac{1}{495}\\] Alternatively, we could have used combinatorics to solve the problem. Can you see how?\n\n\n\n\n\n\nSolution\n\n\n\n\n\nWe want the probability of choosing 2 defective items out of 5, from a total of 100:\n\\[P(\\text{both defective}) = \\frac{\\binom{5}{2} \\cdot \\binom{95}{0}}{\\binom{100}{2}} = \\frac{10 \\cdot 1}{4950} = \\frac{1}{495}\\]\nSo, both the multiplication rule and combinatorics give us the same result: the probability is \\(\\frac{1}{495}\\)",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
+    ]
+  },
+  {
+    "objectID": "prob-theory/prob-rules.html#independence",
+    "href": "prob-theory/prob-rules.html#independence",
+    "title": "11  Probability Rules",
+    "section": "11.5 Independence",
+    "text": "11.5 Independence",
+    "crumbs": [
+      "Probability Theory",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
     ]
   }
 ]
