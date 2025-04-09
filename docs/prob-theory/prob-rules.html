@@ -304,6 +304,7 @@ window.Quarto = {
   <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">11.3</span> Conditional Probability</a></li>
   <li><a href="#the-multiplication-rule" id="toc-the-multiplication-rule" class="nav-link" data-scroll-target="#the-multiplication-rule"><span class="header-section-number">11.4</span> The Multiplication Rule</a></li>
   <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">11.5</span> Independence</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/prob-theory/prob-rules.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -759,6 +760,154 @@ Solution
 </section>
 <section id="independence" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="independence"><span class="header-section-number">11.5</span> Independence</h2>
+<p>Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are said to be <strong>independent</strong> if:</p>
+<p><span class="math display">\[P(A \cap B) = P(A) \cdot P(B)\]</span></p>
+<p>This also implies:</p>
+<p><span class="math display">\[P(A \mid B) = P(A \mid \bar{B}) = P(A)\]</span></p>
+<p>In other words, knowing that <span class="math inline">\(B\)</span> has occurred (or not) tells us nothing about whether <span class="math inline">\(A\)</span> will happen. This follows from the definition of conditional probability:</p>
+<p><span class="math display">\[P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A) \cdot P(B)}{P(B)} = P(A)\]</span></p>
+<blockquote class="blockquote">
+<p>Intuition: If you’re flipping a coin, the result of the second flip doesn’t care what happened on the first flip!</p>
+</blockquote>
+<section id="example-11.5-rolling-dice" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-11.5-rolling-dice">Example 11.5: Rolling Dice 🎲</h4>
+<p>Let’s roll a standard die twice.</p>
+<ul>
+<li>Let <span class="math inline">\(A\)</span> be “getting a 6 on the first roll”</li>
+<li>Let <span class="math inline">\(B\)</span> be “getting a 6 on the second roll”</li>
+</ul>
+<p>These events are independent, because one roll doesn’t affect the other. This means that <span class="math display">\[P(A) = \frac{1}{6} \ \textrm{ and } \ P(B) = \frac{1}{6}\]</span></p>
+<p>Therefore: <span class="math display">\[P(\text{6 on both rolls}) = P(A \cap B) = \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}\]</span> Note that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then the following events are also indepndent:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> and <span class="math inline">\(\bar{B}\)</span></li>
+<li><span class="math inline">\(\bar{A}\)</span> and <span class="math inline">\(B\)</span></li>
+<li><span class="math inline">\(\bar{A}\)</span> and <span class="math inline">\(\bar{B}\)</span></li>
+</ul>
+<p>In other words, independence spreads across complements!</p>
+<p>Let’s calculate the probability of <em>not</em> getting a 6 in either roll.</p>
+<ul>
+<li><span class="math inline">\(\bar{A}\)</span>: Not getting a 6 on the first roll with probability <span class="math inline">\(P(\bar{A}) = \frac{5}{6}\)</span></li>
+<li><span class="math inline">\(\bar{B}\)</span>: Not getting a 6 on the second roll with probability <span class="math inline">\(P(\bar{B}) = \frac{5}{6}\)</span></li>
+</ul>
+<p>Since they are independent events, the probability of their intersection is given by</p>
+<p><span class="math display">\[P(\bar{A} \cap \bar{B}) = \frac{5}{6} \cdot \frac{5}{6} = \frac{25}{36}\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t confuse independence with mutual exclusivity — they’re very different! Exercises 1 and 2 below illlutrate this.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>The probability of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are given by <span class="math inline">\(P(A) = 0.5\)</span> and <span class="math inline">\(P(B) = 0.2\)</span>. What’s <span class="math inline">\(P(A \cap B)\)</span> if</li>
+</ol>
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive events</p></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> can’t happen together, then <span class="math inline">\(P(A \cap B) = \emptyset = 0\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then <span class="math inline">\(P(A \cap B) = P(A) \cdot P(B) = 0.5 \cdot 0.2 = 0.1\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>The probability of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are given by <span class="math inline">\(P(A) = 0.5\)</span> and <span class="math inline">\(P(B) = 0.2\)</span>. What is <span class="math inline">\(P(A \cup B)\)</span>, the probability that at least one happens, if</li>
+</ol>
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive events</p></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent events</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive events, then <span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.5 + 0.2 - 0 = 0.7\)</span>.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then <span class="math inline">\(P(A \cup B) = 0.5 + 0.2 - 0.1 = 0.6\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Assume we know the following: <span class="math inline">\(P(A) = 0.6\)</span>, <span class="math inline">\(P(A \mid B) = 0.75\)</span>, <span class="math inline">\(P(B \mid A) = 0.5\)</span>. What is the probability that <span class="math inline">\(B\)</span> will happen?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Find <span class="math inline">\(P(A \cap B)\)</span> using the conditional probability rule:</p>
+<p><span class="math display">\[P(A \cap B) = P(A) \cdot P(B \mid A) = 0.6 \cdot 0.5 = 0.3\]</span></p>
+<p>Then use the definition of conditional probability:</p>
+<p><span class="math display">\[P(B) = \frac{P(A \cap B)}{P(A \mid B)} = \frac{0.3}{0.75} = 0.4\]</span></p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Anna and Bob go downhill skiing. The probability that Anna falls is <span class="math inline">\(1/2\)</span>, while the probability that Bob falls is <span class="math inline">\(1/3\)</span>. The probability that both fall is <span class="math inline">\(1/4\)</span>. What is the probability that both make it safely down the slope?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> = Anna falls</li>
+<li><span class="math inline">\(B\)</span> = Bob falls</li>
+</ul>
+<p>We want the probability that both Anna and Bob make it down the slope safely <span class="math display">\[P(\bar{A} \cap \bar{B}) = P(\overline{A \cup B}) =  1 - P(A \cup B)\]</span></p>
+<p><span class="math display">\[P(\bar{A} \cap \bar{B})  = 1 - P(A \cup B)
+= 1 - [P(A) + P(B) - P(A \cap B)] \]</span> <span class="math display">\[ = 1 - \left(\frac{1}{2} + \frac{1}{3} - \frac{1}{4}\right) = \frac{5}{12}\]</span></p>
+</div>
+</div>
+</div>
 
 
 </section>
