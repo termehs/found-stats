@@ -291,5 +291,5 @@ $$P(\text{both defective}) = \frac{\binom{5}{2} \cdot \binom{95}{0}}{\binom{100}
 So, both the multiplication rule and combinatorics give us the same result: the probability is $\frac{1}{495}$
 :::
 
-
 ## Independence
+

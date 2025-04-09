@@ -181,7 +181,7 @@ Let's summarize this data by counting how many we have in each grade category:
 | 5             | ✔️✔️✔️            | 3                 |
 | **Total**     |                   | **25**            |
 
-The sum of all frequencies equals the total number of observations: \[ \sum\_{i=1}\^{k} f_i = n \]
+The sum of all frequencies equals the total number of observations: $\sum_{i=1}^{k} f_i = n$.
 
 We have created a **frequency table** by grouping the data into categories which can be visualized using a **bar chart**:
 
