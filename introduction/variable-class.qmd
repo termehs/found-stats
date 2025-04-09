@@ -22,7 +22,7 @@ graph TD;
     C --> E(Continuous);
 ```
 
-Variable classification flowchart.
+Variable classification.
 :::
 
 ### Quantitative (Numerical)
@@ -59,7 +59,7 @@ Finally, ratio scale has all of the above properties but also a natural zero poi
 | **Interval** | Yes | Yes | Yes | No | temperature in Celsius. credit scores, calender years |
 | **Ratio** | Yes | Yes | Yes | Yes | length, weight, time, salary |
 
-: Table Summary of Measurement Levels
+: Summary of measurement levels.
 :::
 
 ## Types of Numbers
