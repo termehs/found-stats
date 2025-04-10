@@ -805,5 +805,126 @@
       "Probability Theory",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Probability Rules</span>"
     ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html",
+    "href": "rvs-probdists/random-variables.html",
+    "title": "12  Random Variables",
+    "section": "",
+    "text": "12.1 What is a Random Variable?\nIn statistics, sampling should always be done randomly. This means that before the sampling occurs, we do not know who will be selected; it’s a random experiment where all individuals in the population are possible outcomes.\nTo introduce the idea of a random variable (also called a stochastic variable), imagine a small population of six individuals: Anna, Bob, Carol, David, Erin, Finn. This is shown in Figure 12.1 (a).\nWe are not primarily interested in the individuals themselves, but in the values they hold on some variable. For example, suppose we want to study whether each person has a driver’s license. Let’s assign a value of 1 to those who have a license and 0 to those who don’t. Now, instead of thinking about names, our outcome space transforms into a set of 1’s and 0’s, depending on the presence or absence of a driver’s license. This is shown in Figure 12.1 (b).\nIn probability theory, we often want to describe a random experiment using a variable before the experiment is carried out. Because we do not know in advance what the outcome will be, we use a random variable to represent the result. This variable is typically denoted by a capital letter, such as \\(X\\), \\(Y\\), or \\(Z\\), often chosen from the end of the alphabet.\nFor example, we might define the variable \\(X\\) as:\n\\(X\\) = Number of people with a driver’s license\nThis variable can take on different values depending on who is selected during the sampling process. By grouping all individuals who share the same outcome value for our variable, we divide the outcome space into disjoint events. Suppose we define the event \\(A\\) as: “A randomly selected individual has a driver’s license.”\nThis allows us to split the outcome space into two distinct parts: those with \\(X = 1\\) (event \\(A\\)), and those with \\(X = 0\\) (event \\(\\bar{A}\\)), as shown in Figure 12.2.\nIf three of the six individuals in the population have a license, then the probability of selecting a person with a license is:\n\\[\nP(X = 1) = \\frac{3}{6} = 0.5\n\\]\nAnd the probability of selecting someone without a license is:\n\\[\nP(X = 0) = \\frac{3}{6} = 0.5\n\\]\nThis defines the probability distribution of the variable \\(X\\). Note that we can construct an infinite number of random variables for the same random experiment. For instance, if we use the same group of six people, we could define a new variable \\(X\\) to represent vaccination instead of license status. Then we would need to specify what values the variable takes (e.g., 1 = vaccinated, 0 = not vaccinated), define the corresponding event \\(A\\), and determine the resulting probability distribution for this new version of \\(X\\).\nOnce the random event has occurred and the experiment is completed, the stochastic variable will have assumed a specific value. At that point, we switch notation and use lowercase letters (such as \\(x\\), \\(y\\), or \\(z\\)) to refer to the observed values. We write \\(P(x) = P(X = x)\\), which defines the probability function for the variable \\(X\\). This function tells us the likelihood that \\(X\\) takes on specific values \\(x\\).\nIn summary, a random variable is a numerical variable whose value is determined by the outcome of a random experiment. Before the experiment is performed, we don’t know what value the variable will take, but we do know the set of possible values it may assume. Once the experiment is conducted, the variable takes on a definite value, and we can analyze its behavior using its probability distribution.\nWe use uppercase letters like \\(X\\) to denote random variables, and the corresponding lowercase letters (like \\(x\\)) to represent actual outcomes. Depending on the context, random variables may be discrete or continuous, and each has its own type of probability model.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#defining-the-variable",
+    "href": "rvs-probdists/random-variables.html#defining-the-variable",
+    "title": "12  Random Variables",
+    "section": "12.2 ✍️ Defining the Variable",
+    "text": "12.2 ✍️ Defining the Variable\nIn probability theory, we often want to describe a random experiment using a variable before the experiment is carried out. Because we do not know in advance what the outcome will be, we use a stochastic variable to represent the result. This variable is typically denoted by a capital letter, such as ( X ), ( Y ), or ( Z ), often chosen from the end of the alphabet.\nFor example, we might define the variable ( X ) as:\n\\[\nX = \\text{Number of people with a driver’s license}\n\\]\nThis variable can take on different values depending on who is selected during the sampling.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#interpreting-outcomes-through-variables",
+    "href": "rvs-probdists/random-variables.html#interpreting-outcomes-through-variables",
+    "title": "12  Random Variables",
+    "section": "12.3 🧠 Interpreting Outcomes Through Variables",
+    "text": "12.3 🧠 Interpreting Outcomes Through Variables\nBy grouping all individuals who share the same outcome value for our variable, we divide the outcome space into disjoint events. Suppose we define the event ( A ) as:\n“A randomly selected individual has a driver’s license.”\nThis allows us to split the outcome space into two distinct parts: those with ( X = 1 ) (event ( A )) and those with ( X = 0 ) (event ( {A} )).\n\n\n\n\n\n\n\nFigure 12.2: Text.\n\n\n\n\nIf three of the six individuals in the population have a license, then the probability of selecting a person with a license is:\n\\[\nP(X = 1) = \\frac{3}{6} = 0.5\n\\]\nAnd the probability of selecting someone without a license is:\n\\[\nP(X = 0) = \\frac{3}{6} = 0.5\n\\]\nThis defines the probability distribution of the variable ( X ).",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#many-variables-one-experiment",
+    "href": "rvs-probdists/random-variables.html#many-variables-one-experiment",
+    "title": "12  Random Variables",
+    "section": "12.2 🔁 Many Variables, One Experiment",
+    "text": "12.2 🔁 Many Variables, One Experiment\nImportantly, we can define many different stochastic variables based on the same random experiment. For instance, if we use the same group of six people, we could define a new variable ( X ) to represent gender instead of license status. Then we would need to specify what values the variable takes (e.g., 1 = woman, 0 = man), define the corresponding event ( A ), and determine the resulting probability distribution for this new version of ( X ).",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#values-and-notation",
+    "href": "rvs-probdists/random-variables.html#values-and-notation",
+    "title": "12  Random Variables",
+    "section": "12.2 📏 Values and Notation",
+    "text": "12.2 📏 Values and Notation\nOnce the random event has occurred and the experiment is completed, the stochastic variable will have assumed a specific value. At that point, we switch notation and use lowercase letters (such as ( x ), ( y ), or ( z )) to refer to the observed values.\nWe often write ( P(x) = P(X = x) ), which defines the probability function for the variable ( X ). This function tells us the likelihood that ( X ) takes on the specific value ( x ).",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#a-concrete-example",
+    "href": "rvs-probdists/random-variables.html#a-concrete-example",
+    "title": "12  Random Variables",
+    "section": "12.3 🧮 A Concrete Example",
+    "text": "12.3 🧮 A Concrete Example\nLet’s say we define ( X ) as the number of dots (prickar) shown when rolling a standard six-sided die. Before the die is rolled, ( X ) is a stochastic variable representing the yet-unknown outcome. Once the die is rolled and shows, say, three dots, we would say that:\n\\[\nX = 3\n\\]\nor in observed-value notation:\n\\[\nx = 3\n\\]\nThis value is now fixed, and the randomness is gone — the experiment has been performed.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#discrete-vs.-continuous-stochastic-variables",
+    "href": "rvs-probdists/random-variables.html#discrete-vs.-continuous-stochastic-variables",
+    "title": "12  Random Variables",
+    "section": "12.4 🧮 Discrete vs. Continuous Stochastic Variables",
+    "text": "12.4 🧮 Discrete vs. Continuous Stochastic Variables\nA discrete stochastic variable is one that can only take on a countable number of values. This might be a finite set, or it could be an infinite but countable one. Common examples include:\n\nThe number of dots shown when rolling a die\nThe sum of two dice rolls\nThe number of trials needed to roll a six\nThe number of girls in a randomly selected family with three children\n\nOn the other hand, a **",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#what-is-a-random-variable",
+    "href": "rvs-probdists/random-variables.html#what-is-a-random-variable",
+    "title": "12  Random Variables",
+    "section": "",
+    "text": "(a) Sample space with names.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Sample space with coded variable of interest.\n\n\n\n\n\n\n\nFigure 12.1: Random variables in sample space.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 12.2: Outcome space divided into disjoint events.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#discrete-vs.-continuous-random-variables",
+    "href": "rvs-probdists/random-variables.html#discrete-vs.-continuous-random-variables",
+    "title": "12  Random Variables",
+    "section": "12.2 Discrete vs. Continuous Random Variables",
+    "text": "12.2 Discrete vs. Continuous Random Variables\nA discrete stochastic variable is one that can only take on a countable number of values. This might be a finite set, or it could be an infinite but countable one. Common examples include:\n\nThe number of dots shown when rolling a die\nThe sum of two dice rolls\nThe number of trials needed to roll a six\nThe number of girls in a randomly selected family with three children\n\nOn the other hand, a continuous stochastic variable can take on any value within an interval of the real number line. These variables are useful for modeling quantities that are measured rather than counted. Some examples include:\n\nThe length of a randomly selected newborn child\nThe lifespan of a randomly chosen light bulb\nThe annual income of a randomly chosen household",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#summary",
+    "href": "rvs-probdists/random-variables.html#summary",
+    "title": "12  Random Variables",
+    "section": "12.3 🔁 Summary",
+    "text": "12.3 🔁 Summary\nA stochastic variable is a numerical variable whose value is determined by the outcome of a random experiment. Before the experiment is performed, we don’t know what value the variable will take, but we do know the set of possible values it may assume. Once the experiment is conducted, the variable takes on a definite value, and we can analyze its behavior using its probability distribution.\nWe use uppercase letters like ( X ) to denote stochastic variables, and the corresponding lowercase letters (like ( x )) to represent actual outcomes. Depending on the context, stochastic variables may be discrete or continuous, and each has its own type of probability model.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#exercises",
+    "href": "rvs-probdists/random-variables.html#exercises",
+    "title": "12  Random Variables",
+    "section": "12.3 Exercises",
+    "text": "12.3 Exercises\nFor each of the random variables below, decide whether it is discrete or continuous:\n\nThe number of books a student checked out from the library this week\n\nThe time (in minutes) it takes a person to run 5 kilometers\n\nThe number of heads in 10 coin tosses\n\nA person’s height (in centimeters)\n\nThe number of emails received in one day\n\nThe daily average temperature in a city (in °C)\n\nWhether a person owns a smartphone (yes = 1, no = 0)\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nDiscrete – counts books, can only be whole numbers\n\nContinuous – time can be measured with decimals (e.g., 23.75 minutes)\n\nDiscrete – number of heads is a count between 0 and 10\n\nContinuous – height is measurable and can take any value in a range\n\nDiscrete – number of emails is countable\n\nContinuous – temperature is measured on a continuous scale\n\nDiscrete – binary variable (yes/no)",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
   }
 ]
