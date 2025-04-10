@@ -37,7 +37,9 @@ book:
       - prob-theory/what-is-prob.qmd
       - prob-theory/count-rules.qmd
       - prob-theory/prob-rules.qmd
-    - part: rv-probdists.qmd
+    - part: "Random Variables and Probability Distributions"
+      chapters:
+      - rvs-probdists/random-variables.qmd
     - part: sampling-dists.qmd
     - part: inference.qmd
     - part: chi2.qmd
