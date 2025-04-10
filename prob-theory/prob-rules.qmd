@@ -6,12 +6,14 @@ While some probabilities can be determined directly from counting outcomes, othe
 - **The Addition Rule**: When dealing with the probability of the union of events, we apply:
   $$P(A \cup B) = P(A) + P(B) - P(A \cap B) $$
   (For **mutually exclusive** events, the formula simplifies to $P(A \cup B) = P(A) + P(B)$.)
-
 - **Conditional Probability**: The probability of $A$ occurring given that $B$ has already occurred is:  
   $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$  
-  
 - **Multiplication Rule**: The probability of the joint occurrence of two events is:
 $$P(A \cap B) = P(A) \cdot P(B \mid A)$$  
+- **The Law of Total Probability**: If events $A_1, A_2, \dots, A_k$ form a complete and mutually exclusive partition of the sample space, then the probability of an event $B$ is given by:
+$$
+P(B) = \sum_{i=1}^{k} P(A_i) \cdot P(B \mid A_i)
+$$
 - **Independence**: Two events $A$ and $B$ are independent if the occurrence of one does not affect the probability of the other:
 $$P(A \mid B) = P(A) \quad \text{or equivalently} \quad P(A \cap B) = P(A) P(B)$$  
 - **Bayes' Theorem**: Used to reverse conditional probabilities, particularly in inference problems:  
@@ -339,9 +341,255 @@ $$P(\bar{A} \cap \bar{B}) = \frac{5}{6} \cdot \frac{5}{6} = \frac{25}{36}$$
 ## Note
 Don't confuse independence with mutual exclusivity — they’re very different!
 Exercises 1 and 2 below illlutrate this.
-
-
 :::
+
+
+## The Law of Total Probability
+Sometimes, we want to calculate the probability of a complex event $B$, but it's hard to compute directly. However, we might know the conditional probabilities of $B$ given simpler events: $P(B \mid A_1), P(B \mid A_2), ..., P(B \mid A_k)$
+
+If $A_1, A_2, ..., A_k$ are:
+
+- **mutually exclusive**: $A_i \cap A_j = \emptyset$  for $i \ne j$  
+- **collectively exhaustive**: $A_1 \cup A_2 \cup \dots \cup A_k = S$
+
+Then we can piece things together with the **Law of Total Probability**.
+
+Let $A_1, A_2, ..., A_k$ be mutually exclusive and collectively exhaustive events. Then:
+
+$$
+P(B) = \sum_{i=1}^{k} P(A_i) \cdot P(B \mid A_i)
+$$
+
+We break down $B$ based on each case $A_i$, multiply by the probability of that case, then add them all up. Think of it like calculating total outcomes across different “paths” or scenarios. This is illustrated in @fig-venn-totprob for $k=7$.
+
+::: center
+![Venn diagram of the law of total. probability](imgs/tot-prob-venn.png){#fig-venn-totprob fig-align="center" width="50%"}
+:::
+
+
+#### Example 11.6: Picking Pupils {.unnumbered}
+There are 3 school classes:
+
+- Class 1: 10 boys, 10 girls  
+- Class 2: 8 boys, 12 girls  
+- Class 3: 6 boys, 14 girls  
+
+A class is chosen at random, then a pupil is picked randomly from that class.
+What’s the probability the pupil is a girl?
+
+To solve this, we define the following events:
+
+- $A_1$ = Class 1  
+- $A_2$ = Class 2  
+- $A_3$ = Class 3  
+- $B$ = Student is a girl
+
+Since all classes are equally likely we get the following:
+ $$P(A_1) = P(A_2) = P(A_3) = \frac{1}{3}$$  
+$$P(B \mid A_1) = \frac{10}{20} = 0.5$$
+$$P(B \mid A_2) = \frac{12}{20} = 0.6$$
+$$P(B \mid A_3) = \frac{14}{20} = 0.7$$
+
+Now we apply the law of total probability:
+
+$$
+P(B) = \frac{1}{3} \cdot 0.5 + \frac{1}{3} \cdot 0.6 + \frac{1}{3} \cdot 0.7 = \frac{0.5 + 0.6 + 0.7}{3} = \frac{1.8}{3} = 0.6
+$$
+
+Thus, there's a 60% chance the selected pupil is a girl.
+
+
+#### Example 11.7: Drawing Balls ⚫⚪ {.unnumbered}
+
+You can also illustrate the law of total probability using tree diagrams, which is used in this example. Assume draw two balls without replacement from a box of 7 black and 10 white balls.
+
+The tree below illustrates the four possible outcomes of the two draws, along with their probabilities.
+
+
+```{r}
+library(DiagrammeR)
+library(DiagrammeRsvg)
+library(htmltools)
+
+graph <- grViz("digraph Tree {
+  graph [layout = dot, rankdir = LR, nodesep=0.2, ranksep=0.3]
+  node [shape = ellipse, fontname = Helvetica, fontsize = 9]
+
+  Start     [label = \"Start\"]
+  A         [label = \"A\\nP(A) = 7/17\"]
+  Abar      [label = \"Ā\\nP(Ā) = 10/17\"]
+  AB        [label = \"B\\nP(B|A) = 6/16\"]
+  AB_lbl    [label = \"P(A)·P(B|A)\", shape=plaintext, fontsize=9]
+  ABarB     [label = \"B̄\\nP(B̄|A) = 10/16\"]
+  ABarB_lbl [label = \"P(A)·P(B̄|A)\", shape=plaintext, fontsize=9]
+  AbarB     [label = \"B\\nP(B|Ā) = 7/16\"]
+  AbarB_lbl [label = \"P(Ā)·P(B|Ā)\", shape=plaintext, fontsize=9]
+  AbarBarB  [label = \"B̄\\nP(B̄|Ā) = 9/16\"]
+  AbarBarB_lbl [label = \"P(Ā)·P(B̄|Ā)\", shape=plaintext, fontsize=9]
+
+  Start -> A         [label = \"7/17\", fontsize=9]
+  Start -> Abar      [label = \"10/17\", fontsize=9]
+  A -> AB            [label = \"6/16\", fontsize=9]
+  A -> ABarB         [label = \"10/16\", fontsize=9]
+  Abar -> AbarB      [label = \"7/16\", fontsize=9]
+  Abar -> AbarBarB   [label = \"9/16\", fontsize=9]
+
+  AB -> AB_lbl [style=invis]
+  ABarB -> ABarB_lbl [style=invis]
+  AbarB -> AbarB_lbl [style=invis]
+  AbarBarB -> AbarBarB_lbl [style=invis]
+}")
+
+# Scaled output to avoid scroll
+div(style = "transform: scale(1); transform-origin: top left;", HTML(export_svg(graph)))
+
+```
+
+We clarify each step now. Let:
+
+- $A$ = First ball is black  
+- $\bar{A}$ = First ball is white  
+- $B$ = Second ball is black
+
+We want to compute $P(B)$ using total probability. First, we calculate each part:
+
+$$P(A) = \frac{7}{17}$$ 
+since 7 out of 17 are black, and the complement is thus
+$$P(\bar{A}) = \frac{10}{17}$$
+
+If the first is black we have that $P(B \mid A) = \frac{6}{16}$, and one black is removed.
+If the first is white $P(B \mid \bar{A}) = \frac{7}{16}$, and all black balls are still there.
+
+Now apply the law of total probability:
+
+$$
+P(B) = P(A) \cdot P(B \mid A) + P(\bar{A}) \cdot P(B \mid \bar{A})
+$$
+
+$$
+P(B) = \frac{7}{17} \cdot \frac{6}{16} + \frac{10}{17} \cdot \frac{7}{16}
+$$
+
+Some simplifying leads to:
+$$
+P(B) = \frac{42}{272} + \frac{70}{272} = \frac{112}{272} = \frac{7}{17}
+$$
+
+The probability of the second ball being black is again $\frac{7}{17}$; the same as the original proportion of black balls!
+
+
+
+
+## Bayes’ Theorem
+
+Bayes’ Theorem is a fundamental tool in probability theory, especially when we want to reverse the direction of a conditional probability. Suppose we have a collection of events $A_1, A_2, ..., A_n$ that are mutually exclusive; no two can happen at the same time, and together these events cover the entire sample space. That means one and only one of these events will occur.
+
+Now assume we know the probability of each of these events, $P(A_1), P(A_2), ..., P(A_n)$, and we also know the conditional probabilities of another event $B$ given each $A_i$, that is, $P(B \mid A_1), ..., P(B \mid A_n)$. Our goal is to compute the probability that $A_i$ is true given that $B$ has occurred, written as $P(A_i \mid B)$.
+
+Bayes' Theorem gives us exactly this:
+
+$$
+P(A_i \mid B) = \frac{P(A_i) \cdot P(B \mid A_i)}{P(B)}
+$$
+
+The denominator, $P(B)$, is calculated using the law of total probability:
+
+$$
+P(B) = \sum_{i=1}^{k} P(A_i) \cdot P(B \mid A_i)
+$$
+
+
+
+#### Example 11.8: Genetics and Thumb Length {.unnumbered} 
+
+Imagine a person may or may not carry a certain gene that causes a disease to develop before the age of 40. However, we cannot directly observe whether someone carries the gene. What we can observe is whether they have long thumbs; a trait which appears more often in people who do have the gene.
+
+Let us define the events as follows:  
+$A$ is the event that the person has the gene (and will eventually develop the disease), and $\bar{A}$ is the event that they do not. Let $B$ be the event that the person has long thumbs, and $\bar{B}$ that they have short thumbs.
+
+We are given the following probabilities:  
+The probability that someone carries the gene is $P(A) = 0.01$. Among those who carry the gene, 90% have long thumbs, so $P(B \mid A) = 0.9$. For those who do not carry the gene, 40% have long thumbs, meaning $P(B \mid \bar{A}) = 0.4$.
+
+Now, imagine someone is 16 years old and notices they have long thumbs. What is the probability that they carry the gene for the disease?
+
+We want to compute $P(A \mid B)$, the probability that someone has the gene, given they have long thumbs. Using Bayes’ Theorem, we write:
+
+$$
+P(A \mid B) = \frac{P(A) \cdot P(B \mid A)}{P(A) \cdot P(B \mid A) + P(\bar{A}) \cdot P(B \mid \bar{A})}
+$$
+
+Substituting the known values:
+
+- $P(A) \cdot P(B \mid A) = 0.01 \cdot 0.9 = 0.009$
+- $P(\bar{A}) \cdot P(B \mid \bar{A}) = 0.99 \cdot 0.4 = 0.396$
+- $P(B) = 0.009 + 0.396 = 0.405$
+
+Thus,
+
+$$
+P(A \mid B) = \frac{0.009}{0.405} \approx 0.0222
+$$
+
+This tells us that the probability a person with long thumbs carries the disease gene is about 2.2%.
+
+
+
+#### Example 11.9: FInding the Toilet {.unnumbered} 
+
+Now let’s turn to a more lighthearted but equally instructive example.
+Imagine you are at a party in a large, unfamiliar house. You’re searching for the toilet, which we’ll call $T$. You see three doors in front of you, each leading to a different room: $R_1$, $R_2$, and $R_3$. You don't know which one to pick, so you choose randomly.
+
+Once inside one of these rooms, you find several doors. In room $R_1$, there are two more doors, one of which leads to the bathroom. In $R_2$, there are four doors, again only one of which leads to $T$. In $R_3$, three doors are present, and two of them lead to $T$.
+
+You may only move forward, that is, you pick one of the three initial rooms and then try one of its doors.
+
+a. What is the probability that you reach the bathroom?
+
+::: {.callout-tip collapse="true"}
+## Solution 
+Since you choose one of the three rooms at random, the probability of entering any specific room is $1/3$. Given the room, the conditional probabilities of finding the bathroom are:
+
+- $P(T \mid R_1) = 1/2$  
+- $P(T \mid R_2) = 1/4$  
+- $P(T \mid R_3) = 2/3$
+
+Using the law of total probability, we compute:
+
+$$
+P(T) = \frac{1}{3} \cdot \frac{1}{2} + \frac{1}{3} \cdot \frac{1}{4} + \frac{1}{3} \cdot \frac{2}{3}
+= \frac{1}{6} + \frac{1}{12} + \frac{2}{9}
+= \frac{6}{36} + \frac{3}{36} + \frac{8}{36} = \frac{17}{36} \approx 0.472
+$$
+
+So you have approximately a 47.2% chance of finding the bathroom.
+:::
+
+b. You found the bathroom, but which room did you use?
+
+::: {.callout-tip collapse="true"}
+## Solution 
+Let’s now suppose you did find the bathroom but forgot which room you entered first. What’s the probability you entered through say room $R_2$?
+
+This is another great application of Bayes’ Theorem. We now want $P(R_2 \mid T)$, the probability that you passed through $R_2$ given that you found the bathroom.
+
+According to Bayes’ Theorem:
+
+$$
+P(R_2 \mid T) = \frac{P(R_2) \cdot P(T \mid R_2)}{P(T)} = \frac{\frac{1}{3} \cdot \frac{1}{4}}{\frac{17}{36}} = \frac{1}{12} \cdot \frac{36}{17} = \frac{3}{17} \approx 0.176
+$$
+
+So there's about a 17.6% chance that your successful journey to the bathroom started through $R_2$.  Similarly:
+$$
+P(R_1 \mid T) =  \frac{P(R_1) \cdot P(T \mid R_1)}{P(T)} = \frac{\frac{1}{3} \cdot \frac{1}{2}}{\frac{17}{36}} = \frac{1}{6} \cdot \frac{36}{17} = \frac{6}{17} \approx 0.353
+$$
+and 
+$$
+P(R_3 \mid T) = \frac{P(R_3) \cdot P(T \mid R_3)}{P(T)} = \frac{\frac{1}{3} \cdot \frac{2}{3}}{\frac{17}{36}} = \frac{2}{9} \cdot \frac{36}{17} = \frac{8}{17} \approx 0.471
+$$
+:::
+
+
+
 ## Exercises {.unnumbered}
 
 1. The probability of two events $A$ and $B$ are given by $P(A) = 0.5$
@@ -407,6 +655,97 @@ $$P(\bar{A} \cap \bar{B})  = 1 - P(A \cup B)
  = 1 - [P(A) + P(B) - P(A \cap B)] $$ 
 $$ = 1 - \left(\frac{1}{2} + \frac{1}{3} - \frac{1}{4}\right) = \frac{5}{12}$$
 
+:::
+
+5. A tech company has found that:
+
+- 40% of its users are premium members ($P(M) = 0.4$)
+- 80% of premium users log in daily ($P(D \mid M) = 0.8$)
+
+What is the probability that a randomly chosen user is a premium member who logs in daily?
 
 
+::: {.callout-tip collapse="true"}
+## Solution 
+Using the mnultiplication rule, we get that 
+
+$$
+P(M \cap D) = P(M) \cdot P(D \mid M)
+$$
+
+Substitute the values:
+
+$$
+P(M \cap D) = 0.4 \cdot 0.8 = 0.32
+$$
+
+Thus 32% of users are both premium and daily-active.
+
+:::
+
+
+6. In a survey of 300 students:
+
+- 180 said they drink coffee  
+- 150 said they drink tea  
+- 60 said they drink both coffee and tea  
+
+What is the probability that a randomly chosen student drinks coffee ($C$) or tea ($T$)?
+
+::: {.callout-tip collapse="true"}
+## Solution 
+We are seeking $P(C \cup T)$: the probability that a student drinks coffee OR tea.
+We can use the addition rule:
+
+$$
+P(C \cup T) = P(C) + P(T) - P(C \cap T)
+$$
+
+First we convert counts into probabilities:
+
+- $P(C) = \frac{180}{300} = 0.6$  
+- $P(T) = \frac{150}{300} = 0.5$  
+- $P(C \cap T) = \frac{60}{300} = 0.2$
+
+Then apply the rule:
+
+$$
+P(C \cup T) = 0.6 + 0.5 - 0.2 = 0.9
+$$
+
+Thus 90% of students drink either coffee, tea, or both.
+:::
+
+
+7. A machine learning model classifies emails as spam or not spam. Based on past data we know the following:
+
+- 10% of all emails are actually spam: $P(S) = 0.10$
+- 90% of emails are not spam: $P(\bar{S}) = 0.90$
+- The model correctly detects spam 95% of the time: $P(D \mid S) = 0.95$
+- The model incorrectly flags 5% of non-spam as spam: $P(D \mid \bar{S}) = 0.05$
+
+You receive an email that was flagged by the model as spam (i.e., it was detected as spam).  
+What is the probability that it is actually spam?  
+That is, compute $P(S \mid D)$, where:
+
+- $S$: Email is spam 
+- $D$: Email was detected as spam by the filter
+
+::: {.callout-tip collapse="true"}
+## Solution 
+We apply Bayes’ Theorem:
+$$
+P(S \mid D) = \frac{P(S) \cdot P(D \mid S)}{P(S) \cdot P(D \mid S) + P(\bar{S}) \cdot P(D \mid \bar{S})}
+$$
+
+Plug in the values to get
+
+- Numerator: $0.10 \cdot 0.95 = 0.095$
+- Denominator: $0.10 \cdot 0.95 + 0.90 \cdot 0.05 = 0.095 + 0.045 = 0.14$
+
+Thus:
+$$
+P(S \mid D) = \frac{0.095}{0.14} \approx 0.679
+$$
+There is a 67.9% chance the email is actually spam.
 :::

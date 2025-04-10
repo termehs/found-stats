@@ -52,6 +52,10 @@ number-sections: true
 
 format:
   html:
+    execute:
+    echo: false
+    warning: false
+    message: false
     mermaid:
       theme: default
     theme: cosmo
