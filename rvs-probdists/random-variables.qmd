@@ -78,6 +78,16 @@ On the other hand, a **continuous** stochastic variable can take on any value wi
 - The lifespan of a randomly chosen light bulb
 - The annual income of a randomly chosen household
 
+
+## Expected Value and Variance
+A random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.
+
+The expected value of a random variable, often denoted as $\mathbb{E}(X)$ or $\mu$, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.
+
+While the expected value tells us the average, the variance of a random variable, denoted $\text{Var}(X)$, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.
+
+So even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.
+
 ## Exercises
 For each of the random variables below, decide whether it is discrete or continuous:
 

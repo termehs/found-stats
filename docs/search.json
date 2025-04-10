@@ -920,8 +920,19 @@
     "objectID": "rvs-probdists/random-variables.html#exercises",
     "href": "rvs-probdists/random-variables.html#exercises",
     "title": "12  Random Variables",
-    "section": "12.3 Exercises",
-    "text": "12.3 Exercises\nFor each of the random variables below, decide whether it is discrete or continuous:\n\nThe number of books a student checked out from the library this week\n\nThe time (in minutes) it takes a person to run 5 kilometers\n\nThe number of heads in 10 coin tosses\n\nA person’s height (in centimeters)\n\nThe number of emails received in one day\n\nThe daily average temperature in a city (in °C)\n\nWhether a person owns a smartphone (yes = 1, no = 0)\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nDiscrete – counts books, can only be whole numbers\n\nContinuous – time can be measured with decimals (e.g., 23.75 minutes)\n\nDiscrete – number of heads is a count between 0 and 10\n\nContinuous – height is measurable and can take any value in a range\n\nDiscrete – number of emails is countable\n\nContinuous – temperature is measured on a continuous scale\n\nDiscrete – binary variable (yes/no)",
+    "section": "12.4 Exercises",
+    "text": "12.4 Exercises\nFor each of the random variables below, decide whether it is discrete or continuous:\n\nThe number of books a student checked out from the library this week\n\nThe time (in minutes) it takes a person to run 5 kilometers\n\nThe number of heads in 10 coin tosses\n\nA person’s height (in centimeters)\n\nThe number of emails received in one day\n\nThe daily average temperature in a city (in °C)\n\nWhether a person owns a smartphone (yes = 1, no = 0)\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nDiscrete – counts books, can only be whole numbers\n\nContinuous – time can be measured with decimals (e.g., 23.75 minutes)\n\nDiscrete – number of heads is a count between 0 and 10\n\nContinuous – height is measurable and can take any value in a range\n\nDiscrete – number of emails is countable\n\nContinuous – temperature is measured on a continuous scale\n\nDiscrete – binary variable (yes/no)",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/random-variables.html#expected-value-and-variance",
+    "href": "rvs-probdists/random-variables.html#expected-value-and-variance",
+    "title": "12  Random Variables",
+    "section": "12.3 Expected Value and Variance",
+    "text": "12.3 Expected Value and Variance\nA random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.\nThe expected value of a random variable, often denoted as \\(\\mathbb{E}(X)\\) or \\(\\mu\\), represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.\nWhile the expected value tells us the average, the variance of a random variable, denoted \\(\\text{Var}(X)\\), tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.\nSo even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.",
     "crumbs": [
       "Random Variables and Probability Distributions",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"

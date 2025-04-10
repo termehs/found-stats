@@ -311,7 +311,8 @@ window.Quarto = {
   <ul>
   <li><a href="#what-is-a-random-variable" id="toc-what-is-a-random-variable" class="nav-link active" data-scroll-target="#what-is-a-random-variable"><span class="header-section-number">12.1</span> What is a Random Variable?</a></li>
   <li><a href="#discrete-vs.-continuous-random-variables" id="toc-discrete-vs.-continuous-random-variables" class="nav-link" data-scroll-target="#discrete-vs.-continuous-random-variables"><span class="header-section-number">12.2</span> Discrete vs.&nbsp;Continuous Random Variables</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.3</span> Exercises</a></li>
+  <li><a href="#expected-value-and-variance" id="toc-expected-value-and-variance" class="nav-link" data-scroll-target="#expected-value-and-variance"><span class="header-section-number">12.3</span> Expected Value and Variance</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.4</span> Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -429,8 +430,15 @@ P(X = 0) = \frac{3}{6} = 0.5
 <li>The annual income of a randomly chosen household</li>
 </ul>
 </section>
-<section id="exercises" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.3</span> Exercises</h2>
+<section id="expected-value-and-variance" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="expected-value-and-variance"><span class="header-section-number">12.3</span> Expected Value and Variance</h2>
+<p>A random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.</p>
+<p>The expected value of a random variable, often denoted as <span class="math inline">\(\mathbb{E}(X)\)</span> or <span class="math inline">\(\mu\)</span>, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.</p>
+<p>While the expected value tells us the average, the variance of a random variable, denoted <span class="math inline">\(\text{Var}(X)\)</span>, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.</p>
+<p>So even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.</p>
+</section>
+<section id="exercises" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.4</span> Exercises</h2>
 <p>For each of the random variables below, decide whether it is discrete or continuous:</p>
 <ol type="1">
 <li>The number of books a student checked out from the library this week<br>
