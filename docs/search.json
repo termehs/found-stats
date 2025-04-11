@@ -932,10 +932,54 @@
     "href": "rvs-probdists/random-variables.html#expected-value-and-variance",
     "title": "12  Random Variables",
     "section": "12.3 Expected Value and Variance",
-    "text": "12.3 Expected Value and Variance\nA random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.\nThe expected value of a random variable, often denoted as \\(\\mathbb{E}(X)\\) or \\(\\mu\\), represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.\nWhile the expected value tells us the average, the variance of a random variable, denoted \\(\\text{Var}(X)\\), tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.\nSo even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.",
+    "text": "12.3 Expected Value and Variance\nA random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.\nThe expected value of a random variable, often denoted as \\(\\mathbb{E}(X)\\) or \\(\\mu\\), represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.\nWhile the expected value tells us the average, the variance of a random variable, denoted \\(\\mathbb{V}(X)\\), tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.\nSo even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.",
     "crumbs": [
       "Random Variables and Probability Distributions",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Random Variables</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html",
+    "href": "rvs-probdists/discrete-dist.html",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "",
+    "text": "13.1 Probability Mass Function (PMF)\nWhen dealing with discrete random variables, we are interested in how likely it is that the variable takes on specific values. This relationship, the link between possible values and their associated probabilities, is described by the probability distribution of the random variable.\nThe probability mass function (PMF) is a mathematical function that assigns a probability to each value the variable can take. In other words, the PMF is the mathematical expression of the probability distribution. The distribution is the overall concept; the PMF is the function that specifies the details.\nWe usually denote the PMF as \\(P(x)\\), where:\n\\[\nP(x) = P(X = x)\n\\] This gives the probability that the random variable \\(X\\) equals a specific value \\(x\\).\nFor the PMF to describe a valid distribution, it must satisfy two conditions:\nIf we know \\(P(x)\\) for all values \\(x\\) that \\(X\\) can take, we say we know the probability distribution of \\(X\\). We can present a probability distribution in several forms: as a table, a bar chart, or through a formula.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#probability-mass-function-pmf",
+    "href": "rvs-probdists/discrete-dist.html#probability-mass-function-pmf",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "",
+    "text": "Each probability must be between 0 and 1: \\[\n0 \\leq P(x) \\leq 1\n\\]\nThe total probability across all values must sum to 1: \\[\n\\sum_x P(x) = 1\n\\]\n\n\nExample 12.1: Coin Toss\nSuppose we toss a fair coin two times. Let the random variable \\(X\\) represent the number of heads observed. The sample space consists of four equally likely outcomes:\n\nHead, Head → \\(X = 2\\)\n\nHead, Tail → \\(X = 1\\)\n\nTail, Head → \\(X = 1\\)\n\nTail, Tail → \\(X = 0\\)\n\n\nEach of these outcomes has probability 0.25. From this, we can define the probability mass function (PMF) of \\(X\\) as:\n\\[\nP(x) =\n\\begin{cases}\n0.25 & \\text{if } x = 0 \\\\\n0.50 & \\text{if } x = 1 \\\\\n0.25 & \\text{if } x = 2 \\\\\n0 & \\text{otherwise}\n\\end{cases}\n\\]\nThe table below presents a representation of the PMF; showing the values of \\(P(x)\\) for each value in the support of \\(X\\):\n\n\n\n\n\n\n\nOutcomes\n\n\\(x\\) (Number of heads)\n\\(P(x)\\)\n\n\n\n(Tail, Tail)\n0\n0.25\n\n\n(Head, Tail), (Tail, Head)\n1\n0.50\n\n\n(Head, Head)\n2\n0.25\n\n\n\nWe can confirm that this satisfies the requirement:\n\\[\n\\sum_x P(x) = 0.25 + 0.5 + 0.25 = 1\n\\]\nThis confirms that \\(P(x)\\) defines a valid probability distribution.\nThis table is one way of representing the probability distribution of \\(X\\). Another way to represent it is by using bar plot:",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#cumualtive-distribution-function-cmf",
+    "href": "rvs-probdists/discrete-dist.html#cumualtive-distribution-function-cmf",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.2 Cumualtive Distribution Function (CMF)",
+    "text": "13.2 Cumualtive Distribution Function (CMF)",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#cumulative-distribution-function-cmf",
+    "href": "rvs-probdists/discrete-dist.html#cumulative-distribution-function-cmf",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.2 Cumulative Distribution Function (CMF)",
+    "text": "13.2 Cumulative Distribution Function (CMF)",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
     ]
   }
 ]

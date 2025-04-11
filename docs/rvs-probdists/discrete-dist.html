@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
-<title>Foundational Statistics - 12&nbsp; Random Variables</title>
+<title>Foundational Statistics - 13&nbsp; Discrete Probability Distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +20,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -32,7 +28,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../sampling-dists.html" rel="next">
-<link href="../prob-theory/prob-rules.html" rel="prev">
+<link href="../rvs-probdists/random-variables.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -42,8 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -69,12 +64,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,32 +90,24 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/discrete-dist.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -140,7 +122,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -154,8 +136,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -180,7 +162,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -189,8 +171,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -209,7 +191,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -218,8 +200,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -244,7 +226,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -253,15 +235,21 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link active">
+  <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/discrete-dist.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Sampling and Sampling Distributions</span></span>
@@ -282,15 +270,15 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Summary</span></span>
@@ -300,28 +288,22 @@ window.Quarto = {
  <span class="menu-text">References</span></span>
   </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-a-random-variable" id="toc-what-is-a-random-variable" class="nav-link active" data-scroll-target="#what-is-a-random-variable"><span class="header-section-number">12.1</span> What is a Random Variable?</a></li>
-  <li><a href="#discrete-vs.-continuous-random-variables" id="toc-discrete-vs.-continuous-random-variables" class="nav-link" data-scroll-target="#discrete-vs.-continuous-random-variables"><span class="header-section-number">12.2</span> Discrete vs.&nbsp;Continuous Random Variables</a></li>
-  <li><a href="#expected-value-and-variance" id="toc-expected-value-and-variance" class="nav-link" data-scroll-target="#expected-value-and-variance"><span class="header-section-number">12.3</span> Expected Value and Variance</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.4</span> Exercises</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<li><a href="#probability-mass-function-pmf" id="toc-probability-mass-function-pmf" class="nav-link active" data-scroll-target="#probability-mass-function-pmf"><span class="header-section-number">13.1</span> Probability Mass Function (PMF)</a></li>
+  <li><a href="#cumulative-distribution-function-cmf" id="toc-cumulative-distribution-function-cmf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cmf"><span class="header-section-number">13.2</span> Cumulative Distribution Function (CMF)</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/discrete-dist.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span>
+</h1>
 </div>
 
 
@@ -335,162 +317,100 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>In many real-world situations, from rolling a die to measuring rainfall, we deal with outcomes that are inherently uncertain. To make sense of this uncertainty, we use <strong>random variables</strong>: mathematical tools that assign numerical values to the outcomes of random processes. They allow us to translate chance into structure, giving us a way to analyze and predict patterns in uncertain environments.</p>
-<p>This section introduces the concept of random variables and the probability distributions that describe their behavior. A probability distribution not only lists the possible values a random variable can take, but also tells us how likely each value is to occur. Whether the variable counts discrete outcomes or measures continuous quantities, understanding its distribution is key to interpreting the role of randomness in data, decisions, and models.</p>
-<section id="what-is-a-random-variable" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="what-is-a-random-variable"><span class="header-section-number">12.1</span> What is a Random Variable?</h2>
-<p>In statistics, sampling should always be done randomly. This means that before the sampling occurs, we do not know who will be selected; it’s a random experiment where all individuals in the population are possible outcomes.</p>
-<p>To introduce the idea of a random variable (also called a stochastic variable), imagine a small population of six individuals: Anna, Bob, Carol, David, Erin, Finn. This is shown in <a href="#fig-rv1" class="quarto-xref">Figure&nbsp;<span>12.1 (a)</span></a>.</p>
-<p>We are not primarily interested in the individuals themselves, but in the values they hold on some variable. For example, suppose we want to study whether each person has a driver’s license. Let’s assign a value of 1 to those who have a license and 0 to those who don’t. Now, instead of thinking about names, our outcome space transforms into a set of 1’s and 0’s, depending on the presence or absence of a driver’s license. This is shown in <a href="#fig-rv2" class="quarto-xref">Figure&nbsp;<span>12.1 (b)</span></a>.</p>
-<div class="center">
-<div id="fig-vertical" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-vertical-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-vertical" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-rv1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-rv1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="imgs/‎venn-rv1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" data-ref-parent="fig-vertical">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-rv1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Sample space with names.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-vertical" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-rv2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-rv2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="imgs/‎venn-rv2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" data-ref-parent="fig-vertical">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-rv2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Sample space with coded variable of interest.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vertical-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: Random variables in sample space.
-</figcaption>
-</figure>
-</div>
-</div>
-<p>In probability theory, we often want to describe a random experiment using a variable before the experiment is carried out. Because we do not know in advance what the outcome will be, we use a random variable to represent the result. This variable is typically denoted by a capital letter, such as <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, or <span class="math inline">\(Z\)</span>, often chosen from the end of the alphabet.</p>
-<p>For example, we might define the variable <span class="math inline">\(X\)</span> as:</p>
-<p><span class="math inline">\(X\)</span> = Number of people with a driver’s license</p>
-<p>This variable can take on different values depending on who is selected during the sampling process. By grouping all individuals who share the same outcome value for our variable, we divide the outcome space into <strong>disjoint events</strong>. Suppose we define the event <span class="math inline">\(A\)</span> as: “A randomly selected individual has a driver’s license.”</p>
-<p>This allows us to split the outcome space into two distinct parts: those with <span class="math inline">\(X = 1\)</span> (event <span class="math inline">\(A\)</span>), and those with <span class="math inline">\(X = 0\)</span> (event <span class="math inline">\(\bar{A}\)</span>), as shown in <a href="#fig-rv3" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>.</p>
-<div class="center">
-<div id="fig-rv3" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-rv3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="imgs/‎venn-rv3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rv3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.2: Outcome space divided into disjoint events.
-</figcaption>
-</figure>
-</div>
-</div>
-<p>If three of the six individuals in the population have a license, then the probability of selecting a person with a license is:</p>
+</header><p>A <strong>discrete probability distribution</strong> describes how the values of a variable are associated with probabilities. It applies when a variable can take on a limited or countable set of values, like 0, 1, 2, and so on, and we know how likely each value is. Note that we use uppercase letter to denote random variables and lowercase letters for the values they take on.</p>
+<p>The probability function <span class="math inline">\(P(x)\)</span> assigns a probability to each possible value <span class="math inline">\(x\)</span> that the variable can take. These probabilities must all lie between 0 and 1, and together they must sum to exactly 1.</p>
+<p>We use the expected value, <span class="math inline">\(\mathbb{E}(X)\)</span>, to summarize the typical or central value of the distribution. It gives us a sense of where the values tend to cluster. Think of it as a kind of weighted average, where more probable outcomes count more heavily in the calculation.</p>
+<p>The variance, <span class="math inline">\(\mathbb{V}(X)\)</span>, describes how much the values of the variable differ from this central value. A small variance means most values are close to the expected value, while a large variance means the values are more spread out.</p>
+<section id="probability-mass-function-pmf" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="probability-mass-function-pmf">
+<span class="header-section-number">13.1</span> Probability Mass Function (PMF)</h2>
+<p>When dealing with discrete random variables, we are interested in how likely it is that the variable takes on specific values. This relationship, the link between possible values and their associated probabilities, is described by the <strong>probability distribution</strong> of the random variable.</p>
+<p>The <strong>probability mass function (PMF)</strong> is a mathematical function that assigns a probability to each value the variable can take. In other words, the PMF is the mathematical expression of the probability distribution. The distribution is the overall concept; the PMF is the function that specifies the details.</p>
+<p>We usually denote the PMF as <span class="math inline">\(P(x)\)</span>, where:</p>
 <p><span class="math display">\[
-P(X = 1) = \frac{3}{6} = 0.5
-\]</span></p>
-<p>And the probability of selecting someone without a license is:</p>
+P(x) = P(X = x)
+\]</span> This gives the probability that the random variable <span class="math inline">\(X\)</span> equals a specific value <span class="math inline">\(x\)</span>.</p>
+<p>For the PMF to describe a valid distribution, it must satisfy two conditions:</p>
+<ul>
+<li><p>Each probability must be between 0 and 1: <span class="math display">\[
+0 \leq P(x) \leq 1
+\]</span></p></li>
+<li><p>The total probability across all values must sum to 1: <span class="math display">\[
+\sum_x P(x) = 1
+\]</span></p></li>
+</ul>
+<p>If we know <span class="math inline">\(P(x)\)</span> for all values <span class="math inline">\(x\)</span> that <span class="math inline">\(X\)</span> can take, we say we know the probability distribution of <span class="math inline">\(X\)</span>. We can present a probability distribution in several forms: as a table, a bar chart, or through a formula.</p>
+<section id="example-12.1-coin-toss" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss">Example 12.1: Coin Toss</h4>
+<p>Suppose we toss a fair coin two times. Let the random variable <span class="math inline">\(X\)</span> represent the number of heads observed. The sample space consists of four equally likely outcomes:</p>
+<ul>
+<li>Head, Head → <span class="math inline">\(X = 2\)</span>
+</li>
+<li>Head, Tail → <span class="math inline">\(X = 1\)</span>
+</li>
+<li>Tail, Head → <span class="math inline">\(X = 1\)</span>
+</li>
+<li>Tail, Tail → <span class="math inline">\(X = 0\)</span>
+</li>
+</ul>
+<p>Each of these outcomes has probability 0.25. From this, we can define the probability mass function (PMF) of <span class="math inline">\(X\)</span> as:</p>
 <p><span class="math display">\[
-P(X = 0) = \frac{3}{6} = 0.5
+P(x) =
+\begin{cases}
+0.25 &amp; \text{if } x = 0 \\
+0.50 &amp; \text{if } x = 1 \\
+0.25 &amp; \text{if } x = 2 \\
+0 &amp; \text{otherwise}
+\end{cases}
 \]</span></p>
-<p>This defines the <strong>probability distribution</strong> of the variable <span class="math inline">\(X\)</span>. Note that we can construct an infinite number of random variables for the same random experiment. For instance, if we use the same group of six people, we could define a new variable <span class="math inline">\(X\)</span> to represent vaccination instead of license status. Then we would need to specify what values the variable takes (e.g., 1 = vaccinated, 0 = not vaccinated), define the corresponding event <span class="math inline">\(A\)</span>, and determine the resulting probability distribution for this new version of <span class="math inline">\(X\)</span>.</p>
-<p>Once the random event has occurred and the experiment is completed, the stochastic variable will have assumed a specific value. At that point, we switch notation and use lowercase letters (such as <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, or <span class="math inline">\(z\)</span>) to refer to the observed values. We write <span class="math inline">\(P(x) = P(X = x)\)</span>, which defines the <strong>probability function</strong> for the variable <span class="math inline">\(X\)</span>. This function tells us the likelihood that <span class="math inline">\(X\)</span> takes on specific values <span class="math inline">\(x\)</span>.</p>
-<p>In summary, a random variable is a numerical variable whose value is determined by the outcome of a random experiment. Before the experiment is performed, we don’t know what value the variable will take, but we do know the set of possible values it may assume. Once the experiment is conducted, the variable takes on a definite value, and we can analyze its behavior using its probability distribution.</p>
-<p>We use uppercase letters like <span class="math inline">\(X\)</span> to denote random variables, and the corresponding lowercase letters (like <span class="math inline">\(x\)</span>) to represent actual outcomes. Depending on the context, random variables may be <strong>discrete</strong> or <strong>continuous</strong>, and each has its own type of probability model.</p>
-</section>
-<section id="discrete-vs.-continuous-random-variables" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="discrete-vs.-continuous-random-variables"><span class="header-section-number">12.2</span> Discrete vs.&nbsp;Continuous Random Variables</h2>
-<p>A <strong>discrete</strong> stochastic variable is one that can only take on a countable number of values. This might be a finite set, or it could be an infinite but countable one. Common examples include:</p>
-<ul>
-<li>The number of dots shown when rolling a die</li>
-<li>The sum of two dice rolls</li>
-<li>The number of trials needed to roll a six</li>
-<li>The number of girls in a randomly selected family with three children</li>
-</ul>
-<p>On the other hand, a <strong>continuous</strong> stochastic variable can take on any value within an interval of the real number line. These variables are useful for modeling quantities that are measured rather than counted. Some examples include:</p>
-<ul>
-<li>The length of a randomly selected newborn child</li>
-<li>The lifespan of a randomly chosen light bulb</li>
-<li>The annual income of a randomly chosen household</li>
-</ul>
-</section>
-<section id="expected-value-and-variance" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="expected-value-and-variance"><span class="header-section-number">12.3</span> Expected Value and Variance</h2>
-<p>A random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.</p>
-<p>The expected value of a random variable, often denoted as <span class="math inline">\(\mathbb{E}(X)\)</span> or <span class="math inline">\(\mu\)</span>, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.</p>
-<p>While the expected value tells us the average, the variance of a random variable, denoted <span class="math inline">\(\mathbb{V}(X)\)</span>, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.</p>
-<p>So even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.</p>
-</section>
-<section id="exercises" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.4</span> Exercises</h2>
-<p>For each of the random variables below, decide whether it is discrete or continuous:</p>
-<ol type="1">
-<li>The number of books a student checked out from the library this week<br>
-</li>
-<li>The time (in minutes) it takes a person to run 5 kilometers<br>
-</li>
-<li>The number of heads in 10 coin tosses<br>
-</li>
-<li>A person’s height (in centimeters)<br>
-</li>
-<li>The number of emails received in one day<br>
-</li>
-<li>The daily average temperature in a city (in °C)<br>
-</li>
-<li>Whether a person owns a smartphone (yes = 1, no = 0)</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Discrete</strong> – counts books, can only be whole numbers<br>
-</li>
-<li><strong>Continuous</strong> – time can be measured with decimals (e.g., 23.75 minutes)<br>
-</li>
-<li><strong>Discrete</strong> – number of heads is a count between 0 and 10<br>
-</li>
-<li><strong>Continuous</strong> – height is measurable and can take any value in a range<br>
-</li>
-<li><strong>Discrete</strong> – number of emails is countable<br>
-</li>
-<li><strong>Continuous</strong> – temperature is measured on a continuous scale<br>
-</li>
-<li><strong>Discrete</strong> – binary variable (yes/no)</li>
-</ol>
+<p>The table below presents a representation of the PMF; showing the values of <span class="math inline">\(P(x)\)</span> for each value in the support of <span class="math inline">\(X\)</span>:</p>
+<table class="table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 42%">
+<col style="width: 14%">
+</colgroup>
+<thead><tr class="header">
+<th>Outcomes</th>
+<th>
+<span class="math inline">\(x\)</span> (Number of heads)</th>
+<th><span class="math inline">\(P(x)\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>(Tail, Tail)</td>
+<td>0</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>(Head, Tail), (Tail, Head)</td>
+<td>1</td>
+<td>0.50</td>
+</tr>
+<tr class="odd">
+<td>(Head, Head)</td>
+<td>2</td>
+<td>0.25</td>
+</tr>
+</tbody>
+</table>
+<p>We can confirm that this satisfies the requirement:</p>
+<p><span class="math display">\[
+\sum_x P(x) = 0.25 + 0.5 + 0.25 = 1
+\]</span></p>
+<p>This confirms that <span class="math inline">\(P(x)\)</span> defines a valid probability distribution.</p>
+<p>This table is one way of representing the probability distribution of <span class="math inline">\(X\)</span>. Another way to represent it is by using bar plot:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
+</section></section><section id="cumulative-distribution-function-cmf" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="cumulative-distribution-function-cmf">
+<span class="header-section-number">13.2</span> Cumulative Distribution Function (CMF)</h2>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -876,11 +796,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../prob-theory/prob-rules.html" class="pagination-link" aria-label="Probability Rules">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probability Rules</span></span>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../rvs-probdists/random-variables.html" class="pagination-link" aria-label="Random Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -890,21 +808,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

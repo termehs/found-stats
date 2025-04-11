@@ -1,0 +1,104 @@
+## Discrete Probability Distributions
+
+A **discrete probability distribution** describes how the values of a variable are associated with probabilities. It applies when a variable can take on a limited or countable set of values, like 0, 1, 2, and so on, and we know how likely each value is. Note that we use uppercase letter to denote random variables and lowercase letters for the values they take on.
+
+The probability function $P(x)$ assigns a probability to each possible value $x$ that the variable can take. These probabilities must all lie between 0 and 1, and together they must sum to exactly 1.
+
+We use the expected value, $\mathbb{E}(X)$, to summarize the typical or central value of the distribution. It gives us a sense of where the values tend to cluster. Think of it as a kind of weighted average, where more probable outcomes count more heavily in the calculation.
+
+The variance, $\mathbb{V}(X)$, describes how much the values of the variable differ from this central value. A small variance means most values are close to the expected value, while a large variance means the values are more spread out.
+
+
+## Probability Mass Function (PMF)
+When dealing with discrete random variables, we are interested in how likely it is that the variable takes on specific values. This relationship, the link between possible values and their associated probabilities, is described by the **probability distribution** of the random variable.
+
+The **probability mass function (PMF)** is a mathematical function that assigns a probability to each value the variable can take. In other words, the PMF is the mathematical expression of the probability distribution. The distribution is the overall concept; the PMF is the function that specifies the details.
+
+We usually denote the PMF as $P(x)$, where:
+
+$$
+P(x) = P(X = x)
+$$
+This gives the probability that the random variable $X$ equals a specific value $x$.
+
+For the PMF to describe a valid distribution, it must satisfy two conditions:
+
+- Each probability must be between 0 and 1:
+  $$
+  0 \leq P(x) \leq 1
+  $$
+
+- The total probability across all values must sum to 1:
+  $$
+  \sum_x P(x) = 1
+  $$
+
+
+If we know $P(x)$ for all values $x$ that $X$ can take, we say we know the probability distribution of $X$.
+We can present a probability distribution in several forms: as a table, a bar chart, or through a formula.
+
+
+#### Example 12.1: Coin Toss  {.unnumbered}
+Suppose we toss a fair coin two times. Let the random variable $X$ represent the number of heads observed. The sample space consists of four equally likely outcomes:
+
+- Head, Head → $X = 2$
+- Head, Tail → $X = 1$
+- Tail, Head → $X = 1$
+- Tail, Tail → $X = 0$
+
+Each of these outcomes has probability 0.25. From this, we can define the probability mass function (PMF) of $X$ as:
+
+$$
+P(x) =
+\begin{cases}
+0.25 & \text{if } x = 0 \\
+0.50 & \text{if } x = 1 \\
+0.25 & \text{if } x = 2 \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+The table below presents a representation of the PMF; showing the values of $P(x)$ for each value in the support of $X$:
+
+| Outcomes               | $x$ (Number of heads) | $P(x)$ |
+|------------------------|------------------------|--------|
+| (Tail, Tail)             | 0                      | 0.25   |
+| (Head, Tail), (Tail, Head)             | 1                      | 0.50   |
+| (Head, Head)             | 2                      | 0.25   |
+
+We can confirm that this satisfies the requirement:
+
+$$
+\sum_x P(x) = 0.25 + 0.5 + 0.25 = 1
+$$
+
+This confirms that $P(x)$ defines a valid probability distribution.
+
+
+This table is one way of representing the probability distribution of $X$. Another way to represent it is by using bar plot:
+
+```{r}
+#| echo: false
+
+library(ggplot2)
+
+# Define values and probabilities
+df_pmf <- data.frame(
+  x = c(0, 1, 2),
+  p = c(0.25, 0.5, 0.25)
+)
+
+# PMF plot
+ggplot(df_pmf, aes(x = factor(x), y = p)) +
+  geom_col(fill = "skyblue") +
+  labs(
+    title = "Probability Mass Function of X = Number of Heads in Two Coin Tosses",
+    x = "x",
+    y = expression(P(x))
+  ) +
+  ylim(0, 0.6) +
+  theme_minimal()
+```
+
+
+## Cumulative Distribution Function (CMF)
