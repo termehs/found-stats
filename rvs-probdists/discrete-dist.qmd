@@ -79,7 +79,9 @@ This table is one way of representing the probability distribution of $X$. Anoth
 
 ```{r}
 #| echo: false
-
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
 library(ggplot2)
 
 # Define values and probabilities
@@ -92,7 +94,7 @@ df_pmf <- data.frame(
 ggplot(df_pmf, aes(x = factor(x), y = p)) +
   geom_col(fill = "grey") +
   labs(
-    title = "Probability Mass Function of X = Number of Heads in Two Coin Tosses",
+    title = "Probability Mass Function of X",
     x = "x",
     y = expression(P(x))
   ) +
@@ -127,7 +129,9 @@ The last value of $F(x)$ must always equal 1, since the total probability must s
 
 ```{r}
 #| echo: false
-
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
 
 # Values and PMF
 df <- data.frame(
@@ -150,3 +154,109 @@ ggplot(df, aes(x = x, y = F_x)) +
   ylim(0, 1.05) +
   theme_minimal()
 ```
+
+## Expected Value of a Discrete Random Variable
+
+Just like empirical data can be summarized with averages and standard deviations, a discrete probability distribution can also be described using corresponding statistical measures. These include measures of central tendency, such as the expected value, and measures of variability, such as the standard deviation.
+
+The **expected value** plays the role of a mean or average. But because the possible outcomes may occur with different probabilities, we must take this into account by assigning more weight to more likely outcomes. This means the values are weighted by their associated probabilities.
+
+To find the expected value of a discrete random variable, we do not simply average the outcomes. Instead, we compute a weighted average where the weights are given by the probability mass function.
+
+The expected value of a discrete random variable $X$ is denoted by $\mathbb{E}(X)$, where $\mathbb{E}$ stands for expectation.
+It is defined as:
+
+$$
+\mathbb{E}(X) = \sum_{x} x \cdot P(x) = \mu_X
+$$
+
+This formula tells us to multiply each value $x$ by its probability $P(x)$ and then sum the results over all possible values of $X$.
+The result, $\mathbb{E}(X)$, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of $X$ according to its probability distribution.
+
+The expected value represents the "center" of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.
+
+
+It’s important to note that expected value doesn’t predict what will happen* — it predicts what happens on average.
+It’s like asking, *“What would I get if the universe reran this scenario a million times?”*
+
+
+
+#### Example 12.1: Coin Toss (continued) {.unnumbered}
+
+If you revisit the coin-toss example where $X$ counts the number of heads in two tosses, you would compute the expected value as:
+
+$$
+\mathbb{E}(X) = \sum_{x} x \cdot P(x) = 0 \cdot 0.25 + 1 \cdot 0.5 + 2 \cdot 0.25 = 1
+$$
+
+This confirms that we expect to get 1 head on average when tossing a coin twice.
+
+#### Example 12.2: Lottery -  A Risky Business  {.unnumbered}
+Let’s say you're eyeing a lottery with 100 tickets. Each ticket costs 1€, and you're feeling lucky. The prize setup is:
+
+- One lucky winner gets 50€    
+- Three people win 10€    
+- Five folks get 2€  
+- And... the remaining 91 get absolutely nothing 
+
+Let’s define a random variable $X$ as the payout of a randomly selected ticket.
+
+So what values can $X$ take?
+
+$$
+X \in \{0, 2, 10, 50\}
+$$
+
+But — and here’s the key — just averaging those values like this:
+
+$$
+\frac{0 + 2 + 10 + 50}{4} = 15.5
+$$
+
+...makes no sense! That would only be correct if all outcomes were equally likely, which they're definitely not. Most people walk away with nothing. So we need to weight each value by how often it actually happens.
+
+Let’s build a table to show how many tickets correspond to each prize:
+
+| Prize (€) | Number of tickets | Probability $P(x)$ |
+|----------------|-------------------|--------------------|
+| 0              | 91                | 0.91               |
+| 2              | 5                 | 0.05               |
+| 10             | 3                 | 0.03               |
+| 50             | 1                 | 0.01               |
+
+So now we have a complete probability distribution for $X$ which is visualized below:
+
+```{r}
+#| echo: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
+library(tibble)
+library(ggplot2)
+
+# Data for lottery example
+df_lottery <- tibble(
+  prize = c(0, 2, 10, 50),
+  probability = c(0.91, 0.05, 0.03, 0.01)
+)
+
+# Plot PMF
+ggplot(df_lottery, aes(x = factor(prize), y = probability)) +
+  geom_col(fill = "goldenrod") +
+  labs(
+    title = "Probability Distribution of Lottery Payout",
+    x = "Payout (€)",
+    y = expression(P(x))
+  ) +
+  theme_minimal()
+```
+
+Let’s compute the expected value $\mathbb{E}(X)$ using the PMF:
+
+$$
+\mathbb{E}(X) = \sum_x x \cdot P(x) = 0 \cdot 0.91 + 2 \cdot 0.05 + 10 \cdot 0.03 + 50 \cdot 0.01 = 0.90
+$$
+
+So even though one person might win 50€, the average payout per ticket is just 90  cents. That means if you pay 1€ per ticket, you're losing 10 cents on average.
+
+Most of the time, lottery isn’t just random — it’s rigged (in favor of the organizers).

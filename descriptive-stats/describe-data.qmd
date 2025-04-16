@@ -45,6 +45,9 @@ Each slice represents a category’s percentage of the total, with the entire pi
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
 
 pref_data <- data.frame(
   Preference = c("Coffee", "Tea"),
@@ -70,6 +73,9 @@ Bar charts are a great way to visualize qualitative data, making it easy to comp
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
  ggplot(pref_data, aes(x = Preference, y = Count, fill = Preference)) +
   geom_bar(stat = "identity") +
   labs(title = " ", x = "Preference", y = "Count") +
@@ -187,7 +193,8 @@ We have created a **frequency table** by grouping the data into categories which
 
 ```{r}
 #| echo: false
-#| message: false
+#| fig-height: 3
+#| fig-width: 5
 data <- data.frame(
   Grade = factor(c(1, 2, 3, 4, 5)),
   Frequency = c(2, 5, 9, 6, 3)
@@ -263,6 +270,9 @@ We then can visualize the frequency distribution using a histogram:
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
 data <- data.frame(
   Weight = factor(c("20.4-21.6", "21.7-22.9", "23.0-24.2", "24.3-25.5", "25.6-26.9"),
                   levels = c("20.4-21.6", "21.7-22.9", "23.0-24.2", "24.3-25.5", "25.6-26.9")),
@@ -291,6 +301,10 @@ To determine how many observations fall below a given value, we calculate the cu
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
+
 data$Cumulative <- cumsum(data$Frequency)
 
 ggplot(data, aes(x = Weight, y = Cumulative, group = 1)) +

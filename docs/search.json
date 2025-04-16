@@ -256,7 +256,7 @@
     "href": "descriptive-stats/central-measures.html#arithmetic-mean",
     "title": "\n6  Measures of Central Tendency\n",
     "section": "\n6.1 Arithmetic Mean",
-    "text": "6.1 Arithmetic Mean\nThe mean is calculated by summing all values and dividing by the number of observations. It is often used as a measure of central tendency because it incorporates all data points, making it a valuable summary statistic. However, the mean is sensitive to outliers, meaning that extreme values can pull it higher or lower, potentially misrepresenting the typical value in a skewed distribution. Despite this, in normally distributed data, the mean is a reliable and widely used indicator of the data set’s center.\nThe mean is calculated differently depending on whether we are working with an entire population or a sample: For a population, the mean (\\(\\mu\\)) is given by: \\[\n\\mu = \\frac{\\sum_{i=1}^{N} x_i}{N}\n\\]\nwhere \\(N\\) is the population size. For a sample, the mean (\\(\\bar{x}\\)) is an estimate of \\(\\mu\\) and is calculated as: \\[\n\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n}\n\\] where \\(n\\) is the sample size.\nExample 6.1: Income\nThe mean income is: \\[\\bar{x} = \\frac{20 + 22 + 24 + 24 + \\cdots + 85 + 90}{18} = 44.7 \\] Thus, the mean income is 44 700 €.",
+    "text": "6.1 Arithmetic Mean\nThe mean is calculated by summing all values and dividing by the number of observations. It is often used as a measure of central tendency because it incorporates all data points, making it a valuable summary statistic. However, the mean is sensitive to outliers, meaning that extreme values can pull it higher or lower, potentially misrepresenting the typical value in a skewed distribution. Despite this, in normally distributed data, the mean is a reliable and widely used indicator of the data set’s center.\nThe mean is calculated differently depending on whether we are working with an entire population or a sample: For a population, the mean (\\(\\mu\\), just a fancy Greek way of saying “the mean of \\(X\\)”) is given by: \\[\n\\mu = \\frac{\\sum_{i=1}^{N} x_i}{N}\n\\]\nwhere \\(N\\) is the population size. For a sample, the mean (\\(\\bar{x}\\)) is an estimate of \\(\\mu\\) and is calculated as: \\[\n\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n}\n\\] where \\(n\\) is the sample size.\nExample 6.1: Income\nThe mean income is: \\[\\bar{x} = \\frac{20 + 22 + 24 + 24 + \\cdots + 85 + 90}{18} = 44.7 \\] Thus, the mean income is 44 700 €.",
     "crumbs": [
       "Descriptive Statistics",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Measures of Central Tendency</span>"
@@ -999,6 +999,50 @@
     "title": "\n13  Discrete Probability Distributions\n",
     "section": "\n13.2 The Cumulative Distribution Function (CDF)",
     "text": "13.2 The Cumulative Distribution Function (CDF)\nFor a discrete random variable \\(X\\), we can describe its probability distribution not only using the probability mass function, but also through its cumulative distribution function, denoted \\(F(x)\\).\nThe CDF gives the probability that \\(X\\) takes on a value less than or equal to a given number \\(x\\):\n\\[\nF(x) = P(X \\leq x)\n\\]\nThis function grows step by step as we move through the possible values of \\(X\\), accumulating the total probability up to each point.\nExample 12.1: Coin Toss (continued)\nWe continue here with the example abive, where \\(X\\) is the number of heads in two tosses of a fair coin. The PMF and corresponding CDF values are:\n\n\n\\(x\\)\n\\(P(x)\\)\n\\(F(x)\\)\n\n\n\n0\n0.25\n0.25\n\n\n1\n0.50\n0.75\n\n\n2\n0.25\n1.00\n\n\n\nThe last value of \\(F(x)\\) must always equal 1, since the total probability must sum to 1.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#expected-value-of-a-discrete-random-variable",
+    "href": "rvs-probdists/discrete-dist.html#expected-value-of-a-discrete-random-variable",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.3 Expected Value of a Discrete Random Variable",
+    "text": "13.3 Expected Value of a Discrete Random Variable\nJust like empirical data can be summarized with averages and standard deviations, a discrete probability distribution can also be described using corresponding statistical measures. These include measures of central tendency, such as the expected value, and measures of variability, such as the standard deviation.\nThe expected value plays the role of a mean or average. But because the possible outcomes may occur with different probabilities, we must take this into account by assigning more weight to more likely outcomes. This means the values are weighted by their associated probabilities.\nTo find the expected value of a discrete random variable, we do not simply average the outcomes. Instead, we compute a weighted average where the weights are given by the probability mass function.\nThe expected value of a discrete random variable \\(X\\) is denoted by \\(\\mathbb{E}(X)\\), where \\(\\mathbb{E}\\) stands for expectation. It is defined as:\n\\[\n\\mathbb{E}(X) = \\sum_{x} x \\cdot P(x) = \\mu_X\n\\]\nThis formula tells us to multiply each value \\(x\\) by its probability \\(P(x)\\) and then sum the results over all possible values of \\(X\\). The result, \\(\\mathbb{E}(X)\\), gives us the value we expect to observe on average in the long run, if we were to randomly select a value of \\(X\\) according to its probability distribution.\nThe expected value represents the “center” of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.\nIt’s important to note that expected value doesn’t predict what will happen* — it predicts what happens on average. It’s like asking, “What would I get if the universe reran this scenario a million times?”\nExample 12.1: Coin Toss (continued)\nIf you revisit the coin-toss example where \\(X\\) counts the number of heads in two tosses, you would compute the expected value as:\n\\[\n\\mathbb{E}(X) = \\sum_{x} x \\cdot P(x) = 0 \\cdot 0.25 + 1 \\cdot 0.5 + 2 \\cdot 0.25 = 1\n\\]\nThis confirms that we expect to get 1 head on average when tossing a coin twice.\nExample 12.2: Lottery - A Risky Business\nLet’s say you’re eyeing a lottery with 100 tickets. Each ticket costs 1€, and you’re feeling lucky. The prize setup is:\n\nOne lucky winner gets 50€\n\nThree people win 10€\n\nFive folks get 2€\n\nAnd… the remaining 91 get absolutely nothing\n\nLet’s define a random variable \\(X\\) as the payout of a randomly selected ticket.\nSo what values can \\(X\\) take?\n\\[\nX \\in \\{0, 2, 10, 50\\}\n\\]\nBut — and here’s the key — just averaging those values like this:\n\\[\n\\frac{0 + 2 + 10 + 50}{4} = 15.5\n\\]\n…makes no sense! That would only be correct if all outcomes were equally likely, which they’re definitely not. Most people walk away with nothing. So we need to weight each value by how often it actually happens.\nLet’s build a table to show how many tickets correspond to each prize:\n\n\nPrize (€)\nNumber of tickets\nProbability \\(P(x)\\)\n\n\n\n\n0\n91\n0.91\n\n\n2\n5\n0.05\n\n\n10\n3\n0.03\n\n\n50\n1\n0.01\n\n\n\nSo now we have a complete probability distribution for \\(X\\) which is visualized below:\n\n\n\n\n\n\n\n\nLet’s compute the expected value \\(\\mathbb{E}(X)\\) using the PMF:\n\\[\n\\mathbb{E}(X) = \\sum_x x \\cdot P(x) = 0 \\cdot 0.91 + 2 \\cdot 0.05 + 10 \\cdot 0.03 + 50 \\cdot 0.01 = 0.90\n\\]\nSo even though one person might win 50€, the average payout per ticket is just 90 cents. That means if you pay 1€ per ticket, you’re losing 10 cents on average.\nMost of the time, lottery isn’t just random — it’s rigged (in favor of the organizers).",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#interpretation",
+    "href": "rvs-probdists/discrete-dist.html#interpretation",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.4 🧠 Interpretation",
+    "text": "13.4 🧠 Interpretation\nThe expected value represents the “center” of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.\nIt’s important to note that the expected value is not necessarily one of the actual outcomes of the variable. Rather, it is the average outcome when all values are considered together, weighted by how likely they are.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#example-reference",
+    "href": "rvs-probdists/discrete-dist.html#example-reference",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.5 📎 Example Reference",
+    "text": "13.5 📎 Example Reference\nIf you revisit the coin-toss example where \\(X\\) counts the number of heads in two tosses, you would compute the expected value as:\n\\[\n\\mathbb{E}(X) = 0 \\cdot 0.25 + 1 \\cdot 0.5 + 2 \\cdot 0.25 = 1\n\\]\nThis confirms that we expect to get 1 head on average when tossing a coin twice.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#show-it-with-r-optional",
+    "href": "rvs-probdists/discrete-dist.html#show-it-with-r-optional",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.4 📊 Show It with R (Optional)",
+    "text": "13.4 📊 Show It with R (Optional)",
     "crumbs": [
       "Random Variables and Probability Distributions",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"

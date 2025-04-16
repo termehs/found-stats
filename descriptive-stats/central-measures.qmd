@@ -28,6 +28,7 @@ We will in the following show how we compute each of the shown measure of centra
 ```{r}
 #| echo: false
 #| message: false
+
 # Given salary data in thousands of Euros
 income <- c(20, 22, 24, 24, 26, 27, 30, 34, 40, 44, 45, 47, 55, 57, 60, 75, 85, 90)
 
@@ -57,13 +58,15 @@ We will see that for this example, the median income is the most representative 
 
 The **mean** is calculated by summing all values and dividing by the number of observations. It is often used as a measure of central tendency because it incorporates all data points, making it a valuable summary statistic. However, the mean is sensitive to outliers, meaning that extreme values can pull it higher or lower, potentially misrepresenting the typical value in a skewed distribution. Despite this, in normally distributed data, the mean is a reliable and widely used indicator of the data set’s center.
 
-The mean is calculated differently depending on whether we are working with an entire population or a sample: For a population, the mean ($\mu$) is given by: $$
+The mean is calculated differently depending on whether we are working with an entire population or a sample: For a population, the mean ($\mu$, just a fancy Greek way of saying "the mean of $X$") is given by: 
+$$
 \mu = \frac{\sum_{i=1}^{N} x_i}{N}
 $$
 
 where $N$ is the population size. For a sample, the mean ($\bar{x}$) is an estimate of $\mu$ and is calculated as: $$
 \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n} 
 $$ where $n$ is the sample size.
+
 
 #### Example 6.1: Income {.unnumbered}
 

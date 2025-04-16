@@ -297,6 +297,7 @@ window.Quarto = {
   <ul>
 <li><a href="#probability-mass-function-pmf" id="toc-probability-mass-function-pmf" class="nav-link active" data-scroll-target="#probability-mass-function-pmf"><span class="header-section-number">13.1</span> Probability Mass Function (PMF)</a></li>
   <li><a href="#the-cumulative-distribution-function-cdf" id="toc-the-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#the-cumulative-distribution-function-cdf"><span class="header-section-number">13.2</span> The Cumulative Distribution Function (CDF)</a></li>
+  <li><a href="#expected-value-of-a-discrete-random-variable" id="toc-expected-value-of-a-discrete-random-variable" class="nav-link" data-scroll-target="#expected-value-of-a-discrete-random-variable"><span class="header-section-number">13.3</span> Expected Value of a Discrete Random Variable</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -398,10 +399,10 @@ P(x) =
 \]</span></p>
 <p>This confirms that <span class="math inline">\(P(x)\)</span> defines a valid probability distribution.</p>
 <p>This table is one way of representing the probability distribution of <span class="math inline">\(X\)</span>. Another way to represent it is by using bar plot:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
@@ -441,14 +442,99 @@ F(x) = P(X \leq x)
 </tbody>
 </table>
 <p>The last value of <span class="math inline">\(F(x)\)</span> must always equal 1, since the total probability must sum to 1.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+</section></section><section id="expected-value-of-a-discrete-random-variable" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="expected-value-of-a-discrete-random-variable">
+<span class="header-section-number">13.3</span> Expected Value of a Discrete Random Variable</h2>
+<p>Just like empirical data can be summarized with averages and standard deviations, a discrete probability distribution can also be described using corresponding statistical measures. These include measures of central tendency, such as the expected value, and measures of variability, such as the standard deviation.</p>
+<p>The <strong>expected value</strong> plays the role of a mean or average. But because the possible outcomes may occur with different probabilities, we must take this into account by assigning more weight to more likely outcomes. This means the values are weighted by their associated probabilities.</p>
+<p>To find the expected value of a discrete random variable, we do not simply average the outcomes. Instead, we compute a weighted average where the weights are given by the probability mass function.</p>
+<p>The expected value of a discrete random variable <span class="math inline">\(X\)</span> is denoted by <span class="math inline">\(\mathbb{E}(X)\)</span>, where <span class="math inline">\(\mathbb{E}\)</span> stands for expectation. It is defined as:</p>
+<p><span class="math display">\[
+\mathbb{E}(X) = \sum_{x} x \cdot P(x) = \mu_X
+\]</span></p>
+<p>This formula tells us to multiply each value <span class="math inline">\(x\)</span> by its probability <span class="math inline">\(P(x)\)</span> and then sum the results over all possible values of <span class="math inline">\(X\)</span>. The result, <span class="math inline">\(\mathbb{E}(X)\)</span>, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of <span class="math inline">\(X\)</span> according to its probability distribution.</p>
+<p>The expected value represents the “center” of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.</p>
+<p>It’s important to note that expected value doesn’t predict what will happen* — it predicts what happens on average. It’s like asking, <em>“What would I get if the universe reran this scenario a million times?”</em></p>
+<section id="example-12.1-coin-toss-continued-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-1">Example 12.1: Coin Toss (continued)</h4>
+<p>If you revisit the coin-toss example where <span class="math inline">\(X\)</span> counts the number of heads in two tosses, you would compute the expected value as:</p>
+<p><span class="math display">\[
+\mathbb{E}(X) = \sum_{x} x \cdot P(x) = 0 \cdot 0.25 + 1 \cdot 0.5 + 2 \cdot 0.25 = 1
+\]</span></p>
+<p>This confirms that we expect to get 1 head on average when tossing a coin twice.</p>
+</section><section id="example-12.2-lottery---a-risky-business" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business">Example 12.2: Lottery - A Risky Business</h4>
+<p>Let’s say you’re eyeing a lottery with 100 tickets. Each ticket costs 1€, and you’re feeling lucky. The prize setup is:</p>
+<ul>
+<li>One lucky winner gets 50€<br>
+</li>
+<li>Three people win 10€<br>
+</li>
+<li>Five folks get 2€<br>
+</li>
+<li>And… the remaining 91 get absolutely nothing</li>
+</ul>
+<p>Let’s define a random variable <span class="math inline">\(X\)</span> as the payout of a randomly selected ticket.</p>
+<p>So what values can <span class="math inline">\(X\)</span> take?</p>
+<p><span class="math display">\[
+X \in \{0, 2, 10, 50\}
+\]</span></p>
+<p>But — and here’s the key — just averaging those values like this:</p>
+<p><span class="math display">\[
+\frac{0 + 2 + 10 + 50}{4} = 15.5
+\]</span></p>
+<p>…makes no sense! That would only be correct if all outcomes were equally likely, which they’re definitely not. Most people walk away with nothing. So we need to weight each value by how often it actually happens.</p>
+<p>Let’s build a table to show how many tickets correspond to each prize:</p>
+<table class="table">
+<thead><tr class="header">
+<th>Prize (€)</th>
+<th>Number of tickets</th>
+<th>Probability <span class="math inline">\(P(x)\)</span>
+</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>91</td>
+<td>0.91</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>3</td>
+<td>0.03</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>1</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+<p>So now we have a complete probability distribution for <span class="math inline">\(X\)</span> which is visualized below:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s compute the expected value <span class="math inline">\(\mathbb{E}(X)\)</span> using the PMF:</p>
+<p><span class="math display">\[
+\mathbb{E}(X) = \sum_x x \cdot P(x) = 0 \cdot 0.91 + 2 \cdot 0.05 + 10 \cdot 0.03 + 50 \cdot 0.01 = 0.90
+\]</span></p>
+<p>So even though one person might win 50€, the average payout per ticket is just 90 cents. That means if you pay 1€ per ticket, you’re losing 10 cents on average.</p>
+<p>Most of the time, lottery isn’t just random — it’s rigged (in favor of the organizers).</p>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

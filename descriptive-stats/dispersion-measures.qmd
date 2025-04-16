@@ -193,6 +193,9 @@ To better understand the distribution of the two datasets, we use a boxplot to v
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 5
+#| fig-width: 7
+#| fig-align: center
 
 # Create datasets
 data_A <- data.frame(Group = "Dataset A", Score = c(4, 4, 5, 5, 5, 6, 6, 7))
@@ -265,6 +268,9 @@ To better understand the concept of standard deviation, we visualize the distrib
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 3
+#| fig-width: 5
+#| fig-align: center
 
 # Generate example data
 set.seed(123)
@@ -319,6 +325,9 @@ The empricial rule is visualized in @fig-emprule showing the percentages of data
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 4
+#| fig-width: 7
+#| fig-align: center
 
 # Create normal distribution data
 x <- seq(-4, 4, length=100)
@@ -398,6 +407,10 @@ A few examples are shown in @fig-corr.
 ```{r}
 #| echo: false
 #| message: false
+#| fig-height: 4
+#| fig-width: 7
+#| fig-align: center
+#| 
 # Generate datasets
 n <- 100
 x <- seq(-10, 10, length.out = n)
