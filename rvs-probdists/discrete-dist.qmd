@@ -90,7 +90,7 @@ df_pmf <- data.frame(
 
 # PMF plot
 ggplot(df_pmf, aes(x = factor(x), y = p)) +
-  geom_col(fill = "skyblue") +
+  geom_col(fill = "grey") +
   labs(
     title = "Probability Mass Function of X = Number of Heads in Two Coin Tosses",
     x = "x",
@@ -101,4 +101,52 @@ ggplot(df_pmf, aes(x = factor(x), y = p)) +
 ```
 
 
-## Cumulative Distribution Function (CMF)
+##  The Cumulative Distribution Function (CDF)
+
+For a discrete random variable $X$, we can describe its probability distribution not only using the probability mass function, but also through its **cumulative distribution function**, denoted $F(x)$.
+
+The CDF gives the probability that $X$ takes on a value less than or equal to a given number $x$:
+
+$$
+F(x) = P(X \leq x)
+$$
+
+This function grows step by step as we move through the possible values of $X$, accumulating the total probability up to each point.
+
+#### Example 12.1: Coin Toss (continued) {.unnumbered}
+
+We continue here with the example abive, where $X$ is the number of heads in two tosses of a fair coin. The PMF and corresponding CDF values are:
+
+| $x$ | $P(x)$ | $F(x)$ |
+|-----|--------|--------|
+| 0   | 0.25   | 0.25   |
+| 1   | 0.50   | 0.75   |
+| 2   | 0.25   | 1.00   |
+
+The last value of $F(x)$ must always equal 1, since the total probability must sum to 1.
+
+```{r}
+#| echo: false
+
+
+# Values and PMF
+df <- data.frame(
+  x = c(0, 1, 2),
+  p = c(0.25, 0.5, 0.25)
+)
+
+# Add cumulative probabilities
+df$F_x <- cumsum(df$p)
+
+# CDF Step Plot
+ggplot(df, aes(x = x, y = F_x)) +
+  geom_step(direction = "hv", linewidth = 1.2, color = "darkgrey") +
+  geom_point(size = 4, color = "indianred") +
+  labs(
+    title = "Cumulative Distribution Function F(x)",
+    x = "x",
+    y = expression(F(x))
+  ) +
+  ylim(0, 1.05) +
+  theme_minimal()
+```

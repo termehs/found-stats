@@ -296,7 +296,7 @@ window.Quarto = {
    
   <ul>
 <li><a href="#probability-mass-function-pmf" id="toc-probability-mass-function-pmf" class="nav-link active" data-scroll-target="#probability-mass-function-pmf"><span class="header-section-number">13.1</span> Probability Mass Function (PMF)</a></li>
-  <li><a href="#cumulative-distribution-function-cmf" id="toc-cumulative-distribution-function-cmf" class="nav-link" data-scroll-target="#cumulative-distribution-function-cmf"><span class="header-section-number">13.2</span> Cumulative Distribution Function (CMF)</a></li>
+  <li><a href="#the-cumulative-distribution-function-cdf" id="toc-the-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#the-cumulative-distribution-function-cdf"><span class="header-section-number">13.2</span> The Cumulative Distribution Function (CDF)</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -406,11 +406,52 @@ P(x) =
 </div>
 </div>
 </div>
-</section></section><section id="cumulative-distribution-function-cmf" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="cumulative-distribution-function-cmf">
-<span class="header-section-number">13.2</span> Cumulative Distribution Function (CMF)</h2>
+</section></section><section id="the-cumulative-distribution-function-cdf" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="the-cumulative-distribution-function-cdf">
+<span class="header-section-number">13.2</span> The Cumulative Distribution Function (CDF)</h2>
+<p>For a discrete random variable <span class="math inline">\(X\)</span>, we can describe its probability distribution not only using the probability mass function, but also through its <strong>cumulative distribution function</strong>, denoted <span class="math inline">\(F(x)\)</span>.</p>
+<p>The CDF gives the probability that <span class="math inline">\(X\)</span> takes on a value less than or equal to a given number <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+F(x) = P(X \leq x)
+\]</span></p>
+<p>This function grows step by step as we move through the possible values of <span class="math inline">\(X\)</span>, accumulating the total probability up to each point.</p>
+<section id="example-12.1-coin-toss-continued" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued">Example 12.1: Coin Toss (continued)</h4>
+<p>We continue here with the example abive, where <span class="math inline">\(X\)</span> is the number of heads in two tosses of a fair coin. The PMF and corresponding CDF values are:</p>
+<table class="table">
+<thead><tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(P(x)\)</span></th>
+<th><span class="math inline">\(F(x)\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0.25</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.50</td>
+<td>0.75</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0.25</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<p>The last value of <span class="math inline">\(F(x)\)</span> must always equal 1, since the total probability must sum to 1.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="discrete-dist_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

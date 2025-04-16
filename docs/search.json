@@ -981,5 +981,27 @@
       "Random Variables and Probability Distributions",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
     ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#t-he-cumulative-distribution-function-cdf",
+    "href": "rvs-probdists/discrete-dist.html#t-he-cumulative-distribution-function-cdf",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.2 T he Cumulative Distribution Function (CDF)",
+    "text": "13.2 T he Cumulative Distribution Function (CDF)\nFor a discrete random variable \\(X\\), we can describe its probability distribution not only using the probability mass function, but also through its cumulative distribution function, denoted \\(F(x)\\).\nThe CDF gives the probability that \\(X\\) takes on a value less than or equal to a given number \\(x\\):\n\\[\nF(x) = P(X \\leq x)\n\\]\nThis function grows step by step as we move through the possible values of \\(X\\), accumulating the total probability up to each point.\nExample 12.1: Coin Toss (continued)\nWe continue here with the example abive, where \\(X\\) is the number of heads in two tosses of a fair coin. The PMF and corresponding CDF values are:\n\n\n\\(x\\)\n\\(P(x)\\)\n\\(F(x)\\)\n\n\n\n0\n0.25\n0.25\n\n\n1\n0.50\n0.75\n\n\n2\n0.25\n1.00\n\n\n\nThe last value of \\(F(x)\\) must always equal 1, since the total probability must sum to 1.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "rvs-probdists/discrete-dist.html#the-cumulative-distribution-function-cdf",
+    "href": "rvs-probdists/discrete-dist.html#the-cumulative-distribution-function-cdf",
+    "title": "\n13  Discrete Probability Distributions\n",
+    "section": "\n13.2 The Cumulative Distribution Function (CDF)",
+    "text": "13.2 The Cumulative Distribution Function (CDF)\nFor a discrete random variable \\(X\\), we can describe its probability distribution not only using the probability mass function, but also through its cumulative distribution function, denoted \\(F(x)\\).\nThe CDF gives the probability that \\(X\\) takes on a value less than or equal to a given number \\(x\\):\n\\[\nF(x) = P(X \\leq x)\n\\]\nThis function grows step by step as we move through the possible values of \\(X\\), accumulating the total probability up to each point.\nExample 12.1: Coin Toss (continued)\nWe continue here with the example abive, where \\(X\\) is the number of heads in two tosses of a fair coin. The PMF and corresponding CDF values are:\n\n\n\\(x\\)\n\\(P(x)\\)\n\\(F(x)\\)\n\n\n\n0\n0.25\n0.25\n\n\n1\n0.50\n0.75\n\n\n2\n0.25\n1.00\n\n\n\nThe last value of \\(F(x)\\) must always equal 1, since the total probability must sum to 1.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Discrete Probability Distributions</span>"
+    ]
   }
 ]
