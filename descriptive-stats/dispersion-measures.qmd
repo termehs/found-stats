@@ -408,7 +408,7 @@ A few examples are shown in @fig-corr.
 #| echo: false
 #| message: false
 #| fig-height: 4
-#| fig-width: 7
+#| fig-width: 11
 #| fig-align: center
 #| 
 # Generate datasets
