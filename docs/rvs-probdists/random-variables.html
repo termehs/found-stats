@@ -318,7 +318,9 @@ window.Quarto = {
   <li><a href="#what-is-a-random-variable" id="toc-what-is-a-random-variable" class="nav-link active" data-scroll-target="#what-is-a-random-variable"><span class="header-section-number">12.1</span> What is a Random Variable?</a></li>
   <li><a href="#discrete-vs.-continuous-random-variables" id="toc-discrete-vs.-continuous-random-variables" class="nav-link" data-scroll-target="#discrete-vs.-continuous-random-variables"><span class="header-section-number">12.2</span> Discrete vs.&nbsp;Continuous Random Variables</a></li>
   <li><a href="#expected-value-and-variance" id="toc-expected-value-and-variance" class="nav-link" data-scroll-target="#expected-value-and-variance"><span class="header-section-number">12.3</span> Expected Value and Variance</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.4</span> Exercises</a></li>
+  <li><a href="#sec-rvrules" id="toc-sec-rvrules" class="nav-link" data-scroll-target="#sec-rvrules"><span class="header-section-number">12.4</span> Linear Transformations of Random Variables</a></li>
+  <li><a href="#standardizing-a-random-variable" id="toc-standardizing-a-random-variable" class="nav-link" data-scroll-target="#standardizing-a-random-variable"><span class="header-section-number">12.5</span> Standardizing a Random Variable</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">12.6</span> Exercises</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/random-variables.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -327,7 +329,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></h1>
+<h1 class="title"><span id="sec-rvs" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></h1>
 </div>
 
 
@@ -443,8 +445,112 @@ P(X = 0) = \frac{3}{6} = 0.5
 <p>While the expected value tells us the average, the variance of a random variable, denoted <span class="math inline">\(\mathbb{V}(X)\)</span>, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.</p>
 <p>So even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.</p>
 </section>
-<section id="exercises" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.4</span> Exercises</h2>
+<section id="sec-rvrules" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-rvrules"><span class="header-section-number">12.4</span> Linear Transformations of Random Variables</h2>
+<p>Suppose we know the expected value and variance of a random variable <span class="math inline">\(X\)</span>, and we define a new variable <span class="math inline">\(Y\)</span> as a <strong>linear transformation</strong>. FOr example, maybe you’re adding a flat fee to a cost, or scaling everything up because of inflation.</p>
+<p>Mathematically, you’ve created:</p>
+<p><span class="math display">\[
+Y = a + bX
+\]</span></p>
+<p>Now you’re probably wondering: <em>How does this change the average and the spread?</em></p>
+<p><span class="math display">\[
+Y = a + bX
+\]</span></p>
+<p>We are interested in how this affects the expectation and variance. The following rules apply:</p>
+<ul>
+<li>The expected value of <span class="math inline">\(Y\)</span> is:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}(Y) = \mathbb{E}(a + bX) = a + b\mathbb{E}(X)
+\]</span></p>
+<ul>
+<li>The variance of <span class="math inline">\(Y\)</span> is:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{V}(Y) = \mathbb{V}(a + bX) = b^2 \mathbb{V}(X)
+\]</span></p>
+<p>Adding a constant (<span class="math inline">\(a\)</span>) does not affect variability, but scaling by a constant (<span class="math inline">\(b\)</span>) affects the spread by a factor of <span class="math inline">\(b^2\)</span>.</p>
+<p>If <span class="math inline">\(c\)</span> is a constant (i.e., not a random variable):</p>
+<ul>
+<li>The expected value of a constant is the constant itself:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{E}(c) = c
+\]</span></p>
+<ul>
+<li>The variance of a constant is zero:</li>
+</ul>
+<p><span class="math display">\[
+\mathbb{V}(c) = 0
+\]</span></p>
+<p>Why zero variance? Because there’s nothing to vary — it’s always the same.</p>
+<p>We will see a practiccal example of these rukes of in the next chapter.</p>
+</section>
+<section id="standardizing-a-random-variable" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="standardizing-a-random-variable"><span class="header-section-number">12.5</span> Standardizing a Random Variable</h2>
+<p>To compare random variables on a common scale, we often <strong>standardize</strong> them. Given a random variable <span class="math inline">\(X\)</span> with expected value <span class="math inline">\(\mu_X\)</span> and standard deviation <span class="math inline">\(\sigma_X\)</span>, we define:</p>
+<p><span class="math display">\[
+Z = \frac{X - \mu_X}{\sigma_X}
+\]</span></p>
+<p>This transformation creates a <strong>standardized variable</strong> <span class="math inline">\(Z\)</span> with mean derived as follows using the rules shown in <a href="#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a>.</p>
+<p><span class="math display">\[
+\mathbb{E}(Z) = \mathbb{E}\left( \frac{X - \mu_X}{\sigma_X} \right)
+\]</span></p>
+<p>Since <span class="math inline">\(\frac{1}{\sigma_X}\)</span> is a constant, we can factor it out:</p>
+<p><span class="math display">\[
+\mathbb{E}(Z) = \frac{1}{\sigma_X} \cdot \mathbb{E}(X - \mu_X)
+\]</span></p>
+<p>Using the linearity of expectation:</p>
+<p><span class="math display">\[
+\mathbb{E}(X - \mu_X) = \mathbb{E}(X) - \mu_X = \mu_X - \mu_X = 0
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+\mathbb{E}(Z) = \frac{1}{\sigma_X} \cdot 0 = 0
+\]</span></p>
+<p>Thus, the standardized variable <span class="math inline">\(Z\)</span> has mean 0. <span class="math display">\[
+  \mathbb{E}(Z) = 0
+\]</span></p>
+<p>Now we derive the variance of <span class="math inline">\(Z\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{V}(Z) = \mathbb{V}\left( \frac{X - \mu_X}{\sigma_X} \right)
+\]</span></p>
+<p>We apply the rule for scaling a random variable:</p>
+<p><span class="math display">\[
+\mathbb{V}\left( \frac{X - \mu_X}{\sigma_X} \right) = \left( \frac{1}{\sigma_X} \right)^2 \cdot \mathbb{V}(X - \mu_X)
+\]</span></p>
+<p>Since subtracting a constant does not change variance:</p>
+<p><span class="math display">\[
+\mathbb{V}(X - \mu_X) = \mathbb{V}(X) = \sigma_X^2
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+\mathbb{V}(Z) = \frac{1}{\sigma_X^2} \cdot \sigma_X^2 = 1
+\]</span></p>
+<p>Thus, the standardized variable <span class="math inline">\(Z\)</span> has variance 1.</p>
+<p><span class="math display">\[
+  \mathbb{V}(Z) = 1
+\]</span></p>
+<p>To summarize, by standardizing a random variable using</p>
+<p><span class="math display">\[
+Z = \frac{X - \mu_X}{\sigma_X}
+\]</span></p>
+<p>we obtained a new variable <span class="math inline">\(Z\)</span> with the following properties:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{E}(Z) = 0\)</span></li>
+<li><span class="math inline">\(\mathbb{V}(Z) = 1\)</span></li>
+</ul>
+<p>This makes <span class="math inline">\(Z\)</span> easier to work with and allows comparisons between different variables, regardless of their original scale or units.</p>
+<p>Standardized variables are especially useful when:</p>
+<ul>
+<li>Comparing two variables measured in different units</li>
+<li>Working with standard distributions (like the standard normal)</li>
+<li>Simplifying statistical formulas and derivations</li>
+</ul>
+<p>Standardization ensures that the new variable <span class="math inline">\(Z\)</span> has no unit, zero mean, and unit variance — a common baseline in probability and statistics.</p>
+</section>
+<section id="exercises" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">12.6</span> Exercises</h2>
 <p>For each of the random variables below, decide whether it is discrete or continuous:</p>
 <ol type="1">
 <li>The number of books a student checked out from the library this week<br>
@@ -488,6 +594,48 @@ Solution
 </li>
 <li><strong>Discrete</strong> – binary variable (yes/no)</li>
 </ol>
+</div>
+</div>
+</div>
+<ol start="8" type="1">
+<li>Two workers, Alice and Bob, work independently on a task. The time (in hours) it takes each of them to complete their part is modeled as discrete random variables:<br>
+<span class="math inline">\(X\)</span> is Alice’s completion time, with <span class="math inline">\(\mathbb{E}(X) = 5\)</span> and <span class="math inline">\(\mathbb{V}(X) = 1.5\)</span><br>
+<span class="math inline">\(Y\)</span> is Bob’s completion time, with <span class="math inline">\(\mathbb{E}(Y) = 6\)</span> and <span class="math inline">\(\mathbb{V}(Y) = 2\)</span><br>
+Assume <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Now define:
+<ul>
+<li><span class="math inline">\(T = X + Y\)</span> as the total time they spend</li>
+<li><span class="math inline">\(D = Y - X\)</span> as the difference between their times</li>
+</ul>
+Compute <span class="math inline">\(\mathbb{E}(T)\)</span>, <span class="math inline">\(\mathbb{V}(T)\)</span>, <span class="math inline">\(\mathbb{E}(D)\)</span> and <span class="math inline">\(\mathbb{V}(D)\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Total time: <span class="math inline">\(T = X + Y\)</span>. Using linearity of expectation:</p>
+<p><span class="math display">\[
+\mathbb{E}(T) = \mathbb{E}(X) + \mathbb{E}(Y) = 5 + 6 = 11
+\]</span></p>
+<p>Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent:</p>
+<p><span class="math display">\[
+\mathbb{V}(T) = \mathbb{V}(X) + \mathbb{V}(Y) = 1.5 + 2 = 3.5
+\]</span></p>
+<p>Time difference: <span class="math inline">\(D = Y - X\)</span>. Again, using linearity:</p>
+<p><span class="math display">\[
+\mathbb{E}(D) = \mathbb{E}(Y - X) = \mathbb{E}(Y) - \mathbb{E}(X) = 6 - 5 = 1
+\]</span></p>
+<p>Variance of the difference (since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent):</p>
+<p><span class="math display">\[
+\mathbb{V}(D) = \mathbb{V}(Y) + \mathbb{V}(X) = 2 + 1.5 = 3.5
+\]</span></p>
 </div>
 </div>
 </div>
