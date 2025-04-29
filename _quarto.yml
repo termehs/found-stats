@@ -40,7 +40,8 @@ book:
     - part: "Random Variables and Probability Distributions"
       chapters:
       - rvs-probdists/random-variables.qmd
-      - rvs-probdists/discrete-dist.qmd
+      - rvs-probdists/discrete-dists.qmd
+      - rvs-probdists/cont-dists.qmd
     - part: sampling-dists.qmd
     - part: inference.qmd
     - part: chi2.qmd

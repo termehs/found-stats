@@ -619,13 +619,14 @@ b) Let $Y \sim \text{Bin}(10, 0.1)$ represent the number of defective items in a
   
 ::: {.callout-tip collapse="true"}
 ## Solution 
-a) Bernoulli Variable $X$: $X \sim \text{Bernoulli}(0.1)$
+a. \
 
-    $\mathbb{E}(X) = 0.1$  
+Bernoulli Variable $X$: $X \sim \text{Bernoulli}(0.1)$
+$$\mathbb{E}(X) = 0.1$$ 
  
-    $\mathbb{V}(X) = 0.1 \cdot (1 - 0.1) = 0.09$
+$$\mathbb{V}(X) = 0.1 \cdot (1 - 0.1) = 0.09$$
 
-b)\
+b. \
 
   (i) Binomial Variable $Y$: $Y \sim \text{Bin}(10, 0.1)$
 
