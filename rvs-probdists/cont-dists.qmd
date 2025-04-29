@@ -22,7 +22,7 @@ To summarize visually:
 | Possible values            | Finite or countable infinite set (e.g., 0, 1, 2, ...)    | Any real number within an interval (e.g., [0, 1])         |
 | Probability at a single point | Positive (e.g., $P(X = 2) > 0$)                        | Always zero ($P(X = 2) = 0$)                              |
 | Probability distribution type | Probability mass function (PMF)                      | Probability density function (PDF)                        |
-| How probabilities are calculated | Sum over points     $\sum$                              | Integrate over intervals    ($\int$)                             |
+| How probabilities are calculated | Sum over points     ($\sum$)                              | Integrate over intervals    ($\int$)                             |
 
 In discrete settings, probabilities are assigned to individual points. For continuous random variables, we instead measure the "area under the curve" of the density function across an interval.
 
