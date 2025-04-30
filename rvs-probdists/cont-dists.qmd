@@ -41,13 +41,13 @@ A typical shape of a probability density function might look like the following:
 #| fig-width: 5
 #| fig-align: center
 
-# Create a simple density curve (for illustration)
-x_vals <- seq(0, 10, length.out = 200)
-y_vals <- dnorm(x_vals, mean = 5, sd = 1.5)
+# Skewed density using Gamma distribution
+x_vals <- seq(0, 15, length.out = 300)
+y_vals <- dgamma(x_vals, shape = 2, scale = 2)  # Right-skewed
 
-df_density <- data.frame(x = x_vals, y = y_vals)
+df_skewed <- data.frame(x = x_vals, y = y_vals)
 
-ggplot(df_density, aes(x = x, y = y)) +
+ggplot(df_skewed, aes(x = x, y = y)) +
   geom_line(color = "black", size = 1.2) +
   labs(
     title = " ",
@@ -83,15 +83,15 @@ We can also visually highlight the probability over a specific interval by shadi
 a <- 3
 b <- 7
 
-ggplot(df_density, aes(x = x, y = y)) +
+ggplot(df_skewed, aes(x = x, y = y)) +
   geom_line(color = "black", size = 1.2) +
-  geom_area(data = subset(df_density, x >= a & x <= b),
+  geom_area(data = subset(df_skewed, x >= a & x <= b),
             aes(x = x, y = y),
             fill = "skyblue", alpha = 0.5) +
   geom_vline(xintercept = a, color = "steelblue", linetype = "dashed", size = 1) +
   geom_vline(xintercept = b, color = "steelblue", linetype = "dashed", size = 1) +
-    annotate("text", x = a-0.3, y = max(df_density$y) * 0.5, label = "a", color = "steelblue", size = 5) +
-  annotate("text", x = b+0.3, y = max(df_density$y) * 0.5, label = "b", color = "steelblue", size = 5) +
+    annotate("text", x = a-0.3, y = max(df_skewed$y) * 0.5, label = "a", color = "steelblue", size = 5) +
+  annotate("text", x = b+0.3, y = max(df_skewed$y) * 0.5, label = "b", color = "steelblue", size = 5) +
   labs(
     x = "x",
     y = "f(x)"
