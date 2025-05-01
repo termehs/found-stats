@@ -183,7 +183,7 @@ Here, $\mu$ is the mean of the distribution, and $\sigma^2$ is the variance (wit
 
 This density function has a characteristic bell shape: it is symmetric about the mean $\mu$, and the spread of the curve is determined by $\sigma$. The larger the value of $\sigma$, the more spread out the distribution becomes.
 
-Despite its somewhat complicated appearance, the normal distribution is incredibly useful because many phenomena in practice — especially sums and averages of random variables — tend to follow a distribution that closely resembles the normal. This fact is supported by the **central limit theorem**, which guarantees that under mild conditions, the sum of a large number of independent random variables tends toward a normal distribution, regardless of the original distributions. We will return to this in more details later.
+Despite its somewhat complicated appearance, the normal distribution is incredibly useful because many phenomena in practice, especially sums and averages of random variables, tend to follow a distribution that closely resembles the normal. This fact is supported by the **central limit theorem**, which guarantees that under mild conditions, the sum of a large number of independent random variables tends toward a normal distribution, regardless of the original distributions. We will return to this in more details later.
 
 Moreover, the probabilities associated with the normal distribution have already been computed and tabulated. These tables allow us to quickly look up values without performing integrals manually, making the normal distribution not only powerful in theory but also very practical in application.
 
