@@ -303,6 +303,7 @@ window.Quarto = {
   <ul>
 <li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link active" data-scroll-target="#probability-density-function-pdf"><span class="header-section-number">14.1</span> Probability Density Function (PDF)</a></li>
   <li><a href="#expectation-and-variance-for-continuous-variables" id="toc-expectation-and-variance-for-continuous-variables" class="nav-link" data-scroll-target="#expectation-and-variance-for-continuous-variables"><span class="header-section-number">14.2</span> Expectation and Variance for Continuous Variables</a></li>
+  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="header-section-number">14.3</span> The Normal Distribution</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/cont-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -433,6 +434,60 @@ P(a \leq X \leq b) = P(X \leq b) - P(X \leq a) = F(b) - F(a)
 \]</span></p>
 <p>Just like in the discrete case, this measures how spread out the values of <span class="math inline">\(X\)</span> are around the mean <span class="math inline">\(\mu\)</span>.</p>
 <p>Intuitively, the expected value can be thought of as the balance point of the distribution, the point at which the density function would balance perfectly if it were a physical object. The variance, as before, describes how tightly or widely the values of <span class="math inline">\(X\)</span> tend to cluster around this center.</p>
+</section><section id="the-normal-distribution" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="the-normal-distribution">
+<span class="header-section-number">14.3</span> The Normal Distribution</h2>
+<p>Among all continuous probability distributions, none is more important or more widely used than the <strong>normal distribution</strong>. This may seem strange, since very few real-world quantities are exactly normally distributed. Nevertheless, the normal distribution plays a central role in probability theory and statistics, especially as a powerful approximation tool.</p>
+<p>Mathematically, a random variable <span class="math inline">\(X\)</span> is said to follow a normal distribution if its probability density function is given by:</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sigma \sqrt{2\pi}} \, e^{- \frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2}, \quad \text{for } -\infty &lt; x &lt; \infty
+\]</span></p>
+<p>We denote this by writing:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(\mu, \sigma)
+\]</span></p>
+<p>Here, <span class="math inline">\(\mu\)</span> is the mean of the distribution, and <span class="math inline">\(\sigma^2\)</span> is the variance (with <span class="math inline">\(\sigma\)</span> being the standard deviation).</p>
+<p>This density function has a characteristic bell shape: it is symmetric about the mean <span class="math inline">\(\mu\)</span>, and the spread of the curve is determined by <span class="math inline">\(\sigma\)</span>. The larger the value of <span class="math inline">\(\sigma\)</span>, the more spread out the distribution becomes.</p>
+<p>Despite its somewhat complicated appearance, the normal distribution is incredibly useful because many phenomena in practice — especially sums and averages of random variables — tend to follow a distribution that closely resembles the normal. This fact is supported by the <strong>central limit theorem</strong>, which guarantees that under mild conditions, the sum of a large number of independent random variables tends toward a normal distribution, regardless of the original distributions. We will return to this in more details later.</p>
+<p>Moreover, the probabilities associated with the normal distribution have already been computed and tabulated. These tables allow us to quickly look up values without performing integrals manually, making the normal distribution not only powerful in theory but also very practical in application.</p>
+<p>It is this combination of mathematical elegance, approximation power, and computational convenience that explains the normal distribution’s central role in both theoretical and applied statistics.</p>
+<p>Let us now look at a concrete example. Suppose <span class="math inline">\(X\)</span> is a normally distributed random variable with mean <span class="math inline">\(\mu = 10\)</span> and standard deviation <span class="math inline">\(\sigma = 2\)</span>:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(10, 2)
+\]</span></p>
+<p>The density function of <span class="math inline">\(X\)</span> is bell-shaped and symmetric around the mean, with most of its probability mass concentrated within a few standard deviations from the center.</p>
+<p>Below is the probability density function for this distribution:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In practice, there are a few key characteristics of the normal distribution that are particularly important to understand.</p>
+<p>First, the shape of the normal distribution is completely determined by two parameters: the mean <span class="math inline">\(\mu\)</span> and the standard deviation <span class="math inline">\(\sigma\)</span>. These control the center and the spread of the distribution, respectively.</p>
+<p>The sample space of a normal distribution is the entire real number line, meaning that the variable can take on any real value, both positive and negative.</p>
+<p>Graphically, the density function of a normal distribution always has the same bell-shaped curve, regardless of the specific values of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. The mean <span class="math inline">\(\mu\)</span> determines the central location of the curve, while the standard deviation <span class="math inline">\(\sigma\)</span> determines how wide or narrow the curve appears.</p>
+<p>A key feature of the normal distribution is that it is symmetric around the mean <span class="math inline">\(\mu\)</span>. This symmetry implies that probabilities on either side of the mean are equal for equally sized intervals. In addition, as <span class="math inline">\(x \to \pm\infty\)</span>, the density function <span class="math inline">\(f(x)\)</span> approaches zero, meaning that extremely large or small values are increasingly unlikely, but not impossible.</p>
+<p>The shape of a normal distribution is fully determined by its mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. Changing either of these parameters modifies the appearance of the distribution in predictable ways. This is shown in <a href="#fig-normal-shape" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>.</p>
+<p>In (a), we compare two normal distributions with different means but the same standard deviation. This results in curves with identical shapes, but centered at different locations. Shifting <span class="math inline">\(\mu\)</span> translates the curve horizontally without altering its height or spread.</p>
+<p>In (b), we hold the mean constant and vary the standard deviation. This causes the curve to either compress or stretch. A smaller <span class="math inline">\(\sigma\)</span> yields a sharper, narrower peak, while a larger <span class="math inline">\(\sigma\)</span> produces a flatter, wider distribution.</p>
+<div id="fig-normal-shape" class="center quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normal-shape-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-shape-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Effects of changing parameters in the normal distribution (a) Changing the mean shifts the curve horizontally. (b) Changing the standard deviation alters the width and height of the curve
+</figcaption></figure>
+</div>
+<p>But first, we will learn how to calculate probabilities using normal distribution tables.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
