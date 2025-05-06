@@ -382,7 +382,7 @@ $$
 Z \sim \mathcal{N}(0, 1)
 $$
 
-This is our reference distribution. Because it measures distances in units of standard deviation from the mean, we can interpret a value like $z = 1.5$ as "1.5 standard deviations above the mean."
+This is our reference distribution. Because it measures distances in units of standard deviation from the mean, we can interpret a value like $z = 1.5$ as *"1.5 standard deviations above the mean"*.
 
 Since the normal distribution is symmetric around the mean, values less than 0 represent outcomes below average, and values greater than 0 are above average.
 
