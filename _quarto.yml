@@ -46,10 +46,9 @@ book:
     - part: inference.qmd
     - part: chi2.qmd
     - part: regression.qmd
-      chapters:
-      - slr.qmd
-    - part: summary.qmd
     - part: references.qmd
+  appendices:
+  - appendix/normal-table.qmd
 bibliography: references.bib
 
 number-sections: true 
@@ -63,9 +62,10 @@ format:
     mermaid:
       theme: default
     theme: cosmo
+    number-depth: 3
     code-link: true
     author-meta: "Termeh Shafie"
+crossref:
+  appendix-delim: ":"
 editor: visual
-
-
 

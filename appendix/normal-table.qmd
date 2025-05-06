@@ -1,0 +1,53 @@
+# Standard Normal Table {#sec-normaltbl .appendix}
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-height: 2
+#| fig-width: 3
+#| fig-align: center
+
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(ggplot2)
+
+z_example <- 1 # Example z-value to illustrate
+
+x_vals <- seq(-3.5, 3.5, length.out = 500)
+df <- data.frame(x = x_vals, y = dnorm(x_vals))
+
+df_shade <- subset(df, x <= z_example)
+
+ggplot(df, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = df_shade, fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = z_example, linetype = "dotted", color = "grey30") +
+  annotate("text", x = z_example + 0.2, y = dnorm(z_example)-0.25, 
+           label = "z", color = "grey30", size = 4) +
+  labs(
+    title = " ",
+    subtitle = expression("shaded area represents " ~ P(Z <= z)),
+    x = "z",
+    y = "Density"
+  ) +
+  theme_void()
+
+# Define row and column values
+z_rows <- seq(0, 3, by = 0.1)
+z_cols <- seq(0.00, 0.09, by = 0.01)
+
+# Create table and format col as character (e.g., "0.00")
+z_table <- expand.grid(row = z_rows, col = z_cols) %>%
+  mutate(
+    col_chr = sprintf("%.2f", col),
+    z = round(row + col, 2),
+    prob = pnorm(z)
+  ) %>%
+  select(row, col_chr, prob) %>%
+  pivot_wider(names_from = col_chr, values_from = prob) %>%
+  rename(`z` = row)
+
+# Show table (first 10 rows for brevity)
+kable(z_table, digits = 3, caption = "Standard Normal Cumulative Probabilities: $P(Z \\leq z)$")
+```

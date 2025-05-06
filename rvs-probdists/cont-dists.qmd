@@ -300,8 +300,130 @@ plot_b <- ggplot(df_b, aes(x = x, y = density, color = dist)) +
 # Combine with patchwork and caption
 (plot_a / plot_b)
 ```
+
 Effects of changing parameters in the normal distribution (a) Changing the mean shifts the curve horizontally. (b) Changing the standard deviation alters the width and height of the curve
 
 :::
 
 But first, we will learn how to calculate probabilities using normal distribution tables.
+
+
+### Area under curve
+
+When using a normal distribution curve to model probability, the logic is as follows: we want to determine the probability that a randomly selected individual falls within a certain interval, say $(a, b)$. This is equivalent to finding the proportion of individuals in the population whose values lie between $a$ and $b$.
+
+In a normal distribution, this probability corresponds to the **area under the curve** between $a$ and $b$. Since the total area under the entire curve is equal to 1 (or 100%), the shaded region gives us the desired probability.
+
+This relationship between area and probability allows us to calculate how likely it is to observe values within specific ranges — and by symmetry, how unusual values far from the mean are.
+
+Let us visualize this with the previouslt mentioned empirical rule in  @fig-emprule, which summarizes how the area is distributed across standard deviations from the mean. This is shown in @fig-normal-emprule.
+
+::: {#fig-normal-emprule .center}
+
+```{r}
+#| fig-height: 3
+#| fig-width: 9
+# Parameters
+mu <- 10
+sigma <- 2
+x_vals <- seq(mu - 4*sigma, mu + 4*sigma, length.out = 500)
+df_base <- data.frame(x = x_vals, y = dnorm(x_vals, mu, sigma))
+
+# Helper to generate shaded plot
+empirical_plot <- function(lower, upper, percent_label, fill_color) {
+  df_shade <- subset(df_base, x >= lower & x <= upper)
+  
+  ggplot(df_base, aes(x, y)) +
+    geom_line(color = "black", size = 0.5) +
+    geom_area(data = df_shade, fill = fill_color, alpha = 0.6) +
+    geom_vline(xintercept = c(lower, upper), linetype = "dashed", color = fill_color) +
+    annotate("text", x = mu, y = 0.1, label = percent_label, size = 5, color = fill_color) +
+    labs(x = NULL, y = NULL) +
+    theme_minimal() +
+    theme(
+      axis.text = element_blank(),
+      axis.ticks = element_blank(),
+      plot.title = element_text(size = 10)
+    )
+}
+
+# Create the three plots
+plot_68 <- empirical_plot(mu - sigma, mu + sigma, "68%", "steelblue") +
+  ggtitle("Within ±1σ")
+
+plot_95 <- empirical_plot(mu - 2*sigma, mu + 2*sigma, "95%", "darkorange") +
+  ggtitle("Within ±2σ")
+
+plot_997 <- empirical_plot(mu - 3*sigma, mu + 3*sigma, "99.7%", "tan") +
+  ggtitle("Within ±3σ")
+
+# Combine in one row
+plot_68 + plot_95 + plot_997 
+```
+Empirical rule for the normal distribution. Shaded areas show typical probabilities for values within 1, 2, and 3 standard deviations of the mean.
+:::
+
+In practice, the most important takeaway is this:
+
+- Approximately 68% of values lie within one standard deviation from the mean ($\mu \pm \sigma$)
+- About 95% lie within two standard deviations ($\mu \pm 2\sigma$)
+- Nearly 99.7% lie within three standard deviations ($\mu \pm 3\sigma$)
+
+This is known as the empirical rule, and it forms the basis for many practical applications of the normal distribution. It also shows that values far from the mean are rare, making them candidates for being considered “unusual” or outliers in statistical reasoning.
+
+## The Standard Normal Distribution
+In practice, the values for which we want to calculate probabilities do not always align with the specific values shown in a table. Fortunately, thanks to the properties of the normal distribution, we don't need a separate table for every possible mean and standard deviation.
+
+Instead, we make use of a powerful idea: that any normal distribution can be converted into a **standard normal distribution**, and this makes calculating probabilities far simpler.
+
+The **standard normal distribution** is the special case where the mean is 0 and the standard deviation is 1. That is:
+
+$$
+Z \sim \mathcal{N}(0, 1)
+$$
+
+This is our reference distribution. Because it measures distances in units of standard deviation from the mean, we can interpret a value like $z = 1.5$ as "1.5 standard deviations above the mean."
+
+Since the normal distribution is symmetric around the mean, values less than 0 represent outcomes below average, and values greater than 0 are above average.
+
+By using the standard normal, we only need to consult a single probability table, shown in @sec-normaltbl, to find probabilities for a wide range of problems. The transformation is done through **standardization**, which we'll explore in the next section.
+
+We denote the cumulative probability function of the standard normal by $F(z)$ or $P(Z \leq z)$, and for values of $z$ between 0.00 and 3.00, these values are commonly found in standard Z-tables.
+
+We also use the symmetry of the normal curve:
+
+$$
+P(Z \leq -z) = 1 - P(Z \leq z)
+$$
+
+This makes it easy to compute probabilities for both tails of the distribution.
+
+Below is the standard normal curve:
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-height: 4
+#| fig-width: 5
+#| fig-align: center
+#| 
+# Generate the standard normal curve
+z_vals <- seq(-3.5, 3.5, length.out = 400)
+df_z <- data.frame(
+  z = z_vals,
+  density = dnorm(z_vals)
+)
+
+ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", size = 0.5) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(
+    title = "Z ~ N(0, 1)",
+    x = "z", y = "f(z)"
+  ) +
+  theme_minimal()
+```
+
+The plot shows the familiar bell shape, now centered at 0. This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.
+
+
