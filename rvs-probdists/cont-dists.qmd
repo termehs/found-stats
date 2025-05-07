@@ -696,13 +696,16 @@ The shaded areas are equivalent, since $Z = \frac{X - \mu}{\sigma}$.
 As mentioned earlier, one of the greatest strengths of the normal distribution is its flexibility; it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.
 
 
-
-```{r}
-#| eval: false
-
+::: {#fig-binomialapx .center}
+```{r binom-anim}
+#| fig-align: center
+#| echo: false
+#| fig-height: 5
+#| fig-width: 9
+#| cache: true
 # Parameters
 p <- 0.3
-n_values <- c(5, 10, 20, 40, 60, 100)
+n_values <- c(5, 10, 20, 30, 50)
 
 # Generate binomial and normal data for each n
 binom_df <- lapply(n_values, function(n) {
@@ -730,10 +733,9 @@ normal_all$n <- factor(normal_all$n)
 
 # Plot with animation
 plot <- ggplot() +
-  geom_col(data = binom_all, aes(x = x, y = prob), fill = "gray30", width = 0.9) +
-  geom_line(data = normal_all, aes(x = x, y = y), color = "red", linewidth = 1) +
+  geom_col(data = binom_all, aes(x = x, y = prob), fill = "gray70",color = "gray20", width = 0.7) +
+  geom_line(data = normal_all, aes(x = x, y = y), color = "indianred", linewidth = 0.8) +
   labs(
-    title = "Binomial Distribution Approaching Normal",
     subtitle = "n = {closest_state}",
     x = "Number of successes",
     y = "Probability"
@@ -741,8 +743,8 @@ plot <- ggplot() +
   theme_minimal(base_size = 14) +
   transition_states(n, transition_length = 2, state_length = 1) +
   ease_aes("cubic-in-out")
-
-# Save animation
-# anim_save("binomial_to_normal_fixed.gif", animation = plot, fps = 2)
-
+plot
 ```
+
+Binomial Distribution with $p = 0.3$ approaching Normal as $n$ increases.
+:::
