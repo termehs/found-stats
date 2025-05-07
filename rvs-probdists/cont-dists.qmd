@@ -201,8 +201,8 @@ Below is the probability density function for this distribution:
 
 ```{r}
 #| echo: false
-#| fig-height: 4
-#| fig-width: 5
+#| fig-height: 3
+#| fig-width: 4
 #| fig-align: center
 # Parameters
 mu <- 10
@@ -228,7 +228,11 @@ ggplot(df_norm, aes(x = x, y = y)) +
     y = "f(x)"
   ) +
   coord_cartesian(xlim = c(mu - width, mu + width)) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA) 
+  )
 ```
 
 In practice, there are a few key characteristics of the normal distribution that are particularly important to understand.
@@ -316,7 +320,7 @@ In a normal distribution, this probability corresponds to the **area under the c
 
 This relationship between area and probability allows us to calculate how likely it is to observe values within specific ranges — and by symmetry, how unusual values far from the mean are.
 
-Let us visualize this with the previouslt mentioned empirical rule in  @fig-emprule, which summarizes how the area is distributed across standard deviations from the mean. This is shown in @fig-normal-emprule.
+Let us visualize this with the previously mentioned empirical rule in  @fig-emprule, which summarizes how the area is distributed across standard deviations from the mean. This is shown in @fig-normal-emprule.
 
 ::: {#fig-normal-emprule .center}
 
@@ -344,7 +348,7 @@ empirical_plot <- function(lower, upper, percent_label, fill_color) {
       axis.text = element_blank(),
       axis.ticks = element_blank(),
       plot.title = element_text(size = 10)
-    )
+    ) 
 }
 
 # Create the three plots
@@ -385,26 +389,13 @@ $$
 This is our reference distribution. Because it measures distances in units of standard deviation from the mean, we can interpret a value like $z = 1.5$ as *"1.5 standard deviations above the mean"*.
 
 Since the normal distribution is symmetric around the mean, values less than 0 represent outcomes below average, and values greater than 0 are above average.
-
-By using the standard normal, we only need to consult a single probability table, shown in @sec-normaltbl, to find probabilities for a wide range of problems. The transformation is done through **standardization**, which we'll explore in the next section.
-
-We denote the cumulative probability function of the standard normal by $F(z)$ or $P(Z \leq z)$, and for values of $z$ between 0.00 and 3.00, these values are commonly found in standard Z-tables.
-
-We also use the symmetry of the normal curve:
-
-$$
-P(Z \leq -z) = 1 - P(Z \leq z)
-$$
-
-This makes it easy to compute probabilities for both tails of the distribution.
-
 Below is the standard normal curve:
 
 ```{r}
 #| echo: false
 #| message: false
-#| fig-height: 4
-#| fig-width: 5
+#| fig-height: 3
+#| fig-width: 4
 #| fig-align: center
 #| 
 # Generate the standard normal curve
@@ -421,9 +412,337 @@ ggplot(df_z, aes(x = z, y = density)) +
     title = "Z ~ N(0, 1)",
     x = "z", y = "f(z)"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA) 
+  )
 ```
 
-The plot shows the familiar bell shape, now centered at 0. This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.
+The plot shows the familiar bell shape, now centered at 0. By using the standard normal distribution, we only need to consult a single probability table, shown in @sec-normaltbl, to find probabilities for a wide range of problems. The transformation is done through **standardization**, which we'll explore in the next section.
+
+We denote the cumulative probability function of the standard normal by $F(z)$ or $P(Z \leq z)$, and for values of $z$ between 0.00 and 3.00, these values are commonly found in standard Z-tables. Because of symmetry, we can compute probabilities for both tails of the distribution (and for negative values of $z$), i.e.
+
+$$
+P(Z \leq -z) = 1 - P(Z \leq z)
+$$
 
 
+This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.
+
+#### Example: Standard Normal Distribution {.unnumbered}
+Let $Z \sim \mathcal{N}(0,1)$ be a standard normal variable. We’ll now walk through several examples of calculating probabilities using the standard normal distribution, visualizing the corresponding areas under the curve in each case.
+
+a) $P(Z \leq 0)$
+
+By symmetry, the probability that $Z$ is less than or equal to 0 is:
+
+$$
+P(Z \leq 0) = F(0) = 0.5
+$$
+
+```{r}
+#| fig-height: 3
+#| fig-width: 4
+#| fig-align: center
+
+ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z <= 0), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "black") +
+  labs(title = " ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+)
+```
+
+b) $P(Z \leq 1)$
+
+We use the standard normal table:
+
+$$
+P(Z \leq 1) = F(1) = 0.8413
+$$
+```{r}
+#| fig-height: 3
+#| fig-width: 4
+#| fig-align: center
+ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z <= 1), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = 1, linetype = "dashed", color = "black") +
+  labs(title = " ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+)
+```
+
+c) $P(0 \leq Z \leq 1)$
+
+This is the difference between two cumulative probabilities:
+
+$$
+P(0 \leq Z \leq 1) = F(1) - F(0) = 0.8413 - 0.5000 = 0.3413
+$$
+
+```{r}
+#| fig-height: 3
+#| fig-width: 4
+#| fig-align: center
+#| 
+ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z >= 0 & z <= 1), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = c(0, 1), linetype = "dashed", color = "black") +
+  labs(title = " ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+```
+
+d) $P(Z \geq 0.73)$
+
+We use the complement rule:
+
+$$
+P(Z \geq 0.73) = 1 - P(Z \leq 0.73) = 1 - 0.7673 = 0.2327
+$$
+
+```{r}
+#| fig-height: 3
+#| fig-width: 4
+#| fig-align: center
+#| 
+ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z >= 0.73), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = 0.73, linetype = "dashed", color = "black") +
+  labs(title = " ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+```
+
+e) $P(Z \geq -1.59)$
+
+Using symmetry:
+
+$$
+P(Z \geq -1.59) = P(Z \leq 1.59) = F(1.59) = 0.9441
+$$
+
+```{r}
+#| fig-height: 4
+#| fig-width: 10
+#| fig-align: center
+#| echo: false
+p1 <-  ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z >= -1.59), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = -1.59, linetype = "dashed", color = "black") +
+  labs(title = " P(Z ≥ -1.59) ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+
+p2  <-  ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z <= 1.59), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = 1.59, linetype = "dashed", color = "black") +
+  labs(title = "P(Z ≤ 1.59) ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+
+p1 + p2
+```
+
+
+f) $P(-1.59 \leq Z \leq 0.73)$
+
+We combine cumulative values:
+
+$$
+\begin{split}
+P(-1.59 \leq Z \leq 0.73) & = F(0.73) - (1 - F(1.59)) \\ &
+= 0.7673 - (1 - 0.9441) \\ & = 0.7114
+\end{split}
+$$
+
+
+```{r}
+#| fig-height: 3
+#| fig-width: 4
+#| fig-align: center
+#| 
+ggplot(df_z, aes(x = z, y = density)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z >= -1.59 & z <= 0.73), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = c(-1.59, 0.73), linetype = "dashed", color = "black") +
+  labs(title = " ", x = "z", y = "f(z)") +
+  theme_minimal() +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+```
+
+## From Normal to Standard Normal Distribution
+Suppose a random variable $X$ follows a normal distribution with mean $\mu$ and standard deviation $\sigma$, written:
+
+$$
+X \sim \mathcal{N}(\mu, \sigma)
+$$
+
+We often want to compute the probability $P(X \leq x)$ for some value $x$. While this can’t be calculated directly from $X$ without integration, we can convert the problem to one involving the standard normal distribution using the transformation:
+
+$$
+Z = \frac{X - \mu}{\sigma}
+$$
+
+This transformation maps $X$ to a standard normal variable $Z \sim \mathcal{N}(0,1)$. The beauty of this is that we can now use our standard normal table in @sec-normaltbl to calculate:
+
+$$
+P(X \leq x) = P\left(Z \leq \frac{x - \mu}{\sigma} \right)
+$$
+
+#### Example: $X \sim \mathcal{N}(170, 10)$ {.unnumbered}
+
+We want to compute:
+
+a) $P(X \leq 190)$
+
+We begin by standardizing:
+
+$$
+Z = \frac{X - 170}{10}, \quad \text{so} \quad \frac{190 - 170}{10} = 2
+$$
+
+Then use the standard normal table to find the correpsondign probability area:
+
+$$
+P(X \leq 190) = P(Z \leq 2) = 0.9772
+$$
+
+This is shown below in @fig-normalstnd where both shaded areas are exactly the same.
+
+
+::: {#fig-normalstnd .center}
+
+
+```{r}
+#| fig-height: 7
+#| fig-width: 5
+#| fig-align: center
+#| echo: false
+
+# Plot for X ~ N(170, 10)
+mu_x <- 170
+sigma_x <- 10
+x_vals <- seq(130, 210, length.out = 300)
+df_x <- data.frame(x = x_vals, y = dnorm(x_vals, mean = mu_x, sd = sigma_x))
+
+p1 <-  ggplot(df_x, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_x, x <= 190), fill = "grey", alpha = 0.6) +
+  geom_vline(xintercept = 190, linetype = "dashed") +
+  labs(title = "P(X ≤ 190)", x = "x", y = "f(x)") +
+  theme_minimal()  +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+
+
+# Plot for standard normal
+z_vals <- seq(-4, 4, length.out = 300)
+df_z <- data.frame(z = z_vals, y = dnorm(z_vals))
+
+p2 <-  ggplot(df_z, aes(x = z, y = y)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = subset(df_z, z <= 2), fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = 2, linetype = "dashed") +
+  labs(title = "P(Z ≤ 2)", x = "z", y = "f(z)") +
+  theme_minimal()  +
+  theme(
+  panel.grid = element_blank(),   
+  panel.border = element_rect(color = "black", fill = NA)       
+  )
+
+
+p1 / p2
+```
+
+Top: Probability under the original normal distribution $X \sim \mathcal{N}(170, 10)$.
+Bottom: Corresponding probability under the standard normal distribution $Z \sim \mathcal{N}(0, 1)$.
+The shaded areas are equivalent, since $Z = \frac{X - \mu}{\sigma}$.
+:::
+
+
+## Normal Approximation to the Binomial Distribution
+
+As mentioned earlier, one of the greatest strengths of the normal distribution is its flexibility; it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.
+
+
+
+```{r}
+#| eval: false
+
+# Parameters
+p <- 0.3
+n_values <- c(5, 10, 20, 40, 60, 100)
+
+# Generate binomial and normal data for each n
+binom_df <- lapply(n_values, function(n) {
+  x <- 0:n
+  mu <- n * p
+  sd <- sqrt(n * p * (1 - p))
+  
+  # Binomial probabilities
+  binom <- data.frame(x = x, prob = dbinom(x, n, p), n = n)
+  
+  # Normal approximation values
+  x_norm <- seq(0, n, length.out = 500)
+  normal <- data.frame(x = x_norm, y = dnorm(x_norm, mean = mu, sd = sd), n = n)
+  
+  list(binom = binom, normal = normal)
+})
+
+# Combine all binomial data
+binom_all <- do.call(rbind, lapply(binom_df, `[[`, "binom"))
+binom_all$n <- factor(binom_all$n)
+
+# Combine all normal data
+normal_all <- do.call(rbind, lapply(binom_df, `[[`, "normal"))
+normal_all$n <- factor(normal_all$n)
+
+# Plot with animation
+plot <- ggplot() +
+  geom_col(data = binom_all, aes(x = x, y = prob), fill = "gray30", width = 0.9) +
+  geom_line(data = normal_all, aes(x = x, y = y), color = "red", linewidth = 1) +
+  labs(
+    title = "Binomial Distribution Approaching Normal",
+    subtitle = "n = {closest_state}",
+    x = "Number of successes",
+    y = "Probability"
+  ) +
+  theme_minimal(base_size = 14) +
+  transition_states(n, transition_length = 2, state_length = 1) +
+  ease_aes("cubic-in-out")
+
+# Save animation
+# anim_save("binomial_to_normal_fixed.gif", animation = plot, fps = 2)
+
+```

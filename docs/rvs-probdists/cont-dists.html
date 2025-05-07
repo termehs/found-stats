@@ -311,6 +311,8 @@ window.Quarto = {
   </ul>
 </li>
   <li><a href="#the-standard-normal-distribution" id="toc-the-standard-normal-distribution" class="nav-link" data-scroll-target="#the-standard-normal-distribution"><span class="header-section-number">14.4</span> The Standard Normal Distribution</a></li>
+  <li><a href="#from-normal-to-standard-normal-distribution" id="toc-from-normal-to-standard-normal-distribution" class="nav-link" data-scroll-target="#from-normal-to-standard-normal-distribution"><span class="header-section-number">14.5</span> From Normal to Standard Normal Distribution</a></li>
+  <li><a href="#normal-approximation-to-the-binomial-distribution" id="toc-normal-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-distribution"><span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/cont-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -466,7 +468,7 @@ X \sim \mathcal{N}(10, 2)
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
 </figure>
 </div>
 </div>
@@ -500,7 +502,7 @@ Figure&nbsp;14.1: Effects of changing parameters in the normal distribution (a) 
 <p>When using a normal distribution curve to model probability, the logic is as follows: we want to determine the probability that a randomly selected individual falls within a certain interval, say <span class="math inline">\((a, b)\)</span>. This is equivalent to finding the proportion of individuals in the population whose values lie between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
 <p>In a normal distribution, this probability corresponds to the <strong>area under the curve</strong> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Since the total area under the entire curve is equal to 1 (or 100%), the shaded region gives us the desired probability.</p>
 <p>This relationship between area and probability allows us to calculate how likely it is to observe values within specific ranges — and by symmetry, how unusual values far from the mean are.</p>
-<p>Let us visualize this with the previouslt mentioned empirical rule in <a href="../descriptive-stats/dispersion-measures.html#fig-emprule" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>, which summarizes how the area is distributed across standard deviations from the mean. This is shown in <a href="#fig-normal-emprule" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>.</p>
+<p>Let us visualize this with the previously mentioned empirical rule in <a href="../descriptive-stats/dispersion-measures.html#fig-emprule" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>, which summarizes how the area is distributed across standard deviations from the mean. This is shown in <a href="#fig-normal-emprule" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>.</p>
 <div id="fig-normal-emprule" class="center quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normal-emprule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
@@ -532,24 +534,163 @@ Figure&nbsp;14.2: Empirical rule for the normal distribution. Shaded areas show 
 Z \sim \mathcal{N}(0, 1)
 \]</span></p>
 <p>This is our reference distribution. Because it measures distances in units of standard deviation from the mean, we can interpret a value like <span class="math inline">\(z = 1.5\)</span> as <em>“1.5 standard deviations above the mean”</em>.</p>
-<p>Since the normal distribution is symmetric around the mean, values less than 0 represent outcomes below average, and values greater than 0 are above average.</p>
-<p>By using the standard normal, we only need to consult a single probability table, shown in <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a>, to find probabilities for a wide range of problems. The transformation is done through <strong>standardization</strong>, which we’ll explore in the next section.</p>
-<p>We denote the cumulative probability function of the standard normal by <span class="math inline">\(F(z)\)</span> or <span class="math inline">\(P(Z \leq z)\)</span>, and for values of <span class="math inline">\(z\)</span> between 0.00 and 3.00, these values are commonly found in standard Z-tables.</p>
-<p>We also use the symmetry of the normal curve:</p>
-<p><span class="math display">\[
-P(Z \leq -z) = 1 - P(Z \leq z)
-\]</span></p>
-<p>This makes it easy to compute probabilities for both tails of the distribution.</p>
-<p>Below is the standard normal curve:</p>
+<p>Since the normal distribution is symmetric around the mean, values less than 0 represent outcomes below average, and values greater than 0 are above average. Below is the standard normal curve:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The plot shows the familiar bell shape, now centered at 0. This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.</p>
+<p>The plot shows the familiar bell shape, now centered at 0. By using the standard normal distribution, we only need to consult a single probability table, shown in <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a>, to find probabilities for a wide range of problems. The transformation is done through <strong>standardization</strong>, which we’ll explore in the next section.</p>
+<p>We denote the cumulative probability function of the standard normal by <span class="math inline">\(F(z)\)</span> or <span class="math inline">\(P(Z \leq z)\)</span>, and for values of <span class="math inline">\(z\)</span> between 0.00 and 3.00, these values are commonly found in standard Z-tables. Because of symmetry, we can compute probabilities for both tails of the distribution (and for negative values of <span class="math inline">\(z\)</span>), i.e.</p>
+<p><span class="math display">\[
+P(Z \leq -z) = 1 - P(Z \leq z)
+\]</span></p>
+<p>This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.</p>
+<section id="example-standard-normal-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-standard-normal-distribution">Example: Standard Normal Distribution</h4>
+<p>Let <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> be a standard normal variable. We’ll now walk through several examples of calculating probabilities using the standard normal distribution, visualizing the corresponding areas under the curve in each case.</p>
+<ol type="a">
+<li><span class="math inline">\(P(Z \leq 0)\)</span></li>
+</ol>
+<p>By symmetry, the probability that <span class="math inline">\(Z\)</span> is less than or equal to 0 is:</p>
+<p><span class="math display">\[
+P(Z \leq 0) = F(0) = 0.5
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li><span class="math inline">\(P(Z \leq 1)\)</span></li>
+</ol>
+<p>We use the standard normal table:</p>
+<p><span class="math display">\[
+P(Z \leq 1) = F(1) = 0.8413
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li><span class="math inline">\(P(0 \leq Z \leq 1)\)</span></li>
+</ol>
+<p>This is the difference between two cumulative probabilities:</p>
+<p><span class="math display">\[
+P(0 \leq Z \leq 1) = F(1) - F(0) = 0.8413 - 0.5000 = 0.3413
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="4" type="a">
+<li><span class="math inline">\(P(Z \geq 0.73)\)</span></li>
+</ol>
+<p>We use the complement rule:</p>
+<p><span class="math display">\[
+P(Z \geq 0.73) = 1 - P(Z \leq 0.73) = 1 - 0.7673 = 0.2327
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="5" type="a">
+<li><span class="math inline">\(P(Z \geq -1.59)\)</span></li>
+</ol>
+<p>Using symmetry:</p>
+<p><span class="math display">\[
+P(Z \geq -1.59) = P(Z \leq 1.59) = F(1.59) = 0.9441
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="6" type="a">
+<li><span class="math inline">\(P(-1.59 \leq Z \leq 0.73)\)</span></li>
+</ol>
+<p>We combine cumulative values:</p>
+<p><span class="math display">\[
+\begin{split}
+P(-1.59 \leq Z \leq 0.73) &amp; = F(0.73) - (1 - F(1.59)) \\ &amp;
+= 0.7673 - (1 - 0.9441) \\ &amp; = 0.7114
+\end{split}
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="from-normal-to-standard-normal-distribution" class="level2" data-number="14.5"><h2 data-number="14.5" class="anchored" data-anchor-id="from-normal-to-standard-normal-distribution">
+<span class="header-section-number">14.5</span> From Normal to Standard Normal Distribution</h2>
+<p>Suppose a random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, written:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(\mu, \sigma)
+\]</span></p>
+<p>We often want to compute the probability <span class="math inline">\(P(X \leq x)\)</span> for some value <span class="math inline">\(x\)</span>. While this can’t be calculated directly from <span class="math inline">\(X\)</span> without integration, we can convert the problem to one involving the standard normal distribution using the transformation:</p>
+<p><span class="math display">\[
+Z = \frac{X - \mu}{\sigma}
+\]</span></p>
+<p>This transformation maps <span class="math inline">\(X\)</span> to a standard normal variable <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span>. The beauty of this is that we can now use our standard normal table in <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a> to calculate:</p>
+<p><span class="math display">\[
+P(X \leq x) = P\left(Z \leq \frac{x - \mu}{\sigma} \right)
+\]</span></p>
+<section id="example-x-sim-mathcaln170-10" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-x-sim-mathcaln170-10">Example: <span class="math inline">\(X \sim \mathcal{N}(170, 10)\)</span>
+</h4>
+<p>We want to compute:</p>
+<ol type="a">
+<li><span class="math inline">\(P(X \leq 190)\)</span></li>
+</ol>
+<p>We begin by standardizing:</p>
+<p><span class="math display">\[
+Z = \frac{X - 170}{10}, \quad \text{so} \quad \frac{190 - 170}{10} = 2
+\]</span></p>
+<p>Then use the standard normal table to find the correpsondign probability area:</p>
+<p><span class="math display">\[
+P(X \leq 190) = P(Z \leq 2) = 0.9772
+\]</span></p>
+<p>This is shown below in <a href="#fig-normalstnd" class="quarto-xref">Figure&nbsp;<span>14.3</span></a> where both shaded areas are exactly the same.</p>
+<div id="fig-normalstnd" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normalstnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normalstnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3: Top: Probability under the original normal distribution <span class="math inline">\(X \sim \mathcal{N}(170, 10)\)</span>. Bottom: Corresponding probability under the standard normal distribution <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span>. The shaded areas are equivalent, since <span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span>.
+</figcaption></figure>
+</div>
+</section></section><section id="normal-approximation-to-the-binomial-distribution" class="level2" data-number="14.6"><h2 data-number="14.6" class="anchored" data-anchor-id="normal-approximation-to-the-binomial-distribution">
+<span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</h2>
+<p>As mentioned earlier, one of the greatest strengths of the normal distribution is its flexibility; it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

@@ -99,12 +99,7 @@ Y = a + bX
 $$
 
 Now you're probably wondering: *How does this change the average and the spread?*
-
-$$
-Y = a + bX
-$$
-
-We are interested in how this affects the expectation and variance.
+In other words, we are interested in how this affects the expectation and variance.
 The following rules apply:
 
 - The expected value of $Y$ is:

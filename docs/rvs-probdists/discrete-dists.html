@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
 <title>13&nbsp; Discrete Probability Distributions – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,12 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -101,15 +91,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -120,13 +106,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -141,7 +123,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -155,8 +137,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -181,7 +163,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -190,8 +172,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -210,7 +192,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -219,8 +201,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -245,7 +227,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -254,8 +236,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -274,7 +256,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Sampling and Sampling Distributions</span></span>
@@ -288,55 +270,49 @@ window.Quarto = {
  <span class="menu-text">Chi Square Tests</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regression Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Summary</span></span>
+ <span class="menu-text">Regression Analysis</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#probability-mass-function-pmf" id="toc-probability-mass-function-pmf" class="nav-link active" data-scroll-target="#probability-mass-function-pmf"><span class="header-section-number">13.1</span> Probability Mass Function (PMF)</a></li>
+<li><a href="#probability-mass-function-pmf" id="toc-probability-mass-function-pmf" class="nav-link active" data-scroll-target="#probability-mass-function-pmf"><span class="header-section-number">13.1</span> Probability Mass Function (PMF)</a></li>
   <li><a href="#the-cumulative-distribution-function-cdf" id="toc-the-cumulative-distribution-function-cdf" class="nav-link" data-scroll-target="#the-cumulative-distribution-function-cdf"><span class="header-section-number">13.2</span> The Cumulative Distribution Function (CDF)</a></li>
   <li><a href="#expected-value-of-a-discrete-random-variable" id="toc-expected-value-of-a-discrete-random-variable" class="nav-link" data-scroll-target="#expected-value-of-a-discrete-random-variable"><span class="header-section-number">13.3</span> Expected Value of a Discrete Random Variable</a></li>
   <li><a href="#variance-and-standard-deviation-of-a-discrete-random-variable" id="toc-variance-and-standard-deviation-of-a-discrete-random-variable" class="nav-link" data-scroll-target="#variance-and-standard-deviation-of-a-discrete-random-variable"><span class="header-section-number">13.4</span> Variance and Standard Deviation of a Discrete Random Variable</a></li>
   <li><a href="#rules-for-expectation-and-variance" id="toc-rules-for-expectation-and-variance" class="nav-link" data-scroll-target="#rules-for-expectation-and-variance"><span class="header-section-number">13.5</span> Rules for Expectation and Variance</a></li>
   <li><a href="#the-bernoulli-and-binomial-distribution" id="toc-the-bernoulli-and-binomial-distribution" class="nav-link" data-scroll-target="#the-bernoulli-and-binomial-distribution"><span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.7</span> Exercises</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/discrete-dists.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/discrete-dists.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title"><span id="sec-discrete" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></h1>
 </div>
 
@@ -351,15 +327,12 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>A <strong>discrete probability distribution</strong> describes how the values of a variable are associated with probabilities. It applies when a variable can take on a limited or countable set of values, like 0, 1, 2, and so on, and we know how likely each value is. Note that we use uppercase letter to denote random variables and lowercase letters for the values they take on.</p>
+</header><p>A <strong>discrete probability distribution</strong> describes how the values of a variable are associated with probabilities. It applies when a variable can take on a limited or countable set of values, like 0, 1, 2, and so on, and we know how likely each value is. Note that we use uppercase letter to denote random variables and lowercase letters for the values they take on.</p>
 <p>The probability function <span class="math inline">\(P(x)\)</span> assigns a probability to each possible value <span class="math inline">\(x\)</span> that the variable can take. These probabilities must all lie between 0 and 1, and together they must sum to exactly 1.</p>
 <p>We use the expected value, <span class="math inline">\(\mathbb{E}(X)\)</span>, to summarize the typical or central value of the distribution. It gives us a sense of where the values tend to cluster. Think of it as a kind of weighted average, where more probable outcomes count more heavily in the calculation.</p>
 <p>The variance, <span class="math inline">\(\mathbb{V}(X)\)</span>, describes how much the values of the variable differ from this central value. A small variance means most values are close to the expected value, while a large variance means the values are more spread out.</p>
-<section id="probability-mass-function-pmf" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="probability-mass-function-pmf"><span class="header-section-number">13.1</span> Probability Mass Function (PMF)</h2>
+<section id="probability-mass-function-pmf" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="probability-mass-function-pmf">
+<span class="header-section-number">13.1</span> Probability Mass Function (PMF)</h2>
 <p>When dealing with discrete random variables, we are interested in how likely it is that the variable takes on specific values. This relationship, the link between possible values and their associated probabilities, is described by the <strong>probability distribution</strong> of the random variable.</p>
 <p>The <strong>probability mass function (PMF)</strong> is a mathematical function that assigns a probability to each value the variable can take. In other words, the PMF is the mathematical expression of the probability distribution. The distribution is the overall concept; the PMF is the function that specifies the details.</p>
 <p>We usually denote the PMF as <span class="math inline">\(P(x)\)</span>, where:</p>
@@ -376,14 +349,17 @@ P(x) = P(X = x)
 \]</span></p></li>
 </ul>
 <p>If we know <span class="math inline">\(P(x)\)</span> for all values <span class="math inline">\(x\)</span> that <span class="math inline">\(X\)</span> can take, we say we know the probability distribution of <span class="math inline">\(X\)</span>. We can present a probability distribution in several forms: as a table, a bar chart, or through a formula.</p>
-<section id="example-12.1-coin-toss" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss">Example 12.1: Coin Toss</h4>
+<section id="example-12.1-coin-toss" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss">Example 12.1: Coin Toss</h4>
 <p>Suppose we toss a fair coin two times. Let the random variable <span class="math inline">\(X\)</span> represent the number of heads observed. The sample space consists of four equally likely outcomes:</p>
 <ul>
-<li>Head, Head → <span class="math inline">\(X = 2\)</span></li>
-<li>Head, Tail → <span class="math inline">\(X = 1\)</span></li>
-<li>Tail, Head → <span class="math inline">\(X = 1\)</span></li>
-<li>Tail, Tail → <span class="math inline">\(X = 0\)</span></li>
+<li>Head, Head → <span class="math inline">\(X = 2\)</span>
+</li>
+<li>Head, Tail → <span class="math inline">\(X = 1\)</span>
+</li>
+<li>Tail, Head → <span class="math inline">\(X = 1\)</span>
+</li>
+<li>Tail, Tail → <span class="math inline">\(X = 0\)</span>
+</li>
 </ul>
 <p>Each of these outcomes has probability 0.25. From this, we can define the probability mass function (PMF) of <span class="math inline">\(X\)</span> as:</p>
 <p><span class="math display">\[
@@ -397,13 +373,12 @@ P(x) =
 \]</span></p>
 <p>The table below presents a representation of the PMF; showing the values of <span class="math inline">\(P(x)\)</span> for each value in the support of <span class="math inline">\(X\)</span>:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Outcomes</th>
-<th><span class="math inline">\(x\)</span> (Number of heads)</th>
+<th>
+<span class="math inline">\(x\)</span> (Number of heads)</th>
 <th><span class="math inline">\(P(x)\)</span></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>(Tail, Tail)</td>
@@ -431,33 +406,27 @@ P(x) =
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="discrete-dists_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure class="figure"><p><img src="discrete-dists_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="the-cumulative-distribution-function-cdf" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="the-cumulative-distribution-function-cdf"><span class="header-section-number">13.2</span> The Cumulative Distribution Function (CDF)</h2>
+</section></section><section id="the-cumulative-distribution-function-cdf" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="the-cumulative-distribution-function-cdf">
+<span class="header-section-number">13.2</span> The Cumulative Distribution Function (CDF)</h2>
 <p>For a discrete random variable <span class="math inline">\(X\)</span>, we can describe its probability distribution not only using the probability mass function, but also through its <strong>cumulative distribution function</strong>, denoted <span class="math inline">\(F(x)\)</span>.</p>
 <p>The CDF gives the probability that <span class="math inline">\(X\)</span> takes on a value less than or equal to a given number <span class="math inline">\(x\)</span>:</p>
 <p><span class="math display">\[
 F(x) = P(X \leq x)
 \]</span></p>
 <p>This function grows step by step as we move through the possible values of <span class="math inline">\(X\)</span>, accumulating the total probability up to each point.</p>
-<section id="example-12.1-coin-toss-continued" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued">Example 12.1: Coin Toss (continued)</h4>
+<section id="example-12.1-coin-toss-continued" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued">Example 12.1: Coin Toss (continued)</h4>
 <p>We continue here with the example abive, where <span class="math inline">\(X\)</span> is the number of heads in two tosses of a fair coin. The PMF and corresponding CDF values are:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th><span class="math inline">\(P(x)\)</span></th>
 <th><span class="math inline">\(F(x)\)</span></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
@@ -480,16 +449,13 @@ F(x) = P(X \leq x)
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="discrete-dists_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure class="figure"><p><img src="discrete-dists_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="expected-value-of-a-discrete-random-variable" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="expected-value-of-a-discrete-random-variable"><span class="header-section-number">13.3</span> Expected Value of a Discrete Random Variable</h2>
+</section></section><section id="expected-value-of-a-discrete-random-variable" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="expected-value-of-a-discrete-random-variable">
+<span class="header-section-number">13.3</span> Expected Value of a Discrete Random Variable</h2>
 <p>Just like empirical data can be summarized with averages and standard deviations, a discrete probability distribution can also be described using corresponding statistical measures. These include measures of central tendency, such as the expected value, and measures of variability, such as the standard deviation.</p>
 <p>The <strong>expected value</strong> plays the role of a mean or average. But because the possible outcomes may occur with different probabilities, we must take this into account by assigning more weight to more likely outcomes. This means the values are weighted by their associated probabilities.</p>
 <p>To find the expected value of a discrete random variable, we do not simply average the outcomes. Instead, we compute a weighted average where the weights are given by the probability mass function.</p>
@@ -500,16 +466,13 @@ F(x) = P(X \leq x)
 <p>This formula tells us to multiply each value <span class="math inline">\(x\)</span> by its probability <span class="math inline">\(P(x)\)</span> and then sum the results over all possible values of <span class="math inline">\(X\)</span>. The result, <span class="math inline">\(\mathbb{E}(X)\)</span>, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of <span class="math inline">\(X\)</span> according to its probability distribution.</p>
 <p>The expected value represents the “center” of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.</p>
 <p>It’s important to note that expected value doesn’t predict what will happen* — it predicts what happens on average. It’s like asking, <em>“What would I get if the universe reran this scenario a million times?”</em></p>
-<section id="example-12.1-coin-toss-continued-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-1">Example 12.1: Coin Toss (continued)</h4>
+<section id="example-12.1-coin-toss-continued-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-1">Example 12.1: Coin Toss (continued)</h4>
 <p>If you revisit the coin-toss example where <span class="math inline">\(X\)</span> counts the number of heads in two tosses, you would compute the expected value as:</p>
 <p><span class="math display">\[
 \mathbb{E}(X) = \sum_{x} x \cdot P(x) = 0 \cdot 0.25 + 1 \cdot 0.5 + 2 \cdot 0.25 = 1
 \]</span></p>
 <p>This confirms that we expect to get 1 head on average when tossing a coin twice.</p>
-</section>
-<section id="example-12.2-lottery---a-risky-business" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business">Example 12.2: Lottery - A Risky Business</h4>
+</section><section id="example-12.2-lottery---a-risky-business" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business">Example 12.2: Lottery - A Risky Business</h4>
 <p>Let’s say you’re eyeing a lottery with 100 tickets. Each ticket costs 1€, and you’re feeling lucky. The prize setup is:</p>
 <ul>
 <li>One lucky winner gets 50€<br>
@@ -532,13 +495,12 @@ X \in \{0, 2, 10, 50\}
 <p>…makes no sense! That would only be correct if all outcomes were equally likely, which they’re definitely not. Most people walk away with nothing. So we need to weight each value by how often it actually happens.</p>
 <p>Let’s build a table to show how many tickets correspond to each prize:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Payout (€)</th>
 <th>Number of tickets</th>
-<th>Probability <span class="math inline">\(P(x)\)</span></th>
-</tr>
-</thead>
+<th>Probability <span class="math inline">\(P(x)\)</span>
+</th>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
@@ -566,8 +528,7 @@ X \in \{0, 2, 10, 50\}
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="discrete-dists_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure class="figure"><p><img src="discrete-dists_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
@@ -578,10 +539,8 @@ X \in \{0, 2, 10, 50\}
 \]</span></p>
 <p>So even though one person might win 50€, the average payout per ticket is just 90 cents. That means if you pay 1€ per ticket, you’re losing 10 cents on average.</p>
 <p>Most of the time, lottery isn’t just random — it’s rigged (in favor of the organizers)</p>
-</section>
-</section>
-<section id="variance-and-standard-deviation-of-a-discrete-random-variable" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="variance-and-standard-deviation-of-a-discrete-random-variable"><span class="header-section-number">13.4</span> Variance and Standard Deviation of a Discrete Random Variable</h2>
+</section></section><section id="variance-and-standard-deviation-of-a-discrete-random-variable" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="variance-and-standard-deviation-of-a-discrete-random-variable">
+<span class="header-section-number">13.4</span> Variance and Standard Deviation of a Discrete Random Variable</h2>
 <p>Just as sample variance measures the average squared deviation from the sample mean, the variance of a random variable measures the average squared deviation from its expected value, weighted by the probability mass function.</p>
 <p>Let <span class="math inline">\(X\)</span> be a discrete random variable with expected value <span class="math inline">\(\mu_X = \mathbb{E}(X)\)</span>. The <strong>variance</strong> of <span class="math inline">\(X\)</span> is defined as:</p>
 <p><span class="math display">\[
@@ -596,22 +555,19 @@ X \in \{0, 2, 10, 50\}
 \sigma_X = \sqrt{\text{Var}(X)}
 \]</span></p>
 <p>These measures provide information about how much variability there is in the possible values of <span class="math inline">\(X\)</span>.</p>
-<section id="example-12.1-coin-toss-continued-2" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-2">Example 12.1: Coin Toss (continued)</h4>
+<section id="example-12.1-coin-toss-continued-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-2">Example 12.1: Coin Toss (continued)</h4>
 <p>Consider again the random variable <span class="math inline">\(X =\)</span> number of heads in two tosses of a fair coin. We previously found the expected value:</p>
 <p><span class="math display">\[
 \mathbb{E}(X) = 1
 \]</span></p>
 <p>We now calculate the variance by constructing the following table:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th><span class="math inline">\(P(x)\)</span></th>
 <th><span class="math inline">\((x - \mu_X)^2\)</span></th>
 <th><span class="math inline">\((x - \mu_X)^2 \cdot P(x)\)</span></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
@@ -644,22 +600,18 @@ X \in \{0, 2, 10, 50\}
 \text{Var}(X) = 0.50 \quad \text{and} \quad \sigma_X = \sqrt{0.50} \approx 0.7071
 \]</span></p>
 <p>This tells us that the number of heads in two tosses typically deviates by about 0.71 from the expected value.</p>
-</section>
-<section id="example-12.2-lottery---a-risky-business-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business-1">Example 12.2: Lottery - A Risky Business</h4>
+</section><section id="example-12.2-lottery---a-risky-business-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business-1">Example 12.2: Lottery - A Risky Business</h4>
 <p>Let <span class="math inline">\(X\)</span> denote the payout from a randomly selected lottery ticket. From earlier, we know the expected value is:</p>
 <p><span class="math display">\[
 \mu_X = \mathbb{E}(X) = 0.9
 \]</span></p>
 <p>To compute the variance, we first calculate the squared deviations from the mean for each possible payout:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th><span class="math inline">\(P(x)\)</span></th>
 <th><span class="math inline">\((x - \mu_X)^2\)</span></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
@@ -694,39 +646,32 @@ X \in \{0, 2, 10, 50\}
 <p>So in summary, the expected payout of 0.9€ indicated that on average, each ticket returns 90cents. However, no single ticket actually pays exactly 0.9€. This value is theoretical — it describes the average over many repetitions.</p>
 <p>The standard deviation of 5.23€ tells us that the actual payout from a randomly chosen ticket typically deviates from the expected value by about 5€. This large spread reflects the presence of a few large prizes and many losing tickets.</p>
 <p>Although the possibility of winning a large amount may seem appealing, the large variance masks the fact that the expected return is less than the ticket price, ensuring profit for the lottery organizers over time.</p>
-</section>
-</section>
-<section id="rules-for-expectation-and-variance" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="rules-for-expectation-and-variance"><span class="header-section-number">13.5</span> Rules for Expectation and Variance</h2>
+</section></section><section id="rules-for-expectation-and-variance" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="rules-for-expectation-and-variance">
+<span class="header-section-number">13.5</span> Rules for Expectation and Variance</h2>
 <p>Recall from previous chapter and section <a href="random-variables.html#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a> that for any random variable <span class="math inline">\(X\)</span>, and constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, we always have that the expected value is given by <span class="math display">\[
 \mathbb{E}(a + bX) = a + b\mathbb{E}(X)
 \]</span> and the variance by <span class="math display">\[
 \mathbb{V}(a + bX) = b^2 \mathbb{V}(X).
 \]</span> Let’s look at an exmaple of this in the discrete case.</p>
-<section id="example-12.3-the-project-budget" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.3-the-project-budget">Example 12.3: The Project Budget</h4>
+<section id="example-12.3-the-project-budget" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.3-the-project-budget">Example 12.3: The Project Budget</h4>
 <p>You’re managing a project. The number of workdays to finish the project, denoted by random variabel <span class="math inline">\(X\)</span>, is a bit uncertain. Its distribution looks like this:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th>10</th>
 <th>11</th>
 <th>12</th>
 <th>13</th>
 <th>14</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
+</tr></thead>
+<tbody><tr class="odd">
 <td><span class="math inline">\(P(x)\)</span></td>
 <td>0.1</td>
 <td>0.3</td>
 <td>0.3</td>
 <td>0.2</td>
 <td>0.1</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table>
 <p>You know a few things:</p>
 <ul>
@@ -734,10 +679,10 @@ X \in \{0, 2, 10, 50\}
 </li>
 <li>Daily cost: €900<br>
 </li>
-<li>So the total cost denoted by <span class="math inline">\(Y\)</span> is:<br>
-<span class="math display">\[
+<li>So the total cost denoted by <span class="math inline">\(Y\)</span> is:<br><span class="math display">\[
 Y = 25000 + 900X
-\]</span></li>
+\]</span>
+</li>
 </ul>
 <p>Let’s use the rules above to find the expected value and variance of <span class="math inline">\(Y\)</span>.</p>
 <p>First we use similar technique as earlier to find</p>
@@ -755,10 +700,8 @@ Y = 25000 + 900X
 \sqrt{\mathbb{V}(Y)} = \sqrt{1044900} \approx 1022.20
 \]</span></p>
 <p>This gives a total expected project cost of €35,710, with a standard deviation of about €1,022.</p>
-</section>
-</section>
-<section id="the-bernoulli-and-binomial-distribution" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="the-bernoulli-and-binomial-distribution"><span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</h2>
+</section></section><section id="the-bernoulli-and-binomial-distribution" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="the-bernoulli-and-binomial-distribution">
+<span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</h2>
 <p>In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise — such as flipping a coin or checking if a customer buys a product — follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.</p>
 <p>A random variable <span class="math inline">\(X\)</span> is said to follow a <strong>Bernoulli distribution</strong> if it takes on only two possible values: <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. These values typically represent the outcomes of a binary trial — such as failure or success — with probabilities <span class="math inline">\(1 - p\)</span> and <span class="math inline">\(p\)</span> respectively. The distribution is written as:</p>
 <p><span class="math display">\[
@@ -799,8 +742,7 @@ P(X = x) = \binom{n}{x} p^x (1 - p)^{n - x},
 <p><span class="math display">\[
 \mathbb{E}(X) = np \quad \text{and} \quad \mathbb{V}(X) = np(1 - p).
 \]</span></p>
-<section id="example-12.4-flipping-a-coin-3-times" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.4-flipping-a-coin-3-times">Example 12.4: Flipping a Coin 3 Times</h4>
+<section id="example-12.4-flipping-a-coin-3-times" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.4-flipping-a-coin-3-times">Example 12.4: Flipping a Coin 3 Times</h4>
 <p>As an example, consider tossing a fair coin three times and let <span class="math inline">\(X\)</span> be the number of heads obtained. Each toss is a Bernoulli trial with <span class="math inline">\(p = 0.5\)</span>, and there are three independent trials, so</p>
 <p><span class="math display">\[
 X \sim \text{Bin}(3, 0.5).
@@ -820,13 +762,11 @@ P(X = 2) = \binom{3}{2}(0.5)^2(1 - 0.5)^1 = 3 \cdot 0.25 \cdot 0.5 = 0.375.
 <p>Here, <span class="math inline">\(\binom{3}{2} = 3\)</span> reflects the number of different ways to get two heads and one tail in three tosses. The specific outcomes are: <span class="math inline">\(\{(H,H,T), (H,T,H), (T,H,H)\}\)</span>. Each of these outcomes has the same probability, and the binomial coefficient counts how many such arrangements contribute to the total.</p>
 <p>Doing this for all possible outcomes provides the results in the following table:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th><span class="math inline">\(P(X = x)\)</span></th>
 <th><span class="math inline">\(F(x) = P(X \leq x)\)</span></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>0</td>
@@ -851,9 +791,7 @@ P(X = 2) = \binom{3}{2}(0.5)^2(1 - 0.5)^1 = 3 \cdot 0.25 \cdot 0.5 = 0.375.
 </tbody>
 </table>
 <p>We can verify that the total probability sums to 1, as expected. This example illustrates how the binomial distribution models the number of successes in a fixed number of independent trials, and how it extends naturally from the simpler Bernoulli setting.</p>
-</section>
-<section id="example-12.5-12-independent-trials-with-binary-outcomes" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-12.5-12-independent-trials-with-binary-outcomes">Example 12.5: 12 Independent Trials with Binary Outcomes</h4>
+</section><section id="example-12.5-12-independent-trials-with-binary-outcomes" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.5-12-independent-trials-with-binary-outcomes">Example 12.5: 12 Independent Trials with Binary Outcomes</h4>
 <p>In this example, we consider a sequence of 12 independent trials, where the probability of success on each trial is 0.8. Let <span class="math inline">\(X\)</span> be the random variable representing the total number of successful trials.</p>
 <p>We begin by identifying the distribution of <span class="math inline">\(X\)</span>. Since the trials are independent and each has the same probability of success, <span class="math inline">\(X\)</span> follows a binomial distribution with parameters <span class="math inline">\(n = 12\)</span> and <span class="math inline">\(P = 0.8\)</span>. We can write:</p>
 <p><span class="math display">\[
@@ -861,7 +799,8 @@ X \sim \text{Bin}(12, 0.8)
 \]</span></p>
 <p>We are asked to compute:</p>
 <ol type="1">
-<li><span class="math inline">\(P(X = 10)\)</span><br>
+<li>
+<span class="math inline">\(P(X = 10)\)</span><br>
 </li>
 <li><span class="math inline">\(P(X \leq 10)\)</span></li>
 </ol>
@@ -897,32 +836,26 @@ P(Y \leq 1) = P(Y = 0) + P(Y = 1) \approx 0.0687 + 0.2062 = 0.2749
 P(Y \geq 2) = 1 - 0.2749 = 0.7251
 \]</span></p>
 <p>So, the probability that <span class="math inline">\(Y\)</span> is greater than or equal to 2 is approximately 0.7251. This is the same probability as <span class="math inline">\(X\)</span> being less than or equal to 10.</p>
-</section>
-</section>
-<section id="exercises" class="level2" data-number="13.7">
-<h2 data-number="13.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.7</span> Exercises</h2>
+</section></section><section id="exercises" class="level2" data-number="13.7"><h2 data-number="13.7" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">13.7</span> Exercises</h2>
 <ol type="1">
 <li>Let <span class="math inline">\(X\)</span> be a discrete random variable with the following probability distribution:</li>
 </ol>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th>1</th>
 <th>2</th>
 <th>3</th>
 <th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
+</tr></thead>
+<tbody><tr class="odd">
 <td><span class="math inline">\(P(x)\)</span></td>
 <td>0.1</td>
 <td>0.3</td>
 <td>0.4</td>
 <td>0.2</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table>
 <ol type="a">
 <li>Verify that this is a valid probability distribution.<br>
@@ -976,9 +909,11 @@ Solution
 <li><p>Let <span class="math inline">\(Y \sim \text{Bin}(10, 0.1)\)</span> represent the number of defective items in a sample of 10. Compute:</p></li>
 </ol>
 <ol type="i">
-<li><span class="math inline">\(\mathbb{E}(Y)\)</span> and <span class="math inline">\(\mathbb{V}(Y)\)</span><br>
+<li>
+<span class="math inline">\(\mathbb{E}(Y)\)</span> and <span class="math inline">\(\mathbb{V}(Y)\)</span><br>
 </li>
-<li><span class="math inline">\(P(Y = 0)\)</span><br>
+<li>
+<span class="math inline">\(P(Y = 0)\)</span><br>
 </li>
 <li><span class="math inline">\(P(Y \geq 2)\)</span></li>
 </ol>
@@ -995,42 +930,41 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li><br>
-</li>
+<li><br></li>
 </ol>
 <p>Bernoulli Variable <span class="math inline">\(X\)</span>: <span class="math inline">\(X \sim \text{Bernoulli}(0.1)\)</span> <span class="math display">\[\mathbb{E}(X) = 0.1\]</span></p>
 <p><span class="math display">\[\mathbb{V}(X) = 0.1 \cdot (1 - 0.1) = 0.09\]</span></p>
 <ol start="2" type="a">
-<li><br>
-</li>
+<li><br></li>
 </ol>
 <ol type="i">
-<li><p>Binomial Variable <span class="math inline">\(Y\)</span>: <span class="math inline">\(Y \sim \text{Bin}(10, 0.1)\)</span></p>
+<li>
+<p>Binomial Variable <span class="math inline">\(Y\)</span>: <span class="math inline">\(Y \sim \text{Bin}(10, 0.1)\)</span></p>
 <p><span class="math inline">\(\mathbb{E}(Y) = 10 \cdot 0.1 = 1\)</span></p>
-<p><span class="math inline">\(\mathbb{V}(Y) = 10 \cdot 0.1 \cdot 0.9 = 0.9\)</span></p></li>
+<p><span class="math inline">\(\mathbb{V}(Y) = 10 \cdot 0.1 \cdot 0.9 = 0.9\)</span></p>
+</li>
 <li><p><span class="math inline">\(P(Y = 0)\)</span></p></li>
 </ol>
 <p><span class="math display">\[
 P(Y = 0) = \binom{10}{0}(0.1)^0(0.9)^{10} = 1 \cdot 1 \cdot (0.9)^{10} \approx 0.3487
 \]</span></p>
 <ol start="3" type="i">
-<li><span class="math inline">\(P(Y \geq 2)\)</span> We use the complement: <span class="math display">\[
+<li>
+<span class="math inline">\(P(Y \geq 2)\)</span> We use the complement: <span class="math display">\[
 P(Y \geq 2) = 1 - P(Y = 0) - P(Y = 1)
 \]</span> Already have <span class="math inline">\(P(Y = 0) \approx 0.3487\)</span>. Now compute: <span class="math display">\[
 P(Y = 1) = \binom{10}{1}(0.1)^1(0.9)^9 = 10 \cdot 0.1 \cdot (0.9)^9 \approx 0.3874
 \]</span> Then: <span class="math display">\[
 P(Y \geq 2) = 1 - 0.3487 - 0.3874 = 0.2639
-\]</span></li>
+\]</span>
+</li>
 </ol>
 </div>
 </div>
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1428,9 +1362,7 @@ P(Y \geq 2) = 1 - 0.3487 - 0.3874 = 0.2639
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../rvs-probdists/random-variables.html" class="pagination-link" aria-label="Random Variables">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span>
       </a>          
@@ -1442,8 +1374,7 @@ P(Y \geq 2) = 1 - 0.3487 - 0.3874 = 0.2639
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
@@ -1455,8 +1386,6 @@ P(Y \geq 2) = 1 - 0.3487 - 0.3874 = 0.2639
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
