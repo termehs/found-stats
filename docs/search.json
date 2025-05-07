@@ -1383,7 +1383,7 @@
     "href": "rvs-probdists/cont-dists.html#normal-approximation-to-the-binomial-distribution",
     "title": "14  Continuous Probability Distributions",
     "section": "\n14.6 Normal Approximation to the Binomial Distribution",
-    "text": "14.6 Normal Approximation to the Binomial Distribution\nAs mentioned earlier, one of the greatest strengths of the normal distribution is its flexibility; it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 14.4: Binomial Distribution with \\(p = 0.3\\) approaching Normal as \\(n\\) increases.",
+    "text": "14.6 Normal Approximation to the Binomial Distribution\nAs hinted before, one of the normal distribution’s greatest superpowers is its flexibility; it’s like the Swiss Army knife of probability! Why? Because it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 14.4: Binomial Distribution with \\(p = 0.3\\) approaching Normal as \\(n\\) increases.",
     "crumbs": [
       "Random Variables and Probability Distributions",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Continuous Probability Distributions</span>"

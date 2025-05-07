@@ -692,8 +692,7 @@ The shaded areas are equivalent, since $Z = \frac{X - \mu}{\sigma}$.
 
 
 ## Normal Approximation to the Binomial Distribution
-
-As mentioned earlier, one of the greatest strengths of the normal distribution is its flexibility; it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.
+As hinted before, one of the normal distribution’s greatest superpowers is its flexibility; it’s like the Swiss Army knife of probability! Why? Because it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.
 
 
 ::: {#fig-binomialapx .center}
