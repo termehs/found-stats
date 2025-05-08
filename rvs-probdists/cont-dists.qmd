@@ -430,7 +430,7 @@ $$
 
 This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.
 
-#### Example: Standard Normal Distribution {.unnumbered}
+#### Example 14.1: Standard Normal Distribution {.unnumbered}
 Let $Z \sim \mathcal{N}(0,1)$ be a standard normal variable. We’ll now walk through several examples of calculating probabilities using the standard normal distribution, visualizing the corresponding areas under the curve in each case.
 
 a) $P(Z \leq 0)$
@@ -618,7 +618,7 @@ $$
 P(X \leq x) = P\left(Z \leq \frac{x - \mu}{\sigma} \right)
 $$
 
-#### Example: $X \sim \mathcal{N}(170, 10)$ {.unnumbered}
+#### Example 14.2: $X \sim \mathcal{N}(170, 10)$ {.unnumbered}
 
 We want to compute:
 
@@ -694,6 +694,10 @@ The shaded areas are equivalent, since $Z = \frac{X - \mu}{\sigma}$.
 ## Normal Approximation to the Binomial Distribution
 As hinted before, one of the normal distribution’s greatest superpowers is its flexibility; it’s like the Swiss Army knife of probability! Why? Because it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.
 
+As seen in @fig-binomialapx, the binomial distribution becomes increasingly symmetric and bell-shaped as the sample size grows. When the number of trials is large enough, the distribution of a binomially distributed variable begins to closely resemble that of a normal distribution. In such cases, it becomes not only possible but also practical to use the normal distribution as an approximation.
+
+The normal approximation is particularly helpful when exact binomial probabilities are cumbersome to calculate. 
+
 
 ::: {#fig-binomialapx .center}
 ```{r binom-anim}
@@ -747,3 +751,119 @@ plot
 
 Binomial Distribution with $p = 0.3$ approaching Normal as $n$ increases.
 :::
+
+### When can we approximate?
+
+A common rule of thumb is:
+
+$$
+nP(1 - P) > 5
+$$
+
+If this condition is met, the binomial distribution can be reasonably approximated by a normal distribution that shares the same mean and variance.
+
+
+### How is the approximation performed?
+Well, suppose $X \sim \text{Bin}(n, P)$ and the above condition is satisfied. Then we can approximate $X$ using a normal distribution:
+
+$$
+X \approx \mathcal{N}(\mu, \sigma)
+$$
+
+where
+
+$$
+\mu = \mathbb{E}(X) = nP \quad \text{and} \quad \sigma = \sqrt{\mathbb{V}(X)} = \sqrt{nP(1 - P)}
+$$
+
+To compute a probability such as $P(X \leq c)$, where $c$ is an integer, we use the standard normal distribution:
+
+$$
+P(X \leq c) \approx P\left(Z \leq \frac{c - \mu}{\sigma} \right)
+$$
+
+This gives us an approximate value by translating the binomial question into a standard normal one.
+
+
+
+#### Example 14.3: Binomial to Normal {.unnumbered}
+
+Let $X \sim \text{Bin}(44, 0.45)$. We wish to approximate the probability:
+
+$$
+P(X \leq 26)
+$$
+
+First, compute the mean and variance of $X$:
+
+$$
+\mathbb{E}(X) = 44 \cdot 0.45 = 19.8 \\
+\mathbb{V}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
+$$
+
+Since $nP(1 - P) = 10.89 > 5$, the normal approximation is applicable.
+
+Now standardize:
+
+$$
+Z = \frac{26 - 19.8}{\sqrt{10.89}} \approx \frac{6.2}{3.3} \approx 1.88
+$$
+
+Using the standard normal distribution:
+
+$$
+P(X \leq 26) \approx P(Z \leq 1.88) = 0.9699
+$$
+
+For comparison, the exact binomial value is:
+
+$$
+P(X \leq 26) = 0.9786
+$$
+
+So the normal approximation is quite close, especially useful when exact computation is difficult.
+
+### Continuity Correction
+When using a normal distribution to approximate a binomial, it's important to remember that we are replacing a discrete distribution (which only takes whole number values) with a continuous one (which takes all real values). To improve the accuracy of this approximation, we use a technique called the **continuity correction**.
+
+The idea is simple: when we compute a probability such as $P(X \leq c)$ for a binomial variable, we approximate it not with $P(Z \leq z)$ but with a slightly adjusted value:
+
+$$
+P(X \leq c) \approx P\left(Z \leq \frac{c + 0.5 - \mu}{\sigma} \right)
+$$
+
+The addition of $0.5$ shifts the cutoff slightly to the right, accounting for the fact that we're now working with an area under a continuous curve rather than summing discrete spikes.
+
+#### Example 14.3: Binomial to Normal (cont'd) {.unnumbered}
+
+Recall from earlier that:
+
+$$
+X \sim \text{Bin}(44, 0.45), \quad \mu = 19.8, \quad \sigma = \sqrt{10.89} \approx 3.3
+$$
+
+We want to compute:
+
+$$
+P(X \leq 26)
+$$
+
+Using the continuity correction, we calculate:
+
+$$
+P(X \leq 26) \approx P\left(Z \leq \frac{26 + 0.5 - 19.8}{3.3} \right)
+= P(Z \leq 2.0)
+= 0.9772
+$$
+
+This is a better approximation than the earlier uncorrected value of $P(Z \leq 1.88) = 0.9699$.
+
+The table below summarizes and compraes the results:
+
+|                            | Value         |
+|----------------------------|---------------|
+| Exact binomial             | 0.9786        |
+| Normal approximation       | 0.9699        |
+| With continuity correction | **0.9772**     |
+
+As shown above, the continuity correction significantly improves the accuracy of the approximation and is highly recommended when using the normal distribution to approximate binomial probabilities.

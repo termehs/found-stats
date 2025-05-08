@@ -312,7 +312,14 @@ window.Quarto = {
 </li>
   <li><a href="#the-standard-normal-distribution" id="toc-the-standard-normal-distribution" class="nav-link" data-scroll-target="#the-standard-normal-distribution"><span class="header-section-number">14.4</span> The Standard Normal Distribution</a></li>
   <li><a href="#from-normal-to-standard-normal-distribution" id="toc-from-normal-to-standard-normal-distribution" class="nav-link" data-scroll-target="#from-normal-to-standard-normal-distribution"><span class="header-section-number">14.5</span> From Normal to Standard Normal Distribution</a></li>
-  <li><a href="#normal-approximation-to-the-binomial-distribution" id="toc-normal-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-distribution"><span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</a></li>
+  <li>
+<a href="#normal-approximation-to-the-binomial-distribution" id="toc-normal-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-distribution"><span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</a>
+  <ul class="collapse">
+<li><a href="#when-can-we-approximate" id="toc-when-can-we-approximate" class="nav-link" data-scroll-target="#when-can-we-approximate"><span class="header-section-number">14.6.1</span> When can we approximate?</a></li>
+  <li><a href="#how-is-the-approximation-performed" id="toc-how-is-the-approximation-performed" class="nav-link" data-scroll-target="#how-is-the-approximation-performed"><span class="header-section-number">14.6.2</span> How is the approximation performed?</a></li>
+  <li><a href="#continuity-correction" id="toc-continuity-correction" class="nav-link" data-scroll-target="#continuity-correction"><span class="header-section-number">14.6.3</span> Continuity Correction</a></li>
+  </ul>
+</li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/cont-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -549,7 +556,7 @@ Z \sim \mathcal{N}(0, 1)
 P(Z \leq -z) = 1 - P(Z \leq z)
 \]</span></p>
 <p>This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.</p>
-<section id="example-standard-normal-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-standard-normal-distribution">Example: Standard Normal Distribution</h4>
+<section id="example-14.1-standard-normal-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.1-standard-normal-distribution">Example 14.1: Standard Normal Distribution</h4>
 <p>Let <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> be a standard normal variable. We’ll now walk through several examples of calculating probabilities using the standard normal distribution, visualizing the corresponding areas under the curve in each case.</p>
 <ol type="a">
 <li><span class="math inline">\(P(Z \leq 0)\)</span></li>
@@ -658,7 +665,7 @@ Z = \frac{X - \mu}{\sigma}
 <p><span class="math display">\[
 P(X \leq x) = P\left(Z \leq \frac{x - \mu}{\sigma} \right)
 \]</span></p>
-<section id="example-x-sim-mathcaln170-10" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-x-sim-mathcaln170-10">Example: <span class="math inline">\(X \sim \mathcal{N}(170, 10)\)</span>
+<section id="example-14.2-x-sim-mathcaln170-10" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.2-x-sim-mathcaln170-10">Example 14.2: <span class="math inline">\(X \sim \mathcal{N}(170, 10)\)</span>
 </h4>
 <p>We want to compute:</p>
 <ol type="a">
@@ -691,6 +698,8 @@ Figure&nbsp;14.3: Top: Probability under the original normal distribution <span 
 </section></section><section id="normal-approximation-to-the-binomial-distribution" class="level2" data-number="14.6"><h2 data-number="14.6" class="anchored" data-anchor-id="normal-approximation-to-the-binomial-distribution">
 <span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</h2>
 <p>As hinted before, one of the normal distribution’s greatest superpowers is its flexibility; it’s like the Swiss Army knife of probability! Why? Because it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.</p>
+<p>As seen in <a href="#fig-binomialapx" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>, the binomial distribution becomes increasingly symmetric and bell-shaped as the sample size grows. When the number of trials is large enough, the distribution of a binomially distributed variable begins to closely resemble that of a normal distribution. In such cases, it becomes not only possible but also practical to use the normal distribution as an approximation.</p>
+<p>The normal approximation is particularly helpful when exact binomial probabilities are cumbersome to calculate.</p>
 <div id="fig-binomialapx" class="center quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-binomialapx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
@@ -706,9 +715,101 @@ Figure&nbsp;14.3: Top: Probability under the original normal distribution <span 
 Figure&nbsp;14.4: Binomial Distribution with <span class="math inline">\(p = 0.3\)</span> approaching Normal as <span class="math inline">\(n\)</span> increases.
 </figcaption></figure>
 </div>
+<section id="when-can-we-approximate" class="level3" data-number="14.6.1"><h3 data-number="14.6.1" class="anchored" data-anchor-id="when-can-we-approximate">
+<span class="header-section-number">14.6.1</span> When can we approximate?</h3>
+<p>A common rule of thumb is:</p>
+<p><span class="math display">\[
+nP(1 - P) &gt; 5
+\]</span></p>
+<p>If this condition is met, the binomial distribution can be reasonably approximated by a normal distribution that shares the same mean and variance.</p>
+</section><section id="how-is-the-approximation-performed" class="level3" data-number="14.6.2"><h3 data-number="14.6.2" class="anchored" data-anchor-id="how-is-the-approximation-performed">
+<span class="header-section-number">14.6.2</span> How is the approximation performed?</h3>
+<p>Well, suppose <span class="math inline">\(X \sim \text{Bin}(n, P)\)</span> and the above condition is satisfied. Then we can approximate <span class="math inline">\(X\)</span> using a normal distribution:</p>
+<p><span class="math display">\[
+X \approx \mathcal{N}(\mu, \sigma)
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\mu = \mathbb{E}(X) = nP \quad \text{and} \quad \sigma = \sqrt{\mathbb{V}(X)} = \sqrt{nP(1 - P)}
+\]</span></p>
+<p>To compute a probability such as <span class="math inline">\(P(X \leq c)\)</span>, where <span class="math inline">\(c\)</span> is an integer, we use the standard normal distribution:</p>
+<p><span class="math display">\[
+P(X \leq c) \approx P\left(Z \leq \frac{c - \mu}{\sigma} \right)
+\]</span></p>
+<p>This gives us an approximate value by translating the binomial question into a standard normal one.</p>
+<section id="example-14.3-binomial-to-normal" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.3-binomial-to-normal">Example 14.3: Binomial to Normal</h4>
+<p>Let <span class="math inline">\(X \sim \text{Bin}(44, 0.45)\)</span>. We wish to approximate the probability:</p>
+<p><span class="math display">\[
+P(X \leq 26)
+\]</span></p>
+<p>First, compute the mean and variance of <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+\mathbb{E}(X) = 44 \cdot 0.45 = 19.8 \\
+\mathbb{V}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
+\]</span></p>
+<p>Since <span class="math inline">\(nP(1 - P) = 10.89 &gt; 5\)</span>, the normal approximation is applicable.</p>
+<p>Now standardize:</p>
+<p><span class="math display">\[
+Z = \frac{26 - 19.8}{\sqrt{10.89}} \approx \frac{6.2}{3.3} \approx 1.88
+\]</span></p>
+<p>Using the standard normal distribution:</p>
+<p><span class="math display">\[
+P(X \leq 26) \approx P(Z \leq 1.88) = 0.9699
+\]</span></p>
+<p>For comparison, the exact binomial value is:</p>
+<p><span class="math display">\[
+P(X \leq 26) = 0.9786
+\]</span></p>
+<p>So the normal approximation is quite close, especially useful when exact computation is difficult.</p>
+</section></section><section id="continuity-correction" class="level3" data-number="14.6.3"><h3 data-number="14.6.3" class="anchored" data-anchor-id="continuity-correction">
+<span class="header-section-number">14.6.3</span> Continuity Correction</h3>
+<p>When using a normal distribution to approximate a binomial, it’s important to remember that we are replacing a discrete distribution (which only takes whole number values) with a continuous one (which takes all real values). To improve the accuracy of this approximation, we use a technique called the <strong>continuity correction</strong>.</p>
+<p>The idea is simple: when we compute a probability such as <span class="math inline">\(P(X \leq c)\)</span> for a binomial variable, we approximate it not with <span class="math inline">\(P(Z \leq z)\)</span> but with a slightly adjusted value:</p>
+<p><span class="math display">\[
+P(X \leq c) \approx P\left(Z \leq \frac{c + 0.5 - \mu}{\sigma} \right)
+\]</span></p>
+<p>The addition of <span class="math inline">\(0.5\)</span> shifts the cutoff slightly to the right, accounting for the fact that we’re now working with an area under a continuous curve rather than summing discrete spikes.</p>
+<section id="example-14.3-binomial-to-normal-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.3-binomial-to-normal-contd">Example 14.3: Binomial to Normal (cont’d)</h4>
+<p>Recall from earlier that:</p>
+<p><span class="math display">\[
+X \sim \text{Bin}(44, 0.45), \quad \mu = 19.8, \quad \sigma = \sqrt{10.89} \approx 3.3
+\]</span></p>
+<p>We want to compute:</p>
+<p><span class="math display">\[
+P(X \leq 26)
+\]</span></p>
+<p>Using the continuity correction, we calculate:</p>
+<p><span class="math display">\[
+P(X \leq 26) \approx P\left(Z \leq \frac{26 + 0.5 - 19.8}{3.3} \right)
+= P(Z \leq 2.0)
+= 0.9772
+\]</span></p>
+<p>This is a better approximation than the earlier uncorrected value of <span class="math inline">\(P(Z \leq 1.88) = 0.9699\)</span>.</p>
+<p>The table below summarizes and compraes the results:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th></th>
+<th>Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Exact binomial</td>
+<td>0.9786</td>
+</tr>
+<tr class="even">
+<td>Normal approximation</td>
+<td>0.9699</td>
+</tr>
+<tr class="odd">
+<td>With continuity correction</td>
+<td><strong>0.9772</strong></td>
+</tr>
+</tbody>
+</table>
+<p>As shown above, the continuity correction significantly improves the accuracy of the approximation and is highly recommended when using the normal distribution to approximate binomial probabilities.</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
