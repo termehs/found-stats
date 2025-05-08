@@ -534,7 +534,7 @@ This tells us that the probability a person with long thumbs carries the disease
 
 
 
-#### Example 11.9: FInding the Toilet {.unnumbered} 
+#### Example 11.9: Finding the Toilet {.unnumbered} 
 
 Now let’s turn to a more lighthearted but equally instructive example.
 Imagine you are at a party in a large, unfamiliar house. You’re searching for the toilet, which we’ll call $T$. You see three doors in front of you, each leading to a different room: $R_1$, $R_2$, and $R_3$. You don't know which one to pick, so you choose randomly.
