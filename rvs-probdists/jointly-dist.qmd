@@ -388,16 +388,6 @@ that is, if the covariance is positive, the correlation is positive, and vice ve
 
 This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables — especially when comparing across different data sets or variables with different units.
 
-## A Important Note on Independence
-
-If $X$ and $Y$ are **independent**, then they are also **uncorrelated**:
-
-$$
-\text{If } X \perp Y \Rightarrow \rho_{XY} = 0
-$$
-
-However, the **converse is not true**: uncorrelated variables may still be dependent, just not in a linear way. For example, $Y = X^2$ is nonlinearly related to $X$ but could have $\rho = 0$.
-
 
 ## Expected Value and Variance of Sums and Differences
 
@@ -450,7 +440,14 @@ $$
 
 It’s important to note:
 
-> If $X$ and $Y$ are **independent**, then they are also **uncorrelated**.
+> If $X$ and $Y$ are **independent**, then they are also **uncorrelated**.\
+
+$$
+\text{If } X \perp Y \Rightarrow \rho_{XY} = 0
+$$
+
+However, the **converse is not true**: uncorrelated variables may still be dependent, just not in a linear way. For example, $Y = X^2$ is nonlinearly related to $X$ but could have $\rho = 0$.
+
 
 That is, independence implies zero covariance:
 
@@ -458,7 +455,7 @@ $$
 X \perp Y \quad \Rightarrow \quad \operatorname{Cov}(X, Y) = 0
 $$
 
-But the reverse is **not necessarily true**. Two variables can have zero covariance (i.e., be uncorrelated) and still be **dependent** in a nonlinear way as mentioned above (but worth repeating!).
+But the reverse is **not necessarily true**. Two variables can have zero covariance (i.e., be uncorrelated) and still be **dependent** in a nonlinear way. This is further illustrated in Exercise 2 below.
 
 
 
@@ -524,4 +521,54 @@ $$
 
 
 This indicates a weak negative linear relationship between $X$ and $Y$.
+:::
+
+2. Let $X$ be a discrete random variable taking the values $-1$, $0$, and $1$, each with equal probability:
+
+| $X$ | $P(X)$ |
+|-----|--------|
+| -1  | 1/3    |
+|  0  | 1/3    |
+|  1  | 1/3    |
+
+Define a new random variable $Y = X^2$.
+
+- Are $X$ and $Y$ dependent or independent?
+- Compute $\operatorname{Cov}(X, Y)$ and determine whether they are correlated.
+
+::: {.callout-tip title="Solution" collapse="true"}
+Since $Y = X^2$, the value of $Y$ is entirely determined by $X$.   So $X$ and $Y$ are clearly **dependent**.
+
+Nex compute $E(X)$ and $E(Y)$
+$$
+E(X) = (-1) \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = 0
+$$
+
+$$
+E(Y) = 1 \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = \frac{2}{3}
+$$
+
+
+To compute $E(XY)$ we compute $XY$ for each pair:
+
+- $X = -1$, $Y = 1$ → $XY = -1$
+- $X = 0$, $Y = 0$ → $XY = 0$
+- $X = 1$, $Y = 1$ → $XY = 1$
+
+Then:
+$$
+E(XY) = (-1) \cdot \frac{1}{3} + 0 + 1 \cdot \frac{1}{3} = 0
+$$
+
+Next we compute the covariance:
+
+$$
+\operatorname{Cov}(X, Y) = E(XY) - E(X)E(Y) = 0 - (0 \cdot \tfrac{2}{3}) = 0
+$$
+
+This means:
+$$
+\operatorname{Cov}(X, Y) = 0 \quad \text{and} \quad \rho_{XY} = 0
+$$
+We see here that even though $X$ and $Y$ are clearly **dependent**, their covariance and correlation are zero.   This is an illustration of  that **uncorrelated does not imply independence**.
 :::

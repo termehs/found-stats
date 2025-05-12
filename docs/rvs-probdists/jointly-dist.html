@@ -330,8 +330,7 @@ window.Quarto = {
   <li><a href="#constructing-a-joint-distribution-under-independence" id="toc-constructing-a-joint-distribution-under-independence" class="nav-link" data-scroll-target="#constructing-a-joint-distribution-under-independence"><span class="header-section-number">15.6</span> Constructing a Joint Distribution Under Independence</a></li>
   <li><a href="#covariance-and-correlation-observed-data" id="toc-covariance-and-correlation-observed-data" class="nav-link" data-scroll-target="#covariance-and-correlation-observed-data"><span class="header-section-number">15.7</span> Covariance and Correlation: Observed Data</a></li>
   <li><a href="#covariance-and-correlation-for-random-variables" id="toc-covariance-and-correlation-for-random-variables" class="nav-link" data-scroll-target="#covariance-and-correlation-for-random-variables"><span class="header-section-number">15.8</span> Covariance and Correlation for Random Variables</a></li>
-  <li><a href="#a-important-note-on-independence" id="toc-a-important-note-on-independence" class="nav-link" data-scroll-target="#a-important-note-on-independence"><span class="header-section-number">15.9</span> A Important Note on Independence</a></li>
-  <li><a href="#expected-value-and-variance-of-sums-and-differences" id="toc-expected-value-and-variance-of-sums-and-differences" class="nav-link" data-scroll-target="#expected-value-and-variance-of-sums-and-differences"><span class="header-section-number">15.10</span> Expected Value and Variance of Sums and Differences</a></li>
+  <li><a href="#expected-value-and-variance-of-sums-and-differences" id="toc-expected-value-and-variance-of-sums-and-differences" class="nav-link" data-scroll-target="#expected-value-and-variance-of-sums-and-differences"><span class="header-section-number">15.9</span> Expected Value and Variance of Sums and Differences</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/jointly-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -850,15 +849,8 @@ r_{xy} =
 </ul>
 <p>The correlation coefficient always shares the same sign as the covariance, that is, if the covariance is positive, the correlation is positive, and vice versa.</p>
 <p>This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables — especially when comparing across different data sets or variables with different units.</p>
-</section><section id="a-important-note-on-independence" class="level2" data-number="15.9"><h2 data-number="15.9" class="anchored" data-anchor-id="a-important-note-on-independence">
-<span class="header-section-number">15.9</span> A Important Note on Independence</h2>
-<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong>, then they are also <strong>uncorrelated</strong>:</p>
-<p><span class="math display">\[
-\text{If } X \perp Y \Rightarrow \rho_{XY} = 0
-\]</span></p>
-<p>However, the <strong>converse is not true</strong>: uncorrelated variables may still be dependent, just not in a linear way. For example, <span class="math inline">\(Y = X^2\)</span> is nonlinearly related to <span class="math inline">\(X\)</span> but could have <span class="math inline">\(\rho = 0\)</span>.</p>
-</section><section id="expected-value-and-variance-of-sums-and-differences" class="level2" data-number="15.10"><h2 data-number="15.10" class="anchored" data-anchor-id="expected-value-and-variance-of-sums-and-differences">
-<span class="header-section-number">15.10</span> Expected Value and Variance of Sums and Differences</h2>
+</section><section id="expected-value-and-variance-of-sums-and-differences" class="level2" data-number="15.9"><h2 data-number="15.9" class="anchored" data-anchor-id="expected-value-and-variance-of-sums-and-differences">
+<span class="header-section-number">15.9</span> Expected Value and Variance of Sums and Differences</h2>
 <p>We now wrap up this chapter with a powerful and commonly used set of results: how to compute the expected value and variance of a sum or difference of two random variables. This is realted to what we covered in <a href="random-variables.html#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a>.</p>
 <p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Suppose we are interested in the distribution of their sum <span class="math inline">\(X + Y\)</span> or difference <span class="math inline">\(X - Y\)</span>. The following rules apply:</p>
 <p>The expected value behaves <strong>linearly</strong>, meaning:</p>
@@ -891,13 +883,17 @@ E(X - Y) = E(X) - E(Y)
 \]</span></p>
 <p>It’s important to note:</p>
 <blockquote class="blockquote">
-<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong>, then they are also <strong>uncorrelated</strong>.</p>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong>, then they are also <strong>uncorrelated</strong>.<br></p>
 </blockquote>
+<p><span class="math display">\[
+\text{If } X \perp Y \Rightarrow \rho_{XY} = 0
+\]</span></p>
+<p>However, the <strong>converse is not true</strong>: uncorrelated variables may still be dependent, just not in a linear way. For example, <span class="math inline">\(Y = X^2\)</span> is nonlinearly related to <span class="math inline">\(X\)</span> but could have <span class="math inline">\(\rho = 0\)</span>.</p>
 <p>That is, independence implies zero covariance:</p>
 <p><span class="math display">\[
 X \perp Y \quad \Rightarrow \quad \operatorname{Cov}(X, Y) = 0
 \]</span></p>
-<p>But the reverse is <strong>not necessarily true</strong>. Two variables can have zero covariance (i.e., be uncorrelated) and still be <strong>dependent</strong> in a nonlinear way as mentioned above (but worth repeating!).</p>
+<p>But the reverse is <strong>not necessarily true</strong>. Two variables can have zero covariance (i.e., be uncorrelated) and still be <strong>dependent</strong> in a nonlinear way. This is further illustrated in Exercise 2 below.</p>
 </section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
 <li>Given the joint distribution below:</li>
@@ -982,6 +978,78 @@ E(Y^2) &amp;= 0^2 \cdot 0.20 + 1^2 \cdot 0.30 + 2^2 \cdot 0.50 = 0 + 0.30 + 2.00
 \rho_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y} = \frac{-0.07}{0.50 \cdot 0.78} \approx \boxed{-0.18}
 \]</span></p>
 <p>This indicates a weak negative linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Let <span class="math inline">\(X\)</span> be a discrete random variable taking the values <span class="math inline">\(-1\)</span>, <span class="math inline">\(0\)</span>, and <span class="math inline">\(1\)</span>, each with equal probability:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(P(X)\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>-1</td>
+<td>1/3</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1/3</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1/3</td>
+</tr>
+</tbody>
+</table>
+<p>Define a new random variable <span class="math inline">\(Y = X^2\)</span>.</p>
+<ul>
+<li>Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> dependent or independent?</li>
+<li>Compute <span class="math inline">\(\operatorname{Cov}(X, Y)\)</span> and determine whether they are correlated.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">\(Y = X^2\)</span>, the value of <span class="math inline">\(Y\)</span> is entirely determined by <span class="math inline">\(X\)</span>. So <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are clearly <strong>dependent</strong>.</p>
+<p>Nex compute <span class="math inline">\(E(X)\)</span> and <span class="math inline">\(E(Y)\)</span> <span class="math display">\[
+E(X) = (-1) \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = 0
+\]</span></p>
+<p><span class="math display">\[
+E(Y) = 1 \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = \frac{2}{3}
+\]</span></p>
+<p>To compute <span class="math inline">\(E(XY)\)</span> we compute <span class="math inline">\(XY\)</span> for each pair:</p>
+<ul>
+<li>
+<span class="math inline">\(X = -1\)</span>, <span class="math inline">\(Y = 1\)</span> → <span class="math inline">\(XY = -1\)</span>
+</li>
+<li>
+<span class="math inline">\(X = 0\)</span>, <span class="math inline">\(Y = 0\)</span> → <span class="math inline">\(XY = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(X = 1\)</span>, <span class="math inline">\(Y = 1\)</span> → <span class="math inline">\(XY = 1\)</span>
+</li>
+</ul>
+<p>Then: <span class="math display">\[
+E(XY) = (-1) \cdot \frac{1}{3} + 0 + 1 \cdot \frac{1}{3} = 0
+\]</span></p>
+<p>Next we compute the covariance:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) = E(XY) - E(X)E(Y) = 0 - (0 \cdot \tfrac{2}{3}) = 0
+\]</span></p>
+<p>This means: <span class="math display">\[
+\operatorname{Cov}(X, Y) = 0 \quad \text{and} \quad \rho_{XY} = 0
+\]</span> We see here that even though <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are clearly <strong>dependent</strong>, their covariance and correlation are zero. This is an illustration of that <strong>uncorrelated does not imply independence</strong>.</p>
 </div>
 </div>
 </div>
