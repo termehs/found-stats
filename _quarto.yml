@@ -43,7 +43,7 @@ book:
       - rvs-probdists/discrete-dists.qmd
       - rvs-probdists/cont-dists.qmd
       - rvs-probdists/jointly-dist.qmd
-    - part: "Random Variables and Probability Distributions"
+    - part: "Sampling and Sampling Distributions"
       chapters:
       - sampling-dists/sampling.qmd
     - part: inference.qmd

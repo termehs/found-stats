@@ -1597,5 +1597,148 @@
       "Random Variables and Probability Distributions",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Jointly Distributed Random Variables</span>"
     ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html",
+    "href": "sampling-dists/sampling.html",
+    "title": "16  Sampling",
+    "section": "",
+    "text": "16.1 Populations and Samples\nStatistics is built on the bridge between the theoretical and the observable — between the population we aim to understand and the sample data we actually have in hand. In other words, it is about learning from data — but data never comes from thin air. It always originates from some underlying group, system, or process, which we refer to as the population. Yet, we almost never observe the whole population. Instead, we work with a sample.\nThis chapter introduces fundamental ideas that underpin all of statistical inference: the concept of a population, a sample, and the assumptions we make when drawing conclusions from one to the other. Here, we lay the groundwork for how we conceptualize data: where it comes from, what it represents, and what assumptions are reasonable when we try to generalize from sample to population.\nWe also explore different ways of selecting a sample from a population. How we draw the sample affects both the validity of our conclusions and the precision of our estimates. We distinguish between probability sampling methods, where each unit in the population has a known chance of being selected, and non-probability sampling, where that probability is unknown or ignored.\nIn statistics, the population refers to the entire group we’re interested in studying. This can be tangible and finite, like all employees in a company, or conceptual and infinite, like all possible future outcomes of a coin flip.\nThe sample is the data we actually observe. It’s a (usually small) subset of the population and forms the basis of all our statistical conclusions.\nWe often say that data represents a sample drawn from a population. But what exactly do we mean by a “population”? And how is a sample chosen? We’ll explore two main scenarios depending on the nature of the population:",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#populations-and-samples",
+    "href": "sampling-dists/sampling.html#populations-and-samples",
+    "title": "16  Sampling",
+    "section": "",
+    "text": "1. Sampling from a Finite Population\nThis sampling model applies when the population is a fixed set of identifiable units. In such cases, the sample is typically selected via simple random sampling meaning each unit has an equal chance of being included. Below a few examples are listed:\n\nA polling agency selects 1000 individuals at random from the national electoral register to estimate national voting preferences.\nA municipality selects 15 schools at random from all schools in the region to evaluate average class size.\nOut of a day’s production of 10,000 light bulbs, a factory randomly selects 50 to test for defects.\n\nIn all these cases, the population is finite and real, but often large enough that we treat it as practically infinite.\n\n\n2. Sampling from an Infinite Population\nThis model applies when data comes from a repeating process or an idealized model, such as physical measurements with noise or simulated outcomes of random experiments.\nThe key assumption is that each observed value is drawn independently from the same probability distribution — an idea formalized as an i.i.d. sample (independent and identically distributed). We list a few examples below:\n\nYou flip a fair coin 100 times. Each result is treated as an independent sample from the theoretical population of all possible flips.\nYou roll a die 60 times and record each outcome. Although the sample is finite, it reflects draws from the conceptual population of all future die rolls.\nYou measure the same distance repeatedly with the same device. Each result is slightly different due to random error. These outcomes are modeled as a random sample from a normal distribution representing all possible measurements.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#key-takeaways",
+    "href": "sampling-dists/sampling.html#key-takeaways",
+    "title": "16  Sampling",
+    "section": "16.2 Key Takeaways",
+    "text": "16.2 Key Takeaways\n\nA finite population consists of a real, tangible group of items or individuals.\nAn infinite population refers to the theoretical outcome space of a random experiment.\nRegardless of the population type, we use a sample to infer something about the broader context — whether that context is physical or probabilistic.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#unified-viewpoint-in-this-course",
+    "href": "sampling-dists/sampling.html#unified-viewpoint-in-this-course",
+    "title": "16  Sampling",
+    "section": "16.2 Unified Viewpoint in This Course",
+    "text": "16.2 Unified Viewpoint in This Course\nIn this course, we will consistently treat both types of sampling — from large finite populations and from infinite populations — in the same way.\n\nRegardless of the origin, we will assume our sample is drawn from an infinite population, where each observation is independent of the others and follows the same probability distribution.\n\nThis is a powerful simplifying assumption. It lets us use the same mathematical tools whether we’re dealing with people in a city or points on a graph from a simulated process.\nIn both cases, we say we have a random sample from a population.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#why-this-matters",
+    "href": "sampling-dists/sampling.html#why-this-matters",
+    "title": "16  Sampling",
+    "section": "16.2 Why This Matters",
+    "text": "16.2 Why This Matters\nThis unified framework allows us to:\n\nDefine and compute sampling distributions,\nConstruct confidence intervals and hypothesis tests,\nEstimate parameters of the underlying population model using methods like the sample mean, variance, and proportion.\n\nThese tools form the backbone of modern inferential statistics, and everything that follows will build on this core idea:\n\nWe observe a random sample from a population.\nWhether that population is large and real, or infinite and theoretical, the principles are the same.",
+    "crumbs": [
+      "Random Variables and Probability Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#our-framework",
+    "href": "sampling-dists/sampling.html#our-framework",
+    "title": "16  Sampling",
+    "section": "16.2 Our Framework",
+    "text": "16.2 Our Framework\nIn this course, we will consistently treat both types of sampling — from large finite populations and from infinite populations — in the same way.\n\nRegardless of the origin, we will assume our sample is drawn from an infinite population, where each observation is independent of the others and follows the same probability distribution.\n\nThis is a powerful simplifying assumption. It lets us use the same mathematical tools whether we’re dealing with people in a city or points on a graph from a simulated process.\nIn both cases, we say we have a random sample from a population.\nThis unified framework allows us to:\n\nDefine and compute sampling distributions,\nConstruct confidence intervals and hypothesis tests,\nEstimate parameters of the underlying population model using methods like the sample mean, variance, and proportion.\n\nThese tools form the backbone of modern inferential statistics, and everything that follows will build on this core idea:\n\nWe observe a random sample from a population.\nWhether that population is large and real, or infinite and theoretical, the principles are the same.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#probability-sampling",
+    "href": "sampling-dists/sampling.html#probability-sampling",
+    "title": "16  Sampling",
+    "section": "16.4 Probability Sampling",
+    "text": "16.4 Probability Sampling\nA sampling method is considered probabilistic if every element in the population has a known, non-zero probability of being selected. This inclusion probability is what allows us to make valid inferences from the sample to the population.\nExamples include:\n\nSimple random sampling (SRS)\nStratified sampling\nSystematic sampling\nCluster sampling (single or multi-stage)\n\n\n16.4.1 Simple Random Sampling (SRS)\nThis is the simplest form of probability sampling: we randomly select \\(n\\) units from a population of \\(N\\) such that each unit has equal probability of being chosen.\nLet \\(x_1, x_2, ..., x_n\\) denote the observed salaries. Then the sample mean\n\\[\n\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i\n\\]\nis an unbiased estimator of the population mean \\(\\mu\\) (we will return to this concept later).\nTo estimate the variance of \\(\\bar{x}\\), we use:\n\\[\n\\widehat{\\text{Var}}(\\bar{x}) = \\left(1 - \\frac{n}{N}\\right) \\frac{s^2}{n}\n\\]\nwhere:\n\n\\(s^2\\) is the sample variance,\nThe term \\(\\left(1 - \\frac{n}{N}\\right)\\) is a finite population correction.\n\nThe correction factor \\(\\left(1 - \\frac{n}{N}\\right)\\) reduces the estimated variance because we are not replacing observations. The more of the population we sample (larger \\(n/N\\)), the smaller this variance becomes. If the sample is small relative to the population (i.e., \\(n \\ll N\\)), this correction is approximately 1 and may be omitted, simplifying the formula to:\n\\[\n\\widehat{\\operatorname{Var}}(\\bar{x}) \\approx \\frac{s^2}{n}\n\\]\n\nExample: 16.1: Company Salary\nWe wish to estimate the average salary in a company. You have a full list (frame) of all 70 employees. You use a random number generator to select 30 employees. Each has the same probability \\(1/70\\) of being selected.\nThe variable of interest is a numeric one, such as income, age, or any measurable quantity. From the sample, we obtain the following:\n\nSample mean: \\(\\bar{x} = 176.20\\)\nSample variance: \\(s^2 = 20.00\\)\n\nWe now want to estimate the variance of the sample mean \\(\\bar{x}\\). Since the sample is drawn without replacement from a finite population, we apply the finite population correction:\n\\[\n\\widehat{\\operatorname{Var}}(\\bar{x}) = \\left(1 - \\frac{n}{N}\\right) \\cdot \\frac{s^2}{n}\n\\] Plugging in the values:\n\\[\n\\widehat{\\operatorname{Var}}(\\bar{x}) = \\left(1 - \\frac{30}{70}\\right) \\cdot \\frac{20.00}{30}\n= \\left(\\frac{40}{70}\\right) \\cdot \\frac{20.00}{30}\n= 0.38095\n\\]\nThis estimate tells us how much variability we might expect in the sample mean if we repeatedly took samples of size 30 from this population. But in this case, with \\(n = 30\\) and \\(N = 70\\), the correction still makes a meaningful difference.\n\n\n\n16.4.2 Stratified Sampling\nStratified sampling is a method used to increase precision by dividing the population into homogeneous subgroups, or strata, and drawing a random sample from each. This approach ensures that all relevant sub-populations are represented and that within-group variation is minimized.\nThe idea is to reduce variance by organizing the population into strata that are internally homogeneous but different from each other with respect to the study variable.\nStratification can improve estimation accuracy if the variable of interest differs between groups (e.g., income between age groups) and if the stratification variable (like age, gender, region) is known and available for the full population.\nStratification is most effective when:\n\nThe within-stratum variance is low, and\nThe between-stratum variance is high\n\nThis occurs when the stratification variable (e.g., gender, age) is strongly related to the outcome variable (e.g., income). Choosing appropriate strata isn’t always straightforward, e.g.:\n\nStratification based on gender is easy.\nFor age or income, it may be necessary to define strata using cutoff values, such as:\n\nAges 20–29, 30–39, etc.\nSalary bands: low, medium, high\n\n\nThe goal is to make each stratum internally homogeneous with respect to the variable being studied.\n⚠️ You must have a sampling frame sorted by the stratifying variable to apply this effectively.\nSo how do we actually allocate units to each strata? One method is Proportional Allocation where each stratum contributes to the sample in proportion to its size:\n\\[\n\\frac{n_i}{n} = \\frac{N_i}{N}\n\\]\nThis method is self-weighting and simple. Note however that we sometimes are interested in group comparisons, not overall estimation. Then we can use Equal Allocation and sample the same number of units from each group, even if groups are different sizes. This is useful for comparing averages between, say, men and women.\nTo minimize total variance, one can also use Optimal Allocation (Neyman Allocation) and allocate more sample units to strata with higher variability. Thus, sample size per stratum is proportional to:\n\\[\nn_i \\propto N_i \\cdot s_i\n\\] More units are drawn from more varying strata, improving overall precision.\nWhen using stratified sampling, we combine sample means from each stratum into a single overall estimate:\n\\[\n\\bar{X}_{\\text{str}} = \\sum_{i=1}^L W_i \\bar{X}_i\n\\] where\n\n\\(\\bar{X}_{\\text{str}}\\) is the stratified sample mean,\n\\(W_i = \\frac{N_i}{N}\\) is the weight (proportion of the population in stratum \\(i\\)),\n\\(\\bar{X}_i\\) is the sample mean in stratum \\(i\\),\n\\(L\\) is the number of strata.\n\nSince each stratum’s sample is drawn independently, the corresponding stratum sample means \\(\\bar{X}_i\\) are independent random variables. The weights \\(W_i\\) are constants (not random), so the variance of the weighted sum is simply:\n\\[\n\\operatorname{Var}(\\bar{X}_{\\text{str}}) = \\sum_{i=1}^L W_i^2 \\cdot \\operatorname{Var}(\\bar{X}_i)\n\\]\nThink of it this way: \\[\n\\operatorname{Var}(\\bar{X}_{\\text{str}}) = \\operatorname{Var}\\left(\\sum_{i=1}^L W_i \\bar{X}_i\\right)\n\\]\nSince each \\(W_i\\) is a constant and the \\(\\bar{X}_i\\) are independent, the variance of the sum equals the sum of the variances, each scaled by the square of the corresponding weight.\n\nExample: 16.1: Company Salary (Cont’d)\nSuppose we know the company consists of:\n\n20 women, labeled 01–20\n50 men, labeled 21–70\n\nWe decide to draw a total sample of \\(n = 30\\) individuals using proportional allocation, so each group is sampled proportionally to its size.\n\\[\nn_1 = \\frac{N_1}{N} \\cdot n = \\frac{20}{70} \\cdot 30 \\approx 9\n\\] \\[\nn_2 = \\frac{N_2}{N} \\cdot n = \\frac{50}{70} \\cdot 30 \\approx 21\n\\]\nAfter sampling and collecting incomes, we compute the sample means and standard deviations within each group:\n\n\n\nStratum\n\\(N_i\\)\n\\(n_i\\)\n\\(\\bar{x}_i\\)\n\\(s_i\\)\n\n\n\n\nWomen\n20\n9\n106.87\n1.052\n\n\nMen\n50\n21\n110.45\n0.789\n\n\nTotal\n70\n30\n\n\n\n\n\nWe calculate the stratified mean as:\n\\[\n\\bar{x}_{\\text{str}} = W_1 \\bar{x}_1 + W_2 \\bar{x}_2\n\\]\nwhere:\n\\[\nW_1 = \\frac{20}{70}, \\quad W_2 = \\frac{50}{70}\n\\]\nThen: \\[\n\\bar{x}_{\\text{str}} = \\frac{20}{70} \\cdot 106.87 + \\frac{50}{70} \\cdot 110.45 = 109.43\n\\] Each stratum sample is independent, so:\n\\[\n\\operatorname{Var}(\\bar{x}_{\\text{str}}) = W_1^2 \\cdot \\operatorname{Var}(\\bar{x}_1) + W_2^2 \\cdot \\operatorname{Var}(\\bar{x}_2)\n\\]\nFor each group, the variance is estimated using the finite population correction (since we’re sampling without replacement):\n\\[\n\\operatorname{Var}(\\bar{x}_i) = \\left(1 - \\frac{n_i}{N_i}\\right) \\cdot \\frac{s_i^2}{n_i}\n\\]\nPlugging in: \\[\n\\operatorname{Var}(\\bar{x}_{\\text{str}}) =\n\\left(\\frac{20}{70}\\right)^2 \\left(1 - \\frac{9}{20}\\right) \\cdot \\frac{1.052^2}{9} +\n\\left(\\frac{50}{70}\\right)^2 \\left(1 - \\frac{21}{50}\\right) \\cdot \\frac{0.789^2}{21}\n\\] Which yields: \\[\n\\widehat{\\operatorname{Var}}(\\bar{x}_{\\text{str}}) = 0.014293\n\\]\nNow let’s compare this result with what we’d get from a simple random sample of \\(n = 30\\) without stratification:\n\n\n\nMethod\nMean\nVariance\n\n\n\n\nSimple Random Sample (SRS)\n176.20\n0.38095\n\n\nStratified Sample\n109.43\n0.01429\n\n\n\nThe stratified sample gives much lower variance, showing how stratification can improve precision when strata are well chosen.\n\n\n\n16.4.3 Systematic Sampling\nSystematic sampling is a method where we select elements at regular intervals from a list (the sampling frame), after first choosing a random starting point.\nSuppose we want to estimate the average salary in a company with \\(N = 1000\\) employees. We plan to draw a sample of \\(n = 100\\). Assume the sampling frame is sorted by personal ID number (which correlates with age). We compute the sampling interval:\n\\[\nr = \\frac{N}{n} = \\frac{1000}{100} = 10\n\\] We then randomly select a starting number between 1 and 10 — say we pick 4. Our sample will include the following individuals (based on their position in the list):\n\\[\n4,\\ 14,\\ 24,\\ 34,\\ \\dots,\\ 994\n\\]\nThat is, we include every 10th individual starting at position 4.\nLet’s fomralize the process of systematic sampling: Let \\(N\\) be the total number of elements and \\(n\\) the number of desired samples.\n\nCompute the sampling interval:\n\\[\nr = \\left\\lfloor \\frac{N}{n} \\right\\rfloor\n\\]\n(Round down to the nearest whole number)\nRandomly choose a number \\(s\\) between 1 and \\(r\\).\nSelect elements at positions:\n\\[\ns,\\ s + r,\\ s + 2r,\\ \\dots\n\\]\nContinue until you’ve passed through the entire list.\n\nNote that it’s important to go through the entire list, or risk introducing systematic bias. Because we round \\(r\\) down, it is possible to end up with more than \\(n\\) elements.\nIf that happens youou can simply keep the extra observations,\nor randomly remove some observations to reduce to the intended sample size.\nThis method is efficient and easy to implement, especially when dealing with large, ordered datasets.\n⚠️ Beware of periodicity in the list — if the sorting follows a cycle, the results may be biased. For Example, suppose you’re studying newspaper ads and want to select every 7th day. If ads tend to follow a weekly cycle (e.g., most appear on Sundays), your sample could:\n\nMiss certain types of ads,\nOverrepresent others,\nLead to systematic bias and increased variance in estimates.\n\n\nExample: 16.1: Company Salary (Cont’d)\nSuppose we wish to select a systematic sample of size \\(n = 30\\) from the population of size \\(N = 70\\) here. Fir we compute the sampling interval \\[\nr = \\frac{N}{n} = \\frac{70}{30} \\approx 2.333 \\quad \\text{(rounded down to } r = 2 \\text{)}\n\\] This means we plan to take every second person from the sampling frame. Then randomly select a starting position from among the first \\(r = 2\\) units. Draw a random number between 1 and 2 (say 2), then select every 2nd person:\n\\[\n2,\\ 4,\\ 6,\\ 8,\\ \\dots,\\ 70\n\\]\nThis gives us: \\[\n\\frac{70 - 2}{2} + 1 = 35 \\text{ individuals}\n\\]\nSo our actual sample size is 35, which is larger than intended.\n\n\n\n16.4.4 Cluster Sampling\nUsed when sampling individuals directly is impractical (e.g., geographical spread or missing frame).\n\nIn single-stage cluster sampling, groups (e.g., schools, buildings) are selected randomly, and all elements within them are surveyed.\nIn two-stage cluster sampling, we randomly select both clusters and elements within them.\n\nFor example, consider a housing association who wants feedback on apartment quality. Instead of mailing all tenants, they randomly select 5 buildings and visit every apartment in each.\nOr, in a two-stage approach, they visit a subset of apartments in each selected building.\n\nCluster sampling is cost-effective but usually has lower precision than simple or stratified sampling.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#stratified-sampling",
+    "href": "sampling-dists/sampling.html#stratified-sampling",
+    "title": "16  Sampling",
+    "section": "16.4 9.1.2 Stratified Sampling",
+    "text": "16.4 9.1.2 Stratified Sampling\nIn stratified sampling, the population is divided into homogeneous subgroups (strata) based on a stratification variable (e.g., gender, age). Then, a simple random sample is drawn from each stratum.\nThis method ensures that all key subgroups are represented in the sample and can improve precision when strata differ systematically on the study variable.\n\n📌 Example:\nWe divide a company’s employees into women (\\(N_1 = 20\\)) and men (\\(N_2 = 50\\)), and sample \\(n = 30\\) people in total.\nUsing proportional allocation:\n\\[\nn_1 = \\frac{N_1}{N} \\cdot n = \\frac{20}{70} \\cdot 30 \\approx 9 \\\\\nn_2 = \\frac{N_2}{N} \\cdot n = \\frac{50}{70} \\cdot 30 \\approx 21\n\\]\nWe draw a simple random sample of 9 women and 21 men.\nEach group yields a sample mean \\(\\bar{x}_i\\) and variance \\(s_i^2\\).\nThe combined mean is:\n\\[\n\\bar{x}_{\\text{str}} = \\sum_{i=1}^{L} W_i \\bar{x}_i, \\quad \\text{where } W_i = \\frac{N_i}{N}\n\\]\nThe variance of the stratified estimator is:\n\\[\n\\text{Var}(\\bar{x}_{\\text{str}}) = \\sum_{i=1}^{L} W_i^2 \\cdot \\text{Var}(\\bar{x}_i)\n\\]\nWith finite populations:\n\\[\n\\text{Var}(\\bar{x}_i) = \\left(1 - \\frac{n_i}{N_i} \\right) \\frac{s_i^2}{n_i}\n\\]\n\nStratified sampling is especially useful for group comparisons and when the population has skewed distributions.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#systematic-sampling",
+    "href": "sampling-dists/sampling.html#systematic-sampling",
+    "title": "16  Sampling",
+    "section": "16.5 9.1.3 Systematic Sampling",
+    "text": "16.5 9.1.3 Systematic Sampling\nHere, elements are selected at regular intervals from a list after a random starting point.\n\n16.5.1 📌 Example:\nYou want to sample \\(n = 30\\) from a list of \\(N = 70\\) individuals. Compute the interval:\n\\[\nr = \\left\\lfloor \\frac{N}{n} \\right\\rfloor = \\left\\lfloor \\frac{70}{30} \\right\\rfloor = 2\n\\]\nDraw a random number between 1 and 2 (say 2), then select every 2nd person:\n2, 4, 6, 8, …, 70\nSystematic sampling is efficient and easy, especially when a full random draw is too slow or costly.\n⚠️ Beware of periodicity in the list — if the sorting follows a cycle, the results may be biased.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#cluster-sampling",
+    "href": "sampling-dists/sampling.html#cluster-sampling",
+    "title": "16  Sampling",
+    "section": "16.6 9.1.4 Cluster Sampling",
+    "text": "16.6 9.1.4 Cluster Sampling\nUsed when sampling individuals directly is impractical (e.g., geographical spread or missing frame).\n\nIn single-stage cluster sampling, groups (e.g., schools, buildings) are selected randomly, and all elements within them are surveyed.\nIn two-stage cluster sampling, we randomly select both clusters and elements within them.\n\n\n16.6.1 📌 Example:\nA housing association wants feedback on apartment quality. Instead of mailing all tenants, they randomly select 5 buildings and visit every apartment in each.\nOr, in a two-stage approach, they visit a subset of apartments in each selected building.\n\nCluster sampling is cost-effective but usually has lower precision than simple or stratified sampling.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#non-probability-sampling",
+    "href": "sampling-dists/sampling.html#non-probability-sampling",
+    "title": "16  Sampling",
+    "section": "16.5 Non-Probability Sampling",
+    "text": "16.5 Non-Probability Sampling\nSometimes, we cannot or do not use a probability-based method, for example if no register over all population elements exist. While easier or more practical, these designs do not guarantee unbiased or generalizable results.\nExamples include:\n\nQuota sampling – Fill quotas based on traits like age or gender, but allow interviewer discretion.\nVoluntary response – Participants opt in (e.g., online polls).\nConvenience sampling – Survey whoever is nearby.\nJudgment sampling – Select “typical” individuals based on expert opinion.\nSnowball sampling – Ask members of a hidden population (e.g., drug users) to recruit others.\n\n\nThese methods may lead to systematic errors and hidden biases. Always interpret results cautiously and never generalize to the full population without disclaimers.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#summary-of-sampling-methods",
+    "href": "sampling-dists/sampling.html#summary-of-sampling-methods",
+    "title": "16  Sampling",
+    "section": "16.6 9.3 Summary of Sampling Methods",
+    "text": "16.6 9.3 Summary of Sampling Methods\n\n\n\n\n\n\n\n\nMethod\nPros\nCons\n\n\n\n\nSimple Random (OSU)\nEasy to understand, unbiased\nRequires complete list (frame)\n\n\nStratified\nIncreases precision, good for subgroups\nMore complex, needs stratification variable\n\n\nSystematic\nSimple, efficient\nSensitive to list ordering\n\n\nCluster\nCost-effective, no frame needed\nLower precision\n\n\nNon-probability\nPractical, flexible\nRisk of bias, cannot infer to population",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
+  },
+  {
+    "objectID": "sampling-dists/sampling.html#some-terminology",
+    "href": "sampling-dists/sampling.html#some-terminology",
+    "title": "16  Sampling",
+    "section": "16.3 Some Terminology",
+    "text": "16.3 Some Terminology\nWhen performing a statistical survey, it’s essential to distinguish between different types of populations and the sampling frame. Here are the key concepts.\nThe target population is the group we ultimately want to draw conclusions about. It is the ideal population relevant to our research question or hypothesis.\n\nExample: All adults living in Germany in 2025.\n\nThe part of the target population, for which we have a list or registry of identifiable unit is called a sampling frame. This is often a subset of the target population, due to practical limitations. Examples: - Registered residents in the national tax agency’s population database. - A census list - A school enrollment database - A phone number registry.\nA good sampling frame should be complete, accurate, and current.\nDiscrepancies between the target population and the sampling frame can introduce coverage errors. These occur when some groups are:\n\nExcluded from the sampling frame (e.g., unregistered residents),\nOr overrepresented due to duplications or outdated records.\n\n\nA well-designed study explicitly states and justifies how the sampling frame relates to the ideal target population.",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
+    ]
   }
 ]

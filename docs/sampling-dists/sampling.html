@@ -72,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Sampling and Sampling Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -255,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Random Variables and Probability Distributions</span></a>
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -307,13 +336,33 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#populations-and-samples" id="toc-populations-and-samples" class="nav-link active" data-scroll-target="#populations-and-samples"><span class="header-section-number">16.1</span> Populations and Samples</a>
+  <ul class="collapse">
+  <li><a href="#sampling-from-a-finite-population" id="toc-sampling-from-a-finite-population" class="nav-link" data-scroll-target="#sampling-from-a-finite-population">1. Sampling from a Finite Population</a></li>
+  <li><a href="#sampling-from-an-infinite-population" id="toc-sampling-from-an-infinite-population" class="nav-link" data-scroll-target="#sampling-from-an-infinite-population">2. Sampling from an Infinite Population</a></li>
+  </ul></li>
+  <li><a href="#our-framework" id="toc-our-framework" class="nav-link" data-scroll-target="#our-framework"><span class="header-section-number">16.2</span> Our Framework</a></li>
+  <li><a href="#some-terminology" id="toc-some-terminology" class="nav-link" data-scroll-target="#some-terminology"><span class="header-section-number">16.3</span> Some Terminology</a></li>
+  <li><a href="#probability-sampling" id="toc-probability-sampling" class="nav-link" data-scroll-target="#probability-sampling"><span class="header-section-number">16.4</span> Probability Sampling</a>
+  <ul class="collapse">
+  <li><a href="#simple-random-sampling-srs" id="toc-simple-random-sampling-srs" class="nav-link" data-scroll-target="#simple-random-sampling-srs"><span class="header-section-number">16.4.1</span> Simple Random Sampling (SRS)</a></li>
+  <li><a href="#stratified-sampling" id="toc-stratified-sampling" class="nav-link" data-scroll-target="#stratified-sampling"><span class="header-section-number">16.4.2</span> Stratified Sampling</a></li>
+  <li><a href="#systematic-sampling" id="toc-systematic-sampling" class="nav-link" data-scroll-target="#systematic-sampling"><span class="header-section-number">16.4.3</span> Systematic Sampling</a></li>
+  <li><a href="#cluster-sampling" id="toc-cluster-sampling" class="nav-link" data-scroll-target="#cluster-sampling"><span class="header-section-number">16.4.4</span> Cluster Sampling</a></li>
+  </ul></li>
+  <li><a href="#non-probability-sampling" id="toc-non-probability-sampling" class="nav-link" data-scroll-target="#non-probability-sampling"><span class="header-section-number">16.5</span> Non-Probability Sampling</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Sampling and Sampling Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-sampling" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></h1>
 </div>
@@ -332,8 +381,350 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Statistics is built on the bridge between the theoretical and the observable — between the population we aim to understand and the sample data we actually have in hand. In other words, it is about learning from data — but data never comes from thin air. It always originates from some underlying group, system, or process, which we refer to as the <strong>population</strong>. Yet, we almost never observe the whole population. Instead, we work with a <strong>sample</strong>.</p>
+<p>This chapter introduces fundamental ideas that underpin all of statistical inference: the concept of a population, a sample, and the assumptions we make when drawing conclusions from one to the other. Here, we lay the groundwork for how we conceptualize data: where it comes from, what it represents, and what assumptions are reasonable when we try to generalize from sample to population.</p>
+<p>We also explore different ways of selecting a sample from a population. How we draw the sample affects both the <strong>validity</strong> of our conclusions and the <strong>precision</strong> of our estimates. We distinguish between <strong>probability sampling methods</strong>, where each unit in the population has a known chance of being selected, and <strong>non-probability sampling</strong>, where that probability is unknown or ignored.</p>
+<section id="populations-and-samples" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="populations-and-samples"><span class="header-section-number">16.1</span> Populations and Samples</h2>
+<p>In statistics, the <strong>population</strong> refers to the entire group we’re interested in studying. This can be tangible and finite, like all employees in a company, or conceptual and infinite, like all possible future outcomes of a coin flip.</p>
+<p>The <strong>sample</strong> is the data we actually observe. It’s a (usually small) subset of the population and forms the basis of all our statistical conclusions.</p>
+<p>We often say that data represents a <strong>sample drawn from a population</strong>. But what exactly do we mean by a “population”? And how is a sample chosen? We’ll explore two main scenarios depending on the nature of the population:</p>
+<section id="sampling-from-a-finite-population" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sampling-from-a-finite-population">1. Sampling from a Finite Population</h3>
+<p>This sampling model applies when the population is a <strong>fixed set of identifiable units</strong>. In such cases, the sample is typically selected via <strong>simple random sampling</strong> meaning each unit has an equal chance of being included. Below a few examples are listed:</p>
+<ul>
+<li>A polling agency selects 1000 individuals at random from the national electoral register to estimate national voting preferences.</li>
+<li>A municipality selects 15 schools at random from all schools in the region to evaluate average class size.</li>
+<li>Out of a day’s production of 10,000 light bulbs, a factory randomly selects 50 to test for defects.</li>
+</ul>
+<p>In all these cases, the population is finite and real, but often large enough that we treat it as practically infinite.</p>
+</section>
+<section id="sampling-from-an-infinite-population" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sampling-from-an-infinite-population">2. Sampling from an Infinite Population</h3>
+<p>This model applies when data comes from a repeating process or an idealized model, such as physical measurements with noise or simulated outcomes of random experiments.</p>
+<p>The key assumption is that each observed value is drawn <strong>independently</strong> from the same probability distribution — an idea formalized as an <strong>i.i.d. sample</strong> (independent and identically distributed). We list a few examples below:</p>
+<ul>
+<li>You flip a fair coin 100 times. Each result is treated as an independent sample from the theoretical population of all possible flips.</li>
+<li>You roll a die 60 times and record each outcome. Although the sample is finite, it reflects draws from the conceptual population of all future die rolls.</li>
+<li>You measure the same distance repeatedly with the same device. Each result is slightly different due to random error. These outcomes are modeled as a random sample from a normal distribution representing all possible measurements.</li>
+</ul>
+</section>
+</section>
+<section id="our-framework" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="our-framework"><span class="header-section-number">16.2</span> Our Framework</h2>
+<p>In this course, we will consistently treat both types of sampling — from large finite populations and from infinite populations — in the same way.</p>
+<blockquote class="blockquote">
+<p>Regardless of the origin, we will assume our sample is drawn from an <strong>infinite population</strong>, where each observation is <strong>independent</strong> of the others and follows the same probability distribution.</p>
+</blockquote>
+<p>This is a powerful simplifying assumption. It lets us use the same mathematical tools whether we’re dealing with people in a city or points on a graph from a simulated process.</p>
+<p>In both cases, we say we have a <strong>random sample</strong> from a population.</p>
+<p>This unified framework allows us to:</p>
+<ul>
+<li>Define and compute <strong>sampling distributions</strong>,</li>
+<li>Construct <strong>confidence intervals</strong> and <strong>hypothesis tests</strong>,</li>
+<li>Estimate parameters of the underlying population model using methods like the <strong>sample mean</strong>, <strong>variance</strong>, and <strong>proportion</strong>.</li>
+</ul>
+<p>These tools form the backbone of modern inferential statistics, and everything that follows will build on this core idea:</p>
+<blockquote class="blockquote">
+<p><strong>We observe a random sample from a population.</strong><br>
+Whether that population is large and real, or infinite and theoretical, the principles are the same.</p>
+</blockquote>
+</section>
+<section id="some-terminology" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="some-terminology"><span class="header-section-number">16.3</span> Some Terminology</h2>
+<p>When performing a statistical survey, it’s essential to distinguish between different types of populations and the sampling frame. Here are the key concepts.</p>
+<p>The <strong>target population</strong> is the group we ultimately want to draw conclusions about. It is the ideal population relevant to our research question or hypothesis.</p>
+<ul>
+<li>Example: All adults living in Germany in 2025.</li>
+</ul>
+<p>The part of the target population, for which we have a list or registry of identifiable unit is called a <strong>sampling frame</strong>. This is often a subset of the target population, due to practical limitations. Examples: - Registered residents in the national tax agency’s population database. - A census list - A school enrollment database - A phone number registry.</p>
+<p>A good sampling frame should be complete, accurate, and current.</p>
+<p>Discrepancies between the target population and the sampling frame can introduce <strong>coverage errors</strong>. These occur when some groups are:</p>
+<ul>
+<li>Excluded from the sampling frame (e.g., unregistered residents),</li>
+<li>Or overrepresented due to duplications or outdated records.</li>
+</ul>
+<blockquote class="blockquote">
+<p>A well-designed study explicitly states and justifies how the sampling frame relates to the ideal target population.</p>
+</blockquote>
+</section>
+<section id="probability-sampling" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="probability-sampling"><span class="header-section-number">16.4</span> Probability Sampling</h2>
+<p>A sampling method is considered probabilistic if every element in the population has a known, non-zero probability of being selected. This inclusion probability is what allows us to make valid inferences from the sample to the population.</p>
+<p>Examples include:</p>
+<ul>
+<li>Simple random sampling (SRS)</li>
+<li>Stratified sampling</li>
+<li>Systematic sampling</li>
+<li>Cluster sampling (single or multi-stage)</li>
+</ul>
+<section id="simple-random-sampling-srs" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="simple-random-sampling-srs"><span class="header-section-number">16.4.1</span> Simple Random Sampling (SRS)</h3>
+<p>This is the simplest form of probability sampling: we randomly select <span class="math inline">\(n\)</span> units from a population of <span class="math inline">\(N\)</span> such that each unit has equal probability of being chosen.</p>
+<p>Let <span class="math inline">\(x_1, x_2, ..., x_n\)</span> denote the observed salaries. Then the sample mean</p>
+<p><span class="math display">\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]</span></p>
+<p>is an <strong>unbiased estimator</strong> of the population mean <span class="math inline">\(\mu\)</span> (we will return to this concept later).</p>
+<p>To estimate the variance of <span class="math inline">\(\bar{x}\)</span>, we use:</p>
+<p><span class="math display">\[
+\widehat{\text{Var}}(\bar{x}) = \left(1 - \frac{n}{N}\right) \frac{s^2}{n}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(s^2\)</span> is the sample variance,</li>
+<li>The term <span class="math inline">\(\left(1 - \frac{n}{N}\right)\)</span> is a <strong>finite population correction</strong>.</li>
+</ul>
+<p>The correction factor <span class="math inline">\(\left(1 - \frac{n}{N}\right)\)</span> reduces the estimated variance because we are <strong>not replacing</strong> observations. The more of the population we sample (larger <span class="math inline">\(n/N\)</span>), the smaller this variance becomes. If the sample is small relative to the population (i.e., <span class="math inline">\(n \ll N\)</span>), this correction is approximately 1 and may be omitted, simplifying the formula to:</p>
+<p><span class="math display">\[
+\widehat{\operatorname{Var}}(\bar{x}) \approx \frac{s^2}{n}
+\]</span></p>
+<section id="example-16.1-company-salary" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-16.1-company-salary">Example: 16.1: Company Salary</h4>
+<p>We wish to estimate the average salary in a company. You have a full list (frame) of all 70 employees. You use a random number generator to select 30 employees. Each has the same probability <span class="math inline">\(1/70\)</span> of being selected.</p>
+<p>The variable of interest is a numeric one, such as income, age, or any measurable quantity. From the sample, we obtain the following:</p>
+<ul>
+<li>Sample mean: <span class="math inline">\(\bar{x} = 176.20\)</span></li>
+<li>Sample variance: <span class="math inline">\(s^2 = 20.00\)</span></li>
+</ul>
+<p>We now want to estimate the variance of the sample mean <span class="math inline">\(\bar{x}\)</span>. Since the sample is drawn without replacement from a finite population, we apply the <strong>finite population correction</strong>:</p>
+<p><span class="math display">\[
+\widehat{\operatorname{Var}}(\bar{x}) = \left(1 - \frac{n}{N}\right) \cdot \frac{s^2}{n}
+\]</span> Plugging in the values:</p>
+<p><span class="math display">\[
+\widehat{\operatorname{Var}}(\bar{x}) = \left(1 - \frac{30}{70}\right) \cdot \frac{20.00}{30}
+= \left(\frac{40}{70}\right) \cdot \frac{20.00}{30}
+= 0.38095
+\]</span></p>
+<p>This estimate tells us how much variability we might expect in the sample mean if we repeatedly took samples of size 30 from this population. But in this case, with <span class="math inline">\(n = 30\)</span> and <span class="math inline">\(N = 70\)</span>, the correction still makes a meaningful difference.</p>
+</section>
+</section>
+<section id="stratified-sampling" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="stratified-sampling"><span class="header-section-number">16.4.2</span> Stratified Sampling</h3>
+<p>Stratified sampling is a method used to increase precision by dividing the population into homogeneous subgroups, or <strong>strata</strong>, and drawing a random sample from each. This approach ensures that all relevant sub-populations are represented and that within-group variation is minimized.</p>
+<p>The idea is to reduce variance by organizing the population into strata that are internally homogeneous but different from each other with respect to the study variable.</p>
+<p>Stratification can improve estimation accuracy if the variable of interest differs between groups (e.g., income between age groups) and if the stratification variable (like age, gender, region) is known and available for the full population.</p>
+<p>Stratification is most effective when:</p>
+<ul>
+<li>The <strong>within-stratum variance is low</strong>, and</li>
+<li>The <strong>between-stratum variance is high</strong></li>
+</ul>
+<p>This occurs when the stratification variable (e.g., gender, age) is strongly related to the outcome variable (e.g., income). Choosing appropriate strata isn’t always straightforward, e.g.:</p>
+<ul>
+<li>Stratification based on <strong>gender</strong> is easy.</li>
+<li>For <strong>age</strong> or <strong>income</strong>, it may be necessary to <strong>define strata using cutoff values</strong>, such as:
+<ul>
+<li>Ages 20–29, 30–39, etc.</li>
+<li>Salary bands: low, medium, high</li>
+</ul></li>
+</ul>
+<p>The goal is to make each stratum internally homogeneous with respect to the variable being studied.</p>
+<p>⚠️ You must have a <strong>sampling frame sorted by the stratifying variable</strong> to apply this effectively.</p>
+<p>So how do we actually allocate units to each strata? One method is <strong>Proportional Allocation</strong> where each stratum contributes to the sample in proportion to its size:</p>
+<p><span class="math display">\[
+\frac{n_i}{n} = \frac{N_i}{N}
+\]</span></p>
+<p>This method is self-weighting and simple. Note however that we sometimes are interested in group comparisons, not overall estimation. Then we can use <strong>Equal Allocation</strong> and sample the same number of units from each group, even if groups are different sizes. This is useful for comparing averages between, say, men and women.</p>
+<p>To minimize total variance, one can also use <strong>Optimal Allocation</strong> (Neyman Allocation) and allocate more sample units to strata with higher variability. Thus, sample size per stratum is proportional to:</p>
+<p><span class="math display">\[
+n_i \propto N_i \cdot s_i
+\]</span> More units are drawn from more varying strata, improving overall precision.</p>
+<p>When using stratified sampling, we combine sample means from each stratum into a single overall estimate:</p>
+<p><span class="math display">\[
+\bar{X}_{\text{str}} = \sum_{i=1}^L W_i \bar{X}_i
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\bar{X}_{\text{str}}\)</span> is the stratified sample mean,</li>
+<li><span class="math inline">\(W_i = \frac{N_i}{N}\)</span> is the weight (proportion of the population in stratum <span class="math inline">\(i\)</span>),</li>
+<li><span class="math inline">\(\bar{X}_i\)</span> is the sample mean in stratum <span class="math inline">\(i\)</span>,</li>
+<li><span class="math inline">\(L\)</span> is the number of strata.</li>
+</ul>
+<p>Since each stratum’s sample is drawn independently, the corresponding stratum sample means <span class="math inline">\(\bar{X}_i\)</span> are independent random variables. The weights <span class="math inline">\(W_i\)</span> are constants (not random), so the variance of the weighted sum is simply:</p>
+<p><span class="math display">\[
+\operatorname{Var}(\bar{X}_{\text{str}}) = \sum_{i=1}^L W_i^2 \cdot \operatorname{Var}(\bar{X}_i)
+\]</span></p>
+<p>Think of it this way: <span class="math display">\[
+\operatorname{Var}(\bar{X}_{\text{str}}) = \operatorname{Var}\left(\sum_{i=1}^L W_i \bar{X}_i\right)
+\]</span></p>
+<p>Since each <span class="math inline">\(W_i\)</span> is a constant and the <span class="math inline">\(\bar{X}_i\)</span> are independent, the variance of the sum equals the sum of the variances, each scaled by the square of the corresponding weight.</p>
+<section id="example-16.1-company-salary-contd" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-16.1-company-salary-contd">Example: 16.1: Company Salary (Cont’d)</h4>
+<p>Suppose we know the company consists of:</p>
+<ul>
+<li>20 women, labeled 01–20</li>
+<li>50 men, labeled 21–70</li>
+</ul>
+<p>We decide to draw a total sample of <span class="math inline">\(n = 30\)</span> individuals using <strong>proportional allocation</strong>, so each group is sampled proportionally to its size.</p>
+<p><span class="math display">\[
+n_1 = \frac{N_1}{N} \cdot n = \frac{20}{70} \cdot 30 \approx 9
+\]</span> <span class="math display">\[
+n_2 = \frac{N_2}{N} \cdot n = \frac{50}{70} \cdot 30 \approx 21
+\]</span></p>
+<p>After sampling and collecting incomes, we compute the sample means and standard deviations within each group:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Stratum</th>
+<th style="text-align: right;"><span class="math inline">\(N_i\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(n_i\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(\bar{x}_i\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(s_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Women</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">106.87</td>
+<td style="text-align: right;">1.052</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Men</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">110.45</td>
+<td style="text-align: right;">0.789</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>Total</strong></td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>We calculate the stratified mean as:</p>
+<p><span class="math display">\[
+\bar{x}_{\text{str}} = W_1 \bar{x}_1 + W_2 \bar{x}_2
+\]</span></p>
+<p>where:</p>
+<p><span class="math display">\[
+W_1 = \frac{20}{70}, \quad W_2 = \frac{50}{70}
+\]</span></p>
+<p>Then: <span class="math display">\[
+\bar{x}_{\text{str}} = \frac{20}{70} \cdot 106.87 + \frac{50}{70} \cdot 110.45 = 109.43
+\]</span> Each stratum sample is independent, so:</p>
+<p><span class="math display">\[
+\operatorname{Var}(\bar{x}_{\text{str}}) = W_1^2 \cdot \operatorname{Var}(\bar{x}_1) + W_2^2 \cdot \operatorname{Var}(\bar{x}_2)
+\]</span></p>
+<p>For each group, the variance is estimated using the finite population correction (since we’re sampling without replacement):</p>
+<p><span class="math display">\[
+\operatorname{Var}(\bar{x}_i) = \left(1 - \frac{n_i}{N_i}\right) \cdot \frac{s_i^2}{n_i}
+\]</span></p>
+<p>Plugging in: <span class="math display">\[
+\operatorname{Var}(\bar{x}_{\text{str}}) =
+\left(\frac{20}{70}\right)^2 \left(1 - \frac{9}{20}\right) \cdot \frac{1.052^2}{9} +
+\left(\frac{50}{70}\right)^2 \left(1 - \frac{21}{50}\right) \cdot \frac{0.789^2}{21}
+\]</span> Which yields: <span class="math display">\[
+\widehat{\operatorname{Var}}(\bar{x}_{\text{str}}) = 0.014293
+\]</span></p>
+<p>Now let’s compare this result with what we’d get from a simple random sample of <span class="math inline">\(n = 30\)</span> without stratification:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Mean</th>
+<th>Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Simple Random Sample (SRS)</td>
+<td>176.20</td>
+<td>0.38095</td>
+</tr>
+<tr class="even">
+<td>Stratified Sample</td>
+<td>109.43</td>
+<td>0.01429</td>
+</tr>
+</tbody>
+</table>
+<p>The stratified sample gives much lower variance, showing how stratification can improve precision when strata are well chosen.</p>
+</section>
+</section>
+<section id="systematic-sampling" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="systematic-sampling"><span class="header-section-number">16.4.3</span> Systematic Sampling</h3>
+<p>Systematic sampling is a method where we select elements at <strong>regular intervals</strong> from a list (the sampling frame), after first choosing a <strong>random starting point</strong>.</p>
+<p>Suppose we want to estimate the average salary in a company with <span class="math inline">\(N = 1000\)</span> employees. We plan to draw a sample of <span class="math inline">\(n = 100\)</span>. Assume the sampling frame is sorted by personal ID number (which correlates with age). We compute the sampling interval:</p>
+<p><span class="math display">\[
+r = \frac{N}{n} = \frac{1000}{100} = 10
+\]</span> We then randomly select a starting number between 1 and 10 — say we pick 4. Our sample will include the following individuals (based on their position in the list):</p>
+<p><span class="math display">\[
+4,\ 14,\ 24,\ 34,\ \dots,\ 994
+\]</span></p>
+<p>That is, we include every 10th individual starting at position 4.</p>
+<p>Let’s fomralize the process of systematic sampling: Let <span class="math inline">\(N\)</span> be the total number of elements and <span class="math inline">\(n\)</span> the number of desired samples.</p>
+<ol type="1">
+<li><p>Compute the sampling interval:</p>
+<p><span class="math display">\[
+r = \left\lfloor \frac{N}{n} \right\rfloor
+\]</span></p>
+<p>(Round down to the nearest whole number)</p></li>
+<li><p>Randomly choose a number <span class="math inline">\(s\)</span> between 1 and <span class="math inline">\(r\)</span>.</p></li>
+<li><p>Select elements at positions:</p>
+<p><span class="math display">\[
+s,\ s + r,\ s + 2r,\ \dots
+\]</span></p>
+<p>Continue until you’ve passed through the entire list.</p></li>
+</ol>
+<p>Note that it’s important to go through the entire list, or risk introducing <strong>systematic bias</strong>. Because we round <span class="math inline">\(r\)</span> down, it is possible to end up with more than <span class="math inline">\(n\)</span> elements.</p>
+<p>If that happens youou can simply keep the extra observations,<br>
+or randomly remove some observations to reduce to the intended sample size.</p>
+<p>This method is efficient and easy to implement, especially when dealing with <strong>large, ordered datasets</strong>.</p>
+<p>⚠️ <strong>Beware of periodicity</strong> in the list — if the sorting follows a cycle, the results may be biased. For Example, suppose you’re studying newspaper ads and want to select every 7th day. If ads tend to follow a weekly cycle (e.g., most appear on Sundays), your sample could:</p>
+<ul>
+<li>Miss certain types of ads,</li>
+<li>Overrepresent others,</li>
+<li>Lead to <strong>systematic bias</strong> and <strong>increased variance</strong> in estimates.</li>
+</ul>
+<section id="example-16.1-company-salary-contd-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-16.1-company-salary-contd-1">Example: 16.1: Company Salary (Cont’d)</h4>
+<p>Suppose we wish to select a systematic sample of size <span class="math inline">\(n = 30\)</span> from the population of size <span class="math inline">\(N = 70\)</span> here. Fir we compute the sampling interval <span class="math display">\[
+r = \frac{N}{n} = \frac{70}{30} \approx 2.333 \quad \text{(rounded down to } r = 2 \text{)}
+\]</span> This means we plan to take every second person from the sampling frame. Then randomly select a starting position from among the first <span class="math inline">\(r = 2\)</span> units. Draw a random number between 1 and 2 (say 2), then select every 2nd person:</p>
+<p><span class="math display">\[
+2,\ 4,\ 6,\ 8,\ \dots,\ 70
+\]</span></p>
+<p>This gives us: <span class="math display">\[
+\frac{70 - 2}{2} + 1 = 35 \text{ individuals}
+\]</span></p>
+<p>So our actual sample size is 35, which is larger than intended.</p>
+</section>
+</section>
+<section id="cluster-sampling" class="level3" data-number="16.4.4">
+<h3 data-number="16.4.4" class="anchored" data-anchor-id="cluster-sampling"><span class="header-section-number">16.4.4</span> Cluster Sampling</h3>
+<p>Used when sampling individuals directly is impractical (e.g., geographical spread or missing frame).</p>
+<ul>
+<li>In <strong>single-stage cluster sampling</strong>, groups (e.g., schools, buildings) are selected randomly, and all elements within them are surveyed.</li>
+<li>In <strong>two-stage cluster sampling</strong>, we randomly select <strong>both clusters and elements within them</strong>.</li>
+</ul>
+<p>For example, consider a housing association who wants feedback on apartment quality. Instead of mailing all tenants, they randomly select 5 buildings and visit every apartment in each.<br>
+Or, in a two-stage approach, they visit a subset of apartments in each selected building.</p>
+<blockquote class="blockquote">
+<p>Cluster sampling is cost-effective but usually has lower precision than simple or stratified sampling.</p>
+</blockquote>
+</section>
+</section>
+<section id="non-probability-sampling" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="non-probability-sampling"><span class="header-section-number">16.5</span> Non-Probability Sampling</h2>
+<p>Sometimes, we cannot or do not use a probability-based method, for example if no register over all population elements exist. While easier or more practical, these designs do not guarantee unbiased or generalizable results.</p>
+<p>Examples include:</p>
+<ul>
+<li>Quota sampling – Fill quotas based on traits like age or gender, but allow interviewer discretion.</li>
+<li>Voluntary response – Participants opt in (e.g., online polls).</li>
+<li>Convenience sampling – Survey whoever is nearby.</li>
+<li>Judgment sampling – Select “typical” individuals based on expert opinion.</li>
+<li>Snowball sampling – Ask members of a hidden population (e.g., drug users) to recruit others.</li>
+</ul>
+<blockquote class="blockquote">
+<p>These methods may lead to <strong>systematic errors</strong> and <strong>hidden biases</strong>. Always interpret results cautiously and never generalize to the full population without disclaimers.</p>
+</blockquote>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -755,7 +1146,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
