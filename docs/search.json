@@ -1740,5 +1740,16 @@
       "Sampling and Sampling Distributions",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Sampling</span>"
     ]
+  },
+  {
+    "objectID": "sampling-dists/sampling-dists.html",
+    "href": "sampling-dists/sampling-dists.html",
+    "title": "17  Sampling Distributions",
+    "section": "",
+    "text": "Sampling Distribution for a sample mean\nSampling Distribution for a sample proportion\nCentral Limit Theorem",
+    "crumbs": [
+      "Sampling and Sampling Distributions",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Sampling Distributions</span>"
+    ]
   }
 ]

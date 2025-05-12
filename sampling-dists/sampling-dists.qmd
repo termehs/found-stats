@@ -1,0 +1,6 @@
+# Sampling Distributions
+
+-   Sampling Distribution for a sample mean
+-   Sampling Distribution for a sample proportion
+-   Central Limit Theorem
+
