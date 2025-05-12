@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/descriptive-stats/dispersion-measures.html</loc>
-    <lastmod>2025-04-17T07:12:37.325Z</lastmod>
+    <lastmod>2025-05-12T11:05:50.442Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/prob-theory/count-rules.html</loc>
@@ -75,5 +75,13 @@
   <url>
     <loc>https://termehs.github.io/found-stats/references.html</loc>
     <lastmod>2025-02-18T14:01:22.672Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/sampling-dists/sampling.html</loc>
+    <lastmod>2025-05-12T10:01:42.528Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/rvs-probdists/jointly-dist.html</loc>
+    <lastmod>2025-05-12T11:22:42.749Z</lastmod>
   </url>
 </urlset>

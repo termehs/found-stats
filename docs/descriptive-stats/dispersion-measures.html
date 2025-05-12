@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
 <title>7&nbsp; Measures of Dispersion – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,12 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -101,15 +91,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -120,13 +106,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -141,7 +123,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -155,8 +137,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -181,7 +163,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -190,8 +172,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -210,7 +192,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -219,8 +201,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -245,7 +227,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -254,8 +236,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -273,12 +255,31 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Sampling and Sampling Distributions</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Random Variables and Probability Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Inferential Statistics</span></span>
@@ -288,60 +289,58 @@ window.Quarto = {
  <span class="menu-text">Chi Square Tests</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regression Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Summary</span></span>
+ <span class="menu-text">Regression Analysis</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#quartiles-and-percentiles" id="toc-quartiles-and-percentiles" class="nav-link active" data-scroll-target="#quartiles-and-percentiles"><span class="header-section-number">7.1</span> Quartiles and Percentiles</a>
+<li>
+<a href="#quartiles-and-percentiles" id="toc-quartiles-and-percentiles" class="nav-link active" data-scroll-target="#quartiles-and-percentiles"><span class="header-section-number">7.1</span> Quartiles and Percentiles</a>
   <ul class="collapse">
-  <li><a href="#first-quartile-q1---25th-percentile" id="toc-first-quartile-q1---25th-percentile" class="nav-link" data-scroll-target="#first-quartile-q1---25th-percentile">First Quartile (Q1) - 25th Percentile</a></li>
+<li><a href="#first-quartile-q1---25th-percentile" id="toc-first-quartile-q1---25th-percentile" class="nav-link" data-scroll-target="#first-quartile-q1---25th-percentile">First Quartile (Q1) - 25th Percentile</a></li>
   <li><a href="#second-quartile-q2-50th-percentile-median" id="toc-second-quartile-q2-50th-percentile-median" class="nav-link" data-scroll-target="#second-quartile-q2-50th-percentile-median">Second Quartile (Q2) – 50th Percentile (Median)</a></li>
   <li><a href="#third-quartile-q3---75th-percentile" id="toc-third-quartile-q3---75th-percentile" class="nav-link" data-scroll-target="#third-quartile-q3---75th-percentile">Third Quartile (Q3) - 75th Percentile</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#five-number-summary-and-boxplot" id="toc-five-number-summary-and-boxplot" class="nav-link" data-scroll-target="#five-number-summary-and-boxplot"><span class="header-section-number">7.2</span> Five-Number Summary and Boxplot</a></li>
   <li><a href="#variance-and-standard-deviation" id="toc-variance-and-standard-deviation" class="nav-link" data-scroll-target="#variance-and-standard-deviation"><span class="header-section-number">7.3</span> Variance and Standard Deviation</a></li>
   <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation"><span class="header-section-number">7.4</span> Standard Deviation</a></li>
   <li><a href="#the-empirical-rule" id="toc-the-empirical-rule" class="nav-link" data-scroll-target="#the-empirical-rule"><span class="header-section-number">7.5</span> The Empirical Rule</a></li>
-  <li><a href="#covariance-and-correlation" id="toc-covariance-and-correlation" class="nav-link" data-scroll-target="#covariance-and-correlation"><span class="header-section-number">7.6</span> Covariance and Correlation</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/descriptive-stats/dispersion-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+  <li><a href="#sec-descriptives-cov" id="toc-sec-descriptives-cov" class="nav-link" data-scroll-target="#sec-descriptives-cov"><span class="header-section-number">7.6</span> Covariance and Correlation</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/descriptive-stats/dispersion-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../descriptive-stats/describe-data.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../descriptive-stats/dispersion-measures.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../descriptive-stats/describe-data.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../descriptive-stats/dispersion-measures.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span>
+</h1>
 </div>
 
 
@@ -355,10 +354,7 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>While measures of central tendency, such as the mean or median, provide valuable insight into the typical value in a data set, they often do not tell the whole story. Two data sets can have the same mean but exhibit vastly different distributions. This is where measures of dispersion become crucial, as they describe the spread or variability in a data set.</p>
+</header><p>While measures of central tendency, such as the mean or median, provide valuable insight into the typical value in a data set, they often do not tell the whole story. Two data sets can have the same mean but exhibit vastly different distributions. This is where measures of dispersion become crucial, as they describe the spread or variability in a data set.</p>
 <p>Measures of dispersion quantify how much the observations in a data set differ from each other. They help answer questions such as:</p>
 <ul>
 <li>Do most values cluster around the mean, or are they spread out widely?</li>
@@ -366,8 +362,7 @@ window.Quarto = {
 <li>Are there extreme values that influence the distribution?</li>
 </ul>
 <p>Dispersion measures require numerical data and are essential for understanding the <strong>reliability</strong> and <strong>consistency</strong> of a data set.</p>
-<section id="example-test-scores" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-test-scores">Example: Test Scores</h4>
+<section id="example-test-scores" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-test-scores">Example: Test Scores</h4>
 <p>Consider two sets of scores from two different groups of students. Each data set contains eight observations, representing the scores students received on a test:</p>
 <p><strong>Data A</strong></p>
 <pre><code>4 4 5 5 5 6 6 7</code></pre>
@@ -378,31 +373,24 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="dispersion-measures_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="dispersion-measures_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Several statistical measures help quantify dispersion in a dataset, some of which are covered in the following.</p>
-</section>
-<section id="quartiles-and-percentiles" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="quartiles-and-percentiles"><span class="header-section-number">7.1</span> Quartiles and Percentiles</h2>
+</section><section id="quartiles-and-percentiles" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="quartiles-and-percentiles">
+<span class="header-section-number">7.1</span> Quartiles and Percentiles</h2>
 <p>Quartiles and percentiles divide data into sections, helping us understand the distribution more effectively. The most commonly used quartiles are the <strong>first quartile (Q1), median (Q2), and third quartile (Q3)</strong>.</p>
-<section id="first-quartile-q1---25th-percentile" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="first-quartile-q1---25th-percentile">First Quartile (Q1) - 25th Percentile</h3>
+<section id="first-quartile-q1---25th-percentile" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="first-quartile-q1---25th-percentile">First Quartile (Q1) - 25th Percentile</h3>
 <p>The first quartile (Q1) marks the value below which 25% of the observations fall. It helps us understand the lower range of the dataset and is computed as: <span class="math display">\[
 Q1 = \text{value at position } 0.25(n+1)
 \]</span> where <span class="math inline">\(n\)</span> is the total number of observations.</p>
-</section>
-<section id="second-quartile-q2-50th-percentile-median" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="second-quartile-q2-50th-percentile-median">Second Quartile (Q2) – 50th Percentile (Median)</h3>
+</section><section id="second-quartile-q2-50th-percentile-median" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="second-quartile-q2-50th-percentile-median">Second Quartile (Q2) – 50th Percentile (Median)</h3>
 <p>The second quartile (Q2) is simply the median, dividing the dataset into two equal halves. This is calculated as: <span class="math display">\[
 Q2 = \text{value at position } 0.50(n+1)
 \]</span> Since 50% of values are below this point, the median represents the central value in the distribution.</p>
-</section>
-<section id="third-quartile-q3---75th-percentile" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="third-quartile-q3---75th-percentile">Third Quartile (Q3) - 75th Percentile</h3>
+</section><section id="third-quartile-q3---75th-percentile" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="third-quartile-q3---75th-percentile">Third Quartile (Q3) - 75th Percentile</h3>
 <p>The third quartile (Q3) is the value below which 75% of the observations fall. This is particularly useful for understanding the upper range of the dataset and is calculated as: <span class="math display">\[
 Q3 = \text{value at position } 0.75(n+1)
 \]</span></p>
@@ -411,31 +399,32 @@ Q3 = \text{value at position } 0.75(n+1)
 <li>Identify skewness: If Q1 and Q3 are unevenly spaced around Q2 (the median), the data may be skewed.</li>
 <li>Detect outliers: Any value that is significantly lower than Q1 or higher than Q3 can be considered an outlier.</li>
 <li>Calculate the <strong>Interquartile Range</strong> (<span class="math inline">\(IQR\)</span>), which is the difference between Q3 and Q1, providing a robust measure of spread that is less sensitive to extreme values (not to be confused with <strong>range</strong> which is the difference between minimum and maximum observation values <span class="math inline">\(x_{max}-x_{min}\)</span>).</li>
-<li>Calculate the <strong>Quartile Deviation</strong> which is another measure that is robust against extreme values and defined as half the difference between the third quartile (Q3) and the first quartile (Q1): <span class="math display">\[\frac{Q3-Q1}{2} .\]</span></li>
-</ul>
-</section>
-</section>
-<section id="five-number-summary-and-boxplot" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="five-number-summary-and-boxplot"><span class="header-section-number">7.2</span> Five-Number Summary and Boxplot</h2>
+<li>Calculate the <strong>Quartile Deviation</strong> which is another measure that is robust against extreme values and defined as half the difference between the third quartile (Q3) and the first quartile (Q1): <span class="math display">\[\frac{Q3-Q1}{2} .\]</span>
+</li>
+</ul></section></section><section id="five-number-summary-and-boxplot" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="five-number-summary-and-boxplot">
+<span class="header-section-number">7.2</span> Five-Number Summary and Boxplot</h2>
 <p>A <strong>Five-Number Summary</strong> is a set of five descriptive statistics that provide insights into the distribution of a data set. These include:</p>
 <ol type="1">
-<li><strong>Minimum</strong> – The smallest observed value.</li>
-<li><strong>First Quartile (Q1)</strong> – The 25th percentile, below which 25% of the data falls.</li>
-<li><strong>Second Quartile (Median, Q2)</strong> – The 50th percentile, the middle value of the data set.</li>
-<li><strong>Third Quartile (Q3)</strong> – The 75th percentile, below which 75% of the data falls.</li>
-<li><strong>Maximum</strong> – The largest observed value.</li>
+<li>
+<strong>Minimum</strong> – The smallest observed value.</li>
+<li>
+<strong>First Quartile (Q1)</strong> – The 25th percentile, below which 25% of the data falls.</li>
+<li>
+<strong>Second Quartile (Median, Q2)</strong> – The 50th percentile, the middle value of the data set.</li>
+<li>
+<strong>Third Quartile (Q3)</strong> – The 75th percentile, below which 75% of the data falls.</li>
+<li>
+<strong>Maximum</strong> – The largest observed value.</li>
 </ol>
 <p>The Five-Number Summary helps in constructing a <strong>boxplot</strong>, which visually represents the spread and skewness of the data, as well as potential outliers. An example is shown in <a href="#fig-box" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>.</p>
 <p>The boxplot visually represents the distribution and spread of the data using the five-number summary. The minimum and maximum values mark the range of the data, while the first quartile (Q1), median (Q2), and third quartile (Q3) divide the data into four equal parts. The interquartile range (IQR), which spans from Q1 to Q3, highlights the middle 50% of the data, giving insights into variability.</p>
 <p>The median (Q2) represents the central value, while outliers (if any) are shown as red points beyond the whiskers of the box. This boxplot effectively summarizes the data set, making it easy to identify skewness, dispersion, and potential outliers at a glance.</p>
 <div id="fig-box" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-box-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-box-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="dispersion-measures_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="dispersion-measures_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -443,11 +432,9 @@ Q3 = \text{value at position } 0.75(n+1)
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.1: Boxplot with labels for each component of the Five-Number Summary
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
-<section id="example-test-scores-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-test-scores-1">Example: Test Scores</h4>
+<section id="example-test-scores-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-test-scores-1">Example: Test Scores</h4>
 <p>We compute the Five-Number Summary for the two datasets, A and B, representing test scores.</p>
 <p><strong>Data A</strong></p>
 <pre><code>4 4 5 5 5 6 6 7</code></pre>
@@ -458,42 +445,43 @@ Figure&nbsp;7.1: Boxplot with labels for each component of the Five-Number Summa
 <li>A: (7 - 4 = 3)</li>
 <li>B: (11 - 0 = 11)</li>
 </ul>
-<p><strong>2</strong>: The first quartile is found at position:<br>
-<span class="math display">\[
+<p><strong>2</strong>: The first quartile is found at position:<br><span class="math display">\[
 Q1 = 0.25(n+1) = 0.25(9) = 2.25
 \]</span></p>
 <ul>
-<li>A: <span class="math inline">\(Q1 = 4 + 0.25(5-4) = 4.25\)</span></li>
-<li>B: <span class="math inline">\(Q1 = 1 + 0.25(4-1) = 1.75\)</span></li>
+<li>A: <span class="math inline">\(Q1 = 4 + 0.25(5-4) = 4.25\)</span>
+</li>
+<li>B: <span class="math inline">\(Q1 = 1 + 0.25(4-1) = 1.75\)</span>
+</li>
 </ul>
-<p><strong>3</strong>: The median is found at position:<br>
-<span class="math display">\[
+<p><strong>3</strong>: The median is found at position:<br><span class="math display">\[
 Q2 = 0.50(n+1) = 0.50(9) = 4.5
 \]</span></p>
 <ul>
-<li>A: <span class="math inline">\(Q2 = 5\)</span></li>
-<li>B: <span class="math inline">\(Q2 = 5.5\)</span></li>
+<li>A: <span class="math inline">\(Q2 = 5\)</span>
+</li>
+<li>B: <span class="math inline">\(Q2 = 5.5\)</span>
+</li>
 </ul>
-<p><strong>4</strong>: The third quartile is found at position:<br>
-<span class="math display">\[
+<p><strong>4</strong>: The third quartile is found at position:<br><span class="math display">\[
 Q3 = 0.75(n+1) = 0.75(9) = 6.75
 \]</span></p>
 <ul>
-<li>A: <span class="math inline">\(Q3 = 6 + 0.75(6-6) = 6\)</span></li>
-<li>B: <span class="math inline">\(Q3 = 7 + 0.75(8-7) = 7.75\)</span></li>
+<li>A: <span class="math inline">\(Q3 = 6 + 0.75(6-6) = 6\)</span>
+</li>
+<li>B: <span class="math inline">\(Q3 = 7 + 0.75(8-7) = 7.75\)</span>
+</li>
 </ul>
 <p><strong>Final Five-Number Summaries</strong></p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Dataset</th>
 <th>Minimum</th>
 <th>Q1</th>
 <th>Median (Q2)</th>
 <th>Q3</th>
 <th>Maximum</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>A</td>
@@ -517,8 +505,7 @@ Q3 = 0.75(n+1) = 0.75(9) = 6.75
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="dispersion-measures_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figure class="figure"><p><img src="dispersion-measures_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -529,26 +516,30 @@ Q3 = 0.75(n+1) = 0.75(9) = 6.75
 <li>Dataset B has a wider range (11), indicating greater variability in scores.</li>
 </ul>
 <p>By using these descriptive statistics, we can better interpret datasets and make informed comparisons in various fields, including education, business, and research.</p>
-</section>
-</section>
-<section id="variance-and-standard-deviation" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="variance-and-standard-deviation"><span class="header-section-number">7.3</span> Variance and Standard Deviation</h2>
+</section></section><section id="variance-and-standard-deviation" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="variance-and-standard-deviation">
+<span class="header-section-number">7.3</span> Variance and Standard Deviation</h2>
 <p>When analyzing data, calculating the mean provides insight into the average value of a dataset. However, to understand how spread out the data is, we need to measure its variability. This is where variance and standard deviation become essential.</p>
 <p><strong>Variance</strong> quantifies the average squared deviation of each data point from the mean. It provides a measure of how much the data points differ from the central value. For an entire population, the variance (<span class="math inline">\(\sigma^2\)</span>) is calculated as: <span class="math display">\[
 σ^2 = \frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> = total number of data points in the population,</li>
-<li><span class="math inline">\(x_i\)</span> = individual data points,</li>
-<li><span class="math inline">\(\mu\)</span> = population mean.</li>
+<li>
+<span class="math inline">\(N\)</span> = total number of data points in the population,</li>
+<li>
+<span class="math inline">\(x_i\)</span> = individual data points,</li>
+<li>
+<span class="math inline">\(\mu\)</span> = population mean.</li>
 </ul>
 <p>When working with a sample instead of an entire population, we use the sample variance (<span class="math inline">\(s^2\)</span>): <span class="math display">\[
 s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(n\)</span> = sample size,</li>
-<li><span class="math inline">\(x_i\)</span> = individual data points,</li>
-<li><span class="math inline">\(\bar{x}\)</span>= sample mean.</li>
+<li>
+<span class="math inline">\(n\)</span> = sample size,</li>
+<li>
+<span class="math inline">\(x_i\)</span> = individual data points,</li>
+<li>
+<span class="math inline">\(\bar{x}\)</span>= sample mean.</li>
 </ul>
 <p>The denominator <span class="math inline">\((n-1)\)</span> instead of <span class="math inline">\(n\)</span> accounts for the loss of one degree of freedom, making it an unbiased estimator of population variance (we’ll return to this later).</p>
 <p>An alternative formula for calculating sample variance can be found by noting that the sum of all deviations from the mean is zero: <span class="math inline">\(\sum_{i=1}^{n} x_i = n\bar{x}\)</span> so that we get <span class="math display">\[
@@ -559,9 +550,8 @@ s^2 = \frac{\sum_{i=1}^{n} x_i^2 - 2n\bar{x}^2 + n\bar{x}^2}{n-1}
 \]</span> Rewriting using summation notation: <span class="math display">\[
 s^2 = \frac{n \sum_{i=1}^{n} x_i^2 - (\sum_{i=1}^{n} x_i)^2}{n(n-1)}
 \]</span> This formulation simplifies calculations by hand when working with moderately large data sets.</p>
-</section>
-<section id="standard-deviation" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="standard-deviation"><span class="header-section-number">7.4</span> Standard Deviation</h2>
+</section><section id="standard-deviation" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="standard-deviation">
+<span class="header-section-number">7.4</span> Standard Deviation</h2>
 <p>The standard deviation is the square root of variance, bringing it back to the same units as the data, for example if measuring weight in kg, standard deviation is in kg as well. Thus, it is better to use when you need an intuitive, practical measure of data spread in real-world scenarios.</p>
 <p>For a population, the standard deviation (<span class="math inline">\(\sigma\)</span>) is: <span class="math display">\[
 \sigma = \sqrt{\frac{\sum_{i=1}^{N} (x_i - \mu)^2}{N}}
@@ -572,13 +562,11 @@ s = \sqrt{\frac{n \sum_{i=1}^{n} x_i^2 - (\sum_{i=1}^{n} x_i)^2}{n(n-1)}}
 \]</span> following the alternative variance formula shown above.</p>
 <p>To better understand the concept of standard deviation, we visualize the distribution of a data set in <a href="#fig-stddev" class="quarto-xref">Figure&nbsp;<span>7.2</span></a> where the mean (blue) and standard deviation bands (red) are overlayed.</p>
 <div id="fig-stddev" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stddev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-stddev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="dispersion-measures_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<figure class="figure"><p><img src="dispersion-measures_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
@@ -586,11 +574,9 @@ s = \sqrt{\frac{n \sum_{i=1}^{n} x_i^2 - (\sum_{i=1}^{n} x_i)^2}{n(n-1)}}
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stddev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.2: Histogram of data set of 100 0bservations with standard deviation bands included.
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
-<section id="example-test-scores-2" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-test-scores-2">Example: Test Scores</h4>
+<section id="example-test-scores-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-test-scores-2">Example: Test Scores</h4>
 <p>Returning to our example on test scores, we previously calculated the sample mean as <span class="math inline">\(\bar{x} = 5.25\)</span>. Now, we compute the variance (<span class="math inline">\(s^2\)</span>) for each data set: <span class="math display">\[
 s^2_A = \frac{(4−5.25)^2 + (4−5.25)^2 + \dots + (7−5.25)^2}{8-1}  \approx 1.074
 \]</span> <span class="math display">\[
@@ -601,26 +587,25 @@ s_A = \sqrt{1.071} \approx 1.035
 \]</span> and <span class="math display">\[
 s_B = \sqrt{13.071} \approx 3.615
 \]</span> We see that for data set A, the standard deviation is 1.035, indicating that most scores are relatively close to the mean (5.25), while for data set B, the standard deviation is 3.615, suggesting a wider spread of scores and greater variability. This comparison shows that data set B has a significantly higher variability than data set A, meaning the scores are more dispersed from the average.</p>
-</section>
-</section>
-<section id="the-empirical-rule" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="the-empirical-rule"><span class="header-section-number">7.5</span> The Empirical Rule</h2>
+</section></section><section id="the-empirical-rule" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="the-empirical-rule">
+<span class="header-section-number">7.5</span> The Empirical Rule</h2>
 <p>The <strong>Empirical Rule</strong>, also known as the <strong>68-95-99.7 Rule</strong>, describes how data is distributed in a normal (bell-shaped) distribution. It states that for a large population following a normal distribution:</p>
 <ul>
-<li><strong>Approximately 68%</strong> of all observations lie within <strong>one standard deviation</strong> from the mean (<span class="math inline">\(\mu ± 1\sigma\)</span>).</li>
-<li><strong>Approximately 95%</strong> of all observations lie within <strong>two standard deviations</strong> from the mean (<span class="math inline">\(\mu ± 2\sigma\)</span>).</li>
-<li><strong>Nearly all observations (99.7%)</strong> lie within <strong>three standard deviations</strong> from the mean (<span class="math inline">\(\mu ± 3\sigma\)</span>).</li>
+<li>
+<strong>Approximately 68%</strong> of all observations lie within <strong>one standard deviation</strong> from the mean (<span class="math inline">\(\mu ± 1\sigma\)</span>).</li>
+<li>
+<strong>Approximately 95%</strong> of all observations lie within <strong>two standard deviations</strong> from the mean (<span class="math inline">\(\mu ± 2\sigma\)</span>).</li>
+<li>
+<strong>Nearly all observations (99.7%)</strong> lie within <strong>three standard deviations</strong> from the mean (<span class="math inline">\(\mu ± 3\sigma\)</span>).</li>
 </ul>
 <p>This rule helps us understand the probability of an observation falling within a given range and is widely used in quality control, finance, and science to assess variability and expected outcomes. It is particularly useful when analyzing data distributions. If data follows a normal distribution most values cluster around the mean, and extreme values are rare. This also means that outliers can be identified if they fall beyond 3 standard deviations from the mean.</p>
 <p>The empricial rule is visualized in <a href="#fig-emprule" class="quarto-xref">Figure&nbsp;<span>7.3</span></a> showing the percentages of data falling within each standard deviation range.</p>
 <div id="fig-emprule" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-emprule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-emprule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="dispersion-measures_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+<figure class="figure"><p><img src="dispersion-measures_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -628,59 +613,69 @@ s_B = \sqrt{13.071} \approx 3.615
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emprule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.3: The Empirical Rule: Normal Distribution.
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
-</section>
-<section id="covariance-and-correlation" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="covariance-and-correlation"><span class="header-section-number">7.6</span> Covariance and Correlation</h2>
+</section><section id="sec-descriptives-cov" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="sec-descriptives-cov">
+<span class="header-section-number">7.6</span> Covariance and Correlation</h2>
 <p>When analyzing data, it is often important to understand the relationship between two variables. Measures such as <strong>covariance and correlation</strong> help quantify the degree to which two variables change together, allowing us to assess their association.</p>
 <p>Covariance measures the direction of the linear relationship between two variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It tells us whether an increase in one variable is associated with an increase or decrease in the other. For an entire population, the covariance is calculated as: <span class="math display">\[
-Cov(X, Y) = \sigma_{xy} = \frac{\sum_{i=1}^{N} (x_i - \mu_x)(y_i - \mu_y)}{N}
+\operatorname{Cov}(x, y) = \sigma_{xy} = \frac{\sum_{i=1}^{N} (x_i - \mu_x)(y_i - \mu_y)}{N}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> = total number of observations,</li>
-<li><span class="math inline">\(x_i, y_i\)</span> = individual data points,</li>
-<li><span class="math inline">\(\mu_x \mu_y\)</span> = means of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+<li>
+<span class="math inline">\(N\)</span> = total number of observations,</li>
+<li>
+<span class="math inline">\(x_i, y_i\)</span> = individual data points,</li>
+<li>
+<span class="math inline">\(\mu_x \mu_y\)</span> = means of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
 </ul>
 <p>For a sample, we estimate covariance using: <span class="math display">\[
-Cov(X, Y) = s_{xy} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n - 1}
+\operatorname{Cov}(x, y) = s_{xy} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n - 1}
 \]</span> where:</p>
 <ul>
-<li><span class="math inline">\(n\)</span> = sample size,</li>
-<li><span class="math inline">\(\bar{x} ,\bar{y}\)</span> = sample means of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+<li>
+<span class="math inline">\(n\)</span> = sample size,</li>
+<li>
+<span class="math inline">\(\bar{x} ,\bar{y}\)</span> = sample means of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
 </ul>
 <p>How do we interpret the covariance?</p>
 <ul>
-<li>If we have positive covariance it means that when <span class="math inline">\(X\)</span> increases, then <span class="math inline">\(Y\)</span> also tends to increase (e.g., study time and exam scores).</li>
-<li>If we have negative covariance it means that when <span class="math inline">\(X\)</span> increases, then <span class="math inline">\(Y\)</span> tends to decrease (e.g., speed and time taken to reach a destination).</li>
-<li>If we have near zero covariance, then this indicates no significant <em>linear</em> relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> (note however that it does not detect patterns where variables are related in a non-linear way e.g., quadratic or exponential relationships).</li>
+<li>If we have positive covariance it means that when <span class="math inline">\(x\)</span> increases, then <span class="math inline">\(y\)</span> also tends to increase (e.g., study time and exam scores).</li>
+<li>If we have negative covariance it means that when <span class="math inline">\(x\)</span> increases, then <span class="math inline">\(y\)</span> tends to decrease (e.g., speed and time taken to reach a destination).</li>
+<li>If we have near zero covariance, then this indicates no significant <em>linear</em> relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> (note however that it does not detect patterns where variables are related in a non-linear way e.g., quadratic or exponential relationships).</li>
 </ul>
 <p>One limitation of covariance is that it depends on the units of measurement (same as for variance), making it difficult to interpret. This is where correlation comes in as it standardizes covariance by adjusting for the scales of the variables, providing a dimensionless measure that is easier to interpret. The population correlation (<span class="math inline">\(\rho\)</span>) is given by <span class="math display">\[
-\rho = \frac{Cov(X, Y)}{\sigma_x \sigma_y}
-\]</span> where <span class="math inline">\(\sigma_x,\sigma_y\)</span> are the standard deviations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The sample correlation (<span class="math inline">\(r\)</span>) <span class="math display">\[
-r = \frac{Cov(X, Y)}{s_x s_y}
+\rho = \frac{\operatorname{Cov}(x, y)}{\sigma_x \sigma_y}
+\]</span> where <span class="math inline">\(\sigma_x,\sigma_y\)</span> are the standard deviations of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The sample correlation (<span class="math inline">\(r\)</span>) <span class="math display">\[
+r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}
 \]</span> where <span class="math inline">\(s_x, s_y\)</span> are the sample standard deviations. Correlation values fall within the range -1 to 1, with the following interpretations (we use sample correlation as example):</p>
 <ul>
-<li><span class="math inline">\(r = 1\)</span>: perfect positive correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move together exactly in a straight line.</li>
-<li><span class="math inline">\(0.8 \leq r &lt; 1\)</span>: strong positive correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> tend to increase together.</li>
-<li><span class="math inline">\(0.5 \leq r &lt; 0.8\)</span>: moderate positive correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> show a noticeable increasing relationship.</li>
-<li><span class="math inline">\(0 &lt; r &lt; 0.5\)</span>: weak positive correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> tend to increase together, but with variability.</li>
-<li><span class="math inline">\(r = 0\)</span>: no linear relationship; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are not linearly related (but might be non-linearly associated).</li>
-<li><span class="math inline">\(-0.5 &lt; r &lt; 0\)</span>: weak negative correlation; as <span class="math inline">\(X\)</span> increases, <span class="math inline">\(Y\)</span> tends to decrease slightly.</li>
-<li><span class="math inline">\(-0.8 &lt; r \leq -0.5\)</span>: moderate negative correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> shown an inverse relationship.</li>
-<li><span class="math inline">\(-1 ≤ r ≤ -0.8\)</span>: strong negative correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move in opposite directions strongly.</li>
-<li><span class="math inline">\(r = -1\)</span>: perfect negative correlation; <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move in exactly opposite directions in a straight line.</li>
+<li>
+<span class="math inline">\(r = 1\)</span>: perfect positive correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> move together exactly in a straight line.</li>
+<li>
+<span class="math inline">\(0.8 \leq r &lt; 1\)</span>: strong positive correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> tend to increase together.</li>
+<li>
+<span class="math inline">\(0.5 \leq r &lt; 0.8\)</span>: moderate positive correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> show a noticeable increasing relationship.</li>
+<li>
+<span class="math inline">\(0 &lt; r &lt; 0.5\)</span>: weak positive correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> tend to increase together, but with variability.</li>
+<li>
+<span class="math inline">\(r = 0\)</span>: no linear relationship; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are not linearly related (but might be non-linearly associated).</li>
+<li>
+<span class="math inline">\(-0.5 &lt; r &lt; 0\)</span>: weak negative correlation; as <span class="math inline">\(x\)</span> increases, <span class="math inline">\(y\)</span> tends to decrease slightly.</li>
+<li>
+<span class="math inline">\(-0.8 &lt; r \leq -0.5\)</span>: moderate negative correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> shown an inverse relationship.</li>
+<li>
+<span class="math inline">\(-1 ≤ r ≤ -0.8\)</span>: strong negative correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> move in opposite directions strongly.</li>
+<li>
+<span class="math inline">\(r = -1\)</span>: perfect negative correlation; <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> move in exactly opposite directions in a straight line.</li>
 </ul>
 <p>A few examples are shown in <a href="#fig-corr" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>.</p>
 <div id="fig-corr" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="dispersion-measures_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1056"></p>
+<figure class="figure"><p><img src="dispersion-measures_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1056"></p>
 </figure>
 </div>
 </div>
@@ -688,16 +683,12 @@ r = \frac{Cov(X, Y)}{s_x s_y}
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.4: Simulated data showing different correlations.
-</figcaption>
-</figure>
+</figcaption></figure>
 </div>
 <hr>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1095,9 +1086,7 @@ Figure&nbsp;7.4: Simulated data showing different correlations.
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../descriptive-stats/central-measures.html" class="pagination-link" aria-label="Measures of Central Tendency">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span>
       </a>          
@@ -1109,8 +1098,7 @@ Figure&nbsp;7.4: Simulated data showing different correlations.
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
@@ -1122,8 +1110,6 @@ Figure&nbsp;7.4: Simulated data showing different correlations.
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
