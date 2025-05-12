@@ -98,7 +98,7 @@ Examples include:
 - Cluster sampling (single or multi-stage)
 
 
-###  Simple Random Sampling (SRS)
+###  1. Simple Random Sampling (SRS) {.unnumbered}
 
 This is the simplest form of probability sampling: we randomly select $n$ units from a population of $N$ such that each unit has equal probability of being chosen.
 
@@ -157,7 +157,7 @@ This estimate tells us how much variability we might expect in the sample mean i
 But in this case, with $n = 30$ and $N = 70$, the correction still makes a meaningful difference.
 
 
-###  Stratified Sampling
+### 2. Stratified Sampling {.unnumbered}
 
 Stratified sampling is a method used to increase precision by dividing the population into homogeneous subgroups, or **strata**, and drawing a random sample from each. This approach ensures that all relevant sub-populations are represented and that within-group variation is minimized.
 
@@ -303,7 +303,7 @@ The stratified sample gives much lower variance, showing how stratification can 
 
 
 
-###  Systematic Sampling
+###  3. Systematic Sampling {.unnumbered}
 
 Systematic sampling is a method where we select elements at **regular intervals** from a list (the sampling frame), after first choosing a **random starting point**.
 
@@ -376,7 +376,7 @@ $$
 So our actual sample size is 35, which is larger than intended.
 
 
-### Cluster Sampling
+### 4. Cluster Sampling {.unnumbered}
 
 Used when sampling individuals directly is impractical (e.g., geographical spread or missing frame).
 

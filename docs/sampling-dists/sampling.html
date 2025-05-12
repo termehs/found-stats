@@ -350,10 +350,10 @@ window.Quarto = {
   <li><a href="#some-terminology" id="toc-some-terminology" class="nav-link" data-scroll-target="#some-terminology"><span class="header-section-number">16.3</span> Some Terminology</a></li>
   <li><a href="#probability-sampling" id="toc-probability-sampling" class="nav-link" data-scroll-target="#probability-sampling"><span class="header-section-number">16.4</span> Probability Sampling</a>
   <ul class="collapse">
-  <li><a href="#simple-random-sampling-srs" id="toc-simple-random-sampling-srs" class="nav-link" data-scroll-target="#simple-random-sampling-srs"><span class="header-section-number">16.4.1</span> Simple Random Sampling (SRS)</a></li>
-  <li><a href="#stratified-sampling" id="toc-stratified-sampling" class="nav-link" data-scroll-target="#stratified-sampling"><span class="header-section-number">16.4.2</span> Stratified Sampling</a></li>
-  <li><a href="#systematic-sampling" id="toc-systematic-sampling" class="nav-link" data-scroll-target="#systematic-sampling"><span class="header-section-number">16.4.3</span> Systematic Sampling</a></li>
-  <li><a href="#cluster-sampling" id="toc-cluster-sampling" class="nav-link" data-scroll-target="#cluster-sampling"><span class="header-section-number">16.4.4</span> Cluster Sampling</a></li>
+  <li><a href="#simple-random-sampling-srs" id="toc-simple-random-sampling-srs" class="nav-link" data-scroll-target="#simple-random-sampling-srs">1. Simple Random Sampling (SRS)</a></li>
+  <li><a href="#stratified-sampling" id="toc-stratified-sampling" class="nav-link" data-scroll-target="#stratified-sampling">2. Stratified Sampling</a></li>
+  <li><a href="#systematic-sampling" id="toc-systematic-sampling" class="nav-link" data-scroll-target="#systematic-sampling">3. Systematic Sampling</a></li>
+  <li><a href="#cluster-sampling" id="toc-cluster-sampling" class="nav-link" data-scroll-target="#cluster-sampling">4. Cluster Sampling</a></li>
   </ul></li>
   <li><a href="#non-probability-sampling" id="toc-non-probability-sampling" class="nav-link" data-scroll-target="#non-probability-sampling"><span class="header-section-number">16.5</span> Non-Probability Sampling</a></li>
   </ul>
@@ -458,8 +458,8 @@ Whether that population is large and real, or infinite and theoretical, the prin
 <li>Systematic sampling</li>
 <li>Cluster sampling (single or multi-stage)</li>
 </ul>
-<section id="simple-random-sampling-srs" class="level3" data-number="16.4.1">
-<h3 data-number="16.4.1" class="anchored" data-anchor-id="simple-random-sampling-srs"><span class="header-section-number">16.4.1</span> Simple Random Sampling (SRS)</h3>
+<section id="simple-random-sampling-srs" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="simple-random-sampling-srs">1. Simple Random Sampling (SRS)</h3>
 <p>This is the simplest form of probability sampling: we randomly select <span class="math inline">\(n\)</span> units from a population of <span class="math inline">\(N\)</span> such that each unit has equal probability of being chosen.</p>
 <p>Let <span class="math inline">\(x_1, x_2, ..., x_n\)</span> denote the observed salaries. Then the sample mean</p>
 <p><span class="math display">\[
@@ -499,8 +499,8 @@ Whether that population is large and real, or infinite and theoretical, the prin
 <p>This estimate tells us how much variability we might expect in the sample mean if we repeatedly took samples of size 30 from this population. But in this case, with <span class="math inline">\(n = 30\)</span> and <span class="math inline">\(N = 70\)</span>, the correction still makes a meaningful difference.</p>
 </section>
 </section>
-<section id="stratified-sampling" class="level3" data-number="16.4.2">
-<h3 data-number="16.4.2" class="anchored" data-anchor-id="stratified-sampling"><span class="header-section-number">16.4.2</span> Stratified Sampling</h3>
+<section id="stratified-sampling" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="stratified-sampling">2. Stratified Sampling</h3>
 <p>Stratified sampling is a method used to increase precision by dividing the population into homogeneous subgroups, or <strong>strata</strong>, and drawing a random sample from each. This approach ensures that all relevant sub-populations are represented and that within-group variation is minimized.</p>
 <p>The idea is to reduce variance by organizing the population into strata that are internally homogeneous but different from each other with respect to the study variable.</p>
 <p>Stratification can improve estimation accuracy if the variable of interest differs between groups (e.g., income between age groups) and if the stratification variable (like age, gender, region) is known and available for the full population.</p>
@@ -645,8 +645,8 @@ W_1 = \frac{20}{70}, \quad W_2 = \frac{50}{70}
 <p>The stratified sample gives much lower variance, showing how stratification can improve precision when strata are well chosen.</p>
 </section>
 </section>
-<section id="systematic-sampling" class="level3" data-number="16.4.3">
-<h3 data-number="16.4.3" class="anchored" data-anchor-id="systematic-sampling"><span class="header-section-number">16.4.3</span> Systematic Sampling</h3>
+<section id="systematic-sampling" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="systematic-sampling">3. Systematic Sampling</h3>
 <p>Systematic sampling is a method where we select elements at <strong>regular intervals</strong> from a list (the sampling frame), after first choosing a <strong>random starting point</strong>.</p>
 <p>Suppose we want to estimate the average salary in a company with <span class="math inline">\(N = 1000\)</span> employees. We plan to draw a sample of <span class="math inline">\(n = 100\)</span>. Assume the sampling frame is sorted by personal ID number (which correlates with age). We compute the sampling interval:</p>
 <p><span class="math display">\[
@@ -694,8 +694,8 @@ r = \frac{N}{n} = \frac{70}{30} \approx 2.333 \quad \text{(rounded down to } r =
 <p>So our actual sample size is 35, which is larger than intended.</p>
 </section>
 </section>
-<section id="cluster-sampling" class="level3" data-number="16.4.4">
-<h3 data-number="16.4.4" class="anchored" data-anchor-id="cluster-sampling"><span class="header-section-number">16.4.4</span> Cluster Sampling</h3>
+<section id="cluster-sampling" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cluster-sampling">4. Cluster Sampling</h3>
 <p>Used when sampling individuals directly is impractical (e.g., geographical spread or missing frame).</p>
 <ul>
 <li>In <strong>single-stage cluster sampling</strong>, groups (e.g., schools, buildings) are selected randomly, and all elements within them are surveyed.</li>
