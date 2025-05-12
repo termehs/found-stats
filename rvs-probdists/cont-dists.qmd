@@ -764,7 +764,7 @@ If this condition is met, the binomial distribution can be reasonably approximat
 
 
 ### How is the approximation performed?
-Well, suppose $X \sim \text{Bin}(n, P)$ and the above condition is satisfied. Then we can approximate $X$ using a normal distribution:
+Well, suppose $X \sim \text{Bin}(n, p)$ and the above condition is satisfied. Then we can approximate $X$ using a normal distribution:
 
 $$
 X \approx \mathcal{N}(\mu, \sigma)
@@ -773,7 +773,7 @@ $$
 where
 
 $$
-\mu = \mathbb{E}(X) = nP \quad \text{and} \quad \sigma = \sqrt{\mathbb{V}(X)} = \sqrt{nP(1 - P)}
+\mu = \mathbb{E}(X) = np \quad \text{and} \quad \sigma = \sqrt{\mathbb{V}(X)} = \sqrt{np(1 - p)}
 $$
 
 To compute a probability such as $P(X \leq c)$, where $c$ is an integer, we use the standard normal distribution:
@@ -867,3 +867,89 @@ The table below summarizes and compraes the results:
 | With continuity correction | **0.9772**     |
 
 As shown above, the continuity correction significantly improves the accuracy of the approximation and is highly recommended when using the normal distribution to approximate binomial probabilities.
+
+
+## Exercises {.unnumbered}
+
+
+1. Suppose human reaction times to a specific stimulus are normally distributed with a mean of 300 milliseconds and a standard deviation of 50 milliseconds. You randomly select one person.
+What is the probability that their reaction time is between 237.5 ms and 325 ms?
+
+::: {.callout-tip title="Solution" collapse="true"}
+We standardize both endpoints:
+
+$$
+Z_1 = \frac{237.5 - 300}{50} = -1.25 \quad\text{and}\quad Z_2 = \frac{325 - 300}{50} = 0.5
+$$
+
+From the standard normal table:
+
+- $P(Z \leq 0.5) = 0.6915$
+- $P(Z \leq -1.25) = 0.1056$
+
+So:
+
+$$
+P(237.5 \leq X \leq 325) = 0.6915 - 0.1056 = \boxed{0.5859}
+$$
+
+This means there's about a 59% chance a person reacts within this interval.
+:::
+
+2. An economic survey estimates that 35% of a certain population is underemployed. In a sample of 100 individuals, let $X$ be the number who are underemployed.
+What is the probability that at most 42 people are underemployed? Use the normal approximation with continuity correction.
+
+::: {.callout-tip title="Solution" collapse="true"}
+We model $X \sim \text{Bin}(100, 0.35)$
+
+- Mean: $\mu = 100 \cdot 0.35 = 35$
+- Standard deviation: $\sigma = \sqrt{100 \cdot 0.35 \cdot 0.65} = \sqrt{22.75} \approx 4.77$
+
+Using continuity correction:
+
+$$
+P(X \leq 42) \approx P\left(Z \leq \frac{42 + 0.5 - 35}{4.77} \right) = P(Z \leq 1.57)
+$$
+
+From Z-table:
+
+$$
+P(Z \leq 1.57) = \boxed{0.9418}
+$$
+
+So there’s a 94% chance that 42 or fewer people in the sample are underemployed.
+:::
+
+3. In a national voter turnout study, the probability that an eligible person votes is estimated to be 65%. Suppose a researcher surveys 200 randomly selected citizens. Let $X$ be the number of individuals in the sample who actually voted.
+What is the probability that between 120 and 140 people (inclusive) voted, using a normal approximation with continuity correction?
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+We model $X \sim \text{Bin}(n = 200, p = 0.65)$.
+
+- Mean: $\mu = 200 \cdot 0.65 = 130$
+- Standard deviation: $\sigma = \sqrt{200 \cdot 0.65 \cdot 0.35} = \sqrt{45.5} \approx 6.74$
+
+We apply continuity correction to the bounds:
+
+- Lower bound: $X = 120 \Rightarrow Z = \frac{119.5 - 130}{6.74} \approx -1.56$
+- Upper bound: $X = 140 \Rightarrow Z = \frac{140.5 - 130}{6.74} \approx 1.56$
+
+So:
+
+$$
+P(120 \leq X \leq 140) \approx P(-1.56 \leq Z \leq 1.56)
+$$
+
+From standard normal tables:
+
+- $P(Z \leq 1.56) = 0.9406$
+- $P(Z \leq -1.56) = 1 - 0.9406 = 0.0594$
+
+Therefore:
+
+$$
+P(-1.56 \leq Z \leq 1.56) = 0.9406 - 0.0594 = \boxed{0.8812}
+$$
+
+There’s an 88.1% chance that between 120 and 140 people in the sample voted.

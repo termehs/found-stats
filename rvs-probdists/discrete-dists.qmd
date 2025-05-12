@@ -562,7 +562,7 @@ $$
 So, the probability that $Y$ is greater than or equal to 2 is approximately 0.7251. This is the same probability as $X$ being less than or equal to 10.
 
 
-## Exercises
+## Exercises {.unnumbered}
 
 1. Let $X$ be a discrete random variable with the following probability distribution:
 
@@ -655,3 +655,5 @@ P(Y \geq 2) = 1 - 0.3487 - 0.3874 = 0.2639
 $$
 
 :::
+
+
