@@ -346,9 +346,9 @@ Note that it’s important to go through the entire list, or risk introducing **
 If that happens youou can simply keep the extra observations,  
 or randomly remove some observations to reduce to the intended sample size.
 
-This method is efficient and easy to implement, especially when dealing with **large, ordered datasets**. 
+This method is efficient and easy to implement, especially when dealing with large, ordered datasets. 
 
-⚠️ **Beware of periodicity** in the list — if the sorting follows a cycle, the results may be biased. For Example, suppose you’re studying newspaper ads and want to select every 7th day. If ads tend to follow a weekly cycle (e.g., most appear on Sundays), your sample could:
+⚠️ **Beware of periodicity** in the lis: if the sorting follows a cycle, the results may be biased. For Example, suppose you’re studying newspaper ads and want to select every 7th day. If ads tend to follow a weekly cycle (e.g., most appear on Sundays), your sample could:
 
 - Miss certain types of ads,
 - Overrepresent others,
