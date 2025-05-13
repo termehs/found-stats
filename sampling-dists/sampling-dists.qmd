@@ -3,21 +3,13 @@ The sample mean $\bar{X}$, when calculated from a random sample, is itself a ran
 
 ## The Sample Mean as a Random Variable
 
-Suppose we plan to collect a random sample of size $n$ from a population with:
+Suppose we plan to collect a random sample of size $n$ from a population with mean $\mu$ and variance: $\sigma^2$. Let $X_1, X_2, \dots, X_n$ represent the values we observe in that sample. We assume **independent and identically distributed (i.i.d.)** random variables, that is:
 
-- Mean: $\mu$
-- Variance: $\sigma^2$
-
-Let $X_1, X_2, \dots, X_n$ represent the values we observe in that sample.
-
-We assume **independent and identically distributed (i.i.d.) random variables**. that is:
-
-- The variables $X_1, X_2, \dots, X_n$ are **independent**,
-- Each $X_i$ follows the **same distribution** (i.e., they are identically distributed)
+- The variables $X_1, X_2, \dots, X_n$ are independent,
+- Each $X_i$ follows the same distribution (i.e., they are identically distributed)
 
 
-The **sample mean** $\bar{X}$ is defined as:
-
+The sample mean $\bar{X}$ is defined as:
 $$
 \bar{X} = \frac{X_1 + X_2 + \cdots + X_n}{n} = \frac{1}{n} \sum_{i=1}^n X_i
 $$
@@ -156,7 +148,7 @@ $$
 \text{SE}(\bar{X}) = \frac{\sigma_X}{\sqrt{n}}
 $$
 
-This measures how much the sample mean is expected to vary from sample to sample. It decreases as $n$ increases, giving tighter estimates of the population mean with larger samples. Thus, the sample mean is a **consistent estimator**. Together, these results imply that $\bar{X}$ is not only unbiased, but also a **consistent estimator** of $\mu_X$. That is:
+This measures how much the sample mean is expected to vary from sample to sample. It decreases as $n$ increases, giving tighter estimates of the population mean with larger samples. Together, these results imply that $\bar{X}$ is not only unbiased, but also a **consistent estimator** of $\mu_X$. That is:
 $$
 \bar{X} \xrightarrow{P} \mu_X \quad \text{as } n \to \infty
 $$

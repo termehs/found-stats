@@ -354,21 +354,12 @@ window.Quarto = {
 </header><p>The sample mean <span class="math inline">\(\bar{X}\)</span>, when calculated from a random sample, is itself a random variable whose distribution reflects the variability inherent in the sampling process. This distribution, the sampling distribution of the sample mean, has an expected value equal to the true population mean <span class="math inline">\(\mu\)</span>, and its variance is given by <span class="math inline">\(\sigma^2 / n\)</span>, where <span class="math inline">\(\sigma^2\)</span> is the population variance and <span class="math inline">\(n\)</span> is the sample size. Consequently, the standard error of the mean, defined as <span class="math inline">\(\sigma / \sqrt{n}\)</span>, quantifies the typical deviation of the sample mean from the population mean across repeated samples. Understanding this sampling distribution is essential for inferential statistics, whether we are constructing confidence intervals, performing hypothesis tests, or quantifying the uncertainty associated with point estimates.</p>
 <section id="the-sample-mean-as-a-random-variable" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="the-sample-mean-as-a-random-variable">
 <span class="header-section-number">17.1</span> The Sample Mean as a Random Variable</h2>
-<p>Suppose we plan to collect a random sample of size <span class="math inline">\(n\)</span> from a population with:</p>
+<p>Suppose we plan to collect a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance: <span class="math inline">\(\sigma^2\)</span>. Let <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> represent the values we observe in that sample. We assume <strong>independent and identically distributed (i.i.d.)</strong> random variables, that is:</p>
 <ul>
-<li>Mean: <span class="math inline">\(\mu\)</span>
-</li>
-<li>Variance: <span class="math inline">\(\sigma^2\)</span>
-</li>
+<li>The variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> are independent,</li>
+<li>Each <span class="math inline">\(X_i\)</span> follows the same distribution (i.e., they are identically distributed)</li>
 </ul>
-<p>Let <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> represent the values we observe in that sample.</p>
-<p>We assume <strong>independent and identically distributed (i.i.d.) random variables</strong>. that is:</p>
-<ul>
-<li>The variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> are <strong>independent</strong>,</li>
-<li>Each <span class="math inline">\(X_i\)</span> follows the <strong>same distribution</strong> (i.e., they are identically distributed)</li>
-</ul>
-<p>The <strong>sample mean</strong> <span class="math inline">\(\bar{X}\)</span> is defined as:</p>
-<p><span class="math display">\[
+<p>The sample mean <span class="math inline">\(\bar{X}\)</span> is defined as: <span class="math display">\[
 \bar{X} = \frac{X_1 + X_2 + \cdots + X_n}{n} = \frac{1}{n} \sum_{i=1}^n X_i
 \]</span></p>
 <p>Although we treat <span class="math inline">\(\bar{X}\)</span> as a numerical quantity once the sample is collected, in theory it is itself a random variable; its value depends on which sample we happen to get and the observations within the sample.</p>
@@ -444,7 +435,7 @@ E(\bar{X}) &amp;= E\left( \frac{1}{n} \sum_{i=1}^n X_i \right) \\
 <p><span class="math display">\[
 \text{SE}(\bar{X}) = \frac{\sigma_X}{\sqrt{n}}
 \]</span></p>
-<p>This measures how much the sample mean is expected to vary from sample to sample. It decreases as <span class="math inline">\(n\)</span> increases, giving tighter estimates of the population mean with larger samples. Thus, the sample mean is a <strong>consistent estimator</strong>. Together, these results imply that <span class="math inline">\(\bar{X}\)</span> is not only unbiased, but also a <strong>consistent estimator</strong> of <span class="math inline">\(\mu_X\)</span>. That is: <span class="math display">\[
+<p>This measures how much the sample mean is expected to vary from sample to sample. It decreases as <span class="math inline">\(n\)</span> increases, giving tighter estimates of the population mean with larger samples. Together, these results imply that <span class="math inline">\(\bar{X}\)</span> is not only unbiased, but also a <strong>consistent estimator</strong> of <span class="math inline">\(\mu_X\)</span>. That is: <span class="math display">\[
 \bar{X} \xrightarrow{P} \mu_X \quad \text{as } n \to \infty
 \]</span></p>
 <p>This convergence in probability follows from the <strong>Law of Large Numbers</strong>: as the sample size grows, the probability that the sample mean deviates significantly from the true mean approaches zero. We will return to these concepts in mroe detail later in the book.</p>
