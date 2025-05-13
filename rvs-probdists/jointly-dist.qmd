@@ -232,7 +232,7 @@ $$
 
 For example:
 
-- From the @tbl-jointex $P(X = 1, Y = 1) = 0.08$
+- From @tbl-jointex we get that $P(X = 1, Y = 1) = 0.08$
 - Marginals: $P(X = 1) = 0.27$, $P(Y = 1) = 0.27$
 
 So:

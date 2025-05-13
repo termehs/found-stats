@@ -255,12 +255,37 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Sampling and Sampling Distributions</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Inferential Statistics</span></span>
@@ -329,8 +354,8 @@ window.Quarto = {
 
 </header><p>A <strong>discrete probability distribution</strong> describes how the values of a variable are associated with probabilities. It applies when a variable can take on a limited or countable set of values, like 0, 1, 2, and so on, and we know how likely each value is. Note that we use uppercase letter to denote random variables and lowercase letters for the values they take on.</p>
 <p>The probability function <span class="math inline">\(P(x)\)</span> assigns a probability to each possible value <span class="math inline">\(x\)</span> that the variable can take. These probabilities must all lie between 0 and 1, and together they must sum to exactly 1.</p>
-<p>We use the expected value, <span class="math inline">\(\mathbb{E}(X)\)</span>, to summarize the typical or central value of the distribution. It gives us a sense of where the values tend to cluster. Think of it as a kind of weighted average, where more probable outcomes count more heavily in the calculation.</p>
-<p>The variance, <span class="math inline">\(\mathbb{V}(X)\)</span>, describes how much the values of the variable differ from this central value. A small variance means most values are close to the expected value, while a large variance means the values are more spread out.</p>
+<p>We use the expected value, <span class="math inline">\(E(X)\)</span>, to summarize the typical or central value of the distribution. It gives us a sense of where the values tend to cluster. Think of it as a kind of weighted average, where more probable outcomes count more heavily in the calculation.</p>
+<p>The variance, <span class="math inline">\(\operatorname{Var}(X)\)</span>, describes how much the values of the variable differ from this central value. A small variance means most values are close to the expected value, while a large variance means the values are more spread out.</p>
 <section id="probability-mass-function-pmf" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="probability-mass-function-pmf">
 <span class="header-section-number">13.1</span> Probability Mass Function (PMF)</h2>
 <p>When dealing with discrete random variables, we are interested in how likely it is that the variable takes on specific values. This relationship, the link between possible values and their associated probabilities, is described by the <strong>probability distribution</strong> of the random variable.</p>
@@ -459,17 +484,17 @@ F(x) = P(X \leq x)
 <p>Just like empirical data can be summarized with averages and standard deviations, a discrete probability distribution can also be described using corresponding statistical measures. These include measures of central tendency, such as the expected value, and measures of variability, such as the standard deviation.</p>
 <p>The <strong>expected value</strong> plays the role of a mean or average. But because the possible outcomes may occur with different probabilities, we must take this into account by assigning more weight to more likely outcomes. This means the values are weighted by their associated probabilities.</p>
 <p>To find the expected value of a discrete random variable, we do not simply average the outcomes. Instead, we compute a weighted average where the weights are given by the probability mass function.</p>
-<p>The expected value of a discrete random variable <span class="math inline">\(X\)</span> is denoted by <span class="math inline">\(\mathbb{E}(X)\)</span>, where <span class="math inline">\(\mathbb{E}\)</span> stands for expectation. It is defined as:</p>
+<p>The expected value of a discrete random variable <span class="math inline">\(X\)</span> is denoted by <span class="math inline">\(E(X)\)</span>, where <span class="math inline">\(E\)</span> stands for expectation. It is defined as:</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = \sum_{x} x \cdot P(x) = \mu_X
+E(X) = \sum_{x} x \cdot P(x) = \mu_X
 \]</span></p>
-<p>This formula tells us to multiply each value <span class="math inline">\(x\)</span> by its probability <span class="math inline">\(P(x)\)</span> and then sum the results over all possible values of <span class="math inline">\(X\)</span>. The result, <span class="math inline">\(\mathbb{E}(X)\)</span>, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of <span class="math inline">\(X\)</span> according to its probability distribution.</p>
+<p>This formula tells us to multiply each value <span class="math inline">\(x\)</span> by its probability <span class="math inline">\(P(x)\)</span> and then sum the results over all possible values of <span class="math inline">\(X\)</span>. The result, <span class="math inline">\(E(X)\)</span>, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of <span class="math inline">\(X\)</span> according to its probability distribution.</p>
 <p>The expected value represents the “center” of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.</p>
 <p>It’s important to note that expected value doesn’t predict what will happen* — it predicts what happens on average. It’s like asking, <em>“What would I get if the universe reran this scenario a million times?”</em></p>
 <section id="example-12.1-coin-toss-continued-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-1">Example 12.1: Coin Toss (continued)</h4>
 <p>If you revisit the coin-toss example where <span class="math inline">\(X\)</span> counts the number of heads in two tosses, you would compute the expected value as:</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = \sum_{x} x \cdot P(x) = 0 \cdot 0.25 + 1 \cdot 0.5 + 2 \cdot 0.25 = 1
+E(X) = \sum_{x} x \cdot P(x) = 0 \cdot 0.25 + 1 \cdot 0.5 + 2 \cdot 0.25 = 1
 \]</span></p>
 <p>This confirms that we expect to get 1 head on average when tossing a coin twice.</p>
 </section><section id="example-12.2-lottery---a-risky-business" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business">Example 12.2: Lottery - A Risky Business</h4>
@@ -533,22 +558,22 @@ X \in \{0, 2, 10, 50\}
 </div>
 </div>
 </div>
-<p>Let’s compute the expected value <span class="math inline">\(\mathbb{E}(X)\)</span> using the PMF:</p>
+<p>Let’s compute the expected value <span class="math inline">\(E(X)\)</span> using the PMF:</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = \sum_x x \cdot P(x) = 0 \cdot 0.91 + 2 \cdot 0.05 + 10 \cdot 0.03 + 50 \cdot 0.01 = 0.90
+E(X) = \sum_x x \cdot P(x) = 0 \cdot 0.91 + 2 \cdot 0.05 + 10 \cdot 0.03 + 50 \cdot 0.01 = 0.90
 \]</span></p>
 <p>So even though one person might win 50€, the average payout per ticket is just 90 cents. That means if you pay 1€ per ticket, you’re losing 10 cents on average.</p>
 <p>Most of the time, lottery isn’t just random — it’s rigged (in favor of the organizers)</p>
 </section></section><section id="variance-and-standard-deviation-of-a-discrete-random-variable" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="variance-and-standard-deviation-of-a-discrete-random-variable">
 <span class="header-section-number">13.4</span> Variance and Standard Deviation of a Discrete Random Variable</h2>
 <p>Just as sample variance measures the average squared deviation from the sample mean, the variance of a random variable measures the average squared deviation from its expected value, weighted by the probability mass function.</p>
-<p>Let <span class="math inline">\(X\)</span> be a discrete random variable with expected value <span class="math inline">\(\mu_X = \mathbb{E}(X)\)</span>. The <strong>variance</strong> of <span class="math inline">\(X\)</span> is defined as:</p>
+<p>Let <span class="math inline">\(X\)</span> be a discrete random variable with expected value <span class="math inline">\(\mu_X = E(X)\)</span>. The <strong>variance</strong> of <span class="math inline">\(X\)</span> is defined as:</p>
 <p><span class="math display">\[
-\text{Var}(X) = \mathbb{E}[(X - \mu_X)^2] = \sum_x (x - \mu_X)^2 \cdot P(x)
+\text{Var}(X) = E[(X - \mu_X)^2] = \sum_x (x - \mu_X)^2 \cdot P(x)
 \]</span></p>
 <p>Alternatively, variance can also be calculated using:</p>
 <p><span class="math display">\[
-\text{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2
+\text{Var}(X) = E(X^2) - (E(X))^2
 \]</span></p>
 <p>The <strong>standard deviation</strong> is the square root of the variance:</p>
 <p><span class="math display">\[
@@ -558,7 +583,7 @@ X \in \{0, 2, 10, 50\}
 <section id="example-12.1-coin-toss-continued-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-2">Example 12.1: Coin Toss (continued)</h4>
 <p>Consider again the random variable <span class="math inline">\(X =\)</span> number of heads in two tosses of a fair coin. We previously found the expected value:</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = 1
+E(X) = 1
 \]</span></p>
 <p>We now calculate the variance by constructing the following table:</p>
 <table class="caption-top table">
@@ -603,7 +628,7 @@ X \in \{0, 2, 10, 50\}
 </section><section id="example-12.2-lottery---a-risky-business-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.2-lottery---a-risky-business-1">Example 12.2: Lottery - A Risky Business</h4>
 <p>Let <span class="math inline">\(X\)</span> denote the payout from a randomly selected lottery ticket. From earlier, we know the expected value is:</p>
 <p><span class="math display">\[
-\mu_X = \mathbb{E}(X) = 0.9
+\mu_X = E(X) = 0.9
 \]</span></p>
 <p>To compute the variance, we first calculate the squared deviations from the mean for each possible payout:</p>
 <table class="caption-top table">
@@ -649,9 +674,9 @@ X \in \{0, 2, 10, 50\}
 </section></section><section id="rules-for-expectation-and-variance" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="rules-for-expectation-and-variance">
 <span class="header-section-number">13.5</span> Rules for Expectation and Variance</h2>
 <p>Recall from previous chapter and section <a href="random-variables.html#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a> that for any random variable <span class="math inline">\(X\)</span>, and constants <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, we always have that the expected value is given by <span class="math display">\[
-\mathbb{E}(a + bX) = a + b\mathbb{E}(X)
+E(a + bX) = a + bE(X)
 \]</span> and the variance by <span class="math display">\[
-\mathbb{V}(a + bX) = b^2 \mathbb{V}(X).
+\operatorname{Var}(a + bX) = b^2 \operatorname{Var}(X).
 \]</span> Let’s look at an exmaple of this in the discrete case.</p>
 <section id="example-12.3-the-project-budget" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.3-the-project-budget">Example 12.3: The Project Budget</h4>
 <p>You’re managing a project. The number of workdays to finish the project, denoted by random variabel <span class="math inline">\(X\)</span>, is a bit uncertain. Its distribution looks like this:</p>
@@ -687,17 +712,17 @@ Y = 25000 + 900X
 <p>Let’s use the rules above to find the expected value and variance of <span class="math inline">\(Y\)</span>.</p>
 <p>First we use similar technique as earlier to find</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = 11.9 \quad \text{and} \quad \mathbb{V}(X) = 1.29
+E(X) = 11.9 \quad \text{and} \quad \operatorname{Var}(X) = 1.29
 \]</span></p>
 <p>Using the rules of linear transformation we then can find the expected value of <span class="math inline">\(Y\)</span> <span class="math display">\[
-\mathbb{E}(Y) = 25000 + 900 \cdot \mathbb{E}(X) = 25000 + 900 \cdot 11.9 = 35710
+E(Y) = 25000 + 900 \cdot E(X) = 25000 + 900 \cdot 11.9 = 35710
 \]</span></p>
 <p>and the variance of <span class="math inline">\(Y\)</span> as</p>
 <p><span class="math display">\[
-\mathbb{V}(Y) = 900^2 \cdot \mathbb{V}(X) = 810000 \cdot 1.29 = 1044900
+\operatorname{Var}(Y) = 900^2 \cdot \operatorname{Var}(X) = 810000 \cdot 1.29 = 1044900
 \]</span></p>
 <p>Finally we find the standarc deviaiton as <span class="math display">\[
-\sqrt{\mathbb{V}(Y)} = \sqrt{1044900} \approx 1022.20
+\sqrt{\operatorname{Var}(Y)} = \sqrt{1044900} \approx 1022.20
 \]</span></p>
 <p>This gives a total expected project cost of €35,710, with a standard deviation of about €1,022.</p>
 </section></section><section id="the-bernoulli-and-binomial-distribution" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="the-bernoulli-and-binomial-distribution">
@@ -707,7 +732,7 @@ Y = 25000 + 900X
 <p><span class="math display">\[
 X \sim \text{Bernoulli}(p)
 \]</span></p>
-<p>This means that <span class="math inline">\(X = 1\)</span> with probability <span class="math inline">\(p\)</span>, and <span class="math inline">\(X = 0\)</span> with probability <span class="math inline">\(1 - p\)</span>. The expected value of a Bernoulli variable is given by <span class="math inline">\(\mathbb{E}(X) = p\)</span>, and the variance is <span class="math inline">\(\mathbb{V}(X) = p(1 - p)\)</span>.</p>
+<p>This means that <span class="math inline">\(X = 1\)</span> with probability <span class="math inline">\(p\)</span>, and <span class="math inline">\(X = 0\)</span> with probability <span class="math inline">\(1 - p\)</span>. The expected value of a Bernoulli variable is given by <span class="math inline">\(E(X) = p\)</span>, and the variance is <span class="math inline">\(\operatorname{Var}(X) = p(1 - p)\)</span>.</p>
 <p>A common use of Bernoulli variables is as indicator variables, which simply record whether or not a particular event occurs. For example, suppose <span class="math inline">\(A\)</span> is an event. Then we define the indicator variable <span class="math inline">\(X\)</span> as:</p>
 <p><span class="math display">\[
 X =
@@ -716,7 +741,7 @@ X =
 0 &amp; \text{if event } A \text{ does not occur}
 \end{cases}
 \]</span></p>
-<p>In this case, <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span>, where <span class="math inline">\(p = P(A)\)</span>. This also implies that <span class="math inline">\(\mathbb{E}(X) = P(A)\)</span>. In other words, the expected value of an indicator variable is simply the probability of the event it represents.</p>
+<p>In this case, <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span>, where <span class="math inline">\(p = P(A)\)</span>. This also implies that <span class="math inline">\(E(X) = P(A)\)</span>. In other words, the expected value of an indicator variable is simply the probability of the event it represents.</p>
 <p>As an example, consider rolling a fair six-sided die. Let <span class="math inline">\(X\)</span> be the indicator variable for the event “rolling a six.” Then:</p>
 <p><span class="math display">\[
 X =
@@ -725,9 +750,9 @@ X =
 0 &amp; \text{otherwise}
 \end{cases}
 \]</span></p>
-<p>Since the probability of rolling a six is <span class="math inline">\(p = \frac{1}{6}\)</span>, we can say <span class="math inline">\(X \sim \text{Bernoulli}(1/6)\)</span>. The expected value of <span class="math inline">\(X\)</span> is then <span class="math inline">\(\mathbb{E}(X) = \frac{1}{6}\)</span>, and the variance is:</p>
+<p>Since the probability of rolling a six is <span class="math inline">\(p = \frac{1}{6}\)</span>, we can say <span class="math inline">\(X \sim \text{Bernoulli}(1/6)\)</span>. The expected value of <span class="math inline">\(X\)</span> is then <span class="math inline">\(E(X) = \frac{1}{6}\)</span>, and the variance is:</p>
 <p><span class="math display">\[
-\mathbb{V}(X) = \frac{1}{6} \left(1 - \frac{1}{6} \right) = \frac{5}{36}
+\operatorname{Var}(X) = \frac{1}{6} \left(1 - \frac{1}{6} \right) = \frac{5}{36}
 \]</span></p>
 <p>This illustrates how Bernoulli variables can model simple binary outcomes and provide useful measures like mean and variability.</p>
 <p>Bernoulli variables are also the building blocks of the Binomial distribution. When a Bernoulli trial is repeated independently <span class="math inline">\(n\)</span> times, and we define a variable <span class="math inline">\(X\)</span> to count the number of times the event (success) occurs, then <span class="math inline">\(X\)</span> follows a Binomial distribution. More precisely, if each trial has success probability <span class="math inline">\(p\)</span>, and the trials are independent, then</p>
@@ -740,7 +765,7 @@ P(X = x) = \binom{n}{x} p^x (1 - p)^{n - x},
 \]</span></p>
 <p>where <span class="math inline">\(\binom{n}{x}\)</span> is the binomial coefficient, which counts the number of ways to choose <span class="math inline">\(x\)</span> successes from <span class="math inline">\(n\)</span> trials. The expected value and variance of a binomially distributed random variable are</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = np \quad \text{and} \quad \mathbb{V}(X) = np(1 - p).
+E(X) = np \quad \text{and} \quad \operatorname{Var}(X) = np(1 - p).
 \]</span></p>
 <section id="example-12.4-flipping-a-coin-3-times" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.4-flipping-a-coin-3-times">Example 12.4: Flipping a Coin 3 Times</h4>
 <p>As an example, consider tossing a fair coin three times and let <span class="math inline">\(X\)</span> be the number of heads obtained. Each toss is a Bernoulli trial with <span class="math inline">\(p = 0.5\)</span>, and there are three independent trials, so</p>
@@ -859,9 +884,9 @@ P(Y \geq 2) = 1 - 0.2749 = 0.7251
 <ol type="a">
 <li>Verify that this is a valid probability distribution.<br>
 </li>
-<li>Compute the expected value <span class="math inline">\(\mathbb{E}(X)\)</span>.<br>
+<li>Compute the expected value <span class="math inline">\(E(X)\)</span>.<br>
 </li>
-<li>Compute the variance <span class="math inline">\(\mathbb{V}(X)\)</span>.</li>
+<li>Compute the variance <span class="math inline">\(\operatorname{Var}(X)\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -885,17 +910,17 @@ Solution
 <li>Expected value</li>
 </ol>
 <p><span class="math display">\[
-\mathbb{E}(X) = \sum x \cdot P(x) = 1 \cdot 0.1 + 2 \cdot 0.3 + 3 \cdot 0.4 + 4 \cdot 0.2 = 0.1 + 0.6 + 1.2 + 0.8 = 2.7
+E(X) = \sum x \cdot P(x) = 1 \cdot 0.1 + 2 \cdot 0.3 + 3 \cdot 0.4 + 4 \cdot 0.2 = 0.1 + 0.6 + 1.2 + 0.8 = 2.7
 \]</span></p>
 <ol start="3" type="a">
 <li>Variance</li>
 </ol>
-<p>We first compute <span class="math inline">\(\mathbb{E}(X^2)\)</span>: <span class="math display">\[
-\mathbb{E}(X^2) = 1^2 \cdot 0.1 + 2^2 \cdot 0.3 + 3^2 \cdot 0.4 + 4^2 \cdot 0.2 = 0.1 + 1.2 + 3.6 + 3.2 = 8.1
+<p>We first compute <span class="math inline">\(E(X^2)\)</span>: <span class="math display">\[
+E(X^2) = 1^2 \cdot 0.1 + 2^2 \cdot 0.3 + 3^2 \cdot 0.4 + 4^2 \cdot 0.2 = 0.1 + 1.2 + 3.6 + 3.2 = 8.1
 \]</span></p>
 <p>Then:</p>
 <p><span class="math display">\[
-\mathbb{V}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 8.1 - (2.7)^2 = 8.1 - 7.29 = 0.81
+\operatorname{Var}(X) = E(X^2) - (E(X))^2 = 8.1 - (2.7)^2 = 8.1 - 7.29 = 0.81
 \]</span></p>
 </div>
 </div>
@@ -909,7 +934,7 @@ Solution
 </ol>
 <ol type="i">
 <li>
-<span class="math inline">\(\mathbb{E}(Y)\)</span> and <span class="math inline">\(\mathbb{V}(Y)\)</span><br>
+<span class="math inline">\(E(Y)\)</span> and <span class="math inline">\(\operatorname{Var}(Y)\)</span><br>
 </li>
 <li>
 <span class="math inline">\(P(Y = 0)\)</span><br>
@@ -931,16 +956,16 @@ Solution
 <ol type="a">
 <li><br></li>
 </ol>
-<p>Bernoulli Variable <span class="math inline">\(X\)</span>: <span class="math inline">\(X \sim \text{Bernoulli}(0.1)\)</span> <span class="math display">\[\mathbb{E}(X) = 0.1\]</span></p>
-<p><span class="math display">\[\mathbb{V}(X) = 0.1 \cdot (1 - 0.1) = 0.09\]</span></p>
+<p>Bernoulli Variable <span class="math inline">\(X\)</span>: <span class="math inline">\(X \sim \text{Bernoulli}(0.1)\)</span> <span class="math display">\[E(X) = 0.1\]</span></p>
+<p><span class="math display">\[\operatorname{Var}(X) = 0.1 \cdot (1 - 0.1) = 0.09\]</span></p>
 <ol start="2" type="a">
 <li><br></li>
 </ol>
 <ol type="i">
 <li>
 <p>Binomial Variable <span class="math inline">\(Y\)</span>: <span class="math inline">\(Y \sim \text{Bin}(10, 0.1)\)</span></p>
-<p><span class="math inline">\(\mathbb{E}(Y) = 10 \cdot 0.1 = 1\)</span></p>
-<p><span class="math inline">\(\mathbb{V}(Y) = 10 \cdot 0.1 \cdot 0.9 = 0.9\)</span></p>
+<p><span class="math inline">\(E(Y) = 10 \cdot 0.1 = 1\)</span></p>
+<p><span class="math inline">\(\operatorname{Var}(Y) = 10 \cdot 0.1 \cdot 0.9 = 0.9\)</span></p>
 </li>
 <li><p><span class="math inline">\(P(Y = 0)\)</span></p></li>
 </ol>

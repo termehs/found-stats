@@ -273,11 +273,36 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Sampling and Sampling Distributions</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -448,8 +473,8 @@ P(X = 0) = \frac{3}{6} = 0.5
 <section id="expected-value-and-variance" class="level2" data-number="12.3">
 <h2 data-number="12.3" class="anchored" data-anchor-id="expected-value-and-variance"><span class="header-section-number">12.3</span> Expected Value and Variance</h2>
 <p>A random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.</p>
-<p>The expected value of a random variable, often denoted as <span class="math inline">\(\mathbb{E}(X)\)</span> or <span class="math inline">\(\mu\)</span>, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.</p>
-<p>While the expected value tells us the average, the variance of a random variable, denoted <span class="math inline">\(\mathbb{V}(X)\)</span>, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.</p>
+<p>The expected value of a random variable, often denoted as <span class="math inline">\(E(X)\)</span> or <span class="math inline">\(\mu\)</span>, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.</p>
+<p>While the expected value tells us the average, the variance of a random variable, denoted <span class="math inline">\(\operatorname{Var}(X)\)</span>, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.</p>
 <p>So even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.</p>
 </section>
 <section id="sec-rvrules" class="level2" data-number="12.4">
@@ -464,13 +489,13 @@ Y = a + bX
 <li>The expected value of <span class="math inline">\(Y\)</span> is:</li>
 </ul>
 <p><span class="math display">\[
-\mathbb{E}(Y) = \mathbb{E}(a + bX) = a + b\mathbb{E}(X)
+E(Y) = E(a + bX) = a + bE(X)
 \]</span></p>
 <ul>
 <li>The variance of <span class="math inline">\(Y\)</span> is:</li>
 </ul>
 <p><span class="math display">\[
-\mathbb{V}(Y) = \mathbb{V}(a + bX) = b^2 \mathbb{V}(X)
+\operatorname{Var}(Y) = \operatorname{Var}(a + bX) = b^2 \operatorname{Var}(X)
 \]</span></p>
 <p>Adding a constant (<span class="math inline">\(a\)</span>) does not affect variability, but scaling by a constant (<span class="math inline">\(b\)</span>) affects the spread by a factor of <span class="math inline">\(b^2\)</span>.</p>
 <p>If <span class="math inline">\(c\)</span> is a constant (i.e., not a random variable):</p>
@@ -478,13 +503,13 @@ Y = a + bX
 <li>The expected value of a constant is the constant itself:</li>
 </ul>
 <p><span class="math display">\[
-\mathbb{E}(c) = c
+E(c) = c
 \]</span></p>
 <ul>
 <li>The variance of a constant is zero:</li>
 </ul>
 <p><span class="math display">\[
-\mathbb{V}(c) = 0
+\operatorname{Var}(c) = 0
 \]</span></p>
 <p>Why zero variance? Because there’s nothing to vary — it’s always the same.</p>
 <p>We will see a practiccal example of these rukes of in the next chapter.</p>
@@ -497,42 +522,42 @@ Z = \frac{X - \mu_X}{\sigma_X}
 \]</span></p>
 <p>This transformation creates a <strong>standardized variable</strong> <span class="math inline">\(Z\)</span> with mean derived as follows using the rules shown in <a href="#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a>.</p>
 <p><span class="math display">\[
-\mathbb{E}(Z) = \mathbb{E}\left( \frac{X - \mu_X}{\sigma_X} \right)
+E(Z) = E\left( \frac{X - \mu_X}{\sigma_X} \right)
 \]</span></p>
 <p>Since <span class="math inline">\(\frac{1}{\sigma_X}\)</span> is a constant, we can factor it out:</p>
 <p><span class="math display">\[
-\mathbb{E}(Z) = \frac{1}{\sigma_X} \cdot \mathbb{E}(X - \mu_X)
+E(Z) = \frac{1}{\sigma_X} \cdot E(X - \mu_X)
 \]</span></p>
 <p>Using the linearity of expectation:</p>
 <p><span class="math display">\[
-\mathbb{E}(X - \mu_X) = \mathbb{E}(X) - \mu_X = \mu_X - \mu_X = 0
+E(X - \mu_X) = E(X) - \mu_X = \mu_X - \mu_X = 0
 \]</span></p>
 <p>So:</p>
 <p><span class="math display">\[
-\mathbb{E}(Z) = \frac{1}{\sigma_X} \cdot 0 = 0
+E(Z) = \frac{1}{\sigma_X} \cdot 0 = 0
 \]</span></p>
 <p>Thus, the standardized variable <span class="math inline">\(Z\)</span> has mean 0. <span class="math display">\[
-  \mathbb{E}(Z) = 0
+  E(Z) = 0
 \]</span></p>
 <p>Now we derive the variance of <span class="math inline">\(Z\)</span>:</p>
 <p><span class="math display">\[
-\mathbb{V}(Z) = \mathbb{V}\left( \frac{X - \mu_X}{\sigma_X} \right)
+\operatorname{Var}(Z) = \operatorname{Var}\left( \frac{X - \mu_X}{\sigma_X} \right)
 \]</span></p>
 <p>We apply the rule for scaling a random variable:</p>
 <p><span class="math display">\[
-\mathbb{V}\left( \frac{X - \mu_X}{\sigma_X} \right) = \left( \frac{1}{\sigma_X} \right)^2 \cdot \mathbb{V}(X - \mu_X)
+\operatorname{Var}\left( \frac{X - \mu_X}{\sigma_X} \right) = \left( \frac{1}{\sigma_X} \right)^2 \cdot \operatorname{Var}(X - \mu_X)
 \]</span></p>
 <p>Since subtracting a constant does not change variance:</p>
 <p><span class="math display">\[
-\mathbb{V}(X - \mu_X) = \mathbb{V}(X) = \sigma_X^2
+\operatorname{Var}(X - \mu_X) = \operatorname{Var}(X) = \sigma_X^2
 \]</span></p>
 <p>So:</p>
 <p><span class="math display">\[
-\mathbb{V}(Z) = \frac{1}{\sigma_X^2} \cdot \sigma_X^2 = 1
+\operatorname{Var}(Z) = \frac{1}{\sigma_X^2} \cdot \sigma_X^2 = 1
 \]</span></p>
 <p>Thus, the standardized variable <span class="math inline">\(Z\)</span> has variance 1.</p>
 <p><span class="math display">\[
-  \mathbb{V}(Z) = 1
+  \operatorname{Var}(Z) = 1
 \]</span></p>
 <p>To summarize, by standardizing a random variable using</p>
 <p><span class="math display">\[
@@ -540,8 +565,8 @@ Z = \frac{X - \mu_X}{\sigma_X}
 \]</span></p>
 <p>we obtained a new variable <span class="math inline">\(Z\)</span> with the following properties:</p>
 <ul>
-<li><span class="math inline">\(\mathbb{E}(Z) = 0\)</span></li>
-<li><span class="math inline">\(\mathbb{V}(Z) = 1\)</span></li>
+<li><span class="math inline">\(E(Z) = 0\)</span></li>
+<li><span class="math inline">\(\operatorname{Var}(Z) = 1\)</span></li>
 </ul>
 <p>This makes <span class="math inline">\(Z\)</span> easier to work with and allows comparisons between different variables, regardless of their original scale or units.</p>
 <p>Standardized variables are especially useful when:</p>
@@ -602,14 +627,14 @@ Solution
 </div>
 <ol start="8" type="1">
 <li>Two workers, Alice and Bob, work independently on a task. The time (in hours) it takes each of them to complete their part is modeled as discrete random variables:<br>
-<span class="math inline">\(X\)</span> is Alice’s completion time, with <span class="math inline">\(\mathbb{E}(X) = 5\)</span> and <span class="math inline">\(\mathbb{V}(X) = 1.5\)</span><br>
-<span class="math inline">\(Y\)</span> is Bob’s completion time, with <span class="math inline">\(\mathbb{E}(Y) = 6\)</span> and <span class="math inline">\(\mathbb{V}(Y) = 2\)</span><br>
+<span class="math inline">\(X\)</span> is Alice’s completion time, with <span class="math inline">\(E(X) = 5\)</span> and <span class="math inline">\(\operatorname{Var}(X) = 1.5\)</span><br>
+<span class="math inline">\(Y\)</span> is Bob’s completion time, with <span class="math inline">\(E(Y) = 6\)</span> and <span class="math inline">\(\operatorname{Var}(Y) = 2\)</span><br>
 Assume <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Now define:
 <ul>
 <li><span class="math inline">\(T = X + Y\)</span> as the total time they spend</li>
 <li><span class="math inline">\(D = Y - X\)</span> as the difference between their times</li>
 </ul>
-Compute <span class="math inline">\(\mathbb{E}(T)\)</span>, <span class="math inline">\(\mathbb{V}(T)\)</span>, <span class="math inline">\(\mathbb{E}(D)\)</span> and <span class="math inline">\(\mathbb{V}(D)\)</span>.</li>
+Compute <span class="math inline">\(E(T)\)</span>, <span class="math inline">\(\operatorname{Var}(T)\)</span>, <span class="math inline">\(E(D)\)</span> and <span class="math inline">\(\operatorname{Var}(D)\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -625,19 +650,19 @@ Solution
 <div class="callout-body-container callout-body">
 <p>Total time: <span class="math inline">\(T = X + Y\)</span>. Using linearity of expectation:</p>
 <p><span class="math display">\[
-\mathbb{E}(T) = \mathbb{E}(X) + \mathbb{E}(Y) = 5 + 6 = 11
+E(T) = E(X) + E(Y) = 5 + 6 = 11
 \]</span></p>
 <p>Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent:</p>
 <p><span class="math display">\[
-\mathbb{V}(T) = \mathbb{V}(X) + \mathbb{V}(Y) = 1.5 + 2 = 3.5
+\operatorname{Var}(T) = \operatorname{Var}(X) + \operatorname{Var}(Y) = 1.5 + 2 = 3.5
 \]</span></p>
 <p>Time difference: <span class="math inline">\(D = Y - X\)</span>. Again, using linearity:</p>
 <p><span class="math display">\[
-\mathbb{E}(D) = \mathbb{E}(Y - X) = \mathbb{E}(Y) - \mathbb{E}(X) = 6 - 5 = 1
+E(D) = E(Y - X) = E(Y) - E(X) = 6 - 5 = 1
 \]</span></p>
 <p>Variance of the difference (since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent):</p>
 <p><span class="math display">\[
-\mathbb{V}(D) = \mathbb{V}(Y) + \mathbb{V}(X) = 2 + 1.5 = 3.5
+\operatorname{Var}(D) = \operatorname{Var}(Y) + \operatorname{Var}(X) = 2 + 1.5 = 3.5
 \]</span></p>
 </div>
 </div>

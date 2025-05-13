@@ -82,9 +82,9 @@ On the other hand, a **continuous** stochastic variable can take on any value wi
 ## Expected Value and Variance
 A random variable’s probability distribution can, much like an empirical data set, be described using measures of central tendency and spread.
 
-The expected value of a random variable, often denoted as $\mathbb{E}(X)$ or $\mu$, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.
+The expected value of a random variable, often denoted as $E(X)$ or $\mu$, represents the long-run average outcome of a random process if it were repeated many times. It’s a kind of “center of gravity” for the distribution — where the outcomes tend to balance out.
 
-While the expected value tells us the average, the variance of a random variable, denoted $\mathbb{V}(X)$, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.
+While the expected value tells us the average, the variance of a random variable, denoted $\operatorname{Var}(X)$, tells us how spread out the values are around the mean. A small variance means values cluster tightly around the mean; a large variance means they are more widely scattered.
 
 So even if we don’t yet know the outcome of a random process, we can describe how it typically behaves: where it centers (expected value) and how much it varies (standard deviation). This way, we can summarize the behavior of randomness in both location and consistency — a powerful way to make sense of uncertainty. We explore these concepts further in the next chapter.
 
@@ -105,13 +105,13 @@ The following rules apply:
 - The expected value of $Y$ is:
 
 $$
-\mathbb{E}(Y) = \mathbb{E}(a + bX) = a + b\mathbb{E}(X)
+E(Y) = E(a + bX) = a + bE(X)
 $$
 
 - The variance of $Y$ is:
 
 $$
-\mathbb{V}(Y) = \mathbb{V}(a + bX) = b^2 \mathbb{V}(X)
+\operatorname{Var}(Y) = \operatorname{Var}(a + bX) = b^2 \operatorname{Var}(X)
 $$
 
 Adding a constant ($a$) does not affect variability, but scaling by a constant ($b$) affects the spread by a factor of $b^2$. 
@@ -121,13 +121,13 @@ If $c$ is a constant (i.e., not a random variable):
 - The expected value of a constant is the constant itself:
 
 $$
-\mathbb{E}(c) = c
+E(c) = c
 $$
 
 - The variance of a constant is zero:
 
 $$
-\mathbb{V}(c) = 0
+\operatorname{Var}(c) = 0
 $$
 
 Why zero variance? Because there's nothing to vary — it's always the same. 
@@ -146,61 +146,61 @@ $$
 This transformation creates a **standardized variable** $Z$ with mean derived as follows using the rules shown in @sec-rvrules.
 
 $$
-\mathbb{E}(Z) = \mathbb{E}\left( \frac{X - \mu_X}{\sigma_X} \right)
+E(Z) = E\left( \frac{X - \mu_X}{\sigma_X} \right)
 $$
 
 Since $\frac{1}{\sigma_X}$ is a constant, we can factor it out:
 
 $$
-\mathbb{E}(Z) = \frac{1}{\sigma_X} \cdot \mathbb{E}(X - \mu_X)
+E(Z) = \frac{1}{\sigma_X} \cdot E(X - \mu_X)
 $$
 
 Using the linearity of expectation:
 
 $$
-\mathbb{E}(X - \mu_X) = \mathbb{E}(X) - \mu_X = \mu_X - \mu_X = 0
+E(X - \mu_X) = E(X) - \mu_X = \mu_X - \mu_X = 0
 $$
 
 So:
 
 $$
-\mathbb{E}(Z) = \frac{1}{\sigma_X} \cdot 0 = 0
+E(Z) = \frac{1}{\sigma_X} \cdot 0 = 0
 $$
 
 Thus, the standardized variable $Z$ has mean 0.
 $$
-  \mathbb{E}(Z) = 0
+  E(Z) = 0
 $$
 
 Now we derive the variance of $Z$:
 
 $$
-\mathbb{V}(Z) = \mathbb{V}\left( \frac{X - \mu_X}{\sigma_X} \right)
+\operatorname{Var}(Z) = \operatorname{Var}\left( \frac{X - \mu_X}{\sigma_X} \right)
 $$
 
 We apply the rule for scaling a random variable:
 
 $$
-\mathbb{V}\left( \frac{X - \mu_X}{\sigma_X} \right) = \left( \frac{1}{\sigma_X} \right)^2 \cdot \mathbb{V}(X - \mu_X)
+\operatorname{Var}\left( \frac{X - \mu_X}{\sigma_X} \right) = \left( \frac{1}{\sigma_X} \right)^2 \cdot \operatorname{Var}(X - \mu_X)
 $$
 
 Since subtracting a constant does not change variance:
 
 $$
-\mathbb{V}(X - \mu_X) = \mathbb{V}(X) = \sigma_X^2
+\operatorname{Var}(X - \mu_X) = \operatorname{Var}(X) = \sigma_X^2
 $$
 
 So:
 
 $$
-\mathbb{V}(Z) = \frac{1}{\sigma_X^2} \cdot \sigma_X^2 = 1
+\operatorname{Var}(Z) = \frac{1}{\sigma_X^2} \cdot \sigma_X^2 = 1
 $$
 
 Thus, the standardized variable $Z$ has variance 1.
 
 
 $$
-  \mathbb{V}(Z) = 1
+  \operatorname{Var}(Z) = 1
 $$
 
 To summarize, by standardizing a random variable using
@@ -211,8 +211,8 @@ $$
 
 we obtained a new variable $Z$ with the following properties:
 
-- $\mathbb{E}(Z) = 0$
-- $\mathbb{V}(Z) = 1$
+- $E(Z) = 0$
+- $\operatorname{Var}(Z) = 1$
 
 This makes $Z$ easier to work with and allows comparisons between different variables, regardless of their original scale or units.
 
@@ -249,14 +249,14 @@ For each of the random variables below, decide whether it is discrete or continu
 
 
 8. Two workers, Alice and Bob, work independently on a task. The time (in hours) it takes each of them to complete their part is modeled as discrete random variables:\
-  $X$ is Alice’s completion time, with $\mathbb{E}(X) = 5$ and $\mathbb{V}(X) = 1.5$\
-  $Y$ is Bob’s completion time, with $\mathbb{E}(Y) = 6$ and $\mathbb{V}(Y) = 2$\
+  $X$ is Alice’s completion time, with $E(X) = 5$ and $\operatorname{Var}(X) = 1.5$\
+  $Y$ is Bob’s completion time, with $E(Y) = 6$ and $\operatorname{Var}(Y) = 2$\
   Assume $X$ and $Y$ are independent.
   Now define:
     - $T = X + Y$ as the total time they spend
     - $D = Y - X$ as the difference between their times
     
-    Compute $\mathbb{E}(T)$, $\mathbb{V}(T)$, $\mathbb{E}(D)$ and $\mathbb{V}(D)$.
+    Compute $E(T)$, $\operatorname{Var}(T)$, $E(D)$ and $\operatorname{Var}(D)$.
 
 
 ::: {.callout-tip collapse="true"}
@@ -265,26 +265,26 @@ Total time: $T = X + Y$.
 Using linearity of expectation:
 
 $$
-\mathbb{E}(T) = \mathbb{E}(X) + \mathbb{E}(Y) = 5 + 6 = 11
+E(T) = E(X) + E(Y) = 5 + 6 = 11
 $$
 
 Since $X$ and $Y$ are independent:
 
 $$
-\mathbb{V}(T) = \mathbb{V}(X) + \mathbb{V}(Y) = 1.5 + 2 = 3.5
+\operatorname{Var}(T) = \operatorname{Var}(X) + \operatorname{Var}(Y) = 1.5 + 2 = 3.5
 $$
 
 Time difference: $D = Y - X$.
 Again, using linearity:
 
 $$
-\mathbb{E}(D) = \mathbb{E}(Y - X) = \mathbb{E}(Y) - \mathbb{E}(X) = 6 - 5 = 1
+E(D) = E(Y - X) = E(Y) - E(X) = 6 - 5 = 1
 $$
 
 Variance of the difference (since $X$ and $Y$ are independent):
 
 $$
-\mathbb{V}(D) = \mathbb{V}(Y) + \mathbb{V}(X) = 2 + 1.5 = 3.5
+\operatorname{Var}(D) = \operatorname{Var}(Y) + \operatorname{Var}(X) = 2 + 1.5 = 3.5
 $$
 
 
