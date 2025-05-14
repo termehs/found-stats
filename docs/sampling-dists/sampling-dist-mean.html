@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.7.29">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Termeh Shafie">
-<title>Appendix A: Standard Normal Table – Foundational Statistics</title>
+<title>17&nbsp; Sampling Distributions for a Sample Mean – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,7 +27,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="prev">
+<link href="../sampling-dists/sampling-dist-prop.html" rel="next">
+<link href="../sampling-dists/sampling.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -98,7 +99,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/normal-table.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Sampling and Sampling Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling-dist-mean.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -279,7 +280,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
   </div>
 </li>
@@ -318,7 +319,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link active">
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
   </div>
 </li>
@@ -328,12 +329,19 @@ window.Quarto = {
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#the-sample-mean-as-a-random-variable" id="toc-the-sample-mean-as-a-random-variable" class="nav-link active" data-scroll-target="#the-sample-mean-as-a-random-variable"><span class="header-section-number">17.1</span> The Sample Mean as a Random Variable</a></li>
+  <li><a href="#properties-of-the-sampling-distribution" id="toc-properties-of-the-sampling-distribution" class="nav-link" data-scroll-target="#properties-of-the-sampling-distribution"><span class="header-section-number">17.2</span> Properties of the Sampling Distribution</a></li>
+  <li><a href="#normal-distribution-of-the-sample-mean" id="toc-normal-distribution-of-the-sample-mean" class="nav-link" data-scroll-target="#normal-distribution-of-the-sample-mean"><span class="header-section-number">17.3</span> Normal Distribution of the Sample Mean</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling-dist-mean.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/normal-table.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-normaltbl" class="quarto-section-identifier">Appendix A: Standard Normal Table</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Sampling and Sampling Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling-dist-mean.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-sampldist-mean" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></h1>
 </div>
 
 
@@ -347,455 +355,244 @@ window.Quarto = {
   
 
 
-</header><div class="cell" data-layout-align="center">
+</header><p>The sample mean <span class="math inline">\(\bar{X}\)</span>, when calculated from a random sample, is itself a random variable whose distribution reflects the variability inherent in the sampling process. This distribution, the sampling distribution of the sample mean, has an expected value equal to the true population mean <span class="math inline">\(\mu\)</span>, and its variance is given by <span class="math inline">\(\sigma^2 / n\)</span>, where <span class="math inline">\(\sigma^2\)</span> is the population variance and <span class="math inline">\(n\)</span> is the sample size. Consequently, the standard error of the mean, defined as <span class="math inline">\(\sigma / \sqrt{n}\)</span>, quantifies the typical deviation of the sample mean from the population mean across repeated samples. Understanding this sampling distribution is essential for inferential statistics, whether we are constructing confidence intervals, performing hypothesis tests, or quantifying the uncertainty associated with point estimates.</p>
+<section id="the-sample-mean-as-a-random-variable" class="level2" data-number="17.1"><h2 data-number="17.1" class="anchored" data-anchor-id="the-sample-mean-as-a-random-variable">
+<span class="header-section-number">17.1</span> The Sample Mean as a Random Variable</h2>
+<p>Suppose we plan to collect a random sample of size <span class="math inline">\(n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance: <span class="math inline">\(\sigma^2\)</span>. Let <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> represent the values we observe in that sample. We assume <strong>independent and identically distributed (i.i.d.)</strong> random variables, that is:</p>
+<ul>
+<li>The variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> are independent,</li>
+<li>Each <span class="math inline">\(X_i\)</span> follows the same distribution (i.e., they are identically distributed)</li>
+</ul>
+<p>The sample mean <span class="math inline">\(\bar{X}\)</span> is defined as: <span class="math display">\[
+\bar{X} = \frac{X_1 + X_2 + \cdots + X_n}{n} = \frac{1}{n} \sum_{i=1}^n X_i
+\]</span></p>
+<p>Although we treat <span class="math inline">\(\bar{X}\)</span> as a numerical quantity once the sample is collected, in theory it is itself a random variable; its value depends on which sample we happen to get and the observations within the sample.</p>
+<p>The distribution of <span class="math inline">\(\bar{X}\)</span> across all possible random samples is called the <strong>sampling distribution of the sample mean</strong>. Each time we take a random sample from the population, we compute a sample mean. If we were to repeat the sampling process many times, we would get different values of <span class="math inline">\(\bar{X}\)</span>. The distribution of these values, one for each possible sample, forms the sampling distribution of the sample mean.</p>
+<p>This distribution tells us:</p>
+<ul>
+<li>What values the sample mean might take,</li>
+<li>How much it tends to vary from sample to sample,</li>
+<li>How close we can expect it to be to the population mean.</li>
+</ul></section><section id="properties-of-the-sampling-distribution" class="level2" data-number="17.2"><h2 data-number="17.2" class="anchored" data-anchor-id="properties-of-the-sampling-distribution">
+<span class="header-section-number">17.2</span> Properties of the Sampling Distribution</h2>
+<p>Let <span class="math inline">\(X_1, \dots, X_n\)</span> be an i.i.d. sample from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then the sample mean <span class="math inline">\(\bar{X}\)</span> has:</p>
+<ul>
+<li>Expected value (mean):</li>
+</ul>
+<p><span class="math display">\[
+E(\bar{X}) = \mu
+\]</span></p>
+<ul>
+<li><p>Variance: <span class="math display">\[
+\operatorname{Var}(\bar{X}) = \frac{\sigma^2}{n}
+\]</span></p></li>
+<li><p>Standard deviation:</p></li>
+</ul>
+<p><span class="math display">\[
+\operatorname{SD}(\bar{X}) = \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>This standard deviation is known as the <strong>standard error</strong> of the mean.</p>
+<p>The more observations we average together, the less variability we expect in the result. A single observation <span class="math inline">\(X\)</span> has variance <span class="math inline">\(\sigma^2\)</span>, but the mean of <span class="math inline">\(n\)</span> i.i.d. observations spreads out less, its variance shrinks by a factor of <span class="math inline">\(1/n\)</span>. This is why increasing the sample size gives more precise estimates of the population mean. This is illustrated in <a href="#fig-samplemean" class="quarto-xref">Figure&nbsp;<span>17.1</span></a> where a simulation of the sampling distribution of the mean shown for a population with mean 50 and variance 100. The plot shows how the distribution evolves as the number of repeated samples of size <span class="math inline">\(n = 30\)</span> increases from 10 to 1000.</p>
+<div id="fig-samplemean" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-samplemean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="normal-table_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288"></p>
+<div>
+<figure class="figure"><p><img src="sampling-dist-mean_files/figure-html/unnamed-chunk-1-1.gif" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-samplemean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: Simulation of the sampling distribution of the mean for a population with mean 50 and variance 100. The plot shows how the distribution evolves as the number of repeated samples of size <span class="math inline">\(n = 30\)</span> increases from 10 to 1000.
+</figcaption></figure>
+</div>
+<p>Why does this happen? Since the sample mean is a linear combination of independent, identically distributed random variables:</p>
+<ul>
+<li>Independence means the variances add.</li>
+<li>Identical distribution means they each have the same mean and variance.</li>
+</ul>
+<p>Using the linearity of expectation, we find:</p>
+<p><span class="math display">\[
+\begin{split}
+E(\bar{X}) &amp;= E\left( \frac{1}{n} \sum_{i=1}^n X_i \right) \\
+&amp;= \frac{1}{n} E\left( \sum_{i=1}^n X_i \right) \\
+&amp;= \frac{1}{n} \sum_{i=1}^n E(X_i) \\
+&amp;= \frac{1}{n} \sum_{i=1}^n \mu_X \\
+&amp;= \frac{n \cdot \mu_X}{n} \\
+&amp;= \mu_X
+\end{split}
+\]</span></p>
+<p>This confirms that <span class="math inline">\(\bar{X}\)</span> is an <strong>unbiased estimator</strong> of the population mean <span class="math inline">\(\mu_X\)</span> (in the long run, we hit the target). Assuming independence, the variance of the sum is the sum of the variances. Therefore:</p>
+<p><span class="math display">\[
+\begin{split}
+\operatorname{Var}(\bar{X}) &amp;= \operatorname{Var} \left( \frac{1}{n} \sum_{i=1}^n X_i \right) \\
+&amp;= \frac{1}{n^2} \operatorname{Var} \left( \sum_{i=1}^n X_i \right) \\
+&amp;= \frac{1}{n^2} \sum_{i=1}^n \operatorname{Var}(X_i) \quad \text{(independence)} \\
+&amp;= \frac{1}{n^2} \sum_{i=1}^n \sigma_X^2 \\
+&amp;= \frac{1}{n^2} \cdot n \cdot \sigma_X^2 \\
+&amp;= \frac{\sigma_X^2}{n}
+\end{split}
+\]</span></p>
+<p>The variance of the sample mean thus shrinks with larger sample sizes, reflecting increased precision. The square root of the variance of the sample mean is known as the <strong>standard error</strong> of the mean:</p>
+<p><span class="math display">\[
+\text{SE}(\bar{X}) = \frac{\sigma_X}{\sqrt{n}}
+\]</span></p>
+<p>This measures how much the sample mean is expected to vary from sample to sample. It decreases as <span class="math inline">\(n\)</span> increases, giving tighter estimates of the population mean with larger samples. Together, these results imply that <span class="math inline">\(\bar{X}\)</span> is not only unbiased, but also a <strong>consistent estimator</strong> of <span class="math inline">\(\mu_X\)</span>. That is: <span class="math display">\[
+\bar{X} \xrightarrow{P} \mu_X \quad \text{as } n \to \infty
+\]</span></p>
+<p>This convergence in probability follows from the <strong>Law of Large Numbers</strong>: as the sample size grows, the probability that the sample mean deviates significantly from the true mean approaches zero. We will return to these concepts in mroe detail later in the book.</p>
+<section id="example-17.1-which-sampling-method-gives-a-more-accurate-total" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-17.1-which-sampling-method-gives-a-more-accurate-total">Example: 17.1: Which Sampling Method Gives a More Accurate Total?</h4>
+<p>In the production of construction elements, the lengths of individual parts vary slightly due to randomness in the manufacturing process. These variations can be modeled as outcomes from independent and identically distributed random variables with:</p>
+<ul>
+<li>Mean (expected length): <span class="math inline">\(\mu = 2\)</span> meters<br>
+</li>
+<li>Standard deviation: <span class="math inline">\(\sigma = 0.005\)</span> meters (i.e., 5 mm)</li>
+</ul>
+<p>Suppose we need ten elements that together should sum to exactly 20 meters. We consider two alternative methods to select these:</p>
+<p><strong>Method 1</strong>: Randomly select <strong>one element</strong>, then <strong>cut or grind the remaining nine</strong> so that all ten elements match the length of the first.</p>
+<p><strong>Method 2</strong>: Randomly select <strong>ten elements independently</strong> from the production line.</p>
+<p>The question is: <em>Which method gives a total length closer to the desired 20 meters on average?</em></p>
+<p>Let’s analyze the variance of the total length under each method:</p>
+<p><strong>Method 1</strong><br>
+All ten elements are set to the same length, which is a single random realization of one element <span class="math inline">\(X\)</span>. So the total length is: <span class="math display">\[
+L_1 = 10X
+\]</span></p>
+<p>Then the variance of the total length is: <span class="math display">\[
+\operatorname{Var}(L_1) = \operatorname{Var}(10X) = 100 \cdot \operatorname{Var}(X) = 100 \sigma^2
+\]</span></p>
+<p><strong>Method 2</strong><br>
+Each element is chosen independently: <span class="math inline">\(X_1, X_2, \dots, X_{10}\)</span>. The total length is:</p>
+<p><span class="math display">\[
+L_2 = X_1 + X_2 + \dots + X_{10}
+\]</span></p>
+<p>Then the variance of the total length is:</p>
+<p><span class="math display">\[
+\operatorname{Var}(L_2) = \sum_{i=1}^{10} \operatorname{Var}(X_i) = 10 \sigma^2
+\]</span></p>
+<p>Both methods are unbiased: in expectation, the total length is <span class="math inline">\(E(L) = 10 \cdot \mu = 20\)</span> meters.<br>
+However, Method 2 has significantly lower variance (the total variance is ten times smaller under Method 2 than Method 1), meaning the total length will more reliably fall close to 20 meters. This is visulalized in <a href="#fig-ex17" class="quarto-xref">Figure&nbsp;<span>17.2</span></a>.</p>
+<div id="fig-ex17" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ex17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Standard Normal Cumulative Probabilities: <span class="math inline">\(\Phi(z) = P(Z \leq z)\)</span>
-</caption>
-<colgroup>
-<col style="width: 6%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
-<thead><tr class="header">
-<th style="text-align: right;">z</th>
-<th style="text-align: right;">0.00</th>
-<th style="text-align: right;">0.01</th>
-<th style="text-align: right;">0.02</th>
-<th style="text-align: right;">0.03</th>
-<th style="text-align: right;">0.04</th>
-<th style="text-align: right;">0.05</th>
-<th style="text-align: right;">0.06</th>
-<th style="text-align: right;">0.07</th>
-<th style="text-align: right;">0.08</th>
-<th style="text-align: right;">0.09</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.500</td>
-<td style="text-align: right;">0.504</td>
-<td style="text-align: right;">0.508</td>
-<td style="text-align: right;">0.512</td>
-<td style="text-align: right;">0.516</td>
-<td style="text-align: right;">0.520</td>
-<td style="text-align: right;">0.524</td>
-<td style="text-align: right;">0.528</td>
-<td style="text-align: right;">0.532</td>
-<td style="text-align: right;">0.536</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">0.540</td>
-<td style="text-align: right;">0.544</td>
-<td style="text-align: right;">0.548</td>
-<td style="text-align: right;">0.552</td>
-<td style="text-align: right;">0.556</td>
-<td style="text-align: right;">0.560</td>
-<td style="text-align: right;">0.564</td>
-<td style="text-align: right;">0.567</td>
-<td style="text-align: right;">0.571</td>
-<td style="text-align: right;">0.575</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.579</td>
-<td style="text-align: right;">0.583</td>
-<td style="text-align: right;">0.587</td>
-<td style="text-align: right;">0.591</td>
-<td style="text-align: right;">0.595</td>
-<td style="text-align: right;">0.599</td>
-<td style="text-align: right;">0.603</td>
-<td style="text-align: right;">0.606</td>
-<td style="text-align: right;">0.610</td>
-<td style="text-align: right;">0.614</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.3</td>
-<td style="text-align: right;">0.618</td>
-<td style="text-align: right;">0.622</td>
-<td style="text-align: right;">0.626</td>
-<td style="text-align: right;">0.629</td>
-<td style="text-align: right;">0.633</td>
-<td style="text-align: right;">0.637</td>
-<td style="text-align: right;">0.641</td>
-<td style="text-align: right;">0.644</td>
-<td style="text-align: right;">0.648</td>
-<td style="text-align: right;">0.652</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.4</td>
-<td style="text-align: right;">0.655</td>
-<td style="text-align: right;">0.659</td>
-<td style="text-align: right;">0.663</td>
-<td style="text-align: right;">0.666</td>
-<td style="text-align: right;">0.670</td>
-<td style="text-align: right;">0.674</td>
-<td style="text-align: right;">0.677</td>
-<td style="text-align: right;">0.681</td>
-<td style="text-align: right;">0.684</td>
-<td style="text-align: right;">0.688</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.5</td>
-<td style="text-align: right;">0.691</td>
-<td style="text-align: right;">0.695</td>
-<td style="text-align: right;">0.698</td>
-<td style="text-align: right;">0.702</td>
-<td style="text-align: right;">0.705</td>
-<td style="text-align: right;">0.709</td>
-<td style="text-align: right;">0.712</td>
-<td style="text-align: right;">0.716</td>
-<td style="text-align: right;">0.719</td>
-<td style="text-align: right;">0.722</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.6</td>
-<td style="text-align: right;">0.726</td>
-<td style="text-align: right;">0.729</td>
-<td style="text-align: right;">0.732</td>
-<td style="text-align: right;">0.736</td>
-<td style="text-align: right;">0.739</td>
-<td style="text-align: right;">0.742</td>
-<td style="text-align: right;">0.745</td>
-<td style="text-align: right;">0.749</td>
-<td style="text-align: right;">0.752</td>
-<td style="text-align: right;">0.755</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.7</td>
-<td style="text-align: right;">0.758</td>
-<td style="text-align: right;">0.761</td>
-<td style="text-align: right;">0.764</td>
-<td style="text-align: right;">0.767</td>
-<td style="text-align: right;">0.770</td>
-<td style="text-align: right;">0.773</td>
-<td style="text-align: right;">0.776</td>
-<td style="text-align: right;">0.779</td>
-<td style="text-align: right;">0.782</td>
-<td style="text-align: right;">0.785</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.8</td>
-<td style="text-align: right;">0.788</td>
-<td style="text-align: right;">0.791</td>
-<td style="text-align: right;">0.794</td>
-<td style="text-align: right;">0.797</td>
-<td style="text-align: right;">0.800</td>
-<td style="text-align: right;">0.802</td>
-<td style="text-align: right;">0.805</td>
-<td style="text-align: right;">0.808</td>
-<td style="text-align: right;">0.811</td>
-<td style="text-align: right;">0.813</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.9</td>
-<td style="text-align: right;">0.816</td>
-<td style="text-align: right;">0.819</td>
-<td style="text-align: right;">0.821</td>
-<td style="text-align: right;">0.824</td>
-<td style="text-align: right;">0.826</td>
-<td style="text-align: right;">0.829</td>
-<td style="text-align: right;">0.831</td>
-<td style="text-align: right;">0.834</td>
-<td style="text-align: right;">0.836</td>
-<td style="text-align: right;">0.839</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.0</td>
-<td style="text-align: right;">0.841</td>
-<td style="text-align: right;">0.844</td>
-<td style="text-align: right;">0.846</td>
-<td style="text-align: right;">0.848</td>
-<td style="text-align: right;">0.851</td>
-<td style="text-align: right;">0.853</td>
-<td style="text-align: right;">0.855</td>
-<td style="text-align: right;">0.858</td>
-<td style="text-align: right;">0.860</td>
-<td style="text-align: right;">0.862</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">0.864</td>
-<td style="text-align: right;">0.867</td>
-<td style="text-align: right;">0.869</td>
-<td style="text-align: right;">0.871</td>
-<td style="text-align: right;">0.873</td>
-<td style="text-align: right;">0.875</td>
-<td style="text-align: right;">0.877</td>
-<td style="text-align: right;">0.879</td>
-<td style="text-align: right;">0.881</td>
-<td style="text-align: right;">0.883</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">0.885</td>
-<td style="text-align: right;">0.887</td>
-<td style="text-align: right;">0.889</td>
-<td style="text-align: right;">0.891</td>
-<td style="text-align: right;">0.893</td>
-<td style="text-align: right;">0.894</td>
-<td style="text-align: right;">0.896</td>
-<td style="text-align: right;">0.898</td>
-<td style="text-align: right;">0.900</td>
-<td style="text-align: right;">0.901</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.903</td>
-<td style="text-align: right;">0.905</td>
-<td style="text-align: right;">0.907</td>
-<td style="text-align: right;">0.908</td>
-<td style="text-align: right;">0.910</td>
-<td style="text-align: right;">0.911</td>
-<td style="text-align: right;">0.913</td>
-<td style="text-align: right;">0.915</td>
-<td style="text-align: right;">0.916</td>
-<td style="text-align: right;">0.918</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.919</td>
-<td style="text-align: right;">0.921</td>
-<td style="text-align: right;">0.922</td>
-<td style="text-align: right;">0.924</td>
-<td style="text-align: right;">0.925</td>
-<td style="text-align: right;">0.926</td>
-<td style="text-align: right;">0.928</td>
-<td style="text-align: right;">0.929</td>
-<td style="text-align: right;">0.931</td>
-<td style="text-align: right;">0.932</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.933</td>
-<td style="text-align: right;">0.934</td>
-<td style="text-align: right;">0.936</td>
-<td style="text-align: right;">0.937</td>
-<td style="text-align: right;">0.938</td>
-<td style="text-align: right;">0.939</td>
-<td style="text-align: right;">0.941</td>
-<td style="text-align: right;">0.942</td>
-<td style="text-align: right;">0.943</td>
-<td style="text-align: right;">0.944</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.945</td>
-<td style="text-align: right;">0.946</td>
-<td style="text-align: right;">0.947</td>
-<td style="text-align: right;">0.948</td>
-<td style="text-align: right;">0.949</td>
-<td style="text-align: right;">0.951</td>
-<td style="text-align: right;">0.952</td>
-<td style="text-align: right;">0.953</td>
-<td style="text-align: right;">0.954</td>
-<td style="text-align: right;">0.954</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.955</td>
-<td style="text-align: right;">0.956</td>
-<td style="text-align: right;">0.957</td>
-<td style="text-align: right;">0.958</td>
-<td style="text-align: right;">0.959</td>
-<td style="text-align: right;">0.960</td>
-<td style="text-align: right;">0.961</td>
-<td style="text-align: right;">0.962</td>
-<td style="text-align: right;">0.962</td>
-<td style="text-align: right;">0.963</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.8</td>
-<td style="text-align: right;">0.964</td>
-<td style="text-align: right;">0.965</td>
-<td style="text-align: right;">0.966</td>
-<td style="text-align: right;">0.966</td>
-<td style="text-align: right;">0.967</td>
-<td style="text-align: right;">0.968</td>
-<td style="text-align: right;">0.969</td>
-<td style="text-align: right;">0.969</td>
-<td style="text-align: right;">0.970</td>
-<td style="text-align: right;">0.971</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.9</td>
-<td style="text-align: right;">0.971</td>
-<td style="text-align: right;">0.972</td>
-<td style="text-align: right;">0.973</td>
-<td style="text-align: right;">0.973</td>
-<td style="text-align: right;">0.974</td>
-<td style="text-align: right;">0.974</td>
-<td style="text-align: right;">0.975</td>
-<td style="text-align: right;">0.976</td>
-<td style="text-align: right;">0.976</td>
-<td style="text-align: right;">0.977</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.0</td>
-<td style="text-align: right;">0.977</td>
-<td style="text-align: right;">0.978</td>
-<td style="text-align: right;">0.978</td>
-<td style="text-align: right;">0.979</td>
-<td style="text-align: right;">0.979</td>
-<td style="text-align: right;">0.980</td>
-<td style="text-align: right;">0.980</td>
-<td style="text-align: right;">0.981</td>
-<td style="text-align: right;">0.981</td>
-<td style="text-align: right;">0.982</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">0.982</td>
-<td style="text-align: right;">0.983</td>
-<td style="text-align: right;">0.983</td>
-<td style="text-align: right;">0.983</td>
-<td style="text-align: right;">0.984</td>
-<td style="text-align: right;">0.984</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.986</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.2</td>
-<td style="text-align: right;">0.986</td>
-<td style="text-align: right;">0.986</td>
-<td style="text-align: right;">0.987</td>
-<td style="text-align: right;">0.987</td>
-<td style="text-align: right;">0.987</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.989</td>
-<td style="text-align: right;">0.989</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">0.989</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.992</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.4</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.994</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.5</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.7</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.9</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-</tr>
-</tbody>
-</table>
+<div>
+<figure class="figure"><p><img src="sampling-dist-mean_files/figure-html/simulate-total-lengths-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ex17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.2: Simulation of total length under the two sampling methods in example 17.1.
+</figcaption></figure>
+</div>
+<p>The general insight from above example is as follows. If we randomly select a single unit from a population, its expected value is <span class="math inline">\(\mu\)</span>, and it deviates from the mean on average by <span class="math inline">\(\sigma\)</span>. If we instead select a sample of <span class="math inline">\(n\)</span> units, the sample mean <span class="math inline">\(\bar{X}\)</span> is still centered around <span class="math inline">\(\mu\)</span>, but the deviations tend to cancel out. Thus:</p>
+<p><span class="math display">\[
+\text{Standard deviation of } \bar{X} = \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>This demonstrates the <strong>variance-reducing power</strong> of averaging, and illustrates why using independent samples yields more reliable estimates; a key motivation behind the sampling distribution of the mean.</p>
+</section></section><section id="normal-distribution-of-the-sample-mean" class="level2" data-number="17.3"><h2 data-number="17.3" class="anchored" data-anchor-id="normal-distribution-of-the-sample-mean">
+<span class="header-section-number">17.3</span> Normal Distribution of the Sample Mean</h2>
+<p>If the variable of interest <span class="math inline">\(X\)</span> is itself normally distributed, then the sample mean <span class="math inline">\(\bar{X}\)</span> is also normally distributed, regardless of the sample size. Formally, if:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(\mu_X, \sigma_X)
+\]</span></p>
+<p>then for any sample size <span class="math inline">\(n\)</span>, the sample mean follows:</p>
+<p><span class="math display">\[
+\bar{X} \sim \mathcal{N} \left( \mu_X, \frac{\sigma_X}{\sqrt{n}} \right)
+\]</span></p>
+<p>To calculate probabilities involving a sample mean, we often need to standardize it — that is, convert it to a standard normal variable. If the sample mean <span class="math inline">\(\bar{X}\)</span> is normally distributed with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma / \sqrt{n}\)</span>, we can transform it using the formula:</p>
+<p><span class="math display">\[
+Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}
+\]</span></p>
+<p>This transformation yields a new variable <span class="math inline">\(Z\)</span> that follows the standard normal distribution <span class="math inline">\(\mathcal{N}(0, 1)\)</span>. Once in this form, we can use standard normal tables or software to compute probabilities and percentiles, just as done before in <a href="../rvs-probdists/cont-dists.html" class="quarto-xref"><span>Chapter 14</span></a>.</p>
+<p>But what happens if <span class="math inline">\(X\)</span> is not normally distributed? Can we still use these kinds of probability calculations? Later in this part, we’ll explore the <strong>Central Limit Theorem</strong>, which shows that the sample mean <span class="math inline">\(\bar{X}\)</span> still tends to follow a normal distribution as long as the sample size is sufficiently large, even if the original data are not normally distributed.</p>
+<section id="example-17.2-lightbulb-lifespans" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-17.2-lightbulb-lifespans">Example: 17.2: Lightbulb Lifespans</h4>
+<p>The lifespan of a particular brand of lightbulb is known to follow a normal distribution with a mean of <span class="math inline">\(\mu = 1200\)</span> hours and a standard deviation of <span class="math inline">\(\sigma = 50\)</span> hours. A quality control engineer takes a random sample of <span class="math inline">\(n = 25\)</span> lightbulbs. What is the probability that the average lifespan of the sampled bulbs is less than 1180 hours?</p>
+<p>We are asked to calculate:</p>
+<p><span class="math display">\[
+P(\bar{X} \leq 1180)
+\]</span></p>
+<p>Since the sample comes from a normally distributed population, the sample mean <span class="math inline">\(\bar{X}\)</span> also follows a normal distribution: <span class="math display">\[
+\bar{X} \sim \mathcal{N} \left(1200, \frac{50}{\sqrt{25}} \right) = \mathcal{N}(1200, 10)
+\]</span> We standardize the problem using the <span class="math inline">\(Z\)</span>-score formula:</p>
+<p><span class="math display">\[
+\begin{split}
+Z &amp;= \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} = \frac{1180 - 1200}{10} = -2
+\end{split}
+\]</span></p>
+<p>Now, using the standard normal distribution table or a calculator: <span class="math display">\[
+P(\bar{X} \leq 1180) = P(Z \leq -2) = 0.022
+\]</span></p>
+<p>There is a 2.28% chance that the sample mean is less than 1180 hours, even though the expected mean is 1200 hours.</p>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>A city reports that the daily commute time for its residents is normally distributed with a mean of <span class="math inline">\(\mu = 42\)</span> minutes and a standard deviation of <span class="math inline">\(\sigma = 12\)</span> minutes. A researcher takes a random sample of <span class="math inline">\(n = 36\)</span> residents. What is the probability that the average commute time in the sample is more than 45 minutes?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We are asked to compute: <span class="math display">\[
+P(\bar{X} &gt; 45)
+\]</span></p>
+<p>Since <span class="math inline">\(X \sim \mathcal{N}(42, 12)\)</span> and <span class="math inline">\(n = 36\)</span>, the sampling distribution of the mean is:</p>
+<p><span class="math display">\[
+\bar{X} \sim \mathcal{N}\left(42, \frac{12}{\sqrt{36}}\right) = \mathcal{N}(42, 2)
+\]</span> Now standardize: <span class="math display">\[
+Z = \frac{45 - 42}{2} = 1.5
+\]</span></p>
+<p>Using the standard normal table: <span class="math display">\[
+P(\bar{X} &gt; 45) = P(Z &gt; 1.5) = 1 - 0.933 = 0.067
+\]</span></p>
+<p>There is a 6.68% chance that the sample mean is greater than 45 minutes.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>The battery life of a type of smartphone is normally distributed with a mean of 10 hours and a standard deviation of 1.5 hours. An engineer selects a random sample of 49 phones. What is the probability that their average battery life is between 9.7 and 10.2 hours?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We want: <span class="math display">\[
+P(9.7 \leq \bar{X} \leq 10.2)
+\]</span></p>
+<p>The sampling distribution is: <span class="math display">\[
+\bar{X} \sim \mathcal{N}\left(10, \frac{1.5}{\sqrt{49}}\right) = \mathcal{N}(10, 0.214)
+\]</span> Standardize both bounds: <span class="math display">\[
+Z_1 = \frac{9.7 - 10}{0.214} \approx -1.40 \\
+Z_2 = \frac{10.2 - 10}{0.214} \approx 0.93
+\]</span></p>
+<p>Using the standard normal table: <span class="math display">\[
+P(-1.40 \leq Z \leq 0.93) = \Phi(0.93) - \Phi(-1.40) \approx 0.8238 - 0.0808 = 0.743
+\]</span></p>
+<p>There is a 74.3% chance that the average battery life lies between 9.7 and 10.2 hours.</p>
+</div>
 </div>
 </div>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1194,11 +991,14 @@ window.Quarto = {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="../sampling-dists/sampling.html" class="pagination-link" aria-label="Sampling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../sampling-dists/sampling-dist-prop.html" class="pagination-link" aria-label="Sampling Distributions for a Proportion">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1208,7 +1008,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/appendix/normal-table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling-dist-mean.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/rvs-probdists/discrete-dists.html</loc>
-    <lastmod>2025-05-13T07:38:30.726Z</lastmod>
+    <lastmod>2025-05-14T07:11:53.459Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/sampling-dists.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/appendix/normal-table.html</loc>
-    <lastmod>2025-05-06T07:04:42.437Z</lastmod>
+    <lastmod>2025-05-14T07:32:58.555Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/references.html</loc>
@@ -87,5 +87,13 @@
   <url>
     <loc>https://termehs.github.io/found-stats/sampling-dists/sampling-dists.html</loc>
     <lastmod>2025-05-13T13:50:16.180Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/sampling-dists/sampling-dist-mean.html</loc>
+    <lastmod>2025-05-13T13:58:28.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/sampling-dists/sampling-dist-prop.html</loc>
+    <lastmod>2025-05-14T10:23:47.281Z</lastmod>
   </url>
 </urlset>

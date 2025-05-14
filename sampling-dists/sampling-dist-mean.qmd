@@ -1,4 +1,4 @@
-# Sampling Distributions for a Sample Mean
+# Sampling Distributions for a Sample Mean {#sec-sampldist-mean}
 The sample mean $\bar{X}$, when calculated from a random sample, is itself a random variable whose distribution reflects the variability inherent in the sampling process. This distribution, the sampling distribution of the sample mean, has an expected value equal to the true population mean $\mu$, and its variance is given by $\sigma^2 / n$, where $\sigma^2$ is the population variance and $n$ is the sample size. Consequently, the standard error of the mean, defined as $\sigma / \sqrt{n}$, quantifies the typical deviation of the sample mean from the population mean across repeated samples. Understanding this sampling distribution is essential for inferential statistics, whether we are constructing confidence intervals, performing hypothesis tests, or quantifying the uncertainty associated with point estimates.
 
 ## The Sample Mean as a Random Variable

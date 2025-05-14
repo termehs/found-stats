@@ -391,7 +391,7 @@ $$
 
 This gives a total expected project cost of €35,710, with a standard deviation of about €1,022.
 
-## The Bernoulli and Binomial Distribution
+## The Bernoulli and Binomial Distribution  {#sec-binom}
 In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise — such as flipping a coin or checking if a customer buys a product — follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.
 
 A random variable $X$ is said to follow a **Bernoulli distribution** if it takes on only two possible values: $0$ and $1$. These values typically represent the outcomes of a binary trial — such as failure or success — with probabilities $1 - p$ and $p$ respectively. The distribution is written as:

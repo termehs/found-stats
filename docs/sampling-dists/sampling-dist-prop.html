@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.7.29">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Termeh Shafie">
-<title>Appendix A: Standard Normal Table – Foundational Statistics</title>
+<title>18&nbsp; Sampling Distributions for a Proportion – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,7 +27,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="prev">
+<link href="../inference.html" rel="next">
+<link href="../sampling-dists/sampling-dist-mean.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -98,7 +99,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/normal-table.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Sampling and Sampling Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling-dist-prop.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -285,7 +286,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></span></a>
   </div>
 </li>
@@ -318,7 +319,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link active">
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
   </div>
 </li>
@@ -328,12 +329,19 @@ window.Quarto = {
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#the-proportion-as-a-random-variable" id="toc-the-proportion-as-a-random-variable" class="nav-link active" data-scroll-target="#the-proportion-as-a-random-variable"><span class="header-section-number">18.1</span> The Proportion as a Random Variable</a></li>
+  <li><a href="#properties-of-the-sampling-distribution" id="toc-properties-of-the-sampling-distribution" class="nav-link" data-scroll-target="#properties-of-the-sampling-distribution"><span class="header-section-number">18.2</span> Properties of the Sampling Distribution</a></li>
+  <li><a href="#normal-approximation-of-the-sample-proportion" id="toc-normal-approximation-of-the-sample-proportion" class="nav-link" data-scroll-target="#normal-approximation-of-the-sample-proportion"><span class="header-section-number">18.3</span> Normal Approximation of the Sample Proportion</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">18.4</span> Exercises</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling-dist-prop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/normal-table.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-normaltbl" class="quarto-section-identifier">Appendix A: Standard Normal Table</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sampling-dists/sampling.html">Sampling and Sampling Distributions</a></li><li class="breadcrumb-item"><a href="../sampling-dists/sampling-dist-prop.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-sampldist-prop" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></span></h1>
 </div>
 
 
@@ -347,455 +355,193 @@ window.Quarto = {
   
 
 
-</header><div class="cell" data-layout-align="center">
+</header><p>In many applications, we are interested not in the mean of a variable, but in the <strong>proportion</strong> of units in a population that possess a certain characteristic — for example, the proportion of voters who support a candidate, or the proportion of products that are defective.</p>
+<section id="the-proportion-as-a-random-variable" class="level2" data-number="18.1"><h2 data-number="18.1" class="anchored" data-anchor-id="the-proportion-as-a-random-variable">
+<span class="header-section-number">18.1</span> The Proportion as a Random Variable</h2>
+<p>Let <span class="math inline">\(p\)</span> denote the true proportion in the population of units with a characteristic <span class="math inline">\(A\)</span>. We consider two equivalent situations:</p>
+<ol type="1">
+<li>A random sample of size <span class="math inline">\(n\)</span> is drawn from a large (finite) population, where <span class="math inline">\(p\)</span> is the proportion of <span class="math inline">\(A\)</span>-units.</li>
+<li>We perform <span class="math inline">\(n\)</span> independent trials, each with probability <span class="math inline">\(p\)</span> of “success” (i.e., observing <span class="math inline">\(A\)</span>). In this case, <span class="math inline">\(X \sim \text{Bin}(n, p)\)</span>.</li>
+</ol>
+<p>In both cases, we define the <strong>sample proportion</strong> as:</p>
+<p><span class="math display">\[
+\hat{p} = \frac{X}{n}
+\]</span></p>
+<p>where <span class="math inline">\(X\)</span> is the number of observed “successes” in the sample.</p>
+<p>In fact, the sample proportion <span class="math inline">\(\hat{p}\)</span> can be viewed as a <strong>sample mean of 0/1 variables</strong>, where each observation equals 1 if the characteristic is present and 0 otherwise.</p>
+</section><section id="properties-of-the-sampling-distribution" class="level2" data-number="18.2"><h2 data-number="18.2" class="anchored" data-anchor-id="properties-of-the-sampling-distribution">
+<span class="header-section-number">18.2</span> Properties of the Sampling Distribution</h2>
+<p>Because <span class="math inline">\(\hat{p}\)</span> depends on the outcomes of a random process, it is itself a random variable. Its distribution is called the <strong>sampling distribution of the sample proportion</strong>.</p>
+<p>This distribution describes how the sample proportion <span class="math inline">\(\hat{p}\)</span> would vary from sample to sample due to randomness. Just like the sample mean, the sample proportion has a mean and variance:</p>
+<ul>
+<li><p>Expected value: <span class="math display">\[
+E(\hat{p}) = p
+\]</span></p></li>
+<li><p>Variance: <span class="math display">\[
+\operatorname{Var}(\hat{p}) = \frac{p(1 - p)}{n}
+\]</span></p></li>
+</ul>
+<p>These results follow from properties of the binomial distribution (see <a href="../rvs-probdists/discrete-dists.html#sec-binom" class="quarto-xref"><span>Section 13.6</span></a>). If <span class="math inline">\(X \sim \text{Bin}(n, p)\)</span>, then: <span class="math display">\[
+E(X) = np \quad \text{and} \quad \operatorname{Var}(X) = np(1 - p)
+\]</span></p>
+<p>Then: <span class="math display">\[
+E\left(\frac{X}{n}\right) = \frac{E(X)}{n} = \frac{np}{n} =  p
+\]</span> <span class="math display">\[
+\operatorname{Var}\left(\frac{X}{n}\right) = \frac{\operatorname{Var}(X)}{n^2} = \frac{np(1 - p)}{n^2} = \frac{p(1 - p)}{n}
+\]</span></p>
+</section><section id="normal-approximation-of-the-sample-proportion" class="level2" data-number="18.3"><h2 data-number="18.3" class="anchored" data-anchor-id="normal-approximation-of-the-sample-proportion">
+<span class="header-section-number">18.3</span> Normal Approximation of the Sample Proportion</h2>
+<p>Under certain conditions, the distribution of <span class="math inline">\(\hat{p}\)</span> can be approximated by a normal distribution. This is particularly useful for calculating probabilities.</p>
+<p>The approximation holds when the sample is sufficiently large. A common rule of thumb is:</p>
+<p><span class="math display">\[
+np(1 - p) &gt; 5
+\]</span></p>
+<p>If this holds, we can write:</p>
+<p><span class="math display">\[
+\hat{p} \approx \mathcal{N}\left(p, \frac{p(1 - p)}{n}\right)
+\]</span> This follows from the fact that the sample proportion <span class="math inline">\(\hat{p}\)</span> can be viewed as a sample mean of binary variables, justifying the use of <strong>Central Limit Theorem</strong> covered in the next chapter.</p>
+<section id="example-18.1-electrical-installations-in-old-houses" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-18.1-electrical-installations-in-old-houses">Example: 18.1: Electrical Installations in Old Houses</h4>
+<p>In a large population of older houses, 30% are known to have faulty electrical installations. We take a simple random sample of <span class="math inline">\(n = 250\)</span> houses. What is the probability that the sample proportion <span class="math inline">\(\hat{p}\)</span> falls between 0.25 and 0.35? Let’s have a look at the given:</p>
+<ul>
+<li>True population proportion: <span class="math inline">\(p = 0.30\)</span>
+</li>
+<li>Sample size: <span class="math inline">\(n = 250\)</span>
+</li>
+<li>Target interval: <span class="math inline">\(0.25 \leq \hat{p} \leq 0.35\)</span>
+</li>
+</ul>
+<p>Since we’re dealing with a sample proportion, the random variable <span class="math inline">\(\hat{p} = X/n\)</span> has:</p>
+<ul>
+<li>Expected value: <span class="math inline">\(E(\hat{p}) = p = 0.30\)</span>
+</li>
+<li>Variance: <span class="math inline">\(\operatorname{Var}(\hat{p}) = \frac{p(1 - p)}{n} = \frac{0.3 \cdot 0.7}{250} = 0.00084\)</span>
+</li>
+<li>Standard deviation (standard error): <span class="math inline">\(\sqrt{0.00084} \approx 0.029\)</span> We check:</li>
+</ul>
+<p><span class="math display">\[
+np(1 - p) = 250 \cdot 0.3 \cdot 0.7 = 52.5 &gt; 5
+\]</span></p>
+<p>This confirms that we can approximate the sampling distribution of <span class="math inline">\(\hat{p}\)</span> using a normal distribution. Next, we standardize the bounds and convert 0.25 and 0.35 to <span class="math inline">\(Z\)</span>-scores:</p>
+<p><span class="math display">\[
+Z_1 = \frac{0.25 - 0.30}{0.029} \approx -1.72 \\
+Z_2 = \frac{0.35 - 0.30}{0.029} \approx 1.72
+\]</span></p>
+<p>Now the probaiblity area we seek is given by as shown in the plot below: <span class="math display">\[
+P(0.25 \leq \hat{p} \leq 0.35) = P(-1.72 \leq Z \leq 1.72)
+\]</span></p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="normal-table_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288"></p>
+<figure class="figure"><p><img src="sampling-dist-prop_files/figure-html/plot-shaded-normal-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
 </figure>
 </div>
 </div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Standard Normal Cumulative Probabilities: <span class="math inline">\(\Phi(z) = P(Z \leq z)\)</span>
-</caption>
-<colgroup>
-<col style="width: 6%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
-<thead><tr class="header">
-<th style="text-align: right;">z</th>
-<th style="text-align: right;">0.00</th>
-<th style="text-align: right;">0.01</th>
-<th style="text-align: right;">0.02</th>
-<th style="text-align: right;">0.03</th>
-<th style="text-align: right;">0.04</th>
-<th style="text-align: right;">0.05</th>
-<th style="text-align: right;">0.06</th>
-<th style="text-align: right;">0.07</th>
-<th style="text-align: right;">0.08</th>
-<th style="text-align: right;">0.09</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.500</td>
-<td style="text-align: right;">0.504</td>
-<td style="text-align: right;">0.508</td>
-<td style="text-align: right;">0.512</td>
-<td style="text-align: right;">0.516</td>
-<td style="text-align: right;">0.520</td>
-<td style="text-align: right;">0.524</td>
-<td style="text-align: right;">0.528</td>
-<td style="text-align: right;">0.532</td>
-<td style="text-align: right;">0.536</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.1</td>
-<td style="text-align: right;">0.540</td>
-<td style="text-align: right;">0.544</td>
-<td style="text-align: right;">0.548</td>
-<td style="text-align: right;">0.552</td>
-<td style="text-align: right;">0.556</td>
-<td style="text-align: right;">0.560</td>
-<td style="text-align: right;">0.564</td>
-<td style="text-align: right;">0.567</td>
-<td style="text-align: right;">0.571</td>
-<td style="text-align: right;">0.575</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.579</td>
-<td style="text-align: right;">0.583</td>
-<td style="text-align: right;">0.587</td>
-<td style="text-align: right;">0.591</td>
-<td style="text-align: right;">0.595</td>
-<td style="text-align: right;">0.599</td>
-<td style="text-align: right;">0.603</td>
-<td style="text-align: right;">0.606</td>
-<td style="text-align: right;">0.610</td>
-<td style="text-align: right;">0.614</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.3</td>
-<td style="text-align: right;">0.618</td>
-<td style="text-align: right;">0.622</td>
-<td style="text-align: right;">0.626</td>
-<td style="text-align: right;">0.629</td>
-<td style="text-align: right;">0.633</td>
-<td style="text-align: right;">0.637</td>
-<td style="text-align: right;">0.641</td>
-<td style="text-align: right;">0.644</td>
-<td style="text-align: right;">0.648</td>
-<td style="text-align: right;">0.652</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.4</td>
-<td style="text-align: right;">0.655</td>
-<td style="text-align: right;">0.659</td>
-<td style="text-align: right;">0.663</td>
-<td style="text-align: right;">0.666</td>
-<td style="text-align: right;">0.670</td>
-<td style="text-align: right;">0.674</td>
-<td style="text-align: right;">0.677</td>
-<td style="text-align: right;">0.681</td>
-<td style="text-align: right;">0.684</td>
-<td style="text-align: right;">0.688</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.5</td>
-<td style="text-align: right;">0.691</td>
-<td style="text-align: right;">0.695</td>
-<td style="text-align: right;">0.698</td>
-<td style="text-align: right;">0.702</td>
-<td style="text-align: right;">0.705</td>
-<td style="text-align: right;">0.709</td>
-<td style="text-align: right;">0.712</td>
-<td style="text-align: right;">0.716</td>
-<td style="text-align: right;">0.719</td>
-<td style="text-align: right;">0.722</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.6</td>
-<td style="text-align: right;">0.726</td>
-<td style="text-align: right;">0.729</td>
-<td style="text-align: right;">0.732</td>
-<td style="text-align: right;">0.736</td>
-<td style="text-align: right;">0.739</td>
-<td style="text-align: right;">0.742</td>
-<td style="text-align: right;">0.745</td>
-<td style="text-align: right;">0.749</td>
-<td style="text-align: right;">0.752</td>
-<td style="text-align: right;">0.755</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.7</td>
-<td style="text-align: right;">0.758</td>
-<td style="text-align: right;">0.761</td>
-<td style="text-align: right;">0.764</td>
-<td style="text-align: right;">0.767</td>
-<td style="text-align: right;">0.770</td>
-<td style="text-align: right;">0.773</td>
-<td style="text-align: right;">0.776</td>
-<td style="text-align: right;">0.779</td>
-<td style="text-align: right;">0.782</td>
-<td style="text-align: right;">0.785</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">0.8</td>
-<td style="text-align: right;">0.788</td>
-<td style="text-align: right;">0.791</td>
-<td style="text-align: right;">0.794</td>
-<td style="text-align: right;">0.797</td>
-<td style="text-align: right;">0.800</td>
-<td style="text-align: right;">0.802</td>
-<td style="text-align: right;">0.805</td>
-<td style="text-align: right;">0.808</td>
-<td style="text-align: right;">0.811</td>
-<td style="text-align: right;">0.813</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">0.9</td>
-<td style="text-align: right;">0.816</td>
-<td style="text-align: right;">0.819</td>
-<td style="text-align: right;">0.821</td>
-<td style="text-align: right;">0.824</td>
-<td style="text-align: right;">0.826</td>
-<td style="text-align: right;">0.829</td>
-<td style="text-align: right;">0.831</td>
-<td style="text-align: right;">0.834</td>
-<td style="text-align: right;">0.836</td>
-<td style="text-align: right;">0.839</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.0</td>
-<td style="text-align: right;">0.841</td>
-<td style="text-align: right;">0.844</td>
-<td style="text-align: right;">0.846</td>
-<td style="text-align: right;">0.848</td>
-<td style="text-align: right;">0.851</td>
-<td style="text-align: right;">0.853</td>
-<td style="text-align: right;">0.855</td>
-<td style="text-align: right;">0.858</td>
-<td style="text-align: right;">0.860</td>
-<td style="text-align: right;">0.862</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">0.864</td>
-<td style="text-align: right;">0.867</td>
-<td style="text-align: right;">0.869</td>
-<td style="text-align: right;">0.871</td>
-<td style="text-align: right;">0.873</td>
-<td style="text-align: right;">0.875</td>
-<td style="text-align: right;">0.877</td>
-<td style="text-align: right;">0.879</td>
-<td style="text-align: right;">0.881</td>
-<td style="text-align: right;">0.883</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.2</td>
-<td style="text-align: right;">0.885</td>
-<td style="text-align: right;">0.887</td>
-<td style="text-align: right;">0.889</td>
-<td style="text-align: right;">0.891</td>
-<td style="text-align: right;">0.893</td>
-<td style="text-align: right;">0.894</td>
-<td style="text-align: right;">0.896</td>
-<td style="text-align: right;">0.898</td>
-<td style="text-align: right;">0.900</td>
-<td style="text-align: right;">0.901</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.903</td>
-<td style="text-align: right;">0.905</td>
-<td style="text-align: right;">0.907</td>
-<td style="text-align: right;">0.908</td>
-<td style="text-align: right;">0.910</td>
-<td style="text-align: right;">0.911</td>
-<td style="text-align: right;">0.913</td>
-<td style="text-align: right;">0.915</td>
-<td style="text-align: right;">0.916</td>
-<td style="text-align: right;">0.918</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.919</td>
-<td style="text-align: right;">0.921</td>
-<td style="text-align: right;">0.922</td>
-<td style="text-align: right;">0.924</td>
-<td style="text-align: right;">0.925</td>
-<td style="text-align: right;">0.926</td>
-<td style="text-align: right;">0.928</td>
-<td style="text-align: right;">0.929</td>
-<td style="text-align: right;">0.931</td>
-<td style="text-align: right;">0.932</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.933</td>
-<td style="text-align: right;">0.934</td>
-<td style="text-align: right;">0.936</td>
-<td style="text-align: right;">0.937</td>
-<td style="text-align: right;">0.938</td>
-<td style="text-align: right;">0.939</td>
-<td style="text-align: right;">0.941</td>
-<td style="text-align: right;">0.942</td>
-<td style="text-align: right;">0.943</td>
-<td style="text-align: right;">0.944</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.6</td>
-<td style="text-align: right;">0.945</td>
-<td style="text-align: right;">0.946</td>
-<td style="text-align: right;">0.947</td>
-<td style="text-align: right;">0.948</td>
-<td style="text-align: right;">0.949</td>
-<td style="text-align: right;">0.951</td>
-<td style="text-align: right;">0.952</td>
-<td style="text-align: right;">0.953</td>
-<td style="text-align: right;">0.954</td>
-<td style="text-align: right;">0.954</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.955</td>
-<td style="text-align: right;">0.956</td>
-<td style="text-align: right;">0.957</td>
-<td style="text-align: right;">0.958</td>
-<td style="text-align: right;">0.959</td>
-<td style="text-align: right;">0.960</td>
-<td style="text-align: right;">0.961</td>
-<td style="text-align: right;">0.962</td>
-<td style="text-align: right;">0.962</td>
-<td style="text-align: right;">0.963</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1.8</td>
-<td style="text-align: right;">0.964</td>
-<td style="text-align: right;">0.965</td>
-<td style="text-align: right;">0.966</td>
-<td style="text-align: right;">0.966</td>
-<td style="text-align: right;">0.967</td>
-<td style="text-align: right;">0.968</td>
-<td style="text-align: right;">0.969</td>
-<td style="text-align: right;">0.969</td>
-<td style="text-align: right;">0.970</td>
-<td style="text-align: right;">0.971</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1.9</td>
-<td style="text-align: right;">0.971</td>
-<td style="text-align: right;">0.972</td>
-<td style="text-align: right;">0.973</td>
-<td style="text-align: right;">0.973</td>
-<td style="text-align: right;">0.974</td>
-<td style="text-align: right;">0.974</td>
-<td style="text-align: right;">0.975</td>
-<td style="text-align: right;">0.976</td>
-<td style="text-align: right;">0.976</td>
-<td style="text-align: right;">0.977</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.0</td>
-<td style="text-align: right;">0.977</td>
-<td style="text-align: right;">0.978</td>
-<td style="text-align: right;">0.978</td>
-<td style="text-align: right;">0.979</td>
-<td style="text-align: right;">0.979</td>
-<td style="text-align: right;">0.980</td>
-<td style="text-align: right;">0.980</td>
-<td style="text-align: right;">0.981</td>
-<td style="text-align: right;">0.981</td>
-<td style="text-align: right;">0.982</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">0.982</td>
-<td style="text-align: right;">0.983</td>
-<td style="text-align: right;">0.983</td>
-<td style="text-align: right;">0.983</td>
-<td style="text-align: right;">0.984</td>
-<td style="text-align: right;">0.984</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.986</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.2</td>
-<td style="text-align: right;">0.986</td>
-<td style="text-align: right;">0.986</td>
-<td style="text-align: right;">0.987</td>
-<td style="text-align: right;">0.987</td>
-<td style="text-align: right;">0.987</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.988</td>
-<td style="text-align: right;">0.989</td>
-<td style="text-align: right;">0.989</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">0.989</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.990</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.991</td>
-<td style="text-align: right;">0.992</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.4</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.992</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.993</td>
-<td style="text-align: right;">0.994</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.5</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.994</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.995</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-<td style="text-align: right;">0.996</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.7</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.997</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">0.997</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2.9</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.998</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">0.999</td>
-</tr>
-</tbody>
-</table>
+</div>
+<p>From the standard normal table (<a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a>) we get <span class="math display">\[
+\Phi(1.72) \approx 0.957,\quad \Phi(-1.72) \approx  1-\Phi(1.72)  = 0.043
+\]</span></p>
+<p>which implies that <span class="math display">\[
+P(-1.72 \leq Z \leq 1.72) = 0.957 - 0.043 = 0.914
+\]</span> In conclusion, there is about a 91% probability that the sample proportion will fall between 25% and 35%. This reflects the natural variability of proportions in random samples, and highlights how the sampling distribution of <span class="math inline">\(\hat{p}\)</span> allows us to make probabilistic statements about sample outcomes.</p>
+</section></section><section id="exercises" class="level2" data-number="18.4"><h2 data-number="18.4" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">18.4</span> Exercises</h2>
+<ol type="1">
+<li>A political poll finds that 55% of voters in a population support a new environmental policy. A journalist takes a random sample of 200 people from the population. What is the probability that fewer than the majority in the sample supports the policy?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We seek the probability that the sample proportion is less than 0.5, that is <span class="math inline">\(P(\hat{p} \leq 0.5)\)</span>. We are given:</p>
+<ul>
+<li><span class="math inline">\(p = 0.55\)</span></li>
+<li><span class="math inline">\(n = 200\)</span></li>
+</ul>
+<p>Check conditions: <span class="math display">\[
+np(1 - p) = 200 \cdot 0.55 \cdot 0.45 = 49.5 &gt; 5 \quad \text{so we can use normal approx.}
+\]</span></p>
+<p>Standard error: <span class="math display">\[
+\text{SE} = \sqrt{ \frac{0.55 \cdot 0.45}{200} } \approx 0.035
+\]</span></p>
+<p>Standardize: <span class="math display">\[
+Z = \frac{0.50 - 0.55}{0.035} \approx -1.43
+\]</span></p>
+<p><span class="math display">\[
+P(\hat{p} \leq 0.50) = P(\hat{p} &lt; 0.50) = P(Z &lt; -1.43) \approx 0.0764
+\]</span></p>
+<p>There’s about a 7.6% chance the sample shows less than 50% support.</p>
 </div>
 </div>
+</div>
+<ol start="2" type="1">
+<li>In a large batch of manufactured items, 4% are defective. An inspector takes a sample of 100 items. What is the probability that more than 5% of the sample is defective?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Given:</p>
+<ul>
+<li><span class="math inline">\(p = 0.04\)</span></li>
+<li><span class="math inline">\(n = 100\)</span></li>
+</ul>
+<p>Check: <span class="math display">\[
+np(1 - p) = 100 \cdot 0.04 \cdot 0.96 = 3.84 \lt 5 \quad \text{not large enough for normal approx.}
+\]</span></p>
+<p>The normal approximation should not be used here. Use exact binomial calculation instead:</p>
+<p><span class="math display">\[
+P(X &gt; 5) = 1 - P(X \leq 5)=  1 - \sum_{k=0}^{5} P(X = k), \qquad X \sim \text{Bin}(100, 0.04)
+\]</span> Recall the binomial probability formula: <span class="math display">\[
+P(X = k) = \binom{n}{k} p^k (1 - p)^{n - k} = \binom{100}{k} (0.04)^k (0.96)^{100 - k}
+\]</span> Compute each term from <span class="math inline">\(k = 0\)</span> to <span class="math inline">\(k = 5\)</span> using this formula: <span class="math display">\[
+\begin{aligned}
+P(X = 0) &amp;= \binom{100}{0} \cdot (0.04)^0 \cdot (0.96)^{100}
+= 1 \cdot 1 \cdot 0.0166 = \mathbf{0.0166} \\\\
+P(X = 1) &amp;= \binom{100}{1} \cdot (0.04)^1 \cdot (0.96)^{99}
+= 100 \cdot 0.04 \cdot 0.0173 = \mathbf{0.0692} \\\\
+P(X = 2) &amp;= \binom{100}{2} \cdot (0.04)^2 \cdot (0.96)^{98}
+= 4950 \cdot 0.0016 \cdot 0.0180 = \mathbf{0.1426} \\\\
+P(X = 3) &amp;= \binom{100}{3} \cdot (0.04)^3 \cdot (0.96)^{97}
+= 161700 \cdot 0.000064 \cdot 0.0187 = \mathbf{0.1952} \\\\
+P(X = 4) &amp;= \binom{100}{4} \cdot (0.04)^4 \cdot (0.96)^{96}
+= 3921225 \cdot 0.00000256 \cdot 0.0195 = \mathbf{0.1797} \\\\
+P(X = 5) &amp;= \binom{100}{5} \cdot (0.04)^5 \cdot (0.96)^{95}
+= 75287520 \cdot 0.00000102 \cdot 0.0203 = \mathbf{0.1234}
+\end{aligned}
+\]</span></p>
+<p>Now we sum these:</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(X \leq 5) &amp;= 0.0166 + 0.0692 + 0.1426 + 0.1952 + 0.1797 + 0.1234 \\
+&amp;=  0.7267
+\end{aligned}
+\]</span> Final answer is then: <span class="math display">\[
+P(X &gt; 5) = 1 - P(X \leq 5) = 1-0.7267 = \boxed{0.2733}
+\]</span></p>
+<p>There is approximately a 27.33% chance of observing more than 5 defective items in a random sample of 100 when the defect rate is 4%.</p>
+<p>With normal approximation the answer would be <span class="math inline">\(P(X &gt; 5) \approx 0.2206\)</span> (double check this by yourselves). So the normal approximation underestimates the true probability in this case, not surprising since the sample size is modest and <span class="math inline">\(np\)</span> is close to the lower cutoff for using normal approximation reliably.</p>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div>
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1194,11 +940,14 @@ window.Quarto = {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="../sampling-dists/sampling-dist-mean.html" class="pagination-link" aria-label="Sampling Distributions for a Sample Mean">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../inference.html" class="pagination-link" aria-label="Inferential Statistics">
+        <span class="nav-page-text">Inferential Statistics</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1208,7 +957,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/appendix/normal-table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/sampling-dists/sampling-dist-prop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

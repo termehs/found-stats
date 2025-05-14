@@ -46,7 +46,8 @@ book:
     - part: "Sampling and Sampling Distributions"
       chapters:
       - sampling-dists/sampling.qmd
-      - sampling-dists/sampling-dists.qmd
+      - sampling-dists/sampling-dist-mean.qmd
+      - sampling-dists/sampling-dist-prop.qmd
     - part: inference.qmd
     - part: chi2.qmd
     - part: regression.qmd

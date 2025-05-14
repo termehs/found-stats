@@ -49,5 +49,5 @@ z_table <- expand.grid(row = z_rows, col = z_cols) %>%
   rename(`z` = row)
 
 # Show table (first 10 rows for brevity)
-kable(z_table, digits = 3, caption = "Standard Normal Cumulative Probabilities: $P(Z \\leq z)$")
+kable(z_table, digits = 3, caption = "Standard Normal Cumulative Probabilities: $\\Phi(z) = P(Z \\leq z)$")
 ```

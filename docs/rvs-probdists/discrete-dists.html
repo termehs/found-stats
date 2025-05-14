@@ -280,8 +280,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sampling-dists/sampling-dists.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></span></a>
   </div>
 </li>
       </ul>
@@ -332,7 +338,7 @@ window.Quarto = {
   <li><a href="#expected-value-of-a-discrete-random-variable" id="toc-expected-value-of-a-discrete-random-variable" class="nav-link" data-scroll-target="#expected-value-of-a-discrete-random-variable"><span class="header-section-number">13.3</span> Expected Value of a Discrete Random Variable</a></li>
   <li><a href="#variance-and-standard-deviation-of-a-discrete-random-variable" id="toc-variance-and-standard-deviation-of-a-discrete-random-variable" class="nav-link" data-scroll-target="#variance-and-standard-deviation-of-a-discrete-random-variable"><span class="header-section-number">13.4</span> Variance and Standard Deviation of a Discrete Random Variable</a></li>
   <li><a href="#rules-for-expectation-and-variance" id="toc-rules-for-expectation-and-variance" class="nav-link" data-scroll-target="#rules-for-expectation-and-variance"><span class="header-section-number">13.5</span> Rules for Expectation and Variance</a></li>
-  <li><a href="#the-bernoulli-and-binomial-distribution" id="toc-the-bernoulli-and-binomial-distribution" class="nav-link" data-scroll-target="#the-bernoulli-and-binomial-distribution"><span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</a></li>
+  <li><a href="#sec-binom" id="toc-sec-binom" class="nav-link" data-scroll-target="#sec-binom"><span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/discrete-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -725,7 +731,7 @@ E(Y) = 25000 + 900 \cdot E(X) = 25000 + 900 \cdot 11.9 = 35710
 \sqrt{\operatorname{Var}(Y)} = \sqrt{1044900} \approx 1022.20
 \]</span></p>
 <p>This gives a total expected project cost of €35,710, with a standard deviation of about €1,022.</p>
-</section></section><section id="the-bernoulli-and-binomial-distribution" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="the-bernoulli-and-binomial-distribution">
+</section></section><section id="sec-binom" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="sec-binom">
 <span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</h2>
 <p>In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise — such as flipping a coin or checking if a customer buys a product — follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.</p>
 <p>A random variable <span class="math inline">\(X\)</span> is said to follow a <strong>Bernoulli distribution</strong> if it takes on only two possible values: <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. These values typically represent the outcomes of a binary trial — such as failure or success — with probabilities <span class="math inline">\(1 - p\)</span> and <span class="math inline">\(p\)</span> respectively. The distribution is written as:</p>
