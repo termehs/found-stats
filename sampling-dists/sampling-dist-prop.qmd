@@ -145,7 +145,7 @@ P(-1.72 \leq Z \leq 1.72) = 0.957 - 0.043 = 0.914
 $$
 In conclusion, there is about a 91% probability that the sample proportion will fall between 25% and 35%. This reflects the natural variability of proportions in random samples, and highlights how the sampling distribution of $\hat{p}$ allows us to make probabilistic statements about sample outcomes.
 
-## Exercises
+## Exercises {.unnumbered}
 
 1. A political poll finds that 55% of voters in a population support a new environmental policy. A journalist takes a random sample of 200 people from the population. What is the probability that fewer than the majority in the sample supports the policy?
 
