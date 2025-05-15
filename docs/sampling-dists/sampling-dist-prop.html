@@ -27,7 +27,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inference.html" rel="next">
+<link href="../sampling-dists/clt.html" rel="next">
 <link href="../sampling-dists/sampling-dist-mean.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -290,6 +290,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -399,7 +405,7 @@ np(1 - p) &gt; 5
 <p>If this holds, we can write:</p>
 <p><span class="math display">\[
 \hat{p} \approx \mathcal{N}\left(p, \frac{p(1 - p)}{n}\right)
-\]</span> This follows from the fact that the sample proportion <span class="math inline">\(\hat{p}\)</span> can be viewed as a sample mean of binary variables, justifying the use of <strong>Central Limit Theorem</strong> covered in the next chapter.</p>
+\]</span> This follows from the fact that the sample proportion <span class="math inline">\(\hat{p}\)</span> can be viewed as a sample mean of binary variables, justifying the use of <strong>Central Limit Theorem</strong> covered in the next chapter <a href="clt.html" class="quarto-xref"><span>Chapter 19</span></a>.</p>
 <section id="example-18.1-electrical-installations-in-old-houses" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-18.1-electrical-installations-in-old-houses">Example: 18.1: Electrical Installations in Old Houses</h4>
 <p>In a large population of older houses, 30% are known to have faulty electrical installations. We take a simple random sample of <span class="math inline">\(n = 250\)</span> houses. What is the probability that the sample proportion <span class="math inline">\(\hat{p}\)</span> falls between 0.25 and 0.35? Let’s have a look at the given:</p>
 <ul>
@@ -944,8 +950,8 @@ P(X &gt; 5) = 1 - P(X \leq 5) = 1-0.7267 = \boxed{0.2733}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inference.html" class="pagination-link" aria-label="Inferential Statistics">
-        <span class="nav-page-text">Inferential Statistics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sampling-dists/clt.html" class="pagination-link" aria-label="Central Limit Theorem">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

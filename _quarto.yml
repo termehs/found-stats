@@ -48,6 +48,7 @@ book:
       - sampling-dists/sampling.qmd
       - sampling-dists/sampling-dist-mean.qmd
       - sampling-dists/sampling-dist-prop.qmd
+      - sampling-dists/clt.qmd
     - part: inference.qmd
     - part: chi2.qmd
     - part: regression.qmd

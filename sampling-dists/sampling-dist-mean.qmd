@@ -282,7 +282,7 @@ $$
 This transformation yields a new variable $Z$ that follows the standard normal distribution $\mathcal{N}(0, 1)$. Once in this form, we can use standard normal tables or software to compute probabilities and percentiles, just as done before in  @sec-cont.
 
 But what happens if $X$ is not normally distributed? Can we still use these kinds of probability calculations?
-Later in this part, we’ll explore the **Central Limit Theorem**, which shows that the sample mean $\bar{X}$ still tends to follow a normal distribution as long as the sample size is sufficiently large, even if the original data are not normally distributed.
+Later in this part, we’ll explore the **Central Limit Theorem** (@sec-clt), which shows that the sample mean $\bar{X}$ still tends to follow a normal distribution as long as the sample size is sufficiently large, even if the original data are not normally distributed.
 
 
 
