@@ -49,7 +49,7 @@ $$
 This standard deviation is known as the **standard error** of the mean.
 
 The more observations we average together, the less variability we expect in the result. A single observation $X$ has variance $\sigma^2$, but the mean of $n$ i.i.d. observations spreads out less, its variance shrinks by a factor of $1/n$.
-This is why increasing the sample size gives more precise estimates of the population mean.  This is illustrated in @fig-samplemean where a simulation of the sampling distribution of the mean shown for a population with mean 50 and variance 100. The plot shows how the distribution evolves as the number of repeated samples of size $n = 30$ increases from 10 to 1000.
+This is why increasing the sample size gives more precise estimates of the population mean.  This is illustrated in @fig-samplemean where a simulation of the sampling distribution of the mean shown for a population with mean 50 and variance 100. The plot shows how the distribution evolves as the number of repeated samples of size $n = 30$ goes from 10 to 1000.
 
 ::: {#fig-samplemean .center}
 ```{r}
@@ -88,12 +88,12 @@ df_ani <- dat %>%
 p_anim_mean <- ggplot(data = df_ani, aes(x = sample_mean)) +
   geom_histogram(bins = 30, fill = "grey", color = "white") +
   geom_vline(xintercept = 50, color = "#E22146", linewidth = 1.5) +
-  annotate("text", label = "True Population Mean", x = 40, hjust = 0, y = Inf, vjust = 1.2, color = "#E22146", size = 3.5) +
+  annotate("text", label = "True Population Mean", x = 47, hjust = 0, y = Inf, vjust = 1.2, color = "#E22146", size = 3.5) +
   labs(title = 'Samples: {frame}', x = "Sample Mean", y = "Frequency") +
  theme_minimal(base_size = 14) +
   theme(
-    plot.title = element_text(size = 11, face = "bold"),  # Decrease title size here
-    axis.title = element_text(size = 10),
+    plot.title = element_text(size = 10, face = "bold"),  # Decrease title size here
+    axis.title = element_text(size = 8),
     axis.text = element_text(size = 8)
   ) +
   transition_manual(frame) +
