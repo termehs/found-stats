@@ -290,6 +290,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Proportion</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -473,12 +479,12 @@ P(a \leq X \leq b) = P(X \leq b) - P(X \leq a) = F(b) - F(a)
 <p>Just as we did with discrete random variables, we can define the expected value and variance for continuous random variables. These two quantities serve as important measures of central tendency and spread, respectively.</p>
 <p>The <strong>expected value</strong> of a continuous random variable <span class="math inline">\(X\)</span> with density function <span class="math inline">\(f(x)\)</span> is given by:</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = \mu_X = \int_{-\infty}^{\infty} x f(x) \, dx
+E(X) = \mu_X = \int_{-\infty}^{\infty} x f(x) \, dx
 \]</span></p>
 <p>This can be interpreted as a kind of weighted average, where the values of <span class="math inline">\(x\)</span> are weighted by their relative likelihood — in this case, the density function <span class="math inline">\(f(x)\)</span>.</p>
 <p>The <strong>variance</strong> is defined as:</p>
 <p><span class="math display">\[
-\mathbb{V}(X) = \sigma_X^2 = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) \, dx
+\operatorname{Var}(X) = \sigma_X^2 = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) \, dx
 \]</span></p>
 <p>Just like in the discrete case, this measures how spread out the values of <span class="math inline">\(X\)</span> are around the mean <span class="math inline">\(\mu\)</span>.</p>
 <p>Intuitively, the expected value can be thought of as the balance point of the distribution, the point at which the density function would balance perfectly if it were a physical object. The variance, as before, describes how tightly or widely the values of <span class="math inline">\(X\)</span> tend to cluster around this center.</p>
@@ -762,7 +768,7 @@ X \approx \mathcal{N}(\mu, \sigma)
 \]</span></p>
 <p>where</p>
 <p><span class="math display">\[
-\mu = \mathbb{E}(X) = np \quad \text{and} \quad \sigma = \sqrt{\mathbb{V}(X)} = \sqrt{np(1 - p)}
+\mu = E(X) = np \quad \text{and} \quad \sigma = \sqrt{\operatorname{Var}(X)} = \sqrt{np(1 - p)}
 \]</span></p>
 <p>To compute a probability such as <span class="math inline">\(P(X \leq c)\)</span>, where <span class="math inline">\(c\)</span> is an integer, we use the standard normal distribution:</p>
 <p><span class="math display">\[
@@ -776,8 +782,8 @@ P(X \leq 26)
 \]</span></p>
 <p>First, compute the mean and variance of <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[
-\mathbb{E}(X) = 44 \cdot 0.45 = 19.8 \\
-\mathbb{V}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
+E(X) = 44 \cdot 0.45 = 19.8 \\
+\operatorname{Var}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
 \]</span></p>
 <p>Since <span class="math inline">\(nP(1 - P) = 10.89 &gt; 5\)</span>, the normal approximation is applicable.</p>
 <p>Now standardize:</p>

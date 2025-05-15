@@ -148,7 +148,7 @@ Just as we did with discrete random variables, we can define the expected value 
 The **expected value** of a continuous random variable $X$ with density function $f(x)$ is given by:
 
 $$
-\mathbb{E}(X) = \mu_X = \int_{-\infty}^{\infty} x f(x) \, dx
+E(X) = \mu_X = \int_{-\infty}^{\infty} x f(x) \, dx
 $$
 
 This can be interpreted as a kind of weighted average, where the values of $x$ are weighted by their relative likelihood — in this case, the density function $f(x)$.
@@ -156,7 +156,7 @@ This can be interpreted as a kind of weighted average, where the values of $x$ a
 The **variance** is defined as:
 
 $$
-\mathbb{V}(X) = \sigma_X^2 = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) \, dx
+\operatorname{Var}(X) = \sigma_X^2 = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) \, dx
 $$
 
 Just like in the discrete case, this measures how spread out the values of $X$ are around the mean $\mu$.
@@ -773,7 +773,7 @@ $$
 where
 
 $$
-\mu = \mathbb{E}(X) = np \quad \text{and} \quad \sigma = \sqrt{\mathbb{V}(X)} = \sqrt{np(1 - p)}
+\mu = E(X) = np \quad \text{and} \quad \sigma = \sqrt{\operatorname{Var}(X)} = \sqrt{np(1 - p)}
 $$
 
 To compute a probability such as $P(X \leq c)$, where $c$ is an integer, we use the standard normal distribution:
@@ -797,8 +797,8 @@ $$
 First, compute the mean and variance of $X$:
 
 $$
-\mathbb{E}(X) = 44 \cdot 0.45 = 19.8 \\
-\mathbb{V}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
+E(X) = 44 \cdot 0.45 = 19.8 \\
+\operatorname{Var}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
 $$
 
 Since $nP(1 - P) = 10.89 > 5$, the normal approximation is applicable.
