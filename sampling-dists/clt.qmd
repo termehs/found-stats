@@ -160,6 +160,6 @@ $$
 
 Using the standard normal distribution (@sec-normaltbl):
 $$
-P(Z \leq -2.5) = 1 - P(Z \leq 2.5) = 1 - 0.9938 = 0.0062
+P(Z \leq -2.5) = 1 - P(Z \leq 2.5) = 1 - 0.994 = 0.006
 $$
 
