@@ -455,7 +455,7 @@ $$
 X \perp Y \quad \Rightarrow \quad \operatorname{Cov}(X, Y) = 0
 $$
 
-But the reverse is **not necessarily true**. Two variables can have zero covariance (i.e., be uncorrelated) and still be **dependent** in a nonlinear way. This is further illustrated in Exercise 2 below.
+But the reverse is not necessarily true. Two variables can have zero covariance (i.e., be uncorrelated) and still be dependent in a nonlinear way. This is further illustrated in Exercise 2 below.
 
 
 

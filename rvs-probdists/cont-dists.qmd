@@ -767,7 +767,7 @@ If this condition is met, the binomial distribution can be reasonably approximat
 Well, suppose $X \sim \text{Bin}(n, p)$ and the above condition is satisfied. Then we can approximate $X$ using a normal distribution:
 
 $$
-X \approx \mathcal{N}(\mu, \sigma)
+X \overset{\text{apx}}{\sim} \mathcal{N}(\mu, \sigma)
 $$
 
 where
