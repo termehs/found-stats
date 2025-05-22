@@ -773,7 +773,7 @@ $$
 where
 
 $$
-\mu = E(X) = np \quad \text{and} \quad \sigma = \sqrt{\operatorname{Var}(X)} = \sqrt{np(1 - p)}
+\mu = E(X) = np \quad \text{and} \qquad \sigma = \sqrt{\operatorname{Var}(X)} = \sqrt{np(1 - p)}
 $$
 
 To compute a probability such as $P(X \leq c)$, where $c$ is an integer, we use the standard normal distribution:
