@@ -757,7 +757,7 @@ Binomial Distribution with $p = 0.3$ approaching Normal as $n$ increases.
 A common rule of thumb is:
 
 $$
-nP(1 - P) > 5
+np(1 - p) > 5
 $$
 
 If this condition is met, the binomial distribution can be reasonably approximated by a normal distribution that shares the same mean and variance.
