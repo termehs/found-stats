@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://termehs.github.io/found-stats/introduction/intro-math.html</loc>
-    <lastmod>2025-04-06T19:33:42.687Z</lastmod>
-  </url>
-  <url>
     <loc>https://termehs.github.io/found-stats/index.html</loc>
     <lastmod>2025-05-12T13:24:49.237Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/prob-theory/prob-rules.html</loc>
-    <lastmod>2025-05-08T07:15:22.295Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/introduction/what-is-stats.html</loc>
+    <lastmod>2025-05-28T12:41:47.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/introduction/intro-math.html</loc>
+    <lastmod>2025-04-06T19:33:42.687Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/introduction/intro-surveys.html</loc>
@@ -21,18 +21,6 @@
     <lastmod>2025-04-09T11:35:42.347Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/introduction/what-is-stats.html</loc>
-    <lastmod>2025-05-28T12:41:47.162Z</lastmod>
-  </url>
-  <url>
-    <loc>https://termehs.github.io/found-stats/descriptive-stats/dispersion-measures.html</loc>
-    <lastmod>2025-05-12T11:05:50.442Z</lastmod>
-  </url>
-  <url>
-    <loc>https://termehs.github.io/found-stats/prob-theory/count-rules.html</loc>
-    <lastmod>2025-04-24T07:16:48.957Z</lastmod>
-  </url>
-  <url>
     <loc>https://termehs.github.io/found-stats/descriptive-stats/describe-data.html</loc>
     <lastmod>2025-04-16T13:32:23.835Z</lastmod>
   </url>
@@ -41,52 +29,44 @@
     <lastmod>2025-04-16T13:33:37.057Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/rvs-probdists/random-variables.html</loc>
-    <lastmod>2025-05-13T07:39:50.826Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/descriptive-stats/dispersion-measures.html</loc>
+    <lastmod>2025-05-12T11:05:50.442Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/prob-theory/prob-concepts.html</loc>
     <lastmod>2025-05-28T12:41:43.964Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/rvs-probdists/discrete-dist.html</loc>
-    <lastmod>2025-04-29T18:40:01.150Z</lastmod>
-  </url>
-  <url>
     <loc>https://termehs.github.io/found-stats/prob-theory/what-is-prob.html</loc>
-    <lastmod>2025-04-22T13:50:33.504Z</lastmod>
+    <lastmod>2025-05-30T19:27:32.501Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/rvs-probdists/cont-dists.html</loc>
-    <lastmod>2025-05-22T07:54:45.834Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/prob-theory/count-rules.html</loc>
+    <lastmod>2025-04-24T07:16:48.957Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/prob-theory/prob-rules.html</loc>
+    <lastmod>2025-05-08T07:15:22.295Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/rvs-probdists/random-variables.html</loc>
+    <lastmod>2025-05-13T07:39:50.826Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/rvs-probdists/discrete-dists.html</loc>
     <lastmod>2025-05-14T07:11:53.459Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/sampling-dists.html</loc>
-    <lastmod>2025-02-18T14:14:57.240Z</lastmod>
-  </url>
-  <url>
-    <loc>https://termehs.github.io/found-stats/appendix/normal-table.html</loc>
-    <lastmod>2025-05-14T07:32:58.555Z</lastmod>
-  </url>
-  <url>
-    <loc>https://termehs.github.io/found-stats/references.html</loc>
-    <lastmod>2025-02-18T14:01:22.672Z</lastmod>
-  </url>
-  <url>
-    <loc>https://termehs.github.io/found-stats/sampling-dists/sampling.html</loc>
-    <lastmod>2025-05-12T13:23:56.454Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/rvs-probdists/cont-dists.html</loc>
+    <lastmod>2025-05-30T19:32:52.840Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/rvs-probdists/jointly-dist.html</loc>
     <lastmod>2025-05-22T07:00:46.670Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/sampling-dists/sampling-dists.html</loc>
-    <lastmod>2025-05-13T13:50:16.180Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/sampling-dists/sampling.html</loc>
+    <lastmod>2025-05-12T13:23:56.454Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/sampling-dists/sampling-dist-mean.html</loc>
@@ -94,22 +74,34 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/sampling-dists/sampling-dist-prop.html</loc>
-    <lastmod>2025-05-15T07:00:51.171Z</lastmod>
+    <lastmod>2025-05-30T19:29:59.420Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/sampling-dists/clt.html</loc>
     <lastmod>2025-05-15T07:13:56.153Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/inference.html</loc>
-    <lastmod>2025-02-18T14:15:57.092Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/inferential/intro-inference.html</loc>
+    <lastmod>2025-05-28T13:11:44.568Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/inferential/estimation.html</loc>
     <lastmod>2025-05-30T19:20:48.099Z</lastmod>
   </url>
   <url>
-    <loc>https://termehs.github.io/found-stats/inferential/intro-inference.html</loc>
-    <lastmod>2025-05-28T13:11:44.568Z</lastmod>
+    <loc>https://termehs.github.io/found-stats/chi2.html</loc>
+    <lastmod>2025-02-18T14:16:43.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/regression.html</loc>
+    <lastmod>2025-02-20T14:45:00.084Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/references.html</loc>
+    <lastmod>2025-02-18T14:01:22.672Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/appendix/normal-table.html</loc>
+    <lastmod>2025-05-14T07:32:58.555Z</lastmod>
   </url>
 </urlset>

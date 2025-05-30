@@ -234,4 +234,4 @@ $$
 There is approximately a 27.33% chance of observing more than 5 defective items in a random sample of 100 when the defect rate is 4%.
 
 With normal approximation the answer would be $P(X > 5) \approx 0.2206$ (double check this by yourselves). So the normal approximation underestimates the true probability in this case, not surprising since the sample size is modest and $np$ is close to the lower cutoff for using normal approximation reliably.
-
+:::
