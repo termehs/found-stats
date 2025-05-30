@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
 <title>9&nbsp; What is Probability? – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,12 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -101,15 +91,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -120,13 +106,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -141,7 +123,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -155,8 +137,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -181,7 +163,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -190,8 +172,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -210,7 +192,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -219,8 +201,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -245,7 +227,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -254,8 +236,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -273,74 +255,122 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Sampling and Sampling Distributions</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Proportion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Inferential Statistics</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferential Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Chi Square Tests</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regression Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Summary</span></span>
+ <span class="menu-text">Regression Analysis</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#fundamental-assumptions-of-probability" id="toc-fundamental-assumptions-of-probability" class="nav-link active" data-scroll-target="#fundamental-assumptions-of-probability"><span class="header-section-number">9.1</span> Fundamental Assumptions of Probability</a></li>
+<li><a href="#fundamental-assumptions-of-probability" id="toc-fundamental-assumptions-of-probability" class="nav-link active" data-scroll-target="#fundamental-assumptions-of-probability"><span class="header-section-number">9.1</span> Fundamental Assumptions of Probability</a></li>
   <li><a href="#kolmogorovs-axioms" id="toc-kolmogorovs-axioms" class="nav-link" data-scroll-target="#kolmogorovs-axioms"><span class="header-section-number">9.2</span> Kolmogorov’s Axioms</a></li>
-  <li><a href="#defining-probability" id="toc-defining-probability" class="nav-link" data-scroll-target="#defining-probability"><span class="header-section-number">9.3</span> Defining Probability</a>
+  <li>
+<a href="#defining-probability" id="toc-defining-probability" class="nav-link" data-scroll-target="#defining-probability"><span class="header-section-number">9.3</span> Defining Probability</a>
   <ul class="collapse">
-  <li><a href="#the-classical-definition" id="toc-the-classical-definition" class="nav-link" data-scroll-target="#the-classical-definition"><span class="header-section-number">9.3.1</span> The Classical Definition</a></li>
+<li><a href="#the-classical-definition" id="toc-the-classical-definition" class="nav-link" data-scroll-target="#the-classical-definition"><span class="header-section-number">9.3.1</span> The Classical Definition</a></li>
   <li><a href="#the-frequentist-definition" id="toc-the-frequentist-definition" class="nav-link" data-scroll-target="#the-frequentist-definition"><span class="header-section-number">9.3.2</span> The Frequentist Definition</a></li>
   <li><a href="#the-subjective-definition" id="toc-the-subjective-definition" class="nav-link" data-scroll-target="#the-subjective-definition"><span class="header-section-number">9.3.3</span> The Subjective Definition</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#uniform-probabilitis" id="toc-uniform-probabilitis" class="nav-link" data-scroll-target="#uniform-probabilitis"><span class="header-section-number">9.4</span> Uniform Probabilitis</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/prob-theory/what-is-prob.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/prob-theory/what-is-prob.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../prob-theory/what-is-prob.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prob-theory/prob-concepts.html">Probability Theory</a></li><li class="breadcrumb-item"><a href="../prob-theory/what-is-prob.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span>
+</h1>
 </div>
 
 
@@ -354,20 +384,18 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>Now that we have explored fundamental probability concepts, such as unions, intersections, complements, and mutually exclusive events, we can use these ideas to formally define probability itself.</p>
+</header><p>Now that we have explored fundamental probability concepts, such as unions, intersections, complements, and mutually exclusive events, we can use these ideas to formally define probability itself.</p>
 <p>Using the relationships between events that we have discussed, we can also establish the formal rules of probability and see how these concepts help in calculating probabilities for different types of events.</p>
-<section id="fundamental-assumptions-of-probability" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="fundamental-assumptions-of-probability"><span class="header-section-number">9.1</span> Fundamental Assumptions of Probability</h2>
+<section id="fundamental-assumptions-of-probability" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="fundamental-assumptions-of-probability">
+<span class="header-section-number">9.1</span> Fundamental Assumptions of Probability</h2>
 <p>Probability theory provides a framework for modeling randomness and quantifying uncertainty. At its core, it relies on three fundamental assumptions that define how probabilities are assigned to different outcomes in a random experiment.</p>
 <ol type="1">
 <li><p>First, every probability calculation begins with a random experiment that has a well-defined sample space, denoted as <span class="math inline">\(\Omega = \{O_1, O_2, \dots, O_n\}\)</span>. This sample space represents all possible outcomes of the experiment, ensuring that every event of interest is accounted for.</p></li>
 <li><p>Second, once the sample space is established, each outcome <span class="math inline">\(O_i\)</span> is assigned a probability <span class="math inline">\(P(O_i)\)</span> for <span class="math inline">\(i = 1,2,\ldots, n\)</span>, representing the likelihood of that specific event occurring. These probabilities must follow</p></li>
 </ol>
 <ul>
-<li><strong>non-negativity</strong>, meaning that probabilities must always fall within the range <span class="math inline">\(0 \leq P(O_i) \leq 1\)</span> for all outcomes. This ensures that an event can never have a negative probability, and the probability of a certain event is at most 1.<br>
+<li>
+<strong>non-negativity</strong>, meaning that probabilities must always fall within the range <span class="math inline">\(0 \leq P(O_i) \leq 1\)</span> for all outcomes. This ensures that an event can never have a negative probability, and the probability of a certain event is at most 1.<br>
 </li>
 <li>and the <strong>total probability principle</strong>, stating that the sum of all assigned probabilities must equal 1:</li>
 </ul>
@@ -376,47 +404,41 @@ window.Quarto = {
 <p>The probability of an event <span class="math inline">\(A\)</span>, denoted as <span class="math inline">\(P(A)\)</span>, is determined by summing the probabilities of all individual outcomes that make up <span class="math inline">\(A\)</span>: <span class="math display">\[ P(A) = \sum_{O_i \in A} P(O_i) \]</span></p>
 <p>This rule ensures that if an event consists of multiple possible outcomes, its probability is found by adding up the probabilities of each contributing outcome.</p>
 <p>Since probability values must be assigned consistently, we require a formal system that ensures logical coherence in probability calculations. This leads us to <strong>Kolmogorov axioms</strong>, which form the foundation of modern probability theory.</p>
-</section>
-<section id="kolmogorovs-axioms" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="kolmogorovs-axioms"><span class="header-section-number">9.2</span> Kolmogorov’s Axioms</h2>
+</section><section id="kolmogorovs-axioms" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="kolmogorovs-axioms">
+<span class="header-section-number">9.2</span> Kolmogorov’s Axioms</h2>
 <p>To maintain consistency in probability assignments, Andrey Kolmogorov formulated three fundamental axioms:</p>
 <ol type="1">
-<li><p><strong>Non-Negativity:</strong> The probability of any event <span class="math inline">\(A\)</span> is always greater than or equal to zero:<br>
-<span class="math display">\[P(A) \geq 0\]</span><br>
+<li><p><strong>Non-Negativity:</strong> The probability of any event <span class="math inline">\(A\)</span> is always greater than or equal to zero:<br><span class="math display">\[P(A) \geq 0\]</span><br>
 This ensures that probabilities are never negative.</p></li>
-<li><p><strong>Total Probability:</strong> The probability of the entire sample space <span class="math inline">\(\Omega\)</span> (i.e., the event that some outcome must occur) is exactly <strong>1</strong>:<br>
-<span class="math display">\[P(\Omega) = 1\]</span><br>
+<li><p><strong>Total Probability:</strong> The probability of the entire sample space <span class="math inline">\(\Omega\)</span> (i.e., the event that some outcome must occur) is exactly <strong>1</strong>:<br><span class="math display">\[P(\Omega) = 1\]</span><br>
 This guarantees that probability is correctly distributed among all possible outcomes.</p></li>
-<li><p><strong>Additivity for Mutually Exclusive Events:</strong> If two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> cannot occur at the same time (i.e., they are mutually exclusive), then the probability of either occurring is the sum of their individual probabilities:<br>
-<span class="math display">\[P(A \cup B) = P(A) + P(B)\]</span><br>
+<li><p><strong>Additivity for Mutually Exclusive Events:</strong> If two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> cannot occur at the same time (i.e., they are mutually exclusive), then the probability of either occurring is the sum of their individual probabilities:<br><span class="math display">\[P(A \cup B) = P(A) + P(B)\]</span><br>
 This principle extends to any finite or countable number of mutually exclusive events. If <span class="math inline">\(A_1, A_2, \dots, A_k\)</span> are <strong>pairwise disjoint events</strong>, then the probability of their union is the sum of their individual probabilities: <span class="math display">\[P(A_1 \cup A_2 \cup \dots \cup A_k) = P(A_1) + P(A_2) + \dots + P(A_k)\]</span></p></li>
 </ol>
 <p>These axioms are not just abstract rules; they provide the backbone for all probability calculations, from simple games of chance to risk assessments in finance, medicine, and machine learning. By defining probability through outcome summation and enforcing consistency through these axioms, we build a powerful and reliable framework for understanding and modeling uncertainty, thus allowing for meaningful calculations and predictions about uncertain events.</p>
-</section>
-<section id="defining-probability" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="defining-probability"><span class="header-section-number">9.3</span> Defining Probability</h2>
+</section><section id="defining-probability" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="defining-probability">
+<span class="header-section-number">9.3</span> Defining Probability</h2>
 <p>The probability of an event <span class="math inline">\(A\)</span>, denoted as <span class="math inline">\(P(A)\)</span>, is a measure of how likely it is that the event will occur. Different interpretations of probability exist, leading to various probability definitions.</p>
-<section id="the-classical-definition" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="the-classical-definition"><span class="header-section-number">9.3.1</span> The Classical Definition</h3>
+<section id="the-classical-definition" class="level3" data-number="9.3.1"><h3 data-number="9.3.1" class="anchored" data-anchor-id="the-classical-definition">
+<span class="header-section-number">9.3.1</span> The Classical Definition</h3>
 <p>The <strong>classical definition</strong> of probability, derived from basic counting principles, states that if a random experiment has <span class="math inline">\(N\)</span> possible outcomes, and exactly <span class="math inline">\(N_A\)</span> of these correspond to event <span class="math inline">\(A\)</span> occurring, then the probability of <span class="math inline">\(A\)</span> is given by: <span class="math display">\[P(A) = \frac{N_A}{N}\]</span> This is known as a <strong>theoretical probability assignment</strong>, as it assumes that all outcomes are equally likely.</p>
-</section>
-<section id="the-frequentist-definition" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="the-frequentist-definition"><span class="header-section-number">9.3.2</span> The Frequentist Definition</h3>
+</section><section id="the-frequentist-definition" class="level3" data-number="9.3.2"><h3 data-number="9.3.2" class="anchored" data-anchor-id="the-frequentist-definition">
+<span class="header-section-number">9.3.2</span> The Frequentist Definition</h3>
 <p>An alternative way to define probability is through relative frequency. In the <strong>frequentist interpretation</strong>, the probability of an event <span class="math inline">\(A\)</span> is understood as the proportion of times <span class="math inline">\(A\)</span> occurs in a very long sequence of repeated random experiments. This can be expressed mathematically as: <span class="math display">\[P(A) \approx \frac{n_A}{n}\]</span> where:</p>
 <ul>
-<li><span class="math inline">\(n_A\)</span> is the number of times event <span class="math inline">\(A\)</span> occurs.</li>
-<li><span class="math inline">\(n\)</span> is the total number of trials.</li>
+<li>
+<span class="math inline">\(n_A\)</span> is the number of times event <span class="math inline">\(A\)</span> occurs.</li>
+<li>
+<span class="math inline">\(n\)</span> is the total number of trials.</li>
 </ul>
 <p>As the number of trials <span class="math inline">\(n\)</span> increases, the relative frequency of event <span class="math inline">\(A\)</span> stabilizes and approaches its probability <span class="math inline">\(P(A)\)</span>, aligning with the classical probability definition. In other words, if we repeat an experiment an extremely large number of times, the empirical probability we observe will converge toward a fixed value. This phenomenon is known as the <strong>stability of relative frequencies</strong> and serves as the empirical foundation of probability theory. It explains why probabilities can be estimated by repeated experimentation, as observed frequencies tend to settle around a fixed value over a large number of trials. AN example of this is shown below in Example 9.1.</p>
 <p>This probability defintion is known as the <strong>empirical probability assignment</strong>, meaning that probabilities are assigned based on observed data rather than theoretical assumptions.</p>
-</section>
-<section id="the-subjective-definition" class="level3" data-number="9.3.3">
-<h3 data-number="9.3.3" class="anchored" data-anchor-id="the-subjective-definition"><span class="header-section-number">9.3.3</span> The Subjective Definition</h3>
+</section><section id="the-subjective-definition" class="level3" data-number="9.3.3"><h3 data-number="9.3.3" class="anchored" data-anchor-id="the-subjective-definition">
+<span class="header-section-number">9.3.3</span> The Subjective Definition</h3>
 <p>Another way to interpret probability is through <strong>subjective probability</strong>, where probability is understood as a*measure of personal belief in the occurrence of an event. Formally, the probability of an event <span class="math inline">\(A\)</span> in this interpretation is given by:</p>
 <p><span class="math display">\[P(A) = \text{a measure of how strongly a person believes that } A \text{ will occur}\]</span> For example, one might estimate the probability of rain tomorrow as <strong>30%</strong>, or believe that the chance of Germany winning the next Eurovision Song Contest is <strong>70%</strong>. These probabilities are not derived from mathematical models or repeated experiments but instead reflect an individual’s degree of confidence in a given outcome.</p>
 <p>This approach known as the <strong>subjective probability assignment</strong> is commonly used in decision-making under uncertainty, such as betting, economics, and risk assessment, where probabilities are assigned based on available information, intuition, or expert judgment rather than empirical frequency or formal statistical models.</p>
-<section id="example-9.1-stability-of-relative-frequencies" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-9.1-stability-of-relative-frequencies">Example 9.1: Stability of Relative Frequencies</h4>
+<section id="example-9.1-stability-of-relative-frequencies" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-9.1-stability-of-relative-frequencies">Example 9.1: Stability of Relative Frequencies</h4>
 <p>How many sixes can we expect if we roll a die 10 times? 1000 times? 10,000 times?</p>
 <p>Let event <span class="math inline">\(A\)</span> represent rolling a six when tossing a fair die. The theoretical probability of rolling a six is:</p>
 <p><span class="math display">\[P(A) = \frac{1}{6} \approx 0.167\]</span></p>
@@ -425,19 +447,15 @@ This principle extends to any finite or countable number of mutually exclusive e
 <p>In total, there were 90 rolls, with a total of: <span class="math inline">\(1+3+1+2+2+5+4+0+2 = 20\)</span> occurrences of a six. The relative frequency of rolling a six in this experiment was: <span class="math display">\[\frac{n_A}{n} = \frac{20}{90} = 0.22\]</span></p>
 <p>What happens if we roll the die many more times? Using a computer simulation, the die was rolled 1000, 10 000 and 100 000 times, resulting in 140, 1726, and 16 745 sixes. The results are summarized in <a href="#tbl-die" class="quarto-xref">Table&nbsp;<span>9.1</span></a>.</p>
 <div id="tbl-die" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-die-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-die-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;9.1: Summary of rolling a fair six-sided die multiple times, showing how the relative frequency of rolling a six approaches the theoretical probability 0.167 (16.7%) as the number of trials increases.
-</figcaption>
-<div aria-describedby="tbl-die-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption><div aria-describedby="tbl-die-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Number of 🎲 Rolls</th>
 <th>Number of Sixes</th>
 <th>Relative Frequency</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>10</td>
@@ -470,30 +488,27 @@ Table&nbsp;9.1: Summary of rolling a fair six-sided die multiple times, showing 
 </figure>
 </div>
 <p>As the number of trials increases, the observed relative frequency tends to stabilize around the theoretical probability. This illustrates the <strong>law of large numbers</strong>, which states that the empirical probability of an event converges to its theoretical probability as the number of trials increases. We’ll return to this later on.</p>
-</section>
-</section>
-</section>
-<section id="uniform-probabilitis" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="uniform-probabilitis"><span class="header-section-number">9.4</span> Uniform Probabilitis</h2>
+</section></section></section><section id="uniform-probabilitis" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="uniform-probabilitis">
+<span class="header-section-number">9.4</span> Uniform Probabilitis</h2>
 <p>In many practical situations, it is reasonable to assume that all outcomes of a random experiment are equally likely. This is known as a <strong>uniform probability model</strong>.</p>
 <p>For an experiment where each outcome occurs with equal probability, the probability of an event <span class="math inline">\(A\)</span> can be calculated as:</p>
 <p><span class="math display">\[P(A) = \frac{N_A}{N}\]</span></p>
 <p>where:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> is the total number of possible outcomes.</li>
-<li><span class="math inline">\(N_A\)</span> is the number of favorable outcomes (i.e., outcomes where event <span class="math inline">\(A\)</span> occurs).</li>
+<li>
+<span class="math inline">\(N\)</span> is the total number of possible outcomes.</li>
+<li>
+<span class="math inline">\(N_A\)</span> is the number of favorable outcomes (i.e., outcomes where event <span class="math inline">\(A\)</span> occurs).</li>
 </ul>
 <p>This applies to all situations where each outcome has the same probability of occurring.</p>
-<section id="example-9.2-rolling-two-dice" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-9.2-rolling-two-dice">Example 9.2: Rolling Two Dice 🎲🎲</h4>
+<section id="example-9.2-rolling-two-dice" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-9.2-rolling-two-dice">Example 9.2: Rolling Two Dice 🎲🎲</h4>
 <p>Consider rolling two fair six-sided dice. Since each die has six faces, there are a total of:</p>
 <p><span class="math display">\[6 \times 6 = 36\]</span><br>
 possible outcomes, all of which are assumed to be equally likely. This is illustrated below where each star represents a possible combination of each roll of the two dice:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="what-is-prob_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="what-is-prob_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -515,19 +530,15 @@ Solution
 <p>Thus, the likelihood of rolling double sixes in a single roll is <strong>1 in 36</strong>, or approximately <strong>2.78%</strong>.</p>
 <p>Below in <a href="#tbl-dice" class="quarto-xref">Table&nbsp;<span>9.2</span></a>, all possible outcome combinations and their corresponding probaiblitis are given. The probability of rolling double sixes in a single roll is given the last row of this table.</p>
 <div id="tbl-dice" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;9.2: The probability distribution of sums when rolling two six-sided dice.
-</figcaption>
-<div aria-describedby="tbl-dice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption><div aria-describedby="tbl-dice-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="center caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Sum</th>
 <th>Number of Outcomes</th>
 <th>Probability</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>2</td>
@@ -592,10 +603,7 @@ Table&nbsp;9.2: The probability distribution of sums when rolling two six-sided 
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="exercises" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
 <li>Consider rolling two fair six-sided dice. What is the probability of rolling doubles (both dice show the same number)?</li>
 </ol>
@@ -612,18 +620,14 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>From earlier we know that the dice rolling follows a uniform probability model with <span class="math inline">\(6 \times 6 = 36\)</span> total possible outcomes.<br>
-The event ‘Doubles’ occur when both dice show the same number:<br>
-<em>(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)</em>, implying we have 6 outcomes of interest and the probability of this event is given by <span class="math display">\[P(\text{doubles}) = \frac{6}{36} = \frac{1}{6} \approx 0.167 \text{ (16.7\%)} \]</span></p>
+The event ‘Doubles’ occur when both dice show the same number:<br><em>(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)</em>, implying we have 6 outcomes of interest and the probability of this event is given by <span class="math display">\[P(\text{doubles}) = \frac{6}{36} = \frac{1}{6} \approx 0.167 \text{ (16.7\%)} \]</span></p>
 </div>
 </div>
 </div>
 <hr>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1021,9 +1025,7 @@ The event ‘Doubles’ occur when both dice show the same number:<br>
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../prob-theory/prob-concepts.html" class="pagination-link" aria-label="Probability Concepts">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span>
       </a>          
@@ -1035,8 +1037,7 @@ The event ‘Doubles’ occur when both dice show the same number:<br>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
@@ -1048,8 +1049,6 @@ The event ‘Doubles’ occur when both dice show the same number:<br>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

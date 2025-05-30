@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Termeh Shafie">
-<title>Inferential Statistics – Foundational Statistics</title>
+
+<title>21&nbsp; Estimation – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,63 +21,30 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./chi2.html" rel="next">
-<link href="./sampling-dists/clt.html" rel="prev">
-<link href="./cover.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chi2.html" rel="next">
+<link href="../inferential/intro-inference.html" rel="prev">
+<link href="../cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -101,26 +71,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
+
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./inference.html">Inferential Statistics</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/estimation.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Foundational Statistics</a> 
+      <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/termehs/found-stats" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -133,9 +141,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
@@ -147,33 +155,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
+  <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduction/intro-math.html" class="sidebar-item-text sidebar-link">
+  <a href="../introduction/intro-math.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduction/intro-surveys.html" class="sidebar-item-text sidebar-link">
+  <a href="../introduction/intro-surveys.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduction/variable-class.html" class="sidebar-item-text sidebar-link">
+  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -182,27 +190,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./descriptive-stats/central-measures.html" class="sidebar-item-text sidebar-link">
+  <a href="../descriptive-stats/central-measures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./descriptive-stats/dispersion-measures.html" class="sidebar-item-text sidebar-link">
+  <a href="../descriptive-stats/dispersion-measures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -211,33 +219,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prob-theory/count-rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../prob-theory/count-rules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Counting Rules</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prob-theory/prob-rules.html" class="sidebar-item-text sidebar-link">
+  <a href="../prob-theory/prob-rules.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probability Rules</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -246,33 +254,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rvs-probdists/discrete-dists.html" class="sidebar-item-text sidebar-link">
+  <a href="../rvs-probdists/discrete-dists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rvs-probdists/cont-dists.html" class="sidebar-item-text sidebar-link">
+  <a href="../rvs-probdists/cont-dists.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -281,36 +289,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Proportion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Inferential Statistics</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferential Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/estimation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -332,25 +359,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#estimators-estimate-estimands" id="toc-estimators-estimate-estimands" class="nav-link active" data-scroll-target="#estimators-estimate-estimands"><span class="header-section-number">21.1</span> Estimators, Estimate, Estimands</a></li>
+  <li><a href="#properties-of-estimators" id="toc-properties-of-estimators" class="nav-link" data-scroll-target="#properties-of-estimators"><span class="header-section-number">21.2</span> Properties of Estimators</a></li>
+  <li><a href="#point-estimation" id="toc-point-estimation" class="nav-link" data-scroll-target="#point-estimation"><span class="header-section-number">21.3</span> Point Estimation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Inferential Statistics</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/estimation.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-est" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></h1>
 </div>
 
 
@@ -364,22 +403,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><ul>
-<li>Estimation: point and interval estimation</li>
-<li>Hypothesis testing for a sample mean and sample proportion</li>
-<li>Hypothesis testing with confidence intervals</li>
-<li>Hypothesis testing for the difference of two means or proportions</li>
+</header>
+
+
+<p>When working with data, we often face the challenge of estimating unknown characteristics of a population based on a limited set of observations: a sample. These characteristics could be the population mean (<span class="math inline">\(\mu\)</span>), the population proportion (<span class="math inline">\(p\)</span>), or the population variance (<span class="math inline">\(\sigma^2\)</span>), among others. In general, we denote the unknown population parameter we wish to estimate by <span class="math inline">\(\theta\)</span>.</p>
+<p>Suppose we collect a random sample consisting of <span class="math inline">\(n\)</span> independent observations, denoted by <span class="math inline">\(X_1, X_2, \dots, X_n\)</span>. Based on this sample, we compute an estimate of <span class="math inline">\(\theta\)</span>, which we denote as <span class="math inline">\(\hat{\theta}\)</span>. For instance, if the parameter of interest is the population mean <span class="math inline">\(\mu\)</span>, then the corresponding estimate is the sample mean <span class="math inline">\(\bar{X}\)</span>. If the parameter of interest is the population variance <span class="math inline">\(\sigma^2\)</span>, the estimate is the sample variance <span class="math inline">\(s^2\)</span>.</p>
+<p>Because the sample is randomly drawn from the population, the estimate <span class="math inline">\(\hat{\theta}\)</span> is itself a random variable. Its value depends on the specific observations in the sample, and therefore it varies from sample to sample. The distribution of this estimate across many repeated samples is known as its sampling distribution (see <a href="../sampling-dists/sampling-dist-mean.html" class="quarto-xref"><span>Chapter 17</span></a> and <a href="../sampling-dists/sampling-dist-prop.html" class="quarto-xref"><span>Chapter 18</span></a>). Understanding the behavior of this distribution is central to inferential statistics: it allows us to assess the uncertainty in our estimates and build confidence intervals, conduct hypothesis tests, and more.</p>
+<p>Naturally, we hope that the value of our estimate <span class="math inline">\(\hat{\theta}\)</span> is close to the true, unknown value of <span class="math inline">\(\theta\)</span>. However, there is always a degree of uncertainty involved. To evaluate the quality of an estimator, we study its properties, most importantly, its expected value and its variance.</p>
+<section id="estimators-estimate-estimands" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="estimators-estimate-estimands"><span class="header-section-number">21.1</span> Estimators, Estimate, Estimands</h2>
+<p>For clarity, it’s important to distinguish between three closely related but conceptually distinct terms in inferential statistics: <strong>estimand</strong>, <strong>estimator</strong>, and <strong>estimate</strong>.</p>
+<ul>
+<li><p><strong>Estimand</strong>: This is the <strong>target</strong> of our inference—the unknown quantity or parameter in the population we want to learn about. Examples include the population mean <span class="math inline">\(\mu\)</span>, the proportion of voters supporting a policy <span class="math inline">\(p\)</span>, or the difference in means between two groups <span class="math inline">\(\mu_1 - \mu_2\)</span>.</p></li>
+<li><p><strong>Estimator</strong>: A formula or rule that we apply to sample data in order to make an informed guess about the estimand. It is a <strong>random variable</strong>, as it depends on the data, which in turn vary across samples. For instance, the sample mean <span class="math inline">\(\bar{X}\)</span> is an estimator for the population mean <span class="math inline">\(\mu\)</span>.</p></li>
+<li><p><strong>Estimate</strong>: The <strong>actual numerical result</strong> obtained when we apply the estimator to a specific dataset. It is a <strong>fixed number</strong>, not a random variable. For example, if <span class="math inline">\(\bar{X} = 7.4\)</span> from our sample, then 7.4 is our estimate of the population mean.</p></li>
 </ul>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<p>In simpler terms:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 46%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Role</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estimand</td>
+<td>What we want to know</td>
+<td><span class="math inline">\(\mu\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(\mu_1 - \mu_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Estimator</td>
+<td>How we calculate it</td>
+<td><span class="math inline">\(\bar{X}\)</span>, <span class="math inline">\(\hat{p}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Estimate</td>
+<td>What we get from our data</td>
+<td>7.4, 0.38</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>⚠️ While these terms are sometimes used interchangeably in casual discussion, understanding their formal distinction is crucial for clear statistical reasoning.</p>
+</blockquote>
+<p>In this text, we may occasionally use “estimate” loosely, but rest assured; we’ll always be clear about what we’re inferring, how we’re doing it, and what the result actually tells us.</p>
+</section>
+<section id="properties-of-estimators" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="properties-of-estimators"><span class="header-section-number">21.2</span> Properties of Estimators</h2>
+<p>An estimator’s quality is assessed through certain desirable properties. The most fundamental ones are <strong>unbiasedness</strong>, <strong>consistency</strong>, and <strong>efficiency</strong>.</p>
+<p>An estimator <span class="math inline">\(\hat{\theta}\)</span> is called <strong>unbiased</strong> if its expected value equals the true parameter:</p>
+<p><span class="math display">\[
+E(\hat{\theta}) = \theta.
+\]</span></p>
+<p>This means that, on average across many samples, the estimator hits the correct value. If this condition is not met, the estimator is said to have a <strong>bias</strong>, defined as:</p>
+<p><span class="math display">\[
+\text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta.
+\]</span></p>
+<p>An estimator with zero bias is called unbiased. But just being correct <em>on average</em> is not enough. We also want our estimator to be <strong>reliable</strong>, that is, to give values that are close to the true parameter in most samples, not just on average.</p>
+<p>This brings us to the property of <strong>consistency</strong>. An estimator is <strong>consistent</strong> if it gets arbitrarily close to the true parameter as the sample size increases. Formally, a consistent estimator <span class="math inline">\(\hat{\theta}_n\)</span> satisfies:</p>
+<p><span class="math display">\[
+\hat{\theta}_n \xrightarrow{p} \theta \quad \text{as } n \to \infty.
+\]</span></p>
+<p>That is, the probability that the estimator deviates substantially from <span class="math inline">\(\theta\)</span> goes to zero as the number of observations grows. Consistency ensures long-run accuracy with enough data.</p>
+<p>Finally, among several unbiased and consistent estimators, we may prefer the one that tends to stay closest to the target in each sample. This is the idea behind <strong>efficiency</strong>. An estimator is more efficient if it has smaller variance among all unbiased estimators. In practical terms, this means it’s more <strong>precise</strong>: it fluctuates less from sample to sample, producing estimates tightly clustered around the true value. When comparing two unbiased estimators of the same parameter, the one with the smaller variance is considered more efficient.</p>
+<p>To illustrate these concepts, consider the dartboard image below:</p>
+<div class="center">
+<div id="fig-dart" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/dart.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.1: Each board illustrates a combination of estimator characteristics. The bottom-left shows an unbiased and efficient estimator (tight clustering at the center). The top-left is biased but efficient (tight clustering, but off-target). The bottom-right is unbiased but inefficient (centered but scattered). The top-right represents an inefficient and biased estimator (wide scatter, off-target). This analogy helps visualize bias, precision, and the ideal goal of consistency over repeated samples.
+</figcaption>
+</figure>
 </div>
 </div>
+<p>Together, these properties give us a clear framework for evaluating the reliability of estimators. Ideally, we want an estimator that is unbiased and has the smallest possible variance, a combination that yields both accuracy and precision in estimation.</p>
+</section>
+<section id="point-estimation" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="point-estimation"><span class="header-section-number">21.3</span> Point Estimation</h2>
+<p>In statistical inference, we often aim to estimate unknown characteristics of a population—such as its average income, the proportion of voters in favor of a policy, or the variance in housing prices. This process of using data from a sample to calculate a single value as a “best guess” for a population parameter is known as <strong>point estimation</strong>.</p>
+<p>Let us assume we have a random sample <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> of <span class="math inline">\(n\)</span> independent observations from a population with an unknown mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. A <strong>point estimator</strong> is a function of the sample data used to estimate a population parameter.</p>
+<p>For instance:</p>
+<ul>
+<li>The <strong>population mean</strong> <span class="math inline">\(\mu\)</span> is typically estimated by the <strong>sample mean</strong> <span class="math inline">\(\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i\)</span></li>
+<li>The <strong>population proportion</strong> <span class="math inline">\(p\)</span> is estimated by the <strong>sample proportion</strong> <span class="math inline">\(\hat{p} = \frac{x}{n}\)</span>, where <span class="math inline">\(x\)</span> is the number of “successes”</li>
+<li>The <strong>population variance</strong> <span class="math inline">\(\sigma^2\)</span> is estimated by the <strong>sample variance</strong> <span class="math inline">\(s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2\)</span></li>
+</ul>
+<p>These estimators are derived from the data and yield a specific number once we collect our sample. However, prior to observing the data, the estimator is a random variable because it depends on the randomly selected sample.</p>
+<p>Since estimators are functions of random samples, they too follow a probability distribution. This distribution is known as the sampling distribution of the estimator (see <a href="../sampling-dists/sampling-dist-mean.html" class="quarto-xref"><span>Chapter 17</span></a> and <a href="../sampling-dists/sampling-dist-prop.html" class="quarto-xref"><span>Chapter 18</span></a>). It tells us how the estimator would vary if we repeatedly took samples of the same size from the same population.</p>
+<p>A crucial insight here is that the larger the sample size, the less variability the estimator will show across repeated samples, leading to more <strong>reliable</strong> estimation.</p>
+<p>Understanding the quality of an estimator involves examining the theoretical properties mentioned above:</p>
+<ul>
+<li><p><strong>Unbiasedness</strong>: An estimator <span class="math inline">\(\hat{\theta}\)</span> is said to be <strong>unbiased</strong> for a parameter <span class="math inline">\(\theta\)</span> if its expected value equals the true parameter:<br>
+<span class="math display">\[ E(\hat{\theta}) = \theta \]</span></p>
+<p>For example (this was shown in detail in <a href="../sampling-dists/sampling-dist-mean.html" class="quarto-xref"><span>Chapter 17</span></a> and <a href="../sampling-dists/sampling-dist-prop.html" class="quarto-xref"><span>Chapter 18</span></a>):</p>
+<ul>
+<li><span class="math inline">\(E(\bar{X}) = \mu\)</span>, so the sample mean is an unbiased estimator of the population mean.</li>
+<li><span class="math inline">\(E(\hat{p}) = p\)</span>, meaning the sample proportion is also unbiased for the true proportion.</li>
+<li><span class="math inline">\(E(s^2) = \sigma^2\)</span>, making <span class="math inline">\(s^2\)</span> an unbiased estimator of the population variance.</li>
+</ul>
+<p><em>(Note: The sample standard deviation <span class="math inline">\(s\)</span> is not an unbiased estimator of <span class="math inline">\(\sigma\)</span>.)</em></p></li>
+<li><p><strong>Variance</strong>: The <strong>spread</strong> of the estimator’s sampling distribution is captured by its variance. Smaller variance means the estimator tends to be closer to the true parameter.</p>
+<p>For the sample mean, this is given by:<br>
+<span class="math display">\[ \operatorname{Var}(\bar{X}) = \frac{\sigma^2}{n} \]</span><br>
+Similarly, for the sample proportion: <span class="math display">\[ \operatorname{Var}(\hat{p}) = \frac{p(1 - p)}{n} \]</span></p>
+<p>These expressions show that increasing the sample size <span class="math inline">\(n\)</span> decreases the variance of the estimator.</p></li>
+<li><p><strong>Standard Error</strong>: The <strong>standard deviation</strong> of an estimator’s sampling distribution is called the <strong>standard error</strong> (SE). It quantifies how much the estimator would vary from sample to sample: <span class="math display">\[ \text{SE}(\bar{X}) = \sqrt{\frac{\sigma^2}{n}}, \quad \text{SE}(\hat{p}) = \sqrt{\frac{p(1 - p)}{n}} \]</span></p></li>
+</ul>
+<p>In practice, when <span class="math inline">\(\sigma^2\)</span> or <span class="math inline">\(p\)</span> are unknown, we often substitute their estimates.</p>
+<p>Point estimation provides an intuitive way to infer unknown quantities in a population using observed sample data. It’s the first essential tool in the inferential statistics toolbox, allowing us to move from descriptive summaries to educated guesses about the world beyond our data. In the coming chapters, we will build on these estimators to construct confidence intervals and perform hypothesis testing, all grounded in the probabilistic behavior of these sampling distributions.</p>
 
 
+</section>
 
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -777,30 +924,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./sampling-dists/clt.html" class="pagination-link" aria-label="Central Limit Theorem">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span>
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../inferential/intro-inference.html" class="pagination-link" aria-label="From Probability to Statistical Inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chi2.html" class="pagination-link" aria-label="Chi Square Tests">
+      <a href="../chi2.html" class="pagination-link" aria-label="Chi Square Tests">
         <span class="nav-page-text">Chi Square Tests</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inference.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

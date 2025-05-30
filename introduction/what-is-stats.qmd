@@ -2,42 +2,37 @@
 
 Statistics is all about making informed decisions in an uncertain world. Imagine you’re a detective piecing together clues (data) to solve a case (hypothesis testing). But instead of clear-cut evidence, you get noisy, incomplete, and sometimes misleading information.
 
-At its core, statistics is *the science of changing your mind under uncertainty*— not because you’re indecisive, but because data has the power to prove you wrong! Making decisions without data is like guessing the weather based on your mood. Data helps us navigate randomness, update our beliefs, and make smarter choices based on evidence rather than gut feeling. You're basically saying, we don’t know everything, but let’s make the best of what we’ve got. 
+At its core, statistics is *the science of changing your mind under uncertainty*— not because you’re indecisive, but because data has the power to prove you wrong! Making decisions without data is like guessing the weather based on your mood. Data helps us navigate randomness, update our beliefs, and make smarter choices based on evidence rather than gut feeling. You're basically saying, we don’t know everything, but let’s make the best of what we’ve got.
 
-Using statistical terminology (*in parenthesis*) we can sunmmarize as following: Making decisions based on facts means having information about all the facts (*parameters*) . But most of the time we don’t have all the information, and what we know comes (*sample*)  is often different than what we wish we knew (*population*). So we guess (*estimate*) under uncertainty.
+Using statistical terminology (*in parenthesis*) we can sunmmarize as following: Making decisions based on facts means having information about all the facts (*parameters*) . But most of the time we don’t have all the information, and what we know comes (*sample*) is often different than what we wish we knew (*population*). So we guess (*estimate*) under uncertainty.
 
 The uncertainty comes from the fact that the world is messy, unpredictable, and full of unknowns. No data is perfect, randomness exist everywhere. Further to this, even if we collect tons of data, there’s always some level of error. Instead of making absolute claims, statistics helps us express how confident we are in our conclusions using quantified uncertainty. Just remember that there is no magic formula that turns uncertainty into certainty, we cannot escape it!
 
-
-Statistics has two main branches, descriptive statistics and inferential statistics, each tackling uncertainty differently. 
+Statistics has two main branches, descriptive statistics and inferential statistics, each tackling uncertainty differently.
 
 ## Descriptive Statistics
+
 This is like taking a selfie of your data. It summarizes and reports what’s there, showing us things like averages, spreads, and patterns. Think of it as data gossip — who’s the biggest, smallest, most popular, or way off in the corner doing their own thing (*yes, outliers, I'm looking at you!*).
 
 For example, a histogram or boxplot can reveal whether our data is skewed, normally distributed, or hiding some unexpected surprises. Without descriptive analysis, we risk making assumptions that could lead to misleading conclusions—kind of like blindly trusting a GPS without checking if the road exists!
 
-
 ## Inferential Statistics
- Instead of just describing what we see, we here aim to gain insight or make predictions about the big picture based on a small sample. It’s like tasting one donut from the box and guessing if the whole batch is good 🍩.
 
-Consider you have a hypothesis you wish to test (*alternative hypothesis*). Using data collected, you express the rules of the game through probabilities, distributions, and statistical models. This helps create a “toy model” of the world based on your hypothesis.  The null hypothesis is then the “default world,” and your working hypothesis is literally everything else. You pretend you know how things work, and then check if reality agrees with you (*hypothesis testing*). 
-Then you ask the big question: *Does our data make the null hypothesis look completely ridiculous?* If yes, we might just reject it and revise the null world accordingly.
+Instead of just describing what we see, we here aim to gain insight or make predictions about the big picture based on a small sample. It’s like tasting one donut from the box and guessing if the whole batch is good 🍩.
 
+Consider you have a hypothesis you wish to test (*alternative hypothesis*). Using data collected, you express the rules of the game through probabilities, distributions, and statistical models. This helps create a “toy model” of the world based on your hypothesis. The null hypothesis is then the “default world,” and your working hypothesis is literally everything else. You pretend you know how things work, and then check if reality agrees with you (*hypothesis testing*). Then you ask the big question: *Does our data make the null hypothesis look completely ridiculous?* If yes, we might just reject it and revise the null world accordingly.
 
-
-Statistics isn’t about finding the ultimate truth, but about making the best possible decisions with the information available. We estimate, test, and adjust—because in the end, being less wrong is the best we can do.
-In the words of the famous statistician George Box: *"All models are wrong, but some are useful"*.
+Statistics isn’t about finding the ultimate truth, but about making the best possible decisions with the information available. We estimate, test, and adjust—because in the end, being less wrong is the best we can do. In the words of the famous statistician George Box: *"All models are wrong, but some are useful"*.
 
 ## Statistical Analysis: The Process
-The diagram  in @fig-popsamp  represents the pipeline of statistical analysis, outlining the key steps in drawing insights from data:
 
-1.	**Data Collection** – A sample is selected from the population to be used for the analysis and posed research questions.
-2.	**Descriptive Statistics** – The sample is analyzed to summarize patterns and trends.
-3.	**Probability Modeling** – Statistical methods establish connections between the sample and population.
-4.	**Inference** – Findings from the sample are generalized to make conclusions about the population.
+The diagram in @fig-popsamp represents the pipeline of statistical analysis, outlining the key steps in drawing insights from data:
 
-
+1.  **Data Collection** – A sample is selected from the population to be used for the analysis and posed research questions.
+2.  **Descriptive Statistics** – The sample is analyzed to summarize patterns and trends.
+3.  **Probability Modeling** – Statistical methods establish connections between the sample and population.
+4.  **Inference** – Findings from the sample are generalized to make conclusions about the population.
 
 ::: center
-![The main branches of Statistics, together with associations between them. ](imgs/‎popsamp-pipe.png){#fig-popsamp fig-align="center" width="100%"}
+![The main branches of Statistics, together with associations between them.](imgs/‎popsamp-pipe.png){#fig-popsamp fig-align="center" width="100%"}
 :::

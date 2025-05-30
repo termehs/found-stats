@@ -1,0 +1,58 @@
+# From Probability to Statistical Inference {#sec-}
+
+Most statistical journeys begin with descriptive statistics; calculating averages, medians, spreads, and trends to summarize what we see in our data. But knowing *how it is* only gets us partway. At some point, we want to go further. We ask:  
+
+> Is this result just a fluke? 
+> Will it happen again? 
+> Can we generalize it?*
+
+To answer these questions, we need more than summaries. We need a framework to quantify uncertainty, and that's where probability theory does its magic. It helps us model randomness and variation in data, turning questions about *how things are* into questions about *how things might be*.
+
+Enter **inferential statistics**: the part of statistics that uses sample data, guided by probability, to draw conclusions about the larger population. This is where we estimate unknown values, test hypotheses, and make data-driven decisions, even when we can’t see the whole picture.
+
+In the coming sections, we’ll explore the key tools of inference, and how they allow us to move thoughtfully from *what we observe* to *what we believe* about the world. In the following section, we'll begin exploring the methods and logic behind inferential statistics, starting with estimation techniques and building toward hypothesis testing. Let’s dive into how we can responsibly and rigorously make sense of the unknown.
+
+
+
+
+::: center
+![Inferential statistics builds on descriptive summaries and probability theory to predict and generalize beyond the data at hand. ](imgs/desc-prob-inf){#fig-inf fig-align="center" width="100%"}
+:::
+
+
+Up until now, our focus has been on the domain of **probability theory**. This has allowed us to answer questions like: 
+
+> What is the probability that a certain outcome will occur?
+
+For instance, imagine we know that 30% of a population of 1000 people own a car. If we randomly select a sample of 100 individuals, we can calculate the probability that 50 or more of them are car owners using tools from probability.
+
+But now, we turn the tables.
+
+Instead of starting with known population characteristics and predicting sample behavior, we enter the world of **statistical inference** — where we begin with a sample and aim to draw conclusions about the larger population. Inference flips the problem around: 
+
+> Given data from a sample, what can we say about the population it came from?
+
+Let’s revisit the earlier example but from a different angle. Suppose we randomly select 100 people from a population of 1000 but this time, we don’t know what percentage of the population owns a car. We observe that 40 out of the 100 in our sample are car owners. The central question becomes: 
+
+> What can we infer about the proportion of car owners in the entire population?
+
+This, in essence, is what **statistical inference** is about: using data from a sample to make educated guesses about unknown parameters in a population distribution. While probability theory helps us determine the behavior of a sample given known population traits, statistical inference works in reverse; aiming to uncover population-level truths from sample-level evidence.
+
+In practice, statistical inference involves several important techniques, including:
+
+- **Point estimation**, where we use sample data to provide a single best guess of a population parameter.
+- **Interval estimation**, where we compute confidence intervals to express the uncertainty around our estimates.
+- **Hypothesis testing**, where we formally assess claims about population characteristics using sample evidence.
+
+This shift, from description and theory to inference and decision-making,  marks a crucial transition in the statistical journey. It enables us to go beyond the data at hand and make broader conclusions about the world.
+
+In the chapters ahead, we’ll explore each of these methods; learning how to estimate, quantify uncertainty, and test ideas using the powerful tools of inferential statistics.
+
+-   Estimation: point and interval estimation
+-   Hypothesis testing for a sample mean and sample proportion
+-   Hypothesis testing with confidence intervals
+-   Hypothesis testing for the difference of two means or proportions
+
+```{r}
+1 + 1
+```

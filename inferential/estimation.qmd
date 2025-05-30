@@ -1,0 +1,121 @@
+# Estimation {#sec-est}
+When working with data, we often face the challenge of estimating unknown characteristics of a population based on a limited set of observations: a sample. These characteristics could be the population mean ($\mu$), the population proportion ($p$), or the population variance ($\sigma^2$), among others. In general, we denote the unknown population parameter we wish to estimate by $\theta$.
+
+Suppose we collect a random sample consisting of $n$ independent observations, denoted by $X_1, X_2, \dots, X_n$. Based on this sample, we compute an estimate of $\theta$, which we denote as $\hat{\theta}$. For instance, if the parameter of interest is the population mean $\mu$, then the corresponding estimate is the sample mean $\bar{X}$. If the parameter of interest is the population variance $\sigma^2$, the estimate is the sample variance $s^2$.
+
+Because the sample is randomly drawn from the population, the estimate $\hat{\theta}$ is itself a random variable. Its value depends on the specific observations in the sample, and therefore it varies from sample to sample. The distribution of this estimate across many repeated samples is known as its sampling distribution (see @sec-sampldist-mean and @sec-sampldist-prop). Understanding the behavior of this distribution is central to inferential statistics: it allows us to assess the uncertainty in our estimates and build confidence intervals, conduct hypothesis tests, and more.
+
+Naturally, we hope that the value of our estimate $\hat{\theta}$ is close to the true, unknown value of $\theta$. However, there is always a degree of uncertainty involved. To evaluate the quality of an estimator, we study its properties, most importantly, its expected value and its variance.
+
+
+
+## Estimators, Estimate, Estimands
+
+For clarity, it's important to distinguish between three closely related but conceptually distinct terms in inferential statistics: **estimand**, **estimator**, and **estimate**.
+
+- **Estimand**: This is the **target** of our inference—the unknown quantity or parameter in the population we want to learn about. Examples include the population mean $\mu$, the proportion of voters supporting a policy $p$, or the difference in means between two groups $\mu_1 - \mu_2$.
+
+- **Estimator**: A formula or rule that we apply to sample data in order to make an informed guess about the estimand. It is a **random variable**, as it depends on the data, which in turn vary across samples. For instance, the sample mean $\bar{X}$ is an estimator for the population mean $\mu$.
+
+- **Estimate**: The **actual numerical result** obtained when we apply the estimator to a specific dataset. It is a **fixed number**, not a random variable. For example, if $\bar{X} = 7.4$ from our sample, then 7.4 is our estimate of the population mean.
+
+In simpler terms:
+
+| Term       | Role                            | Example                   |
+|------------|----------------------------------|---------------------------|
+| Estimand   | What we want to know             | $\mu$, $p$, $\mu_1 - \mu_2$ |
+| Estimator  | How we calculate it              | $\bar{X}$, $\hat{p}$      |
+| Estimate   | What we get from our data        | 7.4, 0.38                 |
+
+> ⚠️ While these terms are sometimes used interchangeably in casual discussion, understanding their formal distinction is crucial for clear statistical reasoning.
+
+In this text, we may occasionally use "estimate" loosely, but rest assured; we’ll always be clear about what we're inferring, how we're doing it, and what the result actually tells us.
+
+
+## Properties of Estimators
+An estimator's quality is assessed through certain desirable properties. The most fundamental ones are **unbiasedness**, **consistency**, and **efficiency**.
+
+An estimator $\hat{\theta}$ is called **unbiased** if its expected value equals the true parameter:
+
+$$
+E(\hat{\theta}) = \theta.
+$$
+
+This means that, on average across many samples, the estimator hits the correct value. If this condition is not met, the estimator is said to have a **bias**, defined as:
+
+$$
+\text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta.
+$$
+
+An estimator with zero bias is called unbiased. But just being correct *on average* is not enough. We also want our estimator to be **reliable**, that is, to give values that are close to the true parameter in most samples, not just on average.
+
+This brings us to the property of **consistency**. An estimator is **consistent** if it gets arbitrarily close to the true parameter as the sample size increases. Formally, a consistent estimator $\hat{\theta}_n$ satisfies:
+
+$$
+\hat{\theta}_n \xrightarrow{p} \theta \quad \text{as } n \to \infty.
+$$
+
+That is, the probability that the estimator deviates substantially from $\theta$ goes to zero as the number of observations grows. Consistency ensures long-run accuracy with enough data.
+
+Finally, among several unbiased and consistent estimators, we may prefer the one that tends to stay closest to the target in each sample. This is the idea behind **efficiency**. An estimator is more efficient if it has smaller variance among all unbiased estimators. In practical terms, this means it's more **precise**: it fluctuates less from sample to sample, producing estimates tightly clustered around the true value. When comparing two unbiased estimators of the same parameter, the one with the smaller variance is considered more efficient. 
+
+To illustrate these concepts, consider the dartboard image below:
+
+::: center
+![Each board illustrates a combination of estimator characteristics. The bottom-left shows an unbiased and efficient estimator (tight clustering at the center). The top-left is biased but efficient (tight clustering, but off-target). The bottom-right is unbiased but inefficient (centered but scattered). The top-right represents an inefficient and biased estimator (wide scatter, off-target). This analogy helps visualize bias, precision, and the ideal goal of consistency over repeated samples.](imgs/dart.png){#fig-dart fig-align="center" width="70%"}
+:::
+
+
+Together, these properties give us a clear framework for evaluating the reliability of estimators. Ideally, we want an estimator that is unbiased and has the smallest possible variance, a combination that yields both accuracy and precision in estimation.
+
+
+
+
+## Point Estimation
+
+In statistical inference, we often aim to estimate unknown characteristics of a population—such as its average income, the proportion of voters in favor of a policy, or the variance in housing prices. This process of using data from a sample to calculate a single value as a “best guess” for a population parameter is known as **point estimation**.
+
+Let us assume we have a random sample $X_1, X_2, \ldots, X_n$ of $n$ independent observations from a population with an unknown mean $\mu$ and variance $\sigma^2$. A **point estimator** is a function of the sample data used to estimate a population parameter.
+
+For instance:
+
+- The **population mean** $\mu$ is typically estimated by the **sample mean** $\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i$
+- The **population proportion** $p$ is estimated by the **sample proportion** $\hat{p} = \frac{x}{n}$, where $x$ is the number of "successes"
+- The **population variance** $\sigma^2$ is estimated by the **sample variance** $s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2$
+
+These estimators are derived from the data and yield a specific number once we collect our sample. However, prior to observing the data, the estimator is a random variable because it depends on the randomly selected sample.
+
+Since estimators are functions of random samples, they too follow a probability distribution. This distribution is known as the sampling distribution of the estimator (see @sec-sampldist-mean and @sec-sampldist-prop). It tells us how the estimator would vary if we repeatedly took samples of the same size from the same population.
+
+A crucial insight here is that the larger the sample size, the less variability the estimator will show across repeated samples, leading to more **reliable** estimation.
+
+Understanding the quality of an estimator involves examining the theoretical properties mentioned above:
+
+- **Unbiasedness**: An estimator $\hat{\theta}$ is said to be **unbiased** for a parameter $\theta$ if its expected value equals the true parameter:  
+  $$ E(\hat{\theta}) = \theta $$
+
+  For example (this was shown in detail in @sec-sampldist-mean and @sec-sampldist-prop):
+  - $E(\bar{X}) = \mu$, so the sample mean is an unbiased estimator of the population mean.
+  - $E(\hat{p}) = p$, meaning the sample proportion is also unbiased for the true proportion.
+  - $E(s^2) = \sigma^2$, making $s^2$ an unbiased estimator of the population variance.
+
+  *(Note: The sample standard deviation $s$ is not an unbiased estimator of $\sigma$.)*
+
+- **Variance**: The **spread** of the estimator’s sampling distribution is captured by its variance. Smaller variance means the estimator tends to be closer to the true parameter.
+
+  For the sample mean, this is given by:  
+  $$ \operatorname{Var}(\bar{X}) = \frac{\sigma^2}{n} $$  
+  Similarly, for the sample proportion:
+  $$ \operatorname{Var}(\hat{p}) = \frac{p(1 - p)}{n} $$
+
+  These expressions show that increasing the sample size $n$ decreases the variance of the estimator.
+
+- **Standard Error**: The **standard deviation** of an estimator’s sampling distribution is called the **standard error** (SE). It quantifies how much the estimator would vary from sample to sample:
+  $$ \text{SE}(\bar{X}) = \sqrt{\frac{\sigma^2}{n}}, \quad \text{SE}(\hat{p}) = \sqrt{\frac{p(1 - p)}{n}} $$
+
+In practice, when $\sigma^2$ or $p$ are unknown, we often substitute their estimates.
+
+
+Point estimation provides an intuitive way to infer unknown quantities in a population using observed sample data. It’s the first essential tool in the inferential statistics toolbox, allowing us to move from descriptive summaries to educated guesses about the world beyond our data. In the coming chapters, we will build on these estimators to construct confidence intervals and perform hypothesis testing, all grounded in the probabilistic behavior of these sampling distributions.
+
+

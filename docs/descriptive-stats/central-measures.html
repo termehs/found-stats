@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
 <title>6&nbsp; Measures of Central Tendency – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,12 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -101,15 +91,11 @@ window.Quarto = {
   typesetMath
 };
 </script>
-
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -120,13 +106,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -141,7 +123,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -155,8 +137,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -181,7 +163,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -190,8 +172,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -210,7 +192,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -219,8 +201,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -245,7 +227,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -254,8 +236,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -273,68 +255,114 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Sampling and Sampling Distributions</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Proportion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Inferential Statistics</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferential Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Chi Square Tests</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regression Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Summary</span></span>
+ <span class="menu-text">Regression Analysis</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Standard Normal Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#arithmetic-mean" id="toc-arithmetic-mean" class="nav-link active" data-scroll-target="#arithmetic-mean"><span class="header-section-number">6.1</span> Arithmetic Mean</a></li>
+<li><a href="#arithmetic-mean" id="toc-arithmetic-mean" class="nav-link active" data-scroll-target="#arithmetic-mean"><span class="header-section-number">6.1</span> Arithmetic Mean</a></li>
   <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">6.2</span> Median</a></li>
   <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">6.3</span> Mode</a></li>
   <li><a href="#which-measure-should-you-choose" id="toc-which-measure-should-you-choose" class="nav-link" data-scroll-target="#which-measure-should-you-choose"><span class="header-section-number">6.4</span> Which Measure Should You Choose?</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/descriptive-stats/central-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/descriptive-stats/central-measures.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../descriptive-stats/describe-data.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../descriptive-stats/central-measures.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../descriptive-stats/describe-data.html">Descriptive Statistics</a></li><li class="breadcrumb-item"><a href="../descriptive-stats/central-measures.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span>
+</h1>
 </div>
 
 
@@ -348,34 +376,31 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>Measures of central tendency are numerical indicators that describe a “typical” observation within a data set. These measures help summarize data and provide insight into the distribution. The three most commonly used central measures are:</p>
+</header><p>Measures of central tendency are numerical indicators that describe a “typical” observation within a data set. These measures help summarize data and provide insight into the distribution. The three most commonly used central measures are:</p>
 <ul>
-<li><strong>Mean</strong> (Arithmetic Average): The sum of all observations divided by the number of observations, representing the “balance point” of the distribution.</li>
-<li><strong>Median</strong>: The middle value when observations are arranged in ascending order.</li>
-<li><strong>Mode</strong>: The most frequently occurring value in the data set.</li>
+<li>
+<strong>Mean</strong> (Arithmetic Average): The sum of all observations divided by the number of observations, representing the “balance point” of the distribution.</li>
+<li>
+<strong>Median</strong>: The middle value when observations are arranged in ascending order.</li>
+<li>
+<strong>Mode</strong>: The most frequently occurring value in the data set.</li>
 </ul>
 <p>We will use the follwing running example in this chapter.</p>
-<section id="example-6.1-income" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-6.1-income">Example 6.1: Income</h4>
+<section id="example-6.1-income" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income">Example 6.1: Income</h4>
 <p>We have income data (in thousands of €) for 18 individuals:</p>
 <pre><code>20 22 24 24  26 27  30 34  40 44  45 47 55 57  60  75  85 90</code></pre>
 <p>We will in the following show how we compute each of the shown measure of central tendency in the follwing.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="central-measures_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="central-measures_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We will see that for this example, the median income is the most representative value, as it is less affected by high-income extreme values.</p>
-</section>
-<section id="arithmetic-mean" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="arithmetic-mean"><span class="header-section-number">6.1</span> Arithmetic Mean</h2>
+</section><section id="arithmetic-mean" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="arithmetic-mean">
+<span class="header-section-number">6.1</span> Arithmetic Mean</h2>
 <p>The <strong>mean</strong> is calculated by summing all values and dividing by the number of observations. It is often used as a measure of central tendency because it incorporates all data points, making it a valuable summary statistic. However, the mean is sensitive to outliers, meaning that extreme values can pull it higher or lower, potentially misrepresenting the typical value in a skewed distribution. Despite this, in normally distributed data, the mean is a reliable and widely used indicator of the data set’s center.</p>
 <p>The mean is calculated differently depending on whether we are working with an entire population or a sample: For a population, the mean (<span class="math inline">\(\mu\)</span>, just a fancy Greek way of saying “the mean of <span class="math inline">\(X\)</span>”) is given by: <span class="math display">\[
 \mu = \frac{\sum_{i=1}^{N} x_i}{N}
@@ -383,58 +408,51 @@ window.Quarto = {
 <p>where <span class="math inline">\(N\)</span> is the population size. For a sample, the mean (<span class="math inline">\(\bar{x}\)</span>) is an estimate of <span class="math inline">\(\mu\)</span> and is calculated as: <span class="math display">\[
 \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
 \]</span> where <span class="math inline">\(n\)</span> is the sample size.</p>
-<section id="example-6.1-income-1" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-1">Example 6.1: Income</h4>
+<section id="example-6.1-income-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-1">Example 6.1: Income</h4>
 <p>The mean income is: <span class="math display">\[\bar{x} = \frac{20 + 22 + 24 + 24 + \cdots + 85 + 90}{18} = 44.7 \]</span> Thus, the mean income is 44 700 €.</p>
-</section>
-</section>
-<section id="median" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="median"><span class="header-section-number">6.2</span> Median</h2>
+</section></section><section id="median" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="median">
+<span class="header-section-number">6.2</span> Median</h2>
 <p>The <strong>median</strong> is the middle value of a dataset when arranged in ascending order. It represents the point where half of the observations are below and half are above, making it a useful measure of central tendency for skewed distributions. Unlike the mean, the median is not affected by outliers, making it a more robust indicator of typical values in cases where extreme values exist. For example, in income data, the median often provides a better reflection of the typical salary than the mean, which can be skewed by very high incomes. If there is an even number of observations, the median is the average of the two middle values. The median position is found using: <span class="math display">\[
 \frac{n + 1}{2}
 \]</span></p>
-<section id="example-6.1-income-2" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-2">Example 6.1: Income</h4>
+<section id="example-6.1-income-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-2">Example 6.1: Income</h4>
 <p>For our sorted income data we get that the median is located at the position <span class="math display">\[
 \frac{19}{2} = 9.5
 \]</span> The median is then the average of the 9th and 10th values (40 and 44):** <span class="math display">\[
 \frac{40 + 44}{2} =42
 \]</span> Thus, the median income is 42 000 €.</p>
-</section>
-</section>
-<section id="mode" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="mode"><span class="header-section-number">6.3</span> Mode</h2>
+</section></section><section id="mode" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="mode">
+<span class="header-section-number">6.3</span> Mode</h2>
 <p>The <strong>mode</strong> is the most frequently occurring value in a data set. A data set can have one mode (unimodal), multiple modes (multimodal), or no mode at all if all values are unique. The mode is particularly useful for categorical data, such as identifying the most popular product in a sales dataset or the most common salary range in a workforce. In a histogram, the mode corresponds to the peak of the distribution, highlighting where data points concentrate the most.</p>
-<section id="example-6.1-income-3" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-3">Example 6.1: Income</h4>
+<section id="example-6.1-income-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-6.1-income-3">Example 6.1: Income</h4>
 <p>The most frequently occurring values in the income example is 24.</p>
-</section>
-</section>
-<section id="which-measure-should-you-choose" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="which-measure-should-you-choose"><span class="header-section-number">6.4</span> Which Measure Should You Choose?</h2>
+</section></section><section id="which-measure-should-you-choose" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="which-measure-should-you-choose">
+<span class="header-section-number">6.4</span> Which Measure Should You Choose?</h2>
 <p>The appropriate measure of central tendency depends on the <strong>data type</strong>:</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Data Type</th>
 <th>Suitable Measure(s)</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
-<td><strong>Nominal Data</strong> (categories)</td>
+<td>
+<strong>Nominal Data</strong> (categories)</td>
 <td>Mode</td>
 </tr>
 <tr class="even">
-<td><strong>Ordinal Data</strong> (ranked categories)</td>
+<td>
+<strong>Ordinal Data</strong> (ranked categories)</td>
 <td>Mode, Median</td>
 </tr>
 <tr class="odd">
-<td><strong>Interval Data</strong> (e.g., temperature)</td>
+<td>
+<strong>Interval Data</strong> (e.g., temperature)</td>
 <td>Mode, Median, Mean</td>
 </tr>
 <tr class="even">
-<td><strong>Ratio Data</strong> (e.g., income, weight)</td>
+<td>
+<strong>Ratio Data</strong> (e.g., income, weight)</td>
 <td>Mode, Median, Mean</td>
 </tr>
 </tbody>
@@ -444,10 +462,7 @@ window.Quarto = {
 <hr>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -845,9 +860,7 @@ window.Quarto = {
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../descriptive-stats/describe-data.html" class="pagination-link" aria-label="Describing a Dataset">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span>
       </a>          
@@ -859,8 +872,7 @@ window.Quarto = {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
@@ -872,8 +884,6 @@ window.Quarto = {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

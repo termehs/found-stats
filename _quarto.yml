@@ -49,7 +49,10 @@ book:
       - sampling-dists/sampling-dist-mean.qmd
       - sampling-dists/sampling-dist-prop.qmd
       - sampling-dists/clt.qmd
-    - part: inference.qmd
+    - part: "Inferential Statistics"
+      chapters:
+      - inferential/intro-inference.qmd
+      - inferential/estimation.qmd
     - part: chi2.qmd
     - part: regression.qmd
     - part: references.qmd
