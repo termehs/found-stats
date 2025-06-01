@@ -381,6 +381,10 @@ window.Quarto = {
   <li><a href="#estimators-estimate-estimands" id="toc-estimators-estimate-estimands" class="nav-link active" data-scroll-target="#estimators-estimate-estimands"><span class="header-section-number">21.1</span> Estimators, Estimate, Estimands</a></li>
   <li><a href="#properties-of-estimators" id="toc-properties-of-estimators" class="nav-link" data-scroll-target="#properties-of-estimators"><span class="header-section-number">21.2</span> Properties of Estimators</a></li>
   <li><a href="#point-estimation" id="toc-point-estimation" class="nav-link" data-scroll-target="#point-estimation"><span class="header-section-number">21.3</span> Point Estimation</a></li>
+  <li><a href="#interval-estimation" id="toc-interval-estimation" class="nav-link" data-scroll-target="#interval-estimation"><span class="header-section-number">21.4</span> Interval Estimation</a>
+  <ul class="collapse">
+  <li><a href="#confidence-interval-for-the-population-mean" id="toc-confidence-interval-for-the-population-mean" class="nav-link" data-scroll-target="#confidence-interval-for-the-population-mean">Confidence Interval for the Population Mean</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -521,8 +525,47 @@ Similarly, for the sample proportion: <span class="math display">\[ \operatornam
 </ul>
 <p>In practice, when <span class="math inline">\(\sigma^2\)</span> or <span class="math inline">\(p\)</span> are unknown, we often substitute their estimates.</p>
 <p>Point estimation provides an intuitive way to infer unknown quantities in a population using observed sample data. It’s the first essential tool in the inferential statistics toolbox, allowing us to move from descriptive summaries to educated guesses about the world beyond our data. In the coming chapters, we will build on these estimators to construct confidence intervals and perform hypothesis testing, all grounded in the probabilistic behavior of these sampling distributions.</p>
+</section>
+<section id="interval-estimation" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="interval-estimation"><span class="header-section-number">21.4</span> Interval Estimation</h2>
+<p>In statistics, a single number, known as a point estimate, can give us an estimate of a population parameter, like the mean. But such an estimate tells us little about how precise or reliable it is. After all, due to the randomness inherent in sampling, our estimate could vary from sample to sample. That’s why we turn to <strong>interval estimation</strong>.</p>
+<p>A <strong>confidence interval</strong> provides a range of plausible values for the unknown parameter. It gives a way to quantify the uncertainty of our point estimate. The general form of a confidence interval can be written as:</p>
+<p><span class="math display">\[
+\text{Point Estimate} \pm \text{Margin of Error}
+\]</span></p>
+<p>More formally, a confidence interval is constructed so that, with a specified probability known as the <strong>confidence level</strong>, contains the true value of the parameter. This probability is denoted by <span class="math inline">\(1 - \alpha\)</span>, where <span class="math inline">\(\alpha\)</span> is the <strong>significance level</strong>. Common choices are 95% confidence (<span class="math inline">\(\alpha = 0.05\)</span>) or 99% confidence (<span class="math inline">\(\alpha = 0.01\)</span>). The higher the confidence level, the wider the interval must be to ensure it covers the true parameter more frequently in repeated samples.</p>
+<p>While a point estimate gives us a single best guess for the value of a population parameter, it offers no information about the uncertainty of that guess. This is visualized in <a href="#fig-fish" class="quarto-xref">Figure&nbsp;<span>21.2</span></a>. Imagine you’re trying to catch a fish (think <em>parameter</em>) you can’t quite see. Point estimation is like throwing a spear: accurate if you hit, but there’s a good chance you’ll miss. Interval estimation is more forgiving: it’s like casting a net. You may not catch the exact center, but you’re much more likely to get the fish. This is exactly what confidence intervals offer: a wider, more reliable shot at capturing the truth.</p>
+<div class="center">
+<div id="fig-fish" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/point-interval-fish.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;21.2: An analogy for estimation methods: the top panel shows point estimation as attempting to catch a fish with a spear: precise but risky. The bottom panel illustrates interval estimation as casting a wide net: less precise but with a greater chance of capturing the true value.
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="confidence-interval-for-the-population-mean" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="confidence-interval-for-the-population-mean">Confidence Interval for the Population Mean</h3>
+<p>Let us consider the case where we want to estimate the <strong>population mean</strong> <span class="math inline">\(\mu\)</span>. To construct a confidence interval for <span class="math inline">\(\mu\)</span>, we rely on the sampling distribution of the <strong>sample mean</strong> <span class="math inline">\(\bar{X}\)</span>. From previous chapters, we know that if we repeatedly take random samples of size <span class="math inline">\(n\)</span> from a population and compute the sample mean for each one, then the distribution of these sample means will be approximately normal, especially for large <span class="math inline">\(n\)</span>, due to the <strong>Central Limit Theorem</strong>.</p>
+<p>More specifically, the sampling distribution of the sample mean is given by:</p>
+<p><span class="math display">\[
+\bar{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
+\]</span></p>
+<p>Here, <span class="math inline">\(\mu\)</span> is the population mean, <span class="math inline">\(\sigma\)</span> is the population standard deviation, and <span class="math inline">\(n\)</span> is the sample size. This means that even though we don’t know <span class="math inline">\(\mu\)</span>, we know how the sample mean behaves around it.</p>
+<p>To construct the confidence interval, we use the standard normal distribution to determine how far from the sample mean we need to go to cover the middle 95% (or whatever confidence level we choose) of the sampling distribution. If the population standard deviation <span class="math inline">\(\sigma\)</span> is known, the interval becomes:</p>
+<p><span class="math display">\[
+\bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>Where <span class="math inline">\(z_{\alpha/2}\)</span> is the value from the standard normal distribution such that the probability of being within <span class="math inline">\(z_{\alpha/2}\)</span> standard deviations from the mean is <span class="math inline">\(1 - \alpha\)</span>.</p>
+<p>For example, if we want a 95% confidence interval, we use <span class="math inline">\(z_{0.025} \approx 1.96\)</span> because 2.5% of the distribution is left out in each tail.</p>
+<p>This approach provides a principled way of capturing the uncertainty in our estimation of <span class="math inline">\(\mu\)</span>. While the point estimate <span class="math inline">\(\bar{X}\)</span> gives our best guess, the confidence interval gives us a sense of how variable that estimate might be if we repeated the experiment.</p>
+<p>In the following, we continue to build on this framework and explore how confidence intervals can be constructed for other types of parameters and under various assumptions.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

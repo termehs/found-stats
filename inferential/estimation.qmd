@@ -118,4 +118,52 @@ In practice, when $\sigma^2$ or $p$ are unknown, we often substitute their estim
 
 Point estimation provides an intuitive way to infer unknown quantities in a population using observed sample data. It’s the first essential tool in the inferential statistics toolbox, allowing us to move from descriptive summaries to educated guesses about the world beyond our data. In the coming chapters, we will build on these estimators to construct confidence intervals and perform hypothesis testing, all grounded in the probabilistic behavior of these sampling distributions.
 
+## Interval Estimation
 
+In statistics, a single number, known as a point estimate, can give us an estimate of a population parameter, like the mean. But such an estimate tells us little about how precise or reliable it is. After all, due to the randomness inherent in sampling, our estimate could vary from sample to sample. That’s why we turn to **interval estimation**.
+
+A **confidence interval** provides a range of plausible values for the unknown parameter. It gives a way to quantify the uncertainty of our point estimate. The general form of a confidence interval can be written as:
+
+$$
+\text{Point Estimate} \pm \text{Margin of Error}
+$$
+
+More formally, a confidence interval is constructed so that, with a specified probability known as the **confidence level**, contains the true value of the parameter. This probability is denoted by $1 - \alpha$, where $\alpha$ is the **significance level**. Common choices are 95% confidence ($\alpha = 0.05$) or 99% confidence ($\alpha = 0.01$). The higher the confidence level, the wider the interval must be to ensure it covers the true parameter more frequently in repeated samples.
+
+While a point estimate gives us a single best guess for the value of a population parameter, it offers no information about the uncertainty of that guess. This is visualized in @fig-fish. Imagine you’re trying to catch a fish (think *parameter*) you can’t quite see. Point estimation is like throwing a spear: accurate if you hit, but there's a good chance you'll miss. Interval estimation is more forgiving: it's like casting a net. You may not catch the exact center, but you're much more likely to get the fish. This is exactly what confidence intervals offer: a wider, more reliable shot at capturing the truth.
+
+
+
+
+
+
+::: center
+![An analogy for estimation methods: the top panel shows point estimation as attempting to catch a fish with a spear: precise but risky. The bottom panel illustrates interval estimation as casting a wide net: less precise but with a greater chance of capturing the true value.](imgs/point-interval-fish.png){#fig-fish fig-align="center" width="40%"}
+:::
+
+### Confidence Interval for the Population Mean {.unnumbered}
+
+Let us consider the case where we want to estimate the **population mean** $\mu$. To construct a confidence interval for $\mu$, we rely on the sampling distribution of the **sample mean** $\bar{X}$. From previous chapters, we know that if we repeatedly take random samples of size $n$ from a population and compute the sample mean for each one, then the distribution of these sample means will be approximately normal, especially for large $n$, due to the **Central Limit Theorem**.
+
+More specifically, the sampling distribution of the sample mean is given by:
+
+$$
+\bar{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
+$$
+
+Here, $\mu$ is the population mean, $\sigma$ is the population standard deviation, and $n$ is the sample size. This means that even though we don’t know $\mu$, we know how the sample mean behaves around it.
+
+To construct the confidence interval, we use the standard normal distribution to determine how far from the sample mean we need to go to cover the middle 95% (or whatever confidence level we choose) of the sampling distribution. If the population standard deviation $\sigma$ is known, the interval becomes:
+
+$$
+\bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+$$
+
+Where $z_{\alpha/2}$ is the value from the standard normal distribution such that the probability of being within $z_{\alpha/2}$ standard deviations from the mean is $1 - \alpha$.
+
+For example, if we want a 95% confidence interval, we use $z_{0.025} \approx 1.96$ because 2.5% of the distribution is left out in each tail.
+
+This approach provides a principled way of capturing the uncertainty in our estimation of $\mu$. While the point estimate $\bar{X}$ gives our best guess, the confidence interval gives us a sense of how variable that estimate might be if we repeated the experiment.
+
+
+In the following, we continue to build on this framework and explore how confidence intervals can be constructed for other types of parameters and under various assumptions.
