@@ -1,0 +1,63 @@
+# The $t$ Distribution Table {#sec-ttbl .appendix}
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-height: 2
+#| fig-width: 3
+#| fig-align: center
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+
+# Set example t value and degrees of freedom
+t_example <- 1.5
+df <- 10
+
+# Create t-distribution curve
+x_vals <- seq(-4, 4, length.out = 500)
+df_t <- data.frame(x = x_vals, y = dt(x_vals, df = df))
+
+# Shade area where x >= t_example
+df_shade <- subset(df_t, x >= t_example)
+
+# Plot
+ggplot(df_t, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = df_shade, fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = t_example, linetype = "dotted", color = "grey30") +
+  annotate("text", x = t_example + 0.2, y = dt(t_example, df) - 0.15, 
+           label = "t", color = "grey30", size = 4) +
+  labs(
+    title = "",
+    subtitle = bquote("shaded area represents " ~ P(T >= t) ),
+    x = "t",
+    y = "Density"
+  ) +
+  theme_void()
+
+# Define alpha levels and degrees of freedom
+alphas <- c(0.1, 0.05, 0.025, 0.01, 0.005)
+df_vals <- c(1:30, 100, 500, 1000000)
+
+# Create t-table
+t_table <- expand.grid(df = df_vals, alpha = alphas) %>%
+  mutate(t_crit = qt(1 - alpha, df)) %>%
+  pivot_wider(names_from = alpha, values_from = t_crit)
+
+# Replace df=1000 with ∞ and rename column to ν
+t_table <- t_table %>%
+  mutate(df = ifelse(df == 1000000, "&infin;", as.character(df))) %>%
+  rename(`&nu;` = df)
+
+# Format other columns (but not first)
+t_table_formatted <- t_table
+t_table_formatted[ , -1] <- lapply(t_table_formatted[ , -1], function(x) sprintf("%.4f", x))
+
+# Render HTML table with left-aligned caption
+kable(t_table_formatted, escape = FALSE, format = "html",
+      caption = "One-sided critical t-values for the Student’s t-distribution: P(T &gt; t<sub>&alpha;</sub>) = &alpha;. The last row shows the corresponding standard normal (z) values as degrees of freedom &nu; → &infin;.") %>%
+  kable_styling(full_width = FALSE, position = "left")
+```

@@ -58,6 +58,7 @@ book:
     - part: references.qmd
   appendices:
   - appendix/normal-table.qmd
+  - appendix/t-table.qmd
 bibliography: references.bib
 
 number-sections: true 

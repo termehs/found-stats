@@ -157,7 +157,7 @@ This convergence in probability follows from the **Law of Large Numbers**: as th
 
 
 
-#### Example: 17.1: Which Sampling Method Gives a More Accurate Total? {.unnumbered}
+#### Example 17.1: Which Sampling Method Gives a More Accurate Total? {.unnumbered}
 In the production of construction elements, the lengths of individual parts vary slightly due to randomness in the manufacturing process. These variations can be modeled as outcomes from independent and identically distributed random variables with:
 
 - Mean (expected length): $\mu = 2$ meters  

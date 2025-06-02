@@ -142,28 +142,403 @@ While a point estimate gives us a single best guess for the value of a populatio
 :::
 
 ### Confidence Interval for the Population Mean {.unnumbered}
+When we talk about a **confidence interval** for the population mean $\mu$ with a **confidence level** of 95%, we mean an interval that, in the long run, will contain the true value of $\mu$ in 95% of repeated samples. In practice, we never know the true mean, but we use our sample data to construct a range where we believe the mean is likely to lie.
 
-Let us consider the case where we want to estimate the **population mean** $\mu$. To construct a confidence interval for $\mu$, we rely on the sampling distribution of the **sample mean** $\bar{X}$. From previous chapters, we know that if we repeatedly take random samples of size $n$ from a population and compute the sample mean for each one, then the distribution of these sample means will be approximately normal, especially for large $n$, due to the **Central Limit Theorem**.
-
-More specifically, the sampling distribution of the sample mean is given by:
+More precisely, the endpoints of the interval (called the *Lower Confidence Limit* (LCL) and *Upper Confidence Limit* (UCL)) are calculated as:
 
 $$
-\bar{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
+\begin{aligned}
+\text{LCL} &= \bar{X} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}, \\
+\text{UCL} &= \bar{X} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+\end{aligned}
 $$
 
-Here, $\mu$ is the population mean, $\sigma$ is the population standard deviation, and $n$ is the sample size. This means that even though we don’t know $\mu$, we know how the sample mean behaves around it.
+For a 95% confidence level, the critical value is $z_{\alpha/2} \approx 1.96$.
 
-To construct the confidence interval, we use the standard normal distribution to determine how far from the sample mean we need to go to cover the middle 95% (or whatever confidence level we choose) of the sampling distribution. If the population standard deviation $\sigma$ is known, the interval becomes:
+
+Before we observe any data, the sample mean $\bar{X}$ is a random variable. If the population is **normally distributed with known variance $\sigma^2$**, then:
+
+$$
+\bar{X} \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})
+$$
+
+Standardizing gives:
+
+$$
+Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0, 1)
+$$
+
+We know (from @sec-normaltbl):
+
+$$
+P(-1.96 \leq Z \leq 1.96) = 0.95
+$$
+
+Rewriting this inequality in terms of $\mu$:
+
+$$
+P\left(\underbrace{\bar{X} - 1.96 \cdot \frac{\sigma}{\sqrt{n}}}_{\text{LCL}} \leq \mu \leq  \underbrace{\bar{X} + 1.96 \cdot \frac{\sigma}{\sqrt{n}}}_{\text{UCL}}\right) = 0.95
+$$
+
+This tells us that if we repeat this sampling process many times, 95% of the resulting intervals will contain the true population mean. This is visualized in @fig-cfi.
+
+::: {#fig-cfi}
+```{r}
+#| fig-height: 7
+#| fig-width: 6
+#| fig-align: center
+
+library(ggplot2)
+library(patchwork)
+# Base plot setup for standard normal
+ p1 <-  ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1), 
+                linewidth = 0.5, color = "black") +
+  geom_area(stat = "function", fun = dnorm, 
+            args = list(0, 1), 
+            fill = "skyblue", alpha = 0.5,
+            xlim = c(-1.96, 1.96)) +
+  
+  # Vertical lines at -1.96 and 1.96
+  geom_vline(xintercept = c(-1.96, 1.96), linetype = "dashed", color = "firebrick") +
+  
+  # Text in the middle
+  annotate("text", x = 0, y = 0.15, 
+           label = expression(1 - alpha == 0.95), size = 5) +
+  
+  # Arrow labels for alpha/2
+  annotate("text", x = -3, y = 0.05, 
+           label = expression(alpha/2 == 0.025), size = 4) +
+  annotate("segment", x = -2.8, xend = -2.2, y = 0.04, yend = 0.01,
+           arrow = arrow(length = unit(0.1, "inches")), size = 0.3) +
+  
+  annotate("text", x = 3, y = 0.05, 
+           label = expression(alpha/2 == 0.025), size = 4) +
+  annotate("segment", x = 2.8, xend = 2.2, y = 0.04, yend = 0.01,
+           arrow = arrow(length = unit(0.1, "inches")), size = 0.3) +
+
+  # Labels for z-values
+  annotate("text", x = -2.8, y = -0.015, 
+           label = expression(-z[alpha/2] == -1.96), size = 4, vjust = 1, color = "firebrick") +
+  annotate("text", x = 2.65, y = -0.015, 
+           label = expression(z[alpha/2] == 1.96), size = 4, vjust = 1, color = "firebrick") +
+
+  # Mean label
+  annotate("text", x = 0, y = -0.015, 
+           label = expression(mu == 0), size = 4, vjust = 1) +
+
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16)
+  )
+  
+p2 <-  ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+  # Density curve
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1), 
+                linewidth = 0.5, color = "black") +
+  
+  # Shaded 95% region
+  geom_area(stat = "function", fun = dnorm,
+            args = list(mean = 0, sd = 1),
+            fill = "skyblue", alpha = 0.5,
+            xlim = c(-1.96, 1.96)) +
+  
+  # Vertical lines at -1.96 and 1.96
+  geom_vline(xintercept = c(-1.96, 1.96), color = "firebrick", linetype = "dashed") +
+  
+  # Main CI annotation
+  annotate("text", x = 0, y = 0.15, 
+           label = expression(1 - alpha == 0.95), size = 5) +
+  
+# Arrow labels for alpha/2
+  annotate("text", x = -3, y = 0.05, 
+           label = expression(alpha/2 == 0.025), size = 4) +
+  annotate("segment", x = -2.8, xend = -2.2, y = 0.04, yend = 0.01,
+           arrow = arrow(length = unit(0.1, "inches")), size = 0.3) +
+  
+  annotate("text", x = 3, y = 0.05, 
+           label = expression(alpha/2 == 0.025), size = 4) +
+  annotate("segment", x = 2.8, xend = 2.2, y = 0.04, yend = 0.01,
+           arrow = arrow(length = unit(0.1, "inches")), size = 0.3) +
+
+  # LCL and UCL formulas below x-axis
+  annotate("text", x = -3.2, y = -0.015,
+           label = expression("LCL = " * bar(X) - 1.96 * (sigma / sqrt(n))),
+           size = 4, vjust = 1,color = "firebrick") +
+  annotate("text", x = 3.3, y = -0.015,
+           label = expression("UCL = " * bar(X) + 1.96 * (sigma / sqrt(n))),
+           size = 4, vjust = 1,color = "firebrick") +
+
+  # Mean label
+  annotate("text", x = 0, y = -0.015, 
+           label = expression(mu), size = 4, vjust = 1) +
+
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16)
+  )
+
+p2/p1
+```
+
+Visual comparison of a 95% confidence interval (top) and the corresponding central probability region of the standard normal distribution (bottom). The top plot shows the confidence interval expressed in terms of the sample mean $\bar{X}$ and standard error, while the bottom plot uses the standardized $z$-values. In both cases, the central 95% of the distribution is shaded, with $\alpha/2 = 0.025$ in each tail, and the total area between the bounds representing 95% probability.
+:::
+
+Each time we draw a new sample from a population and construct a confidence interval for the population mean $\mu$, the endpoints of that interval are random; they depend on the data from that specific sample. This means that the interval can change from sample to sample. However, if we use a 95% confidence level, then in the long run, 95% of those intervals will capture the true mean, and 5% will not.
+
+In other words, we can’t guarantee that a single confidence interval contains the population mean, but we can say that the method used to construct it is correct 95% of the time. To show this, we perform a simulation: we simulate 100 samples from the same population, construct a 95% confidence interval for each, and visualizes which ones do and do not include the true population mean. Each vertical line in  @fig-cfi-sim represents one confidence interval from a sample of size $n = 30$. The blue line shows the true mean $\mu = 5$ and. The grey intervals contain the true mean, as expected 95% of the time. Red intervals are the $\approx$5% that miss, a natural consequence of statistical variation.
+
+
+::: {#fig-cfi-sim}
+```{r}
+#| fig-height: 5
+#| fig-width: 8
+#| fig-align: center
+#| echo: false
+
+library(dplyr)
+
+set.seed(2023)
+
+# Parameters
+mu <- 5                # true population mean
+sigma <- 2             # true population sd
+n <- 30                # sample size
+nsim <- 100            # number of intervals
+
+# Generate intervals
+sim_data <- replicate(nsim, {
+  sample <- rnorm(n, mean = mu, sd = sigma)
+  xbar <- mean(sample)
+  se <- sigma / sqrt(n)
+  lower <- xbar - 1.96 * se
+  upper <- xbar + 1.96 * se
+  c(mean = xbar, lower = lower, upper = upper)
+})
+
+sim_df <- as.data.frame(t(sim_data))
+sim_df <- sim_df %>%
+  mutate(id = row_number(),
+         includes_mu = (lower <= mu & upper >= mu))
+
+# Plot
+ggplot(sim_df, aes(x = id, y = mean, ymin = lower, ymax = upper)) +
+  geom_errorbar(color = ifelse(sim_df$includes_mu, "grey40", "indianred1"), width = 0.2) +
+  geom_point(color ="grey40") +
+  geom_hline(yintercept = mu, color = "#41b6c4", linetype = "solid", linewidth = 0.5) +
+annotate("text", x = 102, y = 4.98, 
+           label = expression(mu), size = 7, vjust = 1, color = "#41b6c4") +
+  labs(x = "Sample index",
+       y = "Confidence interval") +
+  theme_minimal()
+```
+
+Simulation of 100 confidence intervals for the population mean $\mu = 5$. Each vertical line represents a 95% confidence interval constructed from a random sample of size $n = 30$. Grey intervals successfully capture the true mean, while red intervals do not, illustrating the expected 5% miss rate due to sampling variability. 
+:::
+
+
+So how do we interpret the confidence interval? Before we collect any data, we can say that there is a 95% probability that the interval we are about to compute will contain the true population mean, $\mu$. This probability statement refers to the process, not the specific interval. That is, we are 95% confident in the method, not in any one result. Once a sample is drawn and the confidence interval is computed, the situation changes. The interval is now fixed, it either contains $\mu$ or it doesn’t. We no longer speak of probabilities regarding this specific interval. However, what we do know is this:
+
+> The interval was calculated using a procedure that, in the long run, produces intervals that contain the true mean in 95% of all cases.
+
+This is the essence of the frequentist interpretation of confidence intervals. It doesn’t tell us the probability that our specific interval contains $\mu$, but it does provide a measure of trust in the procedure we used to create it. That’s why we refer to it as a “confidence” interval — not because we are certain, but because we have reason to be confident based on the method’s performance over repeated samples.
+
+So far, we have only constructed 95% confidence intervals for a population mean. This means that if we were to repeat the sampling procedure many times, approximately 95% of those intervals would contain the true population mean, $\mu$.
+
+But 95% is not a fixed rule. We can choose other confidence levels—such as 90% or 99%—depending on how certain we want to be. The trade-off is that a *higher level* of confidence results in a *wider interval*, while a *lower confidence level* gives a *narrower but less certain estimate*.
+
+When the population standard deviation $\sigma$ is known and the sampling distribution of the mean is approximately normal (either by assumption or via the Central Limit Theorem), the general structure of a confidence interval for the mean is:
 
 $$
 \bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
 $$
 
-Where $z_{\alpha/2}$ is the value from the standard normal distribution such that the probability of being within $z_{\alpha/2}$ standard deviations from the mean is $1 - \alpha$.
+where:
 
-For example, if we want a 95% confidence interval, we use $z_{0.025} \approx 1.96$ because 2.5% of the distribution is left out in each tail.
+- $\bar{X}$ is the sample mean  
+- $\sigma$ is the population standard deviation  
+- $n$ is the sample size  
+- $z_{\alpha/2}$ is the critical value from the standard normal distribution for the desired confidence level
+
+
+Some common confidence levels and their corresponding $z$-values are as follows (see @sec-normaltbl):
+
+| Confidence Level | $z_{\alpha/2}$ |
+|------------------|----------------|
+| 90%              | 1.645   (1.65)      |
+| 95%              | 1.960   (1.96)      |
+| 99%              | 2.575   (2.58)      |
+
+As seen in @fig-cfi-2, a higher confidence level (e.g., 99% instead of 95%) leads to a wider interval since the $z$ value moves further away from the center towards the tails, giving us more “certainty” at the cost of less precision. A larger sample size reduces the standard error $\frac{\sigma}{\sqrt{n}}$, resulting in a narrower interval, i.e., better precision without sacrificing confidence.
+
+::: {#fig-cfi-2}
+```{r}
+#| label: fig-confidence-interval
+#| fig-height: 4
+#| fig-width: 7
+#| fig-align: center
+
+ggplot(data.frame(x = c(-4, 4)), aes(x = x)) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1), 
+                linewidth = 0.5, color = "black") +
+  geom_area(stat = "function", fun = dnorm, 
+            args = list(0, 1), 
+            fill = "skyblue", alpha = 0.5,
+            xlim = c(-1.96, 1.96)) +
+  
+  # Vertical lines at -1.96 and 1.96
+  geom_vline(xintercept = c(-1.96, 1.96), linetype = "dashed", color = "firebrick") +
+  
+  # Text in the middle
+  annotate("text", x = 0, y = 0.15, 
+           label = expression(1 - alpha), size = 5) +
+  
+  # Arrow labels for alpha/2
+  annotate("text", x = -3, y = 0.05, 
+           label = expression(alpha/2 == 0.025), size = 4) +
+  annotate("segment", x = -2.8, xend = -2.2, y = 0.04, yend = 0.01,
+           arrow = arrow(length = unit(0.1, "inches")), size = 0.3) +
+  
+  annotate("text", x = 3, y = 0.05, 
+           label = expression(alpha/2 == 0.025), size = 4) +
+  annotate("segment", x = 2.8, xend = 2.2, y = 0.04, yend = 0.01,
+           arrow = arrow(length = unit(0.1, "inches")), size = 0.3) +
+
+  # Labels for z-values
+  annotate("text", x = -2.3, y = -0.015, 
+           label = expression(-z[alpha/2]), size = 4, vjust = 1, color = "firebrick") +
+  annotate("text", x = 2.25, y = -0.015, 
+           label = expression(z[alpha/2]), size = 4, vjust = 1, color = "firebrick") +
+
+  # Mean label
+  annotate("text", x = 0, y = -0.015, 
+           label = expression(mu == 0), size = 4, vjust = 1) +
+
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16)
+  )
+```
+The confidence interval spans the central $(1 - \alpha)$ area of the standard normal distribution. Each tail has area $\alpha/2$.
+:::
+
+> 💡 *A higher confidence level leads to a wider interval: you're more confident, but less precise*.
+
 
 This approach provides a principled way of capturing the uncertainty in our estimation of $\mu$. While the point estimate $\bar{X}$ gives our best guess, the confidence interval gives us a sense of how variable that estimate might be if we repeated the experiment.
 
 
 In the following, we continue to build on this framework and explore how confidence intervals can be constructed for other types of parameters and under various assumptions.
+
+
+#### Example 21.1: Confidence Interval for a Population Mean {.unnumbered}
+Let's consider a scenario where we take a random sample of size $n = 25$ from a normally distributed population. Suppose we know the population standard deviation to be $\sigma = 15$, and the sample mean is $\bar{x} = 102$.
+
+We want to construct a 95% confidence interval for the population mean $\mu$. We use the formula for a confidence interval when the population standard deviation is known:
+
+$$
+\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+$$
+
+For a 95% confidence level, the critical value from the standard normal distribution is $z_{0.025} = 1.96$.
+
+Let's plug in the values:
+
+$$
+102 \pm 1.96 \cdot \frac{15}{\sqrt{25}} = 102 \pm 1.96 \cdot 3 = 102 \pm 5.88
+$$
+
+Hence, the 95% confidence interval becomes:
+
+$$
+(96.12,\ 107.88)
+$$
+
+This interval suggests that if we were to repeat this sampling process many times, approximately 95% of the resulting intervals would contain the true population mean $\mu$.
+
+*What if we want a 99% confidence interval?*
+A higher confidence level requires a larger critical value. For 99% confidence, we use $z_{0.005} = 2.575$. Applying the formula:
+
+$$
+102 \pm 2.575 \cdot \frac{15}{\sqrt{25}} = 102 \pm 2.575 \cdot 3 = 102 \pm 7.725
+$$
+
+This results in a wider interval:
+
+$$
+(94.275,\ 109.725)
+$$
+
+As expected, increasing the confidence level results in a wider interval. This reflects greater certainty, more room is allowed to ensure the true mean is captured.
+
+
+### Confidence Intervals with Unknown Variance {.unnumbered}
+
+In previous examples, we constructed confidence intervals assuming that the population standard deviation $\sigma$ is known and that the population is normally distributed. While this is convenient for illustrating the basic logic of confidence intervals, it is rarely the case in practice.
+
+>But what if $\sigma$ is unknown?
+
+When $\sigma$ is **unknown**, we typically rely on the **sample standard deviation** $s$ instead. This introduces an additional source of uncertainty because we are now estimating both the center ($\bar{X}$) and the spread ($s$) from the sample data.
+
+As a result, our confidence interval becomes wider, especially when the sample size $n$ is small. To account for this, we use the **$t$-distribution** rather than the standard normal distribution.
+
+::: {.callout-note}
+## Introducing the $t$-distribution {.unnumbered}
+The $t$-distribution is a probability distribution used when we estimate the population mean from a small sample, especially when the population standard deviation is unknown. It looks similar to the standard normal distribution but has heavier tails, reflecting the greater uncertainty due to using the sample standard deviation. The shape of the $t$-distribution depends on the degrees of freedom (usually $n - 1$), and as the sample size grows, the $t$-distribution approaches the normal distribution (see @fig-tz-dist). This distribution is essential when constructing confidence intervals or performing hypothesis testing under these conditions.
+
+::: {#fig-tz-dist}
+```{r}
+#| fig-height: 5
+#| fig-width: 10
+
+library(viridis)
+
+# Create x-axis range
+x <- seq(-4, 4, length.out = 400)
+
+# Degrees of freedom for t-distributions
+dfs <- c(1, 5, 10)
+
+# Generate data for t-distributions
+t_data <- lapply(dfs, function(df) {
+  data.frame(
+    x = x,
+    density = dt(x, df),
+    distribution = paste0("t (df = ", df, ")")
+  )
+}) |> bind_rows()
+
+# Add standard normal distribution
+normal_data <- data.frame(
+  x = x,
+  density = dnorm(x),
+  distribution = "Standard Normal"
+)
+
+# Combine all and define order manually (normal first = darkest)
+dist_data <- bind_rows(normal_data, t_data) |>
+  mutate(distribution = factor(distribution, levels = c(
+    "Standard Normal", "t (df = 1)", "t (df = 5)", "t (df = 10)"
+  )))
+
+# Plot using reversed viridis palette
+ggplot(dist_data, aes(x = x, y = density, color = distribution)) +
+  geom_line(linewidth = 1.2) +
+  scale_color_viridis_d(option = "inferno", direction = 1) +
+  labs( x = " ", y = " ", color = "Distribution"
+  ) +
+  theme_minimal(base_size = 14)
+```
+Comparison of the standard normal distribution (black) with Student’s $t$-distributions for degrees of freedom 1, 5, and 10. As the degrees of freedom increase, the $t$-distribution becomes more peaked and approaches the shape of the normal distribution, reflecting reduced uncertainty due to larger sample sizes.
+:::
+
+:::
