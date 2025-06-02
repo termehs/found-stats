@@ -56,8 +56,11 @@ t_table <- t_table %>%
 t_table_formatted <- t_table
 t_table_formatted[ , -1] <- lapply(t_table_formatted[ , -1], function(x) sprintf("%.4f", x))
 
+# Rename column headers to include alpha
+names(t_table_formatted)[-1] <- paste0("&alpha; = ", names(t_table_formatted)[-1])
+
 # Render HTML table with left-aligned caption
 kable(t_table_formatted, escape = FALSE, format = "html",
-      caption = "One-sided critical t-values for the Student’s t-distribution: P(T &gt; t<sub>&alpha;</sub>) = &alpha;. The last row shows the corresponding standard normal (z) values as degrees of freedom &nu; → &infin;.") %>%
+      caption = "One-sided critical t-values for the Student’s t-distribution: P(T &gt; t<sub>&nu;, &alpha;</sub>) = &alpha;. The last row shows the corresponding standard normal (z) values as degrees of freedom &nu; → &infin;.") %>%
   kable_styling(full_width = FALSE, position = "left")
 ```
