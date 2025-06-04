@@ -54,7 +54,7 @@ t_table <- t_table %>%
 
 # Format other columns (but not first)
 t_table_formatted <- t_table
-t_table_formatted[ , -1] <- lapply(t_table_formatted[ , -1], function(x) sprintf("%.4f", x))
+t_table_formatted[ , -1] <- lapply(t_table_formatted[ , -1], function(x) sprintf("%.3f", x))
 
 # Rename column headers to include alpha
 names(t_table_formatted)[-1] <- paste0("&alpha; = ", names(t_table_formatted)[-1])

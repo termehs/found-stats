@@ -372,6 +372,8 @@ window.Quarto = {
   <ul class="collapse">
 <li><a href="#confidence-interval-for-the-population-mean" id="toc-confidence-interval-for-the-population-mean" class="nav-link" data-scroll-target="#confidence-interval-for-the-population-mean"><span class="header-section-number">21.4.1</span> Confidence Interval for the Population Mean</a></li>
   <li><a href="#confidence-interval-for-the-population-proportion" id="toc-confidence-interval-for-the-population-proportion" class="nav-link" data-scroll-target="#confidence-interval-for-the-population-proportion"><span class="header-section-number">21.4.2</span> Confidence Interval for the Population Proportion</a></li>
+  <li><a href="#confidence-intervals-for-the-difference-between-two-population-means" id="toc-confidence-intervals-for-the-difference-between-two-population-means" class="nav-link" data-scroll-target="#confidence-intervals-for-the-difference-between-two-population-means"><span class="header-section-number">21.4.3</span> Confidence Intervals for the Difference Between Two Population Means</a></li>
+  <li><a href="#confidence-intervals-for-differences-in-population-proportions" id="toc-confidence-intervals-for-differences-in-population-proportions" class="nav-link" data-scroll-target="#confidence-intervals-for-differences-in-population-proportions"><span class="header-section-number">21.4.4</span> Confidence Intervals for Differences in Population Proportions</a></li>
   </ul>
 </li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
@@ -767,42 +769,47 @@ Table&nbsp;21.2: Summary of conditions for constructing confidence intervals for
 </figcaption><div aria-describedby="tbl-popmean-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 47%">
-<col style="width: 25%">
-<col style="width: 27%">
+<col style="width: 56%">
+<col style="width: 18%">
+<col style="width: 24%">
 </colgroup>
 <thead><tr class="header">
 <th>Conditions</th>
-<th>Distribution</th>
+<th>Variance Assumptions</th>
 <th>Formula</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td>
-<span class="math inline">\(n \geq 30\)</span>, any population, <span class="math inline">\(\sigma\)</span> known</td>
-<td>Standard Normal <span class="math inline">\(Z\)</span>
-</td>
-<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}\)</span></td>
+<span class="math inline">\(n \geq 30\)</span> (any population)</td>
+<td>
+<span class="math inline">\(\sigma^2\)</span> known</td>
+<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \left( \frac{\sigma}{\sqrt{n}} \right)\)</span></td>
 </tr>
 <tr class="even">
+<td></td>
 <td>
-<span class="math inline">\(n \geq 30\)</span>, any population, <span class="math inline">\(\sigma\)</span> unknown</td>
-<td>Standard Normal <span class="math inline">\(Z\)</span>
-</td>
-<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \cdot \dfrac{s}{\sqrt{n}}\)</span></td>
+<span class="math inline">\(\sigma^2\)</span> unknown</td>
+<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \left( \frac{s}{\sqrt{n}} \right)\)</span></td>
 </tr>
 <tr class="odd">
 <td>
-<span class="math inline">\(n &lt; 30\)</span>, normal population, <span class="math inline">\(\sigma\)</span> known</td>
-<td>Standard Normal <span class="math inline">\(Z\)</span>
-</td>
-<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}\)</span></td>
+<span class="math inline">\(n &lt; 30\)</span>, normal population</td>
+<td>
+<span class="math inline">\(\sigma^2\)</span> known</td>
+<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \left( \frac{\sigma}{\sqrt{n}} \right)\)</span></td>
 </tr>
 <tr class="even">
+<td></td>
 <td>
-<span class="math inline">\(n &lt; 30\)</span>, normal population, <span class="math inline">\(\sigma\)</span> unknown</td>
-<td>Student’s <span class="math inline">\(t\)</span>-distribution</td>
-<td><span class="math inline">\(\bar{x} \pm t_{\nu,\alpha/2} \cdot \dfrac{s}{\sqrt{n}}\)</span></td>
+<span class="math inline">\(\sigma^2\)</span> unknown</td>
+<td><span class="math inline">\(\bar{x} \pm t_{\nu,\alpha/2} \left( \frac{s}{\sqrt{n}} \right)\)</span></td>
+</tr>
+<tr class="odd">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, population is not normally distributed</td>
+<td>—</td>
+<td>Confidence interval cannot be calculated</td>
 </tr>
 </tbody>
 </table>
@@ -918,12 +925,567 @@ Note on the <em>t</em>-distribution and proportions
 [0.407,\ 0.463]
 \]</span></p>
 <p>This means we are 95% confident that the true proportion of supporters in the population lies between 40.7% and 46.3%.</p>
+</section></section><section id="confidence-intervals-for-the-difference-between-two-population-means" class="level3" data-number="21.4.3"><h3 data-number="21.4.3" class="anchored" data-anchor-id="confidence-intervals-for-the-difference-between-two-population-means">
+<span class="header-section-number">21.4.3</span> Confidence Intervals for the Difference Between Two Population Means</h3>
+<p>When comparing two groups, we often want to estimate the difference between their population means. This leads us to construct a <strong>confidence interval</strong> for <span class="math inline">\(\mu_x - \mu_y\)</span>. There are two main cases to consider here:</p>
+<section id="case-1-two-independent-samples" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="case-1-two-independent-samples">Case 1: Two Independent Samples</h4>
+<p>This scenario assumes we take independent random samples from two different populations. We define the populations as follows:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Population</th>
+<th>Mean</th>
+<th>Standard Deviation</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Population 1</td>
+<td><span class="math inline">\(\mu_x\)</span></td>
+<td><span class="math inline">\(\sigma_x\)</span></td>
+</tr>
+<tr class="even">
+<td>Population 2</td>
+<td><span class="math inline">\(\mu_y\)</span></td>
+<td><span class="math inline">\(\sigma_y\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We collect independent samples:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 40%">
+</colgroup>
+<thead><tr class="header">
+<th></th>
+<th>Size (<span class="math inline">\(n\)</span>)</th>
+<th>Sample Mean</th>
+<th>Sample Standard Deviation</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Sample from 1</td>
+<td><span class="math inline">\(n_x\)</span></td>
+<td><span class="math inline">\(\bar{x}\)</span></td>
+<td><span class="math inline">\(s_x\)</span></td>
+</tr>
+<tr class="even">
+<td>Sample from 2</td>
+<td><span class="math inline">\(n_y\)</span></td>
+<td><span class="math inline">\(\bar{y}\)</span></td>
+<td><span class="math inline">\(s_y\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We estimate the difference in population means using the point estimate:</p>
+<p><span class="math display">\[
+\bar{x} - \bar{y}
+\]</span></p>
+<p>This is an <strong>unbiased estimator</strong>, meaning:</p>
+<p><span class="math display">\[
+E(\bar{x} - \bar{y}) = E(\bar{x}) - E(\bar{y}) = \mu_x - \mu_y
+\]</span></p>
+<p>Assuming the samples are independent, the <strong>variance</strong> of the difference between sample means is:</p>
+<p><span class="math display">\[
+\text{Var}(\bar{x} - \bar{y}) = \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y}
+\]</span></p>
+<p>When the population standard deviations <span class="math inline">\(\sigma_x\)</span> and <span class="math inline">\(\sigma_y\)</span> are unknown (as is usually the case), we substitute the sample standard deviations <span class="math inline">\(s_x\)</span> and <span class="math inline">\(s_y\)</span> instead.</p>
+<p>The appropriate method for constructing a confidence interval depends on several factors:</p>
+<ul>
+<li>The sample sizes: Are they large (<span class="math inline">\(\geq 30\)</span>) or small (<span class="math inline">\(&lt; 30\)</span>)?</li>
+<li>The distribution of the populations: Are they normally distributed?</li>
+<li>Whether the population variances are known or unknown</li>
+<li>Whether we assume the variances are equal or not</li>
+</ul>
+<p><strong>Large Independent Samples (<span class="math inline">\(n_x \geq 30\)</span>, <span class="math inline">\(n_y \geq 30\)</span>)</strong></p>
+<p>When both sample sizes are large, the Central Limit Theorem allows us to use the standard normal distribution (<span class="math inline">\(Z\)</span>), regardless of the population distributions.</p>
+<ul>
+<li>
+<strong>If the population variances are known</strong> (rare):</li>
+</ul>
+<p><span class="math display">\[
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
+\]</span></p>
+<ul>
+<li>
+<strong>If the population variances are unknown</strong> (more common), we estimate them with sample variances:</li>
+</ul>
+<p><span class="math display">\[
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+\]</span></p>
+<p>The critical <span class="math inline">\(z\)</span>-value is selected to match the desired confidence level (e.g., <span class="math inline">\(z = 1.96\)</span> for 95%).</p>
+<p><strong>Small Independent Samples (at least one of <span class="math inline">\(n_x\)</span> or <span class="math inline">\(n_y\)</span> &lt; 30)</strong></p>
+<p>In this case, we must assume that both populations are normally distributed to proceed.</p>
+<ul>
+<li>
+<strong>If the population variances are known</strong> (uncommon):</li>
+</ul>
+<p><span class="math display">\[
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
+\]</span></p>
+<ul>
+<li><p><strong>If the variances are unknown but assumed equal</strong>, we use the <strong>pooled variance</strong> which provides a combined estimate of the common variance by weighting the sample variances according to their degrees of freedom. The formula for pooled varince is: <span class="math display">\[
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+\]</span> Here, <span class="math inline">\(s_x^2\)</span> and <span class="math inline">\(s_y^2\)</span> are the sample variances from the two groups, and <span class="math inline">\(n_x\)</span> and <span class="math inline">\(n_y\)</span> are the respective sample sizes. This weighted average gives a more stable estimate of variance when the equal-variance assumption is justified. Use this method only if there is reasonable evidence that the population variances are equal. The formula becomes: <span class="math display">\[
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }
+\]</span> where the degrees of freedom are: <span class="math display">\[
+\nu = (n_x-1) + (n_y-1) = n_x + n_y - 2
+\]</span></p></li>
+<li><p><strong>If the variances are unknown and cannot be assumed equal</strong>, we cannot assume equal variance, we rely on the so called <strong>Welch’s method</strong>, which is an adaptation of the standard two-sample <span class="math inline">\(t\)</span>-test that does <strong>not</strong> assume equal population variances. It is more flexible and robust, especially when sample sizes or variances differ between groups. Instead of pooling the variances, Welch’s method uses the individual sample variances to compute the standard error and an approximate degrees of freedom, denoted <span class="math inline">\(\nu\)</span>. The confidence interval is thus given by:</p></li>
+</ul>
+<p><span class="math display">\[
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+\]</span> with degrees of freedom approximated by: <span class="math display">\[
+\nu \approx \frac{ \left( \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} \right)^2 }{ \frac{(s_x^2 / n_x)^2}{n_x - 1} + \frac{(s_y^2 / n_y)^2}{n_y - 1} }
+\]</span> This method is more robust and does not assume equal population variances, making it the preferred choice in most small-sample scenarios with unequal spread.</p>
+<p>The different cases are summarized in <a href="#tbl-diffmean-cfi" class="quarto-xref">Table&nbsp;<span>21.3</span></a>.</p>
+<div id="tbl-diffmean-cfi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-diffmean-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21.3: Confidence interval formulas for the difference between two means given different sample sizes and under different variance assumptions.
+</figcaption><div aria-describedby="tbl-diffmean-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 61%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 17%">
+</colgroup>
+<thead><tr class="header">
+<th>Sample Size &amp; Variance Assumptions</th>
+<th>Distribution</th>
+<th>Degrees of Freedom (<span class="math inline">\(\nu\)</span>)</th>
+<th>Formula</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<span class="math inline">\(n_x, n_y \geq 30\)</span>, <span class="math inline">\(\sigma_x, \sigma_y\)</span> known</td>
+<td>Standard normal <span class="math inline">\(Z\)</span>
+</td>
+<td></td>
+<td><span class="math inline">\(\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }\)</span></td>
+</tr>
+<tr class="even">
+<td>
+<span class="math inline">\(n_x, n_y \geq 30\)</span>, <span class="math inline">\(\sigma_x, \sigma_y\)</span> unknown</td>
+<td>Standard normal <span class="math inline">\(Z\)</span>
+</td>
+<td></td>
+<td><span class="math inline">\(\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }\)</span></td>
+</tr>
+<tr class="odd">
+<td>
+<span class="math inline">\(n_x, n_y &lt; 30\)</span>, <span class="math inline">\(s_x = s_y\)</span>
+</td>
+<td>Pooled <span class="math inline">\(t\)</span>-distribution</td>
+<td><span class="math inline">\(n_x + n_y - 2\)</span></td>
+<td><span class="math inline">\(\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }\)</span></td>
+</tr>
+<tr class="even">
+<td>
+<span class="math inline">\(n_x, n_y &lt; 30\)</span>, <span class="math inline">\(s_x \neq s_y\)</span>
+</td>
+<td>Welch’s <span class="math inline">\(t\)</span>-distribution</td>
+<td><span class="math inline">\(\displaystyle \frac{\left( \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} \right)^2}{\frac{(s_x^2 / n_x)^2}{n_x - 1} + \frac{(s_y^2 / n_y)^2}{n_y - 1}}\)</span></td>
+<td><span class="math inline">\(\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section><section id="example-21.4-confidence-interval-for-the-difference-in-means" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-21.4-confidence-interval-for-the-difference-in-means">Example 21.4: Confidence Interval for the Difference in Means</h4>
+<p>Two independent samples were taken from two different populations:</p>
+<ul>
+<li>Sample 1: <span class="math inline">\(n_x = 51\)</span>, <span class="math inline">\(\bar{x} = 14.3\)</span>, <span class="math inline">\(s_x = 3.18\)</span>
+</li>
+<li>Sample 2: <span class="math inline">\(n_y = 52\)</span>, <span class="math inline">\(\bar{y} = 12.6\)</span>, <span class="math inline">\(s_y = 3.5\)</span>
+</li>
+</ul>
+<p>Construct a 95% confidence interval for the difference in population means, <span class="math inline">\(\mu_x - \mu_y\)</span>.</p>
+<p>Since both sample sizes are greater than 30, and population variances are unknown, we can use the <strong>standard normal approximation</strong> with sample variances substituted in. That is, we use the formula: <span class="math display">\[
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+\]</span></p>
+<p>where <span class="math inline">\(z_{0.025} = 1.96\)</span> for a 95% confidence level. We plug in the values: <span class="math display">\[
+\bar{x} - \bar{y} = 14.3 - 12.6 = 1.7
+\]</span> <span class="math display">\[
+\begin{split}
+\text{Standard error} &amp; = \sqrt{ \frac{3.18^2}{51} + \frac{3.5^2}{52} } \\ &amp; \approx \sqrt{ \frac{10.1124}{51} + \frac{12.25}{52} }  \\ &amp; \approx \sqrt{0.1983 + 0.2356}  \\ &amp; \approx \sqrt{0.4339} \\ &amp; \approx 0.6588
+\end{split}
+\]</span> and calculate the margin of error as: <span class="math display">\[
+1.96 \cdot 0.6588 \approx 1.29
+\]</span> So the confidence interval is: <span class="math display">\[
+1.7 \pm 1.29 = [0.41, 2.99]
+\]</span></p>
+</section><section id="example-21.5-confidence-interval-for-the-difference-in-means" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-21.5-confidence-interval-for-the-difference-in-means">Example 21.5: Confidence Interval for the Difference in Means</h4>
+<p>We are given two independent random samples from normally distributed populations with <strong>equal but unknown variances</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 24%">
+<col style="width: 17%">
+<col style="width: 32%">
+</colgroup>
+<thead><tr class="header">
+<th>Group</th>
+<th>Sample Size</th>
+<th>Mean</th>
+<th>Standard Deviation</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Population 1</td>
+<td><span class="math inline">\(n_x = 11\)</span></td>
+<td><span class="math inline">\(\bar{x} = 1.23\)</span></td>
+<td>
+<span class="math inline">\(s_{x}\)</span> = <span class="math inline">\(0.23\)</span>
+</td>
+</tr>
+<tr class="even">
+<td>Population 2</td>
+<td><span class="math inline">\(n_y =13\)</span></td>
+<td><span class="math inline">\(\bar{y} = 1.18\)</span></td>
+<td><span class="math inline">\(s_y= 0.27\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We are to compute a 95% confidence interval for the difference in population means: <span class="math inline">\(\mu_x - \mu_y\)</span>.</p>
+<p>Since <span class="math inline">\(n_x = 11\)</span> and <span class="math inline">\(n_y = 13\)</span> are both less than 30, and the population variances are assumed equal but unknown, we use the pooled <span class="math inline">\(t\)</span>-distribution approach. The formula to use is the following: <span class="math display">\[
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }
+\]</span></p>
+<p>The pooled sample variance <span class="math inline">\(s_p^2\)</span> is computed as: <span class="math display">\[
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+= \frac{(10)(0.23^2) + (12)(0.27^2)}{22} = 0.0638
+\]</span> and the degrees of freedom are given by <span class="math display">\[
+\nu = n_x + n_y - 2 = 11 + 13 - 2 = 22
+\]</span> At the 95% confidence level we have that (<a href="../appendix/t-table.html" class="quarto-xref"><span>Appendix B</span></a>): <span class="math display">\[
+t_{22,\ 0.025} = 2.074
+\]</span> We substitute values in the formula above: <span class="math display">\[\begin{split}
+0.05 \pm 2.074 \cdot \sqrt{0.0638 \left( \frac{1}{11} + \frac{1}{13} \right)}
+&amp; = 0.05 \pm 2.074 \cdot \sqrt{0.0638 \cdot 0.1709}
+\\ &amp; = 0.05 \pm 2.074 \cdot 0.1045
+\\ &amp;\approx 0.05 \pm 0.217
+\end{split}
+\]</span> So the 95% confidence interval is: <span class="math display">\[
+[-0.167,\ 0.267]
+\]</span> The 95% confidence interval for the difference in population means is <span class="math inline">\([-0.167,\ 0.267]\)</span>. This means we are 95% confident that the true difference <span class="math inline">\(\mu_x - \mu_y\)</span> lies somewhere between <span class="math inline">\(-0.167\)</span> and <span class="math inline">\(0.267\)</span>. Since this interval includes values both below and above zero, the observed difference in sample means may be due to sampling variability rather than a clear difference between the populations.</p>
+</section><section id="case-2-paired-samples" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="case-2-paired-samples">Case 2: Paired Samples</h4>
+<p>The second case for two group comparisons, is when we have a single sample from a population, but we take two measurements on each individual in the sample. This means we no longer have two independent samples, but instead we have <strong>paired observations</strong>.</p>
+<p><strong>Paired data</strong>, that is, two measurements taken on the same individuals or on matched units is different from having two independent samples. Examples include:</p>
+<ul>
+<li>Measuring blood pressure <em>before and after</em> a treatment on the same patient.</li>
+<li>Comparing performance on <em>two tests</em> taken by the same student.</li>
+<li>Testing two teaching methods on <em>the same group of students</em>. Because the observations are <strong>not independent</strong>, we must take the dependency into account.</li>
+</ul>
+<p>As before, we are interested in constructing a confidence interval for the difference in means based on these paired data. Instead of comparing two separate means though, we analyze the <strong>difference within each pair</strong> defined as: <span class="math display">\[
+d_i = x_i - y_i
+\]</span> Now let:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{d}\)</span> be the mean of the differences,<br>
+</li>
+<li>
+<span class="math inline">\(s_d\)</span> the standard deviation of the differences,<br>
+</li>
+<li>
+<span class="math inline">\(n\)</span> the number of pairs. Then, the confidence interval for the <strong>mean difference</strong> <span class="math inline">\(\mu_d\)</span> is: <span class="math display">\[
+\bar{d} \pm t_{n - 1, \alpha/2} \cdot \frac{s_d}{\sqrt{n}}
+\]</span>
+</li>
+</ul>
+<p>This formula is based on the <strong>one-sample <span class="math inline">\(t\)</span>-distribution</strong> with <span class="math inline">\(n - 1\)</span> degrees of freedom.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+When to Use This Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the paired <span class="math inline">\(t\)</span>-method when:</p>
+<ul>
+<li>The <strong>same subject</strong> is measured twice (e.g., before and after),</li>
+<li>The data is <strong>naturally paired</strong> (e.g., matched cases),</li>
+<li>The <strong>differences <span class="math inline">\(d_i\)</span></strong> are approximately normally distributed.</li>
+</ul>
+</div>
+</div>
+<p>Suppose we are studying the effect of a blood pressure treatment. For each individual in our sample, we measure blood pressure <strong>before</strong> and <strong>after</strong> treatment as shown in the table below:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Individual</th>
+<th>After (<span class="math inline">\(x\)</span>)</th>
+<th>Before (<span class="math inline">\(y\)</span>)</th>
+<th>Difference (<span class="math inline">\(d = x - y\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(x_1\)</span></td>
+<td><span class="math inline">\(y_1\)</span></td>
+<td><span class="math inline">\(d_1 = x_1 - y_1\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(x_2\)</span></td>
+<td><span class="math inline">\(y_2\)</span></td>
+<td><span class="math inline">\(d_2 = x_2 - y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(x_n\)</span></td>
+<td><span class="math inline">\(y_n\)</span></td>
+<td><span class="math inline">\(d_n = x_n - y_n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>These <span class="math inline">\(d_1, d_2, \dots, d_n\)</span> form a sample from a population of differences with population mean <span class="math inline">\(\mu_d\)</span> and variance <span class="math inline">\(\sigma_d^2\)</span>. We estimate the population mean difference <span class="math inline">\(\mu_d\)</span> using the sample mean of the differences: <span class="math display">\[
+\bar{d} = \frac{1}{n} \sum_{i=1}^n d_i
+\]</span> This is an unbiased estimator, since: <span class="math display">\[
+E(\bar{d}) = \mu_d \quad \text{and} \quad \text{Var}(\bar{d}) = \frac{\sigma_d^2}{n}
+\]</span> The sample variance of the differences is: <span class="math display">\[
+s_d^2 = \frac{1}{n - 1} \sum_{i=1}^n (d_i - \bar{d})^2
+\]</span> and the estimated standard error is: <span class="math display">\[
+\text{SE} = \frac{s_d}{\sqrt{n}}
+\]</span></p>
+<p>There are (again) two scenarios for constructing a confidence interval:</p>
+<ul>
+<li><p><strong>Large sample siez</strong> (that is <span class="math inline">\(n\geq 30\)</span>)<br>
+When the sample size is large (regardless of the population distribution), the confidence interval is based on the standard normal distribution: <span class="math display">\[
+\bar{d} \pm z_{\alpha/2} \cdot \frac{s_d}{\sqrt{n}}
+\]</span></p></li>
+<li><p><strong>Small sample size and population of differences is normally distributed</strong><br>
+When <span class="math inline">\(n &lt; 30\)</span> and we assume normality, we use the <span class="math inline">\(t\)</span>-distribution so the confeidence interval is given by: <span class="math display">\[
+\bar{d} \pm t_{\nu,\alpha/2} \cdot \frac{s_d}{\sqrt{n}}, \quad \nu = n - 1
+\]</span></p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Note: In both cases, we assume the population variance <span class="math inline">\(\sigma_d^2\)</span> is unknown, which is typically the case in practice.</p>
+</blockquote>
+<p>The different scenarios are summarized in <a href="#tbl-paired-cfi" class="quarto-xref">Table&nbsp;<span>21.4</span></a>.</p>
+<div id="tbl-paired-cfi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-paired-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21.4: Confidence interval formulas for paired-sample mean differences, depending on sample size and assumptions about the distribution of the population differences.
+</figcaption><div aria-describedby="tbl-paired-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 19%">
+<col style="width: 26%">
+</colgroup>
+<thead><tr class="header">
+<th>Conditions</th>
+<th>Variance Assumptions</th>
+<th>Formula</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<span class="math inline">\(n \geq 30\)</span>, any population distribution</td>
+<td>
+<span class="math inline">\(\sigma_d^2\)</span> known</td>
+<td><span class="math inline">\(\bar{d} \pm z_{\alpha/2} \left( \frac{\sigma_d}{\sqrt{n}} \right)\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>
+<span class="math inline">\(\sigma_d^2\)</span> unknown</td>
+<td><span class="math inline">\(\bar{d} \pm z_{\alpha/2} \left( \frac{s_d}{\sqrt{n}} \right)\)</span></td>
+</tr>
+<tr class="odd">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, population of differences is normal</td>
+<td>
+<span class="math inline">\(\sigma_d^2\)</span> known</td>
+<td><span class="math inline">\(\bar{d} \pm z_{\alpha/2} \left( \frac{\sigma_d}{\sqrt{n}} \right)\)</span></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>
+<span class="math inline">\(\sigma_d^2\)</span> unknown</td>
+<td><span class="math inline">\(\bar{d} \pm t_{\nu,\alpha/2} \left( \frac{s_d}{\sqrt{n}} \right)\)</span></td>
+</tr>
+<tr class="odd">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, population of differences is not normal</td>
+<td>—</td>
+<td>Confidence interval cannot be calculated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section><section id="example-21.6-confidence-interval-for-paired-differences" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-21.6-confidence-interval-for-paired-differences">Example 21.6: Confidence Interval for Paired Differences</h4>
+<p>We have a sample of 6 workers from a normally distributed population. Each worker performs the same task using Method A and Method B, and the time taken in minutes is recorded for both methods:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span> = time using Method A<br>
+</li>
+<li>
+<span class="math inline">\(Y\)</span> = time using Method B</li>
+</ul>
+<p>We are to compute a 95% confidence interval for the average difference in time (Method A − Method B).</p>
+<p>Let <span class="math inline">\(d = x - y\)</span> be the difference for each individual:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 27%">
+</colgroup>
+<thead><tr class="header">
+<th>Person</th>
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(y\)</span></th>
+<th><span class="math inline">\(d = x - y\)</span></th>
+<th><span class="math inline">\(d - \bar{d}\)</span></th>
+<th><span class="math inline">\((d - \bar{d})^2\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>6.0</td>
+<td>5.4</td>
+<td>0.6</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5.0</td>
+<td>5.2</td>
+<td>-0.2</td>
+<td>-0.5</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>7.0</td>
+<td>6.5</td>
+<td>0.5</td>
+<td>0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>6.2</td>
+<td>5.9</td>
+<td>0.3</td>
+<td>0.0</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>6.0</td>
+<td>6.0</td>
+<td>0.0</td>
+<td>-0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>6.4</td>
+<td>5.8</td>
+<td>0.6</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>1.8</strong></td>
+<td></td>
+<td><strong>0.56</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Now we can compute the sample statistics:</p>
+<ul>
+<li>Mean difference: <span class="math inline">\(\bar{d} = \frac{1.8}{6} = 0.3\)</span><br>
+</li>
+<li>Variance: <span class="math inline">\(s_d^2 = \frac{0.56}{5} = 0.112\)</span><br>
+</li>
+<li>Standard deviation: <span class="math inline">\(s_d = \sqrt{0.112} = 0.335\)</span>
+</li>
+</ul>
+<p>We note that <span class="math inline">\(n &lt; 30\)</span>, <span class="math inline">\(\sigma^2\)</span> is unknown, and we have a normally distributed population. Therefore, a 95% confidence interval for <span class="math inline">\(\mu_d\)</span> is calculated as follows: <span class="math display">\[
+\bar{d} \pm t_{\nu, \alpha/2} \cdot \frac{s_d}{\sqrt{n}}
+\]</span> Since <span class="math inline">\(n = 6\)</span>, degrees of freedom <span class="math inline">\(\nu = 5\)</span>, and <span class="math inline">\(\alpha = 0.025\)</span>, we use (see <a href="../appendix/t-table.html" class="quarto-xref"><span>Appendix B</span></a>): <span class="math display">\[
+t_{5, 0.025} = 2.571
+\]</span> Substitute values in the confidence interval formula: <span class="math display">\[
+0.3 \pm 2.571 \cdot \frac{0.335}{\sqrt{6}} = 0.3 \pm 0.35
+\]</span> So the 95% confidence interval is: <span class="math display">\[
+[-0.05,\ 0.65]
+\]</span> Since the interval includes 0, we cannot rule out that the two methods are equally effective. With 95% confidence, the average difference in time could be zero.</p>
+</section></section><section id="confidence-intervals-for-differences-in-population-proportions" class="level3" data-number="21.4.4"><h3 data-number="21.4.4" class="anchored" data-anchor-id="confidence-intervals-for-differences-in-population-proportions">
+<span class="header-section-number">21.4.4</span> Confidence Intervals for Differences in Population Proportions</h3>
+<p>When comparing two independent populations on a binary outcome (such as success/failure), we are often interested in estimating the difference between their population proportions, <span class="math inline">\(p_x - p_y\)</span>. If both <strong>samples are large</strong> enough, we can use the normal approximation to construct a confidence interval for this difference:</p>
+<p><span class="math display">\[
+(\hat{p}_x - \hat{p}_y) \pm z_{\alpha/2} \cdot \sqrt{ \frac{\hat{p}_x (1 - \hat{p}_x)}{n_x} + \frac{\hat{p}_y (1 - \hat{p}_y)}{n_y} }
+\]</span></p>
+<p>This interval provides a plausible range of values for the true difference between the proportions in the two populations. If the confidence interval includes zero, it suggests that the observed difference might be due to random sampling variability, and there may be no real difference between the groups.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Small Sample Sizes:</strong> If either sample is small, specifically, if <span class="math inline">\(n \cdot \hat{p} &lt; 5\)</span> or <span class="math inline">\(n \cdot (1 - \hat{p}) &lt; 5\)</span>, the normal approximation may not be appropriate.</p>
+</div>
+</div>
+<section id="example-21.7-confidence-interval-for-the-difference-between-two-proportions" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-21.7-confidence-interval-for-the-difference-between-two-proportions">Example 21.7: Confidence Interval for the Difference Between Two Proportions</h4>
+<p>We want to estimate the difference in support for a political party between two populations.</p>
+<ul>
+<li>Let <span class="math inline">\(p_x\)</span> = proportion in population 1 who support the party<br>
+</li>
+<li>Let <span class="math inline">\(p_y\)</span> = proportion in population 2 who support the party</li>
+</ul>
+<p>We take a simple random sample of:</p>
+<ul>
+<li>
+<span class="math inline">\(n_x = 150\)</span> from population 1, with <span class="math inline">\(\hat{p}_x = 0.36\)</span><br>
+</li>
+<li>
+<span class="math inline">\(n_y = 250\)</span> from population 2, with <span class="math inline">\(\hat{p}_y = 0.27\)</span>
+</li>
+</ul>
+<p>We are to construct a 95% confidence interval for <span class="math inline">\(p_x - p_y\)</span>. Since the sample sizes are large, we use the <strong>standard normal approximation</strong> for the confidence interval: <span class="math display">\[
+\hat{p}_x - \hat{p}_y \pm z_{\alpha/2} \cdot \sqrt{ \frac{ \hat{p}_x (1 - \hat{p}_x) }{n_x} + \frac{ \hat{p}_y (1 - \hat{p}_y) }{n_y} }
+\]</span> With <span class="math inline">\(z_{\alpha/2} = z_{0.025} = 1.96\)</span>, we compute:</p>
+<p><span class="math display">\[
+0.36 - 0.27 \pm 1.96 \cdot \sqrt{ \frac{0.36(1 - 0.36)}{150} + \frac{0.27(1 - 0.27)}{250} }
+\]</span> <span class="math display">\[
+\begin{split} 0.09 \pm 1.96 \cdot \sqrt{ \frac{0.2304}{150} + \frac{0.1971}{250} }
+&amp; = 0.09 \pm 1.96 \cdot \sqrt{0.001536 + 0.0007884}
+\\ &amp; = 0.09 \pm 1.96 \cdot 0.0406
+\\ &amp;= 0.09 \pm 0.0796
+\end{split}
+\]</span> So the 95% confidence interval is: <span class="math display">\[
+[0.0104,\ 0.1696]
+\]</span> We estimate that the difference in support between the two populations is between 1.0% and 17.0%, with population 1 showing more support. Since the entire interval is above 0, this suggests a real difference in proportions between the populations.</p>
 </section></section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
 <li>A random sample of 120 families was drawn from a population of approximately 5000 families. The number of children in each selected family was recorded. The sample yielded <span class="math inline">\(\bar{x} = 1.28\)</span> (mean number of children) and <span class="math inline">\(s = 1.10\)</span> (sample standard deviation). Assuming the sample is drawn using simple random sampling, calculate a 99% confidence interval for the population mean <span class="math inline">\(\mu\)</span>, the average number of children per family.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -932,7 +1494,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We are given:</p>
 <ul>
@@ -965,7 +1527,7 @@ SE = \frac{s}{\sqrt{n}} = \frac{1.10}{\sqrt{120}} \approx 0.1004
 <li>In a small town with 8820 households, a sample of 200 households is taken. In the sample, 60 households have a smart home system installed. Construct a 95% confidence interval for the proportion of households in the entire town that have a smart home system.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -974,7 +1536,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We are given:</p>
 <ul>
@@ -1002,6 +1564,386 @@ SE = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = \sqrt{\frac{0.30(1 - 0.30)}{200}} =
 <li><span class="math inline">\(0.36 \cdot 8820 \approx 3175\)</span></li>
 </ul>
 <p>We can say, with 95% confidence, that roughly 2100 and 3200 households in the town have a smart home system installed.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>A car manufacturer wants to compare the average fuel efficiency (in liters per 100 km) between two models of hybrid vehicles. Two random samples were taken:</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 41%">
+</colgroup>
+<thead><tr class="header">
+<th>Model</th>
+<th>Sample Size</th>
+<th>Mean</th>
+<th>Standard Deviation</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Hybrid A</td>
+<td>15</td>
+<td><span class="math inline">\(4.8\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td>Hybrid B</td>
+<td>12</td>
+<td><span class="math inline">\(5.1\)</span></td>
+<td><span class="math inline">\(0.6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Assume that fuel efficiency is normally distributed, and the population variances are equal but unknown. Construct a 95% confidence interval for the difference in mean fuel efficiency between the two models. What can you say about the results in terms of the difference in fuel efficiency?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We use the <strong>pooled <span class="math inline">\(t\)</span>-distribution</strong> approach since sample sizes are small and equal variances are assumed. The pooled variance is given by: <span class="math display">\[
+\begin{split}
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+&amp; = \frac{(14)(0.5^2) + (11)(0.6^2)}{25}
+\\ &amp; = \frac{3.5 + 3.96}{25} \\ &amp; = 0.3384
+\end{split}
+\]</span> and we have degrees of freedom equal to <span class="math display">\[
+\nu = n_x + n_y - 2 = 15 + 12 - 2 = 25
+\]</span> yielding the critical <span class="math inline">\(t\)</span>-value <span class="math display">\[
+t_{25,\ 0.025} = 2.060 .
+\]</span></p>
+<p>The 95% confidence interval to use is given by <span class="math display">\[
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}
+\]</span> and with substituted values we get: <span class="math display">\[
+\begin{split}
+4.8 - 5.1 \pm 2.060 \cdot \sqrt{0.3384 \left( \frac{1}{15} + \frac{1}{12} \right)}
+&amp; = -0.3 \pm 2.060 \cdot \sqrt{0.3384 \cdot 0.1528}
+\\ &amp;= -0.3 \pm 2.060 \cdot 0.2273
+\\ &amp;= -0.3 \pm 0.468
+\end{split}
+\]</span> <span class="math display">\[
+\implies [-0.768,\ 0.168]
+\]</span> Since this interval includes zero, the observed difference in sample means may be due to sampling variability rather than a clear difference between the two hybrid models.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>A pedagogical study aimed to compare the learning abilities of two age groups of children. Large random samples were taken from each population. The goal is to estimate the difference in mean learning ability using a 99% confidence interval. The sample summary is shown below:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Group</th>
+<th>Sample Size</th>
+<th>Mean</th>
+<th>Standard Deviation</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Group 1</td>
+<td>89</td>
+<td>42</td>
+<td>6.1</td>
+</tr>
+<tr class="even">
+<td>Group 2</td>
+<td>73</td>
+<td>30</td>
+<td>4.5</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since both samples are large and population variances are unknown, we use the <strong>standard normal <span class="math inline">\(z\)</span>-distribution</strong> with the formula:</p>
+<p><span class="math display">\[
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}}
+\]</span> Given from sample data is the following:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{x} = 42\)</span>, <span class="math inline">\(s_x = 6.1\)</span>, <span class="math inline">\(n_x = 89\)</span><br>
+</li>
+<li>
+<span class="math inline">\(\bar{y} = 30\)</span>, <span class="math inline">\(s_y = 4.5\)</span>, <span class="math inline">\(n_y = 73\)</span><br>
+</li>
+<li><span class="math inline">\(z_{\alpha/2} = z_{0.005} = 2.58\)</span></li>
+</ul>
+<p>We compute the sample statistics: <span class="math display">\[
+\bar{x} - \bar{y} = 42 - 30 = 12
+\]</span> <span class="math display">\[
+SE = \sqrt{ \frac{6.1^2}{89} + \frac{4.5^2}{73} } = \sqrt{ \frac{37.21}{89} + \frac{20.25}{73} } \approx \sqrt{0.418 + 0.277} \approx \sqrt{0.695} \approx 0.834
+\]</span> Next, we can compute the confidence interval <span class="math display">\[
+12 \pm 2.58 \cdot 0.834 = 12 \pm 2.15
+\]</span> So the <strong>99% confidence interval</strong> is: <span class="math display">\[
+[9.85,\ 14.15]
+\]</span> Since this interval does not include zero, we can conclude that there is likely a meaningful difference in learning ability between the two groups.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>At a school, students were randomly divided into two groups for English instruction. Group 1 had access to a language laboratory, while Group 2 received only traditional classroom instruction. After the instruction was completed, the goal was to examine whether there was any difference in the effectiveness of the two teaching methods. To do this, a 90% confidence interval was constructed to estimate the difference in average language proficiency between the two groups (populations). A random sample of students from each group was selected to complete a standardized language test. The investigation yielded the following results:
+<ul>
+<li>Group 1: <span class="math inline">\(\bar{x} = 42.4\)</span>, <span class="math inline">\(s_x^2 = 66\)</span>, <span class="math inline">\(n_x = 10\)</span><br>
+</li>
+<li>Group 2: <span class="math inline">\(\bar{y} = 46.6\)</span>, <span class="math inline">\(s_y^2 = 54\)</span>, <span class="math inline">\(n_y = 12\)</span>
+</li>
+</ul>
+Construct a 90% confidence interval for <span class="math inline">\(\mu_x - \mu_y\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The assumptions are as follows:</p>
+<ul>
+<li>Two independent random samples<br>
+</li>
+<li>Small sample sizes (<span class="math inline">\(n_x = 10\)</span>, <span class="math inline">\(n_y = 12\)</span>)<br>
+</li>
+<li>Assume normal populations with equal variances</li>
+</ul>
+<p><span class="math inline">\(\implies\)</span> Unknown population variances, use <strong>pooled <span class="math inline">\(t\)</span>-distribution</strong></p>
+<p>Compute the pooled variance: <span class="math display">\[
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+= \frac{(9)(66) + (11)(54)}{20} = 59.4
+\]</span> The degrees of freedom are given by <span class="math display">\[
+\nu = n_x + n_y - 2 = 10 + 12 - 2 = 20
+\]</span> and the critical <span class="math inline">\(t\)</span> value for 90% confidence, <span class="math inline">\(\alpha = 0.10\)</span> and <span class="math inline">\(\alpha/2 = 0.05\)</span> is given by <span class="math display">\[
+t_{20,\,0.05} = 1.725
+\]</span></p>
+<p>We can now compute the confidence interval: <span class="math display">\[
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}
+= -4.2 \pm 1.725 \cdot \sqrt{59.4 \left( \frac{1}{10} + \frac{1}{12} \right)}
+= -4.2 \pm 5.7
+\]</span> <span class="math display">\[
+\implies [-9.9,\ 1.5]
+\]</span></p>
+<p>Thus, we estimate that the average English knowledge in the lab group is between 9.9 points lower and 1.5 points higher than that of the traditional group. Since the interval includes zero, the observed difference could be due to random variation in the samples, and we cannot confidently say that one teaching method leads to higher average performance than the other.</p>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>A new medication is believed to reduce fever. To test its effect, researchers measured the body temperature of 8 patients <strong>before</strong> and <strong>one hour after</strong> taking the medication.</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Person</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Before (°C)</td>
+<td>38.2</td>
+<td>38.4</td>
+<td>38.5</td>
+<td>38.9</td>
+<td>39.0</td>
+<td>39.0</td>
+<td>39.3</td>
+<td>39.7</td>
+</tr>
+<tr class="even">
+<td>After (°C)</td>
+<td>37.2</td>
+<td>37.2</td>
+<td>38.8</td>
+<td>38.1</td>
+<td>38.2</td>
+<td>39.6</td>
+<td>38.2</td>
+<td>38.6</td>
+</tr>
+</tbody>
+</table>
+<p>Construct a 95% confidence interval for the mean temperature reduction due to the medication.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is a case of <strong>paired observations</strong> (before vs.&nbsp;after on the same individuals), so we compute the differences: <span class="math display">\[
+d_i = \text{Before} - \text{After}
+\]</span></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Person</th>
+<th><span class="math inline">\(d_i\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1.2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>-0.3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0.8</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0.8</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>-0.6</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>1.1</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>1.1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sample mean of differences: <span class="math inline">\(\bar{d} = 0.6375\)</span>
+</li>
+<li>Sample standard deviation: <span class="math inline">\(s_d = 0.6907\)</span>
+</li>
+<li>Sample size: <span class="math inline">\(n = 8\)</span>
+</li>
+<li>Degrees of freedom: <span class="math inline">\(\nu = 7\)</span>
+</li>
+<li>Critical <span class="math inline">\(t\)</span>-value at 95%: <span class="math inline">\(t_{7, 0.025} = 2.365\)</span>
+</li>
+</ul>
+<p>The confidence interval is given by <span class="math display">\[
+\bar{d} \pm t_{\nu, \alpha/2} \cdot \frac{s_d}{\sqrt{n}} = 0.6375 \pm 2.365 \cdot \frac{0.6907}{\sqrt{8}} \approx 0.6375 \pm 0.58
+\]</span> So the 95% confidence interval is: <span class="math display">\[
+[0.06,\ 1.21]
+\]</span> We estimate that the medication reduces fever by between 0.06 and 1.21°C on average. Since the interval does not include 0, we have evidence that the medication is likely effective in lowering body temperature.</p>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>A survey is conducted to compare the support for a new vaccine in two regions. In region A, 120 out of 200 people support the vaccine. In region B, 135 out of 250 support it. Construct a 95% confidence interval for the difference in population proportions, <span class="math inline">\(p_A - p_B\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We are given:</p>
+<ul>
+<li><span class="math inline">\(\hat{p}_A = \frac{120}{200} = 0.60\)</span></li>
+<li><span class="math inline">\(\hat{p}_B = \frac{135}{250} = 0.54\)</span></li>
+<li><span class="math inline">\(n_A = 200,\quad n_B = 250\)</span></li>
+<li>
+<span class="math inline">\(z_{\alpha/2} = 1.96\)</span> for 95% confidence We use the formula: <span class="math display">\[
+\hat{p}_A - \hat{p}_B \pm z_{\alpha/2} \cdot \sqrt{ \frac{ \hat{p}_A (1 - \hat{p}_A) }{n_A} + \frac{ \hat{p}_B (1 - \hat{p}_B) }{n_B} }
+\]</span> Substitute: <span class="math display">\[
+0.60 - 0.54 \pm 1.96 \cdot \sqrt{ \frac{0.60 \cdot 0.40}{200} + \frac{0.54 \cdot 0.46}{250} }
+\]</span> <span class="math display">\[ \begin{split}
+&amp; = 0.06 \pm 1.96 \cdot \sqrt{0.0012 + 0.0009936}
+\\ &amp; = 0.06 \pm 1.96 \cdot \sqrt{0.0021936}
+\\ &amp;= 0.06 \pm 1.96 \cdot 0.0468
+\\ &amp;= 0.06 \pm 0.0917
+\end{split}
+\]</span> So the 95% confidence interval is: <span class="math display">\[
+[-0.0317,\ 0.1517]
+\]</span> The interval ranges from approximately −3.2% to 15.2%. Since the interval includes 0, we cannot conclude that there is a meaningful difference in vaccine support between the two regions based on this sample.</li>
+</ul>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>A university wants to compare the average weekly study hours between psychology and engineering students. Random samples yield the following results:</li>
+</ol>
+<ul>
+<li>
+<strong>Psychology</strong>: <span class="math inline">\(n_1 = 18\)</span>, <span class="math inline">\(\bar{x}_1 = 24.3\)</span>, <span class="math inline">\(s_1 = 4.1\)</span>
+</li>
+<li>
+<strong>Engineering</strong>: <span class="math inline">\(n_2 = 16\)</span>, <span class="math inline">\(\bar{x}_2 = 27.8\)</span>, <span class="math inline">\(s_2 = 5.6\)</span>
+</li>
+</ul>
+<p>Construct a 95% confidence interval for the difference in mean study hours, assuming the <strong>population variances are not equal</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We use <strong>Welch’s t-interval</strong> for independent samples with unequal variances. The point estimate for the difference in means is given by <span class="math display">\[
+\bar{x}_1 - \bar{x}_2 = 24.3 - 27.8 = -3.5
+\]</span> and the standard error is given by <span class="math display">\[
+\begin{split}SE &amp; = \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }
+\\ &amp;= \sqrt{ \frac{4.1^2}{18} + \frac{5.6^2}{16} }
+\\ &amp;= \sqrt{ \frac{16.81}{18} + \frac{31.36}{16} }
+\\ &amp; = \sqrt{0.934 + 1.96} = \sqrt{2.894} \approx 1.702
+\end{split}
+\]</span></p>
+<p>We find the correct degrees of freedom using Welch-Satterthwaite approximation: <span class="math display">\[
+\nu \approx \frac{ \left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2 }
+{ \frac{ \left( \frac{s_1^2}{n_1} \right)^2 }{n_1 - 1} + \frac{ \left( \frac{s_2^2}{n_2} \right)^2 }{n_2 - 1} }
+= \frac{(0.934 + 1.96)^2}{\frac{0.934^2}{17} + \frac{1.96^2}{15}} \approx \frac{8.38}{0.0513 + 0.256} \approx 25.1
+\]</span> Thus, we use <span class="math inline">\(t_{25} \approx 2.060\)</span> for 95% confidence. The confidence interval is then given by <span class="math display">\[
+-3.5 \pm 2.060 \cdot 1.702 = -3.5 \pm 3.508
+\implies [-7.01,\ 0.01]
+\]</span> The 95% confidence interval for the difference in study hours ranges from −7.01 to 0.01 hours. Since the interval includes zero, we cannot conclude that there is a difference in average study hours between the two majors.</p>
 </div>
 </div>
 </div>

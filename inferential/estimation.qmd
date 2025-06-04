@@ -592,12 +592,14 @@ When constructing a confidence interval for the population mean $\mu$, the formu
 
 ::: {#tbl-popmean-cfi}
 
-| Conditions                                       | Distribution                                 | Formula                                                |
-|----------------------------------------------------------------------------------------------------|------------------------------------------------------|----------------------------------------------------------|
-| $n \geq 30$, any population, $\sigma$ known          | Standard Normal $Z$        | $\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}$     |
-| $n \geq 30$,  any population, $\sigma$  unknown          | Standard Normal $Z$        | $\bar{x} \pm z_{\alpha/2} \cdot \dfrac{s}{\sqrt{n}}$     |
-| $n < 30$, normal population, $\sigma$ known     | Standard Normal $Z$        | $\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}$                  |
-| $n < 30$, normal population, $\sigma$ unknown   | Student’s $t$-distribution | $\bar{x} \pm t_{\nu,\alpha/2} \cdot \dfrac{s}{\sqrt{n}}$|
+| Conditions                                        | Variance Assumptions     | Formula                                 |
+|-------------------------------------------------------------------------------------------|------------------------------|---------------------------------------|
+| $n \geq 30$ (any population)                     | $\sigma^2$ known               | $\bar{x} \pm z_{\alpha/2} \left( \frac{\sigma}{\sqrt{n}} \right)$     |
+|                                                  | $\sigma^2$ unknown             | $\bar{x} \pm z_{\alpha/2} \left( \frac{s}{\sqrt{n}} \right)$          |
+| $n < 30$, normal population                      | $\sigma^2$ known               | $\bar{x} \pm z_{\alpha/2} \left( \frac{\sigma}{\sqrt{n}} \right)$     |
+|                                                  | $\sigma^2$ unknown             | $\bar{x} \pm t_{\nu,\alpha/2} \left( \frac{s}{\sqrt{n}} \right)$      |
+| $n < 30$, population is not normally distributed  | —                           | Confidence interval cannot be calculated                 |
+
 
 Summary of conditions for constructing confidence intervals for a population mean. 
 
@@ -743,6 +745,394 @@ $$
 This means we are 95% confident that the true proportion of supporters in the population lies between 40.7% and 46.3%.
 
 
+### Confidence Intervals for the Difference Between Two Population Means
+
+When comparing two groups, we often want to estimate the difference between their population means. This leads us to construct a **confidence interval** for $\mu_x - \mu_y$. There are two main cases to consider here:
+
+#### Case 1: Two Independent Samples {.unnumbered}
+
+This scenario assumes we take independent random samples from two different populations. We define the populations as follows:
+
+| Population    | Mean       | Standard Deviation |
+|-------------------------|------------------------|-----------------|
+| Population 1 | $\mu_x$    | $\sigma_x$         |
+| Population 2 | $\mu_y$    | $\sigma_y$         |
+
+We collect independent samples:
+
+|    | Size ($n$) | Sample Mean | Sample Standard Deviation |
+|----------------|------------|---------------|-----------------------------|
+| Sample from 1  | $n_x$      | $\bar{x}$                             | $s_x$                       |
+| Sample from 2  | $n_y$      | $\bar{y}$                             | $s_y$                       |
+
+We estimate the difference in population means using the point estimate:
+
+$$
+\bar{x} - \bar{y}
+$$
+
+This is an **unbiased estimator**, meaning:
+
+$$
+E(\bar{x} - \bar{y}) = E(\bar{x}) - E(\bar{y}) = \mu_x - \mu_y
+$$
+
+Assuming the samples are independent, the **variance** of the difference between sample means is:
+
+$$
+\text{Var}(\bar{x} - \bar{y}) = \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y}
+$$
+
+When the population standard deviations $\sigma_x$ and $\sigma_y$ are unknown (as is usually the case), we substitute the sample standard deviations $s_x$ and $s_y$ instead.
+
+The appropriate method for constructing a confidence interval depends on several factors:
+
+- The sample sizes: Are they large ($\geq 30$) or small ($< 30$)?
+- The distribution of the populations: Are they normally distributed?
+- Whether the population variances are known or unknown
+- Whether we assume the variances are equal or not
+
+
+**Large Independent Samples ($n_x \geq 30$, $n_y \geq 30$)**
+
+When both sample sizes are large, the Central Limit Theorem allows us to use the standard normal distribution ($Z$), regardless of the population distributions.
+
+- **If the population variances are known** (rare):
+
+$$
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
+$$
+
+- **If the population variances are unknown** (more common), we estimate them with sample variances:
+
+$$
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+$$
+
+The critical $z$-value is selected to match the desired confidence level (e.g., $z = 1.96$ for 95%).
+
+
+
+**Small Independent Samples (at least one of $n_x$ or $n_y$ < 30)**
+
+In this case, we must assume that both populations are normally distributed to proceed.
+
+- **If the population variances are known** (uncommon):
+
+$$
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
+$$
+
+- **If the variances are unknown but assumed equal**, we use the **pooled variance** which provides a combined estimate of the common variance by weighting the sample variances according to their degrees of freedom. The formula for pooled varince is:
+$$
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+$$
+Here, $s_x^2$ and $s_y^2$ are the sample variances from the two groups, and $n_x$ and $n_y$ are the respective sample sizes. This weighted average gives a more stable estimate of variance when the equal-variance assumption is justified.  Use this method only if there is reasonable evidence that the population variances are equal. The formula becomes:
+$$
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }
+$$
+where the degrees of freedom are:
+$$
+\nu = (n_x-1) + (n_y-1) = n_x + n_y - 2
+$$
+
+
+- **If the variances are unknown and cannot be assumed equal**, we cannot assume equal variance, we rely on the so called **Welch’s method**, which is an adaptation of the standard two-sample $t$-test that does **not** assume equal population variances. It is more flexible and robust, especially when sample sizes or variances differ between groups.
+Instead of pooling the variances, Welch’s method uses the individual sample variances to compute the standard error and an approximate degrees of freedom, denoted $\nu$. The confidence interval is thus given by:
+
+$$
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+$$
+with degrees of freedom approximated by:
+$$
+\nu \approx \frac{ \left( \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} \right)^2 }{ \frac{(s_x^2 / n_x)^2}{n_x - 1} + \frac{(s_y^2 / n_y)^2}{n_y - 1} }
+$$
+This method is more robust and does not assume equal population variances, making it the preferred choice in most small-sample scenarios with unequal spread.
+
+
+The different cases are summarized in @tbl-diffmean-cfi.
+
+
+
+
+::: {#tbl-diffmean-cfi}
+| Sample Size & Variance Assumptions                              | Distribution              | Degrees of Freedom ($\nu$)                     | Formula                                                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|------------------------|-------------------------------------------|
+| $n_x, n_y \geq 30$,  $\sigma_x, \sigma_y$ known      | Standard normal $Z$          |                                     | $\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }$ |
+| $n_x, n_y \geq 30$, $\sigma_x, \sigma_y$ unknown    | Standard normal $Z$          |                                      | $\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }$ |
+| $n_x, n_y < 30$, $s_x = s_y$              | Pooled $t$-distribution      | $n_x + n_y - 2$                                | $\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }$ |
+| $n_x, n_y < 30$, $s_x \neq s_y$           | Welch’s $t$-distribution     | $\displaystyle \frac{\left( \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} \right)^2}{\frac{(s_x^2 / n_x)^2}{n_x - 1} + \frac{(s_y^2 / n_y)^2}{n_y - 1}}$ | $\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }$ |
+
+Confidence interval formulas for the difference between two means given different sample sizes and under different variance assumptions. 
+:::
+
+
+#### Example 21.4: Confidence Interval for the Difference in Means {.unnumbered}
+Two independent samples were taken from two different populations:
+
+- Sample 1: $n_x = 51$, $\bar{x} = 14.3$, $s_x = 3.18$
+- Sample 2: $n_y = 52$, $\bar{y} = 12.6$, $s_y = 3.5$
+
+Construct a 95% confidence interval for the difference in population means, $\mu_x - \mu_y$.
+
+Since both sample sizes are greater than 30, and population variances are unknown, we can use the **standard normal approximation** with sample variances substituted in. That is, we use the formula:
+$$
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+$$
+
+where $z_{0.025} = 1.96$ for a 95% confidence level. We plug in the values:
+$$
+\bar{x} - \bar{y} = 14.3 - 12.6 = 1.7
+$$
+$$
+\begin{split}
+\text{Standard error} & = \sqrt{ \frac{3.18^2}{51} + \frac{3.5^2}{52} } \\ & \approx \sqrt{ \frac{10.1124}{51} + \frac{12.25}{52} }  \\ & \approx \sqrt{0.1983 + 0.2356}  \\ & \approx \sqrt{0.4339} \\ & \approx 0.6588
+\end{split}
+$$
+and calculate the margin of error as:
+$$
+1.96 \cdot 0.6588 \approx 1.29
+$$
+So the confidence interval is:
+$$
+1.7 \pm 1.29 = [0.41, 2.99]
+$$
+
+
+#### Example 21.5: Confidence Interval for the Difference in Means {.unnumbered}
+
+We are given two independent random samples from normally distributed populations with **equal but unknown variances**:
+
+| Group         | Sample Size  |  Mean  |  Standard Deviation |
+|---------------|--------------|----------|-------------------|
+| Population 1  | $n_x = 11$   | $\bar{x} = 1.23$           | $s_{x}$ = $0.23$     |
+| Population 2  | $n_y =13$   | $\bar{y} = 1.18$           | $s_y= 0.27$     |
+
+We are to compute a 95% confidence interval for the difference in population means: $\mu_x - \mu_y$.
+
+Since $n_x = 11$ and $n_y = 13$ are both less than 30, and the population variances are assumed equal but unknown, we use the pooled $t$-distribution approach. The formula to use is the following:
+$$
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }
+$$
+
+The pooled sample variance $s_p^2$ is computed as:
+$$
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+= \frac{(10)(0.23^2) + (12)(0.27^2)}{22} = 0.0638
+$$
+and the degrees of freedom are given by
+$$
+\nu = n_x + n_y - 2 = 11 + 13 - 2 = 22
+$$
+At the 95% confidence level we have that (@sec-ttbl):
+$$
+t_{22,\ 0.025} = 2.074
+$$
+We substitute values in the formula above:
+$$\begin{split}
+0.05 \pm 2.074 \cdot \sqrt{0.0638 \left( \frac{1}{11} + \frac{1}{13} \right)}
+& = 0.05 \pm 2.074 \cdot \sqrt{0.0638 \cdot 0.1709}
+\\ & = 0.05 \pm 2.074 \cdot 0.1045
+\\ &\approx 0.05 \pm 0.217
+\end{split}
+$$
+So the 95% confidence interval is:
+$$
+[-0.167,\ 0.267]
+$$
+The 95% confidence interval for the difference in population means is $[-0.167,\ 0.267]$. This means we are 95% confident that the true difference $\mu_x - \mu_y$ lies somewhere between $-0.167$ and $0.267$. Since this interval includes values both below and above zero, the observed difference in sample means may be due to sampling variability rather than a clear difference between the populations.
+
+
+
+#### Case 2: Paired Samples {.unnumbered}
+
+The second case for two group comparisons, is when we have a single sample from a population, but we take two measurements on each individual in the sample. This means we no longer have two independent samples, but instead we have **paired observations**. 
+
+**Paired data**, that is, two measurements taken on the same individuals or on matched units is different from having two independent samples. Examples include:
+
+- Measuring blood pressure *before and after* a treatment on the same patient.
+- Comparing performance on *two tests* taken by the same student.
+- Testing two teaching methods on *the same group of students*.
+Because the observations are **not independent**, we must take the dependency into account.
+
+As before, we are interested in constructing a confidence interval for the difference in means based on these paired data. Instead of comparing two separate means though, we analyze the **difference within each pair** defined as:
+$$
+d_i = x_i - y_i
+$$
+Now let:
+
+- $\bar{d}$ be the mean of the differences,  
+- $s_d$ the standard deviation of the differences,  
+- $n$ the number of pairs.
+Then, the confidence interval for the **mean difference** $\mu_d$ is:
+$$
+\bar{d} \pm t_{n - 1, \alpha/2} \cdot \frac{s_d}{\sqrt{n}}
+$$
+
+This formula is based on the **one-sample $t$-distribution** with $n - 1$ degrees of freedom.
+
+
+::: callout-note
+## When to Use This Method
+
+Use the paired $t$-method when:
+
+- The **same subject** is measured twice (e.g., before and after),
+- The data is **naturally paired** (e.g., matched cases),
+- The **differences $d_i$** are approximately normally distributed.
+:::
+
+
+Suppose we are studying the effect of a blood pressure treatment. For each individual in our sample, we measure blood pressure **before** and **after** treatment as shown in the table below:
+
+| Individual | After ($x$) | Before ($y$) | Difference ($d = x - y$) |
+|------------|-------------|--------------|---------------------------|
+| 1          | $x_1$       | $y_1$        | $d_1 = x_1 - y_1$         |
+| 2          | $x_2$       | $y_2$        | $d_2 = x_2 - y_2$         |
+| $\vdots$   | $\vdots$    | $\vdots$     | $\vdots$                  |
+| $n$        | $x_n$       | $y_n$        | $d_n = x_n - y_n$         |
+
+These $d_1, d_2, \dots, d_n$ form a sample from a population of differences with population mean $\mu_d$ and variance $\sigma_d^2$. We estimate the population mean difference $\mu_d$ using the sample mean of the differences:
+$$
+\bar{d} = \frac{1}{n} \sum_{i=1}^n d_i
+$$
+This is an unbiased estimator, since:
+$$
+E(\bar{d}) = \mu_d \quad \text{and} \quad \text{Var}(\bar{d}) = \frac{\sigma_d^2}{n}
+$$
+The sample variance of the differences is:
+$$
+s_d^2 = \frac{1}{n - 1} \sum_{i=1}^n (d_i - \bar{d})^2
+$$
+and the estimated standard error is:
+$$
+\text{SE} = \frac{s_d}{\sqrt{n}}
+$$
+
+
+There are (again) two scenarios for constructing a confidence interval:
+
+- **Large sample siez** (that is $n\geq 30$) \
+When the sample size is large (regardless of the population distribution), the confidence interval is based on the standard normal distribution:
+$$ 
+\bar{d} \pm z_{\alpha/2} \cdot \frac{s_d}{\sqrt{n}}
+$$
+
+- **Small sample size and  population of differences is normally distributed** \
+When $n < 30$ and we assume normality, we use the $t$-distribution so the confeidence interval is given by:
+$$
+\bar{d} \pm t_{\nu,\alpha/2} \cdot \frac{s_d}{\sqrt{n}}, \quad \nu = n - 1
+$$
+
+> Note: In both cases, we assume the population variance $\sigma_d^2$ is unknown, which is typically the case in practice.
+
+The different scenarios are summarized in @tbl-paired-cfi.
+
+::: {#tbl-paired-cfi}
+| Conditions                                                      | Variance Assumptions| Formula                             |
+|-------------------------------------------------------------------------------|-----------------------------|---------------------------------------|
+| $n \geq 30$, any population distribution             | $\sigma_d^2$ known          | $\bar{d} \pm z_{\alpha/2} \left( \frac{\sigma_d}{\sqrt{n}} \right)$ |
+|                                                                  | $\sigma_d^2$ unknown        | $\bar{d} \pm z_{\alpha/2} \left( \frac{s_d}{\sqrt{n}} \right)$     |
+| $n < 30$, population of differences is normal                    | $\sigma_d^2$ known          | $\bar{d} \pm z_{\alpha/2} \left( \frac{\sigma_d}{\sqrt{n}} \right)$ |
+|                                                                  | $\sigma_d^2$ unknown        | $\bar{d} \pm t_{\nu,\alpha/2} \left( \frac{s_d}{\sqrt{n}} \right)$  |
+| $n < 30$, population of differences is not normal  | —                           | Confidence interval cannot be calculated                 |
+ Confidence interval formulas for paired-sample mean differences, depending on sample size and assumptions about the distribution of the population differences.
+:::
+
+
+#### Example 21.6:  Confidence Interval for Paired Differences {.unnumbered}
+We have a sample of 6 workers from a normally distributed population. Each worker performs the same task using Method A and Method B, and the time taken in minutes is recorded for both methods:
+
+- $X$ = time using Method A  
+- $Y$ = time using Method B  
+
+We are to compute a 95% confidence interval for the average difference in time (Method A − Method B).
+
+
+Let $d = x - y$ be the difference for each individual:
+
+| Person | $x$  | $y$  | $d = x - y$ | $d - \bar{d}$ | $(d - \bar{d})^2$ |
+|--------|------|------|-------------|----------------|-------------------|
+| 1      | 6.0  | 5.4  | 0.6         | 0.3            | 0.09              |
+| 2      | 5.0  | 5.2  | -0.2        | -0.5           | 0.25              |
+| 3      | 7.0  | 6.5  | 0.5         | 0.2            | 0.04              |
+| 4      | 6.2  | 5.9  | 0.3         | 0.0            | 0.00              |
+| 5      | 6.0  | 6.0  | 0.0         | -0.3           | 0.09              |
+| 6      | 6.4  | 5.8  | 0.6         | 0.3            | 0.09              |
+| **Total** |      |      | **1.8**       |                | **0.56**           |
+
+Now we can compute the sample statistics:
+
+- Mean difference: $\bar{d} = \frac{1.8}{6} = 0.3$  
+- Variance: $s_d^2 = \frac{0.56}{5} = 0.112$  
+- Standard deviation: $s_d = \sqrt{0.112} = 0.335$
+
+We note that $n < 30$, $\sigma^2$ is unknown, and we have a normally distributed population. Therefore, a 95% confidence interval for $\mu_d$ is calculated as follows:
+$$
+\bar{d} \pm t_{\nu, \alpha/2} \cdot \frac{s_d}{\sqrt{n}}
+$$
+Since $n = 6$, degrees of freedom $\nu = 5$, and $\alpha = 0.025$, we use (see @sec-ttbl):
+$$
+t_{5, 0.025} = 2.571
+$$
+Substitute values in the confidence interval formula:
+$$
+0.3 \pm 2.571 \cdot \frac{0.335}{\sqrt{6}} = 0.3 \pm 0.35
+$$
+So the 95% confidence interval is:
+$$
+[-0.05,\ 0.65]
+$$
+Since the interval includes 0, we cannot rule out that the two methods are equally effective. With 95% confidence, the average difference in time could be zero.
+
+### Confidence Intervals for Differences in Population Proportions
+When comparing two independent populations on a binary outcome (such as success/failure), we are often interested in estimating the difference between their population proportions, $p_x - p_y$. If both **samples are large** enough, we can use the normal approximation to construct a confidence interval for this difference:
+
+$$
+(\hat{p}_x - \hat{p}_y) \pm z_{\alpha/2} \cdot \sqrt{ \frac{\hat{p}_x (1 - \hat{p}_x)}{n_x} + \frac{\hat{p}_y (1 - \hat{p}_y)}{n_y} }
+$$
+
+This interval provides a plausible range of values for the true difference between the proportions in the two populations. If the confidence interval includes zero, it suggests that the observed difference might be due to random sampling variability, and there may be no real difference between the groups.
+
+
+::: {.callout-warning}
+**Small Sample Sizes:** If either sample is small, specifically, if $n \cdot \hat{p} < 5$ or $n \cdot (1 - \hat{p}) < 5$, the normal approximation may not be appropriate. 
+:::
+
+#### Example 21.7:  Confidence Interval for the Difference Between Two Proportions {.unnumbered}
+
+We want to estimate the difference in support for a political party between two populations.
+
+- Let $p_x$ = proportion in population 1 who support the party  
+- Let $p_y$ = proportion in population 2 who support the party
+
+We take a simple random sample of:
+
+- $n_x = 150$ from population 1, with $\hat{p}_x = 0.36$  
+- $n_y = 250$ from population 2, with $\hat{p}_y = 0.27$
+
+We are to construct a 95% confidence interval for $p_x - p_y$. Since the sample sizes are large, we use the **standard normal approximation** for the confidence interval:
+$$
+\hat{p}_x - \hat{p}_y \pm z_{\alpha/2} \cdot \sqrt{ \frac{ \hat{p}_x (1 - \hat{p}_x) }{n_x} + \frac{ \hat{p}_y (1 - \hat{p}_y) }{n_y} }
+$$
+With $z_{\alpha/2} = z_{0.025} = 1.96$, we compute:
+
+$$
+0.36 - 0.27 \pm 1.96 \cdot \sqrt{ \frac{0.36(1 - 0.36)}{150} + \frac{0.27(1 - 0.27)}{250} }
+$$
+$$
+\begin{split} 0.09 \pm 1.96 \cdot \sqrt{ \frac{0.2304}{150} + \frac{0.1971}{250} }
+& = 0.09 \pm 1.96 \cdot \sqrt{0.001536 + 0.0007884}
+\\ & = 0.09 \pm 1.96 \cdot 0.0406
+\\ &= 0.09 \pm 0.0796
+\end{split}
+$$
+So the 95% confidence interval is:
+$$
+[0.0104,\ 0.1696]
+$$
+We estimate that the difference in support between the two populations is between 1.0% and 17.0%, with population 1 showing more support. Since the entire interval is above 0, this suggests a real difference in proportions between the populations.
+
 ## Exercises {.unnumbered}
 
 1. A random sample of 120 families was drawn from a population of approximately 5000 families. The number of children in each selected family was recorded. The sample yielded $\bar{x} = 1.28$ (mean number of children)
@@ -823,5 +1213,251 @@ We can say, with 95% confidence, that roughly 2100 and 3200 households in the to
 :::
 
 
+3. A car manufacturer wants to compare the average fuel efficiency (in liters per 100 km) between two models of hybrid vehicles. Two random samples were taken:
+  
+| Model     | Sample Size | Mean | Standard Deviation |
+|-------------------|------------|----------|-----------------------------|
+| Hybrid A  | 15   | $4.8$                                | $0.5$           |
+| Hybrid B  | 12   | $5.1$                                | $0.6$           |
+Assume that fuel efficiency is normally distributed, and the population variances are equal but unknown. Construct a 95% confidence interval for the difference in mean fuel efficiency between the two models. What can you say about the results in terms of the difference in fuel efficiency?
+
+::: {.callout-tip collapse=true}
+## Solution
+We use the **pooled $t$-distribution** approach since sample sizes are small and equal variances are assumed.
+The pooled variance is given by:
+$$
+\begin{split}
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+& = \frac{(14)(0.5^2) + (11)(0.6^2)}{25} 
+\\ & = \frac{3.5 + 3.96}{25} \\ & = 0.3384
+\end{split}
+$$
+and we have degrees of freedom equal to
+$$
+\nu = n_x + n_y - 2 = 15 + 12 - 2 = 25
+$$
+yielding the critical $t$-value
+$$
+t_{25,\ 0.025} = 2.060 .
+$$
+
+The 95\% confidence interval to use is given by
+$$
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}
+$$
+and with substituted values we get:
+$$
+\begin{split}
+4.8 - 5.1 \pm 2.060 \cdot \sqrt{0.3384 \left( \frac{1}{15} + \frac{1}{12} \right)} 
+& = -0.3 \pm 2.060 \cdot \sqrt{0.3384 \cdot 0.1528} 
+\\ &= -0.3 \pm 2.060 \cdot 0.2273 
+\\ &= -0.3 \pm 0.468
+\end{split}
+$$
+$$
+\implies [-0.768,\ 0.168]
+$$
+Since this interval includes zero, the observed difference in sample means may be due to sampling variability rather than a clear difference between the two hybrid models.
+:::
+
+3. A pedagogical study aimed to compare the learning abilities of two age groups of children. Large random samples were taken from each population. The goal is to estimate the difference in mean learning ability using a 99% confidence interval. The sample summary is shown below:
+
+| Group   | Sample Size  | Mean | Standard Deviation   |
+|---------|------|-------------------------|-------|
+| Group 1 | 89   | 42                      | 6.1   |
+| Group 2 | 73   | 30                      | 4.5   |
 
 
+::: {.callout-tip collapse=true}
+## Solution
+Since both samples are large and population variances are unknown, we use the **standard normal $z$-distribution** with the formula:
+
+$$
+\bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}}
+$$
+Given from sample data is the following:
+
+- $\bar{x} = 42$, $s_x = 6.1$, $n_x = 89$  
+- $\bar{y} = 30$, $s_y = 4.5$, $n_y = 73$  
+- $z_{\alpha/2} = z_{0.005} = 2.58$
+
+
+We compute the sample statistics:
+$$
+\bar{x} - \bar{y} = 42 - 30 = 12
+$$
+$$
+SE = \sqrt{ \frac{6.1^2}{89} + \frac{4.5^2}{73} } = \sqrt{ \frac{37.21}{89} + \frac{20.25}{73} } \approx \sqrt{0.418 + 0.277} \approx \sqrt{0.695} \approx 0.834
+$$
+Next, we can compute the confidence interval
+$$
+12 \pm 2.58 \cdot 0.834 = 12 \pm 2.15
+$$
+So the **99% confidence interval** is:
+$$
+[9.85,\ 14.15]
+$$
+Since this interval does not include zero, we can conclude that there is likely a meaningful difference in learning ability between the two groups.
+:::
+
+4. At a school, students were randomly divided into two groups for English instruction. Group 1 had access to a language laboratory, while Group 2 received only traditional classroom instruction.
+After the instruction was completed, the goal was to examine whether there was any difference in the effectiveness of the two teaching methods. To do this, a 90% confidence interval was constructed to estimate the difference in average language proficiency between the two groups (populations).
+A random sample of students from each group was selected to complete a standardized language test. The investigation yielded the following results:
+   - Group 1:  $\bar{x} = 42.4$, $s_x^2 = 66$, $n_x = 10$  
+   - Group 2:  $\bar{y} = 46.6$, $s_y^2 = 54$, $n_y = 12$
+ 
+   Construct a 90% confidence interval for $\mu_x - \mu_y$.
+   
+::: {.callout-tip collapse=true}
+## Solution
+The assumptions are as follows:
+
+- Two independent random samples  
+- Small sample sizes ($n_x = 10$, $n_y = 12$)  
+- Assume normal populations with equal variances  
+
+$\implies$ Unknown population variances, use **pooled $t$-distribution**
+
+Compute the pooled variance:
+$$
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2} 
+= \frac{(9)(66) + (11)(54)}{20} = 59.4
+$$
+The degrees of freedom are given by
+$$
+\nu = n_x + n_y - 2 = 10 + 12 - 2 = 20
+$$
+and the critical $t$ value for 90% confidence, $\alpha = 0.10$ and $\alpha/2 = 0.05$ is given by
+$$
+t_{20,\,0.05} = 1.725
+$$
+
+We can now compute the confidence interval:
+$$
+\bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}
+= -4.2 \pm 1.725 \cdot \sqrt{59.4 \left( \frac{1}{10} + \frac{1}{12} \right)} 
+= -4.2 \pm 5.7
+$$
+$$
+\implies [-9.9,\ 1.5]
+$$
+
+Thus, we estimate that the average English knowledge in the lab group is between 9.9 points lower and 1.5 points higher than that of the traditional group. Since the interval includes zero, the observed difference could be due to random variation in the samples, and we cannot confidently say that one teaching method leads to higher average performance than the other.
+:::
+
+5. A new medication is believed to reduce fever. To test its effect, researchers measured the body temperature of 8 patients **before** and **one hour after** taking the medication.
+
+| Person       | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   |
+|--------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| Before (°C)  | 38.2| 38.4| 38.5| 38.9| 39.0| 39.0| 39.3| 39.7|
+| After (°C)   | 37.2| 37.2| 38.8| 38.1| 38.2| 39.6| 38.2| 38.6|
+
+Construct a 95% confidence interval for the mean temperature reduction due to the medication.
+
+::: {.callout-tip collapse=true}
+## Solution
+
+This is a case of **paired observations** (before vs. after on the same individuals), so we compute the differences:
+$$
+d_i = \text{Before} - \text{After}
+$$
+
+| Person | $d_i$ |
+|--------|-------|
+| 1      | 1.0   |
+| 2      | 1.2   |
+| 3      | -0.3  |
+| 4      | 0.8   |
+| 5      | 0.8   |
+| 6      | -0.6  |
+| 7      | 1.1   |
+| 8      | 1.1   |
+
+- Sample mean of differences: $\bar{d} = 0.6375$
+- Sample standard deviation: $s_d = 0.6907$
+- Sample size: $n = 8$
+- Degrees of freedom: $\nu = 7$
+- Critical $t$-value at 95%: $t_{7, 0.025} = 2.365$
+
+The confidence interval is given by
+$$
+\bar{d} \pm t_{\nu, \alpha/2} \cdot \frac{s_d}{\sqrt{n}} = 0.6375 \pm 2.365 \cdot \frac{0.6907}{\sqrt{8}} \approx 0.6375 \pm 0.58
+$$
+So the 95% confidence interval is:
+$$
+[0.06,\ 1.21]
+$$
+We estimate that the medication reduces fever by between 0.06 and 1.21°C on average. Since the interval does not include 0, we have evidence that the medication is likely effective in lowering body temperature.
+:::
+
+6. A survey is conducted to compare the support for a new vaccine in two regions. In region A, 120 out of 200 people support the vaccine. In region B, 135 out of 250 support it. Construct a 95% confidence interval for the difference in population proportions, $p_A - p_B$.
+
+::: {.callout-tip collapse=true}
+## Solution
+We are given:
+
+- $\hat{p}_A = \frac{120}{200} = 0.60$
+- $\hat{p}_B = \frac{135}{250} = 0.54$
+- $n_A = 200,\quad n_B = 250$
+- $z_{\alpha/2} = 1.96$ for 95% confidence
+We use the formula:
+$$
+\hat{p}_A - \hat{p}_B \pm z_{\alpha/2} \cdot \sqrt{ \frac{ \hat{p}_A (1 - \hat{p}_A) }{n_A} + \frac{ \hat{p}_B (1 - \hat{p}_B) }{n_B} }
+$$
+Substitute:
+$$
+0.60 - 0.54 \pm 1.96 \cdot \sqrt{ \frac{0.60 \cdot 0.40}{200} + \frac{0.54 \cdot 0.46}{250} }
+$$
+$$ \begin{split}
+& = 0.06 \pm 1.96 \cdot \sqrt{0.0012 + 0.0009936}
+\\ & = 0.06 \pm 1.96 \cdot \sqrt{0.0021936}
+\\ &= 0.06 \pm 1.96 \cdot 0.0468
+\\ &= 0.06 \pm 0.0917
+\end{split}
+$$
+So the 95% confidence interval is:
+$$
+[-0.0317,\ 0.1517]
+$$
+The interval ranges from approximately −3.2% to 15.2%. Since the interval includes 0, we cannot conclude that there is a meaningful difference in vaccine support between the two regions based on this sample.
+:::
+
+7. A university wants to compare the average weekly study hours between psychology and engineering students. Random samples yield the following results:
+
+  - **Psychology**: $n_1 = 18$, $\bar{x}_1 = 24.3$, $s_1 = 4.1$
+  - **Engineering**: $n_2 = 16$, $\bar{x}_2 = 27.8$, $s_2 = 5.6$
+
+  Construct a 95% confidence interval for the difference in mean study hours, assuming the **population variances are not equal**.
+  
+  
+::: {.callout-tip collapse=true}
+## Solution 
+We use **Welch’s t-interval** for independent samples with unequal variances.
+The point estimate for the difference in means is given by
+$$
+\bar{x}_1 - \bar{x}_2 = 24.3 - 27.8 = -3.5
+$$
+and the standard error is given by
+$$
+\begin{split}SE & = \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }
+\\ &= \sqrt{ \frac{4.1^2}{18} + \frac{5.6^2}{16} }
+\\ &= \sqrt{ \frac{16.81}{18} + \frac{31.36}{16} }
+\\ & = \sqrt{0.934 + 1.96} = \sqrt{2.894} \approx 1.702
+\end{split}
+$$
+
+We find the correct degrees of freedom using Welch-Satterthwaite approximation:
+$$
+\nu \approx \frac{ \left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2 }
+{ \frac{ \left( \frac{s_1^2}{n_1} \right)^2 }{n_1 - 1} + \frac{ \left( \frac{s_2^2}{n_2} \right)^2 }{n_2 - 1} }
+= \frac{(0.934 + 1.96)^2}{\frac{0.934^2}{17} + \frac{1.96^2}{15}} \approx \frac{8.38}{0.0513 + 0.256} \approx 25.1
+$$
+Thus, we use $t_{25} \approx 2.060$ for 95% confidence.
+The confidence interval is then given by
+$$
+-3.5 \pm 2.060 \cdot 1.702 = -3.5 \pm 3.508
+\implies [-7.01,\ 0.01]
+$$
+The 95% confidence interval for the difference in study hours ranges from −7.01 to 0.01 hours. Since the interval includes zero, we cannot conclude that there is a difference in average study hours between the two majors.
+:::
+  
