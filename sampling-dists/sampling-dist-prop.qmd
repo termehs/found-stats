@@ -62,7 +62,7 @@ $$
 If this holds, we can write:
 
 $$
-\hat{p} \approx \mathcal{N}\left(p, \frac{p(1 - p)}{n}\right)
+\hat{p}\overset{\text{apx}}{\sim} \mathcal{N}\left(p, \frac{p(1 - p)}{n}\right)
 $$
 This follows from the fact that the sample proportion $\hat{p}$ can be viewed as a sample mean of binary variables, justifying the use of **Central Limit Theorem** covered in the next chapter @sec-clt.
 

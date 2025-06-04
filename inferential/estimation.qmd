@@ -94,7 +94,7 @@ Understanding the quality of an estimator involves examining the theoretical pro
 - **Unbiasedness**: An estimator $\hat{\theta}$ is said to be **unbiased** for a parameter $\theta$ if its expected value equals the true parameter:  
   $$ E(\hat{\theta}) = \theta $$
 
-  For example (this was shown in detail in @sec-sampldist-mean and @sec-sampldist-prop):
+  For example (this was shown in detail in @sec-sampldist-mean):
   - $E(\bar{X}) = \mu$, so the sample mean is an unbiased estimator of the population mean.
   - $E(\hat{p}) = p$, meaning the sample proportion is also unbiased for the true proportion.
   - $E(s^2) = \sigma^2$, making $s^2$ an unbiased estimator of the population variance.
@@ -141,7 +141,7 @@ While a point estimate gives us a single best guess for the value of a populatio
 ![An analogy for estimation methods: the top panel shows point estimation as attempting to catch a fish with a spear: precise but risky. The bottom panel illustrates interval estimation as casting a wide net: less precise but with a greater chance of capturing the true value.](imgs/point-interval-fish.png){#fig-fish fig-align="center" width="40%"}
 :::
 
-### Confidence Interval for the Population Mean {.unnumbered}
+### Confidence Interval for the Population Mean
 When we talk about a **confidence interval** for the population mean $\mu$ with a **confidence level** of 95%, we mean an interval that, in the long run, will contain the true value of $\mu$ in 95% of repeated samples. In practice, we never know the true mean, but we use our sample data to construct a range where we believe the mean is likely to lie.
 
 More precisely, the endpoints of the interval (called the *Lower Confidence Limit* (LCL) and *Upper Confidence Limit* (UCL)) are calculated as:
@@ -367,13 +367,18 @@ where:
 - $z_{\alpha/2}$ is the critical value from the standard normal distribution for the desired confidence level
 
 
-Some common confidence levels and their corresponding $z$-values are as follows (see @sec-normaltbl):
+Some common confidence levels and their corresponding $z$-values are shown in @tbl-cflevels (see @sec-normaltbl for the exact values):
 
-| Confidence Level | $z_{\alpha/2}$ |
-|------------------|----------------|
-| 90%              | 1.645   (1.65)      |
-| 95%              | 1.960   (1.96)      |
-| 99%              | 2.575   (2.58)      |
+::: {#tbl-cflevels}
+
+| Confidence Level | $\alpha$ | $z_{\alpha/2}$ |
+|------------------|----------|----------------|
+| 90%              | 0.10     | 1.645          |
+| 95%              | 0.05     | 1.960          |
+| 99%              | 0.01     | 2.576          |
+
+Commonly used confidence levels and their corresponding critical values from the standard normal distribution. The value $z_{\alpha/2}$ represents the point such that the area between $-z_{\alpha/2}$ and $z_{\alpha/2}$ under the standard normal curve equals the stated confidence level.
+:::
 
 As seen in @fig-cfi-2, a higher confidence level (e.g., 99% instead of 95%) leads to a wider interval since the $z$ value moves further away from the center towards the tails, giving us more “certainty” at the cost of less precision. A larger sample size reduces the standard error $\frac{\sigma}{\sqrt{n}}$, resulting in a narrower interval, i.e., better precision without sacrificing confidence.
 
@@ -481,7 +486,7 @@ $$
 As expected, increasing the confidence level results in a wider interval. This reflects greater certainty, more room is allowed to ensure the true mean is captured.
 
 
-### Confidence Intervals with Unknown Variance {.unnumbered}
+#### Confidence Intervals with Unknown Variance {.unnumbered}
 
 In previous examples, we constructed confidence intervals assuming that the population standard deviation $\sigma$ is known and that the population is normally distributed. While this is convenient for illustrating the basic logic of confidence intervals, it is rarely the case in practice.
 
@@ -491,9 +496,40 @@ When $\sigma$ is **unknown**, we typically rely on the **sample standard deviati
 
 As a result, our confidence interval becomes wider, especially when the sample size $n$ is small. To account for this, we use the **$t$-distribution** rather than the standard normal distribution.
 
+We distinguish between two scenarios:
+
+**1.	Large sample size ($n \geq 30$):**
+
+When the sample size is large, the Central Limit Theorem (@sec-clt) ensures that the sampling distribution of the mean is approximately normal, even if the population isn’t. In this case, substituting $s$ for $\sigma$ has little impact, and we can still use the normal approximation:
+$$
+\bar{x} \pm z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}.
+$$
+
+**2.	Small sample size ($n < 30$):**
+
+When the sample size is small and $\sigma$ is unknown, we must use the $t$-distribution with $\nu = n-1$ degrees of freedom:
+
+$$
+\bar{x} \pm t_{\nu, \alpha/2} \cdot \frac{s}{\sqrt{n}}.
+$$
+
+Here, $t_{\nu, \alpha/2}$ is the critical value from the $t$-distribution that corresponds to the desired confidence level. This values is obtained from @sec-ttbl and is fully determined by the degrees of freedom $\nu$ and confidence level $\alpha$.
+
 ::: {.callout-note}
 ## Introducing the $t$-distribution {.unnumbered}
-The $t$-distribution is a probability distribution used when we estimate the population mean from a small sample, especially when the population standard deviation is unknown. It looks similar to the standard normal distribution but has heavier tails, reflecting the greater uncertainty due to using the sample standard deviation. The shape of the $t$-distribution depends on the degrees of freedom (usually $n - 1$), and as the sample size grows, the $t$-distribution approaches the normal distribution (see @fig-tz-dist). This distribution is essential when constructing confidence intervals or performing hypothesis testing under these conditions.
+
+The **Student’s $t$-distribution** is a fundamental tool in statistics when estimating a population mean from a small sample, especially in cases where the **population standard deviation $\sigma$ is unknown**. While it resembles the standard normal distribution $N(0, 1)$ in shape, the $t$-distribution has heavier tails. These heavier tails reflect the added uncertainty introduced by estimating $\sigma$ with the sample standard deviation $s$.
+
+The exact shape of the $t$-distribution depends on its **degrees of freedom**, typically $\nu = n - 1$, where $n$ is the sample size. As the sample size increases, the estimate of $\sigma$ becomes more reliable, and the $t$-distribution gradually approaches the normal distribution. In fact, as $\nu \to \infty$, the $t$-distribution converges to $N(0, 1)$ (see @fig-tz-dist).
+
+When the population is normally distributed and we collect a random sample of size $n$, the following standardized statistic follows a $t$-distribution with $n - 1$ degrees of freedom:
+
+$$
+\frac{\bar{X} - \mu}{s / \sqrt{n}} \sim t(n - 1)
+$$
+
+This formulation allows us to perform valid inference about the population mean $\mu$, even without knowing the true standard deviation $\sigma$, as long as the population itself is assumed to be normally distributed.
+
 
 ::: {#fig-tz-dist}
 ```{r}
@@ -542,3 +578,250 @@ Comparison of the standard normal distribution (black) with Student’s $t$-dist
 :::
 
 :::
+
+
+#### Summary: Confidence Intervals for the Population Mean  {.unnumbered}
+
+When constructing a confidence interval for the population mean $\mu$, the formula depends on three key factors:  
+
+- whether the population standard deviation $σ$ is known,  
+- the size of the sample, and  
+- whether the population is normally distributed.
+
+@tbl-popmean-cfi below summarizes which distribution and formula to use in different situations:
+
+::: {#tbl-popmean-cfi}
+
+| Conditions                                       | Distribution                                 | Formula                                                |
+|----------------------------------------------------------------------------------------------------|------------------------------------------------------|----------------------------------------------------------|
+| $n \geq 30$, any population, $\sigma$ known          | Standard Normal $Z$        | $\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}$     |
+| $n \geq 30$,  any population, $\sigma$  unknown          | Standard Normal $Z$        | $\bar{x} \pm z_{\alpha/2} \cdot \dfrac{s}{\sqrt{n}}$     |
+| $n < 30$, normal population, $\sigma$ known     | Standard Normal $Z$        | $\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}$                  |
+| $n < 30$, normal population, $\sigma$ unknown   | Student’s $t$-distribution | $\bar{x} \pm t_{\nu,\alpha/2} \cdot \dfrac{s}{\sqrt{n}}$|
+
+Summary of conditions for constructing confidence intervals for a population mean. 
+
+:::
+
+
+> Note: If the sample size is small ($n < 30$) and the population is **not** normally distributed, we cannot safely use these formulas to calculate a confidence interval for $\mu$. In such cases, resampling methods like bootstrapping or non-parametric approaches may be more appropriate.
+
+
+
+#### Example 21.2:  Confidence Interval for a Population Mean, $n$ small, variance unknown {.unnumbered}
+
+In a laboratory, measurements are taken on a variable that is assumed to be normally distributed. On one occasion, 12 measurements are obtained, resulting in:
+
+- $\bar{x} = 9.6$  
+- $s = 1.89$
+
+We are asked to compute a 95% confidence interval for the population mean $\mu$.
+
+Since we have a small sample size ($n = 12$) and the population variance $\sigma^2$ is unknown, we use the **Student's t-distribution** with $n - 1 = 11$ degrees of freedom. The general formula for the confidence interval is:
+
+$$
+\bar{x} \pm t_{\nu, \alpha/2} \cdot \frac{s}{\sqrt{n}}
+$$
+
+For a 95% confidence level, $\alpha = 0.05$, so $\alpha/2 = 0.025$. From the $t$-distribution table @sec-ttbl, we find:
+
+$$
+t_{11, 0.025} = 2.201
+$$
+
+We can now compute the confidence interval bounds as follows. 
+
+$$
+\bar{x} \pm 2.201 \cdot \frac{1.89}{\sqrt{12}} = 9.6 \pm 2.201 \cdot 0.545
+$$
+
+$$
+9.6 \pm 1.20
+$$
+
+Thus, the 95% confidence interval for $\mu$ is:
+
+$$
+[8.40,\ 10.80]
+$$
+
+We can say that the true population mean $\mu$ lies between 8.40 and 10.80 with 95% confidence. This means that if we were to repeat this sampling process many times, approximately 95% of the constructed confidence intervals would contain the true mean.
+
+### Confidence Interval for the Population Proportion
+Just as we can construct a confidence interval for a population mean, we can also build one for a proportion. This is particularly useful when dealing with categorical data, for instance, estimating the proportion of defective units in a production process or the share of voters supporting a candidate.
+
+Let $p$ denote the **population proportion**, that is, the true (but unknown) share of the population with a specific characteristic. As before,
+we estimate $p$ using the **sample proportion** $\hat{p}$, defined as:
+
+$$
+\hat{p} = \frac{\text{number of observations with the characteristic}}{n}
+$$
+
+This is the point estimate of $p$. Under random sampling, this estimator is **unbiased**, meaning:
+
+$$
+E(\hat{p}) = p
+$$
+
+The **variance** of $\hat{p}$ is:
+
+$$
+\text{Var}(\hat{p}) = \frac{p(1 - p)}{n}
+$$
+
+This was shown in detail in @sec-sampldist-prop. 
+
+Since $p$ is unknown, we approximate this variance using the observed sample proportion:
+
+$$
+\widehat{\text{Var}}(\hat{p}) = \frac{\hat{p}(1 - \hat{p})}{n}
+$$
+
+When the sample size $n$ is sufficiently large, the sampling distribution of $\hat{p}$ can be approximated by a **normal distribution** (thanks to the Central Limit Theorem):
+
+$$
+\frac{\hat{p} - p}{\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}} \overset{\text{apx}}{\sim} N(0, 1)
+$$
+
+This approximation holds well when the sample size satisfies the following rule of thumb: $np(1 - p) > 5$. If this condition is met, we can construct a confidence interval using the normal distribution.
+
+The confidence interval for the population proportion $p$ is given by:
+
+$$
+\hat{p} \pm \underbrace{z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} }_{\text{margin of error}}
+$$
+The value of $z_{\alpha/2}$ depends on the desired confidence level, just as before shown in @tbl-cflevels.
+
+To estimate a population proportion using confeidence intervals:
+
+1. Compute the sample proportion $\hat{p}$.
+2. Calculate the standard error $\sqrt{\hat{p}(1 - \hat{p}) / n}$.
+3. Use the appropriate $z$-value for your confidence level.
+4. Construct the interval using $\hat{p} \pm$ margin of error.
+
+This method allows us to make probabilistic statements about the true population proportion, provided the sample size is sufficiently large.
+
+::: {.callout-note}
+## Note on the *t*-distribution and proportions
+
+The *t*-distribution is **not** used for constructing confidence intervals for proportions, even when sample sizes are small. Proportions are based on the binomial distribution, and standard confidence intervals rely on the **normal approximation** when conditions are met. If these conditions aren’t satisfied, **exact methods** or **adjusted intervals** should be used instead.
+:::
+
+
+#### Example 21.3: Confidence Interval for a Proportion {.unnumbered}
+We take a random sample of $n = 1200$ people from a large population. Of those sampled, 43.5% report supporting a certain political party. Construct a 95% confidence interval for the true proportion $p$ of the population who support the party.
+
+We are given:
+
+- $\hat{p} = 0.435$
+- $n = 1200$
+- Confidence level = 95% $\Rightarrow \alpha = 0.05$ $\Rightarrow z_{\alpha/2} = z_{0.025} = 1.96$
+
+The confidence interval for a population proportion is calculated as:
+
+$$
+\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+$$
+
+Substitute the values:
+
+$$\begin{split}
+0.435 \pm 1.96 \cdot \sqrt{\frac{0.435(1 - 0.435)}{1200}} 
+& = 0.435 \pm 1.96 \cdot \sqrt{\frac{0.245775}{1200}} \\
+& = 0.435 \pm 1.96 \cdot \sqrt{0.0002048} \\
+& = 0.435 \pm 1.96 \cdot 0.0143  \\
+& = 0.435 \pm 0.028 \\
+\end{split}
+$$
+
+Thus, the 95% confidence interval is:
+
+$$
+[0.407,\ 0.463]
+$$
+
+This means we are 95% confident that the true proportion of supporters in the population lies between 40.7% and 46.3%.
+
+
+## Exercises {.unnumbered}
+
+1. A random sample of 120 families was drawn from a population of approximately 5000 families. The number of children in each selected family was recorded. The sample yielded $\bar{x} = 1.28$ (mean number of children)
+and $s = 1.10$ (sample standard deviation). Assuming the sample is drawn using simple random sampling, calculate a 99% confidence interval for the population mean $\mu$, the average number of children per family.
+
+::: {.callout-tip collapse=true}
+## Solution
+
+We are given:
+
+- $\bar{x} = 1.28$
+- $s = 1.10$
+- $n = 120$
+- Confidence level: $99\% \Rightarrow \alpha = 0.01 \Rightarrow \alpha/2 = 0.005$
+- $z_{\alpha/2} = 2.58$ (from the standard normal table)
+
+Since the sample is large ($n = 120$), the Central Limit Theorem applies, and we can use the normal distribution.
+
+The standard error is:
+
+$$
+SE = \frac{s}{\sqrt{n}} = \frac{1.10}{\sqrt{120}} \approx 0.1004
+$$
+
+Then the confidence interval is:
+
+$$
+\bar{x} \pm z_{\alpha/2} \cdot SE = 1.28 \pm 2.58 \cdot 0.1004 \approx 1.28 \pm 0.26
+$$
+
+Final interval:
+
+$$
+[1.02,\ 1.54]
+$$
+
+Interpretation: We are 99% confident that the true mean number of children per family in the population lies between 1.02 and 1.54.
+:::
+
+2. In a small town with 8820 households, a sample of 200 households is taken. In the sample, 60 households have a smart home system installed. Construct a 95% confidence interval for the proportion of households in the entire town that have a smart home system.
+
+
+
+::: {.callout-tip collapse=true}
+## Solution
+
+We are given:
+
+- $n = 200$
+- $x = 60$
+- $\hat{p} = \frac{60}{200} = 0.30$
+- $z_{\alpha/2} = 1.96$ for a 95% confidence level
+
+The standard error is calculated as:
+
+$$
+SE = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = \sqrt{\frac{0.30(1 - 0.30)}{200}} = \sqrt{\frac{0.21}{200}} \approx 0.0324
+$$
+
+The confidence interval is:
+
+$$
+\hat{p} \pm z_{\alpha/2} \cdot SE = 0.30 \pm 1.96 \cdot 0.0324 \approx 0.30 \pm 0.0635
+$$
+
+So the 95% confidence interval is approximately:
+
+$$
+[0.24, 0.36]
+$$
+
+To interpret this in terms of number of households:
+
+- $0.24 \cdot 8820 \approx 2117$
+- $0.36 \cdot 8820 \approx 3175$
+
+We can say, with 95% confidence, that roughly 2100 and 3200 households in the town have a smart home system installed.
+:::
+
+
+
+

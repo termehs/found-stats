@@ -370,10 +370,11 @@ window.Quarto = {
   <li>
 <a href="#interval-estimation" id="toc-interval-estimation" class="nav-link" data-scroll-target="#interval-estimation"><span class="header-section-number">21.4</span> Interval Estimation</a>
   <ul class="collapse">
-<li><a href="#confidence-interval-for-the-population-mean" id="toc-confidence-interval-for-the-population-mean" class="nav-link" data-scroll-target="#confidence-interval-for-the-population-mean">Confidence Interval for the Population Mean</a></li>
-  <li><a href="#confidence-intervals-with-unknown-variance" id="toc-confidence-intervals-with-unknown-variance" class="nav-link" data-scroll-target="#confidence-intervals-with-unknown-variance">Confidence Intervals with Unknown Variance</a></li>
+<li><a href="#confidence-interval-for-the-population-mean" id="toc-confidence-interval-for-the-population-mean" class="nav-link" data-scroll-target="#confidence-interval-for-the-population-mean"><span class="header-section-number">21.4.1</span> Confidence Interval for the Population Mean</a></li>
+  <li><a href="#confidence-interval-for-the-population-proportion" id="toc-confidence-interval-for-the-population-proportion" class="nav-link" data-scroll-target="#confidence-interval-for-the-population-proportion"><span class="header-section-number">21.4.2</span> Confidence Interval for the Population Proportion</a></li>
   </ul>
 </li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -491,7 +492,7 @@ Figure&nbsp;21.1: Each board illustrates a combination of estimator characterist
 <ul>
 <li>
 <p><strong>Unbiasedness</strong>: An estimator <span class="math inline">\(\hat{\theta}\)</span> is said to be <strong>unbiased</strong> for a parameter <span class="math inline">\(\theta\)</span> if its expected value equals the true parameter:<br><span class="math display">\[ E(\hat{\theta}) = \theta \]</span></p>
-<p>For example (this was shown in detail in <a href="../sampling-dists/sampling-dist-mean.html" class="quarto-xref"><span>Chapter 17</span></a> and <a href="../sampling-dists/sampling-dist-prop.html" class="quarto-xref"><span>Chapter 18</span></a>):</p>
+<p>For example (this was shown in detail in <a href="../sampling-dists/sampling-dist-mean.html" class="quarto-xref"><span>Chapter 17</span></a>):</p>
 <ul>
 <li>
 <span class="math inline">\(E(\bar{X}) = \mu\)</span>, so the sample mean is an unbiased estimator of the population mean.</li>
@@ -531,7 +532,8 @@ Figure&nbsp;21.2: An analogy for estimation methods: the top panel shows point e
 </figcaption></figure>
 </div>
 </div>
-<section id="confidence-interval-for-the-population-mean" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="confidence-interval-for-the-population-mean">Confidence Interval for the Population Mean</h3>
+<section id="confidence-interval-for-the-population-mean" class="level3" data-number="21.4.1"><h3 data-number="21.4.1" class="anchored" data-anchor-id="confidence-interval-for-the-population-mean">
+<span class="header-section-number">21.4.1</span> Confidence Interval for the Population Mean</h3>
 <p>When we talk about a <strong>confidence interval</strong> for the population mean <span class="math inline">\(\mu\)</span> with a <strong>confidence level</strong> of 95%, we mean an interval that, in the long run, will contain the true value of <span class="math inline">\(\mu\)</span> in 95% of repeated samples. In practice, we never know the true mean, but we use our sample data to construct a range where we believe the mean is likely to lie.</p>
 <p>More precisely, the endpoints of the interval (called the <em>Lower Confidence Limit</em> (LCL) and <em>Upper Confidence Limit</em> (UCL)) are calculated as:</p>
 <p><span class="math display">\[
@@ -615,27 +617,38 @@ Figure&nbsp;21.4: Simulation of 100 confidence intervals for the population mean
 <li>
 <span class="math inline">\(z_{\alpha/2}\)</span> is the critical value from the standard normal distribution for the desired confidence level</li>
 </ul>
-<p>Some common confidence levels and their corresponding <span class="math inline">\(z\)</span>-values are as follows (see <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a>):</p>
+<p>Some common confidence levels and their corresponding <span class="math inline">\(z\)</span>-values are shown in <a href="#tbl-cflevels" class="quarto-xref">Table&nbsp;<span>21.1</span></a> (see <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a> for the exact values):</p>
+<div id="tbl-cflevels" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cflevels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21.1: Commonly used confidence levels and their corresponding critical values from the standard normal distribution. The value <span class="math inline">\(z_{\alpha/2}\)</span> represents the point such that the area between <span class="math inline">\(-z_{\alpha/2}\)</span> and <span class="math inline">\(z_{\alpha/2}\)</span> under the standard normal curve equals the stated confidence level.
+</figcaption><div aria-describedby="tbl-cflevels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead><tr class="header">
 <th>Confidence Level</th>
+<th><span class="math inline">\(\alpha\)</span></th>
 <th><span class="math inline">\(z_{\alpha/2}\)</span></th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td>90%</td>
-<td>1.645 (1.65)</td>
+<td>0.10</td>
+<td>1.645</td>
 </tr>
 <tr class="even">
 <td>95%</td>
-<td>1.960 (1.96)</td>
+<td>0.05</td>
+<td>1.960</td>
 </tr>
 <tr class="odd">
 <td>99%</td>
-<td>2.575 (2.58)</td>
+<td>0.01</td>
+<td>2.576</td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>As seen in <a href="#fig-cfi-2" class="quarto-xref">Figure&nbsp;<span>21.5</span></a>, a higher confidence level (e.g., 99% instead of 95%) leads to a wider interval since the <span class="math inline">\(z\)</span> value moves further away from the center towards the tails, giving us more “certainty” at the cost of less precision. A larger sample size reduces the standard error <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>, resulting in a narrower interval, i.e., better precision without sacrificing confidence.</p>
 <div id="fig-cfi-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-cfi-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -686,13 +699,24 @@ Figure&nbsp;21.5: The confidence interval spans the central <span class="math in
 (94.275,\ 109.725)
 \]</span></p>
 <p>As expected, increasing the confidence level results in a wider interval. This reflects greater certainty, more room is allowed to ensure the true mean is captured.</p>
-</section></section><section id="confidence-intervals-with-unknown-variance" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="confidence-intervals-with-unknown-variance">Confidence Intervals with Unknown Variance</h3>
+</section><section id="confidence-intervals-with-unknown-variance" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="confidence-intervals-with-unknown-variance">Confidence Intervals with Unknown Variance</h4>
 <p>In previous examples, we constructed confidence intervals assuming that the population standard deviation <span class="math inline">\(\sigma\)</span> is known and that the population is normally distributed. While this is convenient for illustrating the basic logic of confidence intervals, it is rarely the case in practice.</p>
 <blockquote class="blockquote">
 <p>But what if <span class="math inline">\(\sigma\)</span> is unknown?</p>
 </blockquote>
 <p>When <span class="math inline">\(\sigma\)</span> is <strong>unknown</strong>, we typically rely on the <strong>sample standard deviation</strong> <span class="math inline">\(s\)</span> instead. This introduces an additional source of uncertainty because we are now estimating both the center (<span class="math inline">\(\bar{X}\)</span>) and the spread (<span class="math inline">\(s\)</span>) from the sample data.</p>
 <p>As a result, our confidence interval becomes wider, especially when the sample size <span class="math inline">\(n\)</span> is small. To account for this, we use the <strong><span class="math inline">\(t\)</span>-distribution</strong> rather than the standard normal distribution.</p>
+<p>We distinguish between two scenarios:</p>
+<p><strong>1. Large sample size (<span class="math inline">\(n \geq 30\)</span>):</strong></p>
+<p>When the sample size is large, the Central Limit Theorem (<a href="../sampling-dists/clt.html" class="quarto-xref"><span>Chapter 19</span></a>) ensures that the sampling distribution of the mean is approximately normal, even if the population isn’t. In this case, substituting <span class="math inline">\(s\)</span> for <span class="math inline">\(\sigma\)</span> has little impact, and we can still use the normal approximation: <span class="math display">\[
+\bar{x} \pm z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}.
+\]</span></p>
+<p><strong>2. Small sample size (<span class="math inline">\(n &lt; 30\)</span>):</strong></p>
+<p>When the sample size is small and <span class="math inline">\(\sigma\)</span> is unknown, we must use the <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(\nu = n-1\)</span> degrees of freedom:</p>
+<p><span class="math display">\[
+\bar{x} \pm t_{\nu, \alpha/2} \cdot \frac{s}{\sqrt{n}}.
+\]</span></p>
+<p>Here, <span class="math inline">\(t_{\nu, \alpha/2}\)</span> is the critical value from the <span class="math inline">\(t\)</span>-distribution that corresponds to the desired confidence level. This values is obtained from <a href="../appendix/t-table.html" class="quarto-xref"><span>Appendix B</span></a> and is fully determined by the degrees of freedom <span class="math inline">\(\nu\)</span> and confidence level <span class="math inline">\(\alpha\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -703,7 +727,13 @@ Introducing the <span class="math inline">\(t\)</span>-distribution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <span class="math inline">\(t\)</span>-distribution is a probability distribution used when we estimate the population mean from a small sample, especially when the population standard deviation is unknown. It looks similar to the standard normal distribution but has heavier tails, reflecting the greater uncertainty due to using the sample standard deviation. The shape of the <span class="math inline">\(t\)</span>-distribution depends on the degrees of freedom (usually <span class="math inline">\(n - 1\)</span>), and as the sample size grows, the <span class="math inline">\(t\)</span>-distribution approaches the normal distribution (see <a href="#fig-tz-dist" class="quarto-xref">Figure&nbsp;<span>21.6</span></a>). This distribution is essential when constructing confidence intervals or performing hypothesis testing under these conditions.</p>
+<p>The <strong>Student’s <span class="math inline">\(t\)</span>-distribution</strong> is a fundamental tool in statistics when estimating a population mean from a small sample, especially in cases where the <strong>population standard deviation <span class="math inline">\(\sigma\)</span> is unknown</strong>. While it resembles the standard normal distribution <span class="math inline">\(N(0, 1)\)</span> in shape, the <span class="math inline">\(t\)</span>-distribution has heavier tails. These heavier tails reflect the added uncertainty introduced by estimating <span class="math inline">\(\sigma\)</span> with the sample standard deviation <span class="math inline">\(s\)</span>.</p>
+<p>The exact shape of the <span class="math inline">\(t\)</span>-distribution depends on its <strong>degrees of freedom</strong>, typically <span class="math inline">\(\nu = n - 1\)</span>, where <span class="math inline">\(n\)</span> is the sample size. As the sample size increases, the estimate of <span class="math inline">\(\sigma\)</span> becomes more reliable, and the <span class="math inline">\(t\)</span>-distribution gradually approaches the normal distribution. In fact, as <span class="math inline">\(\nu \to \infty\)</span>, the <span class="math inline">\(t\)</span>-distribution converges to <span class="math inline">\(N(0, 1)\)</span> (see <a href="#fig-tz-dist" class="quarto-xref">Figure&nbsp;<span>21.6</span></a>).</p>
+<p>When the population is normally distributed and we collect a random sample of size <span class="math inline">\(n\)</span>, the following standardized statistic follows a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n - 1\)</span> degrees of freedom:</p>
+<p><span class="math display">\[
+\frac{\bar{X} - \mu}{s / \sqrt{n}} \sim t(n - 1)
+\]</span></p>
+<p>This formulation allows us to perform valid inference about the population mean <span class="math inline">\(\mu\)</span>, even without knowing the true standard deviation <span class="math inline">\(\sigma\)</span>, as long as the population itself is assumed to be normally distributed.</p>
 <div id="fig-tz-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-tz-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
@@ -721,9 +751,263 @@ Figure&nbsp;21.6: Comparison of the standard normal distribution (black) with St
 </div>
 </div>
 </div>
+</section><section id="summary-confidence-intervals-for-the-population-mean" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="summary-confidence-intervals-for-the-population-mean">Summary: Confidence Intervals for the Population Mean</h4>
+<p>When constructing a confidence interval for the population mean <span class="math inline">\(\mu\)</span>, the formula depends on three key factors:</p>
+<ul>
+<li>whether the population standard deviation <span class="math inline">\(σ\)</span> is known,<br>
+</li>
+<li>the size of the sample, and<br>
+</li>
+<li>whether the population is normally distributed.</li>
+</ul>
+<p><a href="#tbl-popmean-cfi" class="quarto-xref">Table&nbsp;<span>21.2</span></a> below summarizes which distribution and formula to use in different situations:</p>
+<div id="tbl-popmean-cfi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-popmean-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;21.2: Summary of conditions for constructing confidence intervals for a population mean.
+</figcaption><div aria-describedby="tbl-popmean-cfi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 25%">
+<col style="width: 27%">
+</colgroup>
+<thead><tr class="header">
+<th>Conditions</th>
+<th>Distribution</th>
+<th>Formula</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<span class="math inline">\(n \geq 30\)</span>, any population, <span class="math inline">\(\sigma\)</span> known</td>
+<td>Standard Normal <span class="math inline">\(Z\)</span>
+</td>
+<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}\)</span></td>
+</tr>
+<tr class="even">
+<td>
+<span class="math inline">\(n \geq 30\)</span>, any population, <span class="math inline">\(\sigma\)</span> unknown</td>
+<td>Standard Normal <span class="math inline">\(Z\)</span>
+</td>
+<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \cdot \dfrac{s}{\sqrt{n}}\)</span></td>
+</tr>
+<tr class="odd">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, normal population, <span class="math inline">\(\sigma\)</span> known</td>
+<td>Standard Normal <span class="math inline">\(Z\)</span>
+</td>
+<td><span class="math inline">\(\bar{x} \pm z_{\alpha/2} \cdot \dfrac{\sigma}{\sqrt{n}}\)</span></td>
+</tr>
+<tr class="even">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, normal population, <span class="math inline">\(\sigma\)</span> unknown</td>
+<td>Student’s <span class="math inline">\(t\)</span>-distribution</td>
+<td><span class="math inline">\(\bar{x} \pm t_{\nu,\alpha/2} \cdot \dfrac{s}{\sqrt{n}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>Note: If the sample size is small (<span class="math inline">\(n &lt; 30\)</span>) and the population is <strong>not</strong> normally distributed, we cannot safely use these formulas to calculate a confidence interval for <span class="math inline">\(\mu\)</span>. In such cases, resampling methods like bootstrapping or non-parametric approaches may be more appropriate.</p>
+</blockquote>
+</section><section id="example-21.2-confidence-interval-for-a-population-mean-n-small-variance-unknown" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-21.2-confidence-interval-for-a-population-mean-n-small-variance-unknown">Example 21.2: Confidence Interval for a Population Mean, <span class="math inline">\(n\)</span> small, variance unknown</h4>
+<p>In a laboratory, measurements are taken on a variable that is assumed to be normally distributed. On one occasion, 12 measurements are obtained, resulting in:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{x} = 9.6\)</span><br>
+</li>
+<li><span class="math inline">\(s = 1.89\)</span></li>
+</ul>
+<p>We are asked to compute a 95% confidence interval for the population mean <span class="math inline">\(\mu\)</span>.</p>
+<p>Since we have a small sample size (<span class="math inline">\(n = 12\)</span>) and the population variance <span class="math inline">\(\sigma^2\)</span> is unknown, we use the <strong>Student’s t-distribution</strong> with <span class="math inline">\(n - 1 = 11\)</span> degrees of freedom. The general formula for the confidence interval is:</p>
+<p><span class="math display">\[
+\bar{x} \pm t_{\nu, \alpha/2} \cdot \frac{s}{\sqrt{n}}
+\]</span></p>
+<p>For a 95% confidence level, <span class="math inline">\(\alpha = 0.05\)</span>, so <span class="math inline">\(\alpha/2 = 0.025\)</span>. From the <span class="math inline">\(t\)</span>-distribution table <a href="../appendix/t-table.html" class="quarto-xref"><span>Appendix B</span></a>, we find:</p>
+<p><span class="math display">\[
+t_{11, 0.025} = 2.201
+\]</span></p>
+<p>We can now compute the confidence interval bounds as follows.</p>
+<p><span class="math display">\[
+\bar{x} \pm 2.201 \cdot \frac{1.89}{\sqrt{12}} = 9.6 \pm 2.201 \cdot 0.545
+\]</span></p>
+<p><span class="math display">\[
+9.6 \pm 1.20
+\]</span></p>
+<p>Thus, the 95% confidence interval for <span class="math inline">\(\mu\)</span> is:</p>
+<p><span class="math display">\[
+[8.40,\ 10.80]
+\]</span></p>
+<p>We can say that the true population mean <span class="math inline">\(\mu\)</span> lies between 8.40 and 10.80 with 95% confidence. This means that if we were to repeat this sampling process many times, approximately 95% of the constructed confidence intervals would contain the true mean.</p>
+</section></section><section id="confidence-interval-for-the-population-proportion" class="level3" data-number="21.4.2"><h3 data-number="21.4.2" class="anchored" data-anchor-id="confidence-interval-for-the-population-proportion">
+<span class="header-section-number">21.4.2</span> Confidence Interval for the Population Proportion</h3>
+<p>Just as we can construct a confidence interval for a population mean, we can also build one for a proportion. This is particularly useful when dealing with categorical data, for instance, estimating the proportion of defective units in a production process or the share of voters supporting a candidate.</p>
+<p>Let <span class="math inline">\(p\)</span> denote the <strong>population proportion</strong>, that is, the true (but unknown) share of the population with a specific characteristic. As before, we estimate <span class="math inline">\(p\)</span> using the <strong>sample proportion</strong> <span class="math inline">\(\hat{p}\)</span>, defined as:</p>
+<p><span class="math display">\[
+\hat{p} = \frac{\text{number of observations with the characteristic}}{n}
+\]</span></p>
+<p>This is the point estimate of <span class="math inline">\(p\)</span>. Under random sampling, this estimator is <strong>unbiased</strong>, meaning:</p>
+<p><span class="math display">\[
+E(\hat{p}) = p
+\]</span></p>
+<p>The <strong>variance</strong> of <span class="math inline">\(\hat{p}\)</span> is:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{p}) = \frac{p(1 - p)}{n}
+\]</span></p>
+<p>This was shown in detail in <a href="../sampling-dists/sampling-dist-prop.html" class="quarto-xref"><span>Chapter 18</span></a>.</p>
+<p>Since <span class="math inline">\(p\)</span> is unknown, we approximate this variance using the observed sample proportion:</p>
+<p><span class="math display">\[
+\widehat{\text{Var}}(\hat{p}) = \frac{\hat{p}(1 - \hat{p})}{n}
+\]</span></p>
+<p>When the sample size <span class="math inline">\(n\)</span> is sufficiently large, the sampling distribution of <span class="math inline">\(\hat{p}\)</span> can be approximated by a <strong>normal distribution</strong> (thanks to the Central Limit Theorem):</p>
+<p><span class="math display">\[
+\frac{\hat{p} - p}{\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}} \overset{\text{apx}}{\sim} N(0, 1)
+\]</span></p>
+<p>This approximation holds well when the sample size satisfies the following rule of thumb: <span class="math inline">\(np(1 - p) &gt; 5\)</span>. If this condition is met, we can construct a confidence interval using the normal distribution.</p>
+<p>The confidence interval for the population proportion <span class="math inline">\(p\)</span> is given by:</p>
+<p><span class="math display">\[
+\hat{p} \pm \underbrace{z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} }_{\text{margin of error}}
+\]</span> The value of <span class="math inline">\(z_{\alpha/2}\)</span> depends on the desired confidence level, just as before shown in <a href="#tbl-cflevels" class="quarto-xref">Table&nbsp;<span>21.1</span></a>.</p>
+<p>To estimate a population proportion using confeidence intervals:</p>
+<ol type="1">
+<li>Compute the sample proportion <span class="math inline">\(\hat{p}\)</span>.</li>
+<li>Calculate the standard error <span class="math inline">\(\sqrt{\hat{p}(1 - \hat{p}) / n}\)</span>.</li>
+<li>Use the appropriate <span class="math inline">\(z\)</span>-value for your confidence level.</li>
+<li>Construct the interval using <span class="math inline">\(\hat{p} \pm\)</span> margin of error.</li>
+</ol>
+<p>This method allows us to make probabilistic statements about the true population proportion, provided the sample size is sufficiently large.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note on the <em>t</em>-distribution and proportions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>t</em>-distribution is <strong>not</strong> used for constructing confidence intervals for proportions, even when sample sizes are small. Proportions are based on the binomial distribution, and standard confidence intervals rely on the <strong>normal approximation</strong> when conditions are met. If these conditions aren’t satisfied, <strong>exact methods</strong> or <strong>adjusted intervals</strong> should be used instead.</p>
+</div>
+</div>
+<section id="example-21.3-confidence-interval-for-a-proportion" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-21.3-confidence-interval-for-a-proportion">Example 21.3: Confidence Interval for a Proportion</h4>
+<p>We take a random sample of <span class="math inline">\(n = 1200\)</span> people from a large population. Of those sampled, 43.5% report supporting a certain political party. Construct a 95% confidence interval for the true proportion <span class="math inline">\(p\)</span> of the population who support the party.</p>
+<p>We are given:</p>
+<ul>
+<li><span class="math inline">\(\hat{p} = 0.435\)</span></li>
+<li><span class="math inline">\(n = 1200\)</span></li>
+<li>Confidence level = 95% <span class="math inline">\(\Rightarrow \alpha = 0.05\)</span> <span class="math inline">\(\Rightarrow z_{\alpha/2} = z_{0.025} = 1.96\)</span>
+</li>
+</ul>
+<p>The confidence interval for a population proportion is calculated as:</p>
+<p><span class="math display">\[
+\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+\]</span></p>
+<p>Substitute the values:</p>
+<p><span class="math display">\[\begin{split}
+0.435 \pm 1.96 \cdot \sqrt{\frac{0.435(1 - 0.435)}{1200}}
+&amp; = 0.435 \pm 1.96 \cdot \sqrt{\frac{0.245775}{1200}} \\
+&amp; = 0.435 \pm 1.96 \cdot \sqrt{0.0002048} \\
+&amp; = 0.435 \pm 1.96 \cdot 0.0143  \\
+&amp; = 0.435 \pm 0.028 \\
+\end{split}
+\]</span></p>
+<p>Thus, the 95% confidence interval is:</p>
+<p><span class="math display">\[
+[0.407,\ 0.463]
+\]</span></p>
+<p>This means we are 95% confident that the true proportion of supporters in the population lies between 40.7% and 46.3%.</p>
+</section></section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>A random sample of 120 families was drawn from a population of approximately 5000 families. The number of children in each selected family was recorded. The sample yielded <span class="math inline">\(\bar{x} = 1.28\)</span> (mean number of children) and <span class="math inline">\(s = 1.10\)</span> (sample standard deviation). Assuming the sample is drawn using simple random sampling, calculate a 99% confidence interval for the population mean <span class="math inline">\(\mu\)</span>, the average number of children per family.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We are given:</p>
+<ul>
+<li><span class="math inline">\(\bar{x} = 1.28\)</span></li>
+<li><span class="math inline">\(s = 1.10\)</span></li>
+<li><span class="math inline">\(n = 120\)</span></li>
+<li>Confidence level: <span class="math inline">\(99\% \Rightarrow \alpha = 0.01 \Rightarrow \alpha/2 = 0.005\)</span>
+</li>
+<li>
+<span class="math inline">\(z_{\alpha/2} = 2.58\)</span> (from the standard normal table)</li>
+</ul>
+<p>Since the sample is large (<span class="math inline">\(n = 120\)</span>), the Central Limit Theorem applies, and we can use the normal distribution.</p>
+<p>The standard error is:</p>
+<p><span class="math display">\[
+SE = \frac{s}{\sqrt{n}} = \frac{1.10}{\sqrt{120}} \approx 0.1004
+\]</span></p>
+<p>Then the confidence interval is:</p>
+<p><span class="math display">\[
+\bar{x} \pm z_{\alpha/2} \cdot SE = 1.28 \pm 2.58 \cdot 0.1004 \approx 1.28 \pm 0.26
+\]</span></p>
+<p>Final interval:</p>
+<p><span class="math display">\[
+[1.02,\ 1.54]
+\]</span></p>
+<p>Interpretation: We are 99% confident that the true mean number of children per family in the population lies between 1.02 and 1.54.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>In a small town with 8820 households, a sample of 200 households is taken. In the sample, 60 households have a smart home system installed. Construct a 95% confidence interval for the proportion of households in the entire town that have a smart home system.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We are given:</p>
+<ul>
+<li><span class="math inline">\(n = 200\)</span></li>
+<li><span class="math inline">\(x = 60\)</span></li>
+<li><span class="math inline">\(\hat{p} = \frac{60}{200} = 0.30\)</span></li>
+<li>
+<span class="math inline">\(z_{\alpha/2} = 1.96\)</span> for a 95% confidence level</li>
+</ul>
+<p>The standard error is calculated as:</p>
+<p><span class="math display">\[
+SE = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = \sqrt{\frac{0.30(1 - 0.30)}{200}} = \sqrt{\frac{0.21}{200}} \approx 0.0324
+\]</span></p>
+<p>The confidence interval is:</p>
+<p><span class="math display">\[
+\hat{p} \pm z_{\alpha/2} \cdot SE = 0.30 \pm 1.96 \cdot 0.0324 \approx 0.30 \pm 0.0635
+\]</span></p>
+<p>So the 95% confidence interval is approximately:</p>
+<p><span class="math display">\[
+[0.24, 0.36]
+\]</span></p>
+<p>To interpret this in terms of number of households:</p>
+<ul>
+<li><span class="math inline">\(0.24 \cdot 8820 \approx 2117\)</span></li>
+<li><span class="math inline">\(0.36 \cdot 8820 \approx 3175\)</span></li>
+</ul>
+<p>We can say, with 95% confidence, that roughly 2100 and 3200 households in the town have a smart home system installed.</p>
+</div>
+</div>
+</div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

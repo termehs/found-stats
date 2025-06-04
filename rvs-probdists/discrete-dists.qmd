@@ -350,7 +350,7 @@ Let's look at an exmaple of this in the discrete case.
 
 #### Example 12.3: The Project Budget {.unnumbered} 
 
-You're managing a project. The number of workdays to finish the project, denoted by random variabel $X$, is a bit uncertain. Its distribution looks like this:
+You're managing a project. The number of workdays to finish the project, denoted by random variable $X$, is a bit uncertain. Its distribution looks like this:
 
 | $x$ | 10  | 11  | 12  | 13  | 14  |
 |------------|-----|-----|-----|-----|-----|
