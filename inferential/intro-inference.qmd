@@ -48,11 +48,3 @@ This shift, from description and theory to inference and decision-making,  marks
 
 In the chapters ahead, we’ll explore each of these methods; learning how to estimate, quantify uncertainty, and test ideas using the powerful tools of inferential statistics.
 
--   Estimation: point and interval estimation
--   Hypothesis testing for a sample mean and sample proportion
--   Hypothesis testing with confidence intervals
--   Hypothesis testing for the difference of two means or proportions
-
-```{r}
-1 + 1
-```
