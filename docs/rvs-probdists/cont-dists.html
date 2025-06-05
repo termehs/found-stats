@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Termeh Shafie">
+<title>14&nbsp; Continuous Probability Distributions – Foundational Statistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../rvs-probdists/jointly-dist.html" rel="next">
+<link href="../rvs-probdists/discrete-dists.html" rel="prev">
+<link href="../cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/cont-dists.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Foundational Statistics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/termehs/found-stats" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-surveys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/central-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/dispersion-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/count-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Counting Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probability Rules</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Random Variables and Probability Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/discrete-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/cont-dists.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Proportion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferential Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Chi Square Tests</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Regression Analysis</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">References</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/t-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#probability-density-function-pdf" id="toc-probability-density-function-pdf" class="nav-link active" data-scroll-target="#probability-density-function-pdf"><span class="header-section-number">14.1</span> Probability Density Function (PDF)</a></li>
+  <li><a href="#expectation-and-variance-for-continuous-variables" id="toc-expectation-and-variance-for-continuous-variables" class="nav-link" data-scroll-target="#expectation-and-variance-for-continuous-variables"><span class="header-section-number">14.2</span> Expectation and Variance for Continuous Variables</a></li>
+  <li>
+<a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="header-section-number">14.3</span> The Normal Distribution</a>
+  <ul class="collapse">
+<li><a href="#area-under-curve" id="toc-area-under-curve" class="nav-link" data-scroll-target="#area-under-curve"><span class="header-section-number">14.3.1</span> Area under curve</a></li>
+  </ul>
+</li>
+  <li><a href="#the-standard-normal-distribution" id="toc-the-standard-normal-distribution" class="nav-link" data-scroll-target="#the-standard-normal-distribution"><span class="header-section-number">14.4</span> The Standard Normal Distribution</a></li>
+  <li><a href="#from-normal-to-standard-normal-distribution" id="toc-from-normal-to-standard-normal-distribution" class="nav-link" data-scroll-target="#from-normal-to-standard-normal-distribution"><span class="header-section-number">14.5</span> From Normal to Standard Normal Distribution</a></li>
+  <li>
+<a href="#normal-approximation-to-the-binomial-distribution" id="toc-normal-approximation-to-the-binomial-distribution" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-distribution"><span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</a>
+  <ul class="collapse">
+<li><a href="#when-can-we-approximate" id="toc-when-can-we-approximate" class="nav-link" data-scroll-target="#when-can-we-approximate"><span class="header-section-number">14.6.1</span> When can we approximate?</a></li>
+  <li><a href="#how-is-the-approximation-performed" id="toc-how-is-the-approximation-performed" class="nav-link" data-scroll-target="#how-is-the-approximation-performed"><span class="header-section-number">14.6.2</span> How is the approximation performed?</a></li>
+  <li><a href="#continuity-correction" id="toc-continuity-correction" class="nav-link" data-scroll-target="#continuity-correction"><span class="header-section-number">14.6.3</span> Continuity Correction</a></li>
+  </ul>
+</li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/cont-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/cont-dists.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-cont" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><p>Until now, we have mainly worked with discrete random variables, meaning variables that can only take on a finite or countably infinite number of possible values. For instance, the number of heads when tossing coins or the number of defective items in a sample are all discrete.</p>
+<p>However, not all random phenomena can be described in this way. A continuous random variable is a variable that can take on any value within an interval on the real number line. Rather than jumping between isolated values, a continuous variable can assume an infinite continuum of possible outcomes.</p>
+<p>Because a continuous random variable can take any value within an interval, it is practically impossible to guess the exact value that a randomly selected observation will have. In fact, the probability that the variable exactly equals any specific value is zero. Consequently, for continuous random variables, we do not measure probabilities at single points. Instead, we consider the probability that the variable falls within a given interval.</p>
+<p>To handle continuous random variables, we develop continuous analogues of the probability mass functions used for discrete variables. These <strong>continuous probability distributions</strong> are described using probability density functions, which allow us to calculate the probability that the variable lies within a specified range.</p>
+<p>To summarize visually:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 39%">
+<col style="width: 40%">
+</colgroup>
+<thead><tr class="header">
+<th>Feature</th>
+<th>Discrete Random Variable</th>
+<th>Continuous Random Variable</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Possible values</td>
+<td>Finite or countable infinite set (e.g., 0, 1, 2, …)</td>
+<td>Any real number within an interval (e.g., [0, 1])</td>
+</tr>
+<tr class="even">
+<td>Probability at a single point</td>
+<td>Positive (e.g., <span class="math inline">\(P(X = 2) &gt; 0\)</span>)</td>
+<td>Always zero (<span class="math inline">\(P(X = 2) = 0\)</span>)</td>
+</tr>
+<tr class="odd">
+<td>Probability distribution type</td>
+<td>Probability mass function (PMF)</td>
+<td>Probability density function (PDF)</td>
+</tr>
+<tr class="even">
+<td>How probabilities are calculated</td>
+<td>Sum over points (<span class="math inline">\(\sum\)</span>)</td>
+<td>Integrate over intervals (<span class="math inline">\(\int\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>In discrete settings, probabilities are assigned to individual points. For continuous random variables, we instead measure the “area under the curve” of the density function across an interval.</p>
+<p>As we move forward, we will develop the tools needed to work with continuous distributions, starting with probability density functions and moving toward important continuous models such as the uniform and normal distributions.</p>
+<section id="probability-density-function-pdf" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="probability-density-function-pdf">
+<span class="header-section-number">14.1</span> Probability Density Function (PDF)</h2>
+<p>A continuous random variable can take on all possible values within some interval on the real number line. The interval may be bounded or extend to infinity in one or both directions.</p>
+<p>The probability distribution of a continuous random variable <span class="math inline">\(X\)</span> is described by a so-called <strong>probability density function</strong> <span class="math inline">\(f(x)\)</span>. The density function represents how the values of <span class="math inline">\(X\)</span> are distributed across the real line.</p>
+<p>A typical shape of a probability density function might look like the following:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In contrast to discrete random variables, continuous variables do not assign positive probability to specific points. Instead, the probability that <span class="math inline">\(X\)</span> falls within a particular interval <span class="math inline">\([a, b]\)</span> is given by the area under the curve of the density function between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[
+P(a \leq X \leq b) = \text{area under } f(x) \text{ from } a \text{ to } b
+\]</span></p>
+<p>The properties that every valid probability density function must satisfy are: - <span class="math inline">\(f(x) \geq 0\)</span> for all <span class="math inline">\(x\)</span> (the function must be non-negative everywhere) - The total area under <span class="math inline">\(f(x)\)</span> over the entire real line equals 1:</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} f(x) , dx = 1
+\]</span></p>
+<p>This ensures that the random variable must take on some value in the real numbers with total probability one.</p>
+<p>We can also visually highlight the probability over a specific interval by shading the area between two points <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this plot, the shaded area between <span class="math inline">\(a = 3\)</span> and <span class="math inline">\(b = 7\)</span> represents <span class="math inline">\(P(3 \leq X \leq 7)\)</span>; the probability that the random variable falls within this interval.</p>
+<p>This concept, relating probabilities to areas under a curve, is a fundamental idea when working with continuous random variables, and it distinguishes them clearly from the discrete case where we sum probabilities at isolated points.</p>
+<p>When working with continuous random variables, we are always interested in the probability that a value falls within an interval, never at a single point. This is because the area under the curve at a single value is zero, which means:</p>
+<p><span class="math display">\[
+P(X = a) = 0
+\]</span></p>
+<p>Whether we specify the interval as open, closed, or half-open does not affect the probability. For example, the following expressions are all equivalent:</p>
+<p><span class="math display">\[
+P(a \leq X \leq b) = P(a \leq X &lt; b) = P(a &lt; X \leq b) = P(a &lt; X &lt; b)
+\]</span></p>
+<p>They all describe the same shaded region under the curve between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p>Formally, the probability that <span class="math inline">\(X\)</span> falls within an interval <span class="math inline">\([a, b]\)</span> is given by integrating the probability density function:</p>
+<p><span class="math display">\[
+P(a \leq X \leq b) = \int_a^b f(x) \, dx
+\]</span></p>
+<p>However, in this course, we do not require formal calculations using integrals.</p>
+<p>We can work with the <strong>cumulative distribution function (CDF)</strong>, which is defined as:</p>
+<p><span class="math display">\[
+F(x) = P(X \leq x)
+\]</span></p>
+<p>This function gives the total probability accumulated up to the value <span class="math inline">\(x\)</span>, that is, the area under the density curve from the lower bound of the distribution up to <span class="math inline">\(x\)</span>.</p>
+<p>Using the CDF, we can express interval probabilities as the difference of cumulative values:</p>
+<p><span class="math display">\[
+P(a \leq X \leq b) = P(X \leq b) - P(X \leq a) = F(b) - F(a)
+\]</span></p>
+<p>This relationship is especially useful when we don’t have access to the density function itself but can look up or compute values of the cumulative distribution. It also reinforces the idea that probability for continuous variables is tied to the area between two points, not the height at a point.</p>
+</section><section id="expectation-and-variance-for-continuous-variables" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="expectation-and-variance-for-continuous-variables">
+<span class="header-section-number">14.2</span> Expectation and Variance for Continuous Variables</h2>
+<p>Just as we did with discrete random variables, we can define the expected value and variance for continuous random variables. These two quantities serve as important measures of central tendency and spread, respectively.</p>
+<p>The <strong>expected value</strong> of a continuous random variable <span class="math inline">\(X\)</span> with density function <span class="math inline">\(f(x)\)</span> is given by:</p>
+<p><span class="math display">\[
+E(X) = \mu_X = \int_{-\infty}^{\infty} x f(x) \, dx
+\]</span></p>
+<p>This can be interpreted as a kind of weighted average, where the values of <span class="math inline">\(x\)</span> are weighted by their relative likelihood — in this case, the density function <span class="math inline">\(f(x)\)</span>.</p>
+<p>The <strong>variance</strong> is defined as:</p>
+<p><span class="math display">\[
+\operatorname{Var}(X) = \sigma_X^2 = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) \, dx
+\]</span></p>
+<p>Just like in the discrete case, this measures how spread out the values of <span class="math inline">\(X\)</span> are around the mean <span class="math inline">\(\mu\)</span>.</p>
+<p>Intuitively, the expected value can be thought of as the balance point of the distribution, the point at which the density function would balance perfectly if it were a physical object. The variance, as before, describes how tightly or widely the values of <span class="math inline">\(X\)</span> tend to cluster around this center.</p>
+</section><section id="the-normal-distribution" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="the-normal-distribution">
+<span class="header-section-number">14.3</span> The Normal Distribution</h2>
+<p>Among all continuous probability distributions, none is more important or more widely used than the <strong>normal distribution</strong>. This may seem strange, since very few real-world quantities are exactly normally distributed. Nevertheless, the normal distribution plays a central role in probability theory and statistics, especially as a powerful approximation tool.</p>
+<p>Mathematically, a random variable <span class="math inline">\(X\)</span> is said to follow a normal distribution if its probability density function is given by:</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sigma \sqrt{2\pi}} \, e^{- \frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2}, \quad \text{for } -\infty &lt; x &lt; \infty
+\]</span></p>
+<p>We denote this by writing:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(\mu, \sigma)
+\]</span></p>
+<p>Here, <span class="math inline">\(\mu\)</span> is the mean of the distribution, and <span class="math inline">\(\sigma^2\)</span> is the variance (with <span class="math inline">\(\sigma\)</span> being the standard deviation).</p>
+<p>This density function has a characteristic bell shape: it is symmetric about the mean <span class="math inline">\(\mu\)</span>, and the spread of the curve is determined by <span class="math inline">\(\sigma\)</span>. The larger the value of <span class="math inline">\(\sigma\)</span>, the more spread out the distribution becomes.</p>
+<p>Despite its somewhat complicated appearance, the normal distribution is incredibly useful because many phenomena in practice, especially sums and averages of random variables, tend to follow a distribution that closely resembles the normal. This fact is supported by the <strong>central limit theorem</strong>, which guarantees that under mild conditions, the sum of a large number of independent random variables tends toward a normal distribution, regardless of the original distributions. We will return to this in more details later.</p>
+<p>Moreover, the probabilities associated with the normal distribution have already been computed and tabulated. These tables allow us to quickly look up values without performing integrals manually, making the normal distribution not only powerful in theory but also very practical in application.</p>
+<p>It is this combination of mathematical elegance, approximation power, and computational convenience that explains the normal distribution’s central role in both theoretical and applied statistics.</p>
+<p>Let us now look at a concrete example. Suppose <span class="math inline">\(X\)</span> is a normally distributed random variable with mean <span class="math inline">\(\mu = 10\)</span> and standard deviation <span class="math inline">\(\sigma = 2\)</span>:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(10, 2)
+\]</span></p>
+<p>The density function of <span class="math inline">\(X\)</span> is bell-shaped and symmetric around the mean, with most of its probability mass concentrated within a few standard deviations from the center.</p>
+<p>Below is the probability density function for this distribution:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In practice, there are a few key characteristics of the normal distribution that are particularly important to understand.</p>
+<p>First, the shape of the normal distribution is completely determined by two parameters: the mean <span class="math inline">\(\mu\)</span> and the standard deviation <span class="math inline">\(\sigma\)</span>. These control the center and the spread of the distribution, respectively.</p>
+<p>The sample space of a normal distribution is the entire real number line, meaning that the variable can take on any real value, both positive and negative.</p>
+<p>Graphically, the density function of a normal distribution always has the same bell-shaped curve, regardless of the specific values of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>. The mean <span class="math inline">\(\mu\)</span> determines the central location of the curve, while the standard deviation <span class="math inline">\(\sigma\)</span> determines how wide or narrow the curve appears.</p>
+<p>A key feature of the normal distribution is that it is symmetric around the mean <span class="math inline">\(\mu\)</span>. This symmetry implies that probabilities on either side of the mean are equal for equally sized intervals. In addition, as <span class="math inline">\(x \to \pm\infty\)</span>, the density function <span class="math inline">\(f(x)\)</span> approaches zero, meaning that extremely large or small values are increasingly unlikely, but not impossible.</p>
+<p>The shape of a normal distribution is fully determined by its mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>. Changing either of these parameters modifies the appearance of the distribution in predictable ways. This is shown in <a href="#fig-normal-shape" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>.</p>
+<p>In (a), we compare two normal distributions with different means but the same standard deviation. This results in curves with identical shapes, but centered at different locations. Shifting <span class="math inline">\(\mu\)</span> translates the curve horizontally without altering its height or spread.</p>
+<p>In (b), we hold the mean constant and vary the standard deviation. This causes the curve to either compress or stretch. A smaller <span class="math inline">\(\sigma\)</span> yields a sharper, narrower peak, while a larger <span class="math inline">\(\sigma\)</span> produces a flatter, wider distribution.</p>
+<div id="fig-normal-shape" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normal-shape-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-shape-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: Effects of changing parameters in the normal distribution (a) Changing the mean shifts the curve horizontally. (b) Changing the standard deviation alters the width and height of the curve
+</figcaption></figure>
+</div>
+<p>But first, we will learn how to calculate probabilities using normal distribution tables.</p>
+<section id="area-under-curve" class="level3" data-number="14.3.1"><h3 data-number="14.3.1" class="anchored" data-anchor-id="area-under-curve">
+<span class="header-section-number">14.3.1</span> Area under curve</h3>
+<p>When using a normal distribution curve to model probability, the logic is as follows: we want to determine the probability that a randomly selected individual falls within a certain interval, say <span class="math inline">\((a, b)\)</span>. This is equivalent to finding the proportion of individuals in the population whose values lie between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p>In a normal distribution, this probability corresponds to the <strong>area under the curve</strong> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Since the total area under the entire curve is equal to 1 (or 100%), the shaded region gives us the desired probability.</p>
+<p>This relationship between area and probability allows us to calculate how likely it is to observe values within specific ranges — and by symmetry, how unusual values far from the mean are.</p>
+<p>Let us visualize this with the previously mentioned empirical rule in <a href="../descriptive-stats/dispersion-measures.html#fig-emprule" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>, which summarizes how the area is distributed across standard deviations from the mean. This is shown in <a href="#fig-normal-emprule" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>.</p>
+<div id="fig-normal-emprule" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normal-emprule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-emprule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: Empirical rule for the normal distribution. Shaded areas show typical probabilities for values within 1, 2, and 3 standard deviations of the mean.
+</figcaption></figure>
+</div>
+<p>In practice, the most important takeaway is this:</p>
+<ul>
+<li>Approximately 68% of values lie within one standard deviation from the mean (<span class="math inline">\(\mu \pm \sigma\)</span>)</li>
+<li>About 95% lie within two standard deviations (<span class="math inline">\(\mu \pm 2\sigma\)</span>)</li>
+<li>Nearly 99.7% lie within three standard deviations (<span class="math inline">\(\mu \pm 3\sigma\)</span>)</li>
+</ul>
+<p>This is known as the empirical rule, and it forms the basis for many practical applications of the normal distribution. It also shows that values far from the mean are rare, making them candidates for being considered “unusual” or outliers in statistical reasoning.</p>
+</section></section><section id="the-standard-normal-distribution" class="level2" data-number="14.4"><h2 data-number="14.4" class="anchored" data-anchor-id="the-standard-normal-distribution">
+<span class="header-section-number">14.4</span> The Standard Normal Distribution</h2>
+<p>In practice, the values for which we want to calculate probabilities do not always align with the specific values shown in a table. Fortunately, thanks to the properties of the normal distribution, we don’t need a separate table for every possible mean and standard deviation.</p>
+<p>Instead, we make use of a powerful idea: that any normal distribution can be converted into a <strong>standard normal distribution</strong>, and this makes calculating probabilities far simpler.</p>
+<p>The <strong>standard normal distribution</strong> is the special case where the mean is 0 and the standard deviation is 1. That is:</p>
+<p><span class="math display">\[
+Z \sim \mathcal{N}(0, 1)
+\]</span></p>
+<p>This is our reference distribution. Because it measures distances in units of standard deviation from the mean, we can interpret a value like <span class="math inline">\(z = 1.5\)</span> as <em>“1.5 standard deviations above the mean”</em>.</p>
+<p>Since the normal distribution is symmetric around the mean, values less than 0 represent outcomes below average, and values greater than 0 are above average. Below is the standard normal curve:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The plot shows the familiar bell shape, now centered at 0. By using the standard normal distribution, we only need to consult a single probability table, shown in <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a>, to find probabilities for a wide range of problems. The transformation is done through <strong>standardization</strong>, which we’ll explore in the next section.</p>
+<p>We denote the cumulative probability function of the standard normal by <span class="math inline">\(F(z)\)</span> or <span class="math inline">\(P(Z \leq z)\)</span>, and for values of <span class="math inline">\(z\)</span> between 0.00 and 3.00, these values are commonly found in standard Z-tables. Because of symmetry, we can compute probabilities for both tails of the distribution (and for negative values of <span class="math inline">\(z\)</span>), i.e.</p>
+<p><span class="math display">\[
+P(Z \leq -z) = 1 - P(Z \leq z)
+\]</span></p>
+<p>This is the foundation for calculating probabilities with normal distributions; we convert our variable to a Z-score and then read the probability directly from this reference distribution.</p>
+<section id="example-14.1-standard-normal-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.1-standard-normal-distribution">Example 14.1: Standard Normal Distribution</h4>
+<p>Let <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> be a standard normal variable. We’ll now walk through several examples of calculating probabilities using the standard normal distribution, visualizing the corresponding areas under the curve in each case.</p>
+<ol type="a">
+<li><span class="math inline">\(P(Z \leq 0)\)</span></li>
+</ol>
+<p>By symmetry, the probability that <span class="math inline">\(Z\)</span> is less than or equal to 0 is:</p>
+<p><span class="math display">\[
+P(Z \leq 0) = F(0) = 0.5
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li><span class="math inline">\(P(Z \leq 1)\)</span></li>
+</ol>
+<p>We use the standard normal table:</p>
+<p><span class="math display">\[
+P(Z \leq 1) = F(1) = 0.8413
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="a">
+<li><span class="math inline">\(P(0 \leq Z \leq 1)\)</span></li>
+</ol>
+<p>This is the difference between two cumulative probabilities:</p>
+<p><span class="math display">\[
+P(0 \leq Z \leq 1) = F(1) - F(0) = 0.8413 - 0.5000 = 0.3413
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="4" type="a">
+<li><span class="math inline">\(P(Z \geq 0.73)\)</span></li>
+</ol>
+<p>We use the complement rule:</p>
+<p><span class="math display">\[
+P(Z \geq 0.73) = 1 - P(Z \leq 0.73) = 1 - 0.7673 = 0.2327
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="5" type="a">
+<li><span class="math inline">\(P(Z \geq -1.59)\)</span></li>
+</ol>
+<p>Using symmetry:</p>
+<p><span class="math display">\[
+P(Z \geq -1.59) = P(Z \leq 1.59) = F(1.59) = 0.9441
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="6" type="a">
+<li><span class="math inline">\(P(-1.59 \leq Z \leq 0.73)\)</span></li>
+</ol>
+<p>We combine cumulative values:</p>
+<p><span class="math display">\[
+\begin{split}
+P(-1.59 \leq Z \leq 0.73) &amp; = F(0.73) - (1 - F(1.59)) \\ &amp;
+= 0.7673 - (1 - 0.9441) \\ &amp; = 0.7114
+\end{split}
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="from-normal-to-standard-normal-distribution" class="level2" data-number="14.5"><h2 data-number="14.5" class="anchored" data-anchor-id="from-normal-to-standard-normal-distribution">
+<span class="header-section-number">14.5</span> From Normal to Standard Normal Distribution</h2>
+<p>Suppose a random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma\)</span>, written:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(\mu, \sigma)
+\]</span></p>
+<p>We often want to compute the probability <span class="math inline">\(P(X \leq x)\)</span> for some value <span class="math inline">\(x\)</span>. While this can’t be calculated directly from <span class="math inline">\(X\)</span> without integration, we can convert the problem to one involving the standard normal distribution using the transformation:</p>
+<p><span class="math display">\[
+Z = \frac{X - \mu}{\sigma}
+\]</span></p>
+<p>This transformation maps <span class="math inline">\(X\)</span> to a standard normal variable <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span>. The beauty of this is that we can now use our standard normal table in <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a> to calculate:</p>
+<p><span class="math display">\[
+P(X \leq x) = P\left(Z \leq \frac{x - \mu}{\sigma} \right)
+\]</span></p>
+<section id="example-14.2-x-sim-mathcaln170-10" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.2-x-sim-mathcaln170-10">Example 14.2: <span class="math inline">\(X \sim \mathcal{N}(170, 10)\)</span>
+</h4>
+<p>We want to compute:</p>
+<ol type="a">
+<li><span class="math inline">\(P(X \leq 190)\)</span></li>
+</ol>
+<p>We begin by standardizing:</p>
+<p><span class="math display">\[
+Z = \frac{X - 170}{10}, \quad \text{so} \quad \frac{190 - 170}{10} = 2
+\]</span></p>
+<p>Then use the standard normal table to find the correpsondign probability area:</p>
+<p><span class="math display">\[
+P(X \leq 190) = P(Z \leq 2) = 0.9772
+\]</span></p>
+<p>This is shown below in <a href="#fig-normalstnd" class="quarto-xref">Figure&nbsp;<span>14.3</span></a> where both shaded areas are exactly the same.</p>
+<div id="fig-normalstnd" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normalstnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normalstnd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.3: Top: Probability under the original normal distribution <span class="math inline">\(X \sim \mathcal{N}(170, 10)\)</span>. Bottom: Corresponding probability under the standard normal distribution <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span>. The shaded areas are equivalent, since <span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span>.
+</figcaption></figure>
+</div>
+</section></section><section id="normal-approximation-to-the-binomial-distribution" class="level2" data-number="14.6"><h2 data-number="14.6" class="anchored" data-anchor-id="normal-approximation-to-the-binomial-distribution">
+<span class="header-section-number">14.6</span> Normal Approximation to the Binomial Distribution</h2>
+<p>As hinted before, one of the normal distribution’s greatest superpowers is its flexibility; it’s like the Swiss Army knife of probability! Why? Because it can be used to approximate probabilities in many important situations, especially when working with other discrete distributions.</p>
+<p>As seen in <a href="#fig-binomialapx" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>, the binomial distribution becomes increasingly symmetric and bell-shaped as the sample size grows. When the number of trials is large enough, the distribution of a binomially distributed variable begins to closely resemble that of a normal distribution. In such cases, it becomes not only possible but also practical to use the normal distribution as an approximation.</p>
+<p>The normal approximation is particularly helpful when exact binomial probabilities are cumbersome to calculate.</p>
+<div id="fig-binomialapx" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-binomialapx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="cont-dists_files/figure-html/binom-anim-1.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binomialapx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.4: Binomial Distribution with <span class="math inline">\(p = 0.3\)</span> approaching Normal as <span class="math inline">\(n\)</span> increases.
+</figcaption></figure>
+</div>
+<section id="when-can-we-approximate" class="level3" data-number="14.6.1"><h3 data-number="14.6.1" class="anchored" data-anchor-id="when-can-we-approximate">
+<span class="header-section-number">14.6.1</span> When can we approximate?</h3>
+<p>A common rule of thumb is:</p>
+<p><span class="math display">\[
+np(1 - p) &gt; 5
+\]</span></p>
+<p>If this condition is met, the binomial distribution can be reasonably approximated by a normal distribution that shares the same mean and variance.</p>
+</section><section id="how-is-the-approximation-performed" class="level3" data-number="14.6.2"><h3 data-number="14.6.2" class="anchored" data-anchor-id="how-is-the-approximation-performed">
+<span class="header-section-number">14.6.2</span> How is the approximation performed?</h3>
+<p>Well, suppose <span class="math inline">\(X \sim \text{Bin}(n, p)\)</span> and the above condition is satisfied. Then we can approximate <span class="math inline">\(X\)</span> using a normal distribution:</p>
+<p><span class="math display">\[
+X \overset{\text{apx}}{\sim} \mathcal{N}(\mu, \sigma)
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\mu = E(X) = np \quad \text{and} \qquad \sigma = \sqrt{\operatorname{Var}(X)} = \sqrt{np(1 - p)}
+\]</span></p>
+<p>To compute a probability such as <span class="math inline">\(P(X \leq c)\)</span>, where <span class="math inline">\(c\)</span> is an integer, we use the standard normal distribution:</p>
+<p><span class="math display">\[
+P(X \leq c) \approx P\left(Z \leq \frac{c - \mu}{\sigma} \right)
+\]</span></p>
+<p>This gives us an approximate value by translating the binomial question into a standard normal one.</p>
+<section id="example-14.3-binomial-to-normal" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.3-binomial-to-normal">Example 14.3: Binomial to Normal</h4>
+<p>Let <span class="math inline">\(X \sim \text{Bin}(44, 0.45)\)</span>. We wish to approximate the probability:</p>
+<p><span class="math display">\[
+P(X \leq 26)
+\]</span></p>
+<p>First, compute the mean and variance of <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+E(X) = 44 \cdot 0.45 = 19.8 \\
+\operatorname{Var}(X) = 44 \cdot 0.45 \cdot 0.55 = 10.89
+\]</span></p>
+<p>Since <span class="math inline">\(nP(1 - P) = 10.89 &gt; 5\)</span>, the normal approximation is applicable.</p>
+<p>Now standardize:</p>
+<p><span class="math display">\[
+Z = \frac{26 - 19.8}{\sqrt{10.89}} \approx \frac{6.2}{3.3} \approx 1.88
+\]</span></p>
+<p>Using the standard normal distribution:</p>
+<p><span class="math display">\[
+P(X \leq 26) \approx P(Z \leq 1.88) = 0.9699
+\]</span></p>
+<p>For comparison, the exact binomial value is:</p>
+<p><span class="math display">\[
+P(X \leq 26) = 0.9786
+\]</span></p>
+<p>So the normal approximation is quite close, especially useful when exact computation is difficult.</p>
+</section></section><section id="continuity-correction" class="level3" data-number="14.6.3"><h3 data-number="14.6.3" class="anchored" data-anchor-id="continuity-correction">
+<span class="header-section-number">14.6.3</span> Continuity Correction</h3>
+<p>When using a normal distribution to approximate a binomial, it’s important to remember that we are replacing a discrete distribution (which only takes whole number values) with a continuous one (which takes all real values). To improve the accuracy of this approximation, we use a technique called the <strong>continuity correction</strong>.</p>
+<p>The idea is simple: when we compute a probability such as <span class="math inline">\(P(X \leq c)\)</span> for a binomial variable, we approximate it not with <span class="math inline">\(P(Z \leq z)\)</span> but with a slightly adjusted value:</p>
+<p><span class="math display">\[
+P(X \leq c) \approx P\left(Z \leq \frac{c + 0.5 - \mu}{\sigma} \right)
+\]</span></p>
+<p>The addition of <span class="math inline">\(0.5\)</span> shifts the cutoff slightly to the right, accounting for the fact that we’re now working with an area under a continuous curve rather than summing discrete spikes.</p>
+<section id="example-14.3-binomial-to-normal-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-14.3-binomial-to-normal-contd">Example 14.3: Binomial to Normal (cont’d)</h4>
+<p>Recall from earlier that:</p>
+<p><span class="math display">\[
+X \sim \text{Bin}(44, 0.45), \quad \mu = 19.8, \quad \sigma = \sqrt{10.89} \approx 3.3
+\]</span></p>
+<p>We want to compute:</p>
+<p><span class="math display">\[
+P(X \leq 26)
+\]</span></p>
+<p>Using the continuity correction, we calculate:</p>
+<p><span class="math display">\[
+P(X \leq 26) \approx P\left(Z \leq \frac{26 + 0.5 - 19.8}{3.3} \right)
+= P(Z \leq 2.0)
+= 0.9772
+\]</span></p>
+<p>This is a better approximation than the earlier uncorrected value of <span class="math inline">\(P(Z \leq 1.88) = 0.9699\)</span>.</p>
+<p>The table below summarizes and compraes the results:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th></th>
+<th>Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Exact binomial</td>
+<td>0.9786</td>
+</tr>
+<tr class="even">
+<td>Normal approximation</td>
+<td>0.9699</td>
+</tr>
+<tr class="odd">
+<td>With continuity correction</td>
+<td><strong>0.9772</strong></td>
+</tr>
+</tbody>
+</table>
+<p>As shown above, the continuity correction significantly improves the accuracy of the approximation and is highly recommended when using the normal distribution to approximate binomial probabilities.</p>
+</section></section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>Suppose human reaction times to a specific stimulus are normally distributed with a mean of 300 milliseconds and a standard deviation of 50 milliseconds. You randomly select one person. What is the probability that their reaction time is between 237.5 ms and 325 ms?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We standardize both endpoints:</p>
+<p><span class="math display">\[
+Z_1 = \frac{237.5 - 300}{50} = -1.25 \quad\text{and}\quad Z_2 = \frac{325 - 300}{50} = 0.5
+\]</span></p>
+<p>From the standard normal table:</p>
+<ul>
+<li><span class="math inline">\(P(Z \leq 0.5) = 0.6915\)</span></li>
+<li><span class="math inline">\(P(Z \leq -1.25) = 0.1056\)</span></li>
+</ul>
+<p>So:</p>
+<p><span class="math display">\[
+P(237.5 \leq X \leq 325) = 0.6915 - 0.1056 = \boxed{0.5859}
+\]</span></p>
+<p>This means there’s about a 59% chance a person reacts within this interval.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>An economic survey estimates that 35% of a certain population is underemployed. In a sample of 100 individuals, let <span class="math inline">\(X\)</span> be the number who are underemployed. What is the probability that at most 42 people are underemployed? Use the normal approximation with continuity correction.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We model <span class="math inline">\(X \sim \text{Bin}(100, 0.35)\)</span></p>
+<ul>
+<li>Mean: <span class="math inline">\(\mu = 100 \cdot 0.35 = 35\)</span>
+</li>
+<li>Standard deviation: <span class="math inline">\(\sigma = \sqrt{100 \cdot 0.35 \cdot 0.65} = \sqrt{22.75} \approx 4.77\)</span>
+</li>
+</ul>
+<p>Using continuity correction:</p>
+<p><span class="math display">\[
+P(X \leq 42) \approx P\left(Z \leq \frac{42 + 0.5 - 35}{4.77} \right) = P(Z \leq 1.57)
+\]</span></p>
+<p>From Z-table:</p>
+<p><span class="math display">\[
+P(Z \leq 1.57) = \boxed{0.9418}
+\]</span></p>
+<p>So there’s a 94% chance that 42 or fewer people in the sample are underemployed.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>In a national voter turnout study, the probability that an eligible person votes is estimated to be 65%. Suppose a researcher surveys 200 randomly selected citizens. Let <span class="math inline">\(X\)</span> be the number of individuals in the sample who actually voted. What is the probability that between 120 and 140 people (inclusive) voted, using a normal approximation with continuity correction?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We model <span class="math inline">\(X \sim \text{Bin}(n = 200, p = 0.65)\)</span>.</p>
+<ul>
+<li>Mean: <span class="math inline">\(\mu = 200 \cdot 0.65 = 130\)</span>
+</li>
+<li>Standard deviation: <span class="math inline">\(\sigma = \sqrt{200 \cdot 0.65 \cdot 0.35} = \sqrt{45.5} \approx 6.74\)</span>
+</li>
+</ul>
+<p>We apply continuity correction to the bounds:</p>
+<ul>
+<li>Lower bound: <span class="math inline">\(X = 120 \Rightarrow Z = \frac{119.5 - 130}{6.74} \approx -1.56\)</span>
+</li>
+<li>Upper bound: <span class="math inline">\(X = 140 \Rightarrow Z = \frac{140.5 - 130}{6.74} \approx 1.56\)</span>
+</li>
+</ul>
+<p>So:</p>
+<p><span class="math display">\[
+P(120 \leq X \leq 140) \approx P(-1.56 \leq Z \leq 1.56)
+\]</span></p>
+<p>From standard normal tables:</p>
+<ul>
+<li><span class="math inline">\(P(Z \leq 1.56) = 0.9406\)</span></li>
+<li><span class="math inline">\(P(Z \leq -1.56) = 1 - 0.9406 = 0.0594\)</span></li>
+</ul>
+<p>Therefore:</p>
+<p><span class="math display">\[
+P(-1.56 \leq Z \leq 1.56) = 0.9406 - 0.0594 = \boxed{0.8812}
+\]</span></p>
+<p>There’s an 88.1% chance that between 120 and 140 people in the sample voted.</p>
+</div>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/termehs\.github\.io\/found-stats\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../rvs-probdists/discrete-dists.html" class="pagination-link" aria-label="Discrete Probability Distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../rvs-probdists/jointly-dist.html" class="pagination-link" aria-label="Jointly Distributed Random Variables">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Foundational Statistics by Termeh Shafie.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/cont-dists.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>

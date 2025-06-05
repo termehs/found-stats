@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Termeh Shafie">
+<title>15&nbsp; Jointly Distributed Random Variables – Foundational Statistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../sampling-dists/sampling.html" rel="next">
+<link href="../rvs-probdists/cont-dists.html" rel="prev">
+<link href="../cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/jointly-dist.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Foundational Statistics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/termehs/found-stats" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-surveys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/central-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/dispersion-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/count-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Counting Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probability Rules</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Random Variables and Probability Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/discrete-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/cont-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Proportion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferential Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Chi Square Tests</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Regression Analysis</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">References</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/t-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#multivariate-random-variables" id="toc-multivariate-random-variables" class="nav-link active" data-scroll-target="#multivariate-random-variables"><span class="header-section-number">15.1</span> Multivariate Random Variables</a></li>
+  <li><a href="#joint-probability-distribution-discrete-case" id="toc-joint-probability-distribution-discrete-case" class="nav-link" data-scroll-target="#joint-probability-distribution-discrete-case"><span class="header-section-number">15.2</span> Joint Probability Distribution (Discrete Case)</a></li>
+  <li><a href="#marginal-distributions" id="toc-marginal-distributions" class="nav-link" data-scroll-target="#marginal-distributions"><span class="header-section-number">15.3</span> Marginal Distributions</a></li>
+  <li><a href="#conditional-distributions" id="toc-conditional-distributions" class="nav-link" data-scroll-target="#conditional-distributions"><span class="header-section-number">15.4</span> Conditional Distributions</a></li>
+  <li><a href="#independence-of-random-variables" id="toc-independence-of-random-variables" class="nav-link" data-scroll-target="#independence-of-random-variables"><span class="header-section-number">15.5</span> Independence of Random Variables</a></li>
+  <li><a href="#constructing-a-joint-distribution-under-independence" id="toc-constructing-a-joint-distribution-under-independence" class="nav-link" data-scroll-target="#constructing-a-joint-distribution-under-independence"><span class="header-section-number">15.6</span> Constructing a Joint Distribution Under Independence</a></li>
+  <li><a href="#covariance-and-correlation-observed-data" id="toc-covariance-and-correlation-observed-data" class="nav-link" data-scroll-target="#covariance-and-correlation-observed-data"><span class="header-section-number">15.7</span> Covariance and Correlation: Observed Data</a></li>
+  <li><a href="#covariance-and-correlation-for-random-variables" id="toc-covariance-and-correlation-for-random-variables" class="nav-link" data-scroll-target="#covariance-and-correlation-for-random-variables"><span class="header-section-number">15.8</span> Covariance and Correlation for Random Variables</a></li>
+  <li><a href="#expected-value-and-variance-of-sums-and-differences" id="toc-expected-value-and-variance-of-sums-and-differences" class="nav-link" data-scroll-target="#expected-value-and-variance-of-sums-and-differences"><span class="header-section-number">15.9</span> Expected Value and Variance of Sums and Differences</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/jointly-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../rvs-probdists/random-variables.html">Random Variables and Probability Distributions</a></li><li class="breadcrumb-item"><a href="../rvs-probdists/jointly-dist.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-jointly-dist" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><p>Up to this point, we’ve focused primarily on single random variables, for example, the number of heads in a series of coin flips or the height of a randomly selected person. But in many real-world scenarios, we are interested in studying <strong>multiple random variables at the same time</strong>.</p>
+<p>In this chapter we take a close look on jointly distributed random variables and explore their joint, marginal, and conditional behavior, then we introduce the concepts of independence and correlation, and learn how to work with sums and differences.</p>
+<section id="multivariate-random-variables" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="multivariate-random-variables">
+<span class="header-section-number">15.1</span> Multivariate Random Variables</h2>
+<p>Some variables may emerge from the same underlying random experiment, and they might be related or not. Our goal is to understand their individual behaviors, and more importantly, how they interact with each other.</p>
+<p>For instance:</p>
+<ul>
+<li><p>Suppose we randomly select one person from a population.<br>
+Let <span class="math inline">\(X\)</span> be their weight and <span class="math inline">\(Y\)</span> be his height. These two measurements clearly relate to the same individual and may show some correlation, taller people tend to weigh more, on average.</p></li>
+<li><p>Or imagine rolling a die twice.<br>
+Let <span class="math inline">\(X\)</span> be the number of dots on the first roll, and <span class="math inline">\(Y\)</span> the number of dots on the second. Here, the two values result from separate events within the same experiment, and in this case, may be independent.</p></li>
+</ul>
+<p>When we analyze such situations, we say that the variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>jointly distributed</strong>. That is, we consider their distributions together, not in isolation.</p>
+<p>The concept extends naturally beyond just two variables. We may consider <span class="math inline">\(n\)</span> random variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> that are all jointly distributed, meaning they are defined from a single experiment and may or may not be dependent on each other.</p>
+<p>Consider the experiment of rolling a die 10 times. We can define a sequence of variables:</p>
+<p><span class="math display">\[
+X_1 = \text{dots on roll 1}, \quad X_2 = \text{dots on roll 2}, \quad \dots, \quad X_{10} = \text{dots on roll 10}
+\]</span></p>
+<p>Together, these form 10 jointly distributed random variables. In this case, each variable reflects a distinct outcome from a shared process (a sequence of rolls) and is naturally treated as part of a multivariate random structure.</p>
+</section><section id="joint-probability-distribution-discrete-case" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="joint-probability-distribution-discrete-case">
+<span class="header-section-number">15.2</span> Joint Probability Distribution (Discrete Case)</h2>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two discrete random variables observed together. Then we define their <strong>joint probability mass function</strong> (joint PMF) as:</p>
+<p><span class="math display">\[
+P(x, y) = P(X = x \text{ and } Y = y) = P(X = x \cap Y = y)
+\]</span></p>
+<p>This function gives the probability of every possible pair of outcomes <span class="math inline">\((x, y)\)</span>. It’s essentially a table (or function) that assigns a probability to each combination of values that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> might jointly take.</p>
+<p>When we refer to the <strong>joint distribution</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, we mean the complete collection of these probabilities, i.e.&nbsp;the full map of how the two variables behave together.</p>
+<p>In the next sections, we’ll explore how to work with joint distributions, derive marginal and conditional probabilities, and investigate whether or not the variables are independent.</p>
+<section id="example-15.1-family-composition" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.1-family-composition">Example 15.1: Family Composition</h4>
+<p>Let’s consider a practical example. Suppose we randomly select a family from a large population. Let:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span> = number of boys in the family<br>
+</li>
+<li>
+<span class="math inline">\(Y\)</span> = number of girls in the family</li>
+</ul>
+<p>Below is the <strong>joint probability distribution</strong> for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, represented in table form. <a href="#tbl-jointex" class="quarto-xref">Table&nbsp;<span>15.1</span></a> tells us how likely it is to observe each specific combination of boys and girls.</p>
+<div id="tbl-jointex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-jointex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;15.1: Joint Probability Table for Number of Boys (<span class="math inline">\(X\)</span>) and Girls (<span class="math inline">\(Y\)</span>).
+</figcaption><div aria-describedby="tbl-jointex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Joint Probability Table for Number of Boys (X) and Girls (Y)</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="5" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Number of girls (Y)
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Number of boys (X)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">0</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">4</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">P(X = x)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.38</td>
+<td style="text-align: center;">0.16</td>
+<td style="text-align: center;">0.04</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">0.60</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">P(Y = y)</td>
+<td style="text-align: center;">0.64</td>
+<td style="text-align: center;">0.27</td>
+<td style="text-align: center;">0.07</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-jointex" class="quarto-xref">Table&nbsp;<span>15.1</span></a> above shows the full joint probability distribution of the number of boys (<span class="math inline">\(X\)</span>) and girls (<span class="math inline">\(Y\)</span>) in a randomly selected family. Each cell in the main body of the table gives the probability that a family has a specific combination of boys and girls. For example, the probability of having 1 boy and 2 girls is 0.02.</p>
+</section></section><section id="marginal-distributions" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="marginal-distributions">
+<span class="header-section-number">15.3</span> Marginal Distributions</h2>
+<p>From the joint distribution, we can compute the marginal distributions for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. These represent the individual behavior of each variable, ignoring the other.</p>
+<p>The marginal probability distribution for <span class="math inline">\(X\)</span> is obtained by summing each row across all <span class="math inline">\(y\)</span> values:</p>
+<p><span class="math display">\[
+P(X = x) = \sum_y P(x, y)
+\]</span></p>
+<p>Similarly, the marginal distribution for <span class="math inline">\(Y\)</span> comes from summing each column across all <span class="math inline">\(x\)</span> values:</p>
+<p><span class="math display">\[
+P(Y = y) = \sum_x P(x, y)
+\]</span></p>
+<p>The row and column totals in the table reflect these marginal probabilities.</p>
+<section id="example-15.1-family-composition-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.1-family-composition-contd">Example 15.1: Family Composition (cont’d)</h4>
+<p>At the end of each row in <a href="#tbl-jointex" class="quarto-xref">Table&nbsp;<span>15.1</span></a>, we see the marginal distribution of <span class="math inline">\(X\)</span>, denoted <span class="math inline">\(P(X = x)\)</span>. These values are computed by summing the probabilities across each row, that is, over all values of <span class="math inline">\(Y\)</span> for a fixed <span class="math inline">\(X\)</span>. The interpretation is simple: <span class="math inline">\(P(X = 1) = 0.27\)</span> means that 27% of the families have exactly one boy, regardless of how many girls they have.</p>
+<p>Similarly, the bottom row contains the marginal distribution of <span class="math inline">\(Y\)</span>, labeled <span class="math inline">\(P(Y = y)\)</span>. These probabilities are calculated by summing down each column — over all values of <span class="math inline">\(X\)</span> for a fixed number of girls <span class="math inline">\(Y = y\)</span>. For instance, <span class="math inline">\(P(Y = 0) = 0.64\)</span> indicates that 64% of the families have no girls, irrespective of how many boys they have.</p>
+<p>These marginal distributions summarize the overall behavior of each variable independently, while the joint distribution reflects how the variables interact.</p>
+</section></section><section id="conditional-distributions" class="level2" data-number="15.4"><h2 data-number="15.4" class="anchored" data-anchor-id="conditional-distributions">
+<span class="header-section-number">15.4</span> Conditional Distributions</h2>
+<p>With the joint and marginal distributions in hand, we can now define and compute <strong>conditional probabilities</strong>. These allow us to ask more nuanced questions, such as:</p>
+<ul>
+<li>“What is the probability a family has two boys <strong>given</strong> that it has no girls?”</li>
+<li>“How does the number of boys vary <strong>given</strong> that the family has two girls?”</li>
+</ul>
+<p>To compute a conditional distribution, we use the definition:</p>
+<p><span class="math display">\[
+P(X = x \mid Y = y) = \frac{P(X = x \cap Y = y)}{P(Y = y)}
+\]</span></p>
+<p>This gives us the probability of a specific <span class="math inline">\(X\)</span> value, assuming we know the value of <span class="math inline">\(Y\)</span>. We calculate this by dividing each entry in a given column by the total at the bottom of that column.</p>
+<section id="example-15.1-family-composition-contd-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.1-family-composition-contd-1">Example 15.1: Family Composition (cont’d)</h4>
+<p>Using the formula:</p>
+<p><span class="math display">\[
+P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}
+\]</span></p>
+<p>We divide each cell in a column (fixed <span class="math inline">\(Y = y\)</span>) by the column total to obtain the conditional distribution of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y = y\)</span>.</p>
+<p>For example, to compute <span class="math inline">\(P(X = 0 \mid Y = 1)\)</span>: <span class="math display">\[
+P(X = 0 \mid Y = 1) = \frac{P(X = 0 \cap Y = 1)}{P(Y = 1)} = \frac{0.16}{0.27} \approx 0.59
+\]</span></p>
+<p>This tells us that among families with exactly one girl, 59% of them have no boys.</p>
+<p><a href="#tbl-jointex-cond" class="quarto-xref">Table&nbsp;<span>15.2</span></a> is the conditional distribution of <span class="math inline">\(X\)</span> given various values of <span class="math inline">\(Y\)</span>:</p>
+<div id="tbl-jointex-cond" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-jointex-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;15.2: Conditional Probabilities <span class="math inline">\(P(X = x | Y = y)\)</span>.
+</figcaption><div aria-describedby="tbl-jointex-cond-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="5" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Number of girls (Y)
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Number of boys (X)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">0</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">4</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">P(X = x)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.59</td>
+<td style="text-align: center;">0.59</td>
+<td style="text-align: center;">0.57</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">0.60</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.27</td>
+<td style="text-align: center;">0.30</td>
+<td style="text-align: center;">0.29</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">0.07</td>
+<td style="text-align: center;">0.14</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">0.04</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>Note that each column now sums to 1, since we’re conditioning on a fixed <span class="math inline">\(Y = y\)</span>. In other words Each such column-normalized set of values gives the conditional distribution of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y = y\)</span>. These distributions allow us to examine how the number of boys is influenced by the known number of girls. We can also reverse the roles and analyze <span class="math inline">\(P(Y = y \mid X = x)\)</span> by normalizing each row.</p>
+<p>This approach allows us to analyze how knowledge of one variable informs us about the likely values of the other, a key idea that leads naturally into concepts like independence, correlation, and covariance, which we’ll explore next.</p>
+</section></section><section id="independence-of-random-variables" class="level2" data-number="15.5"><h2 data-number="15.5" class="anchored" data-anchor-id="independence-of-random-variables">
+<span class="header-section-number">15.5</span> Independence of Random Variables</h2>
+<p>When working with two or more random variables defined on the same experiment, an important question is whether they are <strong>independent</strong> — that is, whether the value of one gives us any information about the other.</p>
+<p>Two discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are said to be <strong>independent</strong> if and only if:</p>
+<p><span class="math display">\[
+P(X = x, Y = y) = P(X = x) \cdot P(Y = y)
+\]</span></p>
+<p>for <em>all</em> combinations of values <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>This definition mirrors what we’ve already seen for independence between events:<br>
+If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events, then they are independent if:</p>
+<p><span class="math display">\[
+P(A \cap B) = P(A) \cdot P(B)
+\]</span></p>
+<p>In this setting, each event <span class="math inline">\(X = x\)</span> and <span class="math inline">\(Y = y\)</span> can be thought of as a particular outcome — and we require that every pair of outcomes satisfies the multiplicative rule to call <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent.</p>
+<p>In applied settings, we often use prior experience or domain knowledge to assume independence between variables when it’s reasonable. For instance, if two numerical quantities are measured in such a way that one could not possibly influence the other, we usually model them as independent.</p>
+<section id="example-15.2-rolling-dice-twice" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.2-rolling-dice-twice">Example 15.2: Rolling Dice Twice</h4>
+<p>Let:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span> = number of dots on the first die roll<br>
+</li>
+<li>
+<span class="math inline">\(Y\)</span> = number of dots on the second die roll</li>
+</ul>
+<p>If the dice rolls are fair and separate, then the outcome of the first roll has no effect on the second. Therefore, we assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent random variables.</p>
+<p>The joint probability of both rolls resulting in a six is:</p>
+<p><span class="math display">\[
+P(X = 6, Y = 6) = P(X = 6) \cdot P(Y = 6) = \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}
+\]</span></p>
+</section><section id="example-15.1-family-composition-contd-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.1-family-composition-contd-2">Example 15.1: Family Composition (cont’d)</h4>
+<p>Let’s revisit the earlier example with the joint probability distribution of the number of boys (<span class="math inline">\(X\)</span>) and girls (<span class="math inline">\(Y\)</span>) in a family and ask: are number of boys and girls independent?</p>
+<p>To test for independence, we compare:</p>
+<p><span class="math display">\[
+P(X = x, Y = y) \stackrel{?}{=} P(X = x) \cdot P(Y = y)
+\]</span></p>
+<p>For example:</p>
+<ul>
+<li>From <a href="#tbl-jointex" class="quarto-xref">Table&nbsp;<span>15.1</span></a> we get that <span class="math inline">\(P(X = 1, Y = 1) = 0.08\)</span>
+</li>
+<li>Marginals: <span class="math inline">\(P(X = 1) = 0.27\)</span>, <span class="math inline">\(P(Y = 1) = 0.27\)</span>
+</li>
+</ul>
+<p>So:</p>
+<p><span class="math display">\[
+P(X = 1) \cdot P(Y = 1) = 0.27 \cdot 0.27 = 0.0729
+\]</span></p>
+<p>Since <span class="math inline">\(0.0729 \neq 0.08\)</span>, the condition does not hold. Therefore, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are not independent. This implies that the number of boys in a family is somewhat related to the number of girls, not surprising, as both are constrained by total family size.</p>
+</section></section><section id="constructing-a-joint-distribution-under-independence" class="level2" data-number="15.6"><h2 data-number="15.6" class="anchored" data-anchor-id="constructing-a-joint-distribution-under-independence">
+<span class="header-section-number">15.6</span> Constructing a Joint Distribution Under Independence</h2>
+<p>Suppose <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are two independent random variables defined as follows:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span> takes values 1 and 2 with probabilities 0.4 and 0.6</li>
+<li>
+<span class="math inline">\(Y\)</span> takes values 1, 2, and 3 with probabilities 0.2, 0.5, and 0.3</li>
+</ul>
+<p>Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, the joint probability is obtained by <strong>multiplying the marginal probabilities</strong> for each combination of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Doing so leads to <a href="#tbl-jointex-ind" class="quarto-xref">Table&nbsp;<span>15.3</span></a>.</p>
+<div id="tbl-jointex-ind" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-jointex-ind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;15.3: Joint Probability Table for Independent Random Variables X and Y
+</figcaption><div aria-describedby="tbl-jointex-ind-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Y
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; empty-cells: hide; border-bottom: hidden;"></th>
+</tr>
+<tr class="even">
+<th style="text-align: center;" data-quarto-table-cell-role="th">X</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">P(X = x)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">0.20</td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">0.30</td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">P(Y = y)</td>
+<td style="text-align: center;">0.20</td>
+<td style="text-align: center;">0.50</td>
+<td style="text-align: center;">0.30</td>
+<td style="text-align: center;">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>Each cell is computed as:</p>
+<p><span class="math display">\[
+P(X = x, Y = y) = P(X = x) \cdot P(Y = y)
+\]</span></p>
+<p>For example:</p>
+<ul>
+<li><span class="math inline">\(P(X = 1, Y = 1) = 0.4 \cdot 0.2 = 0.08\)</span></li>
+<li><span class="math inline">\(P(X = 2, Y = 2) = 0.6 \cdot 0.5 = 0.30\)</span></li>
+</ul>
+<p><a href="#tbl-jointex-ind" class="quarto-xref">Table&nbsp;<span>15.3</span></a> reflects the idea that independent random variables <em>“don’t talk to each other”</em> — knowing the value of one gives no information about the other.</p>
+<p>The definition of independence extends beyond just two variables. A set of random variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> is said to be <strong>mutually independent</strong> if and only if:</p>
+<p><span class="math display">\[
+P(X_1 = x_1, X_2 = x_2, \dots, X_n = x_n) = P(X_1 = x_1) \cdot P(X_2 = x_2) \cdots P(X_n = x_n)
+\]</span></p>
+<p>for all combinations of values <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>.</p>
+<p>This definition guarantees that knowing the value of one variable gives us no information about the values of the others — all outcomes occur independently of one another.</p>
+</section><section id="covariance-and-correlation-observed-data" class="level2" data-number="15.7"><h2 data-number="15.7" class="anchored" data-anchor-id="covariance-and-correlation-observed-data">
+<span class="header-section-number">15.7</span> Covariance and Correlation: Observed Data</h2>
+<p>Now, suppose we have a data set with two measured variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Obs.</th>
+<th style="text-align: right;"><span class="math inline">\(x_i\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(y_i\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: right;"><span class="math inline">\(x_1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(y_1\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: right;"><span class="math inline">\(x_2\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\vdots\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(n\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(x_n\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(y_n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>sample covariance</strong> between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is defined as:</p>
+<p><span class="math display">\[
+s_{xy} = \frac{1}{n - 1} \sum_{i = 1}^{n} (x_i - \bar{x})(y_i - \bar{y})
+\]</span></p>
+<ul>
+<li>If <span class="math inline">\(s_{xy} &gt; 0\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> tend to increase together (positive linear relationship).</li>
+<li>If <span class="math inline">\(s_{xy} &lt; 0\)</span>, one tends to increase as the other decreases (negative relationship).</li>
+</ul>
+<p>A more standardized measure is the <strong>sample correlation coefficient</strong> <span class="math inline">\(r_{xy}\)</span>:</p>
+<p><span class="math display">\[
+r_{xy} = \frac{s_{xy}}{s_x s_y}
+\]</span></p>
+<p>where <span class="math inline">\(s_x\)</span> and <span class="math inline">\(s_y\)</span> are the standard deviations of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> respectively.</p>
+<p>Alternatively, this can be computed as:</p>
+<p><span class="math display">\[
+r_{xy} =
+\frac{\sum_{i = 1}^n (x_i - \bar{x})(y_i - \bar{y})}
+{\sqrt{\sum_{i = 1}^n (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i = 1}^n (y_i - \bar{y})^2}}
+\]</span></p>
+<p>This formula provides a unitless measure of <strong>linear association</strong>, bounded by <span class="math inline">\(-1 \leq r_{xy} \leq 1\)</span>.</p>
+<ul>
+<li>
+<span class="math inline">\(r_{xy} = 1\)</span> means perfect positive linear correlation</li>
+<li>
+<span class="math inline">\(r_{xy} = -1\)</span> means perfect negative linear correlation</li>
+<li>
+<span class="math inline">\(r_{xy} = 0\)</span> means no linear correlation (but nonlinear relationships may still exist)</li>
+</ul>
+<p>For more details see <a href="../descriptive-stats/dispersion-measures.html#sec-descriptives-cov" class="quarto-xref"><span>Section 7.6</span></a>.</p>
+</section><section id="covariance-and-correlation-for-random-variables" class="level2" data-number="15.8"><h2 data-number="15.8" class="anchored" data-anchor-id="covariance-and-correlation-for-random-variables">
+<span class="header-section-number">15.8</span> Covariance and Correlation for Random Variables</h2>
+<p>We now extend these ideas to <strong>random variables</strong>.</p>
+<p>The <strong>theoretical covariance</strong> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is defined as:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) = \sigma_{XY} = E[(X - \mu_X)(Y - \mu_Y)]
+\]</span></p>
+<p>In discrete form:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) =
+\sum_x \sum_y (x - \mu_X)(y - \mu_Y) P(x, y)
+\]</span></p>
+<p>We also use a computational shortcut:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) = E(XY) - \mu_X \mu_Y
+\]</span></p>
+<p>The <strong>correlation coefficient</strong> between two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is:</p>
+<p><span class="math display">\[
+\rho_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y}
+\]</span></p>
+<p>This is a standardized version of covariance, ranging between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>, and easier to interpret.</p>
+<p>Just like with sample data:</p>
+<ul>
+<li>
+<span class="math inline">\(\rho = 1\)</span> implies perfect positive linear association</li>
+<li>
+<span class="math inline">\(\rho = -1\)</span> implies perfect negative linear association</li>
+<li>
+<span class="math inline">\(\rho = 0\)</span> means <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>uncorrelated</strong>
+</li>
+</ul>
+<p>The correlation coefficient always shares the same sign as the covariance, that is, if the covariance is positive, the correlation is positive, and vice versa.</p>
+<p>This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables — especially when comparing across different data sets or variables with different units.</p>
+</section><section id="expected-value-and-variance-of-sums-and-differences" class="level2" data-number="15.9"><h2 data-number="15.9" class="anchored" data-anchor-id="expected-value-and-variance-of-sums-and-differences">
+<span class="header-section-number">15.9</span> Expected Value and Variance of Sums and Differences</h2>
+<p>We now wrap up this chapter with a powerful and commonly used set of results: how to compute the expected value and variance of a sum or difference of two random variables. This is realted to what we covered in <a href="random-variables.html#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a>.</p>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two random variables. Suppose we are interested in the distribution of their sum <span class="math inline">\(X + Y\)</span> or difference <span class="math inline">\(X - Y\)</span>. The following rules apply:</p>
+<p>The expected value behaves <strong>linearly</strong>, meaning:</p>
+<p><span class="math display">\[
+E(X + Y) = E(X) + E(Y)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+E(X - Y) = E(X) - E(Y)
+\]</span></p>
+<p>This rule is always true, regardless of whether <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent.</p>
+<p>Variance, however, is not generally linear. The formula involves the covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(X + Y) &amp;= \operatorname{Var}(X) + \operatorname{Var}(Y) + 2 \cdot \operatorname{Cov}(X, Y) \\
+\operatorname{Var}(X - Y) &amp;= \operatorname{Var}(X) + \operatorname{Var}(Y) - 2 \cdot \operatorname{Cov}(X, Y)
+\end{aligned}
+\]</span></p>
+<p>So when variables are positively correlated, the variance of their sum increases. When they’re negatively correlated, the variance of the sum decreases.</p>
+<p>A special case concerns uncorrelated variables.If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>uncorrelated</strong>, that is:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) = 0
+\]</span></p>
+<p>Then the formulas simplify to:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(X + Y) &amp;= \operatorname{Var}(X) + \operatorname{Var}(Y) \\
+\operatorname{Var}(X - Y) &amp;= \operatorname{Var}(X) + \operatorname{Var}(Y)
+\end{aligned}
+\]</span></p>
+<p>It’s important to note:</p>
+<blockquote class="blockquote">
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong>, then they are also <strong>uncorrelated</strong>.<br></p>
+</blockquote>
+<p><span class="math display">\[
+\text{If } X \perp Y \Rightarrow \rho_{XY} = 0
+\]</span></p>
+<p>However, the <strong>converse is not true</strong>: uncorrelated variables may still be dependent, just not in a linear way. For example, <span class="math inline">\(Y = X^2\)</span> is nonlinearly related to <span class="math inline">\(X\)</span> but could have <span class="math inline">\(\rho = 0\)</span>.</p>
+<p>That is, independence implies zero covariance:</p>
+<p><span class="math display">\[
+X \perp Y \quad \Rightarrow \quad \operatorname{Cov}(X, Y) = 0
+\]</span></p>
+<p>But the reverse is not necessarily true. Two variables can have zero covariance (i.e., be uncorrelated) and still be dependent in a nonlinear way. This is further illustrated in Exercise 2 below.</p>
+</section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>Given the joint distribution below:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>
+<span class="math inline">\(x\)</span> \ <span class="math inline">\(y\)</span>
+</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th><span class="math inline">\(P(x)\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.08</td>
+<td>0.12</td>
+<td>0.30</td>
+<td>0.50</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.12</td>
+<td>0.18</td>
+<td>0.20</td>
+<td>0.50</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P(y)\)</span></td>
+<td>0.20</td>
+<td>0.30</td>
+<td>0.50</td>
+<td>1.00</td>
+</tr>
+</tbody>
+</table>
+<p>Calculate the correlation <span class="math inline">\(\rho_{XY}\)</span> between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First, use marginal distributions to compute all relevant expected values: <span class="math display">\[
+E(X) = 1 \cdot 0.50 + 2 \cdot 0.50 = 0.50 + 1.00 = 1.50
+\]</span> <span class="math display">\[
+E(Y) = 0 \cdot 0.20 + 1 \cdot 0.30 + 2 \cdot 0.50 = 0 + 0.30 + 1.00 = 1.30
+\]</span></p>
+<p>We multiply each <span class="math inline">\((x, y)\)</span> pair by its joint probability:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(XY) &amp;= 1 \cdot 0 \cdot 0.08 + 1 \cdot 1 \cdot 0.12 + 1 \cdot 2 \cdot 0.30 \\
+      &amp;+ 2 \cdot 0 \cdot 0.12 + 2 \cdot 1 \cdot 0.18 + 2 \cdot 2 \cdot 0.20 \\
+&amp;= 0 + 0.12 + 0.60 + 0 + 0.36 + 0.80 = 1.88
+\end{aligned}
+\]</span></p>
+<p>Use the shortcut formula:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) = E(XY) - E(X)E(Y) = 1.88 - (1.50)(1.30) = 1.88 - 1.95 = -0.07
+\]</span> Use the marginal distributions again to compute variances: <span class="math display">\[
+\begin{aligned}
+E(X^2) &amp;= 1^2 \cdot 0.50 + 2^2 \cdot 0.50 = 0.50 + 2.00 = 2.50 \\
+\operatorname{Var}(X) &amp;= E(X^2) - [E(X)]^2 = 2.50 - 1.50^2 = 2.50 - 2.25 = 0.25 \\
+\sigma_X &amp;= \sqrt{0.25} = 0.50
+\end{aligned}
+\]</span> <span class="math display">\[
+\begin{aligned}
+E(Y^2) &amp;= 0^2 \cdot 0.20 + 1^2 \cdot 0.30 + 2^2 \cdot 0.50 = 0 + 0.30 + 2.00 = 2.30 \\
+\operatorname{Var}(Y) &amp;= E(Y^2) - [E(Y)]^2 = 2.30 - 1.30^2 = 2.30 - 1.69 = 0.61 \\
+\sigma_Y &amp;= \sqrt{0.61} \approx 0.78
+\end{aligned}
+\]</span></p>
+<p>Now we hjave evrything needed to cmopute the correlation: <span class="math display">\[
+\rho_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y} = \frac{-0.07}{0.50 \cdot 0.78} \approx \boxed{-0.18}
+\]</span></p>
+<p>This indicates a weak negative linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Let <span class="math inline">\(X\)</span> be a discrete random variable taking the values <span class="math inline">\(-1\)</span>, <span class="math inline">\(0\)</span>, and <span class="math inline">\(1\)</span>, each with equal probability:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(P(X)\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>-1</td>
+<td>1/3</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1/3</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1/3</td>
+</tr>
+</tbody>
+</table>
+<p>Define a new random variable <span class="math inline">\(Y = X^2\)</span>.</p>
+<ul>
+<li>Are <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> dependent or independent?</li>
+<li>Compute <span class="math inline">\(\operatorname{Cov}(X, Y)\)</span> and determine whether they are correlated.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since <span class="math inline">\(Y = X^2\)</span>, the value of <span class="math inline">\(Y\)</span> is entirely determined by <span class="math inline">\(X\)</span>. So <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are clearly <strong>dependent</strong>.</p>
+<p>Nex compute <span class="math inline">\(E(X)\)</span> and <span class="math inline">\(E(Y)\)</span> <span class="math display">\[
+E(X) = (-1) \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = 0
+\]</span></p>
+<p><span class="math display">\[
+E(Y) = 1 \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = \frac{2}{3}
+\]</span></p>
+<p>To compute <span class="math inline">\(E(XY)\)</span> we compute <span class="math inline">\(XY\)</span> for each pair:</p>
+<ul>
+<li>
+<span class="math inline">\(X = -1\)</span>, <span class="math inline">\(Y = 1\)</span> → <span class="math inline">\(XY = -1\)</span>
+</li>
+<li>
+<span class="math inline">\(X = 0\)</span>, <span class="math inline">\(Y = 0\)</span> → <span class="math inline">\(XY = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(X = 1\)</span>, <span class="math inline">\(Y = 1\)</span> → <span class="math inline">\(XY = 1\)</span>
+</li>
+</ul>
+<p>Then: <span class="math display">\[
+E(XY) = (-1) \cdot \frac{1}{3} + 0 + 1 \cdot \frac{1}{3} = 0
+\]</span></p>
+<p>Next we compute the covariance:</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X, Y) = E(XY) - E(X)E(Y) = 0 - (0 \cdot \tfrac{2}{3}) = 0
+\]</span></p>
+<p>This means: <span class="math display">\[
+\operatorname{Cov}(X, Y) = 0 \quad \text{and} \quad \rho_{XY} = 0
+\]</span> We see here that even though <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are clearly <strong>dependent</strong>, their covariance and correlation are zero. This is an illustration of that <strong>uncorrelated does not imply independence</strong>.</p>
+</div>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/termehs\.github\.io\/found-stats\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../rvs-probdists/cont-dists.html" class="pagination-link" aria-label="Continuous Probability Distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../sampling-dists/sampling.html" class="pagination-link" aria-label="Sampling">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Foundational Statistics by Termeh Shafie.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/rvs-probdists/jointly-dist.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
