@@ -953,4 +953,5 @@ P(-1.56 \leq Z \leq 1.56) = 0.9406 - 0.0594 = \boxed{0.8812}
 $$
 
 There’s an 88.1% chance that between 120 and 140 people in the sample voted.
+
 :::

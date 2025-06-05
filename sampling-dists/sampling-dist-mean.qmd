@@ -372,4 +372,5 @@ P(-1.40 \leq Z \leq 0.93) = \Phi(0.93) - \Phi(-1.40) \approx 0.8238 - 0.0808 = 0
 $$
 
 There is a 74.3% chance that the average battery life lies between 9.7 and 10.2 hours.
+
 :::
