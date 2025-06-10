@@ -377,10 +377,12 @@ window.Quarto = {
   <ul class="collapse">
 <li><a href="#step-1.-hypotheses" id="toc-step-1.-hypotheses" class="nav-link" data-scroll-target="#step-1.-hypotheses">Step 1. Hypotheses</a></li>
   <li><a href="#step-2.-significance-level" id="toc-step-2.-significance-level" class="nav-link" data-scroll-target="#step-2.-significance-level">Step 2. Significance Level</a></li>
-  <li><a href="#step-2.-test-statistic" id="toc-step-2.-test-statistic" class="nav-link" data-scroll-target="#step-2.-test-statistic">Step 2. Test Statistic</a></li>
+  <li><a href="#step-3.-test-statistic" id="toc-step-3.-test-statistic" class="nav-link" data-scroll-target="#step-3.-test-statistic">Step 3. Test Statistic</a></li>
   </ul>
 </li>
   <li><a href="#step-4-decision-rule" id="toc-step-4-decision-rule" class="nav-link" data-scroll-target="#step-4-decision-rule">Step 4: Decision Rule</a></li>
+  <li><a href="#step-5-observation" id="toc-step-5-observation" class="nav-link" data-scroll-target="#step-5-observation">Step 5: Observation</a></li>
+  <li><a href="#step-6-conclusion" id="toc-step-6-conclusion" class="nav-link" data-scroll-target="#step-6-conclusion">Step 6: Conclusion</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -502,19 +504,19 @@ window.Quarto = {
 </ul></section><section id="step-2.-significance-level" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-2.-significance-level">Step 2. Significance Level</h3>
 <p>Choose a significance level <span class="math inline">\(\alpha\)</span>, which represents the probability (or risk) of rejecting the null hypothesis <span class="math inline">\(H_0\)</span> when it is actually true.</p>
 <p>A common choice is <span class="math inline">\(\alpha = 0.05\)</span>, which implies that the hypothesis test is conducted at the 5% level.<br>
-This means that there is a 5% chance of making a <strong>Type I error</strong> — rejecting a true null hypothesis.</p>
+This means that there is a 5% chance of making a <strong>Type I error</strong>; rejecting a true null hypothesis.</p>
 <p>In other words, if the null hypothesis is true, then on average, 1 in every 20 tests will incorrectly reject it.</p>
 <p>If we want to be more cautious about rejecting a correct null hypothesis, we use a smaller <span class="math inline">\(\alpha\)</span>, such as <span class="math inline">\(\alpha = 0.01\)</span>.</p>
-</section><section id="step-2.-test-statistic" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-2.-test-statistic">Step 2. Test Statistic</h3>
+</section><section id="step-3.-test-statistic" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-3.-test-statistic">Step 3. Test Statistic</h3>
 <p>Specify which test statistic will be used.<br>
-A <strong>test statistic</strong> is a quantity calculated from sample data. Its value forms the basis of our decision.</p>
+A <strong>test statistic</strong> is a quantity calculated from the sample data and its value forms the basis of our decision (see step 5).</p>
 <p>The choice of test statistic depends on:</p>
 <ul>
 <li>Whether the sample is large or not.</li>
 <li>Whether the population is normally distributed or not.</li>
 <li>Whether the population variance is known or not.</li>
 </ul>
-<p>We’ll return to this in more detail below.</p>
+<p>We’ll return to these different cases in more detail below.</p>
 </section></section><section id="step-4-decision-rule" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="step-4-decision-rule">Step 4: Decision Rule</h2>
 <p>Specify the <strong>rejection region</strong> (the critical region), such that <span class="math inline">\(H_0\)</span> is rejected if the test statistic falls within this region.</p>
 <p>In summary, the form of the <strong>critical region</strong> is determined by:</p>
@@ -552,6 +554,31 @@ A <strong>test statistic</strong> is a quantity calculated from sample data. Its
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hyptest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;22.1: The decision framework of hypothesis testing for two-tailed and one-tailed tests.
 </figcaption></figure>
+</div>
+<p>Once the hypotheses have been formulated, the appropriate test statistic selected and decision rules specified, we proceed with the final steps of the classical hypothesis testing procedure:</p>
+</section><section id="step-5-observation" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="step-5-observation">Step 5: Observation</h2>
+<p>We calculate the value of the <strong>test statistic</strong> using the data obtained from the sample. This computation allows us to compare the observed value with the theoretical distribution <em>under the null hypothesis</em>. This value is what we refere to as our <strong>observed value</strong>.</p>
+</section><section id="step-6-conclusion" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="step-6-conclusion">Step 6: Conclusion</h2>
+<p>Based on the value of the test statistic (our observed value), we make our decision based on the decision rule:</p>
+<ul>
+<li><p>If the value falls <strong>outside the critical boundaries</strong> (i.e.&nbsp;outside the non-rejection region), we <strong>reject the null hypothesis</strong> <span class="math inline">\(H_0\)</span>. This means that we have obtained a result that is statistically significant at the chosen significance level <span class="math inline">\(\alpha\)</span>.</p></li>
+<li><p>If the value falls <strong>within the non-rejection region</strong>, we <strong>do not reject</strong> <span class="math inline">\(H_0\)</span>. In this case, the result is said to be <strong>not statistically significant</strong>.</p></li>
+</ul>
+<p>In essence, these final steps guide us in deciding whether the sample data provides enough evidence to conclude that the null hypothesis is unlikely to be true, given the selected confidence level.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A non-significant result does <strong>not</strong> mean that we can conclude the null hypothesis (<span class="math inline">\(H_0\)</span>) is true. It simply indicates that the alternative hypothesis (<span class="math inline">\(H_1\)</span>) does not present strong enough evidence against <span class="math inline">\(H_0\)</span> in this particular case.</p>
+<p>There may be many other potential null hypotheses that would also not be rejected. Therefore, <strong>failing to reject <span class="math inline">\(H_0\)</span> is not the same as accepting <span class="math inline">\(H_0\)</span> as true</strong>.</p>
+<p>In other words, we use the terms ‘<em>reject</em>’ and ‘<em>fail to reject</em>’ to summarize the possible outcomes of a hypothesis test</p>
+</div>
 </div>
 
 
