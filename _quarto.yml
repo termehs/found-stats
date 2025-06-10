@@ -53,6 +53,7 @@ book:
       chapters:
       - inferential/intro-inference.qmd
       - inferential/estimation.qmd
+      - inferential/hyp-test.qmd
     - part: chi2.qmd
     - part: regression.qmd
     - part: references.qmd
