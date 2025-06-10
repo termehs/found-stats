@@ -58,30 +58,6 @@ We require particularly strong evidence from the observed data to reject $H_0$. 
 If we reach that level of confidence, we say that we reject the null hypothesis (or accept the alternative hypothesis). The degree of confidence required depends on the context, but typically, we want to be quite certain that the assumption in the null hypothesis is incorrect. This is because the decision to reject the null hypothesis, and instead believe in the alternative, often comes with serious consequences.
 
 
-## Errors and Decision Framework
-When making a decision, one either makes a correct choice or one of two types of errors. Just as there is a risk that an innocent person may be wrongly convicted, there is also a risk that a guilty person may go free.
-
-Using probability theory, we can to some extent determine the risk of making incorrect decisions.
-
-- A **Type I error** occurs when we incorrectly reject the null hypothesis ($H_0$) even though it is true. The risk of making a Type I error is called the **significance level** of the test and is denoted by the Greek letter $\alpha$.
-
-- A **Type II error** occurs when we incorrectly fail to reject the null hypothesis, even though it is false. The risk of this error is denoted by the Greek letter $\beta$.
-
-A diagram describing the possible outcomes of hypothesis testing is shown below:
-
-| **Reality**      | $H_0$ is true              | $H_0$ is false             |
-|------------------|----------------------------|----------------------------|
-| **Decision**     |                            |                            |
-| Do not reject $H_0$ | Correct decision           | Type II error (incorrect decision) |
-| Reject $H_0$     | Type I error (incorrect decision) | Correct decision           |
-
-In classical hypothesis testing, we primarily control the probability of making a Type I error. This is done by setting the significance level $\alpha$ to a predefined low value (commonly $\alpha = 0.01$, $0.05$, or $0.10$).
-
-$$
-\alpha = \text{Significance level of the test} = P(\text{Reject } H_0 \mid H_0 \text{ is true})
-$$
-
-After setting the acceptable level for Type I errors, we then aim to reduce the probability of Type II errors ($\beta$) by choosing a sufficiently large sample size.
 
 ## Classical Hypothesis Testing  
 
@@ -109,19 +85,15 @@ Examples of hypotheses about population proportions:
 
 ### Step 2. Significance Level {.unnumbered}
 
-Choose a significance level $\alpha$, which represents the probability (or risk) of rejecting the null hypothesis $H_0$ when it is actually true.
+Choose a significance level $\alpha$, which represents the probability (or risk) of rejecting the null hypothesis $H_0$ when it is actually true. 
 
-A common choice is $\alpha = 0.05$, which implies that the hypothesis test is conducted at the 5% level.  
-This means that there is a 5% chance of making a **Type I error**; rejecting a true null hypothesis.
+A common choice is $\alpha = 0.05$, which implies that the hypothesis test is conducted at the 5% level.   This means that there is a 5% chance of making a **Type I error**, that is rejecting a true null hypothesis. In other words, if the null hypothesis is true, then on average, 1 in every 20 tests will incorrectly reject it. If we want to be more cautious about rejecting a correct null hypothesis, we use a smaller $\alpha$, such as $\alpha = 0.01$.
 
-In other words, if the null hypothesis is true, then on average, 1 in every 20 tests will incorrectly reject it.
 
-If we want to be more cautious about rejecting a correct null hypothesis, we use a smaller $\alpha$, such as $\alpha = 0.01$.
 
 ### Step 3. Test Statistic {.unnumbered}
 
-Specify which test statistic will be used.  
-A **test statistic** is a quantity calculated from the sample data and its value forms the basis of our decision (see step 5).
+Specify which test statistic will be used.   A **test statistic** is a quantity calculated from the sample data and its value forms the basis of our decision (see step 5).
 
 The choice of test statistic depends on:
 
@@ -131,11 +103,9 @@ The choice of test statistic depends on:
 
 We'll return to these different cases in more detail below.
 
-## Step 4: Decision Rule  {.unnumbered}
+### Step 4: Decision Rule  {.unnumbered}
 
-Specify the **rejection region** (the critical region), such that $H_0$ is rejected if the test statistic falls within this region.
-
-In summary, the form of the **critical region** is determined by:
+Specify the **rejection region** (the critical region), such that $H_0$ is rejected if the test statistic falls within this region. In summary, the form of the **critical region** is determined by:
 
 1. The form of the alternative hypothesis:
 
@@ -296,13 +266,41 @@ p1+ p2+ p3
 The decision framework of hypothesis testing for two-tailed and one-tailed tests.
 :::
 
+::: {.callout-note}
+## Errors and Decision Framework
+When making a decision, one either makes a correct choice or one of two types of errors. Just as there is a risk that an innocent person may be wrongly convicted, there is also a risk that a guilty person may go free.
+
+Using probability theory, we can to some extent determine the risk of making incorrect decisions.
+
+- A **Type I error** occurs when we incorrectly reject the null hypothesis ($H_0$) even though it is true. The risk of making a Type I error is called the **significance level** of the test and is denoted by the Greek letter $\alpha$.
+
+- A **Type II error** occurs when we incorrectly fail to reject the null hypothesis, even though it is false. The risk of this error is denoted by the Greek letter $\beta$.
+
+A diagram describing the possible outcomes of hypothesis testing is shown below:
+
+| **Reality**      | $H_0$ is true              | $H_0$ is false             |
+|------------------|----------------------------|----------------------------|
+| **Decision**     |                            |                            |
+| Do not reject $H_0$ | Correct decision           | Type II error (incorrect decision) |
+| Reject $H_0$     | Type I error (incorrect decision) | Correct decision           |
+
+In classical hypothesis testing, we primarily control the probability of making a Type I error. This is done by setting the significance level $\alpha$ to a predefined low value (commonly $\alpha = 0.01$, $0.05$, or $0.10$).
+
+$$
+\alpha = \text{Significance level of the test} = P(\text{Reject } H_0 \mid H_0 \text{ is true})
+$$
+
+After setting the acceptable level for Type I errors, we then aim to reduce the probability of Type II errors ($\beta$) by choosing a sufficiently large sample size.
+:::
+
+
 Once the hypotheses have been formulated, the appropriate test statistic selected and decision rules specified, we proceed with the final steps of the classical hypothesis testing procedure:
 
-## Step 5: Observation {.unnumbered}
+### Step 5: Observation {.unnumbered}
 
 We calculate the value of the **test statistic** using the data obtained from the sample. This computation allows us to compare the observed value with the theoretical distribution *under the null hypothesis*. This value is what we refere to as our **observed value**.
 
-## Step 6: Conclusion  {.unnumbered}
+### Step 6: Conclusion  {.unnumbered}
 
 Based on the value of the test statistic (our observed value), we make our decision based on the decision rule:
 

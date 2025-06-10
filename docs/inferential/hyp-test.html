@@ -371,18 +371,17 @@ window.Quarto = {
    
   <ul>
 <li><a href="#what-is-hypothesis-testing" id="toc-what-is-hypothesis-testing" class="nav-link active" data-scroll-target="#what-is-hypothesis-testing"><span class="header-section-number">22.1</span> What Is Hypothesis Testing?</a></li>
-  <li><a href="#errors-and-decision-framework" id="toc-errors-and-decision-framework" class="nav-link" data-scroll-target="#errors-and-decision-framework"><span class="header-section-number">22.2</span> Errors and Decision Framework</a></li>
   <li>
-<a href="#classical-hypothesis-testing" id="toc-classical-hypothesis-testing" class="nav-link" data-scroll-target="#classical-hypothesis-testing"><span class="header-section-number">22.3</span> Classical Hypothesis Testing</a>
+<a href="#classical-hypothesis-testing" id="toc-classical-hypothesis-testing" class="nav-link" data-scroll-target="#classical-hypothesis-testing"><span class="header-section-number">22.2</span> Classical Hypothesis Testing</a>
   <ul class="collapse">
 <li><a href="#step-1.-hypotheses" id="toc-step-1.-hypotheses" class="nav-link" data-scroll-target="#step-1.-hypotheses">Step 1. Hypotheses</a></li>
   <li><a href="#step-2.-significance-level" id="toc-step-2.-significance-level" class="nav-link" data-scroll-target="#step-2.-significance-level">Step 2. Significance Level</a></li>
   <li><a href="#step-3.-test-statistic" id="toc-step-3.-test-statistic" class="nav-link" data-scroll-target="#step-3.-test-statistic">Step 3. Test Statistic</a></li>
-  </ul>
-</li>
   <li><a href="#step-4-decision-rule" id="toc-step-4-decision-rule" class="nav-link" data-scroll-target="#step-4-decision-rule">Step 4: Decision Rule</a></li>
   <li><a href="#step-5-observation" id="toc-step-5-observation" class="nav-link" data-scroll-target="#step-5-observation">Step 5: Observation</a></li>
   <li><a href="#step-6-conclusion" id="toc-step-6-conclusion" class="nav-link" data-scroll-target="#step-6-conclusion">Step 6: Conclusion</a></li>
+  </ul>
+</li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -440,8 +439,79 @@ window.Quarto = {
 <p>There is an asymmetry in how we treat the null hypothesis (<span class="math inline">\(H_0\)</span>) and the alternative hypothesis (<span class="math inline">\(H_1\)</span>) in statistical hypothesis testing. We typically choose <span class="math inline">\(H_0\)</span> to be the hypothesis that we hold on to as long as possible. It is the default assumption, often representing “no change,” “no effect,” or “no difference.” On the other hand, <span class="math inline">\(H_1\)</span> is usually the more bold and interesting hypothesis from an applied perspective.</p>
 <p>We require particularly strong evidence from the observed data to reject <span class="math inline">\(H_0\)</span>. The burden of proof lies with the party advocating for <span class="math inline">\(H_1\)</span>. Before diving into how to best use information from the sample, we ask ourselves: how confident must we be that the accused is guilty before reaching a guilty verdict? Similarly, how confident must we be that the null hypothesis is incorrect before deciding to believe in the alternative hypothesis?</p>
 <p>If we reach that level of confidence, we say that we reject the null hypothesis (or accept the alternative hypothesis). The degree of confidence required depends on the context, but typically, we want to be quite certain that the assumption in the null hypothesis is incorrect. This is because the decision to reject the null hypothesis, and instead believe in the alternative, often comes with serious consequences.</p>
-</section></section><section id="errors-and-decision-framework" class="level2" data-number="22.2"><h2 data-number="22.2" class="anchored" data-anchor-id="errors-and-decision-framework">
-<span class="header-section-number">22.2</span> Errors and Decision Framework</h2>
+</section></section><section id="classical-hypothesis-testing" class="level2" data-number="22.2"><h2 data-number="22.2" class="anchored" data-anchor-id="classical-hypothesis-testing">
+<span class="header-section-number">22.2</span> Classical Hypothesis Testing</h2>
+<p>The classical approach to hypothesis testing involves the following six main steps:</p>
+<section id="step-1.-hypotheses" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-1.-hypotheses">Step 1. Hypotheses</h3>
+<p>Begin by formulating the null hypothesis (<span class="math inline">\(H_0\)</span>) and the alternative hypothesis (<span class="math inline">\(H_1\)</span>).</p>
+<p>Examples of hypotheses about population means:</p>
+<ul>
+<li><p><span class="math inline">\(H_0: \mu = \mu_0\)</span>; <span class="math inline">\(H_1: \mu \ne \mu_0\)</span><br><em>(Simple null hypothesis; two-sided alternative)</em></p></li>
+<li><p><span class="math inline">\(H_0: \mu \le \mu_0\)</span>; <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span><br><em>(Composite null hypothesis; one-sided alternative)</em></p></li>
+</ul>
+<p>Examples of hypotheses about population proportions:</p>
+<ul>
+<li><p><span class="math inline">\(H_0: p = p_0\)</span>; <span class="math inline">\(H_1: p \ne p_0\)</span><br><em>(Simple null hypothesis; two-sided alternative)</em></p></li>
+<li><p><span class="math inline">\(H_0: p = p_0\)</span>; <span class="math inline">\(H_1: p &gt; p_0\)</span><br><em>(Simple null hypothesis; one-sided alternative)</em></p></li>
+</ul></section><section id="step-2.-significance-level" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-2.-significance-level">Step 2. Significance Level</h3>
+<p>Choose a significance level <span class="math inline">\(\alpha\)</span>, which represents the probability (or risk) of rejecting the null hypothesis <span class="math inline">\(H_0\)</span> when it is actually true.</p>
+<p>A common choice is <span class="math inline">\(\alpha = 0.05\)</span>, which implies that the hypothesis test is conducted at the 5% level. This means that there is a 5% chance of making a <strong>Type I error</strong>, that is rejecting a true null hypothesis. In other words, if the null hypothesis is true, then on average, 1 in every 20 tests will incorrectly reject it. If we want to be more cautious about rejecting a correct null hypothesis, we use a smaller <span class="math inline">\(\alpha\)</span>, such as <span class="math inline">\(\alpha = 0.01\)</span>.</p>
+</section><section id="step-3.-test-statistic" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-3.-test-statistic">Step 3. Test Statistic</h3>
+<p>Specify which test statistic will be used. A <strong>test statistic</strong> is a quantity calculated from the sample data and its value forms the basis of our decision (see step 5).</p>
+<p>The choice of test statistic depends on:</p>
+<ul>
+<li>Whether the sample is large or not.</li>
+<li>Whether the population is normally distributed or not.</li>
+<li>Whether the population variance is known or not.</li>
+</ul>
+<p>We’ll return to these different cases in more detail below.</p>
+</section><section id="step-4-decision-rule" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-4-decision-rule">Step 4: Decision Rule</h3>
+<p>Specify the <strong>rejection region</strong> (the critical region), such that <span class="math inline">\(H_0\)</span> is rejected if the test statistic falls within this region. In summary, the form of the <strong>critical region</strong> is determined by:</p>
+<ol type="1">
+<li>
+<p>The form of the alternative hypothesis:</p>
+<ul>
+<li>
+<span class="math inline">\(H_1: \mu \neq \mu_0\)</span> → two-tailed test → rejection region in both tails.</li>
+<li>
+<span class="math inline">\(H_1: \mu &gt; \mu_0\)</span> → one-tailed test → rejection region in the <strong>right</strong> tail.</li>
+<li>
+<span class="math inline">\(H_1: \mu &lt; \mu_0\)</span> → one-tailed test → rejection region in the <strong>left</strong> tail.</li>
+</ul>
+</li>
+<li><p>The significance level <span class="math inline">\(\alpha\)</span>.</p></li>
+</ol>
+<p>Alternative hypotheses of the forms <span class="math inline">\(&gt;\)</span> and <span class="math inline">\(&lt;\)</span> are called <strong>one-sided</strong>, while those using <span class="math inline">\(\neq\)</span> are called <strong>two-sided</strong>. <a href="#fig-hyptest" class="quarto-xref">Figure&nbsp;<span>22.1</span></a> illustrates the decision framework of hypothesis testing three panels:</p>
+<ol type="1">
+<li><p>Left: Depicts a two-tailed test, where both tails of the distribution represent critical regions. The dashed lines mark the critical values at <span class="math inline">\(z = \pm z_{\alpha/2}\)</span>. Each tail has an area of <span class="math inline">\(\alpha/2\)</span>, and the null hypothesis is rejected if the test statistic lies in either shaded tail. The central blue segment indicates the non-rejection region.</p></li>
+<li><p>Right: Represents a one-sided test with the alternative hypothesis <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>. The right tail is shaded red, indicating the critical region with area <span class="math inline">\(\alpha\)</span>. The test statistic must fall in this region to reject <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>Middle: Shows the critical region in the left tail of the distribution, representing a one-sided test with the alternative hypothesis <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>. The red-shaded area corresponds to the significance level <span class="math inline">\(\alpha\)</span>, and any test statistic falling in this region leads to rejection of the null hypothesis <span class="math inline">\(H_0\)</span>.</p></li>
+</ol>
+<div id="fig-hyptest" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-hyptest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hyptest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.1: The decision framework of hypothesis testing for two-tailed and one-tailed tests.
+</figcaption></figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Errors and Decision Framework
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>When making a decision, one either makes a correct choice or one of two types of errors. Just as there is a risk that an innocent person may be wrongly convicted, there is also a risk that a guilty person may go free.</p>
 <p>Using probability theory, we can to some extent determine the risk of making incorrect decisions.</p>
 <ul>
@@ -487,78 +557,12 @@ window.Quarto = {
 \alpha = \text{Significance level of the test} = P(\text{Reject } H_0 \mid H_0 \text{ is true})
 \]</span></p>
 <p>After setting the acceptable level for Type I errors, we then aim to reduce the probability of Type II errors (<span class="math inline">\(\beta\)</span>) by choosing a sufficiently large sample size.</p>
-</section><section id="classical-hypothesis-testing" class="level2" data-number="22.3"><h2 data-number="22.3" class="anchored" data-anchor-id="classical-hypothesis-testing">
-<span class="header-section-number">22.3</span> Classical Hypothesis Testing</h2>
-<p>The classical approach to hypothesis testing involves the following six main steps:</p>
-<section id="step-1.-hypotheses" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-1.-hypotheses">Step 1. Hypotheses</h3>
-<p>Begin by formulating the null hypothesis (<span class="math inline">\(H_0\)</span>) and the alternative hypothesis (<span class="math inline">\(H_1\)</span>).</p>
-<p>Examples of hypotheses about population means:</p>
-<ul>
-<li><p><span class="math inline">\(H_0: \mu = \mu_0\)</span>; <span class="math inline">\(H_1: \mu \ne \mu_0\)</span><br><em>(Simple null hypothesis; two-sided alternative)</em></p></li>
-<li><p><span class="math inline">\(H_0: \mu \le \mu_0\)</span>; <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span><br><em>(Composite null hypothesis; one-sided alternative)</em></p></li>
-</ul>
-<p>Examples of hypotheses about population proportions:</p>
-<ul>
-<li><p><span class="math inline">\(H_0: p = p_0\)</span>; <span class="math inline">\(H_1: p \ne p_0\)</span><br><em>(Simple null hypothesis; two-sided alternative)</em></p></li>
-<li><p><span class="math inline">\(H_0: p = p_0\)</span>; <span class="math inline">\(H_1: p &gt; p_0\)</span><br><em>(Simple null hypothesis; one-sided alternative)</em></p></li>
-</ul></section><section id="step-2.-significance-level" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-2.-significance-level">Step 2. Significance Level</h3>
-<p>Choose a significance level <span class="math inline">\(\alpha\)</span>, which represents the probability (or risk) of rejecting the null hypothesis <span class="math inline">\(H_0\)</span> when it is actually true.</p>
-<p>A common choice is <span class="math inline">\(\alpha = 0.05\)</span>, which implies that the hypothesis test is conducted at the 5% level.<br>
-This means that there is a 5% chance of making a <strong>Type I error</strong>; rejecting a true null hypothesis.</p>
-<p>In other words, if the null hypothesis is true, then on average, 1 in every 20 tests will incorrectly reject it.</p>
-<p>If we want to be more cautious about rejecting a correct null hypothesis, we use a smaller <span class="math inline">\(\alpha\)</span>, such as <span class="math inline">\(\alpha = 0.01\)</span>.</p>
-</section><section id="step-3.-test-statistic" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-3.-test-statistic">Step 3. Test Statistic</h3>
-<p>Specify which test statistic will be used.<br>
-A <strong>test statistic</strong> is a quantity calculated from the sample data and its value forms the basis of our decision (see step 5).</p>
-<p>The choice of test statistic depends on:</p>
-<ul>
-<li>Whether the sample is large or not.</li>
-<li>Whether the population is normally distributed or not.</li>
-<li>Whether the population variance is known or not.</li>
-</ul>
-<p>We’ll return to these different cases in more detail below.</p>
-</section></section><section id="step-4-decision-rule" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="step-4-decision-rule">Step 4: Decision Rule</h2>
-<p>Specify the <strong>rejection region</strong> (the critical region), such that <span class="math inline">\(H_0\)</span> is rejected if the test statistic falls within this region.</p>
-<p>In summary, the form of the <strong>critical region</strong> is determined by:</p>
-<ol type="1">
-<li>
-<p>The form of the alternative hypothesis:</p>
-<ul>
-<li>
-<span class="math inline">\(H_1: \mu \neq \mu_0\)</span> → two-tailed test → rejection region in both tails.</li>
-<li>
-<span class="math inline">\(H_1: \mu &gt; \mu_0\)</span> → one-tailed test → rejection region in the <strong>right</strong> tail.</li>
-<li>
-<span class="math inline">\(H_1: \mu &lt; \mu_0\)</span> → one-tailed test → rejection region in the <strong>left</strong> tail.</li>
-</ul>
-</li>
-<li><p>The significance level <span class="math inline">\(\alpha\)</span>.</p></li>
-</ol>
-<p>Alternative hypotheses of the forms <span class="math inline">\(&gt;\)</span> and <span class="math inline">\(&lt;\)</span> are called <strong>one-sided</strong>, while those using <span class="math inline">\(\neq\)</span> are called <strong>two-sided</strong>. <a href="#fig-hyptest" class="quarto-xref">Figure&nbsp;<span>22.1</span></a> illustrates the decision framework of hypothesis testing three panels:</p>
-<ol type="1">
-<li><p>Left: Depicts a two-tailed test, where both tails of the distribution represent critical regions. The dashed lines mark the critical values at <span class="math inline">\(z = \pm z_{\alpha/2}\)</span>. Each tail has an area of <span class="math inline">\(\alpha/2\)</span>, and the null hypothesis is rejected if the test statistic lies in either shaded tail. The central blue segment indicates the non-rejection region.</p></li>
-<li><p>Right: Represents a one-sided test with the alternative hypothesis <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>. The right tail is shaded red, indicating the critical region with area <span class="math inline">\(\alpha\)</span>. The test statistic must fall in this region to reject <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>Middle: Shows the critical region in the left tail of the distribution, representing a one-sided test with the alternative hypothesis <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>. The red-shaded area corresponds to the significance level <span class="math inline">\(\alpha\)</span>, and any test statistic falling in this region leads to rejection of the null hypothesis <span class="math inline">\(H_0\)</span>.</p></li>
-</ol>
-<div id="fig-hyptest" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-hyptest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1152"></p>
-</figure>
 </div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hyptest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;22.1: The decision framework of hypothesis testing for two-tailed and one-tailed tests.
-</figcaption></figure>
 </div>
 <p>Once the hypotheses have been formulated, the appropriate test statistic selected and decision rules specified, we proceed with the final steps of the classical hypothesis testing procedure:</p>
-</section><section id="step-5-observation" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="step-5-observation">Step 5: Observation</h2>
+</section><section id="step-5-observation" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-5-observation">Step 5: Observation</h3>
 <p>We calculate the value of the <strong>test statistic</strong> using the data obtained from the sample. This computation allows us to compare the observed value with the theoretical distribution <em>under the null hypothesis</em>. This value is what we refere to as our <strong>observed value</strong>.</p>
-</section><section id="step-6-conclusion" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="step-6-conclusion">Step 6: Conclusion</h2>
+</section><section id="step-6-conclusion" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="step-6-conclusion">Step 6: Conclusion</h3>
 <p>Based on the value of the test statistic (our observed value), we make our decision based on the decision rule:</p>
 <ul>
 <li><p>If the value falls <strong>outside the critical boundaries</strong> (i.e.&nbsp;outside the non-rejection region), we <strong>reject the null hypothesis</strong> <span class="math inline">\(H_0\)</span>. This means that we have obtained a result that is statistically significant at the chosen significance level <span class="math inline">\(\alpha\)</span>.</p></li>
@@ -582,7 +586,7 @@ Note
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
