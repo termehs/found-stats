@@ -387,15 +387,14 @@ window.Quarto = {
   <ul class="collapse">
 <li><a href="#two-sided-hypothesis-tests" id="toc-two-sided-hypothesis-tests" class="nav-link" data-scroll-target="#two-sided-hypothesis-tests"><span class="header-section-number">22.3.1</span> Two-Sided Hypothesis Tests</a></li>
   <li><a href="#one-sided-hypothesis-tests" id="toc-one-sided-hypothesis-tests" class="nav-link" data-scroll-target="#one-sided-hypothesis-tests"><span class="header-section-number">22.3.2</span> One-Sided Hypothesis Tests</a></li>
+  <li><a href="#hypothesis-testing-with-unknown-variance" id="toc-hypothesis-testing-with-unknown-variance" class="nav-link" data-scroll-target="#hypothesis-testing-with-unknown-variance"><span class="header-section-number">22.3.3</span> Hypothesis Testing with Unknown Variance</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/hyp-test.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span>
-</h1>
+<h1 class="title"><span id="sec-hyptest" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></h1>
 </div>
 
 
@@ -740,6 +739,75 @@ z_{\text{obs}} &lt; -1.645
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean1side-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;22.3: Visual comparison of one-sided hypothesis tests using the standard normal distribution. The left plot shows a right-tailed test, with the rejection region in the upper tail (for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs.&nbsp;<span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>). The right plot illustrates a left-tailed test, where the rejection region lies in the lower tail (for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs.&nbsp;<span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>).
 </figcaption></figure>
+</div>
+</section></section><section id="hypothesis-testing-with-unknown-variance" class="level3" data-number="22.3.3"><h3 data-number="22.3.3" class="anchored" data-anchor-id="hypothesis-testing-with-unknown-variance">
+<span class="header-section-number">22.3.3</span> Hypothesis Testing with Unknown Variance</h3>
+<p>Up until now, we have assumed that the population is normally distributed and that the population variance <span class="math inline">\(\sigma^2\)</span> is known. But what if the population variance is <strong>unknown</strong> or if the sample size is <strong>small</strong>?</p>
+<p>In such cases, we no longer use the standard normal distribution (<span class="math inline">\(Z\)</span>). Instead, we use the <strong>Student’s <span class="math inline">\(t\)</span>-distribution</strong>, which accounts for the additional uncertainty introduced by estimating the population standard deviation from the sample.</p>
+<p>The test statistic is then defined as:</p>
+<p><span class="math display">\[
+t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{X}\)</span> is the sample mean,</li>
+<li>
+<span class="math inline">\(\mu_0\)</span> is the value of the population mean under the null hypothesis,</li>
+<li>
+<span class="math inline">\(s\)</span> is the sample standard deviation,</li>
+<li>
+<span class="math inline">\(n\)</span> is the sample size.</li>
+</ul>
+<p>Under the null hypothesis <span class="math inline">\(H_0\)</span>, this test statistic follows a <strong><span class="math inline">\(t\)</span>-distribution</strong> with <span class="math inline">\(n - 1\)</span> <strong>degrees of freedom</strong>.</p>
+<p>This approach is particularly crucial when the sample size is small (<span class="math inline">\(n &lt; 30\)</span>), and the population variance cannot be assumed to be known. The <span class="math inline">\(t\)</span>-distribution is wider than the normal distribution, which reflects greater uncertainty in small samples. As <span class="math inline">\(n\)</span> increases, the <span class="math inline">\(t\)</span>-distribution approaches the standard normal distribution (see <a href="estimation.html" class="quarto-xref"><span>Chapter 21</span></a>).</p>
+<section id="summary-hypothesis-tests-for-a-population-mean" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="summary-hypothesis-tests-for-a-population-mean">Summary: Hypothesis Tests for a Population Mean</h4>
+<p>When testing hypotheses about a population mean, the choice of test statistic depends on the sample size, whether the population standard deviation is known, and the shape of the population distribution. These different cases for a test of the population mean are shown in <a href="#tbl-testmean" class="quarto-xref">Table&nbsp;<span>22.1</span></a>.</p>
+<div id="tbl-testmean" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-testmean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;22.1: Summary of test statistics and distributions used for hypothesis testing of a population mean (<span class="math inline">\(\mu\)</span>), depending on sample size, knowledge of the population variance, and the assumption of normality. When the population standard deviation is unknown and the sample size is small, the <span class="math inline">\(t\)</span>-distribution is used with <span class="math inline">\(n - 1\)</span> degrees of freedom. Note that these are the distributions assumed given <span class="math inline">\(H_0\)</span> true.
+</figcaption><div aria-describedby="tbl-testmean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 14%">
+<col style="width: 29%">
+</colgroup>
+<thead><tr class="header">
+<th>Conditions</th>
+<th>Test Statistic</th>
+<th>Distribution</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+<span class="math inline">\(n \geq 30\)</span>, <span class="math inline">\(\sigma^2\)</span> known</td>
+<td><span class="math inline">\(Z = \dfrac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}\)</span></td>
+<td>Standard Normal (<span class="math inline">\(Z\)</span>)</td>
+</tr>
+<tr class="even">
+<td>
+<span class="math inline">\(n \geq 30\)</span>, <span class="math inline">\(\sigma^2\)</span> unknown</td>
+<td><span class="math inline">\(Z = \dfrac{\bar{X} - \mu_0}{s / \sqrt{n}}\)</span></td>
+<td>Standard Normal (<span class="math inline">\(Z\)</span>)</td>
+</tr>
+<tr class="odd">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, <span class="math inline">\(\sigma^2\)</span> known, normal population</td>
+<td><span class="math inline">\(Z = \dfrac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}\)</span></td>
+<td>Standard Normal (<span class="math inline">\(Z\)</span>)</td>
+</tr>
+<tr class="even">
+<td>
+<span class="math inline">\(n &lt; 30\)</span>, <span class="math inline">\(\sigma^2\)</span> unknown, normal population</td>
+<td><span class="math inline">\(t = \dfrac{\bar{X} - \mu_0}{s / \sqrt{n}}\)</span></td>
+<td>
+<span class="math inline">\(t\)</span> with <span class="math inline">\(n-1\)</span> df</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
 </div>
 
 

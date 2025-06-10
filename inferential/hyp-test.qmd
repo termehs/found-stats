@@ -1,4 +1,4 @@
-# Hypothesis Testing
+# Hypothesis Testing {#sec-hyptest}
 In the previous chapter, we used **confidence intervals** to estimate an unknown population parameter such as the mean ($\mu$) or proportion ($p$), based on a random sample. Confidence intervals provide a range of plausible values for that parameter.
 
 While confidence intervals focus on estimation, **hypothesis testing** addresses decision-making: it allows us to test specific claims about a population parameter using sample data.   In fact, these two methods are closely related; we can often reach the same conclusions using either approach. We return to this in more detail later in this chapter.
@@ -617,4 +617,42 @@ p11 + p22
 Visual comparison of one-sided hypothesis tests using the standard normal distribution. The left plot shows a right-tailed test, with the rejection region in the upper tail (for testing $H_0: \mu = \mu_0$ vs. $H_1: \mu > \mu_0$). The right plot illustrates a left-tailed test, where the rejection region lies in the lower tail (for testing $H_0: \mu = \mu_0$ vs. $H_1: \mu < \mu_0$). 
 :::
 
+### Hypothesis Testing with Unknown Variance
+
+Up until now, we have assumed that the population is normally distributed and that the population variance $\sigma^2$ is known. But what if the population variance is **unknown** or if the sample size is **small**?
+
+In such cases, we no longer use the standard normal distribution ($Z$). Instead, we use the **Student’s $t$-distribution**, which accounts for the additional uncertainty introduced by estimating the population standard deviation from the sample.
+
+The test statistic is then defined as:
+
+$$
+t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}
+$$
+
+where:
+
+- $\bar{X}$ is the sample mean,
+- $\mu_0$ is the value of the population mean under the null hypothesis,
+- $s$ is the sample standard deviation,
+- $n$ is the sample size.
+
+Under the null hypothesis $H_0$, this test statistic follows a **$t$-distribution** with $n - 1$ **degrees of freedom**.
+
+This approach is particularly crucial when the sample size is small ($n < 30$), and the population variance cannot be assumed to be known. The $t$-distribution is wider than the normal distribution, which reflects greater uncertainty in small samples. As $n$ increases, the $t$-distribution approaches the standard normal distribution (see @sec-est).
+
+#### Summary: Hypothesis Tests for a Population Mean  {.unnumbered}
+
+When testing hypotheses about a population mean, the choice of test statistic depends on the sample size, whether the population standard deviation is known, and the shape of the population distribution. These different cases for a test of the population mean are shown in @tbl-testmean.
+
+::: {#tbl-testmean}
+| Conditions                                          | Test Statistic                          | Distribution            |
+|----------------------------------------------------------------------------------------------------|---------------------------|------------------------------------------------------|
+| $n \geq 30$, $\sigma^2$ known                      | $Z = \dfrac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$ | Standard Normal ($Z$)    |
+| $n \geq 30$, $\sigma^2$ unknown                    | $Z = \dfrac{\bar{X} - \mu_0}{s / \sqrt{n}}$     | Standard Normal ($Z$)    |
+| $n < 30$, $\sigma^2$ known, normal population      | $Z = \dfrac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$ | Standard Normal ($Z$)    |
+| $n < 30$, $\sigma^2$ unknown, normal population    | $t = \dfrac{\bar{X} - \mu_0}{s / \sqrt{n}}$     | $t$ with $n-1$ df |
+
+Summary of test statistics and distributions used for hypothesis testing of a population mean ($\mu$), depending on sample size, knowledge of the population variance, and the assumption of normality. When the population standard deviation is unknown and the sample size is small, the $t$-distribution is used with $n - 1$ degrees of freedom. Note that these are the distributions assumed given $H_0$ true.
+
+:::
 
