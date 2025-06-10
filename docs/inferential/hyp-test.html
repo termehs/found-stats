@@ -382,6 +382,13 @@ window.Quarto = {
   <li><a href="#step-6-conclusion" id="toc-step-6-conclusion" class="nav-link" data-scroll-target="#step-6-conclusion">Step 6: Conclusion</a></li>
   </ul>
 </li>
+  <li>
+<a href="#hypothesis-testing-for-a-population-mean" id="toc-hypothesis-testing-for-a-population-mean" class="nav-link" data-scroll-target="#hypothesis-testing-for-a-population-mean"><span class="header-section-number">22.3</span> Hypothesis Testing for a Population Mean</a>
+  <ul class="collapse">
+<li><a href="#two-sided-hypothesis-tests" id="toc-two-sided-hypothesis-tests" class="nav-link" data-scroll-target="#two-sided-hypothesis-tests"><span class="header-section-number">22.3.1</span> Two-Sided Hypothesis Tests</a></li>
+  <li><a href="#one-sided-hypothesis-tests" id="toc-one-sided-hypothesis-tests" class="nav-link" data-scroll-target="#one-sided-hypothesis-tests"><span class="header-section-number">22.3.2</span> One-Sided Hypothesis Tests</a></li>
+  </ul>
+</li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -584,9 +591,159 @@ Note
 <p>In other words, we use the terms ‘<em>reject</em>’ and ‘<em>fail to reject</em>’ to summarize the possible outcomes of a hypothesis test</p>
 </div>
 </div>
+</section></section><section id="hypothesis-testing-for-a-population-mean" class="level2" data-number="22.3"><h2 data-number="22.3" class="anchored" data-anchor-id="hypothesis-testing-for-a-population-mean">
+<span class="header-section-number">22.3</span> Hypothesis Testing for a Population Mean</h2>
+<p>Just as with confidence intervals, different cases must be considered when conducting hypothesis tests:</p>
+<ul>
+<li>Is the sample size large or small?</li>
+<li>Is the population normally distributed?</li>
+<li>Is the population variance known?</li>
+</ul>
+<section id="two-sided-hypothesis-tests" class="level3" data-number="22.3.1"><h3 data-number="22.3.1" class="anchored" data-anchor-id="two-sided-hypothesis-tests">
+<span class="header-section-number">22.3.1</span> Two-Sided Hypothesis Tests</h3>
+<p>We begin with an example: suppose we draw a sample of size <span class="math inline">\(n\)</span> from a <strong>normally distributed population</strong> where the mean <span class="math inline">\(\mu\)</span> is unknown but the <strong>variance <span class="math inline">\(\sigma^2\)</span> is known</strong>. We conduct a <strong>two-sided hypothesis test</strong> at a significance level <span class="math inline">\(\alpha = 0.05\)</span>, walking through the six steps of hypothesis testing.</p>
+<section id="hypotheses" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="hypotheses">1. Hypotheses</h4>
+<p>We want to test whether the population mean equals some hypothesized value <span class="math inline">\(\mu_0\)</span>. The hypotheses are:</p>
+<p><span class="math display">\[
+H_0: \mu = \mu_0 \\
+H_1: \mu \ne \mu_0
+\]</span></p>
+<p>This is a <strong>two-sided test</strong>, as we are considering deviations in both directions from <span class="math inline">\(\mu_0\)</span>.</p>
+</section><section id="significance-level" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="significance-level">2. Significance Level</h4>
+<p>We choose a significance level of:</p>
+<p><span class="math display">\[
+\alpha = 0.05
+\]</span></p>
+<p>This indicates we are willing to accept a 5% chance of rejecting the null hypothesis if it is actually true.</p>
+</section><section id="test-statistic" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="test-statistic">3. Test Statistic</h4>
+<p>Since the population is normally distributed and the population standard deviation <span class="math inline">\(\sigma\)</span> is known, we use the <strong>standard normal <span class="math inline">\(Z\)</span> statistic</strong>:</p>
+<p><span class="math display">\[
+Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}
+\]</span></p>
+<p>Under <span class="math inline">\(H_0\)</span>, the statistic follows the standard normal distribution:</p>
+<p><span class="math display">\[
+Z \sim N(0, 1)
+\]</span></p>
+</section><section id="decision-rule" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="decision-rule">4. Decision Rule</h4>
+<p>For a two-sided test with <span class="math inline">\(\alpha = 0.05\)</span>, the critical values are:</p>
+<p><span class="math display">\[
+z_{\alpha/2} = \pm 1.96
+\]</span></p>
+<p>The decision rule is:</p>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|z_{\text{obs}}| &gt; 1.96\)</span>
+</li>
+<li>Otherwise, do not reject <span class="math inline">\(H_0\)</span>
+</li>
+</ul>
+<p>The critical regions for this test is visualized in <a href="#fig-mean2side" class="quarto-xref">Figure&nbsp;<span>22.2</span></a>, where we see the threshold for rejecting <span class="math inline">\(H_0\)</span> in both directions when testing for a deviation from a hypothesized population mean.</p>
+<div id="fig-mean2side" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-mean2side-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean2side-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.2: Visual representation of a two-sided hypothesis test at significance level <span class="math inline">\(\alpha  = 0.05\)</span>. The standard normal curve is split into two critical regions (shaded red), each representing <span class="math inline">\(\alpha⁄2 = 0.025\)</span> in the tails, where the null hypothesis is rejected. The non-rejection region (shaded blue) lies between the critical values −1.96 and 1.96. If the test statistic falls within this central interval, we do not reject the null hypothesis.
+</figcaption></figure>
+</div>
+</section><section id="observation" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="observation">5. Observation</h4>
+<p>Compute the observed value of the test statistic:</p>
+<p><span class="math display">\[
+z_{\text{obs}} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}
+\]</span></p>
+</section><section id="conclusion" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="conclusion">6. Conclusion</h4>
+<p>Compare <span class="math inline">\(z_{\text{obs}}\)</span> to the critical values:</p>
+<ul>
+<li>If <span class="math inline">\(|z_{\text{obs}}| &gt; 1.96\)</span>, <strong>reject <span class="math inline">\(H_0\)</span></strong>
+</li>
+<li>Otherwise, <strong>fail to reject <span class="math inline">\(H_0\)</span></strong>
+</li>
+</ul>
+<p>This tells us whether the sample provides strong enough evidence to conclude that the population mean differs from <span class="math inline">\(\mu_0\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note: Choosing Critical Values for a Hypothesis Test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A reasonable starting point in hypothesis testing is that we should reject the null hypothesis (<span class="math inline">\(H_0\)</span>) if we observe a sample mean <span class="math inline">\(\bar{x}\)</span> that is “far” from the expected value <span class="math inline">\(\mu_0\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+<p>In practical terms, <span class="math inline">\(\bar{x}\)</span> being far from <span class="math inline">\(\mu_0\)</span> means that the test statistic <span class="math inline">\(Z\)</span> takes on a value far from 0; either in the positive or negative direction. Therefore, we decide to reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(Z\)</span> falls outside a specified range: specifically, outside the interval <span class="math inline">\([-c, c]\)</span>, where <span class="math inline">\(c\)</span> is a positive constant that we determine based on the desired significance level <span class="math inline">\(\alpha\)</span>.</p>
+<p>To define this cutoff <span class="math inline">\(c\)</span>, we choose it so that the total probability of <span class="math inline">\(Z\)</span> falling outside the interval (i.e., the two tails) equals the chosen significance level <span class="math inline">\(\alpha\)</span>. For example, with <span class="math inline">\(\alpha = 0.05\)</span>, we solve:</p>
+<p><span class="math display">\[
+P(|Z| &gt; c \mid H_0 \text{ true}) = 0.05
+\]</span></p>
+<p>Since the distribution of <span class="math inline">\(Z\)</span> under the null hypothesis is standard normal <span class="math inline">\(N(0, 1)\)</span>, we find:</p>
+<p><span class="math display">\[
+P(|Z| &gt; 1.96 \mid H_0 \text{ true}) = 0.05
+\]</span></p>
+<p>Thus, we set <span class="math inline">\(c = 1.96\)</span> for a two-sided test at the 5% significance level. Our final decision rule becomes:</p>
+<blockquote class="blockquote">
+<p>Reject <span class="math inline">\(H_0\)</span> if the computed test statistic <span class="math inline">\(Z\)</span> falls outside the interval <span class="math inline">\([-1.96,\ 1.96]\)</span>. Otherwise, we fail to reject <span class="math inline">\(H_0\)</span>.</p>
+</blockquote>
+</div>
+</div>
+</section></section><section id="one-sided-hypothesis-tests" class="level3" data-number="22.3.2"><h3 data-number="22.3.2" class="anchored" data-anchor-id="one-sided-hypothesis-tests">
+<span class="header-section-number">22.3.2</span> One-Sided Hypothesis Tests</h3>
+<p>In some situations, we are not interested in detecting any difference from the null value, but specifically a greater or smaller value. In such cases, we use a one-sided alternative hypothesis. The structure of the test depends on the direction specified in the alternative.</p>
+<section id="testing-if-the-mean-is-greater-than-a-specified-value" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="testing-if-the-mean-is-greater-than-a-specified-value">Testing if the mean is greater than a specified value</h4>
+<p>We want to test the hypotheses:</p>
+<p><span class="math display">\[
+H_0: \mu = \mu_0 \quad \text{vs.} \quad H_1: \mu &gt; \mu_0
+\]</span></p>
+<p>In this case, we are interested in large values of the sample mean <span class="math inline">\(\bar{x}\)</span> as evidence against <span class="math inline">\(H_0\)</span>. The rejection region lies in the right tail of the standard normal distribution.</p>
+<p>For a significance level <span class="math inline">\(\alpha = 0.05\)</span>, the critical value is:</p>
+<p><span class="math display">\[
+z_\alpha = 1.645
+\]</span></p>
+<p>We reject the null hypothesis if:</p>
+<p><span class="math display">\[
+z_{\text{obs}} &gt; 1.645
+\]</span></p>
+<p>This corresponds to the idea that an unusually high observed value of <span class="math inline">\(\bar{x}\)</span> supports the alternative that the true mean is greater than <span class="math inline">\(\mu_0\)</span>.</p>
+</section><section id="testing-if-the-mean-is-less-than-a-specified-value" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="testing-if-the-mean-is-less-than-a-specified-value">Testing if the mean is less than a specified value</h4>
+<p>Now suppose we want to test:</p>
+<p><span class="math display">\[
+H_0: \mu = \mu_0 \quad \text{vs.} \quad H_1: \mu &lt; \mu_0
+\]</span></p>
+<p>Here, we are interested in small values of the sample mean as evidence against <span class="math inline">\(H_0\)</span>. The rejection region lies in the left tail of the standard normal distribution.</p>
+<p>For <span class="math inline">\(\alpha = 0.05\)</span>, the critical value becomes:</p>
+<p><span class="math display">\[
+z_\alpha = -1.645
+\]</span></p>
+<p>We reject the null hypothesis if:</p>
+<p><span class="math display">\[
+z_{\text{obs}} &lt; -1.645
+\]</span></p>
+<p>This reflects the logic that low values of <span class="math inline">\(\bar{x}\)</span> support the alternative that the true mean is less than <span class="math inline">\(\mu_0\)</span>.</p>
+<p>The critical regions for these one-sided tests are visualized in <a href="#fig-mean1side" class="quarto-xref">Figure&nbsp;<span>22.3</span></a>, where we see the threshold for rejecting <span class="math inline">\(H_0\)</span> in either directions when testing for a deviation from a hypothesized population mean.</p>
+<div id="fig-mean1side" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-mean1side-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean1side-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.3: Visual comparison of one-sided hypothesis tests using the standard normal distribution. The left plot shows a right-tailed test, with the rejection region in the upper tail (for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs.&nbsp;<span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>). The right plot illustrates a left-tailed test, where the rejection region lies in the lower tail (for testing <span class="math inline">\(H_0: \mu = \mu_0\)</span> vs.&nbsp;<span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>).
+</figcaption></figure>
+</div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

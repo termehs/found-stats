@@ -319,3 +319,302 @@ There may be many other potential null hypotheses that would also not be rejecte
 
 In other words, we use the terms ‘*reject*’ and ‘*fail to reject*’ to summarize the possible outcomes of a hypothesis test
 :::
+
+## Hypothesis Testing for a Population Mean
+
+Just as with confidence intervals, different cases must be considered when conducting hypothesis tests:
+
+- Is the sample size large or small?
+- Is the population normally distributed?
+- Is the population variance known?
+
+
+### Two-Sided Hypothesis Tests
+
+We begin with an example: suppose we draw a sample of size $n$ from a **normally distributed population** where the mean $\mu$ is unknown but the **variance $\sigma^2$ is known**. We conduct a **two-sided hypothesis test** at a significance level $\alpha = 0.05$, walking through the six steps of hypothesis testing.
+
+#### 1. Hypotheses {.unnumbered}
+
+We want to test whether the population mean equals some hypothesized value $\mu_0$. The hypotheses are:
+
+$$
+H_0: \mu = \mu_0 \\
+H_1: \mu \ne \mu_0
+$$
+
+This is a **two-sided test**, as we are considering deviations in both directions from $\mu_0$.
+
+#### 2. Significance Level {.unnumbered}
+
+We choose a significance level of:
+
+$$
+\alpha = 0.05
+$$
+
+This indicates we are willing to accept a 5% chance of rejecting the null hypothesis if it is actually true.
+
+#### 3. Test Statistic {.unnumbered}
+
+Since the population is normally distributed and the population standard deviation $\sigma$ is known, we use the **standard normal $Z$ statistic**:
+
+$$
+Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}
+$$
+
+Under $H_0$, the statistic follows the standard normal distribution:
+
+$$
+Z \sim N(0, 1)
+$$
+
+#### 4. Decision Rule {.unnumbered}
+
+For a two-sided test with $\alpha = 0.05$, the critical values are:
+
+$$
+z_{\alpha/2} = \pm 1.96
+$$
+
+The decision rule is:
+
+- Reject $H_0$ if $|z_{\text{obs}}| > 1.96$
+- Otherwise, do not reject $H_0$
+
+The critical regions for this test is visualized in @fig-mean2side, where we see the threshold for rejecting $H_0$ in both directions when testing for a deviation from a hypothesized population mean.
+
+
+::: {#fig-mean2side .center}
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 4
+#| fig-width: 9
+
+ggplot(df, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+
+  # Shade the critical regions
+  geom_area(data = df_left, fill = "red", alpha = 0.5) +
+  geom_area(data = df_right, fill = "red", alpha = 0.5) +
+
+  # Vertical lines at critical values that stop at the curve
+  annotate("segment", x = -crit_val, xend = -crit_val, y = 0, yend = y_crit, linetype = "solid", color = "black") +
+  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit, linetype = "solid", color = "black") +
+
+  # Horizontal colored lines for critical and acceptance regions
+  annotate("segment", x = -4, xend = -crit_val, y = 0, yend = 0, color = "red", linewidth = 2) +
+  annotate("segment", x = -crit_val, xend = crit_val, y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
+  annotate("segment", x = crit_val, xend = 4, y = 0, yend = 0, color = "red", linewidth = 2) +
+
+   # Arrows pointing into tails
+  annotate("segment", x = -crit_val-0.6, xend = -crit_val-0.15, y = 0.07, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+  annotate("segment", x = crit_val + 0.6, xend = crit_val + 0.15, y = 0.06, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+
+  # Annotate regions
+  annotate("text", x = 0, y = 0.44, label = "Two-sided alternative hypothesis, α = 0.05 ", size = 5, fontface = "italic") +
+  annotate("text", x = 0, y = -0.03, label = "Non-rejection region", size = 4.2) +
+  annotate("text", x = -3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = 3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = -crit_val-0.7, y = 0.1, label = "α/2=0.025", color = "black", size = 4, vjust = 1.2) +
+  annotate("text", x = crit_val+0.7, y = 0.09, label = "α/2=0.025", color = "black", size = 4, vjust = 1.2) +
+   annotate("text", x = -crit_val, y = -0.02, label = "-1.96", color = "black", size = 4, vjust = 1.2) +
+  annotate("text", x = crit_val, y = - 0.02 , label = "1.96", color = "black", size = 4, vjust = 1.2) +
+
+  # Clean theme
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+
+```
+Visual representation of a two-sided hypothesis test at significance level $\alpha  = 0.05$. The standard normal curve is split into two critical regions (shaded red), each representing $\alpha⁄2 = 0.025$ in the tails, where the null hypothesis is rejected. The non-rejection region (shaded blue) lies between the critical values −1.96 and 1.96. If the test statistic falls within this central interval, we do not reject the null hypothesis. 
+:::
+
+#### 5. Observation {.unnumbered}
+
+Compute the observed value of the test statistic:
+
+$$
+z_{\text{obs}} = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}
+$$
+
+#### 6. Conclusion {.unnumbered}
+
+Compare $z_{\text{obs}}$ to the critical values:
+
+- If $|z_{\text{obs}}| > 1.96$, **reject $H_0$**
+- Otherwise, **fail to reject $H_0$**
+
+This tells us whether the sample provides strong enough evidence to conclude that the population mean differs from $\mu_0$.
+
+
+::: {.callout-note}
+# Note: Choosing Critical Values for a Hypothesis Test
+A reasonable starting point in hypothesis testing is that we should reject the null hypothesis ($H_0$) if we observe a sample mean $\bar{x}$ that is “far” from the expected value $\mu_0$ under $H_0$.
+
+In practical terms, $\bar{x}$ being far from $\mu_0$ means that the test statistic $Z$ takes on a value far from 0; either in the positive or negative direction. Therefore, we decide to reject $H_0$ if $Z$ falls outside a specified range: specifically, outside the interval $[-c, c]$, where $c$ is a positive constant that we determine based on the desired significance level $\alpha$.
+
+
+To define this cutoff $c$, we choose it so that the total probability of $Z$ falling outside the interval (i.e., the two tails) equals the chosen significance level $\alpha$. For example, with $\alpha = 0.05$, we solve:
+
+$$
+P(|Z| > c \mid H_0 \text{ true}) = 0.05
+$$
+
+Since the distribution of $Z$ under the null hypothesis is standard normal $N(0, 1)$, we find:
+
+$$
+P(|Z| > 1.96 \mid H_0 \text{ true}) = 0.05
+$$
+
+Thus, we set $c = 1.96$ for a two-sided test at the 5% significance level. Our final decision rule becomes:
+
+> Reject $H_0$ if the computed test statistic $Z$ falls outside the interval $[-1.96,\ 1.96]$. Otherwise, we fail to reject $H_0$.
+:::
+
+### One-Sided Hypothesis Tests
+In some situations, we are not interested in detecting any difference from the null value, but specifically a greater or smaller value. In such cases, we use a one-sided alternative hypothesis. The structure of the test depends on the direction specified in the alternative.
+
+#### Testing if the mean is greater than a specified value {.unnumbered}
+
+We want to test the hypotheses:
+
+$$
+H_0: \mu = \mu_0 \quad \text{vs.} \quad H_1: \mu > \mu_0
+$$
+
+In this case, we are interested in large values of the sample mean $\bar{x}$ as evidence against $H_0$. The rejection region lies in the right tail of the standard normal distribution.
+
+For a significance level $\alpha = 0.05$, the critical value is:
+
+$$
+z_\alpha = 1.645
+$$
+
+We reject the null hypothesis if:
+
+$$
+z_{\text{obs}} > 1.645
+$$
+
+This corresponds to the idea that an unusually high observed value of $\bar{x}$ supports the alternative that the true mean is greater than $\mu_0$.
+
+
+
+#### Testing if the mean is less than a specified value {.unnumbered}
+
+Now suppose we want to test:
+
+$$
+H_0: \mu = \mu_0 \quad \text{vs.} \quad H_1: \mu < \mu_0
+$$
+
+Here, we are interested in small values of the sample mean as evidence against $H_0$. The rejection region lies in the left tail of the standard normal distribution.
+
+For $\alpha = 0.05$, the critical value becomes:
+
+$$
+z_\alpha = -1.645
+$$
+
+We reject the null hypothesis if:
+
+$$
+z_{\text{obs}} < -1.645
+$$
+
+This reflects the logic that low values of $\bar{x}$ support the alternative that the true mean is less than $\mu_0$.
+
+The critical regions for these one-sided tests are visualized in @fig-mean1side, where we see the threshold for rejecting $H_0$ in either directions when testing for a deviation from a hypothesized population mean.
+
+
+::: {#fig-mean1side .center}
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 5
+#| fig-width: 12
+p11 <- ggplot(df, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+
+  # Shade the critical regions
+  geom_area(data = df_right, fill = "red", alpha = 0.5) +
+
+  # Vertical  lines at critical values that stop at the curve
+
+  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit, linetype = "solid", color = "black") +
+
+  # Horizontal colored lines for critical and acceptance regions
+
+  annotate("segment", x = -4, xend = crit_val, y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
+  annotate("segment", x = crit_val, xend = 4, y = 0, yend = 0, color = "red", linewidth = 2) +
+
+   # Arrows pointing into tails
+  annotate("segment", x = crit_val + 0.6, xend = crit_val + 0.15, y = 0.06, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+
+  # Annotate regions
+  annotate("text", x = 0, y = 0.44, label = "One-sided alternative hypothesis (>), α = 0.05 ", size = 5, fontface = "italic") +
+  annotate("text", x = -0.5, y = -0.03, label = "Non-rejection region", size = 4.2) +
+  annotate("text", x = 3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = crit_val+0.7, y = 0.09, label = "α=0.05", color = "black", size = 4, vjust = 1.2) +
+  annotate("text", x = crit_val, y = - 0.02 , label = "1.645", color = "black", size = 4, vjust = 1.2) +
+
+  # Clean theme
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+p22 <-  ggplot(df, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+
+  # Shade the critical regions
+  geom_area(data = df_left, fill = "red", alpha = 0.5) +
+
+  # Vertical lines at critical values that stop at the curve
+  annotate("segment", x = -crit_val, xend = -crit_val, y = 0, yend = y_crit, linetype = "solid", color = "black") +
+
+  # Horizontal colored lines for critical and acceptance regions
+  annotate("segment", x = -4, xend = -crit_val, y = 0, yend = 0, color = "red", linewidth = 2) +
+  annotate("segment", x = -crit_val, xend = 4 , y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
+   # Arrows pointing into tails
+  annotate("segment", x = -crit_val-0.6, xend = -crit_val-0.15, y = 0.07, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+  annotate("text", x = -crit_val, y = - 0.02 , label = "-1.645", color = "black", size = 4, vjust = 1.2) +
+  # Annotate regions
+  annotate("text", x = 0, y = 0.44, label = "Two-sided alternative hypothesis (<), α=0.05", size = 5, fontface = "italic") +
+  annotate("text", x = 0.5, y = -0.03, label = "Non-rejection region", size = 4.2) +
+  annotate("text", x = -3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = -crit_val-0.7, y = 0.1, label = "α=0.05", color = "black", size = 4, vjust = 1.2) +
+  
+  # Clean theme
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+p11 + p22
+
+```
+Visual comparison of one-sided hypothesis tests using the standard normal distribution. The left plot shows a right-tailed test, with the rejection region in the upper tail (for testing $H_0: \mu = \mu_0$ vs. $H_1: \mu > \mu_0$). The right plot illustrates a left-tailed test, where the rejection region lies in the lower tail (for testing $H_0: \mu = \mu_0$ vs. $H_1: \mu < \mu_0$). 
+:::
+
+
