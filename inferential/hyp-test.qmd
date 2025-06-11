@@ -391,7 +391,7 @@ The critical regions for this test is visualized in @fig-mean2side, where we see
 #| warning: false
 #| fig-align: center
 #| fig-height: 4
-#| fig-width: 9
+#| fig-width: 10
 
 ggplot(df, aes(x = x, y = y)) +
   geom_line(color = "black", linewidth = 0.7) +
@@ -418,8 +418,8 @@ ggplot(df, aes(x = x, y = y)) +
   # Annotate regions
   annotate("text", x = 0, y = 0.44, label = "Two-sided alternative hypothesis, α = 0.05 ", size = 5, fontface = "italic") +
   annotate("text", x = 0, y = -0.03, label = "Non-rejection region", size = 4.2) +
-  annotate("text", x = -3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
-  annotate("text", x = 3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = -2.7, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = 2.7, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
   annotate("text", x = -crit_val-0.7, y = 0.1, label = "α/2=0.025", color = "black", size = 4, vjust = 1.2) +
   annotate("text", x = crit_val+0.7, y = 0.09, label = "α/2=0.025", color = "black", size = 4, vjust = 1.2) +
    annotate("text", x = -crit_val, y = -0.02, label = "-1.96", color = "black", size = 4, vjust = 1.2) +
@@ -544,7 +544,7 @@ The critical regions for these one-sided tests are visualized in @fig-mean1side,
 #| message: false
 #| warning: false
 #| fig-align: center
-#| fig-height: 5
+#| fig-height: 4
 #| fig-width: 12
 p11 <- ggplot(df, aes(x = x, y = y)) +
   geom_line(color = "black", linewidth = 0.7) +
@@ -717,7 +717,7 @@ This test is visualized in @fig-mean-ex.
 #| warning: false
 #| fig-align: center
 #| fig-height: 4
-#| fig-width: 9
+#| fig-width: 10
 
 z_obs <- -1.75
 
@@ -821,7 +821,7 @@ See @fig-mean-ex2 for an illustration of this one-tailed test.
 #| warning: false
 #| fig-align: center
 #| fig-height: 4
-#| fig-width: 8
+#| fig-width: 10
 
 # Parameters
 df <- 14
@@ -960,7 +960,7 @@ Since $z_{\text{obs}} = 1.45$ is less than the critical value 1.645, we fail to 
 #| warning: false
 #| fig-align: center
 #| fig-height: 4
-#| fig-width: 8
+#| fig-width: 10
 
 # Parameters
 alpha <- 0.05
@@ -1054,7 +1054,7 @@ Because the $p$-value corresponds to an area of only 3% under the curve to the r
 #| message: false
 #| warning: false
 #| fig-align: center
-#| fig-height: 5
+#| fig-height: 4
 #| fig-width: 10
 #| 
 # Set values
@@ -1135,8 +1135,8 @@ where $\Phi$ is the cumulative distribution function (CDF) of the standard norma
 #| message: false
 #| warning: false
 #| fig-align: center
-#| fig-height: 5
-#| fig-width: 10
+#| fig-height: 4
+#| fig-width: 12
 
 # Define observed z-value
 z_obs <- 1.88
