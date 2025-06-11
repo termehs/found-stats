@@ -390,6 +390,8 @@ window.Quarto = {
   <li><a href="#hypothesis-testing-with-unknown-variance" id="toc-hypothesis-testing-with-unknown-variance" class="nav-link" data-scroll-target="#hypothesis-testing-with-unknown-variance"><span class="header-section-number">22.3.3</span> Hypothesis Testing with Unknown Variance</a></li>
   </ul>
 </li>
+  <li><a href="#hypothesis-testing-for-a-population-proportion" id="toc-hypothesis-testing-for-a-population-proportion" class="nav-link" data-scroll-target="#hypothesis-testing-for-a-population-proportion"><span class="header-section-number">22.4</span> Hypothesis Testing for a Population Proportion</a></li>
+  <li><a href="#hypothesis-testing-with-p-values" id="toc-hypothesis-testing-with-p-values" class="nav-link" data-scroll-target="#hypothesis-testing-with-p-values"><span class="header-section-number">22.5</span> Hypothesis Testing with <span class="math inline">\(p\)</span>-Values</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -812,7 +814,7 @@ Table&nbsp;22.1: Summary of test statistics and distributions used for hypothesi
 </section><section id="example-22.1-hypothesis-testing-for-a-mean" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.1-hypothesis-testing-for-a-mean">Example 22.1: Hypothesis Testing for a Mean</h4>
 <p>We are given a sample of <span class="math inline">\(n = 16\)</span> observations from a normally distributed population with a known standard deviation <span class="math inline">\(\sigma = 16\)</span>. The sample mean is <span class="math inline">\(\bar{x} = 743\)</span>. We want to test at the 5% significance level whether the population mean differs from 750, i.e., whether <span class="math inline">\(\mu \ne 750\)</span>.</p>
 <ul>
-<li><p><strong>Step 1: State the Hypotheses</strong> <span class="math display">\[
+<li><p><strong>Step 1: Hypotheses</strong> <span class="math display">\[
 H_0: \mu = 750
 \]</span> <span class="math display">\[
 H_1: \mu \ne 750
@@ -859,9 +861,10 @@ Figure&nbsp;22.4: The two-tailed test in Example 22.1 using the <span class="mat
 </section><section id="example-22.2-hypothesis-test-for-a-mean" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.2-hypothesis-test-for-a-mean">Example 22.2: Hypothesis Test for a Mean</h4>
 <p>We are given a random sample of size <span class="math inline">\(n = 15\)</span> drawn from a normally distributed population with unknown standard deviation. The sample has a mean <span class="math inline">\(\bar{x} = 24.1\)</span> and a sample standard deviation <span class="math inline">\(s = 2\)</span>. We want to test, at the 1% significance level, whether the population mean <span class="math inline">\(\mu\)</span> is less than 25.</p>
 <ul>
-<li><p><strong>Step 1: State the Hypotheses</strong><br>
+<li><p><strong>Step 1: Hypotheses</strong><br>
 We are conducting a one-sided (left-tailed) test: <span class="math display">\[
-H_0: \mu = 25 \\
+H_0: \mu = 25
+\]</span> <span class="math display">\[
 H_1: \mu &lt; 25
 \]</span></p></li>
 <li><p><strong>Step 2: Significance Level</strong><br>
@@ -871,18 +874,14 @@ Since <span class="math inline">\(\sigma\)</span> is unknown and <span class="ma
 t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}  \sim t(n-1)
 \]</span></p></li>
 <li><p><strong>Step 4: Decision Rule</strong><br>
-With <span class="math inline">\(n - 1 = 14\)</span> degrees of freedom and <span class="math inline">\(\alpha = 0.01\)</span> (one-tailed), we find the critical value:</p></li>
-</ul>
-<p><span class="math display">\[
+With <span class="math inline">\(n - 1 = 14\)</span> degrees of freedom and <span class="math inline">\(\alpha = 0.01\)</span> (one-tailed), we find the critical value: <span class="math display">\[
 t_{14, 0.01} = -2.624
-\]</span></p>
-<p>We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{\text{obs}} &lt; -2.624\)</span>.</p>
-<ul>
+\]</span> We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{\text{obs}} &lt; -2.624\)</span>.</p></li>
 <li><p><strong>Step 5: Observation</strong><br>
 We use the sample data to compute our observed value: <span class="math display">\[
 t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{24.1 - 25}{2 / \sqrt{15}} \approx -1.743
 \]</span></p></li>
-<li><p><strong>Step 5: Conclusion</strong> Since <span class="math inline">\(t_{\text{obs}} = -1.743\)</span> is greater than <span class="math inline">\(-2.624\)</span> (in the non-rejection region), we do not reject the null hypothesis. We fail to reject <span class="math inline">\(H_0\)</span>. The sample does <strong>not</strong> provide sufficient evidence at the 1% significance level to conclude that the population mean is less than 25. See <a href="#fig-mean-ex2" class="quarto-xref">Figure&nbsp;<span>22.5</span></a> for an illustration fot he test.</p></li>
+<li><p><strong>Step 5: Conclusion</strong> Since <span class="math inline">\(t_{\text{obs}} = -1.743\)</span> is greater than <span class="math inline">\(-2.624\)</span> (in the non-rejection region), we do not reject the null hypothesis. We fail to reject <span class="math inline">\(H_0\)</span>. The sample does <strong>not</strong> provide sufficient evidence at the 1% significance level to conclude that the population mean is less than 25. See <a href="#fig-mean-ex2" class="quarto-xref">Figure&nbsp;<span>22.5</span></a> for an illustration of this one-tailed test.</p></li>
 </ul>
 <blockquote class="blockquote">
 <p><strong>Note:</strong> Because the test statistic does not fall in the rejection region, the observed sample mean can be explained by random sampling variation if the true mean were 25.</p>
@@ -899,12 +898,177 @@ t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{24.1 - 25}{2 / \sqrt{15}} \appr
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-ex2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;22.5: The two-tailed test in Example 22.2 using the <span class="math inline">\(t\)</span>-distribution.
+Figure&nbsp;22.5: The one-tailed test in Example 22.2 using the <span class="math inline">\(t\)</span>-distribution.
+</figcaption></figure>
+</div>
+</section></section></section><section id="hypothesis-testing-for-a-population-proportion" class="level2" data-number="22.4"><h2 data-number="22.4" class="anchored" data-anchor-id="hypothesis-testing-for-a-population-proportion">
+<span class="header-section-number">22.4</span> Hypothesis Testing for a Population Proportion</h2>
+<p>In this section, we test hypotheses about a <strong>population proportion</strong> <span class="math inline">\(p\)</span> based on data from a single sample. The hypotheses can be formulated as:</p>
+<ul>
+<li>
+<span class="math inline">\(H_0: p = p_0\)</span> (null hypothesis)</li>
+<li>
+<span class="math inline">\(H_1\)</span>: one of the following alternative hypotheses:
+<ul>
+<li>
+<span class="math inline">\(p \neq p_0\)</span> (two-tailed)</li>
+<li>
+<span class="math inline">\(p &gt; p_0\)</span> (right-tailed)</li>
+<li>
+<span class="math inline">\(p &lt; p_0\)</span> (left-tailed)</li>
+</ul>
+</li>
+</ul>
+<p>Here, <span class="math inline">\(p\)</span> is the unknown population proportion, and <span class="math inline">\(p_0\)</span> is a specified numerical value.</p>
+<p>We ask: Is the observed sample proportion <span class="math inline">\(\hat{p}\)</span> far enough from <span class="math inline">\(p_0\)</span> to justify rejecting the null hypothesis <span class="math inline">\(H_0\)</span>? Or is the observed deviation consistent with sampling variation?</p>
+<p>If the sample size is sufficiently large, we use the test statistic: <span class="math display">\[
+Z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1 - p_0)}{n}}}
+\]</span> Under the null hypothesis <span class="math inline">\(H_0\)</span>, this statistic is approximately standard normal: <span class="math display">\[
+Z \sim N(0, 1)
+\]</span> For a common significance level <span class="math inline">\(\alpha = 0.05\)</span>, the decision rules are as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 39%">
+<col style="width: 30%">
+</colgroup>
+<thead><tr class="header">
+<th>Alternative Hypothesis</th>
+<th>Reject <span class="math inline">\(H_0\)</span> if…</th>
+<th>Critical Value (<span class="math inline">\(z_c\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p \neq p_0\)</span></td>
+<td><span class="math inline">\(|z_{obs}| &gt; z_c\)</span></td>
+<td><span class="math inline">\(z_c = 1.96\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p &gt; p_0\)</span></td>
+<td><span class="math inline">\(z_{obs} &gt; z_c\)</span></td>
+<td><span class="math inline">\(z_c = 1.645\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(p &lt; p_0\)</span></td>
+<td><span class="math inline">\(z_{obs} &lt; -z_c\)</span></td>
+<td><span class="math inline">\(z_c = -1.645\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>The critical values change with the chosen significance level. For other <span class="math inline">\(\alpha\)</span>, adjust <span class="math inline">\(z_c\)</span> accordingly.</p>
+</blockquote>
+<section id="example-22.3-hypothesis-test-for-a-population-proportion" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.3-hypothesis-test-for-a-population-proportion">Example 22.3: Hypothesis Test for a Population Proportion</h4>
+<p>In a random sample of <span class="math inline">\(n = 1200\)</span> individuals, 625 report a particular opinion. Do the sample data support the claim that <em>more than half</em> of the population shares this opinion? We will test this at a significance level of <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<ul>
+<li><p><strong>Step 1: Hypotheses</strong><br>
+This is a one-sided test:</p></li>
+<li><p>Null hypothesis: <span class="math inline">\(H_0: p = 0.5\)</span></p></li>
+<li><p>Alternative hypothesis: <span class="math inline">\(H_1: p &gt; 0.5\)</span></p></li>
+<li><p><strong>Step 2: Significance Level</strong> We use <span class="math inline">\(\alpha = 0.05\)</span>.</p></li>
+<li>
+<p><strong>Step 3: Test Statistic</strong><br>
+Because the sample size is large, we use the <strong>normal approximation</strong>. The test statistic is: <span class="math display">\[
+Z = \frac{\hat{p} - p_0}{\sqrt{ \frac{p_0(1 - p_0)}{n} }}
+\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(\hat{p} = \frac{625}{1200} = 0.521\)</span></li>
+<li><span class="math inline">\(p_0 = 0.5\)</span></li>
+<li><span class="math inline">\(n = 1200\)</span></li>
+</ul>
+</li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+For a one-sided test at the 5% level, we reject <span class="math inline">\(H_0\)</span> if: <span class="math display">\[
+z_{\text{obs}} &gt; 1.645
+\]</span></p></li>
+<li><p><strong>Step 5: Observation</strong><br>
+Substitute the values into the formula for test statistic: <span class="math display">\[
+z_{\text{obs}} = \frac{0.521 - 0.5}{\sqrt{ \frac{0.5(1 - 0.5)}{1200} }} = \frac{0.021}{0.0144} \approx 1.45
+\]</span></p></li>
+<li><p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(z_{\text{obs}} = 1.45\)</span> is less than the critical value 1.645, we fail to reject the null hypothesis. This means that the sample does not provide sufficient evidence to support the claim that more than half of the population holds this opinion at the 5% level. The test is visualize in <a href="#fig-prop-ex" class="quarto-xref">Figure&nbsp;<span>22.6</span></a>.</p></li>
+</ul>
+<div id="fig-prop-ex" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-prop-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prop-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.6: The one-tailed test for population proportion in Example 22.3.
+</figcaption></figure>
+</div>
+</section></section><section id="hypothesis-testing-with-p-values" class="level2" data-number="22.5"><h2 data-number="22.5" class="anchored" data-anchor-id="hypothesis-testing-with-p-values">
+<span class="header-section-number">22.5</span> Hypothesis Testing with <span class="math inline">\(p\)</span>-Values</h2>
+<p>In hypothesis testing, once the test statistic has been calculated, the next step is to decide whether to reject the null hypothesis. This decision traditionally depends on whether the test statistic falls within the critical region defined by a chosen significance level (<span class="math inline">\(\alpha\)</span>). However, this binary decision does not reveal how unusual or extreme the observed result actually is under the assumption that the null hypothesis is true.</p>
+<p>To provide a more nuanced view, we use what is known as the <strong><span class="math inline">\(p\)</span>-value</strong>. The <span class="math inline">\(p\)</span>-value answers the question:</p>
+<blockquote class="blockquote">
+<p><em>If the null hypothesis were true, what is the probability of obtaining a result at least as extreme as the one observed?</em></p>
+</blockquote>
+<p>In this sense, the <span class="math inline">\(p\)</span>-value is a measure of how compatible the observed data are with the null hypothesis. A small <span class="math inline">\(p\)</span>-value indicates that such an extreme outcome would be unlikely if the null hypothesis were true, thereby providing evidence against it.</p>
+<p>The smaller the <span class="math inline">\(p\)</span>-value, the stronger the evidence against the null hypothesis in favor of the alternative. This value can also be thought of as a kind of post hoc significance threshold:</p>
+<blockquote class="blockquote">
+<p>The <span class="math inline">\(p\)</span>-value is the lowest significance level at which the null hypothesis would be rejected based on the observed data.</p>
+</blockquote>
+<p>Instead of comparing the test statistic to a critical value, statistical software typically reports the <span class="math inline">\(p\)</span>-value directly. This allows researchers and readers to interpret the strength of the evidence themselves, depending on the context and the significance level they consider appropriate.</p>
+<p>In practical terms, if a researcher has set a significance level of 0.05 before conducting the test, and the calculated <span class="math inline">\(p\)</span>-value is below this threshold, the null hypothesis would be rejected. If the <span class="math inline">\(p\)</span>-value is greater, the null hypothesis is not rejected. The <span class="math inline">\(p\)</span>-value thus becomes a central element in statistical inference, guiding conclusions with more granularity than a simple yes-or-no decision.</p>
+<p>Let’s consider an example: suppose we are conducting a hypothesis test at the 5% level using the alternative hypothesis: <span class="math display">\[
+H_1: \mu &gt; \mu_0
+\]</span> and the sample results yield a <span class="math inline">\(p\)</span>-value of 3%. We perform this test at a significance level of <span class="math inline">\(\alpha = 0.05\)</span>, i.e., a 5% threshold for rejecting the null hypothesis.</p>
+<p>The <span class="math inline">\(p\)</span>-value here tells us that the probability (under the assumption that the null hypothesis is true) of obtaining a result at least as extreme as the one observed is 3%. Since this is less than 5%, we reject the null hypothesis.</p>
+<p>This decision is based on comparing the <span class="math inline">\(p\)</span>-value to the critical value threshold. The critical region begins at the so-called critical point, the value on the distribution where the area under the curve to the right equals <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p>Because the <span class="math inline">\(p\)</span>-value corresponds to an area of only 3% under the curve to the right of our observed test statistic, and 3% is less than 5%, the observed value lies beyond the critical point and thus falls in the rejection region. This interpretation means the result is statistically significant at the 5% level. This is visualized in <a href="#fig-pval" class="quarto-xref">Figure&nbsp;<span>22.7</span></a>.</p>
+<div id="fig-pval" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.7: The shaded red region represents the critical region corresponding to a significance level of <span class="math inline">\(\alpha\)</span> and critical value of z[c]. The blue point indicates the observed test statistic z[obs]. The purple shaded area indicates the <span class="math inline">\(p\)</span>-value region. Since <span class="math inline">\(p\)</span>-value <span class="math inline">\(&lt;  \alpha\)</span>, the null hypothesis is rejected.
+</figcaption></figure>
+</div>
+<p>For this example, the <span class="math inline">\(p\)</span>-value is given as <span class="math display">\[P (Z&gt;z_{obs}|H_0 \text{ true} ) = 1−\Phi(z_{obs}) =0 .03\]</span> where <span class="math inline">\(\Phi\)</span> is the cumulative distribution function (CDF) of the standard normal distribution. Thus, the <em>p</em>-value is the probability (under the null hypothesis <span class="math inline">\(H_0\)</span>) of obtaining a value of <span class="math inline">\(Z\)</span> at least as extreme as the observed value <span class="math inline">\(z_{obs}\)</span>.</p>
+<p>Suppose we want to test whether a population mean is equal to a specific value. Our hypotheses are:</p>
+<ul>
+<li>Null hypothesis: <span class="math inline">\(H_0: \mu = \mu_0\)</span>
+</li>
+<li>Alternative hypothesis: <span class="math inline">\(H_1: \mu \neq \mu_0\)</span>
+</li>
+</ul>
+<p>In this case, we are interested in detecting whether the mean is either significantly larger or smaller than the hypothesized value, that is a two-tailed test. To determine how surprising our result is under the assumption that <span class="math inline">\(H_0\)</span> is true, we can calculate the <span class="math inline">\(p\)</span>-value. This is the probability of obtaining a <span class="math inline">\(Z\)</span> value that is at least as extreme as the observed value, <em>in either direction</em>.</p>
+<p>The formula for the <span class="math inline">\(p\)</span>-value then becomes: <span class="math display">\[
+p\text{-value} = 2 \left[1 - \Phi\left(|z_{\text{obs}}|\right)\right]
+\]</span></p>
+<p>where <span class="math inline">\(\Phi\)</span> is the cumulative distribution function (CDF) of the standard normal distribution, and <span class="math inline">\(|z_{\text{obs}}|\)</span> is the absolute value of our observed test statistic. This is shown in <a href="#fig-pval2" class="quarto-xref">Figure&nbsp;<span>22.8</span></a>.</p>
+<div id="fig-pval2" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pval2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pval2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.8: Visualization of a two-tailed <span class="math inline">\(p\)</span>-value. The shaded purple regions in both tails represent the <span class="math inline">\(p\)</span>-value, corresponding to the probability (under the null hypothesis) of observing a test statistic as extreme or more extreme than the observed value z[obs]. The dashed vertical lines indicate the observed test statistic in both directions. Since this is a two-sided test, both tails are included in the calculation of the <span class="math inline">\(p\)</span>-value.
 </figcaption></figure>
 </div>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
