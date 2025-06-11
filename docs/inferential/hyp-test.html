@@ -809,6 +809,99 @@ Table&nbsp;22.1: Summary of test statistics and distributions used for hypothesi
 </div>
 </figure>
 </div>
+</section><section id="example-22.1-hypothesis-testing-for-a-mean" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.1-hypothesis-testing-for-a-mean">Example 22.1: Hypothesis Testing for a Mean</h4>
+<p>We are given a sample of <span class="math inline">\(n = 16\)</span> observations from a normally distributed population with a known standard deviation <span class="math inline">\(\sigma = 16\)</span>. The sample mean is <span class="math inline">\(\bar{x} = 743\)</span>. We want to test at the 5% significance level whether the population mean differs from 750, i.e., whether <span class="math inline">\(\mu \ne 750\)</span>.</p>
+<ul>
+<li><p><strong>Step 1: State the Hypotheses</strong> <span class="math display">\[
+H_0: \mu = 750
+\]</span> <span class="math display">\[
+H_1: \mu \ne 750
+\]</span> This is a two-sided test.</p></li>
+<li><p><strong>Step 2: Significance Level</strong><br>
+We use a significance level of: <span class="math display">\[
+\alpha = 0.05
+\]</span></p></li>
+<li><p><strong>Step 3: Test Statistic</strong><br>
+Since <span class="math inline">\(\sigma\)</span> is known and the population is normally distributed, we use the standard normal test statistic (see <a href="#tbl-testmean" class="quarto-xref">Table&nbsp;<span>22.1</span></a>): <span class="math display">\[
+Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \sim N(0,1)
+\]</span></p></li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+Because this is a two-tailed test, the critical values are: <span class="math display">\[
+z_{\alpha/2} = \pm 1.96
+\]</span> We reject <span class="math inline">\(H_0\)</span> if: <span class="math display">\[
+|z| &gt; 1.96
+\]</span></p></li>
+<li><p><strong>Step 5: Observation</strong><br>
+We use the sample data to compute our observed value: <span class="math display">\[
+Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{743 - 750}{16 / \sqrt{16}} = \frac{-7}{4} = -1.75
+\]</span></p></li>
+<li><p><strong>Step 6: Conclusion</strong><br>
+Since the observed test statistic is <span class="math inline">\(z = -1.75\)</span> and: <span class="math display">\[
+|-1.75| &lt; 1.96
+\]</span> we <em>fail to reject the null hypothesis</em>. There is not enough evidence at the 5% level to conclude that the population mean differs from 750.</p></li>
+</ul>
+<p>This test is visualized in <a href="#fig-mean-ex" class="quarto-xref">Figure&nbsp;<span>22.4</span></a>.</p>
+<div id="fig-mean-ex" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-mean-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.4: The two-tailed test in Example 22.1 using the <span class="math inline">\(Z\)</span>-distribution.
+</figcaption></figure>
+</div>
+</section><section id="example-22.2-hypothesis-test-for-a-mean" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.2-hypothesis-test-for-a-mean">Example 22.2: Hypothesis Test for a Mean</h4>
+<p>We are given a random sample of size <span class="math inline">\(n = 15\)</span> drawn from a normally distributed population with unknown standard deviation. The sample has a mean <span class="math inline">\(\bar{x} = 24.1\)</span> and a sample standard deviation <span class="math inline">\(s = 2\)</span>. We want to test, at the 1% significance level, whether the population mean <span class="math inline">\(\mu\)</span> is less than 25.</p>
+<ul>
+<li><p><strong>Step 1: State the Hypotheses</strong><br>
+We are conducting a <strong>one-sided (left-tailed)</strong> test: <span class="math display">\[
+H_0: \mu = 25 \\
+H_1: \mu &lt; 25
+\]</span></p></li>
+<li><p><strong>Step 2: Significance Level</strong><br>
+We choose a significance level of <span class="math inline">\(\alpha = 0.01\)</span>.</p></li>
+<li><p><strong>Step 3: Test Statistic</strong><br>
+Since <span class="math inline">\(\sigma\)</span> is unknown and <span class="math inline">\(n\)</span> is small, we use the <span class="math inline">\(t\)</span>-distribution (see <a href="#tbl-testmean" class="quarto-xref">Table&nbsp;<span>22.1</span></a>): <span class="math display">\[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}  \sim t(n-1)
+\]</span></p></li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+With <span class="math inline">\(n - 1 = 14\)</span> degrees of freedom and <span class="math inline">\(\alpha = 0.01\)</span> (one-tailed), we find the critical value:</p></li>
+</ul>
+<p><span class="math display">\[
+t_{14, 0.01} = -2.624
+\]</span></p>
+<p>We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{\text{obs}} &lt; -2.624\)</span>.</p>
+<ul>
+<li><p><strong>Step 5: Observation</strong><br>
+We use the sample data to compute our observed value: <span class="math display">\[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{24.1 - 25}{2 / \sqrt{15}} \approx -1.743
+\]</span></p></li>
+<li><p><strong>Step 5: Conclusion</strong> Since <span class="math inline">\(t_{\text{obs}} = -1.743\)</span> is greater than <span class="math inline">\(-2.624\)</span> (in the non-rejection region), we do not reject the null hypothesis. We fail to reject <span class="math inline">\(H_0\)</span>. The sample does <strong>not</strong> provide sufficient evidence at the 1% significance level to conclude that the population mean is less than 25. See <a href="#fig-mean-ex2" class="quarto-xref">Figure&nbsp;<span>22.5</span></a> for an illustration fot he test.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> Because the test statistic does not fall in the rejection region, the observed sample mean can be explained by random sampling variation if the true mean were 25.</p>
+</blockquote>
+<div id="fig-mean-ex2" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-mean-ex2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-ex2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.5: The two-tailed test in Example 22.2 using the <span class="math inline">\(t\)</span>-distribution.
+</figcaption></figure>
+</div>
 
 
 </section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

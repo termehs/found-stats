@@ -479,6 +479,7 @@ $$
 Thus, we set $c = 1.96$ for a two-sided test at the 5% significance level. Our final decision rule becomes:
 
 > Reject $H_0$ if the computed test statistic $Z$ falls outside the interval $[-1.96,\ 1.96]$. Otherwise, we fail to reject $H_0$.
+
 :::
 
 ### One-Sided Hypothesis Tests
@@ -654,5 +655,235 @@ When testing hypotheses about a population mean, the choice of test statistic de
 
 Summary of test statistics and distributions used for hypothesis testing of a population mean ($\mu$), depending on sample size, knowledge of the population variance, and the assumption of normality. When the population standard deviation is unknown and the sample size is small, the $t$-distribution is used with $n - 1$ degrees of freedom. Note that these are the distributions assumed given $H_0$ true.
 
+:::
+
+
+
+#### Example 22.1: Hypothesis Testing for a Mean {.unnumbered}
+
+We are given a sample of $n = 16$ observations from a normally distributed population with a known standard deviation $\sigma = 16$. The sample mean is $\bar{x} = 743$. We want to test at the 5% significance level whether the population mean differs from 750, i.e., whether $\mu \ne 750$.
+
+-  **Step 1: State the Hypotheses**
+$$
+H_0: \mu = 750
+$$
+$$
+H_1: \mu \ne 750
+$$
+This is a two-sided test.
+
+- **Step 2: Significance Level** \
+We use a significance level of:
+$$
+\alpha = 0.05
+$$
+
+- **Step 3: Test Statistic** \
+Since $\sigma$ is known and the population is normally distributed, we use the standard normal test statistic (see @tbl-testmean):
+$$
+Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \sim N(0,1)
+$$
+
+- **Step 4: Decision Rule** \
+Because this is a two-tailed test, the critical values are:
+$$
+z_{\alpha/2} = \pm 1.96
+$$
+We reject $H_0$ if:
+$$
+|z| > 1.96
+$$
+
+- **Step 5: Observation** \
+We use the sample data to compute our observed value:
+$$
+Z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{743 - 750}{16 / \sqrt{16}} = \frac{-7}{4} = -1.75
+$$
+
+- **Step 6: Conclusion** \
+Since the observed test statistic is $z = -1.75$ and:
+$$
+|-1.75| < 1.96
+$$
+we *fail to reject the null hypothesis*. There is not enough evidence at the 5% level to conclude that the population mean differs from 750.
+
+This test is visualized in @fig-mean-ex.
+
+
+::: {#fig-mean-ex .center}
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 4
+#| fig-width: 9
+
+z_obs <- -1.75
+
+ggplot(df, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+  
+  # Shade the critical regions
+  geom_area(data = df_left, fill = "red", alpha = 0.5) +
+  geom_area(data = df_right, fill = "red", alpha = 0.5) +
+
+
+  # Vertical lines at critical values that stop at the curve
+  annotate("segment", x = -crit_val, xend = -crit_val, y = 0, yend = y_crit, linetype = "solid", color = "black") +
+  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit, linetype = "solid", color = "black") +
+
+  # Horizontal colored lines for critical and acceptance regions
+  annotate("segment", x = -4, xend = -crit_val, y = 0, yend = 0, color = "red", linewidth = 2) +
+  annotate("segment", x = -crit_val, xend = crit_val, y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
+  annotate("segment", x = crit_val, xend = 4, y = 0, yend = 0, color = "red", linewidth = 2) +
+
+   # Arrows pointing into tails
+  annotate("segment", x = -crit_val-0.6, xend = -crit_val-0.15, y = 0.07, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+  annotate("segment", x = crit_val + 0.6, xend = crit_val + 0.15, y = 0.06, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+    annotate("segment", x = -crit_val + 0.6, xend = -crit_val + 0.3, y = -0.05, yend = -0.015,
+           arrow = arrow(length = unit(0.2, "cm")), color = "black") +
+
+  # Annotate regions
+  annotate("text", x = 0, y = -0.03, label = "Non-rejection region", size = 4.2) +
+  annotate("text", x = -3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = 3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = -crit_val-0.7, y = 0.1, label = "α/2=0.025", color = "black", size = 4, vjust = 1.2) +
+  annotate("text", x = crit_val+0.7, y = 0.09, label = "α/2=0.025", color = "black", size = 4, vjust = 1.2) +
+   annotate("text", x = -crit_val, y = -0.02, label = "-1.96", color = "black", size = 4, vjust = 1.2) +
+  annotate("text", x = crit_val, y = - 0.02 , label = "1.96", color = "black", size = 4, vjust = 1.2) +
+  annotate("text", x = z_obs + 0.4, y = -0.08, label = "z-obs = -1.75", size = 4.2,  vjust = -0.4, fontface = "bold") +
+
+      
+  # point for observed value
+  geom_point(x = z_obs, y =0, size = 4) +
+  
+  # Clean theme
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+```
+The two-tailed test in Example 22.1 using the $Z$-distribution.
+:::
+
+#### Example 22.2:  Hypothesis Test for a Mean {.unnumbered}
+We are given a random sample of size $n = 15$ drawn from a normally distributed population with unknown standard deviation. The sample has a mean $\bar{x} = 24.1$ and a sample standard deviation $s = 2$. We want to test, at the 1% significance level, whether the population mean $\mu$ is less than 25.
+
+- **Step 1: State the Hypotheses** \
+We are conducting a **one-sided (left-tailed)** test:
+$$
+H_0: \mu = 25 \\
+H_1: \mu < 25
+$$
+
+- **Step 2: Significance Level** \
+We choose a significance level of $\alpha = 0.01$.
+
+- **Step 3: Test Statistic** \
+Since $\sigma$ is unknown and $n$ is small, we use the $t$-distribution (see @tbl-testmean):
+$$
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}  \sim t(n-1)
+$$
+
+- **Step 4: Decision Rule** \
+With $n - 1 = 14$ degrees of freedom and $\alpha = 0.01$ (one-tailed), we find the critical value:
+
+$$
+t_{14, 0.01} = -2.624
+$$
+
+We reject $H_0$ if $t_{\text{obs}} < -2.624$.
+
+
+- **Step 5: Observation**\
+We use the sample data to compute our observed value:
+$$
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{24.1 - 25}{2 / \sqrt{15}} \approx -1.743
+$$
+
+- **Step 5: Conclusion**
+Since $t_{\text{obs}} = -1.743$ is greater than $-2.624$ (in the non-rejection region), we do not reject the null hypothesis.  We fail to reject $H_0$. The sample does **not** provide sufficient evidence at the 1% significance level to conclude that the population mean is less than 25.
+See @fig-mean-ex2 for an illustration fot he test.
+
+> **Note:** Because the test statistic does not fall in the rejection region, the observed sample mean can be explained by random sampling variation if the true mean were 25.
+
+::: {#fig-mean-ex2 .center}
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 4
+#| fig-width: 9
+
+# Parameters
+df <- 14
+alpha <- 0.05
+t_obs <- -1.743
+crit_val <- qt(1 - alpha / 2, df)
+y_crit <- dt(crit_val, df)
+
+# Data
+x <- seq(-4, 4, length.out = 1000)
+df_plot <- data.frame(x = x, y = dt(x, df))
+df_left <- subset(df_plot, x <= -crit_val)
+df_right <- subset(df_plot, x >= crit_val)
+
+# Plot
+ggplot(df_plot, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+
+  # Shaded critical regions
+  geom_area(data = df_left, fill = "red", alpha = 0.5) +
+  geom_area(data = df_right, fill = "red", alpha = 0.5) +
+
+  # Vertical lines at critical values
+  annotate("segment", x = -crit_val, xend = -crit_val, y = 0, yend = y_crit, color = "black") +
+  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit, color = "black") +
+
+  # Horizontal lines
+  annotate("segment", x = -4, xend = -crit_val, y = 0, yend = 0, color = "red", linewidth = 2) +
+  annotate("segment", x = -crit_val, xend = crit_val, y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
+  annotate("segment", x = crit_val, xend = 4, y = 0, yend = 0, color = "red", linewidth = 2) +
+
+  # Arrows 
+  annotate("segment", x = -crit_val-0.6, xend = -crit_val-0.15, y = 0.07, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+  annotate("segment", x = crit_val + 0.6, xend = crit_val + 0.15, y = 0.06, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
+  annotate("segment", x = -crit_val + 0.7, xend = -crit_val + 0.46, y = -0.06, yend =-0.02, arrow = arrow(length = unit(0.2, "cm")), color = "black") +
+
+  # Region annotations
+  annotate("text", x = 0, y = -0.03, label = "Non-rejection region", size = 4.2) +
+  annotate("text", x = -3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = 3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+
+  # Label critical values
+  annotate("text", x = -crit_val, y = -0.02, label = sprintf("-%.3f", crit_val), color = "black", size = 4) +
+  annotate("text", x = crit_val, y = -0.02, label = sprintf("%.3f", crit_val), color = "black", size = 4) +
+  annotate("text", x = -crit_val-0.7, y = 0.1, label = "α/2 = 0.025", size = 4) +
+  annotate("text", x = crit_val+0.7, y = 0.09, label = "α/2 = 0.025", size = 4) +
+
+  # Observed value
+  geom_point(aes(x = t_obs, y = 0), size = 4) +
+  annotate("text", x = t_obs + 0.4, y = -0.08, label = "t-obs = -1.743", size = 4.2, fontface = "bold") +
+
+  # Theme
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+```
+The two-tailed test in Example 22.2 using the $t$-distribution.
 :::
 
