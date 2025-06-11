@@ -777,7 +777,7 @@ The two-tailed test in Example 22.1 using the $Z$-distribution.
 We are given a random sample of size $n = 15$ drawn from a normally distributed population with unknown standard deviation. The sample has a mean $\bar{x} = 24.1$ and a sample standard deviation $s = 2$. We want to test, at the 1% significance level, whether the population mean $\mu$ is less than 25.
 
 - **Step 1: State the Hypotheses** \
-We are conducting a **one-sided (left-tailed)** test:
+We are conducting a one-sided (left-tailed) test:
 $$
 H_0: \mu = 25 \\
 H_1: \mu < 25
@@ -821,20 +821,19 @@ See @fig-mean-ex2 for an illustration fot he test.
 #| warning: false
 #| fig-align: center
 #| fig-height: 4
-#| fig-width: 9
+#| fig-width: 8
 
 # Parameters
 df <- 14
-alpha <- 0.05
+alpha <- 0.01
 t_obs <- -1.743
-crit_val <- qt(1 - alpha / 2, df)
+crit_val <- qt(1 - alpha, df)
 y_crit <- dt(crit_val, df)
 
 # Data
 x <- seq(-4, 4, length.out = 1000)
 df_plot <- data.frame(x = x, y = dt(x, df))
 df_left <- subset(df_plot, x <= -crit_val)
-df_right <- subset(df_plot, x >= crit_val)
 
 # Plot
 ggplot(df_plot, aes(x = x, y = y)) +
@@ -842,37 +841,32 @@ ggplot(df_plot, aes(x = x, y = y)) +
 
   # Shaded critical regions
   geom_area(data = df_left, fill = "red", alpha = 0.5) +
-  geom_area(data = df_right, fill = "red", alpha = 0.5) +
 
   # Vertical lines at critical values
   annotate("segment", x = -crit_val, xend = -crit_val, y = 0, yend = y_crit, color = "black") +
-  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit, color = "black") +
+
 
   # Horizontal lines
   annotate("segment", x = -4, xend = -crit_val, y = 0, yend = 0, color = "red", linewidth = 2) +
-  annotate("segment", x = -crit_val, xend = crit_val, y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
-  annotate("segment", x = crit_val, xend = 4, y = 0, yend = 0, color = "red", linewidth = 2) +
+  annotate("segment", x = -crit_val, xend = 4, y = 0, yend = 0, color = "deepskyblue3", linewidth = 2) +
+
 
   # Arrows 
-  annotate("segment", x = -crit_val-0.6, xend = -crit_val-0.15, y = 0.07, yend = 0.02,
+  annotate("segment", x = -crit_val-0.6, xend = -crit_val-0.3, y = 0.06, yend = 0.02,
            arrow = arrow(length = unit(0.18, "cm")), color = "black") +
-  annotate("segment", x = crit_val + 0.6, xend = crit_val + 0.15, y = 0.06, yend = 0.02,
-           arrow = arrow(length = unit(0.18, "cm")), color = "black") +
-  annotate("segment", x = -crit_val + 0.7, xend = -crit_val + 0.46, y = -0.06, yend =-0.02, arrow = arrow(length = unit(0.2, "cm")), color = "black") +
+  annotate("segment", x = -crit_val + 1.27, xend = -crit_val + 1.27, y = -0.06, yend =-0.02, arrow = arrow(length = unit(0.2, "cm")), color = "black") +
 
   # Region annotations
   annotate("text", x = 0, y = -0.03, label = "Non-rejection region", size = 4.2) +
-  annotate("text", x = -3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
-  annotate("text", x = 3.1, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+  annotate("text", x = -3.45, y = -0.03, label = "Critical region", size = 3.8, color = "firebrick") +
+
 
   # Label critical values
   annotate("text", x = -crit_val, y = -0.02, label = sprintf("-%.3f", crit_val), color = "black", size = 4) +
-  annotate("text", x = crit_val, y = -0.02, label = sprintf("%.3f", crit_val), color = "black", size = 4) +
-  annotate("text", x = -crit_val-0.7, y = 0.1, label = "α/2 = 0.025", size = 4) +
-  annotate("text", x = crit_val+0.7, y = 0.09, label = "α/2 = 0.025", size = 4) +
+  annotate("text", x = -crit_val-0.7, y = 0.08, label = "α = 0.01", size = 4) +
 
   # Observed value
-  geom_point(aes(x = t_obs, y = 0), size = 4) +
+  geom_point(aes(x = t_obs + 0.4, y = 0), size = 4) +
   annotate("text", x = t_obs + 0.4, y = -0.08, label = "t-obs = -1.743", size = 4.2, fontface = "bold") +
 
   # Theme
