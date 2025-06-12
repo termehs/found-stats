@@ -1997,6 +1997,8 @@ $$
 **Step 2: Significance level**\
 $\alpha = 0.05$
 
+
+
 **Step 3: Test statistic**\
 Large samples and unknown variances:
 $$
@@ -2034,5 +2036,40 @@ Since $z = 2.18 > 1.96$, we reject the null hypothesis. There is statistical evi
 
 :::
 
+6.  A nutritionist claims that the average daily intake of sugar among adults in a certain city is more than 50 grams. A random sample of 36 adults shows a mean intake of 52.8 grams with a standard deviation of 6 grams. Can we support the nutritionist's claim at the 1% significance level using a confidence interval?
 
 
+::: {.callout-tip collapse="true"}
+## Solution
+We are testing the following:
+$$
+H_0: \mu \leq 50 \quad \text{vs.} \quad H_1: \mu > 50
+$$
+
+A significance level of 1% $(\alpha = 0.01)$ corresponds to a 99\% confidence interval ($(1-\alpha) = 0.99$).
+
+**Given:**
+
+- $\bar{x} = 52.8$
+- $s = 6$
+- $n = 36$
+- Confidence level = 99% ⇒ $z_{\alpha/2} = z_{0.005} = 2.576$
+
+
+The confidence interval is given by
+$\bar{x} \pm \underbrace{z_{\alpha/2} \left( \frac{s}{\sqrt{n}} \right) }_{\text{margin of error}}$ 
+
+**Compute the margin of error (ME):**
+$$
+z_{0.005} \cdot \frac{s}{\sqrt{n}} = 2.576 \cdot \frac{6}{\sqrt{36}} = 2.576 \cdot 1 = 2.576
+$$
+
+**Construct the interval:**
+$$
+\bar{x} \pm ME = 52.8 \pm 2.576 = (50.224,\ 55.376)
+$$
+
+**Decision based on CI:**
+Since the null value $\mu = 50$ is just outside the confidence interval, we reject the null hypothesis. The 99% confidence interval does **not** contain the hypothesized value 50, which implies that the data provides enough evidence (at the 1% significance level) to support the claim that the average sugar intake is greater than 50 grams.
+
+:::
