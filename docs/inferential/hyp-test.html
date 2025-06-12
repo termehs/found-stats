@@ -392,6 +392,7 @@ window.Quarto = {
 </li>
   <li><a href="#hypothesis-testing-for-a-population-proportion" id="toc-hypothesis-testing-for-a-population-proportion" class="nav-link" data-scroll-target="#hypothesis-testing-for-a-population-proportion"><span class="header-section-number">22.4</span> Hypothesis Testing for a Population Proportion</a></li>
   <li><a href="#hypothesis-testing-with-p-values" id="toc-hypothesis-testing-with-p-values" class="nav-link" data-scroll-target="#hypothesis-testing-with-p-values"><span class="header-section-number">22.5</span> Hypothesis Testing with <span class="math inline">\(p\)</span>-Values</a></li>
+  <li><a href="#hypothesis-testing-and-confidence-intervals" id="toc-hypothesis-testing-and-confidence-intervals" class="nav-link" data-scroll-target="#hypothesis-testing-and-confidence-intervals"><span class="header-section-number">22.6</span> Hypothesis Testing and Confidence Intervals</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -1065,6 +1066,119 @@ p\text{-value} = 2 \left[1 - \Phi\left(|z_{\text{obs}}|\right)\right]
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pval2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;22.8: Visualization of a two-tailed <span class="math inline">\(p\)</span>-value. The shaded purple regions in both tails represent the <span class="math inline">\(p\)</span>-value, corresponding to the probability (under the null hypothesis) of observing a test statistic as extreme or more extreme than the observed value z[obs]. The dashed vertical lines indicate the observed test statistic in both directions. Since this is a two-sided test, both tails are included in the calculation of the <span class="math inline">\(p\)</span>-value.
 </figcaption></figure>
+</div>
+<section id="example-22.4-hypothesis-testing-using-the-p-value" class="level4"><h4 class="anchored" data-anchor-id="example-22.4-hypothesis-testing-using-the-p-value">Example 22.4: Hypothesis Testing Using the <span class="math inline">\(p\)</span>-value</h4>
+<p>We have a random sample of <span class="math inline">\(n = 70\)</span> observations from a population with unknown distribution and unknown variance. From the sample, we obtain:</p>
+<ul>
+<li>Sample mean: <span class="math inline">\(\bar{x} = 14100\)</span>
+</li>
+<li>Sample standard deviation: <span class="math inline">\(s = 1900\)</span>
+</li>
+</ul>
+<p>We want to test whether the population mean <span class="math inline">\(\mu\)</span> is greater than 13500, using the <span class="math inline">\(p\)</span>-value method.</p>
+<ul>
+<li><p><strong>Hypotheses</strong> <span class="math display">\[
+H_0: \mu = 13500 \\
+H_1: \mu &gt; 13500
+\]</span></p></li>
+<li><p><strong>Test Statistic</strong><br>
+Since the population variance <span class="math inline">\(\sigma^2\)</span> is unknown but the sample is large, we use the standardized test statistic: <span class="math display">\[
+Z = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}
+\]</span></p></li>
+<li><p><strong>Observation</strong> <span class="math display">\[
+z_{\text{obs}} = \frac{14100 - 13500}{1900 / \sqrt{70}} = 2.64
+\]</span> Specifying a significance level or a formal decision rule isn’t necessary here, since the <span class="math inline">\(p\)</span>-value alone provides sufficient information to determine whether the null hypothesis should be rejected. We therefore compute the <span class="math inline">\(p\)</span>-value as the next step.</p></li>
+<li><p><strong><span class="math inline">\(p\)</span>-value</strong><br>
+Under the null hypothesis, <span class="math inline">\(Z \sim N(0, 1)\)</span>. The <span class="math inline">\(p\)</span>-value is the probability of obtaining a value as extreme or more extreme than the observed value when <span class="math inline">\(H_0\)</span> is true (see <a href="../appendix/normal-table.html" class="quarto-xref"><span>Appendix A</span></a>): <span class="math display">\[
+\text{p-value} = P(Z &gt; 2.64) = 1 - \Phi(2.64) = 1 - 0.9959 = 0.0041
+\]</span> See <a href="#fig-pex" class="quarto-xref">Figure&nbsp;<span>22.9</span></a> for an illustration of this <span class="math inline">\(p\)</span>-value.</p></li>
+<li><p><strong>Conclusion</strong> As long as the significance level <span class="math inline">\(\alpha &gt; 0.0041\)</span>, we reject the null hypothesis. Thus, we reject <span class="math inline">\(H_0\)</span> at the 1% level of significance. In fact, we would reject it at any significance level above 0.41%, but not below. There is strong evidence in favor of <span class="math inline">\(H_1\)</span>; that the population mean is greater than 13500.</p></li>
+</ul>
+<div id="fig-pex" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.9: An illustration of the test in Example 22.4, where the <span class="math inline">\(p\)</span>-value is equal to 0.0041.
+</figcaption></figure>
+</div>
+</section><section id="example-22.5-two-sided-hypothesis-test-with-p-value" class="level4"><h4 class="anchored" data-anchor-id="example-22.5-two-sided-hypothesis-test-with-p-value">Example 22.5: Two-Sided Hypothesis Test with <span class="math inline">\(p\)</span>-value</h4>
+<p>We use the same setup as in Example 22.4, but this time we test against the two-sided alternative: <span class="math display">\[
+H_1: \mu \neq 13,\!500
+\]</span> This means that both very high and very low values of the test statistic <span class="math inline">\(Z\)</span> are considered evidence against the null hypothesis <span class="math inline">\(H_0\)</span>. We observe: <span class="math display">\[
+z_{\text{obs}} = 2.64
+\]</span> The <span class="math inline">\(p\)</span>-value is now calculated as:</p>
+<p><span class="math display">\[
+\begin{split}
+p\text{-value} &amp; = P(Z &gt; z_{\text{obs}} \mid H_0) + P(Z &lt; -z_{\text{obs}} \mid H_0)
+\\ &amp; = 2 \cdot [1 - \Phi(2.64)] = 2 \cdot (1 - 0.9959) = 0.0082
+\end{split}
+\]</span> We multiply by 2 because in a two-sided test, extreme outcomes in both directions (greater than or less than the hypothesized value) are considered equally inconsistent with the null hypothesis. Therefore, we calculate the probability of observing a test statistic at least as extreme as <span class="math inline">\(|z_{\text{obs}}|\)</span> in either tail of the distribution, as shown in <a href="#fig-pex2" class="quarto-xref">Figure&nbsp;<span>22.10</span></a>.</p>
+<p>Since the <span class="math inline">\(p\)</span>-value is 0.0082, we would reject the null hypothesis at a 1% significance level. In fact, we would reject it at any significance level down to 0.82%, but not below that. This provides strong evidence in favor of the alternative hypothesis <span class="math inline">\(H_1\)</span> over the null hypothesis <span class="math inline">\(H_0\)</span>.</p>
+<div id="fig-pex2" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pex2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="hyp-test_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pex2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;22.10: Visualization of a two-tailed <span class="math inline">\(p\)</span>-value in Example 22.5.
+</figcaption></figure>
+</div>
+</section></section><section id="hypothesis-testing-and-confidence-intervals" class="level2" data-number="22.6"><h2 data-number="22.6" class="anchored" data-anchor-id="hypothesis-testing-and-confidence-intervals">
+<span class="header-section-number">22.6</span> Hypothesis Testing and Confidence Intervals</h2>
+<p>When we are testing a hypothesis such as <span class="math display">\[
+H_0 : \mu = \mu_0
+\]</span> against the <strong>two-sided alternative hypothesis</strong> <span class="math display">\[
+H_1 : \mu \ne \mu_0,
+\]</span> we can use a confidence interval for the population mean $ instead of computing a test statistic directly. The key relationship is:</p>
+<blockquote class="blockquote">
+<p>The null hypothesis <span class="math inline">\(H_0\)</span> is <strong>rejected at significance level <span class="math inline">\(\alpha\)</span></strong> if and only if the <span class="math inline">\(100(1 - \alpha)\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> <strong>does not include</strong> the value <span class="math inline">\(\mu_0\)</span>.</p>
+</blockquote>
+<p>Instead of calculating the value of a test statistic, we can construct a 95% confidence interval for <span class="math inline">\(\mu\)</span> and check whether the value <span class="math inline">\(\mu_0\)</span> lies within this interval or not (Significance level = 5%).</p>
+<p>Suppose we are given a 95% confidence interval for the population mean as <span class="math inline">\(64.8 &lt; \mu &lt; 67.3\)</span>. We want to test the null hypothesis: <span class="math display">\[
+H_0: \mu = 65 \quad
+\]</span> against <span class="math display">\[
+H_1: \mu \ne 65
+\]</span> Since the hypothesized value 65 lies <strong>inside</strong> the confidence interval, we <strong>fail to reject</strong> the null hypothesis. In other words, the data do not provide sufficient evidence to suggest that the population mean differs from 65 at the 5% significance level.</p>
+<p>To state this more generally:</p>
+<ul>
+<li>A 95% confidence interval contains all values of <span class="math inline">\(\mu\)</span> that would not be rejected in a two-sided test at the 5% significance level.</li>
+<li>A 99% confidence interval contains all values of <span class="math inline">\(\mu\)</span> that would not be rejected at the 1% level.</li>
+<li>A 99.9% confidence interval corresponds to a 0.1% significance level.</li>
+<li>and so on…</li>
+</ul>
+<p>This shows how confidence intervals and hypothesis testing are closely related; they are essentially two sides of the same inferential coin.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note: when working with proportions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While the above equivalence between hypothesis tests and confidence intervals holds well for means, it is <strong>not exact</strong> for proportions or differences in proportions. This is because confidence intervals for proportions use the sample proportion <span class="math inline">\(\hat{p}\)</span> in the standard error: <span class="math display">\[
+\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+\]</span></p>
+<p>and hypothesis tests for a proportion use the <strong>null proportion</strong> <span class="math inline">\(P_0\)</span> in the test statistic: <span class="math display">\[
+Z = \frac{\hat{p} - p_0}{\sqrt{ \frac{p_0(1 - p_0)}{n} }}
+\]</span></p>
+<p>Thus, confidence intervals and hypothesis testing may give slightly different results in these cases, especially with small samples.</p>
+</div>
 </div>
 
 
