@@ -793,37 +793,36 @@ The appropriate method for constructing a confidence interval depends on several
 - Whether we assume the variances are equal or not
 
 
-**Large Independent Samples ($n_x \geq 30$, $n_y \geq 30$)**
+#### **Large Independent Samples ($n_x \geq 30$, $n_y \geq 30$)** {.unnumbered}
 
 When both sample sizes are large, the Central Limit Theorem allows us to use the standard normal distribution ($Z$), regardless of the population distributions.
 
-- **If the population variances are known** (rare):
-
+#### a) Population Variances Known {.unnumbered} 
+Thsi is the more rare scenario in which we use the following formula:
 $$
 \bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
 $$
 
-- **If the population variances are unknown** (more common), we estimate them with sample variances:
-
+#### a) Population Variances Unknown {.unnumbered}
+This scenario is more common and we estimate the population variances using the sample variances:
 $$
 \bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
 $$
-
 The critical $z$-value is selected to match the desired confidence level (e.g., $z = 1.96$ for 95%).
 
-
-
-**Small Independent Samples (at least one of $n_x$ or $n_y$ < 30)**
+#### **Small Independent Samples (at least one of $n_x$ or $n_y$ < 30)**
 
 In this case, we must assume that both populations are normally distributed to proceed.
 
-- **If the population variances are known** (uncommon):
+#### a) Population Variances Known {.unnumbered}
 
 $$
 \bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
 $$
 
-- **If the variances are unknown but assumed equal**, we use the **pooled variance** which provides a combined estimate of the common variance by weighting the sample variances according to their degrees of freedom. The formula for pooled varince is:
+#### b) Population Variances Unknown but Assumed Equal {.unnumbered}
+
+Then we use the **pooled variance** which provides a combined estimate of the common variance by weighting the sample variances according to their degrees of freedom. The formula for pooled varince is:
 $$
 s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
 $$
@@ -837,7 +836,8 @@ $$
 $$
 
 
-- **If the variances are unknown and cannot be assumed equal**, we cannot assume equal variance, we rely on the so called **Welch’s method**, which is an adaptation of the standard two-sample $t$-test that does **not** assume equal population variances. It is more flexible and robust, especially when sample sizes or variances differ between groups.
+#### c) Population Variances Unknown and Not Assumed Equal (Welch’s t-test) {.unnumbered}
+Here, we cannot assume equal variance, we rely on the so called **Welch’s method**, which is an adaptation of the standard two-sample $t$-test that does **not** assume equal population variances. It is more flexible and robust, especially when sample sizes or variances differ between groups.
 Instead of pooling the variances, Welch’s method uses the individual sample variances to compute the standard error and an approximate degrees of freedom, denoted $\nu$. The confidence interval is thus given by:
 
 $$

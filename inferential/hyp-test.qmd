@@ -1345,7 +1345,7 @@ against the **two-sided alternative hypothesis**
 $$
 H_1 : \mu \ne \mu_0,
 $$
-we can use a confidence interval for the population mean $\mu4 instead of computing a test statistic directly. The key relationship is:
+we can use a confidence interval for the population mean $\mu$ instead of computing a test statistic directly. The key relationship is:
 
 > The null hypothesis $H_0$ is **rejected at significance level $\alpha$** if and only if the $100(1 - \alpha)\%$ confidence interval for $\mu$ **does not include** the value $\mu_0$.
 
@@ -1379,10 +1379,660 @@ $$
 \hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
 $$
 
-and hypothesis tests for a proportion use the **null proportion** $P_0$ in the test statistic:
+and hypothesis tests for a proportion use the **null proportion** $p_0$ in the test statistic:
 $$
 Z = \frac{\hat{p} - p_0}{\sqrt{ \frac{p_0(1 - p_0)}{n} }}
 $$
 
 Thus, confidence intervals and hypothesis testing may give slightly different results in these cases, especially with small samples.
 :::
+
+## Hypothesis Testing for the Difference Between Two Population Means
+
+In this section, we explore how to test hypotheses about the difference between the means of two populations. This is particularly useful when we want to determine if there is a statistically significant difference between the average values of two groups.
+
+We use the same notation as in confidence interval estimation (@sec-est) for the difference between two means:
+
+| Population     | Mean ($\mu$) | Standard Deviation ($\sigma$) |
+|----------------|--------------|-------------------------------|
+| Population 1   | $\mu_x$      | $\sigma_x$                    |
+| Population 2   | $\mu_y$      | $\sigma_y$                    |
+
+We are interested in making inferences about the difference $\mu_x - \mu_y$. Suppose we have one independent sample from each of the two populations. We summarize the data as:
+
+| Sample                   | Size ($n$) | Sample Mean ($\bar{x}$ or $\bar{y}$) | Sample Std. Dev. ($s$) |
+|--------------------------|------------|--------------------------------------|-------------------------|
+| From Population 1        | $n_x$      | $\bar{x}$                            | $s_x$                   |
+| From Population 2        | $n_y$      | $\bar{y}$                            | $s_y$                   |
+**Note:** The samples must be independently drawn from the respective populations.
+
+We want to test:
+
+- Null hypothesis: $H_0: \mu_x - \mu_y = D_0$
+- Alternative hypothesis (two-sided): $H_1: \mu_x - \mu_y \ne D_0$
+
+Often, $D_0 = 0$, meaning we test for equality of the population means:
+
+- $H_0: \mu_x = \mu_y$
+- $H_1: \mu_x \ne \mu_y$
+
+One-sided tests may also be appropriate, which corresponds to $D_0<0$ or $D_0>0$:
+
+- $H_1: \mu_x < \mu_y$ (or $D_0<0$)
+- $H_1: \mu_x > \mu_y$ (or $D_0>0$)
+
+We compare the observed difference in sample means $\bar{x} - \bar{y}$ to the hypothesized value $D_0$. The core question becomes:
+
+> Is the observed value of $\bar{x} - \bar{y}$ far enough from $D_0$ to reject $H_0$?
+
+This decision again depends on the factors:
+
+- Sample sizes (small vs large)
+- Whether population distributions are approximately normal
+- Whether population variances are known or unknown
+
+These factors determine the appropriate test statistic (e.g., $Z$ or $t$) and which distribution to use. We will now look at specific cases based on these conditions.
+
+### Case 1: Large Sample Sizes
+
+We assume $n_x \geq 30$ and $n_y \geq 30$. With large samples, we do not need to assume anything about the population distributions.
+
+The test statistic when population variances are known is given by:
+$$
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y}}}
+$$
+and when population variances are unknown, we have
+$$
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}}}
+$$
+where:
+
+- $\bar{x}$ and $\bar{y}$ are the sample means,
+- $D_0$ is the hypothesized difference (typically $0$),
+- $s_x^2$ and $s_y^2$ are the sample variances,
+- $n_x$ and $n_y$ are the sample sizes.
+
+The test statistics $Z$ above are approximately normally distributed, $N(0,1)$, when $H_0$ is true. Rejection boundaries (critical values) are determined by the significance level and the alternative hypothesis, just as done earlier.
+
+### Case 2: Small Samples
+Here, at least one of $n_x$ and $n_y$ is smaller than 30. In this case, both samples must come from normally distributed populations. That is, at least one of $n_x$ and $n_y$ is smaller than 30. In this case, both samples must come from normally distributed populations.
+
+
+#### a) Population Variances Known {.unnumbered}
+
+If $\sigma_x^2$ and $\sigma_y^2$ are known, the test statistic is given by:
+$$
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y}}}
+$$
+
+#### b) Population Variances Unknown but Assumed Equal {.unnumbered}
+We must assume that the population variances are equal, although their actual values are unknown. Then the test statistic is given by:
+$$
+t = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}}
+$$
+where the pooled sample variance $s_p^2$ is:
+$$
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+$$
+This $t$ statistic follows a $t$-distribution with:
+$$
+\nu = n_x + n_y - 2
+$$
+degrees of freedom when $H_0$ is true.
+
+
+#### c) Population Variances Unknown and Not Assumed Equal (Welch’s t-test) {.unnumbered}
+If we cannot assume equal variances, we use **Welch’s t-test** with statistic:
+$$
+t = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}}}
+$$
+This test statistic approximately follows a $t$-distribution with degrees of freedom calculated by **Welch-Satterthwaite approximation**:
+$$
+\nu = \frac{\left( \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} \right)^2}{
+\frac{\left( s_x^2/n_x \right)^2}{n_x - 1} + 
+\frac{\left( s_y^2/n_y \right)^2}{n_y - 1}}
+$$
+This test is more robust when the assumption of equal population variances is questionable.
+
+
+#### Example 22.6: Hypothesis Test for Difference Between Two Means {.unnumbered}
+We consider two independent random samples. We want to test whether the two populations have the same mean. The population variances are unknown, but we estimate them using the sample standard deviations. The sample information is:
+
+| Sample                | Sample size ($n$) | Mean ($\bar{x}$ / $\bar{y}$) | Standard deviation ($s$) |
+|-----------------------------|--------------------------|----------------------|------------------------------------|
+| From population 1     | $n_x = 36$        | $\bar{x} = 20.1$              | $s_x = 2.35$              |
+| From population 2     | $n_y = 36$        | $\bar{y} = 19.2$              | $s_y = 2.25$              |
+
+- **Step 1: Hypotheses**\
+We test:
+$$
+\begin{split}
+& H_0: \mu_x - \mu_y = 0 \quad \text{(i.e., no difference in population means)} \\ &
+H_1: \mu_x - \mu_y \neq 0 \quad \text{(i.e., the means are different)}
+\end{split}
+$$
+
+- **Step 2: Significance Level**\
+We choose a significance level of $\alpha = 0.05$.
+
+- **Step 3: Test Statistic**\
+Since both samples are large ($n \geq 30$), we can use the standard normal distribution. The test statistic is calculated using:
+$$
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }} \sim N(0,1)
+$$
+Here, $D_0 = 0$ under the null hypothesis. 
+
+- **Step 4: Decision Rule**\
+We reject $H_0$ if $|z_{\text{obs}}| > 1.96$ (the critical value for a 95% confidence level two-tailed test).
+
+- **Step 5: Observation**\
+Plugging in values in the test statistic: 
+$$
+Z = \frac{(20.1 - 19.2) - 0}{\sqrt{ \frac{2.35^2}{36} + \frac{2.25^2}{36} }} = \frac{0.9}{\sqrt{ \frac{5.5225 + 5.0625}{36} }} = \frac{0.9}{\sqrt{ \frac{10.585}{36} }} = \frac{0.9}{\sqrt{0.294}} \approx 1.66
+$$
+- **Step 6: Conclusion**\
+Since $|z_{\text{obs}}| = 1.66 < 1.96$, we fail to reject the null hypothesis. At the 5% significance level, the sample means are not significantly different.
+
+
+::: {.callout-note}
+## Using confidence interval instead
+We can also compute a 95% confidence interval for the difference in means:
+$$
+(\bar{x} - \bar{y}) \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+$$
+Plugging in the numbers:
+$$
+0.9 \pm 1.96 \cdot \sqrt{ \frac{2.35^2}{36} + \frac{2.25^2}{36} } = 0.9 \pm 1.96 \cdot \sqrt{0.294} \approx 0.9 \pm 1.0628
+$$
+Thus, the confidence interval is:
+$$
+[-0.1628;\, 1.9628]
+$$
+Since 0 is included in the interval, this supports our previous conclusion that there is no significant difference between the means.
+:::
+
+#### Example 22.7: Hypothesis Test for Difference Between Two Means {.unnumbered}
+We have independent random samples from two normally distributed populations with **equal (but unknown) variances**. We wish to test whether the mean of population 1 is greater than that of population 2, at a 1% significance level.
+
+The sample summary is given in below table:
+
+|               | Sample size ($n$) | Mean ($\bar{x}$ / $\bar{y}$) | Standard deviation ($s$) |
+|-----------------------------|--------------------------|----------------------|------------------------------------|
+| Population 1     | $n_x = 11$        | $\bar{x} = 1.23$                     | $s_x = 0.23$            |
+| Population 2     | $n_y = 13$        | $\bar{y} = 1.18$                     | $s_y = 0.27$            |
+
+- **Step 1: Hypotheses**\
+We set up the hypotheses as:
+$$
+\begin{split}
+& H_0: \mu_x - \mu_y = 0 \quad (\text{no difference})  \\ &
+H_1: \mu_x - \mu_y > 0 \quad (\text{population 1 has a larger mean})
+\end{split}
+$$
+
+- **Step 2: Significance Level**\
+We are testing at the 1% level:
+$$
+\alpha = 0.01
+$$
+
+- **Step 3: Test Statistic**\
+Since the population variances are assumed equal and the samples are small, we use a **pooled $t$-test**:
+$$
+t = \frac{(\bar{x} - \bar{y}) - 0}{\sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}} \sim t(\nu = n_x + n_y - 2 )
+$$
+where the **pooled variance** is calculated as:
+$$
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+= \frac{(11 - 1)(0.23^2) + (13 - 1)(0.27^2)}{22} = 0.0638
+$$
+
+- **Step 4: Decision Rule**\
+We use a right-tailed $t$-test with degrees of freedom:
+$$
+\nu =  n_x + n_y - 2 = 11 + 13 - 2 = 22
+$$
+Critical value for a one-tailed test at $\alpha = 0.01$:
+$$
+t_{22, 0.01} = 2.508
+$$
+
+- **Step 5: Observation**\
+We compute the test statistic:
+$$
+t_{\text{obs}} = \frac{1.23 - 1.18}{\sqrt{0.0638 \left( \frac{1}{11} + \frac{1}{13} \right)}} = 0.483
+$$
+
+- **Step 6: Conclusion**
+Since $t_{\text{obs}} = 0.483 < 2.508$, we fail to reject the null hypothesis. There is not enough evidence at the 1% level to conclude that the mean of population 1 is greater than that of population 2.
+
+
+## Hypothesis Testing for the Difference Between Two Proportions
+When comparing two proportions, we consider two populations:
+
+- **Population 1** with proportion $P_x$
+- **Population 2** with proportion $P_y$
+
+We want to test whether $P_x = P_y$, which is equivalent to testing whether the difference in population proportions is zero:
+$$
+H_0: p_x - p_y = 0
+$$
+This is the null hypothesis. The alternative hypothesis can be:
+
+- Two-sided:
+
+$$
+H_1: p_x - p_y \ne 0
+$$
+
+- One-sided:
+
+$$
+H_1: p_x - p_y < 0 \quad \text{or} \quad H_1: p_x - p_y > 0
+$$
+
+From each population, we take an independent samples:
+
+| Sample            | Sample Size | Sample Proportion |
+|------------------------|-------------|---------------------------|
+| From population 1 | $n_x$       | $\hat{p}_x$        |
+| From population 2 | $n_y$       | $\hat{p}_y$        |
+
+We then test whether the observed difference between $\hat{p}_x$ and $\hat{p}_y$ is large enough to reject the null hypothesis.
+
+When sample sizes are large, we use the following test statistic:
+$$
+Z = \frac{\hat{p}_x - \hat{p}_y}{\sqrt{ \hat{p}_0 (1 - \hat{p}_0) \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}}
+$$
+where $\hat{p}_0$ is the pooled proportion under the null hypothesis, calculated as:
+$$
+\hat{p}_0 = \frac{n_x \hat{p}_x + n_y \hat{p}_y}{n_x + n_y}
+$$
+$\hat{p}_0$ represents the proportion in the *combined sample*, assuming the null hypothesis ($p_x = p_y$) is true. 
+
+When testing whether two population proportions differ, we can use a test statistic $Z$ that is approximately standard normally distributed, $Z \sim N(0, 1)$, assuming the null hypothesis $H_0$ is true. The rejection regions (critical values) depend on the significance level $\alpha$ and the alternative hypothesis.
+
+
+#### Example 22.8: Hypothesis Testing for a Difference Between Two Proportions {.unnumbered}
+Let $p_x$ denote the proportion who support a particular political party in population 1, and let $p_y$ be the corresponding proportion in population 2. We want to examine, at a 5% significance level, whether there is a difference in party support between the two populations. A simple random sample of $n_x = 150$ individuals is taken from population 1, and $n_y = 250$ individuals from population 2. The sample proportions of supporters turn out to be:
+
+- $\hat{p}_x = 0.36$
+- $\hat{p}_y = 0.27$
+
+The sample sizes are sufficiently large to meet the requirements for using a normal approximation.
+
+- **Step 1: Hypotheses**\
+$$
+H_0: P_x - P_y = 0 \quad \text{(i.e., } P_x = P_y \text{)}
+$$
+
+$$
+H_1: P_x - P_y \neq 0 \quad \text{(i.e., } P_x \neq P_y \text{)}
+$$
+
+- **Step 2: Significance Level**\
+$$
+\alpha = 0.05
+$$
+
+- **Step 3: Test Statistic**\
+We use the following test statistic for comparing proportions:
+$$
+Z = \frac{\hat{p}_x - \hat{p}_y}{\sqrt{\hat{p}_0(1 - \hat{p}_0) \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}} \sim N(0,1)
+$$
+where $\hat{p}_0$ is the pooled proportion:
+$$
+\hat{p}_0 = \frac{n_x \hat{p}_x + n_y \hat{p}_y}{n_x + n_y}
+= \frac{150 \cdot 0.36 + 250 \cdot 0.27}{150 + 250}
+= 0.30375
+$$
+
+- **Step 4: Decision Rule**\
+Reject $H_0$ if:
+$$
+|Z_{\text{obs}}| > 1.96
+$$
+
+- **Step 5: Observation**\
+The observed test statistic is:
+$$
+Z_{\text{obs}} = \frac{0.36 - 0.27}{\sqrt{0.30375(1 - 0.30375) \left( \frac{1}{150} + \frac{1}{250} \right)}} = 1.895
+$$
+- **Step 6: Conclusion**\
+Since $|1.895| < 1.96$, we fail to reject the null hypothesis at the 5% significance level. This means we do not have sufficient evidence to claim a significant difference in party support between the two populations.
+
+#### Example 22.9:  One-Sided Hypothesis Test for Difference in Proportions {.unnumbered}
+This example builds on Example 22.8, but now we test a *one-sided alternative hypothesis*. Specifically, we want to investigate whether there is a higher proportion of supporters in population 1 than in population 2, using a significance level of 5%.
+
+- **Step 1: Hypotheses**\
+$$
+\begin{align*}
+H_0 &: p_x - p_y = 0 \quad \text{(i.e., } p_x = p_y \text{)} \\
+H_1 &: p_x - p_y > 0 \quad \text{(i.e., } p_x > p_y \text{)}
+\end{align*}
+$$
+
+- **Step 3: Significance Level**\
+$$
+\alpha = 0.05
+$$
+
+- **Step 3: Test Statistic**\
+We use the same test statistic for comparing proportions as in Example 22.8:
+$$
+Z = \frac{\hat{p}_x - \hat{p}_y}{\sqrt{\hat{p}_0(1 - \hat{p}_0) \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}}
+$$
+where $\hat{p}_0$ is the pooled proportion:
+$$
+\hat{p}_0 = \frac{n_x \hat{p}_x + n_y \hat{p}_y}{n_x + n_y}
+= \frac{150 \cdot 0.36 + 250 \cdot 0.27}{150 + 250}
+= 0.30375
+$$
+
+- **Step 4: Decision Rule**\
+Reject $H_0$ if:
+$$
+z_{\text{obs}} > z_{\alpha} = 1.645
+$$
+
+- **Step 5: Observation**\
+Same as in the previous example (standardized difference in sample proportions).
+$$
+z_{\text{obs}} = 1.895
+$$
+
+- **Step 6: Conclusion**\
+Since $z_{\text{obs}} = 1.895 > 1.645$, we reject the null hypothesis in favor of the alternative.
+
+> There is significant evidence, at the 5% level, that the proportion of supporters in population 1 is greater than in population 2.
+
+This result provides statistical support for the claim that $p_x > p_y$.
+
+## Exercises {.unnumbered}
+1. A courier company claims that their average delivery time for packages is no more than 2 days. A consumer watchdog suspects the actual delivery time might be longer.
+To test this claim, they randomly select 100 recent deliveries and record their delivery times. The sample has:
+    - Sample size: $n = 100$
+    - Sample mean: $\bar{x} = 2.2$ days
+    - Population standard deviation (assumed known): $\sigma = 0.8$ days
+
+    Perform a test to check whether the true mean delivery time exceeds 2 days on 5% significance level. Make sure to include all 6 steps for classical hypothesis testing.
+
+::: {.callout-tip collapse="true"}
+## Solution 
+**Step 1: Hypotheses**\
+$$
+\begin{align*}
+H_0 &: \mu = 2 \quad \text{(company claim)} \\
+H_1 &: \mu > 2 \quad \text{(watchdog suspicion)}
+\end{align*}
+$$
+
+**Step 2: Significance level**\
+We choose a significance level $\alpha = 0.05$.
+
+**Step 2: Test statistic**\
+Since the sample size is large and $\sigma$ is known, we use a Z-test:
+$$
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \sim N(0.1) 
+$$
+
+**Step 3: Critical value**\
+From standard normal tables:
+$$
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{2.2 - 2}{0.8 / \sqrt{100}} = \frac{0.2}{0.08} = 2.5
+$$
+$$
+z_{0.05} = 1.645
+$$
+
+**Step 4: Decision Rule**\
+We reject $H_0$ if $z_{obs} >  1.645$.
+
+**Step 5: Observation**\
+$$
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{2.2 - 2}{0.8 / \sqrt{100}} = \frac{0.2}{0.08} = 2.5
+$$
+**Step 6: Conclusion**\
+Since $z = 2.5 > 1.645$, we reject the null hypothesis.
+There is evidence at the 5% level to suggest that the average delivery time is greater than 2 days, contradicting the company's claim.
+:::
+
+2. A health researcher wants to test whether a new natural sleep supplement increases the average hours of sleep per night. In the general population, the average sleep duration is known to be 7 hours. The researcher gives the supplement to 12 participants and records their sleep hours over one week. The sample statistics are as follows:
+    - Sample size: $n = 12$
+    - Sample mean: $\bar{x} = 7.6$ hours
+    - Sample standard deviation: $s = 0.8$ hours
+    
+    Test if the supplement leads to longer sleep on average. Set $\alpha = 0.05$.
+
+::: {.callout-tip collapse="true"}
+## Solution 
+**Step 1: Hypotheses**\
+$$
+\begin{align*}
+H_0 &: \mu = 7 \quad \text{(no effect)} \\
+H_1 &: \mu > 7 \quad \text{(supplement increases sleep)}
+\end{align*}
+$$
+
+**Step 2: Significance level**
+$\alpha = 0.05$.
+
+**Step 3: Test statistics**\
+Use a $t$-test (since $n$ is small and $\sigma$ is unknown):\
+$$
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \sim t(n-1)
+$$
+
+**Step 4: Decision Rule**\
+Degrees of freedom:
+$$
+\nu = n - 1 = 11
+$$
+From the $t$-table, $t_{0.05, 11} \approx 1.796$ so we reject $H_0$ if $t_{obs}>1.796$
+
+**Step 5: Observation**\
+$$
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{7.6 - 7}{0.8 / \sqrt{12}} = \frac{0.6}{0.231} \approx 2.597
+$$
+
+**Step 6: Conclusion:**\
+Since $t = 2.597 > 1.796$, we reject the null hypothesis. There is evidence at the 5% level that the supplement increases average sleep time.
+:::
+
+3. A school introduces a new teaching method and wants to evaluate if it has increased students' average test scores. Historically, the average test score has been 75. A sample of 40 students taught with the new method had a mean score of 77.5 with a standard deviation of 10. Can we conclude that the new method improves average scores? Use the $p$-value approach and a significance level of 5%.
+
+::: {.callout-tip collapse="true"}
+## Solution 
+
+**Hypotheses:**\
+$$
+\begin{align*}
+H_0 &: \mu = 75 \\
+H_1 &: \mu > 75
+\end{align*}
+$$
+
+**Compute the test statistic**\
+We use a $z$-test (sample is large, $n = 40$):
+$$
+z = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{77.5 - 75}{10 / \sqrt{40}} = \frac{2.5}{1.58} \approx 1.58
+$$
+
+**Find the p-value**\
+We calculate the area to the right of $z = 1.58$ under the standard normal distribution:
+$$
+p\text{-value} = P(Z > 1.58) \approx 0.0571
+$$
+
+**Compare with significance level**\
+Since $p = 0.0571 > \alpha = 0.05$, we fail to reject the null hypothesis.
+
+**Conclusion:**\
+There is not enough evidence at the 5% significance level to conclude that the new teaching method improves scores.
+:::
+
+4. A researcher wants to know if a new tutoring program changes student performance. Six students take a test before and after the program. Their scores are:
+
+  | Student | Before | After |
+  |:--------|:--------:|-------:|
+  | 1       | 72      | 78     |
+  | 2       | 65      | 70     |
+  | 3       | 80      | 85     |
+  | 4       | 75      | 75     |
+  | 5       | 68      | 74     |
+  | 6       | 74      | 78     |
+
+  (a) Test if the tutoring program had an effect at the 5% significance level.
+  (b) Compute the $p$-value for the test in (a).
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+a. We go through all steps of the test:
+
+**Step 1: Hypotheses**\
+$$
+H_0: \mu_d = 0 \quad \text{(no mean difference)} \\
+H_1: \mu_d \neq 0 \quad \text{(mean difference exists)}
+$$
+
+**Step 2: Significance level**\
+$\alpha = 0.05$
+
+
+**Step 3: Test statistic**\
+$$
+t = \frac{\bar{d}}{s_d / \sqrt{n}} \sim t(n-1)
+$$
+
+
+**Step 4: Decision Rule**\
+Degrees of freedom:
+$$
+df = n - 1 = 5
+$$
+Significance level (two-tailed):
+$$
+\alpha = 0.05 \Rightarrow \alpha/2 = 0.025
+$$
+From t-table:
+$$
+t_{\text{crit}} = t_{0.025, 5} \approx 2.571
+$$
+So we reject $H_0$ if:
+
+$$
+|t_{obs}| > t_{\text{crit}} = 2.571 
+$$
+
+
+**Step 5: Observation**\
+
+Compute the sample statistics needed first using the data in the table. Differences are given by:
+
+$$
+d_i = \text{After} - \text{Before}
+$$
+
+| Student | $d_i$ |
+|---------|-------|
+| 1       | 6     |
+| 2       | 5     |
+| 3       | 5     |
+| 4       | 0     |
+| 5       | 6     |
+| 6       | 4     |
+
+Sample mean and sample standard deviation of differences are given by:
+$$
+\bar{d} = \frac{6 + 5 + 5 + 0 + 6 + 4}{6} = \frac{26}{6} \approx 4.33
+$$
+$$
+s_d^2 = \frac{1}{n-1} \sum (d_i - \bar{d})^2 = \frac{25.33}{5} = 5.07
+$$
+Thus the standard deviation is
+$$
+s_d = \sqrt{5.07} \approx 2.25
+$$
+The observed value of the test statistic is then given by:
+$$
+t_{obs} = \frac{\bar{d}}{s_d / \sqrt{n}} = \frac{4.33}{2.25 / \sqrt{6}} \approx 4.70
+$$
+
+**Step 6: Conclusion:**
+
+We reject the null hypothesis since $t_{obs} = 4.70 > 2.571$. The observed mean difference is statistically significant. The tutoring program appears to have a real effect on student performance.
+
+
+b. This is a two-tailed test so the $p$-value is 
+$$
+p = 2 \cdot P(T > 4.70) \approx 0.005
+$$
+We reject the null hypothesis on any significance level $\alpha > 0.005$. The data suggests that the tutoring program has a statistically significant effect on student scores.
+
+:::
+
+5. A company wants to compare the average productivity (measured in units/hour) of two different manufacturing plants, A and B. Management suspects there may be a difference in mean productivity between the two locations. 
+
+    A random sample of 100 workers from Plant A had a mean productivity of 52.3 units/hour with a standard deviation of 8.5.  
+A random sample of 120 workers from Plant B had a mean productivity of 49.7 units/hour with a standard deviation of 9.2.
+
+    Test, at the 5% significance level, whether there is a difference in mean productivity between the two plants, i.e.:
+$$
+\begin{split}
+& H_0: \mu_A - \mu_B = 0 \\ &
+ H_1: \mu_A - \mu_B \neq 0
+\end{split}
+$$
+
+::: {.callout-tip collapse="true"}
+## Solution
+**Step 1: Hypotheses**
+$$
+\begin{split}
+& H_0: \mu_A - \mu_B = 0 \\ &
+ H_1: \mu_A - \mu_B \neq 0
+\end{split}
+$$
+**Step 2: Significance level**\
+$\alpha = 0.05$
+
+**Step 3: Test statistic**\
+Large samples and unknown variances:
+$$
+z = \frac{(\bar{x}_A - \bar{x}_B) - 0}{\sqrt{\frac{s_A^2}{n_A} + \frac{s_B^2}{n_B}}} \sim N(0,1)
+$$
+
+**Step 4: Decision rule**\
+For a two-tailed test at $\alpha = 0.05$, the critical values are:
+$$
+z_{\text{crit}} = \pm 1.96
+$$
+We reject $H_0$ if $|z_{obs}| > 1.96$.
+
+
+**Step 5: Observation**\
+The observed sample values are as follows:
+
+- $\bar{x}_A = 52.3$, $s_A = 8.5$, $n_A = 100$  
+- $\bar{x}_B = 49.7$, $s_B = 9.2$, $n_B = 120$  
+
+The standard error is given by
+$$
+\begin{split}
+ \sqrt{\frac{s_A^2}{n_A} + \frac{s_B^2}{n_B}}&  = \sqrt{\frac{8.5^2}{100} + \frac{9.2^2}{120}} \\ &
+= \sqrt{\frac{72.25}{100} + \frac{84.64}{120}}  \\ & = \sqrt{0.7225 + 0.7053} \approx \sqrt{1.4278} \approx 1.194
+\end{split}
+$$
+and the observed values is then equal to
+$$
+z_{obs} = \frac{(\bar{x}_A - \bar{x}_B) - 0}{SE} = \frac{52.3 - 49.7}{1.194} \approx \frac{2.6}{1.194} \approx 2.18
+$$
+
+**Step 5: Conclusion**\
+Since $z = 2.18 > 1.96$, we reject the null hypothesis. There is statistical evidence at the 5% level to suggest that there is a significant difference in mean productivity between the two plants.
+
+:::
+
+
+

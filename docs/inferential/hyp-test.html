@@ -393,6 +393,15 @@ window.Quarto = {
   <li><a href="#hypothesis-testing-for-a-population-proportion" id="toc-hypothesis-testing-for-a-population-proportion" class="nav-link" data-scroll-target="#hypothesis-testing-for-a-population-proportion"><span class="header-section-number">22.4</span> Hypothesis Testing for a Population Proportion</a></li>
   <li><a href="#hypothesis-testing-with-p-values" id="toc-hypothesis-testing-with-p-values" class="nav-link" data-scroll-target="#hypothesis-testing-with-p-values"><span class="header-section-number">22.5</span> Hypothesis Testing with <span class="math inline">\(p\)</span>-Values</a></li>
   <li><a href="#hypothesis-testing-and-confidence-intervals" id="toc-hypothesis-testing-and-confidence-intervals" class="nav-link" data-scroll-target="#hypothesis-testing-and-confidence-intervals"><span class="header-section-number">22.6</span> Hypothesis Testing and Confidence Intervals</a></li>
+  <li>
+<a href="#hypothesis-testing-for-the-difference-between-two-population-means" id="toc-hypothesis-testing-for-the-difference-between-two-population-means" class="nav-link" data-scroll-target="#hypothesis-testing-for-the-difference-between-two-population-means"><span class="header-section-number">22.7</span> Hypothesis Testing for the Difference Between Two Population Means</a>
+  <ul class="collapse">
+<li><a href="#case-1-large-sample-sizes" id="toc-case-1-large-sample-sizes" class="nav-link" data-scroll-target="#case-1-large-sample-sizes"><span class="header-section-number">22.7.1</span> Case 1: Large Sample Sizes</a></li>
+  <li><a href="#case-2-small-samples" id="toc-case-2-small-samples" class="nav-link" data-scroll-target="#case-2-small-samples"><span class="header-section-number">22.7.2</span> Case 2: Small Samples</a></li>
+  </ul>
+</li>
+  <li><a href="#hypothesis-testing-for-the-difference-between-two-proportions" id="toc-hypothesis-testing-for-the-difference-between-two-proportions" class="nav-link" data-scroll-target="#hypothesis-testing-for-the-difference-between-two-proportions"><span class="header-section-number">22.8</span> Hypothesis Testing for the Difference Between Two Proportions</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/hyp-test.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -1143,7 +1152,7 @@ Figure&nbsp;22.10: Visualization of a two-tailed <span class="math inline">\(p\)
 H_0 : \mu = \mu_0
 \]</span> against the <strong>two-sided alternative hypothesis</strong> <span class="math display">\[
 H_1 : \mu \ne \mu_0,
-\]</span> we can use a confidence interval for the population mean $ instead of computing a test statistic directly. The key relationship is:</p>
+\]</span> we can use a confidence interval for the population mean <span class="math inline">\(\mu\)</span> instead of computing a test statistic directly. The key relationship is:</p>
 <blockquote class="blockquote">
 <p>The null hypothesis <span class="math inline">\(H_0\)</span> is <strong>rejected at significance level <span class="math inline">\(\alpha\)</span></strong> if and only if the <span class="math inline">\(100(1 - \alpha)\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> <strong>does not include</strong> the value <span class="math inline">\(\mu_0\)</span>.</p>
 </blockquote>
@@ -1174,10 +1183,724 @@ Note: when working with proportions
 <p>While the above equivalence between hypothesis tests and confidence intervals holds well for means, it is <strong>not exact</strong> for proportions or differences in proportions. This is because confidence intervals for proportions use the sample proportion <span class="math inline">\(\hat{p}\)</span> in the standard error: <span class="math display">\[
 \hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
 \]</span></p>
-<p>and hypothesis tests for a proportion use the <strong>null proportion</strong> <span class="math inline">\(P_0\)</span> in the test statistic: <span class="math display">\[
+<p>and hypothesis tests for a proportion use the <strong>null proportion</strong> <span class="math inline">\(p_0\)</span> in the test statistic: <span class="math display">\[
 Z = \frac{\hat{p} - p_0}{\sqrt{ \frac{p_0(1 - p_0)}{n} }}
 \]</span></p>
 <p>Thus, confidence intervals and hypothesis testing may give slightly different results in these cases, especially with small samples.</p>
+</div>
+</div>
+</section><section id="hypothesis-testing-for-the-difference-between-two-population-means" class="level2" data-number="22.7"><h2 data-number="22.7" class="anchored" data-anchor-id="hypothesis-testing-for-the-difference-between-two-population-means">
+<span class="header-section-number">22.7</span> Hypothesis Testing for the Difference Between Two Population Means</h2>
+<p>In this section, we explore how to test hypotheses about the difference between the means of two populations. This is particularly useful when we want to determine if there is a statistically significant difference between the average values of two groups.</p>
+<p>We use the same notation as in confidence interval estimation (<a href="estimation.html" class="quarto-xref"><span>Chapter 21</span></a>) for the difference between two means:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Population</th>
+<th>Mean (<span class="math inline">\(\mu\)</span>)</th>
+<th>Standard Deviation (<span class="math inline">\(\sigma\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Population 1</td>
+<td><span class="math inline">\(\mu_x\)</span></td>
+<td><span class="math inline">\(\sigma_x\)</span></td>
+</tr>
+<tr class="even">
+<td>Population 2</td>
+<td><span class="math inline">\(\mu_y\)</span></td>
+<td><span class="math inline">\(\sigma_y\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We are interested in making inferences about the difference <span class="math inline">\(\mu_x - \mu_y\)</span>. Suppose we have one independent sample from each of the two populations. We summarize the data as:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 11%">
+<col style="width: 37%">
+<col style="width: 24%">
+</colgroup>
+<thead><tr class="header">
+<th>Sample</th>
+<th>Size (<span class="math inline">\(n\)</span>)</th>
+<th>Sample Mean (<span class="math inline">\(\bar{x}\)</span> or <span class="math inline">\(\bar{y}\)</span>)</th>
+<th>Sample Std. Dev. (<span class="math inline">\(s\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>From Population 1</td>
+<td><span class="math inline">\(n_x\)</span></td>
+<td><span class="math inline">\(\bar{x}\)</span></td>
+<td><span class="math inline">\(s_x\)</span></td>
+</tr>
+<tr class="even">
+<td>From Population 2</td>
+<td><span class="math inline">\(n_y\)</span></td>
+<td><span class="math inline">\(\bar{y}\)</span></td>
+<td><span class="math inline">\(s_y\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> The samples must be independently drawn from the respective populations.</p>
+<p>We want to test:</p>
+<ul>
+<li>Null hypothesis: <span class="math inline">\(H_0: \mu_x - \mu_y = D_0\)</span>
+</li>
+<li>Alternative hypothesis (two-sided): <span class="math inline">\(H_1: \mu_x - \mu_y \ne D_0\)</span>
+</li>
+</ul>
+<p>Often, <span class="math inline">\(D_0 = 0\)</span>, meaning we test for equality of the population means:</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu_x = \mu_y\)</span></li>
+<li><span class="math inline">\(H_1: \mu_x \ne \mu_y\)</span></li>
+</ul>
+<p>One-sided tests may also be appropriate, which corresponds to <span class="math inline">\(D_0&lt;0\)</span> or <span class="math inline">\(D_0&gt;0\)</span>:</p>
+<ul>
+<li>
+<span class="math inline">\(H_1: \mu_x &lt; \mu_y\)</span> (or <span class="math inline">\(D_0&lt;0\)</span>)</li>
+<li>
+<span class="math inline">\(H_1: \mu_x &gt; \mu_y\)</span> (or <span class="math inline">\(D_0&gt;0\)</span>)</li>
+</ul>
+<p>We compare the observed difference in sample means <span class="math inline">\(\bar{x} - \bar{y}\)</span> to the hypothesized value <span class="math inline">\(D_0\)</span>. The core question becomes:</p>
+<blockquote class="blockquote">
+<p>Is the observed value of <span class="math inline">\(\bar{x} - \bar{y}\)</span> far enough from <span class="math inline">\(D_0\)</span> to reject <span class="math inline">\(H_0\)</span>?</p>
+</blockquote>
+<p>This decision again depends on the factors:</p>
+<ul>
+<li>Sample sizes (small vs large)</li>
+<li>Whether population distributions are approximately normal</li>
+<li>Whether population variances are known or unknown</li>
+</ul>
+<p>These factors determine the appropriate test statistic (e.g., <span class="math inline">\(Z\)</span> or <span class="math inline">\(t\)</span>) and which distribution to use. We will now look at specific cases based on these conditions.</p>
+<section id="case-1-large-sample-sizes" class="level3" data-number="22.7.1"><h3 data-number="22.7.1" class="anchored" data-anchor-id="case-1-large-sample-sizes">
+<span class="header-section-number">22.7.1</span> Case 1: Large Sample Sizes</h3>
+<p>We assume <span class="math inline">\(n_x \geq 30\)</span> and <span class="math inline">\(n_y \geq 30\)</span>. With large samples, we do not need to assume anything about the population distributions.</p>
+<p>The test statistic when population variances are known is given by: <span class="math display">\[
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y}}}
+\]</span> and when population variances are unknown, we have <span class="math display">\[
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}}}
+\]</span> where:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> are the sample means,</li>
+<li>
+<span class="math inline">\(D_0\)</span> is the hypothesized difference (typically <span class="math inline">\(0\)</span>),</li>
+<li>
+<span class="math inline">\(s_x^2\)</span> and <span class="math inline">\(s_y^2\)</span> are the sample variances,</li>
+<li>
+<span class="math inline">\(n_x\)</span> and <span class="math inline">\(n_y\)</span> are the sample sizes.</li>
+</ul>
+<p>The test statistics <span class="math inline">\(Z\)</span> above are approximately normally distributed, <span class="math inline">\(N(0,1)\)</span>, when <span class="math inline">\(H_0\)</span> is true. Rejection boundaries (critical values) are determined by the significance level and the alternative hypothesis, just as done earlier.</p>
+</section><section id="case-2-small-samples" class="level3" data-number="22.7.2"><h3 data-number="22.7.2" class="anchored" data-anchor-id="case-2-small-samples">
+<span class="header-section-number">22.7.2</span> Case 2: Small Samples</h3>
+<p>Here, at least one of <span class="math inline">\(n_x\)</span> and <span class="math inline">\(n_y\)</span> is smaller than 30. In this case, both samples must come from normally distributed populations. That is, at least one of <span class="math inline">\(n_x\)</span> and <span class="math inline">\(n_y\)</span> is smaller than 30. In this case, both samples must come from normally distributed populations.</p>
+<section id="a-population-variances-known" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="a-population-variances-known">a) Population Variances Known</h4>
+<p>If <span class="math inline">\(\sigma_x^2\)</span> and <span class="math inline">\(\sigma_y^2\)</span> are known, the test statistic is given by: <span class="math display">\[
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y}}}
+\]</span></p>
+</section><section id="b-population-variances-unknown-but-assumed-equal" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="b-population-variances-unknown-but-assumed-equal">b) Population Variances Unknown but Assumed Equal</h4>
+<p>We must assume that the population variances are equal, although their actual values are unknown. Then the test statistic is given by: <span class="math display">\[
+t = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}}
+\]</span> where the pooled sample variance <span class="math inline">\(s_p^2\)</span> is: <span class="math display">\[
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+\]</span> This <span class="math inline">\(t\)</span> statistic follows a <span class="math inline">\(t\)</span>-distribution with: <span class="math display">\[
+\nu = n_x + n_y - 2
+\]</span> degrees of freedom when <span class="math inline">\(H_0\)</span> is true.</p>
+</section><section id="c-population-variances-unknown-and-not-assumed-equal-welchs-t-test" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="c-population-variances-unknown-and-not-assumed-equal-welchs-t-test">c) Population Variances Unknown and Not Assumed Equal (Welch’s t-test)</h4>
+<p>If we cannot assume equal variances, we use <strong>Welch’s t-test</strong> with statistic: <span class="math display">\[
+t = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{\frac{s_x^2}{n_x} + \frac{s_y^2}{n_y}}}
+\]</span> This test statistic approximately follows a <span class="math inline">\(t\)</span>-distribution with degrees of freedom calculated by <strong>Welch-Satterthwaite approximation</strong>: <span class="math display">\[
+\nu = \frac{\left( \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} \right)^2}{
+\frac{\left( s_x^2/n_x \right)^2}{n_x - 1} +
+\frac{\left( s_y^2/n_y \right)^2}{n_y - 1}}
+\]</span> This test is more robust when the assumption of equal population variances is questionable.</p>
+</section><section id="example-22.6-hypothesis-test-for-difference-between-two-means" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.6-hypothesis-test-for-difference-between-two-means">Example 22.6: Hypothesis Test for Difference Between Two Means</h4>
+<p>We consider two independent random samples. We want to test whether the two populations have the same mean. The population variances are unknown, but we estimate them using the sample standard deviations. The sample information is:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 31%">
+</colgroup>
+<thead><tr class="header">
+<th>Sample</th>
+<th>Sample size (<span class="math inline">\(n\)</span>)</th>
+<th>Mean (<span class="math inline">\(\bar{x}\)</span> / <span class="math inline">\(\bar{y}\)</span>)</th>
+<th>Standard deviation (<span class="math inline">\(s\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>From population 1</td>
+<td><span class="math inline">\(n_x = 36\)</span></td>
+<td><span class="math inline">\(\bar{x} = 20.1\)</span></td>
+<td><span class="math inline">\(s_x = 2.35\)</span></td>
+</tr>
+<tr class="even">
+<td>From population 2</td>
+<td><span class="math inline">\(n_y = 36\)</span></td>
+<td><span class="math inline">\(\bar{y} = 19.2\)</span></td>
+<td><span class="math inline">\(s_y = 2.25\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>Step 1: Hypotheses</strong><br>
+We test: <span class="math display">\[
+\begin{split}
+&amp; H_0: \mu_x - \mu_y = 0 \quad \text{(i.e., no difference in population means)} \\ &amp;
+H_1: \mu_x - \mu_y \neq 0 \quad \text{(i.e., the means are different)}
+\end{split}
+\]</span></p></li>
+<li><p><strong>Step 2: Significance Level</strong><br>
+We choose a significance level of <span class="math inline">\(\alpha = 0.05\)</span>.</p></li>
+<li><p><strong>Step 3: Test Statistic</strong><br>
+Since both samples are large (<span class="math inline">\(n \geq 30\)</span>), we can use the standard normal distribution. The test statistic is calculated using: <span class="math display">\[
+Z = \frac{(\bar{x} - \bar{y}) - D_0}{\sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }} \sim N(0,1)
+\]</span> Here, <span class="math inline">\(D_0 = 0\)</span> under the null hypothesis.</p></li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|z_{\text{obs}}| &gt; 1.96\)</span> (the critical value for a 95% confidence level two-tailed test).</p></li>
+<li><p><strong>Step 5: Observation</strong><br>
+Plugging in values in the test statistic: <span class="math display">\[
+Z = \frac{(20.1 - 19.2) - 0}{\sqrt{ \frac{2.35^2}{36} + \frac{2.25^2}{36} }} = \frac{0.9}{\sqrt{ \frac{5.5225 + 5.0625}{36} }} = \frac{0.9}{\sqrt{ \frac{10.585}{36} }} = \frac{0.9}{\sqrt{0.294}} \approx 1.66
+\]</span></p></li>
+<li><p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(|z_{\text{obs}}| = 1.66 &lt; 1.96\)</span>, we fail to reject the null hypothesis. At the 5% significance level, the sample means are not significantly different.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Using confidence interval instead
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can also compute a 95% confidence interval for the difference in means: <span class="math display">\[
+(\bar{x} - \bar{y}) \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
+\]</span> Plugging in the numbers: <span class="math display">\[
+0.9 \pm 1.96 \cdot \sqrt{ \frac{2.35^2}{36} + \frac{2.25^2}{36} } = 0.9 \pm 1.96 \cdot \sqrt{0.294} \approx 0.9 \pm 1.0628
+\]</span> Thus, the confidence interval is: <span class="math display">\[
+[-0.1628;\, 1.9628]
+\]</span> Since 0 is included in the interval, this supports our previous conclusion that there is no significant difference between the means.</p>
+</div>
+</div>
+</section><section id="example-22.7-hypothesis-test-for-difference-between-two-means" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.7-hypothesis-test-for-difference-between-two-means">Example 22.7: Hypothesis Test for Difference Between Two Means</h4>
+<p>We have independent random samples from two normally distributed populations with <strong>equal (but unknown) variances</strong>. We wish to test whether the mean of population 1 is greater than that of population 2, at a 1% significance level.</p>
+<p>The sample summary is given in below table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 31%">
+</colgroup>
+<thead><tr class="header">
+<th></th>
+<th>Sample size (<span class="math inline">\(n\)</span>)</th>
+<th>Mean (<span class="math inline">\(\bar{x}\)</span> / <span class="math inline">\(\bar{y}\)</span>)</th>
+<th>Standard deviation (<span class="math inline">\(s\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Population 1</td>
+<td><span class="math inline">\(n_x = 11\)</span></td>
+<td><span class="math inline">\(\bar{x} = 1.23\)</span></td>
+<td><span class="math inline">\(s_x = 0.23\)</span></td>
+</tr>
+<tr class="even">
+<td>Population 2</td>
+<td><span class="math inline">\(n_y = 13\)</span></td>
+<td><span class="math inline">\(\bar{y} = 1.18\)</span></td>
+<td><span class="math inline">\(s_y = 0.27\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>Step 1: Hypotheses</strong><br>
+We set up the hypotheses as: <span class="math display">\[
+\begin{split}
+&amp; H_0: \mu_x - \mu_y = 0 \quad (\text{no difference})  \\ &amp;
+H_1: \mu_x - \mu_y &gt; 0 \quad (\text{population 1 has a larger mean})
+\end{split}
+\]</span></p></li>
+<li><p><strong>Step 2: Significance Level</strong><br>
+We are testing at the 1% level: <span class="math display">\[
+\alpha = 0.01
+\]</span></p></li>
+<li><p><strong>Step 3: Test Statistic</strong><br>
+Since the population variances are assumed equal and the samples are small, we use a <strong>pooled <span class="math inline">\(t\)</span>-test</strong>: <span class="math display">\[
+t = \frac{(\bar{x} - \bar{y}) - 0}{\sqrt{s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}} \sim t(\nu = n_x + n_y - 2 )
+\]</span> where the <strong>pooled variance</strong> is calculated as: <span class="math display">\[
+s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
+= \frac{(11 - 1)(0.23^2) + (13 - 1)(0.27^2)}{22} = 0.0638
+\]</span></p></li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+We use a right-tailed <span class="math inline">\(t\)</span>-test with degrees of freedom: <span class="math display">\[
+\nu =  n_x + n_y - 2 = 11 + 13 - 2 = 22
+\]</span> Critical value for a one-tailed test at <span class="math inline">\(\alpha = 0.01\)</span>: <span class="math display">\[
+t_{22, 0.01} = 2.508
+\]</span></p></li>
+<li><p><strong>Step 5: Observation</strong><br>
+We compute the test statistic: <span class="math display">\[
+t_{\text{obs}} = \frac{1.23 - 1.18}{\sqrt{0.0638 \left( \frac{1}{11} + \frac{1}{13} \right)}} = 0.483
+\]</span></p></li>
+<li><p><strong>Step 6: Conclusion</strong> Since <span class="math inline">\(t_{\text{obs}} = 0.483 &lt; 2.508\)</span>, we fail to reject the null hypothesis. There is not enough evidence at the 1% level to conclude that the mean of population 1 is greater than that of population 2.</p></li>
+</ul></section></section></section><section id="hypothesis-testing-for-the-difference-between-two-proportions" class="level2" data-number="22.8"><h2 data-number="22.8" class="anchored" data-anchor-id="hypothesis-testing-for-the-difference-between-two-proportions">
+<span class="header-section-number">22.8</span> Hypothesis Testing for the Difference Between Two Proportions</h2>
+<p>When comparing two proportions, we consider two populations:</p>
+<ul>
+<li>
+<strong>Population 1</strong> with proportion <span class="math inline">\(P_x\)</span>
+</li>
+<li>
+<strong>Population 2</strong> with proportion <span class="math inline">\(P_y\)</span>
+</li>
+</ul>
+<p>We want to test whether <span class="math inline">\(P_x = P_y\)</span>, which is equivalent to testing whether the difference in population proportions is zero: <span class="math display">\[
+H_0: p_x - p_y = 0
+\]</span> This is the null hypothesis. The alternative hypothesis can be:</p>
+<ul>
+<li>Two-sided:</li>
+</ul>
+<p><span class="math display">\[
+H_1: p_x - p_y \ne 0
+\]</span></p>
+<ul>
+<li>One-sided:</li>
+</ul>
+<p><span class="math display">\[
+H_1: p_x - p_y &lt; 0 \quad \text{or} \quad H_1: p_x - p_y &gt; 0
+\]</span></p>
+<p>From each population, we take an independent samples:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Sample</th>
+<th>Sample Size</th>
+<th>Sample Proportion</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>From population 1</td>
+<td><span class="math inline">\(n_x\)</span></td>
+<td><span class="math inline">\(\hat{p}_x\)</span></td>
+</tr>
+<tr class="even">
+<td>From population 2</td>
+<td><span class="math inline">\(n_y\)</span></td>
+<td><span class="math inline">\(\hat{p}_y\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We then test whether the observed difference between <span class="math inline">\(\hat{p}_x\)</span> and <span class="math inline">\(\hat{p}_y\)</span> is large enough to reject the null hypothesis.</p>
+<p>When sample sizes are large, we use the following test statistic: <span class="math display">\[
+Z = \frac{\hat{p}_x - \hat{p}_y}{\sqrt{ \hat{p}_0 (1 - \hat{p}_0) \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}}
+\]</span> where <span class="math inline">\(\hat{p}_0\)</span> is the pooled proportion under the null hypothesis, calculated as: <span class="math display">\[
+\hat{p}_0 = \frac{n_x \hat{p}_x + n_y \hat{p}_y}{n_x + n_y}
+\]</span> <span class="math inline">\(\hat{p}_0\)</span> represents the proportion in the <em>combined sample</em>, assuming the null hypothesis (<span class="math inline">\(p_x = p_y\)</span>) is true.</p>
+<p>When testing whether two population proportions differ, we can use a test statistic <span class="math inline">\(Z\)</span> that is approximately standard normally distributed, <span class="math inline">\(Z \sim N(0, 1)\)</span>, assuming the null hypothesis <span class="math inline">\(H_0\)</span> is true. The rejection regions (critical values) depend on the significance level <span class="math inline">\(\alpha\)</span> and the alternative hypothesis.</p>
+<section id="example-22.8-hypothesis-testing-for-a-difference-between-two-proportions" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.8-hypothesis-testing-for-a-difference-between-two-proportions">Example 22.8: Hypothesis Testing for a Difference Between Two Proportions</h4>
+<p>Let <span class="math inline">\(p_x\)</span> denote the proportion who support a particular political party in population 1, and let <span class="math inline">\(p_y\)</span> be the corresponding proportion in population 2. We want to examine, at a 5% significance level, whether there is a difference in party support between the two populations. A simple random sample of <span class="math inline">\(n_x = 150\)</span> individuals is taken from population 1, and <span class="math inline">\(n_y = 250\)</span> individuals from population 2. The sample proportions of supporters turn out to be:</p>
+<ul>
+<li><span class="math inline">\(\hat{p}_x = 0.36\)</span></li>
+<li><span class="math inline">\(\hat{p}_y = 0.27\)</span></li>
+</ul>
+<p>The sample sizes are sufficiently large to meet the requirements for using a normal approximation.</p>
+<ul>
+<li>
+<strong>Step 1: Hypotheses</strong><br><span class="math display">\[
+H_0: P_x - P_y = 0 \quad \text{(i.e., } P_x = P_y \text{)}
+\]</span>
+</li>
+</ul>
+<p><span class="math display">\[
+H_1: P_x - P_y \neq 0 \quad \text{(i.e., } P_x \neq P_y \text{)}
+\]</span></p>
+<ul>
+<li><p><strong>Step 2: Significance Level</strong><br><span class="math display">\[
+\alpha = 0.05
+\]</span></p></li>
+<li><p><strong>Step 3: Test Statistic</strong><br>
+We use the following test statistic for comparing proportions: <span class="math display">\[
+Z = \frac{\hat{p}_x - \hat{p}_y}{\sqrt{\hat{p}_0(1 - \hat{p}_0) \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}} \sim N(0,1)
+\]</span> where <span class="math inline">\(\hat{p}_0\)</span> is the pooled proportion: <span class="math display">\[
+\hat{p}_0 = \frac{n_x \hat{p}_x + n_y \hat{p}_y}{n_x + n_y}
+= \frac{150 \cdot 0.36 + 250 \cdot 0.27}{150 + 250}
+= 0.30375
+\]</span></p></li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+Reject <span class="math inline">\(H_0\)</span> if: <span class="math display">\[
+|Z_{\text{obs}}| &gt; 1.96
+\]</span></p></li>
+<li><p><strong>Step 5: Observation</strong><br>
+The observed test statistic is: <span class="math display">\[
+Z_{\text{obs}} = \frac{0.36 - 0.27}{\sqrt{0.30375(1 - 0.30375) \left( \frac{1}{150} + \frac{1}{250} \right)}} = 1.895
+\]</span></p></li>
+<li><p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(|1.895| &lt; 1.96\)</span>, we fail to reject the null hypothesis at the 5% significance level. This means we do not have sufficient evidence to claim a significant difference in party support between the two populations.</p></li>
+</ul></section><section id="example-22.9-one-sided-hypothesis-test-for-difference-in-proportions" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-22.9-one-sided-hypothesis-test-for-difference-in-proportions">Example 22.9: One-Sided Hypothesis Test for Difference in Proportions</h4>
+<p>This example builds on Example 22.8, but now we test a <em>one-sided alternative hypothesis</em>. Specifically, we want to investigate whether there is a higher proportion of supporters in population 1 than in population 2, using a significance level of 5%.</p>
+<ul>
+<li><p><strong>Step 1: Hypotheses</strong><br><span class="math display">\[
+\begin{align*}
+H_0 &amp;: p_x - p_y = 0 \quad \text{(i.e., } p_x = p_y \text{)} \\
+H_1 &amp;: p_x - p_y &gt; 0 \quad \text{(i.e., } p_x &gt; p_y \text{)}
+\end{align*}
+\]</span></p></li>
+<li><p><strong>Step 3: Significance Level</strong><br><span class="math display">\[
+\alpha = 0.05
+\]</span></p></li>
+<li><p><strong>Step 3: Test Statistic</strong><br>
+We use the same test statistic for comparing proportions as in Example 22.8: <span class="math display">\[
+Z = \frac{\hat{p}_x - \hat{p}_y}{\sqrt{\hat{p}_0(1 - \hat{p}_0) \left( \frac{1}{n_x} + \frac{1}{n_y} \right)}}
+\]</span> where <span class="math inline">\(\hat{p}_0\)</span> is the pooled proportion: <span class="math display">\[
+\hat{p}_0 = \frac{n_x \hat{p}_x + n_y \hat{p}_y}{n_x + n_y}
+= \frac{150 \cdot 0.36 + 250 \cdot 0.27}{150 + 250}
+= 0.30375
+\]</span></p></li>
+<li><p><strong>Step 4: Decision Rule</strong><br>
+Reject <span class="math inline">\(H_0\)</span> if: <span class="math display">\[
+z_{\text{obs}} &gt; z_{\alpha} = 1.645
+\]</span></p></li>
+<li><p><strong>Step 5: Observation</strong><br>
+Same as in the previous example (standardized difference in sample proportions). <span class="math display">\[
+z_{\text{obs}} = 1.895
+\]</span></p></li>
+<li><p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(z_{\text{obs}} = 1.895 &gt; 1.645\)</span>, we reject the null hypothesis in favor of the alternative.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>There is significant evidence, at the 5% level, that the proportion of supporters in population 1 is greater than in population 2.</p>
+</blockquote>
+<p>This result provides statistical support for the claim that <span class="math inline">\(p_x &gt; p_y\)</span>.</p>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>A courier company claims that their average delivery time for packages is no more than 2 days. A consumer watchdog suspects the actual delivery time might be longer. To test this claim, they randomly select 100 recent deliveries and record their delivery times. The sample has:
+<ul>
+<li>Sample size: <span class="math inline">\(n = 100\)</span>
+</li>
+<li>Sample mean: <span class="math inline">\(\bar{x} = 2.2\)</span> days</li>
+<li>Population standard deviation (assumed known): <span class="math inline">\(\sigma = 0.8\)</span> days</li>
+</ul>
+Perform a test to check whether the true mean delivery time exceeds 2 days on 5% significance level. Make sure to include all 6 steps for classical hypothesis testing.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong><br><span class="math display">\[
+\begin{align*}
+H_0 &amp;: \mu = 2 \quad \text{(company claim)} \\
+H_1 &amp;: \mu &gt; 2 \quad \text{(watchdog suspicion)}
+\end{align*}
+\]</span></p>
+<p><strong>Step 2: Significance level</strong><br>
+We choose a significance level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Step 2: Test statistic</strong><br>
+Since the sample size is large and <span class="math inline">\(\sigma\)</span> is known, we use a Z-test: <span class="math display">\[
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \sim N(0.1)
+\]</span></p>
+<p><strong>Step 3: Critical value</strong><br>
+From standard normal tables: <span class="math display">\[
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{2.2 - 2}{0.8 / \sqrt{100}} = \frac{0.2}{0.08} = 2.5
+\]</span> <span class="math display">\[
+z_{0.05} = 1.645
+\]</span></p>
+<p><strong>Step 4: Decision Rule</strong><br>
+We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(z_{obs} &gt;  1.645\)</span>.</p>
+<p><strong>Step 5: Observation</strong><br><span class="math display">\[
+z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} = \frac{2.2 - 2}{0.8 / \sqrt{100}} = \frac{0.2}{0.08} = 2.5
+\]</span> <strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(z = 2.5 &gt; 1.645\)</span>, we reject the null hypothesis. There is evidence at the 5% level to suggest that the average delivery time is greater than 2 days, contradicting the company’s claim.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A health researcher wants to test whether a new natural sleep supplement increases the average hours of sleep per night. In the general population, the average sleep duration is known to be 7 hours. The researcher gives the supplement to 12 participants and records their sleep hours over one week. The sample statistics are as follows:
+<ul>
+<li>Sample size: <span class="math inline">\(n = 12\)</span>
+</li>
+<li>Sample mean: <span class="math inline">\(\bar{x} = 7.6\)</span> hours</li>
+<li>Sample standard deviation: <span class="math inline">\(s = 0.8\)</span> hours</li>
+</ul>
+Test if the supplement leads to longer sleep on average. Set <span class="math inline">\(\alpha = 0.05\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong><br><span class="math display">\[
+\begin{align*}
+H_0 &amp;: \mu = 7 \quad \text{(no effect)} \\
+H_1 &amp;: \mu &gt; 7 \quad \text{(supplement increases sleep)}
+\end{align*}
+\]</span></p>
+<p><strong>Step 2: Significance level</strong> <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Step 3: Test statistics</strong><br>
+Use a <span class="math inline">\(t\)</span>-test (since <span class="math inline">\(n\)</span> is small and <span class="math inline">\(\sigma\)</span> is unknown):<br><span class="math display">\[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \sim t(n-1)
+\]</span></p>
+<p><strong>Step 4: Decision Rule</strong><br>
+Degrees of freedom: <span class="math display">\[
+\nu = n - 1 = 11
+\]</span> From the <span class="math inline">\(t\)</span>-table, <span class="math inline">\(t_{0.05, 11} \approx 1.796\)</span> so we reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(t_{obs}&gt;1.796\)</span></p>
+<p><strong>Step 5: Observation</strong><br><span class="math display">\[
+t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{7.6 - 7}{0.8 / \sqrt{12}} = \frac{0.6}{0.231} \approx 2.597
+\]</span></p>
+<p><strong>Step 6: Conclusion:</strong><br>
+Since <span class="math inline">\(t = 2.597 &gt; 1.796\)</span>, we reject the null hypothesis. There is evidence at the 5% level that the supplement increases average sleep time.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>A school introduces a new teaching method and wants to evaluate if it has increased students’ average test scores. Historically, the average test score has been 75. A sample of 40 students taught with the new method had a mean score of 77.5 with a standard deviation of 10. Can we conclude that the new method improves average scores? Use the <span class="math inline">\(p\)</span>-value approach and a significance level of 5%.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Hypotheses:</strong><br><span class="math display">\[
+\begin{align*}
+H_0 &amp;: \mu = 75 \\
+H_1 &amp;: \mu &gt; 75
+\end{align*}
+\]</span></p>
+<p><strong>Compute the test statistic</strong><br>
+We use a <span class="math inline">\(z\)</span>-test (sample is large, <span class="math inline">\(n = 40\)</span>): <span class="math display">\[
+z = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} = \frac{77.5 - 75}{10 / \sqrt{40}} = \frac{2.5}{1.58} \approx 1.58
+\]</span></p>
+<p><strong>Find the p-value</strong><br>
+We calculate the area to the right of <span class="math inline">\(z = 1.58\)</span> under the standard normal distribution: <span class="math display">\[
+p\text{-value} = P(Z &gt; 1.58) \approx 0.0571
+\]</span></p>
+<p><strong>Compare with significance level</strong><br>
+Since <span class="math inline">\(p = 0.0571 &gt; \alpha = 0.05\)</span>, we fail to reject the null hypothesis.</p>
+<p><strong>Conclusion:</strong><br>
+There is not enough evidence at the 5% significance level to conclude that the new teaching method improves scores.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>A researcher wants to know if a new tutoring program changes student performance. Six students take a test before and after the program. Their scores are:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: left;">Student</th>
+<th style="text-align: center;">Before</th>
+<th style="text-align: right;">After</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;">72</td>
+<td style="text-align: right;">78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: right;">85</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: center;">75</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: center;">68</td>
+<td style="text-align: right;">74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: center;">74</td>
+<td style="text-align: right;">78</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Test if the tutoring program had an effect at the 5% significance level.</li>
+<li>Compute the <span class="math inline">\(p\)</span>-value for the test in (a).</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>We go through all steps of the test:</li>
+</ol>
+<p><strong>Step 1: Hypotheses</strong><br><span class="math display">\[
+H_0: \mu_d = 0 \quad \text{(no mean difference)} \\
+H_1: \mu_d \neq 0 \quad \text{(mean difference exists)}
+\]</span></p>
+<p><strong>Step 2: Significance level</strong><br><span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><strong>Step 3: Test statistic</strong><br><span class="math display">\[
+t = \frac{\bar{d}}{s_d / \sqrt{n}} \sim t(n-1)
+\]</span></p>
+<p><strong>Step 4: Decision Rule</strong><br>
+Degrees of freedom: <span class="math display">\[
+df = n - 1 = 5
+\]</span> Significance level (two-tailed): <span class="math display">\[
+\alpha = 0.05 \Rightarrow \alpha/2 = 0.025
+\]</span> From t-table: <span class="math display">\[
+t_{\text{crit}} = t_{0.025, 5} \approx 2.571
+\]</span> So we reject <span class="math inline">\(H_0\)</span> if:</p>
+<p><span class="math display">\[
+|t_{obs}| &gt; t_{\text{crit}} = 2.571
+\]</span></p>
+<p><strong>Step 5: Observation</strong><br></p>
+<p>Compute the sample statistics needed first using the data in the table. Differences are given by:</p>
+<p><span class="math display">\[
+d_i = \text{After} - \text{Before}
+\]</span></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Student</th>
+<th><span class="math inline">\(d_i\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Sample mean and sample standard deviation of differences are given by: <span class="math display">\[
+\bar{d} = \frac{6 + 5 + 5 + 0 + 6 + 4}{6} = \frac{26}{6} \approx 4.33
+\]</span> <span class="math display">\[
+s_d^2 = \frac{1}{n-1} \sum (d_i - \bar{d})^2 = \frac{25.33}{5} = 5.07
+\]</span> Thus the standard deviation is <span class="math display">\[
+s_d = \sqrt{5.07} \approx 2.25
+\]</span> The observed value of the test statistic is then given by: <span class="math display">\[
+t_{obs} = \frac{\bar{d}}{s_d / \sqrt{n}} = \frac{4.33}{2.25 / \sqrt{6}} \approx 4.70
+\]</span></p>
+<p><strong>Step 6: Conclusion:</strong></p>
+<p>We reject the null hypothesis since <span class="math inline">\(t_{obs} = 4.70 &gt; 2.571\)</span>. The observed mean difference is statistically significant. The tutoring program appears to have a real effect on student performance.</p>
+<ol start="2" type="a">
+<li>This is a two-tailed test so the <span class="math inline">\(p\)</span>-value is <span class="math display">\[
+p = 2 \cdot P(T &gt; 4.70) \approx 0.005
+\]</span> We reject the null hypothesis on any significance level <span class="math inline">\(\alpha &gt; 0.005\)</span>. The data suggests that the tutoring program has a statistically significant effect on student scores.</li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>
+<p>A company wants to compare the average productivity (measured in units/hour) of two different manufacturing plants, A and B. Management suspects there may be a difference in mean productivity between the two locations.</p>
+<p>A random sample of 100 workers from Plant A had a mean productivity of 52.3 units/hour with a standard deviation of 8.5.<br>
+A random sample of 120 workers from Plant B had a mean productivity of 49.7 units/hour with a standard deviation of 9.2.</p>
+<p>Test, at the 5% significance level, whether there is a difference in mean productivity between the two plants, i.e.: <span class="math display">\[
+\begin{split}
+&amp; H_0: \mu_A - \mu_B = 0 \\ &amp;
+H_1: \mu_A - \mu_B \neq 0
+\end{split}
+\]</span></p>
+</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong> <span class="math display">\[
+\begin{split}
+&amp; H_0: \mu_A - \mu_B = 0 \\ &amp;
+H_1: \mu_A - \mu_B \neq 0
+\end{split}
+\]</span> <strong>Step 2: Significance level</strong><br><span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><strong>Step 3: Test statistic</strong><br>
+Large samples and unknown variances: <span class="math display">\[
+z = \frac{(\bar{x}_A - \bar{x}_B) - 0}{\sqrt{\frac{s_A^2}{n_A} + \frac{s_B^2}{n_B}}} \sim N(0,1)
+\]</span></p>
+<p><strong>Step 4: Decision rule</strong><br>
+For a two-tailed test at <span class="math inline">\(\alpha = 0.05\)</span>, the critical values are: <span class="math display">\[
+z_{\text{crit}} = \pm 1.96
+\]</span> We reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(|z_{obs}| &gt; 1.96\)</span>.</p>
+<p><strong>Step 5: Observation</strong><br>
+The observed sample values are as follows:</p>
+<ul>
+<li>
+<span class="math inline">\(\bar{x}_A = 52.3\)</span>, <span class="math inline">\(s_A = 8.5\)</span>, <span class="math inline">\(n_A = 100\)</span><br>
+</li>
+<li>
+<span class="math inline">\(\bar{x}_B = 49.7\)</span>, <span class="math inline">\(s_B = 9.2\)</span>, <span class="math inline">\(n_B = 120\)</span>
+</li>
+</ul>
+<p>The standard error is given by <span class="math display">\[
+\begin{split}
+\sqrt{\frac{s_A^2}{n_A} + \frac{s_B^2}{n_B}}&amp;  = \sqrt{\frac{8.5^2}{100} + \frac{9.2^2}{120}} \\ &amp;
+= \sqrt{\frac{72.25}{100} + \frac{84.64}{120}}  \\ &amp; = \sqrt{0.7225 + 0.7053} \approx \sqrt{1.4278} \approx 1.194
+\end{split}
+\]</span> and the observed values is then equal to <span class="math display">\[
+z_{obs} = \frac{(\bar{x}_A - \bar{x}_B) - 0}{SE} = \frac{52.3 - 49.7}{1.194} \approx \frac{2.6}{1.194} \approx 2.18
+\]</span></p>
+<p><strong>Step 5: Conclusion</strong><br>
+Since <span class="math inline">\(z = 2.18 &gt; 1.96\)</span>, we reject the null hypothesis. There is statistical evidence at the 5% level to suggest that there is a significant difference in mean productivity between the two plants.</p>
+</div>
 </div>
 </div>
 

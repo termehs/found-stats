@@ -1003,43 +1003,32 @@ E(\bar{x} - \bar{y}) = E(\bar{x}) - E(\bar{y}) = \mu_x - \mu_y
 <li>The distribution of the populations: Are they normally distributed?</li>
 <li>Whether the population variances are known or unknown</li>
 <li>Whether we assume the variances are equal or not</li>
-</ul>
-<p><strong>Large Independent Samples (<span class="math inline">\(n_x \geq 30\)</span>, <span class="math inline">\(n_y \geq 30\)</span>)</strong></p>
+</ul></section><section id="large-independent-samples-n_x-geq-30-n_y-geq-30" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="large-independent-samples-n_x-geq-30-n_y-geq-30"><strong>Large Independent Samples (<span class="math inline">\(n_x \geq 30\)</span>, <span class="math inline">\(n_y \geq 30\)</span>)</strong></h4>
 <p>When both sample sizes are large, the Central Limit Theorem allows us to use the standard normal distribution (<span class="math inline">\(Z\)</span>), regardless of the population distributions.</p>
-<ul>
-<li>
-<strong>If the population variances are known</strong> (rare):</li>
-</ul>
-<p><span class="math display">\[
+</section><section id="a-population-variances-known" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="a-population-variances-known">a) Population Variances Known</h4>
+<p>Thsi is the more rare scenario in which we use the following formula: <span class="math display">\[
 \bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
 \]</span></p>
-<ul>
-<li>
-<strong>If the population variances are unknown</strong> (more common), we estimate them with sample variances:</li>
-</ul>
-<p><span class="math display">\[
+</section><section id="a-population-variances-unknown" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="a-population-variances-unknown">a) Population Variances Unknown</h4>
+<p>This scenario is more common and we estimate the population variances using the sample variances: <span class="math display">\[
 \bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
-\]</span></p>
-<p>The critical <span class="math inline">\(z\)</span>-value is selected to match the desired confidence level (e.g., <span class="math inline">\(z = 1.96\)</span> for 95%).</p>
-<p><strong>Small Independent Samples (at least one of <span class="math inline">\(n_x\)</span> or <span class="math inline">\(n_y\)</span> &lt; 30)</strong></p>
+\]</span> The critical <span class="math inline">\(z\)</span>-value is selected to match the desired confidence level (e.g., <span class="math inline">\(z = 1.96\)</span> for 95%).</p>
+</section><section id="small-independent-samples-at-least-one-of-n_x-or-n_y-30" class="level4"><h4 class="anchored" data-anchor-id="small-independent-samples-at-least-one-of-n_x-or-n_y-30"><strong>Small Independent Samples (at least one of <span class="math inline">\(n_x\)</span> or <span class="math inline">\(n_y\)</span> &lt; 30)</strong></h4>
 <p>In this case, we must assume that both populations are normally distributed to proceed.</p>
-<ul>
-<li>
-<strong>If the population variances are known</strong> (uncommon):</li>
-</ul>
+</section><section id="a-population-variances-known-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="a-population-variances-known-1">a) Population Variances Known</h4>
 <p><span class="math display">\[
 \bar{x} - \bar{y} \pm z_{\alpha/2} \cdot \sqrt{ \frac{\sigma_x^2}{n_x} + \frac{\sigma_y^2}{n_y} }
 \]</span></p>
-<ul>
-<li><p><strong>If the variances are unknown but assumed equal</strong>, we use the <strong>pooled variance</strong> which provides a combined estimate of the common variance by weighting the sample variances according to their degrees of freedom. The formula for pooled varince is: <span class="math display">\[
+</section><section id="b-population-variances-unknown-but-assumed-equal" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="b-population-variances-unknown-but-assumed-equal">b) Population Variances Unknown but Assumed Equal</h4>
+<p>Then we use the <strong>pooled variance</strong> which provides a combined estimate of the common variance by weighting the sample variances according to their degrees of freedom. The formula for pooled varince is: <span class="math display">\[
 s_p^2 = \frac{(n_x - 1)s_x^2 + (n_y - 1)s_y^2}{n_x + n_y - 2}
 \]</span> Here, <span class="math inline">\(s_x^2\)</span> and <span class="math inline">\(s_y^2\)</span> are the sample variances from the two groups, and <span class="math inline">\(n_x\)</span> and <span class="math inline">\(n_y\)</span> are the respective sample sizes. This weighted average gives a more stable estimate of variance when the equal-variance assumption is justified. Use this method only if there is reasonable evidence that the population variances are equal. The formula becomes: <span class="math display">\[
 \bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ s_p^2 \left( \frac{1}{n_x} + \frac{1}{n_y} \right) }
 \]</span> where the degrees of freedom are: <span class="math display">\[
 \nu = (n_x-1) + (n_y-1) = n_x + n_y - 2
-\]</span></p></li>
-<li><p><strong>If the variances are unknown and cannot be assumed equal</strong>, we cannot assume equal variance, we rely on the so called <strong>Welch’s method</strong>, which is an adaptation of the standard two-sample <span class="math inline">\(t\)</span>-test that does <strong>not</strong> assume equal population variances. It is more flexible and robust, especially when sample sizes or variances differ between groups. Instead of pooling the variances, Welch’s method uses the individual sample variances to compute the standard error and an approximate degrees of freedom, denoted <span class="math inline">\(\nu\)</span>. The confidence interval is thus given by:</p></li>
-</ul>
+\]</span></p>
+</section><section id="c-population-variances-unknown-and-not-assumed-equal-welchs-t-test" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="c-population-variances-unknown-and-not-assumed-equal-welchs-t-test">c) Population Variances Unknown and Not Assumed Equal (Welch’s t-test)</h4>
+<p>Here, we cannot assume equal variance, we rely on the so called <strong>Welch’s method</strong>, which is an adaptation of the standard two-sample <span class="math inline">\(t\)</span>-test that does <strong>not</strong> assume equal population variances. It is more flexible and robust, especially when sample sizes or variances differ between groups. Instead of pooling the variances, Welch’s method uses the individual sample variances to compute the standard error and an approximate degrees of freedom, denoted <span class="math inline">\(\nu\)</span>. The confidence interval is thus given by:</p>
 <p><span class="math display">\[
 \bar{x} - \bar{y} \pm t_{\nu, \alpha/2} \cdot \sqrt{ \frac{s_x^2}{n_x} + \frac{s_y^2}{n_y} }
 \]</span> with degrees of freedom approximated by: <span class="math display">\[
