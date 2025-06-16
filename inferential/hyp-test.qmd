@@ -1433,7 +1433,7 @@ This decision again depends on the factors:
 
 These factors determine the appropriate test statistic (e.g., $Z$ or $t$) and which distribution to use. We will now look at specific cases based on these conditions.
 
-### Case 1: Large Sample Sizes
+### Case 1: Large Samples
 
 We assume $n_x \geq 30$ and $n_y \geq 30$. With large samples, we do not need to assume anything about the population distributions.
 
