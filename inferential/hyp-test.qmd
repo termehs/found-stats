@@ -338,7 +338,9 @@ We begin with an example: suppose we draw a sample of size $n$ from a **normally
 We want to test whether the population mean equals some hypothesized value $\mu_0$. The hypotheses are:
 
 $$
-H_0: \mu = \mu_0 \\
+H_0: \mu = \mu_0
+$$
+$$
 H_1: \mu \ne \mu_0
 $$
 
