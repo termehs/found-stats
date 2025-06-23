@@ -1,0 +1,64 @@
+# The $\chi^2$ Distribution Table {#sec-chi2tbl .appendix}
+
+```{r}
+#| echo: false
+#| message: false
+#| fig-height: 2
+#| fig-width: 3
+#| fig-align: center
+
+library(tidyr)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(dplyr)
+# Set example chi-square value and degrees of freedom
+chi_example <- 10
+df <- 5
+
+# Create chi-square distribution curve
+x_vals <- seq(0, 20, length.out = 500)
+df_chi <- data.frame(x = x_vals, y = dchisq(x_vals, df = df))
+
+# Shade area where x >= chi_example
+df_shade <- subset(df_chi, x >= chi_example)
+
+# Plot
+ggplot(df_chi, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.5) +
+  geom_area(data = df_shade, fill = "skyblue", alpha = 0.6) +
+  geom_vline(xintercept = chi_example, linetype = "dotted", color = "grey30") +
+  annotate("text", x = chi_example + 0.9, y = dchisq(chi_example, df) - 0.035, 
+           label = "χ²", color = "grey30", size = 3) +
+  labs(
+    title = "",
+    subtitle = bquote("shaded area represents " ~ P(Chi^2 >= chi^2) ),
+  ) +
+  theme_void()
+# Define alpha levels and degrees of freedom
+alphas <- c(0.1, 0.05, 0.025, 0.01, 0.005)
+df_vals <- c(1:50)
+
+# Create chi-square table
+chi_table <- expand.grid(df = df_vals, alpha = alphas) %>%
+  mutate(chi_crit = qchisq(1 - alpha, df)) %>%
+  pivot_wider(names_from = alpha, values_from = chi_crit)
+
+# Replace df=1000000 with ∞ and rename column to ν
+chi_table <- chi_table %>%
+  mutate(df = ifelse(df == 1000000, "&infin;", as.character(df))) %>%
+  rename(`&nu;` = df)
+
+# Format numeric columns
+chi_table_formatted <- chi_table
+chi_table_formatted[ , -1] <- lapply(chi_table_formatted[ , -1], function(x) sprintf("%.3f", x))
+
+# Rename column headers to include alpha
+names(chi_table_formatted)[-1] <- paste0("&alpha; = ", names(chi_table_formatted)[-1])
+
+# Render HTML table
+kable(chi_table_formatted, escape = FALSE, format = "html",
+      caption = "One-sided critical values for the χ²-distribution: P(X² > χ²<sub>&nu;, &alpha;</sub>) = &alpha;") %>%
+  kable_styling(full_width = FALSE, position = "left")
+
+```

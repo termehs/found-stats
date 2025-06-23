@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.7.29">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Termeh Shafie">
-<title>Appendix B: The t Distribution Table – Foundational Statistics</title>
+<title>Appendix C: The \chi^2 Distribution Table – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,7 +27,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendix/normal-table.html" rel="prev">
+<link href="../appendix/t-table.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -99,7 +99,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/t-table.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/chi2-table.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(\chi^2\)</span> Distribution Table</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -358,8 +358,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendix/t-table.html" class="sidebar-item-text sidebar-link active">
+  <a href="../appendix/t-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/chi2-table.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(\chi^2\)</span> Distribution Table</span></span></a>
   </div>
 </li>
       </ul>
@@ -372,8 +378,8 @@ window.Quarto = {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/t-table.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-ttbl" class="quarto-section-identifier">Appendix B: The <span class="math inline">\(t\)</span> Distribution Table</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendix/normal-table.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendix/chi2-table.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(\chi^2\)</span> Distribution Table</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-chi2tbl" class="quarto-section-identifier">Appendix C: The <span class="math inline">\(\chi^2\)</span> Distribution Table</span></h1>
 </div>
 
 
@@ -390,13 +396,13 @@ window.Quarto = {
 </header><div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="t-table_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288"></p>
+<figure class="figure"><p><img src="chi2-table_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>One-sided critical t-values for the Student’s t-distribution: P(T &gt; t<sub>ν, α</sub>) = α. The last row shows the corresponding standard normal (z) values as degrees of freedom ν → ∞.</caption>
+<caption>One-sided critical values for the χ²-distribution: P(X² &gt; χ²<sub>ν, α</sub>) = α</caption>
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">ν</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">α = 0.1</th>
@@ -408,267 +414,403 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">3.078</td>
-<td style="text-align: left;">6.314</td>
-<td style="text-align: left;">12.706</td>
-<td style="text-align: left;">31.821</td>
-<td style="text-align: left;">63.657</td>
+<td style="text-align: left;">2.706</td>
+<td style="text-align: left;">3.841</td>
+<td style="text-align: left;">5.024</td>
+<td style="text-align: left;">6.635</td>
+<td style="text-align: left;">7.879</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">1.886</td>
-<td style="text-align: left;">2.920</td>
-<td style="text-align: left;">4.303</td>
-<td style="text-align: left;">6.965</td>
-<td style="text-align: left;">9.925</td>
+<td style="text-align: left;">4.605</td>
+<td style="text-align: left;">5.991</td>
+<td style="text-align: left;">7.378</td>
+<td style="text-align: left;">9.210</td>
+<td style="text-align: left;">10.597</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">1.638</td>
-<td style="text-align: left;">2.353</td>
-<td style="text-align: left;">3.182</td>
-<td style="text-align: left;">4.541</td>
-<td style="text-align: left;">5.841</td>
+<td style="text-align: left;">6.251</td>
+<td style="text-align: left;">7.815</td>
+<td style="text-align: left;">9.348</td>
+<td style="text-align: left;">11.345</td>
+<td style="text-align: left;">12.838</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: left;">1.533</td>
-<td style="text-align: left;">2.132</td>
-<td style="text-align: left;">2.776</td>
-<td style="text-align: left;">3.747</td>
-<td style="text-align: left;">4.604</td>
+<td style="text-align: left;">7.779</td>
+<td style="text-align: left;">9.488</td>
+<td style="text-align: left;">11.143</td>
+<td style="text-align: left;">13.277</td>
+<td style="text-align: left;">14.860</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">1.476</td>
-<td style="text-align: left;">2.015</td>
-<td style="text-align: left;">2.571</td>
-<td style="text-align: left;">3.365</td>
-<td style="text-align: left;">4.032</td>
+<td style="text-align: left;">9.236</td>
+<td style="text-align: left;">11.070</td>
+<td style="text-align: left;">12.833</td>
+<td style="text-align: left;">15.086</td>
+<td style="text-align: left;">16.750</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">1.440</td>
-<td style="text-align: left;">1.943</td>
-<td style="text-align: left;">2.447</td>
-<td style="text-align: left;">3.143</td>
-<td style="text-align: left;">3.707</td>
+<td style="text-align: left;">10.645</td>
+<td style="text-align: left;">12.592</td>
+<td style="text-align: left;">14.449</td>
+<td style="text-align: left;">16.812</td>
+<td style="text-align: left;">18.548</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7</td>
-<td style="text-align: left;">1.415</td>
-<td style="text-align: left;">1.895</td>
-<td style="text-align: left;">2.365</td>
-<td style="text-align: left;">2.998</td>
-<td style="text-align: left;">3.499</td>
+<td style="text-align: left;">12.017</td>
+<td style="text-align: left;">14.067</td>
+<td style="text-align: left;">16.013</td>
+<td style="text-align: left;">18.475</td>
+<td style="text-align: left;">20.278</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">8</td>
-<td style="text-align: left;">1.397</td>
-<td style="text-align: left;">1.860</td>
-<td style="text-align: left;">2.306</td>
-<td style="text-align: left;">2.896</td>
-<td style="text-align: left;">3.355</td>
+<td style="text-align: left;">13.362</td>
+<td style="text-align: left;">15.507</td>
+<td style="text-align: left;">17.535</td>
+<td style="text-align: left;">20.090</td>
+<td style="text-align: left;">21.955</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">9</td>
-<td style="text-align: left;">1.383</td>
-<td style="text-align: left;">1.833</td>
-<td style="text-align: left;">2.262</td>
-<td style="text-align: left;">2.821</td>
-<td style="text-align: left;">3.250</td>
+<td style="text-align: left;">14.684</td>
+<td style="text-align: left;">16.919</td>
+<td style="text-align: left;">19.023</td>
+<td style="text-align: left;">21.666</td>
+<td style="text-align: left;">23.589</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">10</td>
-<td style="text-align: left;">1.372</td>
-<td style="text-align: left;">1.812</td>
-<td style="text-align: left;">2.228</td>
-<td style="text-align: left;">2.764</td>
-<td style="text-align: left;">3.169</td>
+<td style="text-align: left;">15.987</td>
+<td style="text-align: left;">18.307</td>
+<td style="text-align: left;">20.483</td>
+<td style="text-align: left;">23.209</td>
+<td style="text-align: left;">25.188</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">11</td>
-<td style="text-align: left;">1.363</td>
-<td style="text-align: left;">1.796</td>
-<td style="text-align: left;">2.201</td>
-<td style="text-align: left;">2.718</td>
-<td style="text-align: left;">3.106</td>
+<td style="text-align: left;">17.275</td>
+<td style="text-align: left;">19.675</td>
+<td style="text-align: left;">21.920</td>
+<td style="text-align: left;">24.725</td>
+<td style="text-align: left;">26.757</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">12</td>
-<td style="text-align: left;">1.356</td>
-<td style="text-align: left;">1.782</td>
-<td style="text-align: left;">2.179</td>
-<td style="text-align: left;">2.681</td>
-<td style="text-align: left;">3.055</td>
+<td style="text-align: left;">18.549</td>
+<td style="text-align: left;">21.026</td>
+<td style="text-align: left;">23.337</td>
+<td style="text-align: left;">26.217</td>
+<td style="text-align: left;">28.300</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">13</td>
-<td style="text-align: left;">1.350</td>
-<td style="text-align: left;">1.771</td>
-<td style="text-align: left;">2.160</td>
-<td style="text-align: left;">2.650</td>
-<td style="text-align: left;">3.012</td>
+<td style="text-align: left;">19.812</td>
+<td style="text-align: left;">22.362</td>
+<td style="text-align: left;">24.736</td>
+<td style="text-align: left;">27.688</td>
+<td style="text-align: left;">29.819</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">14</td>
-<td style="text-align: left;">1.345</td>
-<td style="text-align: left;">1.761</td>
-<td style="text-align: left;">2.145</td>
-<td style="text-align: left;">2.624</td>
-<td style="text-align: left;">2.977</td>
+<td style="text-align: left;">21.064</td>
+<td style="text-align: left;">23.685</td>
+<td style="text-align: left;">26.119</td>
+<td style="text-align: left;">29.141</td>
+<td style="text-align: left;">31.319</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">15</td>
-<td style="text-align: left;">1.341</td>
-<td style="text-align: left;">1.753</td>
-<td style="text-align: left;">2.131</td>
-<td style="text-align: left;">2.602</td>
-<td style="text-align: left;">2.947</td>
+<td style="text-align: left;">22.307</td>
+<td style="text-align: left;">24.996</td>
+<td style="text-align: left;">27.488</td>
+<td style="text-align: left;">30.578</td>
+<td style="text-align: left;">32.801</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">16</td>
-<td style="text-align: left;">1.337</td>
-<td style="text-align: left;">1.746</td>
-<td style="text-align: left;">2.120</td>
-<td style="text-align: left;">2.583</td>
-<td style="text-align: left;">2.921</td>
+<td style="text-align: left;">23.542</td>
+<td style="text-align: left;">26.296</td>
+<td style="text-align: left;">28.845</td>
+<td style="text-align: left;">32.000</td>
+<td style="text-align: left;">34.267</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">17</td>
-<td style="text-align: left;">1.333</td>
-<td style="text-align: left;">1.740</td>
-<td style="text-align: left;">2.110</td>
-<td style="text-align: left;">2.567</td>
-<td style="text-align: left;">2.898</td>
+<td style="text-align: left;">24.769</td>
+<td style="text-align: left;">27.587</td>
+<td style="text-align: left;">30.191</td>
+<td style="text-align: left;">33.409</td>
+<td style="text-align: left;">35.718</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">18</td>
-<td style="text-align: left;">1.330</td>
-<td style="text-align: left;">1.734</td>
-<td style="text-align: left;">2.101</td>
-<td style="text-align: left;">2.552</td>
-<td style="text-align: left;">2.878</td>
+<td style="text-align: left;">25.989</td>
+<td style="text-align: left;">28.869</td>
+<td style="text-align: left;">31.526</td>
+<td style="text-align: left;">34.805</td>
+<td style="text-align: left;">37.156</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">19</td>
-<td style="text-align: left;">1.328</td>
-<td style="text-align: left;">1.729</td>
-<td style="text-align: left;">2.093</td>
-<td style="text-align: left;">2.539</td>
-<td style="text-align: left;">2.861</td>
+<td style="text-align: left;">27.204</td>
+<td style="text-align: left;">30.144</td>
+<td style="text-align: left;">32.852</td>
+<td style="text-align: left;">36.191</td>
+<td style="text-align: left;">38.582</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">20</td>
-<td style="text-align: left;">1.325</td>
-<td style="text-align: left;">1.725</td>
-<td style="text-align: left;">2.086</td>
-<td style="text-align: left;">2.528</td>
-<td style="text-align: left;">2.845</td>
+<td style="text-align: left;">28.412</td>
+<td style="text-align: left;">31.410</td>
+<td style="text-align: left;">34.170</td>
+<td style="text-align: left;">37.566</td>
+<td style="text-align: left;">39.997</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">21</td>
-<td style="text-align: left;">1.323</td>
-<td style="text-align: left;">1.721</td>
-<td style="text-align: left;">2.080</td>
-<td style="text-align: left;">2.518</td>
-<td style="text-align: left;">2.831</td>
+<td style="text-align: left;">29.615</td>
+<td style="text-align: left;">32.671</td>
+<td style="text-align: left;">35.479</td>
+<td style="text-align: left;">38.932</td>
+<td style="text-align: left;">41.401</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">22</td>
-<td style="text-align: left;">1.321</td>
-<td style="text-align: left;">1.717</td>
-<td style="text-align: left;">2.074</td>
-<td style="text-align: left;">2.508</td>
-<td style="text-align: left;">2.819</td>
+<td style="text-align: left;">30.813</td>
+<td style="text-align: left;">33.924</td>
+<td style="text-align: left;">36.781</td>
+<td style="text-align: left;">40.289</td>
+<td style="text-align: left;">42.796</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">23</td>
-<td style="text-align: left;">1.319</td>
-<td style="text-align: left;">1.714</td>
-<td style="text-align: left;">2.069</td>
-<td style="text-align: left;">2.500</td>
-<td style="text-align: left;">2.807</td>
+<td style="text-align: left;">32.007</td>
+<td style="text-align: left;">35.172</td>
+<td style="text-align: left;">38.076</td>
+<td style="text-align: left;">41.638</td>
+<td style="text-align: left;">44.181</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">24</td>
-<td style="text-align: left;">1.318</td>
-<td style="text-align: left;">1.711</td>
-<td style="text-align: left;">2.064</td>
-<td style="text-align: left;">2.492</td>
-<td style="text-align: left;">2.797</td>
+<td style="text-align: left;">33.196</td>
+<td style="text-align: left;">36.415</td>
+<td style="text-align: left;">39.364</td>
+<td style="text-align: left;">42.980</td>
+<td style="text-align: left;">45.559</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">25</td>
-<td style="text-align: left;">1.316</td>
-<td style="text-align: left;">1.708</td>
-<td style="text-align: left;">2.060</td>
-<td style="text-align: left;">2.485</td>
-<td style="text-align: left;">2.787</td>
+<td style="text-align: left;">34.382</td>
+<td style="text-align: left;">37.652</td>
+<td style="text-align: left;">40.646</td>
+<td style="text-align: left;">44.314</td>
+<td style="text-align: left;">46.928</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">26</td>
-<td style="text-align: left;">1.315</td>
-<td style="text-align: left;">1.706</td>
-<td style="text-align: left;">2.056</td>
-<td style="text-align: left;">2.479</td>
-<td style="text-align: left;">2.779</td>
+<td style="text-align: left;">35.563</td>
+<td style="text-align: left;">38.885</td>
+<td style="text-align: left;">41.923</td>
+<td style="text-align: left;">45.642</td>
+<td style="text-align: left;">48.290</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">27</td>
-<td style="text-align: left;">1.314</td>
-<td style="text-align: left;">1.703</td>
-<td style="text-align: left;">2.052</td>
-<td style="text-align: left;">2.473</td>
-<td style="text-align: left;">2.771</td>
+<td style="text-align: left;">36.741</td>
+<td style="text-align: left;">40.113</td>
+<td style="text-align: left;">43.195</td>
+<td style="text-align: left;">46.963</td>
+<td style="text-align: left;">49.645</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">28</td>
-<td style="text-align: left;">1.313</td>
-<td style="text-align: left;">1.701</td>
-<td style="text-align: left;">2.048</td>
-<td style="text-align: left;">2.467</td>
-<td style="text-align: left;">2.763</td>
+<td style="text-align: left;">37.916</td>
+<td style="text-align: left;">41.337</td>
+<td style="text-align: left;">44.461</td>
+<td style="text-align: left;">48.278</td>
+<td style="text-align: left;">50.993</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">29</td>
-<td style="text-align: left;">1.311</td>
-<td style="text-align: left;">1.699</td>
-<td style="text-align: left;">2.045</td>
-<td style="text-align: left;">2.462</td>
-<td style="text-align: left;">2.756</td>
+<td style="text-align: left;">39.087</td>
+<td style="text-align: left;">42.557</td>
+<td style="text-align: left;">45.722</td>
+<td style="text-align: left;">49.588</td>
+<td style="text-align: left;">52.336</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">30</td>
-<td style="text-align: left;">1.310</td>
-<td style="text-align: left;">1.697</td>
-<td style="text-align: left;">2.042</td>
-<td style="text-align: left;">2.457</td>
-<td style="text-align: left;">2.750</td>
+<td style="text-align: left;">40.256</td>
+<td style="text-align: left;">43.773</td>
+<td style="text-align: left;">46.979</td>
+<td style="text-align: left;">50.892</td>
+<td style="text-align: left;">53.672</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">100</td>
-<td style="text-align: left;">1.290</td>
-<td style="text-align: left;">1.660</td>
-<td style="text-align: left;">1.984</td>
-<td style="text-align: left;">2.364</td>
-<td style="text-align: left;">2.626</td>
+<td style="text-align: left;">31</td>
+<td style="text-align: left;">41.422</td>
+<td style="text-align: left;">44.985</td>
+<td style="text-align: left;">48.232</td>
+<td style="text-align: left;">52.191</td>
+<td style="text-align: left;">55.003</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">500</td>
-<td style="text-align: left;">1.283</td>
-<td style="text-align: left;">1.648</td>
-<td style="text-align: left;">1.965</td>
-<td style="text-align: left;">2.334</td>
-<td style="text-align: left;">2.586</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">42.585</td>
+<td style="text-align: left;">46.194</td>
+<td style="text-align: left;">49.480</td>
+<td style="text-align: left;">53.486</td>
+<td style="text-align: left;">56.328</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">∞</td>
-<td style="text-align: left;">1.282</td>
-<td style="text-align: left;">1.645</td>
-<td style="text-align: left;">1.960</td>
-<td style="text-align: left;">2.326</td>
-<td style="text-align: left;">2.576</td>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">43.745</td>
+<td style="text-align: left;">47.400</td>
+<td style="text-align: left;">50.725</td>
+<td style="text-align: left;">54.776</td>
+<td style="text-align: left;">57.648</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">34</td>
+<td style="text-align: left;">44.903</td>
+<td style="text-align: left;">48.602</td>
+<td style="text-align: left;">51.966</td>
+<td style="text-align: left;">56.061</td>
+<td style="text-align: left;">58.964</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">46.059</td>
+<td style="text-align: left;">49.802</td>
+<td style="text-align: left;">53.203</td>
+<td style="text-align: left;">57.342</td>
+<td style="text-align: left;">60.275</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">47.212</td>
+<td style="text-align: left;">50.998</td>
+<td style="text-align: left;">54.437</td>
+<td style="text-align: left;">58.619</td>
+<td style="text-align: left;">61.581</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">48.363</td>
+<td style="text-align: left;">52.192</td>
+<td style="text-align: left;">55.668</td>
+<td style="text-align: left;">59.893</td>
+<td style="text-align: left;">62.883</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">38</td>
+<td style="text-align: left;">49.513</td>
+<td style="text-align: left;">53.384</td>
+<td style="text-align: left;">56.896</td>
+<td style="text-align: left;">61.162</td>
+<td style="text-align: left;">64.181</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">39</td>
+<td style="text-align: left;">50.660</td>
+<td style="text-align: left;">54.572</td>
+<td style="text-align: left;">58.120</td>
+<td style="text-align: left;">62.428</td>
+<td style="text-align: left;">65.476</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">51.805</td>
+<td style="text-align: left;">55.758</td>
+<td style="text-align: left;">59.342</td>
+<td style="text-align: left;">63.691</td>
+<td style="text-align: left;">66.766</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">41</td>
+<td style="text-align: left;">52.949</td>
+<td style="text-align: left;">56.942</td>
+<td style="text-align: left;">60.561</td>
+<td style="text-align: left;">64.950</td>
+<td style="text-align: left;">68.053</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">42</td>
+<td style="text-align: left;">54.090</td>
+<td style="text-align: left;">58.124</td>
+<td style="text-align: left;">61.777</td>
+<td style="text-align: left;">66.206</td>
+<td style="text-align: left;">69.336</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">43</td>
+<td style="text-align: left;">55.230</td>
+<td style="text-align: left;">59.304</td>
+<td style="text-align: left;">62.990</td>
+<td style="text-align: left;">67.459</td>
+<td style="text-align: left;">70.616</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">44</td>
+<td style="text-align: left;">56.369</td>
+<td style="text-align: left;">60.481</td>
+<td style="text-align: left;">64.201</td>
+<td style="text-align: left;">68.710</td>
+<td style="text-align: left;">71.893</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">45</td>
+<td style="text-align: left;">57.505</td>
+<td style="text-align: left;">61.656</td>
+<td style="text-align: left;">65.410</td>
+<td style="text-align: left;">69.957</td>
+<td style="text-align: left;">73.166</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">46</td>
+<td style="text-align: left;">58.641</td>
+<td style="text-align: left;">62.830</td>
+<td style="text-align: left;">66.617</td>
+<td style="text-align: left;">71.201</td>
+<td style="text-align: left;">74.437</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">47</td>
+<td style="text-align: left;">59.774</td>
+<td style="text-align: left;">64.001</td>
+<td style="text-align: left;">67.821</td>
+<td style="text-align: left;">72.443</td>
+<td style="text-align: left;">75.704</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">60.907</td>
+<td style="text-align: left;">65.171</td>
+<td style="text-align: left;">69.023</td>
+<td style="text-align: left;">73.683</td>
+<td style="text-align: left;">76.969</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">62.038</td>
+<td style="text-align: left;">66.339</td>
+<td style="text-align: left;">70.222</td>
+<td style="text-align: left;">74.919</td>
+<td style="text-align: left;">78.231</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">63.167</td>
+<td style="text-align: left;">67.505</td>
+<td style="text-align: left;">71.420</td>
+<td style="text-align: left;">76.154</td>
+<td style="text-align: left;">79.490</td>
 </tr>
 </tbody>
 </table>
@@ -1076,8 +1218,8 @@ window.Quarto = {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../appendix/normal-table.html" class="pagination-link" aria-label="The Standard Normal Distribution Table">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span>
+      <a href="../appendix/t-table.html" class="pagination-link" aria-label="The $t$ Distribution Table">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1090,7 +1232,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/appendix/t-table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/appendix/chi2-table.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

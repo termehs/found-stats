@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Termeh Shafie">
+<title>23&nbsp; Chi Square Tests – Foundational Statistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../regression.html" rel="next">
+<link href="../inferential/hyp-test.html" rel="prev">
+<link href="../cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+</head>
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/chi2.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Foundational Statistics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/termehs/found-stats" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-math.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The Unavoidable Math</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/intro-surveys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Surveys: Key Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/variable-class.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variable Classification</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Descriptive Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/central-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Measures of Central Tendency</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-stats/dispersion-measures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Measures of Dispersion</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Probability Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/what-is-prob.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">What is Probability?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/count-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Counting Rules</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prob-theory/prob-rules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probability Rules</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Random Variables and Probability Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/discrete-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/cont-dists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rvs-probdists/jointly-dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Jointly Distributed Random Variables</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sampling and Sampling Distributions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-mean.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Mean</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/sampling-dist-prop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Sampling Distributions for a Sample Proportion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-dists/clt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferential Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/hyp-test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential/chi2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Regression Analysis</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">References</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/t-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(t\)</span> Distribution Table</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendix/chi2-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The <span class="math inline">\(\chi^2\)</span> Distribution Table</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#the-chi-square-chi2-distribution" id="toc-the-chi-square-chi2-distribution" class="nav-link active" data-scroll-target="#the-chi-square-chi2-distribution"><span class="header-section-number">23.1</span> The Chi-Square (<span class="math inline">\(\chi^2\)</span>) Distribution</a></li>
+  <li><a href="#goodness-of-fit-test" id="toc-goodness-of-fit-test" class="nav-link" data-scroll-target="#goodness-of-fit-test"><span class="header-section-number">23.2</span> Goodness-of-Fit Test</a></li>
+  <li><a href="#testing-for-independence-in-contingency-tables" id="toc-testing-for-independence-in-contingency-tables" class="nav-link" data-scroll-target="#testing-for-independence-in-contingency-tables"><span class="header-section-number">23.3</span> Testing for Independence in Contingency Tables</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/chi2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/chi2.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-chi2" class="quarto-section-identifier"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><p>So far, we have focused primarily on inferential statistical methods for quantitative variables measured on interval or ratio scales, as well as binary qualitative (0-1) variables. However, in many real-world applications, we also encounter <strong>categorical variables</strong> with more than two categories (e.g., eye color, political party, type of transportation). For such qualitative variables, we need specialized methods to draw valid statistical conclusions.</p>
+<p>This is where the <strong>Chi-Square method</strong> (<span class="math inline">\(\chi^2\)</span>) becomes useful. The chi-square (pronounced “kai-square”) test is a non-parametric method used for hypothesis testing involving categorical data. It is particularly valuable when we are interested in understanding:</p>
+<ul>
+<li>Whether the observed distribution of a categorical variable matches an expected distribution (<strong>goodness-of-fit test</strong>)</li>
+<li>Whether there is a statistically significant association between two categorical variables (<strong>test of independence</strong> in a contingency table)</li>
+</ul>
+<p>These tests rely on comparing <em>observed frequencies</em> with <em>expected frequencies</em>, and the test statistic follows a Chi-Square distribution under the null hypothesis. Each of these tests has its assumptions and limitations, but both are foundational tools in categorical data analysis.</p>
+<section id="the-chi-square-chi2-distribution" class="level2" data-number="23.1"><h2 data-number="23.1" class="anchored" data-anchor-id="the-chi-square-chi2-distribution">
+<span class="header-section-number">23.1</span> The Chi-Square (<span class="math inline">\(\chi^2\)</span>) Distribution</h2>
+<p>The chi-square (<span class="math inline">\(\chi^2\)</span>) distribution is a probability distribution that frequently arises in statistical inference, particularly when working with categorical data. It describes a population where values are strictly non-negative. This is due to the fact that test statistics in <span class="math inline">\(\chi^2\)</span> tests are constructed from squared deviations between observed and expected values, and squaring ensures all contributions are positive. As a result, the <span class="math inline">\(\chi^2\)</span> distribution is bounded below by zero and only takes positive values.</p>
+<p>In contrast to tests based on the <span class="math inline">\(z\)</span>- or <span class="math inline">\(t\)</span>-distributions, which often consider both tails, the <span class="math inline">\(\chi^2\)</span> test is typically one-sided. Since we are only concerned with whether the observed data deviate substantially from the expected frequencies under the null hypothesis, we reject the null hypothesis only for large values of the test statistic. Therefore, the <strong>critical region</strong> lies in the <strong>right-hand tail</strong> of the <span class="math inline">\(\chi^2\)</span> distribution, as shown in <a href="#fig-chi2" class="quarto-xref">Figure&nbsp;<span>23.1</span></a>.</p>
+<p>To determine the critical region, we specify a significance level <span class="math inline">\(\alpha\)</span>. The critical value is then defined such that the probability of observing a test statistic greater than this threshold (under <span class="math inline">\(H_0\)</span>) is exactly <span class="math inline">\(\alpha\)</span>. If the observed <span class="math inline">\(\chi^2\)</span> value exceeds this critical value, we reject the null hypothesis. As before, we determine the critical values by consulting a chi-square distribution table in <span class="quarto-unresolved-ref">?sec-chitbl</span>.</p>
+<div id="fig-chi2" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-chi2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="chi2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chi2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23.1: Visualization of the <span class="math inline">\(\chi^2\)</span>-distribution. The critical region (in red) lies in the right tail, corresponding to a significance level of <span class="math inline">\(\alpha\)</span>. Values of the test statistic falling in this region lead to rejection of the null hypothesis. The shaded gray area represents the non-rejection region.
+</figcaption></figure>
+</div>
+<p>The shape of the <span class="math inline">\(\chi^2\)</span> distribution depends on its degrees of freedom. For a small number of degrees of freedom, the distribution is heavily right-skewed. As the degrees of freedom increase, it becomes more symmetric and resembles the normal distribution. This makes the <span class="math inline">\(\chi^2\)</span> distribution well suited for large-sample approximations. This is visualized in <a href="#fig-chi2df" class="quarto-xref">Figure&nbsp;<span>23.2</span></a>. In the following, we will apply the <span class="math inline">\(\chi^2\)</span> distribution to two main tests:</p>
+<ul>
+<li>The <strong>goodness-of-fit test</strong>, which assesses whether observed data match a theoretical distribution.</li>
+<li>The <strong>test for independence</strong>, which evaluates the association between two categorical variables in contingency tables.</li>
+</ul>
+<div id="fig-chi2df" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-chi2df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="chi2_files/figure-html/unnamed-chunk-2-1.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chi2df-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;23.2: Animated visualization of the <span class="math inline">\(\chi^2\)</span>-distribution as the degrees of freedom increase from 3 to 20. As the degrees of freedom grow, the distribution becomes more symmetric and approaches the shape of the normal distribution. This demonstrates how the chi-square distribution’s skewness diminishes with larger sample sizes.
+</figcaption></figure>
+</div>
+</section><section id="goodness-of-fit-test" class="level2" data-number="23.2"><h2 data-number="23.2" class="anchored" data-anchor-id="goodness-of-fit-test">
+<span class="header-section-number">23.2</span> Goodness-of-Fit Test</h2>
+<p>In this section, we address how to test whether a categorical distribution fits a specified probability distribution. We have <span class="math inline">\(n\)</span> observations categorized into <span class="math inline">\(K\)</span> distinct categories:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Category</th>
+<th>Observed Count</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(O_1\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(O_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(O_3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(K\)</span></td>
+<td><span class="math inline">\(O_K\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Each <span class="math inline">\(O_i\)</span> represents the number of observations in category <span class="math inline">\(i\)</span>, for <span class="math inline">\(i = 1, 2, \dots, K\)</span>.</p>
+<p>We let <span class="math inline">\(P_i\)</span> denote the theoretical probability of an observation falling into category <span class="math inline">\(i\)</span>, where the sum of all category probabilities must satisfy:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{K} P_i = 1
+\]</span></p>
+<p>We want to test whether the actual observed distribution matches a known or hypothesized distribution with fixed probabilities <span class="math inline">\(P^*_1, P^*_2, \dots, P^*_K\)</span>.</p>
+<ul>
+<li>
+<p><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>):</strong> The data follow the expected probabilities</p>
+<p><span class="math inline">\(H_0: P_1 = P^*_1,\ P_2 = P^*_2,\ \dots,\ P_K = P^*_K\)</span></p>
+</li>
+<li>
+<p><strong>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>):</strong> The data do not follow the expected probabilities.</p>
+<p><span class="math inline">\(H_0:\)</span> at least one of the <span class="math inline">\(P_i\)</span> differs from <span class="math inline">\(P^*_i\)</span>.</p>
+</li>
+</ul>
+<p>If the null hypothesis is true, we <em>expect</em> the number of observations in each category to be: <span class="math display">\[
+E_i = n \cdot P^*_i
+\]</span></p>
+<p>This leads to the following extended table:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 41%">
+</colgroup>
+<thead><tr class="header">
+<th>Category</th>
+<th>Observed Count <span class="math inline">\(O_i\)</span>
+</th>
+<th>Probability <span class="math inline">\(P^*_i\)</span>
+</th>
+<th>Expected Count <span class="math inline">\(E_i = n \cdot P^*_i\)</span>
+</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(O_1\)</span></td>
+<td><span class="math inline">\(P^*_1\)</span></td>
+<td><span class="math inline">\(E_1\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(O_2\)</span></td>
+<td><span class="math inline">\(P^*_2\)</span></td>
+<td><span class="math inline">\(E_2\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(O_3\)</span></td>
+<td><span class="math inline">\(P^*_3\)</span></td>
+<td><span class="math inline">\(E_3\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(K\)</span></td>
+<td><span class="math inline">\(O_K\)</span></td>
+<td><span class="math inline">\(P^*_K\)</span></td>
+<td><span class="math inline">\(E_K\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We use the chi-square test statistic defined by: <span class="math display">\[
+\chi^2 = \sum_{i=1}^{K} \frac{(O_i - E_i)^2}{E_i}
+\]</span> where:</p>
+<ul>
+<li>
+<span class="math inline">\(O_i\)</span> is the observed frequency for category <span class="math inline">\(i\)</span>
+</li>
+<li>
+<span class="math inline">\(E_i\)</span> is the expected frequency for category <span class="math inline">\(i\)</span> under <span class="math inline">\(H_0\)</span>
+</li>
+</ul>
+<p>This test statistic follows approximately a chi-square distribution with <span class="math inline">\((K - 1)\)</span> degrees of freedom, assuming that all expected counts <span class="math inline">\(E_i\)</span> are sufficiently large (usually at least 5).</p>
+<p>A large value of <span class="math inline">\(\chi^2\)</span> indicates a large discrepancy between observed and expected counts, which provides evidence against the null hypothesis. We compare the test statistic to a critical value from the <span class="math inline">\(\chi^2\)</span> distribution table or compute a <span class="math inline">\(p\)</span>-value.</p>
+<p>If the <span class="math inline">\(p\)</span>-value is less than the significance level (e.g., 0.05), we reject <span class="math inline">\(H_0\)</span> and conclude that the observed distribution does not fit the expected distribution.</p>
+<section id="example-23.1-chi-square-goodness-of-fit-test-for-color-preference" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-23.1-chi-square-goodness-of-fit-test-for-color-preference">Example 23.1: Chi-square Goodness-of-Fit Test for Color Preference</h4>
+<p>Let’s conduct a chi-square goodness-of-fit test to examine whether a product is equally preferred in four different colors. We ask 80 randomly selected potential customers about their preferred color, and the responses are summarized as follows:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Color</th>
+<th>Observed Count (<span class="math inline">\(O_i\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>80</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 1: Hypotheses</strong><br>
+We want to test if all colors are equally preferred.</p>
+<p><span class="math inline">\(H_0\)</span>: The colors are equally preferred, i.e., <span class="math inline">\(P_1 = P_2 = P_3 = P_4 = 0.25\)</span></p>
+<p><span class="math inline">\(H_1\)</span>: Not all colors are equally preferred.</p>
+<p><strong>Step 2: Significance Level</strong><br>
+We choose a significance level of<br><span class="math display">\[\alpha = 0.05\]</span></p>
+<p><strong>Step 3: Test Statistic</strong><br>
+We use the chi-square test statistic:</p>
+<p><span class="math display">\[
+\chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}
+\]</span> where:</p>
+<ul>
+<li>
+<span class="math inline">\(O_i\)</span> = observed frequency<br>
+</li>
+<li>
+<span class="math inline">\(E_i\)</span> = expected frequency under <span class="math inline">\(H_0\)</span><br>
+</li>
+<li>
+<span class="math inline">\(k = 4\)</span> categories</li>
+</ul>
+<p>Degrees of freedom:<br><span class="math display">\[
+\text{df} = k - 1 = 3
+\]</span></p>
+<p><strong>Step 4: Decision Rule</strong><br>
+From the chi-square distribution table (<a href="../appendix/chi2-table.html" class="quarto-xref"><span>Appendix C</span></a>), the critical value at<br><span class="math display">\[ \chi^2_{3, 0.05} = 7.815 \]</span></p>
+<p>Reject <span class="math inline">\(H_0\)</span> if:<br><span class="math display">\[ \chi^2_{\text{obs}} &gt; 7.815 \]</span></p>
+<p><strong>Step 5: Observation</strong><br>
+We compute the expected frequency for each category:<br><span class="math display">\[ E_i = n \cdot P_i = 80 \cdot 0.25 = 20 \]</span></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Color</th>
+<th><span class="math inline">\(O_i\)</span></th>
+<th><span class="math inline">\(E_i\)</span></th>
+<th><span class="math inline">\((O_i - E_i)^2 / E_i\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>12</td>
+<td>20</td>
+<td>3.20</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>40</td>
+<td>20</td>
+<td>20.00</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>8</td>
+<td>20</td>
+<td>7.20</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>20</td>
+<td>20</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>30.40</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Now we can compute the test statistic:<br><span class="math display">\[
+\chi^2_{\text{obs}} = 3.20 + 20.00 + 7.20 + 0.00 = 30.40
+\]</span></p>
+<p><strong>Step 6: Conclusion</strong><br>
+Since<br><span class="math display">\[
+\chi^2_{\text{obs}} = 30.40 &gt; 7.815 = \chi^2_{3, 0.05}
+\]</span> We <em>reject the null hypothesis</em> at the 5% significance level. There is a statistically significant difference in color preferences among consumers.</p>
+</section><section id="example-23.2-chi-square-goodness-of-fit" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-23.2-chi-square-goodness-of-fit">Example 23.2: Chi-square Goodness-of-Fit</h4>
+<p>We want to test whether the market shares of three competing products (A, B, and C) have changed after a recent modification to product C.</p>
+<p><strong>Step 1: Hypotheses</strong><br>
+We assume that the historical market shares were:</p>
+<ul>
+<li>Product A: 30%</li>
+<li>Product B: 50%</li>
+<li>Product C: 20%</li>
+</ul>
+<p>We test:</p>
+<p><span class="math inline">\(H_0: p_A = 0.30,\quad p_B = 0.50,\quad p_C = 0.20\)</span></p>
+<p><span class="math inline">\(H_1:\)</span> The proportions are not equal to those specified under <span class="math inline">\(H_0\)</span></p>
+<p><strong>Step 2: Significance level</strong><br>
+We use a significance level of:</p>
+<p><span class="math display">\[
+\alpha = 0.05
+\]</span></p>
+<p><strong>Step 3: Test statistic</strong><br>
+We use the chi-square goodness-of-fit test statistic: <span class="math display">\[
+\chi^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
+\]</span> Degrees of freedom: <span class="math display">\[
+df = k - 1 = 3 - 1 = 2
+\]</span></p>
+<p><strong>Step 4: Decision rule</strong><br>
+We reject the null hypothesis if: <span class="math display">\[
+\chi^2_{\text{obs}} &gt; \chi^2_{2, 0.05} = 5.991
+\]</span></p>
+<p><strong>Step 5: Observation</strong><br>
+From a survey of 200 customers:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 31%">
+<col style="width: 42%">
+</colgroup>
+<thead><tr class="header">
+<th>Product</th>
+<th>Observed (<span class="math inline">\(O_i\)</span>)</th>
+<th>Expected proportion (<span class="math inline">\(p^*_i\)</span>)</th>
+<th>Expected count (<span class="math inline">\(E_i = 200 \cdot p^*_i\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>48</td>
+<td>0.30</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>98</td>
+<td>0.50</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>54</td>
+<td>0.20</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p>Now compute the observed value of the test statistic: <span class="math display">\[
+\chi^2_{\text{obs}} = \frac{(48 - 60)^2}{60} + \frac{(98 - 100)^2}{100} + \frac{(54 - 40)^2}{40} = 7.34
+\]</span></p>
+<p><strong>Step 6: Conclusion</strong><br>
+Since: <span class="math display">\[
+\chi^2_{\text{obs}} = 7.34 &gt; \chi^2_{2, 0.05} = 5.991,
+\]</span> we <em>reject the null hypothesis</em> at the 5% significance level. There is sufficient evidence to suggest that the market shares for products A, B, and C have changed.</p>
+</section></section><section id="testing-for-independence-in-contingency-tables" class="level2" data-number="23.3"><h2 data-number="23.3" class="anchored" data-anchor-id="testing-for-independence-in-contingency-tables">
+<span class="header-section-number">23.3</span> Testing for Independence in Contingency Tables</h2>
+<p>We now consider the second <span class="math inline">\(\chi^2\)</span> method, namely the <strong>test of independence in a contingency table</strong>.</p>
+<p>When investigating the relationship between two <strong>qualitative (categorical)</strong> variables, a common method is the <strong>chi-square test of independence</strong>. This method allows us to determine whether there is a significant association between the two variables in the population, based on data observed in a sample.</p>
+<section id="example-23.3-income-level-and-housing-cost" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-23.3-income-level-and-housing-cost">Example 23.3: Income Level and Housing Cost</h4>
+<p>A sample of <strong>500 single-person households</strong> is classified based on their disposable income (low, medium, high) and their housing costs (low, medium, high). The data is presented in a contingency table:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Housing Cost</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35</td>
+<td>50</td>
+<td>15</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50</td>
+<td>120</td>
+<td>30</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15</td>
+<td>80</td>
+<td>105</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p>We want to test whether there is a <em>relationship between income level and housing cost</em>.</p>
+<p>Our hypotheses are as follows:</p>
+<ul>
+<li>Null hypothesis: The variables are <strong>independent</strong>; there is no association between income and housing cost.<br>
+</li>
+<li>Alternative hypothesis: The variables are <strong>not independent</strong>; there is an association between income and housing cost.</li>
+</ul>
+<p>To explore this further, we can examine the relative percentages across income categories:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Housing Cost</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35%</td>
+<td>20%</td>
+<td>10%</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50%</td>
+<td>48%</td>
+<td>20%</td>
+<td>40%</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15%</td>
+<td>32%</td>
+<td>70%</td>
+<td>40%</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p>From this, we can see that the distributions vary across income levels, suggesting <strong>dependence</strong>.</p>
+<blockquote class="blockquote">
+<p><em>So what would independence look like?</em><br></p>
+</blockquote>
+<p>Under complete independence, the same distribution of housing costs would occur across all income groups. Based on the total column proportions, expected percentages would be:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 19%">
+</colgroup>
+<thead><tr class="header">
+<th>Housing Cost</th>
+<th>Expected %</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>20%</td>
+<td>20%</td>
+<td>20%</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<p>Using expected proportions, the expected counts under <span class="math inline">\(H_0\)</span> are:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Housing Cost</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>20</td>
+<td>50</td>
+<td>30</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>40</td>
+<td>100</td>
+<td>60</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>40</td>
+<td>100</td>
+<td>60</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p>These represent what we would expect to observe <em>if there were no relationship</em> between income and housing costs.</p>
+<p>Let’s generalize this test for examining independence between any pair of categorical variables.</p>
+<p>The observed data is arranged in a two-way contingency table with <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, summarizing the joint distribution of two categorical variables:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th></th>
+<th>1</th>
+<th>2</th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th><span class="math inline">\(c\)</span></th>
+<th>Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(O_{11}\)</span></td>
+<td><span class="math inline">\(O_{12}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(O_{1c}\)</span></td>
+<td><span class="math inline">\(R_1\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(O_{21}\)</span></td>
+<td><span class="math inline">\(O_{22}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(O_{2c}\)</span></td>
+<td><span class="math inline">\(R_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\ddots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(r\)</span></td>
+<td><span class="math inline">\(O_{r1}\)</span></td>
+<td><span class="math inline">\(O_{r2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(O_{rc}\)</span></td>
+<td><span class="math inline">\(R_r\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><span class="math inline">\(C_1\)</span></td>
+<td><span class="math inline">\(C_2\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(C_c\)</span></td>
+<td><span class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Here, <span class="math inline">\(O_{ij}\)</span> denotes the <strong>observed frequency</strong> in row <span class="math inline">\(i\)</span>, column <span class="math inline">\(j\)</span>, while <span class="math inline">\(R_i\)</span> and <span class="math inline">\(C_j\)</span> are the row and column totals respectively, and <span class="math inline">\(n\)</span> is the grand total.</p>
+<p>We want to test: <span class="math display">\[
+\begin{align*}
+H_0 &amp;: \text{The two classification variables are independent} \\
+H_1 &amp;: \text{The two classification variables are not independent}
+\end{align*}
+\]</span></p>
+<p>We use the chi-square test statistic defined as: <span class="math display">\[
+\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]</span> where <span class="math inline">\(E_{ij}\)</span> is the <strong>expected frequency</strong> under the assumption of independence:</p>
+<p><span class="math display">\[
+E_{ij} = \frac{R_i \cdot C_j}{n}
+\]</span></p>
+<p>That is, the expected count in each cell is the product of its row and column totals divided by the grand total. Expected frequencies (<span class="math inline">\(E_{ij}\)</span>) computed this way ensure that:</p>
+<ul>
+<li>The <strong>relative distribution</strong> within each column is the same as the marginal distribution across rows (on the right).</li>
+<li>The <strong>relative distribution</strong> within each row is the same as the marginal distribution across columns (at the bottom).</li>
+</ul>
+<p>This matches what we would expect under independence between the variables.</p>
+<p>If <span class="math inline">\(H_0\)</span> is true and the sample is large enough, then the test statistic <span class="math inline">\(\chi^2\)</span> approximately follows a chi-square distribution with <span class="math inline">\((r - 1)(c - 1)\)</span> degrees of freedom.</p>
+<p>We reject the null hypothesis if the test statistic <span class="math inline">\(\chi^2\)</span> is <em>greater than the critical value</em>, determined from the chi-square distribution table (<a href="../appendix/chi2-table.html" class="quarto-xref"><span>Appendix C</span></a>), based on:</p>
+<ul>
+<li>The <strong>chosen significance level</strong> <span class="math inline">\(\alpha\)</span>
+</li>
+<li>The <strong>degrees of freedom</strong>: <span class="math inline">\((r - 1)(c - 1)\)</span>
+</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note: Rule of Thumb for the Chi-Square Test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The chi-square test for independence is a widely used method to assess whether two categorical variables are statistically independent by comparing observed frequencies to expected frequencies under the assumption of independence. It is crucial to ensure expected cell counts are sufficiently large to rely on the chi-square approximation.</p>
+<p>To ensure the approximation is valid, a common guideline is:</p>
+<ul>
+<li>At least 80% of the expected cell counts <span class="math inline">\(E_{ij}\)</span> should be <strong>5 or greater</strong>.</li>
+<li>If this condition is not met, consider <strong>combining categories</strong> to increase expected counts.</li>
+</ul>
+</div>
+</div>
+</section><section id="example-23.3-income-level-and-housing-cost-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-23.3-income-level-and-housing-cost-contd">Example 23.3: Income Level and Housing Cost (Cont’d)</h4>
+<p>We are given a <span class="math inline">\(3 \times 3\)</span> contingency table of education level and income level among 500 individuals. The goal is to determine whether education level and income level are statistically independent.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 26%">
+</colgroup>
+<thead><tr class="header">
+<th>Education Level</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Row Totals (<span class="math inline">\(R_i\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35</td>
+<td>50</td>
+<td>15</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50</td>
+<td>120</td>
+<td>30</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15</td>
+<td>80</td>
+<td>105</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>Column Totals (<span class="math inline">\(C_j\)</span>)</td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td><span class="math inline">\(n = 500\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 1: Hypotheses</strong></p>
+<ul>
+<li>
+<span class="math inline">\(H_0\)</span>: There is no association between education and income level. The two variables are independent.</li>
+<li>
+<span class="math inline">\(H_1\)</span>: There is an association between education and income level. The two variables are not independent.</li>
+</ul>
+<p><strong>Step 2: Significance Level</strong><br>
+We choose a significance level of <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Step 3: Test Statistic</strong><br>
+We will use the chi-square test statistic: <span class="math display">\[
+\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>
+<span class="math inline">\(O_{ij}\)</span> = observed count in cell <span class="math inline">\((i,j)\)</span>
+</li>
+<li>
+<span class="math inline">\(E_{ij}\)</span> = expected count in cell <span class="math inline">\((i,j)\)</span> which under <span class="math inline">\(H_0\)</span>, computed as: <span class="math display">\[
+E_{ij} = \frac{R_i \cdot C_j}{n}
+\]</span>
+</li>
+</ul>
+<p>Example: for cell (1,1): <span class="math display">\[
+E_{11} = \frac{100 \cdot 100}{500} = 20
+\]</span></p>
+<p>The expected values are shown in parentheses in the table below:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Education Level</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35 (20)</td>
+<td>50 (50)</td>
+<td>15 (30)</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50 (40)</td>
+<td>120 (100)</td>
+<td>30 (60)</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15 (40)</td>
+<td>80 (100)</td>
+<td>105 (60)</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 4: Decision rule</strong><br>
+Degrees of freedom: <span class="math display">\[
+df = (r - 1)(c - 1) = (3 - 1)(3 - 1) = 4
+\]</span></p>
+<p>Using the chi-square table (<a href="../appendix/chi2-table.html" class="quarto-xref"><span>Appendix C</span></a>) we find: <span class="math display">\[
+\chi^2_{0.05, 4} = 9.488
+\]</span></p>
+<p>We thus reject the null if our observed value is greater than 9.488.</p>
+<p><strong>Step 5: Observation</strong><br>
+Using the formula: <span class="math display">\[
+\chi^2_{\text{obs}} = \frac{(35 - 20)^2}{20} + \frac{(50 - 50)^2}{50} + \dots + \frac{(105 - 60)^2}{60} = 93.63
+\]</span></p>
+<p><strong>Step 6: Conclusion</strong><br>
+Compare the test statistic with the critical value:</p>
+<ul>
+<li><span class="math inline">\(\chi^2_{\text{obs}} = 93.63\)</span></li>
+<li><span class="math inline">\(\chi^2_{\text{crit}} = 9.488\)</span></li>
+</ul>
+<p>Since <span class="math inline">\(93.63 &gt; 9.488\)</span>, we <em>reject the null hypothesis</em> at the 5% significance level. There is strong evidence to suggest that education level and income level are not independent; there appears to be a significant association between them.</p>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>A factory produces light bulbs that are supposed to have three brightness levels in the following proportions:</li>
+</ol>
+<ul>
+<li><p>Low: 20%<br></p></li>
+<li><p>Medium: 50%<br></p></li>
+<li>
+<p>High: 30%</p>
+<p>In a random sample of 200 light bulbs, the observed distribution is:</p>
+</li>
+<li><p>Low: 38<br></p></li>
+<li><p>Medium: 92<br></p></li>
+<li>
+<p>High: 70</p>
+<p>Test whether the observed distribution fits the expected proportions at the 5% significance level.</p>
+</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong></p>
+<ul>
+<li>
+<strong><span class="math inline">\(H_0\)</span></strong>: The population distribution follows the claimed proportions (20%, 50%, 30%).</li>
+<li>
+<strong><span class="math inline">\(H_1\)</span></strong>: The distribution does not follow these proportions.</li>
+</ul>
+<p><strong>Step 2: Significance level</strong><br>
+- Use <span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><strong>Step 3: Test statistic</strong><br>
+We use the chi-square goodness-of-fit test statistic: <span class="math display">\[
+\chi^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}
+\]</span></p>
+<p><strong>Step 4: Observation</strong><br>
+Total sample size: <span class="math inline">\(n = 200\)</span><br>
+Claimed proportions:</p>
+<ul>
+<li>Low: <span class="math inline">\(p_1 = 0.20\)</span><br>
+</li>
+<li>Medium: <span class="math inline">\(p_2 = 0.50\)</span><br>
+</li>
+<li>High: <span class="math inline">\(p_3 = 0.30\)</span>
+</li>
+</ul>
+<p>Expected counts:</p>
+<p><span class="math display">\[
+\begin{split}
+&amp; E_1  = 200 \times 0.20 = 40 \\ &amp;
+E_2 = 200 \times 0.50 = 100 \\ &amp;
+E_3 = 200 \times 0.30 = 60
+\end{split}
+\]</span></p>
+<p>Expected frequencies:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Category</th>
+<th>Observed (<span class="math inline">\(O_i\)</span>)</th>
+<th>Expected (<span class="math inline">\(E_i\)</span>)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>38</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>92</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>70</td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 4: Decision rule</strong><br>
+Degrees of freedom: <span class="math inline">\(k - 1 = 3 - 1 = 2\)</span><br>
+Critical value: <span class="math inline">\(\chi^2_{0.95, 2} = 5.991\)</span><br>
+Reject <span class="math inline">\(H_0\)</span> if observed value &gt; 5.991.</p>
+<p><strong>Step 5: Observation</strong><br>
+Our observed value is given by: <span class="math display">\[
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\]</span></p>
+<p><span class="math display">\[
+\chi^2 = \frac{(38 - 40)^2}{40} + \frac{(92 - 100)^2}{100} + \frac{(70 - 60)^2}{60} \\
+= \frac{4}{40} + \frac{64}{100} + \frac{100}{60} \\
+= 0.10 + 0.64 + 1.67 = 2.41
+\]</span></p>
+<p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(2.41 &lt; 5.991\)</span>, we fail to reject <span class="math inline">\(H_0\)</span>. There is no significant difference between the observed and expected brightness levels. The data is consistent with the claimed distribution at the 5% level.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A political analyst wants to examine whether <em>voting preference</em> is independent of <em>age group</em>. A random sample of 300 voters was surveyed, and the results were summarized in the following contingency table:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th></th>
+<th>Candidate A</th>
+<th>Candidate B</th>
+<th>Candidate C</th>
+<th>Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>18–29 years</td>
+<td>28</td>
+<td>45</td>
+<td>27</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>30–49 years</td>
+<td>36</td>
+<td>33</td>
+<td>31</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>50+ years</td>
+<td>26</td>
+<td>30</td>
+<td>44</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>90</td>
+<td>108</td>
+<td>102</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<p>Is there evidence at the 5% significance level that voting preference is <em>dependent</em> on age group?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong></p>
+<ul>
+<li>
+<span class="math inline">\(H_0\)</span>: Voting preference is <strong>independent</strong> of age group.</li>
+<li>
+<span class="math inline">\(H_1\)</span>: Voting preference is <strong>dependent</strong> on age group.</li>
+</ul>
+<p><strong>Step 2: Significance level</strong><br>
+Set <span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><strong>Step 3: Test statistic</strong><br><span class="math display">\[
+\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>
+<span class="math inline">\(O_{ij}\)</span> = observed count in cell <span class="math inline">\((i,j)\)</span>
+</li>
+<li>
+<span class="math inline">\(E_{ij}\)</span> = expected count in cell <span class="math inline">\((i,j)\)</span> which under <span class="math inline">\(H_0\)</span>, computed as: <span class="math display">\[
+E_{ij} = \frac{R_i \cdot C_j}{n}
+\]</span>
+</li>
+</ul>
+<p><strong>Step 4: Decision rule</strong><br>
+Degrees of freedom: df = <span class="math inline">\((3-1)(3-1) = 4\)</span><br>
+Critical value: <span class="math inline">\(\chi^2_{0.95, 4} = 9.488\)</span><br>
+Reject <span class="math inline">\(H_0\)</span> if observed value &gt; <span class="math inline">\(9.488\)</span>.</p>
+<p><strong>Step 5: Observation</strong><br>
+We use the formula for expected cell counts: <span class="math display">\[
+E_{ij} = \frac{(\text{Row total}) \times (\text{Column total})}{\text{Grand total}}
+\]</span></p>
+<p>Given Table (Observed Counts):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead><tr class="header">
+<th></th>
+<th>Candidate A</th>
+<th>Candidate B</th>
+<th>Candidate C</th>
+<th>Row Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>18–29 years</td>
+<td>28</td>
+<td>45</td>
+<td>27</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>30–49 years</td>
+<td>36</td>
+<td>33</td>
+<td>31</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>50+ years</td>
+<td>26</td>
+<td>30</td>
+<td>44</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td><strong>Column Total</strong></td>
+<td><strong>90</strong></td>
+<td><strong>108</strong></td>
+<td><strong>102</strong></td>
+<td><strong>300</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expected values</strong>:<br>
+Row 1: Age 18–29 (Row Total = 100)</p>
+<ul>
+<li>Candidate A:<br><span class="math display">\[E_{11} = \frac{100 \times 90}{300} = 30\]</span><br>
+</li>
+<li>Candidate B:<br><span class="math display">\[E_{12} = \frac{100 \times 108}{300} = 36\]</span><br>
+</li>
+<li>Candidate C:<br><span class="math display">\[E_{13} = \frac{100 \times 102}{300} = 34\]</span>
+</li>
+</ul>
+<p>Row 2: Age 30–49 (Row Total = 100)</p>
+<ul>
+<li>Candidate A:<br><span class="math display">\[E_{21} = \frac{100 \times 90}{300} = 30\]</span><br>
+</li>
+<li>Candidate B:<br><span class="math display">\[E_{22} = \frac{100 \times 108}{300} = 36\]</span><br>
+</li>
+<li>Candidate C:<br><span class="math display">\[E_{23} = \frac{100 \times 102}{300} = 34\]</span>
+</li>
+</ul>
+<p>Row 3: Age 50+ (Row Total = 100)</p>
+<ul>
+<li>Candidate A:<br><span class="math display">\[E_{31} = \frac{100 \times 90}{300} = 30\]</span><br>
+</li>
+<li>Candidate B:<br><span class="math display">\[E_{32} = \frac{100 \times 108}{300} = 36\]</span><br>
+</li>
+<li>Candidate C:<br><span class="math display">\[E_{33} = \frac{100 \times 102}{300} = 34\]</span>
+</li>
+</ul>
+<p><strong>Table over Observed vs (Expected Counts):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead><tr class="header">
+<th>Age Group</th>
+<th>Candidate A</th>
+<th>Candidate B</th>
+<th>Candidate C</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>18–29</strong></td>
+<td>O = 28 (E = 30)</td>
+<td>O = 45 (E = 36)</td>
+<td>O = 27 (E = 34)</td>
+</tr>
+<tr class="even">
+<td><strong>30–49</strong></td>
+<td>O = 36 (E = 30)</td>
+<td>O = 33 (E = 36)</td>
+<td>O = 31 (E = 34)</td>
+</tr>
+<tr class="odd">
+<td><strong>50+</strong></td>
+<td>O = 26 (E = 30)</td>
+<td>O = 30 (E = 36)</td>
+<td>O = 44 (E = 34)</td>
+</tr>
+</tbody>
+</table>
+<p>18–29 years:</p>
+<ul>
+<li>Candidate A:<br><span class="math display">\[\frac{(28 - 30)^2}{30} = \frac{4}{30} = 0.133\]</span>
+</li>
+<li>Candidate B:<br><span class="math display">\[\frac{(45 - 36)^2}{36} = \frac{81}{36} = 2.25\]</span>
+</li>
+<li>Candidate C:<br><span class="math display">\[\frac{(27 - 34)^2}{34} = \frac{49}{34} ≈ 1.441\]</span>
+</li>
+</ul>
+<p>30–49 years:</p>
+<ul>
+<li>Candidate A:<br><span class="math display">\[\frac{(36 - 30)^2}{30} = \frac{36}{30} = 1.2\]</span>
+</li>
+<li>Candidate B:<br><span class="math display">\[\frac{(33 - 36)^2}{36} = \frac{9}{36} = 0.25\]</span>
+</li>
+<li>Candidate C:<br><span class="math display">\[\frac{(31 - 34)^2}{34} = \frac{9}{34} ≈ 0.265\]</span>
+</li>
+</ul>
+<p>50+ years:</p>
+<ul>
+<li>Candidate A:<br><span class="math display">\[\frac{(26 - 30)^2}{30} = \frac{16}{30} ≈ 0.533\]</span>
+</li>
+<li>Candidate B:<br><span class="math display">\[\frac{(30 - 36)^2}{36} = \frac{36}{36} = 1.0\]</span>
+</li>
+<li>Candidate C:<br><span class="math display">\[\frac{(44 - 34)^2}{34} = \frac{100}{34} ≈ 2.941\]</span> Add all components: <span class="math display">\[
+\chi^2 ≈ 0.133 + 2.25 + 1.441 + 1.2 + 0.25 + 0.265 + 0.533 + 1.0 + 2.941 ≈ 10.013
+\]</span>
+</li>
+</ul>
+<p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(10.013 &gt; 9.488\)</span>, we <em>reject the null hypothesis</em>. There is evidence that voting preference depends on age group.</p>
+</div>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/termehs\.github\.io\/found-stats\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../inferential/hyp-test.html" class="pagination-link" aria-label="Hypothesis Testing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../regression.html" class="pagination-link" aria-label="Regression Analysis">
+        <span class="nav-page-text">Regression Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Foundational Statistics by Termeh Shafie.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/chi2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>

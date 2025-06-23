@@ -54,12 +54,13 @@ book:
       - inferential/intro-inference.qmd
       - inferential/estimation.qmd
       - inferential/hyp-test.qmd
-    - part: chi2.qmd
+      - inferential/chi2.qmd
     - part: regression.qmd
     - part: references.qmd
   appendices:
   - appendix/normal-table.qmd
   - appendix/t-table.qmd
+  - appendix/chi2-table.qmd
 bibliography: references.bib
 
 number-sections: true 
