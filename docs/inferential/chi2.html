@@ -1488,6 +1488,51 @@ Since <span class="math inline">\(10.013 &gt; 9.488\)</span>, we <em>reject the 
 </div>
 </div>
 </div>
+<ol start="3" type="1">
+<li>Suppose a state lottery randomly draws one number from the integers 1 through 5 each week. Over 100 weeks, the frequency of each number is recorded. Test whether these numbers are drawn uniformly, i.e., whether each number has an equal chance of being drawn.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong><br><span class="math inline">\(H_0\)</span>: The numbers are uniformly distributed (random).<br><span class="math inline">\(H_1\)</span>: The numbers are not uniformly distributed.</p>
+<p><strong>Step 2: Significance Level</strong><br>
+Let <span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><strong>Step 3: Decision Rule</strong><br>
+Degrees of freedom = <span class="math inline">\(k - 1 = 5 - 1 = 4\)</span><br>
+From table; <span class="math inline">\(\chi^2_{0.05, 4} = 9.488\)</span> which we reject if our observed value is greater than.</p>
+<p><strong>Step 4: Test Statistic</strong><br>
+The Chi-square statistic is:</p>
+<p><span class="math display">\[
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\]</span></p>
+<p><strong>Step 5: Observation</strong><br>
+If the distribution is uniform, each number is expected to occur:</p>
+<p><span class="math display">\[
+E = \frac{100}{5} = 20 \text{ times}
+\]</span></p>
+<p>So, expected counts for all five categories = 20.</p>
+<p>Calculating: <span class="math display">\[
+\begin{aligned}
+\chi^2 &amp;= \frac{(15 - 20)^2}{20} + \frac{(24 - 20)^2}{20} + \frac{(19 - 20)^2}{20} + \frac{(22 - 20)^2}{20} + \frac{(20 - 20)^2}{20} \\
+&amp;= \frac{25}{20} + \frac{16}{20} + \frac{1}{20} + \frac{4}{20} + \frac{0}{20} \\
+&amp;= 1.25 + 0.8 + 0.05 + 0.2 + 0 \\
+&amp;= 2.3
+\end{aligned}
+\]</span></p>
+<p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(2.3 &lt; 9.488\)</span>, we fail to reject <span class="math inline">\(H_0\)</span>. There is no evidence to suggest the lottery numbers are not drawn uniformly. The observed differences could be due to chance.</p>
+</div>
+</div>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

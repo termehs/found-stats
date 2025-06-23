@@ -709,6 +709,58 @@ $$
 **Step 6: Conclusion**\
 Since $10.013 > 9.488$, we *reject the null hypothesis*. There is evidence that voting preference depends on age group.
 
+:::
 
 
+3. Suppose a state lottery randomly draws one number from the integers 1 through 5 each week. Over 100 weeks, the frequency of each number is recorded. Test whether these numbers are drawn uniformly, i.e., whether each number has an equal chance of being drawn.
+
+
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+**Step 1: Hypotheses**\
+$H_0$: The numbers are uniformly distributed (random).\
+$H_1$: The numbers are not uniformly distributed.
+
+**Step 2: Significance Level**\
+Let $\alpha = 0.05$
+
+
+**Step 3: Decision Rule**\
+Degrees of freedom = $k - 1 = 5 - 1 = 4$\
+From table; $\chi^2_{0.05, 4} = 9.488$ which we reject if our observed value is greater than.
+
+
+
+**Step 4: Test Statistic**\
+The Chi-square statistic is:
+
+$$
+\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+$$
+
+
+**Step 5: Observation**\
+If the distribution is uniform, each number is expected to occur:
+
+$$
+E = \frac{100}{5} = 20 \text{ times}
+$$
+
+So, expected counts for all five categories = 20.
+
+Calculating:
+$$
+\begin{aligned}
+\chi^2 &= \frac{(15 - 20)^2}{20} + \frac{(24 - 20)^2}{20} + \frac{(19 - 20)^2}{20} + \frac{(22 - 20)^2}{20} + \frac{(20 - 20)^2}{20} \\
+&= \frac{25}{20} + \frac{16}{20} + \frac{1}{20} + \frac{4}{20} + \frac{0}{20} \\
+&= 1.25 + 0.8 + 0.05 + 0.2 + 0 \\
+&= 2.3
+\end{aligned}
+$$
+
+
+**Step 6: Conclusion**\
+Since $2.3 < 9.488$, we fail to reject $H_0$.  There is no evidence to suggest the lottery numbers are not drawn uniformly. The observed differences could be due to chance.
 :::
