@@ -1,0 +1,152 @@
+# Simple Linear Regression {#sec-slr}
+In many practical situations, we are interested in understanding how two observed quantitative variables relate to one another. Suppose we have a dataset with $n$ paired observations of two variables $x$ and $y$:
+
+| Observation | $x$ | $y$ |
+|-------------|-----|-----|
+| 1           | $x_1$ | $y_1$ |
+| 2           | $x_2$ | $y_2$ |
+| $\vdots$        | $\vdots$ | $\vdots$  |
+| $n$         | $x_n$ | $y_n$ |
+
+A first step in analyzing this relationship is to visualize the data using a scatterplot, where each point represents a pair $(x_i, y_i)$. This helps us assess whether a **linear pattern** is plausible:
+
+```{r}
+#| echo: false
+#| fig-height: 4
+#| fig-width: 4
+#| fig-align: center
+# ---- scatter-plot -----------------------------------------------------------
+# Example data — replace with your own data frame
+df <- data.frame(
+  x = c(5, 7, 9, 10, 12, 14, 15, 17, 19, 21),
+  y = c(35, 31, 28, 25, 22, 19, 17, 14, 12, 10)
+)
+
+library(ggplot2)
+
+ggplot(df, aes(x = x, y = y)) +
+  geom_point(size = 2, colour = "steelblue") +
+  labs(
+    x = "x",
+    y = "y"
+  ) +
+  theme_minimal()
+```
+
+Before we fit a regression line, we examine how the variables covary. The correlation coefficient is a standardized measure of the **linear association** between $x$ and $y$:
+
+$$
+r_{xy} = \frac{s_{xy}}{s_x s_y}
+$$
+
+Where:
+
+- $s_{xy}$ is the sample covariance between $x$ and $y$:
+  $$
+  s_{xy} = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})
+  $$
+
+- $s_x$ and $s_y$ are the **sample standard deviations** of $x$ and $y$.
+
+The sign and magnitude of this value ($-1 < r_{xy} < 1$) determine the strength and direction of the linear relationship (see @sec-meas-disp for more detail).
+
+
+## The Least Squares Method: Fitting a Straight Line
+
+Once we suspect that a linear relationship exists between two variables, we aim to quantify it using a **regression line** of the form:
+
+$$
+y = b_0 + b_1 x
+$$
+
+Where:
+
+- $y$ is the **dependent variable** (also called the response variable),
+- $x$ is the **independent variable** (also called the predictor or explanatory variable),
+- $b_0$ is the **intercept** (the value of $y$ when $x = 0$),
+- $b_1$ is the **slope** (the change in $y$ for a one-unit change in $x$).
+
+This regression line is intended to summarize the overall trend in the data, allowing us to predict the average value of $y$ for a given $x$.
+
+
+::: {.callout-note}
+## Note 1
+In regression analysis, we are describing how $y$ is associated with $x$—but this is not the same as proving causation. The analysis shows a **statistical association**, not a causal one.
+:::
+
+
+::: {.callout-note}
+## Note 2
+ In **regression**, we treat $x$ as the variable that helps explain $y$. We focus on a **directional relationship**, often written as:  
+$$x \rightarrow y$$  
+In contrast, **correlation** treats the two variables symmetrically:
+$$x \leftrightarrow y$$  
+ and the correlation coefficient $r_{xy} = r_{yx}$.
+:::
+
+
+The **least squares method** fits a line to the data by minimizing the **sum of the squared vertical distances** (residuals) between the observed $y$ values and the values predicted by the line:
+
+$$
+\text{RSS} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
+$$
+
+This approach gives us a "best-fitting" line in the sense that it minimizes prediction errors overall.
+
+
+To find the optimal values of $b_0$ and $b_1$, we use the following formulas:
+
+**Slope:**
+
+$$
+b_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}
+{\sum_{i=1}^{n}(x_i - \bar{x})^2}
+= \frac{s_{xy}}{s_x^2} = r_{xy} \cdot \frac{s_y}{s_x}
+$$
+
+where:
+
+- $s_{xy}$ is the sample covariance between $x$ and $y$
+- $s_x^2$ is the sample variance of $x$
+- $r_{xy}$ is the correlation coefficient
+
+
+$b_0$ (intercept)  is the predicted value of $y$ when $x = 0$. It tells us where the regression line crosses the $y$-axis. While sometimes meaningful, in many cases it's just a mathematical anchor and not of direct interest.
+
+**Intercept:**
+
+$$
+b_0 = \bar{y} - b_1 \bar{x}
+$$
+
+
+$b_1$ (slope) is the main coefficient of interest. It tells us how much we expect $y$ to change, on average, for a one-unit increase in $x$. Its sign tells us the direction (positive or negative association), and its magnitude tells us the strength of the relationship.
+
+
+```{r}
+#| echo: false
+#| fig-height: 4
+#| fig-width: 4
+#| fig-align: center
+# ---- regression-plot --------------------------------------------------------
+# Using same example data as before
+df <- data.frame(
+  x = c(5, 7, 9, 10, 12, 14, 15, 17, 19, 21),
+  y = c(35, 31, 28, 25, 22, 19, 17, 14, 12, 10)
+)
+
+library(ggplot2)
+
+ggplot(df, aes(x = x, y = y)) +
+  geom_point(color = "steelblue", size = 2) +
+  geom_smooth(method = "lm", se = FALSE, color = "firebrick", linewidth = 1) +
+  labs(
+    x = "x",
+    y = "y"
+  ) +
+  theme_minimal()
+```
+
+INCLUDE BETTER PLOT SHOWING RESIDUALS!
+
+

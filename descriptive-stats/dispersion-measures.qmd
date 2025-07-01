@@ -6,7 +6,7 @@ library(dplyr)
 library(patchwork)
 ```
 
-# Measures of Dispersion
+# Measures of Dispersion {#sec-meas-disp}
 
 While measures of central tendency, such as the mean or median, provide valuable insight into the typical value in a data set, they often do not tell the whole story. Two data sets can have the same mean but exhibit vastly different distributions. This is where measures of dispersion become crucial, as they describe the spread or variability in a data set.
 
@@ -392,14 +392,14 @@ r = \frac{\operatorname{Cov}(x, y)}{s_x s_y}
 $$ where $s_x, s_y$ are the sample standard deviations. Correlation values fall within the range -1 to 1, with the following interpretations (we use sample correlation as example):
 
 -   $r = 1$: perfect positive correlation; $x$ and $y$ move together exactly in a straight line.
--   $0.8 \leq r < 1$: strong positive correlation;  $x$ and $y$  tend to increase together.
--   $0.5 \leq r < 0.8$: moderate positive correlation; $x$ and $y$  show a noticeable increasing relationship.
--   $0 < r < 0.5$: weak positive correlation;  $x$ and $y$ tend to increase together, but with variability.
--   $r = 0$: no linear relationship; $x$ and $y$  are not linearly related (but might be non-linearly associated).
+-   $0.8 \leq r < 1$: strong positive correlation; $x$ and $y$ tend to increase together.
+-   $0.5 \leq r < 0.8$: moderate positive correlation; $x$ and $y$ show a noticeable increasing relationship.
+-   $0 < r < 0.5$: weak positive correlation; $x$ and $y$ tend to increase together, but with variability.
+-   $r = 0$: no linear relationship; $x$ and $y$ are not linearly related (but might be non-linearly associated).
 -   $-0.5 < r < 0$: weak negative correlation; as $x$ increases, $y$ tends to decrease slightly.
--   $-0.8 < r \leq -0.5$: moderate negative correlation;  $x$ and $y$  shown an inverse relationship.
--   $-1 ≤ r ≤ -0.8$: strong negative correlation;  $x$ and $y$  move in opposite directions strongly.
--   $r = -1$: perfect negative correlation; $x$ and $y$  move in exactly opposite directions in a straight line.
+-   $-0.8 < r \leq -0.5$: moderate negative correlation; $x$ and $y$ shown an inverse relationship.
+-   $-1 ≤ r ≤ -0.8$: strong negative correlation; $x$ and $y$ move in opposite directions strongly.
+-   $r = -1$: perfect negative correlation; $x$ and $y$ move in exactly opposite directions in a straight line.
 
 A few examples are shown in @fig-corr.
 

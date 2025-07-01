@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>framework</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="framework_files/libs/clipboard/clipboard.min.js"></script>
+<script src="framework_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="framework_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="framework_files/libs/quarto-html/popper.min.js"></script>
+<script src="framework_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="framework_files/libs/quarto-html/anchor.min.js"></script>
+<link href="framework_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="framework_files/libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="framework_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="framework_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="framework_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="sec-regframework" class="level1">
+<h1>The Regression Framework</h1>
+<p>In this chapter, we explore the foundational ideas behind regression modeling—a central tool in statistics and data analysis for understanding relationships between variables. The goal of regression is to describe how the value of one variable depends on or is associated with changes in another.</p>
+<p>We begin by introducing the concept of conditional expectation, which captures how the average value of a response variable varies with a predictor. Building on this, we distinguish between the population regression function, which describes the systematic trend, and the population regression model, which incorporates randomness through an error term.</p>
+<p>Understanding the difference between deterministic and stochastic components is essential for interpreting models correctly. We then examine how these population concepts relate to real-world data, where we estimate unknown parameters using a random sample leading to the sample regression function.</p>
+<p>This chapter lays the groundwork for the methods and assumptions behind regression analysis and prepares us to learn how to estimate models.</p>
+<section id="motivating-example-oil-usage-and-temperature" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="motivating-example-oil-usage-and-temperature">Motivating Example: Oil Usage and Temperature</h4>
+<p>In many real-world situations, we want to understand how one variable influences another. For example, how does outdoor temperature affect household oil consumption? Regression analysis is a statistical method used to model and explore such relationships between variables.</p>
+<p>Let’s define:</p>
+<ul>
+<li><span class="math inline">\(Y\)</span>: the response or dependent variable (e.g., oil usage in litres per household),</li>
+<li><span class="math inline">\(X\)</span>: the predictor or independent variable (e.g., outdoor temperature in degrees Celsius).</li>
+</ul>
+<p>If we only observe oil usage but have no information about temperature, our best estimate for any household’s usage is the overall average of all observed values. This is called the marginal expectation of <span class="math inline">\(Y\)</span> and does not account for other factors, as shown in the left panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p>However, if we also know the temperature on the day the oil was used, as shown in the right panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;1</a>. Then we can make a more informed estimate. Rather than using the overall average, we estimate the conditional expectation of oil usage given the temperature. In other words, we ask:</p>
+<blockquote class="blockquote">
+<p>What is our best estimate of oil usage <span class="math inline">\(Y\)</span> if today’s temperature <span class="math inline">\(X\)</span> is 10°C? Or when <span class="math inline">\(X\)</span> is any other value?</p>
+</blockquote>
+<p>This leads to the concept of conditional expectation: <span class="math display">\[
+E(Y \mid X)
+\]</span> and represents the expected (mean) value of <span class="math inline">\(Y\)</span> given a specific value of <span class="math inline">\(X\)</span>. Regression analysis helps us estimate this quantity—typically using a model such as a linear function.</p>
+<p>At its core, regression is about estimating and interpreting how the average value of <span class="math inline">\(Y\)</span> changes conditionally on <span class="math inline">\(X\)</span>.</p>
+<p>In the next section, we’ll formally introduce the simple linear regression model, estimate its parameters, and interpret the results.</p>
+<div id="fig-slrex" class="center quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-slrex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/‎slr-ex.png" id="fig-popsamp" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slrex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Visualizing the conditional structure of a negatively correlated relationship between two variables. The left panel shows the marginal distribution of y, while the right panel displays a scatterplot of (x, y) with marginal histogram of y aligned to the vertical axis. Dotted lines project each point to the x- and y-axes, suggesting conditional reasoning: given a value of x, what is our best guess for y?
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="conditional-expectation-and-regression-functions" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-expectation-and-regression-functions">Conditional Expectation and Regression Functions</h2>
+<p>Regression analysis is fundamentally about understanding how the <strong>average value</strong> of one variable, <span class="math inline">\(Y\)</span>, changes in response to another variable, <span class="math inline">\(X\)</span>. This is formalized through the concept of <strong>conditional expectation</strong>:</p>
+<p><span class="math display">\[
+E(Y \mid X)
+\]</span></p>
+<p>This function gives us the expected (average) value of <span class="math inline">\(Y\)</span>, given a specific value of <span class="math inline">\(X\)</span>. Rather than modeling the entire distribution of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>, regression focuses on modeling this average behavior—summarized by the <strong>Conditional Expectation Function (CEF)</strong>.</p>
+<section id="the-conditional-expectation-function-cef" class="level3">
+<h3 class="anchored" data-anchor-id="the-conditional-expectation-function-cef">The Conditional Expectation Function (CEF)</h3>
+<p>The CEF, <span class="math inline">\(E(Y \mid X)\)</span>, captures how the mean of <span class="math inline">\(Y\)</span> varies with <span class="math inline">\(X\)</span>. It represents the best estimate of <span class="math inline">\(Y\)</span> we can make, on average, given that we know the value of <span class="math inline">\(X\)</span>. In essence, the CEF describes the <strong>population regression function</strong>:</p>
+<p><span class="math display">\[
+Y = f(X) = E(Y \mid X)
+\]</span></p>
+<p>This function answers the question:</p>
+<blockquote class="blockquote">
+<p><em>“What is the average value of <span class="math inline">\(Y\)</span>, given each possible value of <span class="math inline">\(X\)</span>?”</em></p>
+</blockquote>
+</section>
+<section id="linear-conditional-expectation-population-linear-regression-function" class="level3">
+<h3 class="anchored" data-anchor-id="linear-conditional-expectation-population-linear-regression-function">Linear Conditional Expectation: Population Linear Regression Function</h3>
+<p>Often, we assume a linear relationship between <span class="math inline">\(X\)</span> and the expected value of <span class="math inline">\(Y\)</span>. This leads us to define the <strong>population linear regression function</strong> as: <span class="math display">\[
+E(Y \mid X) = \beta_0 + \beta_1 X
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span>: Intercept<br>
+representing the expected value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X = 0\)</span></li>
+<li><span class="math inline">\(\beta_1\)</span>: Slope<br>
+representing the change in the expected value of <span class="math inline">\(Y\)</span> for a one-unit increase in <span class="math inline">\(X\)</span></li>
+</ul>
+<p>This model is powerful in its simplicity and interpretability. However, it’s important to remember that this is an assumption: <em>the true conditional expectation function may not be linear, but we approximate it as such</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Including Additional Variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In many cases, <span class="math inline">\(Y\)</span> may be influenced by other variables besides <span class="math inline">\(X\)</span>. Suppose another variable <span class="math inline">\(Z\)</span> also affects <span class="math inline">\(Y\)</span> linearly. The conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> is:</p>
+<p><span class="math display">\[
+E(Y \mid X, Z) = \delta_0 + \delta_1 X + \delta_2 Z
+\]</span></p>
+<p>If <span class="math inline">\(Z\)</span> itself depends on <span class="math inline">\(X\)</span> linearly, i.e.,</p>
+<p><span class="math display">\[
+E(Z \mid X) = \alpha_0 + \alpha_1 X,
+\]</span></p>
+<p>then applying the <strong>law of iterated expectations</strong>, we get:</p>
+<p><span class="math display">\[
+E(Y \mid X) = \delta_0 + \delta_1 X + \delta_2 E(Z \mid X) = \delta_0 + \delta_1 X + \delta_2 \bigl(\alpha_0 + \alpha_1 X\bigr)
+\]</span></p>
+<p>which simplifies to:</p>
+<p><span class="math display">\[
+E(Y \mid X) = \beta_0 + \beta_1 X
+\]</span></p>
+<p>with:</p>
+<p><span class="math display">\[
+\beta_0 = \delta_0 + \delta_2 \alpha_0, \quad
+\beta_1 = \delta_1 + \delta_2 \alpha_1
+\]</span></p>
+<p>Thus, even with additional influencing variables, the regression function can still appear linear in <span class="math inline">\(X\)</span> if the effects of those variables are mediated through <span class="math inline">\(X\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-linear-population-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-linear-population-regression-model">The Linear Population Regression Model</h2>
+<p>The <strong>simple linear regression model</strong> (also called bivariate or two-variable regression) formalizes this idea by introducing an <strong>error term</strong>:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1 X + \varepsilon
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span>: intercept (constant term)</li>
+<li><span class="math inline">\(\beta_1\)</span>: slope (effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>)</li>
+<li><span class="math inline">\(\varepsilon\)</span>: error term, representing all other factors affecting <span class="math inline">\(Y\)</span> that are not included in the model</li>
+</ul>
+<p>We can also express this as:</p>
+<p><span class="math display">\[
+Y = E(Y \mid X) + \varepsilon \quad \Rightarrow \quad \varepsilon = Y - E(Y \mid X)
+\]</span></p>
+<p>This highlights that <span class="math inline">\(\varepsilon\)</span> captures the deviation of an individual outcome from the average (expected) value.</p>
+<section id="the-error-term-and-key-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="the-error-term-and-key-assumptions">The Error Term and Key Assumptions</h3>
+<p>The term <span class="math inline">\(\varepsilon\)</span> plays a critical role in ensuring valid interpretation and estimation of regression parameters. It represents omitted variables, measurement errors, and randomness in the data.</p>
+<p>Two key assumptions about <span class="math inline">\(\varepsilon\)</span> are:</p>
+<ol type="1">
+<li><p><strong>Zero Conditional Mean</strong>:</p>
+<p><span class="math display">\[
+E(\varepsilon \mid X) = 0
+\]</span></p>
+<p>This means that, given <span class="math inline">\(X\)</span>, the average value of <span class="math inline">\(\varepsilon\)</span> is zero. Put differently, there is <strong>no systematic pattern</strong> in the error once we condition on <span class="math inline">\(X\)</span>. This implies:</p>
+<p><span class="math display">\[
+E(Y \mid X) = \beta_0 + \beta_1 X
+\]</span></p>
+<p>and ensures our model correctly captures the conditional mean of <span class="math inline">\(Y\)</span>.</p></li>
+<li><p><strong>Uncorrelatedness with <span class="math inline">\(X\)</span></strong>:</p>
+<p><span class="math display">\[
+\text{Cov}(X, \varepsilon) = 0
+\]</span></p>
+<p>This implies that <span class="math inline">\(X\)</span> and <span class="math inline">\(\varepsilon\)</span> are uncorrelated in the population—i.e., the explanatory variable <span class="math inline">\(X\)</span> contains no information about the error term. If this assumption is violated, our estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> may be biased.</p></li>
+</ol>
+</section>
+<section id="interpreting-the-zero-conditional-mean" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-zero-conditional-mean">Interpreting the Zero Conditional Mean</h3>
+<p>It’s important to note that:</p>
+<ul>
+<li><span class="math inline">\(E(\varepsilon \mid X) = 0 \Rightarrow E(\varepsilon) = 0\)</span> (mean independence implies zero mean)</li>
+<li>But <span class="math inline">\(E(\varepsilon) = 0\)</span> <strong>does not imply</strong> <span class="math inline">\(E(\varepsilon \mid X) = 0\)</span></li>
+</ul>
+<p>The assumption <span class="math inline">\(E(\varepsilon \mid X) = 0\)</span> is stronger and more critical for the regression to capture the true conditional mean of <span class="math inline">\(Y\)</span>. It means that, within each “slice” or subgroup of the population defined by <span class="math inline">\(X\)</span>, the average error is zero.</p>
+<p>This is essential for interpreting <span class="math inline">\(\beta_1\)</span> as the causal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> in many settings.</p>
+</section>
+</section>
+<section id="population-regression-function-vs.-population-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="population-regression-function-vs.-population-regression-model">Population Regression Function vs.&nbsp;Population Regression Model</h2>
+<p>To deepen our understanding, it is essential to distinguish between two related but distinct concepts:</p>
+<p><strong>1. Population Regression Function (PRF)</strong><br>
+The Population Regression Function expresses a deterministic relationship between <span class="math inline">\(X\)</span> and the expected value of <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+E(Y \mid X) = \beta_0 + \beta_1 X
+\]</span></p>
+<p>This function tells us:</p>
+<ul>
+<li>There is one and only one expected value of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>.</li>
+<li>It captures the systematic component of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+<li>It cannot be used to predict the exact value of <span class="math inline">\(Y\)</span> for an individual; it only tells us the average value.</li>
+</ul>
+<p>Thus, the PRF gives a fixed rule for how the mean of <span class="math inline">\(Y\)</span> changes with <span class="math inline">\(X\)</span>, but it does not account for randomness or individual deviations from that average.</p>
+<p><strong>2. Population Regression Model (PRM)</strong><br>
+The Population Regression Model extends the PRF by adding a stochastic component, the error term <span class="math inline">\(\varepsilon\)</span>:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1 X + \varepsilon
+\]</span></p>
+<p>This model captures a probabilistic relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\varepsilon\)</span> represents random variation around the expected value.</li>
+<li>The model gives a complete data-generating process, accounting for both the systematic and unsystematic parts.</li>
+<li>It recognizes that actual observed outcomes <span class="math inline">\(Y\)</span> vary, even for the same value of <span class="math inline">\(X\)</span>.</li>
+</ul>
+<p>So while the PRF gives the average trend, the PRM provides a more realistic model that includes random noise or unobserved influences.</p>
+</section>
+<section id="from-population-to-sample" class="level2">
+<h2 class="anchored" data-anchor-id="from-population-to-sample">From Population to Sample</h2>
+<p>In practice, we do not observe the entire population. Instead, we work with a random sample drawn from the population.</p>
+<section id="sample-regression-function-srf" class="level3">
+<h3 class="anchored" data-anchor-id="sample-regression-function-srf">Sample Regression Function (SRF)</h3>
+<p>Since the <strong>true parameters</strong> <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> of the population regression model are unknown, we use the sample to estimate them. The regression line we obtain from the sample is called the <strong>Sample Regression Function (SRF)</strong>:</p>
+<p>If we had access to the entire population, we could compute the PRF exactly and predict <span class="math inline">\(Y\)</span> from <span class="math inline">\(X\)</span> precisely in expectation. In reality, we only observe a finite, random sample, so we must rely on estimation procedures. We use these procedures to estimate the parameters of the PRM, resulting in a sample-based approximation of the PRF.</p>
+<p>In the context of linear regression, we want an estimator that, based on our sample:</p>
+<ul>
+<li>Computes <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span></li>
+<li>Allows us to make predictions <span class="math inline">\(\hat{Y}\)</span> for new values of <span class="math inline">\(X\)</span></li>
+<li>Enables us to assess uncertainty and perform statistical inference</li>
+</ul>
+<p>The most common estimator used is the <strong>Ordinary Least Squares (OLS)</strong> method, which we will explore next.</p>
+<p>Summary of Concepts So Far:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 68%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E(Y \mid X)\)</span></td>
+<td>Conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span></td>
+</tr>
+<tr class="even">
+<td>PRF: <span class="math inline">\(E(Y \mid X) = \beta_0 + \beta_1 X\)</span></td>
+<td>Deterministic average relationship</td>
+</tr>
+<tr class="odd">
+<td>PRM: <span class="math inline">\(Y = \beta_0 + \beta_1 X + \varepsilon\)</span></td>
+<td>Full data-generating process including random error</td>
+</tr>
+<tr class="even">
+<td>SRF: <span class="math inline">\(\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X\)</span></td>
+<td>Estimated regression line based on sample data</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\varepsilon\)</span></td>
+<td>Error term capturing deviations from the mean</td>
+</tr>
+<tr class="even">
+<td>Estimators</td>
+<td>Procedures for computing <span class="math inline">\(\hat{\beta}_0\)</span>, <span class="math inline">\(\hat{\beta}_1\)</span> from data</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
