@@ -55,7 +55,7 @@ book:
       - inferential/estimation.qmd
       - inferential/hyp-test.qmd
       - inferential/chi2.qmd
-    - part: regression.qmd
+    - part: "Regression Analysis"
       chapters:
       - regression/reg-framework.qmd
       - regression/slr.qmd
