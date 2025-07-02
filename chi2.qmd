@@ -1,9 +1,0 @@
-# Chi Square Tests
-
-
-
-
-
-```{r}
-1 + 1
-```

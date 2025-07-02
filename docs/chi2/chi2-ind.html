@@ -8,7 +8,7 @@
 
 <meta name="author" content="Termeh Shafie">
 
-<title>24&nbsp; The Regression Framework – Foundational Statistics</title>
+<title>25&nbsp; Testing for Independence – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../regression/slr.html" rel="next">
-<link href="../inferential/chi2.html" rel="prev">
+<link href="../regression/reg-framework.html" rel="next">
+<link href="../chi2/chi2-gof.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-framework.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chi2/chi2.html">Chi Square Tests</a></li><li class="breadcrumb-item"><a href="../chi2/chi2-ind.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -343,18 +343,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../inferential/chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Regression Analysis</span></a>
+ <span class="menu-text">Chi Square Tests</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -362,14 +356,43 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
+  <a href="../chi2/chi2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2-gof.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Goodness-of-Fit Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2-ind.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regression/slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -380,13 +403,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
@@ -417,27 +440,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#conditional-expectation-and-regression-functions" id="toc-conditional-expectation-and-regression-functions" class="nav-link active" data-scroll-target="#conditional-expectation-and-regression-functions"><span class="header-section-number">24.1</span> Conditional Expectation and Regression Functions</a>
-  <ul class="collapse">
-  <li><a href="#the-conditional-expectation-function-cef" id="toc-the-conditional-expectation-function-cef" class="nav-link" data-scroll-target="#the-conditional-expectation-function-cef"><span class="header-section-number">24.1.1</span> The Conditional Expectation Function (CEF)</a></li>
-  <li><a href="#linear-conditional-expectation-population-linear-regression-function" id="toc-linear-conditional-expectation-population-linear-regression-function" class="nav-link" data-scroll-target="#linear-conditional-expectation-population-linear-regression-function"><span class="header-section-number">24.1.2</span> Linear Conditional Expectation: Population Linear Regression Function</a></li>
-  </ul></li>
-  <li><a href="#the-linear-population-regression-model" id="toc-the-linear-population-regression-model" class="nav-link" data-scroll-target="#the-linear-population-regression-model"><span class="header-section-number">24.2</span> The Linear Population Regression Model</a>
-  <ul class="collapse">
-  <li><a href="#the-error-term-and-key-assumptions" id="toc-the-error-term-and-key-assumptions" class="nav-link" data-scroll-target="#the-error-term-and-key-assumptions"><span class="header-section-number">24.2.1</span> The Error Term and Key Assumptions</a></li>
-  <li><a href="#interpreting-the-zero-conditional-mean" id="toc-interpreting-the-zero-conditional-mean" class="nav-link" data-scroll-target="#interpreting-the-zero-conditional-mean"><span class="header-section-number">24.2.2</span> Interpreting the Zero Conditional Mean</a></li>
-  </ul></li>
-  <li><a href="#population-regression-function-vs.-population-regression-model" id="toc-population-regression-function-vs.-population-regression-model" class="nav-link" data-scroll-target="#population-regression-function-vs.-population-regression-model"><span class="header-section-number">24.3</span> Population Regression Function vs.&nbsp;Population Regression Model</a></li>
-  <li><a href="#sample-regression-function-srf" id="toc-sample-regression-function-srf" class="nav-link" data-scroll-target="#sample-regression-function-srf"><span class="header-section-number">24.4</span> Sample Regression Function (SRF)</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link active" data-scroll-target="#exercises">Exercises</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-framework.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/chi2/chi2-ind.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-framework.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chi2/chi2.html">Chi Square Tests</a></li><li class="breadcrumb-item"><a href="../chi2/chi2-ind.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-regframework" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></h1>
+<h1 class="title"><span id="sec-chi2ind" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></span></h1>
 </div>
 
 
@@ -454,240 +466,663 @@ window.Quarto = {
 </header>
 
 
-<p>In this chapter, we explore the foundational ideas behind regression modeling, a central tool in statistics and data analysis for understanding relationships between variables. The goal of regression is to describe how the value of one variable depends on or is associated with changes in another.</p>
-<p>We begin by introducing the concept of conditional expectation, which captures how the average value of a response variable varies with a predictor. Building on this, we distinguish between the population regression function, which describes the systematic trend, and the population regression model, which incorporates randomness through an error term.</p>
-<p>Understanding the difference between deterministic and stochastic components is essential for interpreting models correctly. We then examine how these population concepts relate to real-world data, where we estimate unknown parameters using a random sample leading to the sample regression function.</p>
-<p>This chapter lays the groundwork for the methods and assumptions behind regression analysis and prepares us to learn how to estimate models.</p>
-<section id="motivating-example-oil-usage-and-temperature" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="motivating-example-oil-usage-and-temperature">Motivating Example: Oil Usage and Temperature</h4>
-<p>In many real-world situations, we want to understand how one variable influences another. For example, how does outdoor temperature affect household oil consumption? Regression analysis is a statistical method used to model and explore such relationships between variables.</p>
-<p>Let’s define:</p>
+<p>We now consider the second <span class="math inline">\(\chi^2\)</span> method, namely the <strong>test of independence in a contingency table</strong>.</p>
+<p>When investigating the relationship between two <strong>qualitative (categorical)</strong> variables, a common method is the <strong>chi-square test of independence</strong>. This method allows us to determine whether there is a significant association between the two variables in the population, based on data observed in a sample.</p>
+<section id="example-23.3-income-level-and-housing-cost" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-23.3-income-level-and-housing-cost">Example 23.3: Income Level and Housing Cost</h4>
+<p>A sample of <strong>500 single-person households</strong> is classified based on their disposable income (low, medium, high) and their housing costs (low, medium, high). The data is presented in a contingency table:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Housing Cost</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35</td>
+<td>50</td>
+<td>15</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50</td>
+<td>120</td>
+<td>30</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15</td>
+<td>80</td>
+<td>105</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p>We want to test whether there is a <em>relationship between income level and housing cost</em>.</p>
+<p>Our hypotheses are as follows:</p>
 <ul>
-<li><span class="math inline">\(Y\)</span>: the response or dependent variable (e.g., oil usage in litres per household),</li>
-<li><span class="math inline">\(X\)</span>: the predictor or independent variable (e.g., outdoor temperature in degrees Celsius).</li>
+<li>Null hypothesis: The variables are <strong>independent</strong>; there is no association between income and housing cost.<br>
+</li>
+<li>Alternative hypothesis: The variables are <strong>not independent</strong>; there is an association between income and housing cost.</li>
 </ul>
-<p>If we only observe oil usage but have no information about temperature, our best estimate for any household’s usage is the overall average of all observed values. This is called the marginal expectation of <span class="math inline">\(Y\)</span> and does not account for other factors, as shown in the left panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;<span>24.1</span></a>.</p>
-<p>However, if we also know the temperature on the day the oil was used, as shown in the right panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;<span>24.1</span></a>. Then we can make a more informed estimate. Rather than using the overall average, we estimate the conditional expectation of oil usage given the temperature. In other words, we ask:</p>
+<p>To explore this further, we can examine the relative percentages across income categories:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Housing Cost</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35%</td>
+<td>20%</td>
+<td>10%</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50%</td>
+<td>48%</td>
+<td>20%</td>
+<td>40%</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15%</td>
+<td>32%</td>
+<td>70%</td>
+<td>40%</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<p>From this, we can see that the distributions vary across income levels, suggesting <strong>dependence</strong>.</p>
 <blockquote class="blockquote">
-<p>What is our best estimate of oil usage <span class="math inline">\(Y\)</span> if today’s temperature <span class="math inline">\(X\)</span> is 10°C? Or when <span class="math inline">\(X\)</span> is any other value?</p>
+<p><em>So what would independence look like?</em><br>
+</p>
 </blockquote>
-<p>This leads to the concept of conditional expectation: <span class="math display">\[
-E(Y \mid X)
-\]</span> and represents the expected (mean) value of <span class="math inline">\(Y\)</span> given a specific value of <span class="math inline">\(X\)</span>. Regression analysis helps us estimate this quantity—typically using a model such as a linear function.</p>
-<p>At its core, regression is about estimating and interpreting how the average value of <span class="math inline">\(Y\)</span> changes conditionally on <span class="math inline">\(X\)</span>.</p>
-<p>In the next section, we’ll formally introduce the simple linear regression model, estimate its parameters, and interpret the results.</p>
-<div id="fig-slrex" class="center quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-slrex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="imgs/‎slr-ex.png" id="fig-popsamp" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slrex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.1: Visualizing the conditional structure of a negatively correlated relationship between two variables. The left panel shows the marginal distribution of y, while the right panel displays a scatterplot of (x, y) with marginal histogram of y aligned to the vertical axis. Dotted lines project each point to the x- and y-axes, suggesting conditional reasoning: given a value of x, what is our best guess for y?
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="conditional-expectation-and-regression-functions" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="conditional-expectation-and-regression-functions"><span class="header-section-number">24.1</span> Conditional Expectation and Regression Functions</h2>
-<p>Regression analysis is fundamentally about understanding how the <strong>average value</strong> of one variable, <span class="math inline">\(Y\)</span>, changes in response to another variable, <span class="math inline">\(X\)</span>. This is formalized through the concept of <strong>conditional expectation</strong>:</p>
+<p>Under complete independence, the same distribution of housing costs would occur across all income groups. Based on the total column proportions, expected percentages would be:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Housing Cost</th>
+<th>Expected %</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>20%</td>
+<td>20%</td>
+<td>20%</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<p>Using expected proportions, the expected counts under <span class="math inline">\(H_0\)</span> are:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Housing Cost</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>20</td>
+<td>50</td>
+<td>30</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>40</td>
+<td>100</td>
+<td>60</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>40</td>
+<td>100</td>
+<td>60</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p>These represent what we would expect to observe <em>if there were no relationship</em> between income and housing costs.</p>
+<p>Let’s generalize this test for examining independence between any pair of categorical variables.</p>
+<p>The observed data is arranged in a two-way contingency table with <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, summarizing the joint distribution of two categorical variables:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>1</th>
+<th>2</th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th><span class="math inline">\(c\)</span></th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(O_{11}\)</span></td>
+<td><span class="math inline">\(O_{12}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(O_{1c}\)</span></td>
+<td><span class="math inline">\(R_1\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(O_{21}\)</span></td>
+<td><span class="math inline">\(O_{22}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(O_{2c}\)</span></td>
+<td><span class="math inline">\(R_2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\ddots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(r\)</span></td>
+<td><span class="math inline">\(O_{r1}\)</span></td>
+<td><span class="math inline">\(O_{r2}\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(O_{rc}\)</span></td>
+<td><span class="math inline">\(R_r\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><span class="math inline">\(C_1\)</span></td>
+<td><span class="math inline">\(C_2\)</span></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(C_c\)</span></td>
+<td><span class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Here, <span class="math inline">\(O_{ij}\)</span> denotes the <strong>observed frequency</strong> in row <span class="math inline">\(i\)</span>, column <span class="math inline">\(j\)</span>, while <span class="math inline">\(R_i\)</span> and <span class="math inline">\(C_j\)</span> are the row and column totals respectively, and <span class="math inline">\(n\)</span> is the grand total.</p>
+<p>We want to test: <span class="math display">\[
+\begin{align*}
+H_0 &amp;: \text{The two classification variables are independent} \\
+H_1 &amp;: \text{The two classification variables are not independent}
+\end{align*}
+\]</span></p>
+<p>We use the chi-square test statistic defined as: <span class="math display">\[
+\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]</span> where <span class="math inline">\(E_{ij}\)</span> is the <strong>expected frequency</strong> under the assumption of independence:</p>
 <p><span class="math display">\[
-E(Y \mid X)
+E_{ij} = \frac{R_i \cdot C_j}{n}
 \]</span></p>
-<p>This function gives us the expected (average) value of <span class="math inline">\(Y\)</span>, given a specific value of <span class="math inline">\(X\)</span>. Rather than modeling the entire distribution of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>, regression focuses on modeling this average behavior—summarized by the <strong>Conditional Expectation Function (CEF)</strong>.</p>
-<section id="the-conditional-expectation-function-cef" class="level3" data-number="24.1.1">
-<h3 data-number="24.1.1" class="anchored" data-anchor-id="the-conditional-expectation-function-cef"><span class="header-section-number">24.1.1</span> The Conditional Expectation Function (CEF)</h3>
-<p>The CEF, <span class="math inline">\(E(Y \mid X)\)</span>, captures how the mean of <span class="math inline">\(Y\)</span> varies with <span class="math inline">\(X\)</span>. It represents the best estimate of <span class="math inline">\(Y\)</span> we can make, on average, given that we know the value of <span class="math inline">\(X\)</span>. In essence, the CEF describes the <strong>population regression function</strong>:</p>
-<p><span class="math display">\[
-Y = f(X) = E(Y \mid X)
-\]</span></p>
-<p>This function answers the question:</p>
-<blockquote class="blockquote">
-<p><em>“What is the average value of <span class="math inline">\(Y\)</span>, given each possible value of <span class="math inline">\(X\)</span>?”</em></p>
-</blockquote>
-</section>
-<section id="linear-conditional-expectation-population-linear-regression-function" class="level3" data-number="24.1.2">
-<h3 data-number="24.1.2" class="anchored" data-anchor-id="linear-conditional-expectation-population-linear-regression-function"><span class="header-section-number">24.1.2</span> Linear Conditional Expectation: Population Linear Regression Function</h3>
-<p>Often, we assume a linear relationship between <span class="math inline">\(X\)</span> and the expected value of <span class="math inline">\(Y\)</span>. This leads us to define the <strong>population linear regression function</strong> as: <span class="math display">\[
-E(Y \mid X) = \beta_0 + \beta_1 X
-\]</span></p>
+<p>That is, the expected count in each cell is the product of its row and column totals divided by the grand total. Expected frequencies (<span class="math inline">\(E_{ij}\)</span>) computed this way ensure that:</p>
 <ul>
-<li><span class="math inline">\(\beta_0\)</span>: Intercept<br>
-representing the expected value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X = 0\)</span></li>
-<li><span class="math inline">\(\beta_1\)</span>: Slope<br>
-representing the change in the expected value of <span class="math inline">\(Y\)</span> for a one-unit increase in <span class="math inline">\(X\)</span></li>
+<li>The <strong>relative distribution</strong> within each column is the same as the marginal distribution across rows (on the right).</li>
+<li>The <strong>relative distribution</strong> within each row is the same as the marginal distribution across columns (at the bottom).</li>
 </ul>
-<p>This model is powerful in its simplicity and interpretability. However, it’s important to remember that this is an assumption: <em>the true conditional expectation function may not be linear, but we approximate it as such</em>.</p>
+<p>This matches what we would expect under independence between the variables.</p>
+<p>If <span class="math inline">\(H_0\)</span> is true and the sample is large enough, then the test statistic <span class="math inline">\(\chi^2\)</span> approximately follows a chi-square distribution with <span class="math inline">\((r - 1)(c - 1)\)</span> degrees of freedom.</p>
+<p>We reject the null hypothesis if the test statistic <span class="math inline">\(\chi^2\)</span> is <em>greater than the critical value</em>, determined from the chi-square distribution table (<a href="../appendix/chi2-table.html" class="quarto-xref"><span>Appendix C</span></a>), based on:</p>
+<ul>
+<li>The <strong>chosen significance level</strong> <span class="math inline">\(\alpha\)</span></li>
+<li>The <strong>degrees of freedom</strong>: <span class="math inline">\((r - 1)(c - 1)\)</span></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Including Additional Variables
+Note: Rule of Thumb for the Chi-Square Test
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In many cases, <span class="math inline">\(Y\)</span> may be influenced by other variables besides <span class="math inline">\(X\)</span>. Suppose another variable <span class="math inline">\(Z\)</span> also affects <span class="math inline">\(Y\)</span> linearly. The conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> is:</p>
-<p><span class="math display">\[
-E(Y \mid X, Z) = \delta_0 + \delta_1 X + \delta_2 Z
-\]</span></p>
-<p>If <span class="math inline">\(Z\)</span> itself depends on <span class="math inline">\(X\)</span> linearly, i.e.,</p>
-<p><span class="math display">\[
-E(Z \mid X) = \alpha_0 + \alpha_1 X,
-\]</span></p>
-<p>then applying the <strong>law of iterated expectations</strong>, we get:</p>
-<p><span class="math display">\[
-E(Y \mid X) = \delta_0 + \delta_1 X + \delta_2 E(Z \mid X) = \delta_0 + \delta_1 X + \delta_2 \bigl(\alpha_0 + \alpha_1 X\bigr)
-\]</span></p>
-<p>which simplifies to:</p>
-<p><span class="math display">\[
-E(Y \mid X) = \beta_0 + \beta_1 X
-\]</span></p>
-<p>with:</p>
-<p><span class="math display">\[
-\beta_0 = \delta_0 + \delta_2 \alpha_0, \quad
-\beta_1 = \delta_1 + \delta_2 \alpha_1
-\]</span></p>
-<p>Thus, even with additional influencing variables, the regression function can still appear linear in <span class="math inline">\(X\)</span> if the effects of those variables are mediated through <span class="math inline">\(X\)</span>.</p>
+<p>The chi-square test for independence is a widely used method to assess whether two categorical variables are statistically independent by comparing observed frequencies to expected frequencies under the assumption of independence. It is crucial to ensure expected cell counts are sufficiently large to rely on the chi-square approximation.</p>
+<p>To ensure the approximation is valid, a common guideline is:</p>
+<ul>
+<li>At least 80% of the expected cell counts <span class="math inline">\(E_{ij}\)</span> should be <strong>5 or greater</strong>.</li>
+<li>If this condition is not met, consider <strong>combining categories</strong> to increase expected counts.</li>
+</ul>
 </div>
 </div>
 </section>
-</section>
-<section id="the-linear-population-regression-model" class="level2" data-number="24.2">
-<h2 data-number="24.2" class="anchored" data-anchor-id="the-linear-population-regression-model"><span class="header-section-number">24.2</span> The Linear Population Regression Model</h2>
-<p>The <strong>simple linear regression model</strong> (also called bivariate or two-variable regression which we focus on more in the next chapter) formalizes this idea by introducing an <strong>error term</strong>:</p>
-<p><span class="math display">\[
-Y = \beta_0 + \beta_1 X + \varepsilon
-\]</span></p>
-<ul>
-<li><span class="math inline">\(\beta_0\)</span>: intercept (constant term)</li>
-<li><span class="math inline">\(\beta_1\)</span>: slope (effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>)</li>
-<li><span class="math inline">\(\varepsilon\)</span>: error term, representing all other factors affecting <span class="math inline">\(Y\)</span> that are not included in the model</li>
-</ul>
-<p>We can also express this as:</p>
-<p><span class="math display">\[
-Y = E(Y \mid X) + \varepsilon \quad \Rightarrow \quad \varepsilon = Y - E(Y \mid X)
-\]</span></p>
-<p>This highlights that <span class="math inline">\(\varepsilon\)</span> captures the deviation of an individual outcome from the average (expected) value.</p>
-<section id="the-error-term-and-key-assumptions" class="level3" data-number="24.2.1">
-<h3 data-number="24.2.1" class="anchored" data-anchor-id="the-error-term-and-key-assumptions"><span class="header-section-number">24.2.1</span> The Error Term and Key Assumptions</h3>
-<p>The term <span class="math inline">\(\varepsilon\)</span> plays a critical role in ensuring valid interpretation and estimation of regression parameters. It represents omitted variables, measurement errors, and randomness in the data.</p>
-<p>Two key assumptions about <span class="math inline">\(\varepsilon\)</span> are:</p>
-<ol type="1">
-<li><p><strong>Zero Conditional Mean</strong>:</p>
-<p><span class="math display">\[
-E(\varepsilon \mid X) = 0
-\]</span></p>
-<p>This means that, given <span class="math inline">\(X\)</span>, the average value of <span class="math inline">\(\varepsilon\)</span> is zero. Put differently, there is no systematic pattern in the error once we condition on <span class="math inline">\(X\)</span>. This implies:</p>
-<p><span class="math display">\[
-E(Y \mid X) = \beta_0 + \beta_1 X
-\]</span></p>
-<p>and ensures our model correctly captures the conditional mean of <span class="math inline">\(Y\)</span>.</p></li>
-<li><p><strong>Uncorrelatedness with <span class="math inline">\(X\)</span></strong>:</p>
-<p><span class="math display">\[
-\text{Cov}(X, \varepsilon) = 0
-\]</span></p>
-<p>This implies that <span class="math inline">\(X\)</span> and <span class="math inline">\(\varepsilon\)</span> are uncorrelated in the population—i.e., the explanatory variable <span class="math inline">\(X\)</span> contains no information about the error term. If this assumption is violated, our estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> may be biased.</p></li>
-</ol>
-</section>
-<section id="interpreting-the-zero-conditional-mean" class="level3" data-number="24.2.2">
-<h3 data-number="24.2.2" class="anchored" data-anchor-id="interpreting-the-zero-conditional-mean"><span class="header-section-number">24.2.2</span> Interpreting the Zero Conditional Mean</h3>
-<p>It’s important to note that:</p>
-<ul>
-<li><span class="math inline">\(E(\varepsilon \mid X) = 0 \Rightarrow E(\varepsilon) = 0\)</span> (mean independence implies zero mean)</li>
-<li>But <span class="math inline">\(E(\varepsilon) = 0\)</span> <strong>does not imply</strong> <span class="math inline">\(E(\varepsilon \mid X) = 0\)</span></li>
-</ul>
-<p>The assumption <span class="math inline">\(E(\varepsilon \mid X) = 0\)</span> is stronger and more critical for the regression to capture the true conditional mean of <span class="math inline">\(Y\)</span>. It means that, within each “slice” or subgroup of the population defined by <span class="math inline">\(X\)</span>, the average error is zero.</p>
-<p>This is essential for interpreting <span class="math inline">\(\beta_1\)</span> as the causal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> in many settings.</p>
-</section>
-</section>
-<section id="population-regression-function-vs.-population-regression-model" class="level2" data-number="24.3">
-<h2 data-number="24.3" class="anchored" data-anchor-id="population-regression-function-vs.-population-regression-model"><span class="header-section-number">24.3</span> Population Regression Function vs.&nbsp;Population Regression Model</h2>
-<p>To deepen our understanding, it is essential to distinguish between two related but distinct concepts:</p>
-<p><strong>1. Population Regression Function (PRF)</strong><br>
-The Population Regression Function expresses a deterministic relationship between <span class="math inline">\(X\)</span> and the expected value of <span class="math inline">\(Y\)</span>:</p>
-<p><span class="math display">\[
-E(Y \mid X) = \beta_0 + \beta_1 X
-\]</span></p>
-<p>This function tells us:</p>
-<ul>
-<li>There is one and only one expected value of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>.</li>
-<li>It captures the systematic component of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
-<li>It cannot be used to predict the exact value of <span class="math inline">\(Y\)</span> for an individual; it only tells us the average value.</li>
-</ul>
-<p>Thus, the PRF gives a fixed rule for how the mean of <span class="math inline">\(Y\)</span> changes with <span class="math inline">\(X\)</span>, but it does not account for randomness or individual deviations from that average.</p>
-<p><strong>2. Population Regression Model (PRM)</strong><br>
-The Population Regression Model extends the PRF by adding a stochastic component, the error term <span class="math inline">\(\varepsilon\)</span>:</p>
-<p><span class="math display">\[
-Y = \beta_0 + \beta_1 X + \varepsilon
-\]</span></p>
-<p>This model captures a probabilistic relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>:</p>
-<ul>
-<li><span class="math inline">\(\varepsilon\)</span> represents random variation around the expected value.</li>
-<li>The model gives a complete data-generating process, accounting for both the systematic and unsystematic parts.</li>
-<li>It recognizes that actual observed outcomes <span class="math inline">\(Y\)</span> vary, even for the same value of <span class="math inline">\(X\)</span>.</li>
-</ul>
-<p>So while the PRF gives the average trend, the PRM provides a more realistic model that includes random noise or unobserved influences.</p>
-</section>
-<section id="sample-regression-function-srf" class="level2" data-number="24.4">
-<h2 data-number="24.4" class="anchored" data-anchor-id="sample-regression-function-srf"><span class="header-section-number">24.4</span> Sample Regression Function (SRF)</h2>
-<p>In practice, we do not observe the entire population. Instead, we work with a random sample drawn from the population.</p>
-<p>Since the <strong>true parameters</strong> <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> of the population regression model are unknown, we use the sample to estimate them. The regression line we obtain from the sample is called the <strong>Sample Regression Function (SRF)</strong>:</p>
-<p>If we had access to the entire population, we could compute the PRF exactly and predict <span class="math inline">\(Y\)</span> from <span class="math inline">\(X\)</span> precisely in expectation. In reality, we only observe a finite, random sample, so we must rely on estimation procedures. We use these procedures to estimate the parameters of the PRM, resulting in a sample-based approximation of the PRF.</p>
-<p>In the context of linear regression, we want an estimator that, based on our sample:</p>
-<ul>
-<li>Computes <span class="math inline">\(b_0=\hat{\beta}_0\)</span> and <span class="math inline">\(b_1=\hat{\beta}_1\)</span></li>
-<li>Allows us to make predictions <span class="math inline">\(\hat{Y}\)</span> for new values of <span class="math inline">\(X\)</span></li>
-<li>Enables us to assess uncertainty and perform statistical inference</li>
-</ul>
-<p>The most common estimator used is the <strong>Ordinary Least Squares (OLS)</strong> method, which we will explore in the next chapter.</p>
-<p><a href="#tbl-summary" class="quarto-xref">Table&nbsp;<span>24.1</span></a> summarizes the concepts introduced so far.</p>
-<div id="tbl-summary" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;24.1: Summary of regression concepts so far.
-</figcaption>
-<div aria-describedby="tbl-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="center caption-top table">
+<section id="example-23.3-income-level-and-housing-cost-contd" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="example-23.3-income-level-and-housing-cost-contd">Example 23.3: Income Level and Housing Cost (Cont’d)</h4>
+<p>We are given a <span class="math inline">\(3 \times 3\)</span> contingency table of education level and income level among 500 individuals. The goal is to determine whether education level and income level are statistically independent.</p>
+<table class="caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Concept</th>
-<th>Description</th>
+<th>Education Level</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Row Totals (<span class="math inline">\(R_i\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(E(Y \mid X)\)</span></td>
-<td>Conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span></td>
+<td>Low</td>
+<td>35</td>
+<td>50</td>
+<td>15</td>
+<td>100</td>
 </tr>
 <tr class="even">
-<td>PRF: <span class="math inline">\(E(Y \mid X) = \beta_0 + \beta_1 X\)</span></td>
-<td>Deterministic average relationship</td>
+<td>Medium</td>
+<td>50</td>
+<td>120</td>
+<td>30</td>
+<td>200</td>
 </tr>
 <tr class="odd">
-<td>PRM: <span class="math inline">\(Y = b_0 + b_1 X + \varepsilon\)</span></td>
-<td>Full data-generating process including random error</td>
+<td>High</td>
+<td>15</td>
+<td>80</td>
+<td>105</td>
+<td>200</td>
 </tr>
 <tr class="even">
-<td>SRF: <span class="math inline">\(\hat{Y} = b_0 + b_1 X\)</span></td>
-<td>Estimated regression line based on sample data</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\varepsilon\)</span></td>
-<td>Error term capturing deviations from the mean</td>
-</tr>
-<tr class="even">
-<td>Estimators</td>
-<td>Procedures for computing <span class="math inline">\(b_0\)</span>, <span class="math inline">\(b_1\)</span> from data</td>
+<td>Column Totals (<span class="math inline">\(C_j\)</span>)</td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td><span class="math inline">\(n = 500\)</span></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Step 1: Hypotheses</strong></p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: There is no association between education and income level. The two variables are independent.</li>
+<li><span class="math inline">\(H_1\)</span>: There is an association between education and income level. The two variables are not independent.</li>
+</ul>
+<p><strong>Step 2: Significance Level</strong><br>
+We choose a significance level of <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Step 3: Test Statistic</strong><br>
+We will use the chi-square test statistic: <span class="math display">\[
+\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(O_{ij}\)</span> = observed count in cell <span class="math inline">\((i,j)\)</span></li>
+<li><span class="math inline">\(E_{ij}\)</span> = expected count in cell <span class="math inline">\((i,j)\)</span> which under <span class="math inline">\(H_0\)</span>, computed as: <span class="math display">\[
+E_{ij} = \frac{R_i \cdot C_j}{n}
+\]</span></li>
+</ul>
+<p>Example: for cell (1,1): <span class="math display">\[
+E_{11} = \frac{100 \cdot 100}{500} = 20
+\]</span></p>
+<p>The expected values are shown in parentheses in the table below:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Education Level</th>
+<th>Low Income</th>
+<th>Medium Income</th>
+<th>High Income</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low</td>
+<td>35 (20)</td>
+<td>50 (50)</td>
+<td>15 (30)</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>50 (40)</td>
+<td>120 (100)</td>
+<td>30 (60)</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td>High</td>
+<td>15 (40)</td>
+<td>80 (100)</td>
+<td>105 (60)</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>100</td>
+<td>250</td>
+<td>150</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 4: Decision rule</strong><br>
+Degrees of freedom: <span class="math display">\[
+df = (r - 1)(c - 1) = (3 - 1)(3 - 1) = 4
+\]</span></p>
+<p>Using the chi-square table (<a href="../appendix/chi2-table.html" class="quarto-xref"><span>Appendix C</span></a>) we find: <span class="math display">\[
+\chi^2_{0.05, 4} = 9.488
+\]</span></p>
+<p>We thus reject the null if our observed value is greater than 9.488.</p>
+<p><strong>Step 5: Observation</strong><br>
+Using the formula: <span class="math display">\[
+\chi^2_{\text{obs}} = \frac{(35 - 20)^2}{20} + \frac{(50 - 50)^2}{50} + \dots + \frac{(105 - 60)^2}{60} = 93.63
+\]</span></p>
+<p><strong>Step 6: Conclusion</strong><br>
+Compare the test statistic with the critical value:</p>
+<ul>
+<li><span class="math inline">\(\chi^2_{\text{obs}} = 93.63\)</span></li>
+<li><span class="math inline">\(\chi^2_{\text{crit}} = 9.488\)</span></li>
+</ul>
+<p>Since <span class="math inline">\(93.63 &gt; 9.488\)</span>, we <em>reject the null hypothesis</em> at the 5% significance level. There is strong evidence to suggest that education level and income level are not independent; there appears to be a significant association between them.</p>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>A political analyst wants to examine whether <em>voting preference</em> is independent of <em>age group</em>. A random sample of 300 voters was surveyed, and the results were summarized in the following contingency table:</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Candidate A</th>
+<th>Candidate B</th>
+<th>Candidate C</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>18–29 years</td>
+<td>28</td>
+<td>45</td>
+<td>27</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>30–49 years</td>
+<td>36</td>
+<td>33</td>
+<td>31</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>50+ years</td>
+<td>26</td>
+<td>30</td>
+<td>44</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>90</td>
+<td>108</td>
+<td>102</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<p>Is there evidence at the 5% significance level that voting preference is <em>dependent</em> on age group?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</figure>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Step 1: Hypotheses</strong></p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: Voting preference is <strong>independent</strong> of age group.</li>
+<li><span class="math inline">\(H_1\)</span>: Voting preference is <strong>dependent</strong> on age group.</li>
+</ul>
+<p><strong>Step 2: Significance level</strong><br>
+Set <span class="math inline">\(\alpha = 0.05\)</span></p>
+<p><strong>Step 3: Test statistic</strong><br>
+<span class="math display">\[
+\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(O_{ij}\)</span> = observed count in cell <span class="math inline">\((i,j)\)</span></li>
+<li><span class="math inline">\(E_{ij}\)</span> = expected count in cell <span class="math inline">\((i,j)\)</span> which under <span class="math inline">\(H_0\)</span>, computed as: <span class="math display">\[
+E_{ij} = \frac{R_i \cdot C_j}{n}
+\]</span></li>
+</ul>
+<p><strong>Step 4: Decision rule</strong><br>
+Degrees of freedom: df = <span class="math inline">\((3-1)(3-1) = 4\)</span><br>
+Critical value: <span class="math inline">\(\chi^2_{0.95, 4} = 9.488\)</span><br>
+Reject <span class="math inline">\(H_0\)</span> if observed value &gt; <span class="math inline">\(9.488\)</span>.</p>
+<p><strong>Step 5: Observation</strong><br>
+We use the formula for expected cell counts: <span class="math display">\[
+E_{ij} = \frac{(\text{Row total}) \times (\text{Column total})}{\text{Grand total}}
+\]</span></p>
+<p>Given Table (Observed Counts):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Candidate A</th>
+<th>Candidate B</th>
+<th>Candidate C</th>
+<th>Row Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>18–29 years</td>
+<td>28</td>
+<td>45</td>
+<td>27</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>30–49 years</td>
+<td>36</td>
+<td>33</td>
+<td>31</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td>50+ years</td>
+<td>26</td>
+<td>30</td>
+<td>44</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td><strong>Column Total</strong></td>
+<td><strong>90</strong></td>
+<td><strong>108</strong></td>
+<td><strong>102</strong></td>
+<td><strong>300</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expected values</strong>:<br>
+Row 1: Age 18–29 (Row Total = 100)</p>
+<ul>
+<li>Candidate A:<br>
+<span class="math display">\[E_{11} = \frac{100 \times 90}{300} = 30\]</span><br>
+</li>
+<li>Candidate B:<br>
+<span class="math display">\[E_{12} = \frac{100 \times 108}{300} = 36\]</span><br>
+</li>
+<li>Candidate C:<br>
+<span class="math display">\[E_{13} = \frac{100 \times 102}{300} = 34\]</span></li>
+</ul>
+<p>Row 2: Age 30–49 (Row Total = 100)</p>
+<ul>
+<li>Candidate A:<br>
+<span class="math display">\[E_{21} = \frac{100 \times 90}{300} = 30\]</span><br>
+</li>
+<li>Candidate B:<br>
+<span class="math display">\[E_{22} = \frac{100 \times 108}{300} = 36\]</span><br>
+</li>
+<li>Candidate C:<br>
+<span class="math display">\[E_{23} = \frac{100 \times 102}{300} = 34\]</span></li>
+</ul>
+<p>Row 3: Age 50+ (Row Total = 100)</p>
+<ul>
+<li>Candidate A:<br>
+<span class="math display">\[E_{31} = \frac{100 \times 90}{300} = 30\]</span><br>
+</li>
+<li>Candidate B:<br>
+<span class="math display">\[E_{32} = \frac{100 \times 108}{300} = 36\]</span><br>
+</li>
+<li>Candidate C:<br>
+<span class="math display">\[E_{33} = \frac{100 \times 102}{300} = 34\]</span></li>
+</ul>
+<p><strong>Table over Observed vs (Expected Counts):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Age Group</th>
+<th>Candidate A</th>
+<th>Candidate B</th>
+<th>Candidate C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>18–29</strong></td>
+<td>O = 28 (E = 30)</td>
+<td>O = 45 (E = 36)</td>
+<td>O = 27 (E = 34)</td>
+</tr>
+<tr class="even">
+<td><strong>30–49</strong></td>
+<td>O = 36 (E = 30)</td>
+<td>O = 33 (E = 36)</td>
+<td>O = 31 (E = 34)</td>
+</tr>
+<tr class="odd">
+<td><strong>50+</strong></td>
+<td>O = 26 (E = 30)</td>
+<td>O = 30 (E = 36)</td>
+<td>O = 44 (E = 34)</td>
+</tr>
+</tbody>
+</table>
+<p>18–29 years:</p>
+<ul>
+<li>Candidate A:<br>
+<span class="math display">\[\frac{(28 - 30)^2}{30} = \frac{4}{30} = 0.133\]</span></li>
+<li>Candidate B:<br>
+<span class="math display">\[\frac{(45 - 36)^2}{36} = \frac{81}{36} = 2.25\]</span></li>
+<li>Candidate C:<br>
+<span class="math display">\[\frac{(27 - 34)^2}{34} = \frac{49}{34} ≈ 1.441\]</span></li>
+</ul>
+<p>30–49 years:</p>
+<ul>
+<li>Candidate A:<br>
+<span class="math display">\[\frac{(36 - 30)^2}{30} = \frac{36}{30} = 1.2\]</span></li>
+<li>Candidate B:<br>
+<span class="math display">\[\frac{(33 - 36)^2}{36} = \frac{9}{36} = 0.25\]</span></li>
+<li>Candidate C:<br>
+<span class="math display">\[\frac{(31 - 34)^2}{34} = \frac{9}{34} ≈ 0.265\]</span></li>
+</ul>
+<p>50+ years:</p>
+<ul>
+<li>Candidate A:<br>
+<span class="math display">\[\frac{(26 - 30)^2}{30} = \frac{16}{30} ≈ 0.533\]</span></li>
+<li>Candidate B:<br>
+<span class="math display">\[\frac{(30 - 36)^2}{36} = \frac{36}{36} = 1.0\]</span></li>
+<li>Candidate C:<br>
+<span class="math display">\[\frac{(44 - 34)^2}{34} = \frac{100}{34} ≈ 2.941\]</span> Add all components: <span class="math display">\[
+\chi^2 ≈ 0.133 + 2.25 + 1.441 + 1.2 + 0.25 + 0.265 + 0.533 + 1.0 + 2.941 ≈ 10.013
+\]</span></li>
+</ul>
+<p><strong>Step 6: Conclusion</strong><br>
+Since <span class="math inline">\(10.013 &gt; 9.488\)</span>, we <em>reject the null hypothesis</em>. There is evidence that voting preference depends on age group.</p>
+</div>
+</div>
 </div>
 
 
@@ -1095,13 +1530,13 @@ Table&nbsp;24.1: Summary of regression concepts so far.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../inferential/chi2.html" class="pagination-link" aria-label="Chi Square Tests">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span>
+      <a href="../chi2/chi2-gof.html" class="pagination-link" aria-label="Goodness-of-Fit Test">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Goodness-of-Fit Test</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../regression/slr.html" class="pagination-link" aria-label="Simple Linear Regression">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../regression/reg-framework.html" class="pagination-link" aria-label="The Regression Framework">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1113,7 +1548,7 @@ Table&nbsp;24.1: Summary of regression concepts so far.
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-framework.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/chi2/chi2-ind.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

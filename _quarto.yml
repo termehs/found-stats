@@ -54,7 +54,11 @@ book:
       - inferential/intro-inference.qmd
       - inferential/estimation.qmd
       - inferential/hyp-test.qmd
-      - inferential/chi2.qmd
+    - part: "Chi Square Tests"
+      chapters:
+      - chi2/chi2.qmd
+      - chi2/chi2-gof.qmd
+      - chi2/chi2-ind.qmd
     - part: "Regression Analysis"
       chapters:
       - regression/reg-framework.qmd

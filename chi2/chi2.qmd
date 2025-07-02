@@ -1,0 +1,114 @@
+## The Chi Square Method {#sec-chi2}
+
+So far, we have focused primarily on inferential statistical methods for quantitative variables measured on interval or ratio scales, as well as binary qualitative (0-1) variables. However, in many real-world applications, we also encounter **categorical variables** with more than two categories (e.g., eye color, political party, type of transportation). For such qualitative variables, we need specialized methods to draw valid statistical conclusions.
+
+This is where the **Chi-Square method** ($\chi^2$) becomes useful. The chi-square (pronounced "kai-square") test is a non-parametric method used for hypothesis testing involving categorical data. It is particularly valuable when we are interested in understanding:
+
+-   Whether the observed distribution of a categorical variable matches an expected distribution (**goodness-of-fit test**)
+-   Whether there is a statistically significant association between two categorical variables (**test of independence** in a contingency table)
+
+These tests rely on comparing *observed frequencies* with *expected frequencies*, and the test statistic follows a Chi-Square distribution under the null hypothesis. Each of these tests has its assumptions and limitations, but both are foundational tools in categorical data analysis.
+
+## The Chi-Square ($\chi^2$) Distribution
+
+The chi-square ($\chi^2$) distribution is a probability distribution that frequently arises in statistical inference, particularly when working with categorical data. It describes a population where values are strictly non-negative. This is due to the fact that test statistics in $\chi^2$ tests are constructed from squared deviations between observed and expected values, and squaring ensures all contributions are positive. As a result, the $\chi^2$ distribution is bounded below by zero and only takes positive values.
+
+In contrast to tests based on the $z$- or $t$-distributions, which often consider both tails, the $\chi^2$ test is typically one-sided. Since we are only concerned with whether the observed data deviate substantially from the expected frequencies under the null hypothesis, we reject the null hypothesis only for large values of the test statistic. Therefore, the **critical region** lies in the **right-hand tail** of the $\chi^2$ distribution, as shown in @fig-chi2.
+
+To determine the critical region, we specify a significance level $\alpha$. The critical value is then defined such that the probability of observing a test statistic greater than this threshold (under $H_0$) is exactly $\alpha$. If the observed $\chi^2$ value exceeds this critical value, we reject the null hypothesis. As before, we determine the critical values by consulting a chi-square distribution table in @sec-chi2tbl.
+
+::: {#fig-chi2 .center}
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 4
+#| fig-width: 7
+library(ggplot2)
+
+# Parameters
+df <- 4
+alpha <- 0.05
+crit_val <- qchisq(1 - alpha, df)
+x_vals <- seq(0, 20, length.out = 1000)
+y_vals <- dchisq(x_vals, df = df)
+df_plot <- data.frame(x = x_vals, y = y_vals)
+# Find y-values at critical points
+y_crit <- dchisq(crit_val, df = 4)
+
+# Shaded area for critical region
+df_crit <- subset(df_plot, x >= crit_val)
+
+# Plot
+ggplot(df_plot, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+
+  # Acceptance region
+  geom_area(data = subset(df_plot, x <= crit_val), fill = "lightgrey", alpha = 0.5) +
+
+  # Critical region
+  geom_area(data = df_crit, fill = "firebrick", alpha = 0.6) +
+
+  # Critical value line
+  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit, linetype = "solid", color = "firebrick") +
+  # Annotations
+  annotate("text", x = 5, y = -0.01, label = "Non-rejection region", size = 4.5) +
+  annotate("text", x = 12, y = -0.01, label = "Critical region", size = 4.5, color = "firebrick") +
+  annotate("text", x = crit_val + 1.6, y = 0.045,
+           label = "α", color = "firebrick", size = 4.5) +
+    annotate("segment", x = crit_val + 1.5, xend = crit_val + 1, y = 0.04, yend = 0.02,
+           arrow = arrow(length = unit(0.18, "cm")), color = "firebrick") +
+
+  # Clean theme
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+```
+
+Visualization of the $\chi^2$-distribution. The critical region (in red) lies in the right tail, corresponding to a significance level of $\alpha$. Values of the test statistic falling in this region lead to rejection of the null hypothesis. The shaded gray area represents the non-rejection region.
+:::
+
+The shape of the $\chi^2$ distribution depends on its degrees of freedom. For a small number of degrees of freedom, the distribution is heavily right-skewed. As the degrees of freedom increase, it becomes more symmetric and resembles the normal distribution. This makes the $\chi^2$ distribution well suited for large-sample approximations. This is visualized in @fig-chi2df. In the following, we will apply the $\chi^2$ distribution to two main tests:
+
+-   The **goodness-of-fit test**, which assesses whether observed data match a theoretical distribution.
+-   The **test for independence**, which evaluates the association between two categorical variables in contingency tables.
+
+::: {#fig-chi2df .center}
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 6
+#| fig-width: 9
+#| 
+# Load required packages
+library(ggplot2)
+library(gganimate)
+library(dplyr)
+
+# Generate chi-square density data for varying degrees of freedom
+df_vals <- 3:20
+x_vals <- seq(0, 40, length.out = 400)
+
+chi_data <- expand.grid(x = x_vals, df = df_vals) %>%
+  mutate(density = dchisq(x, df))
+
+# Plot
+p <- ggplot(chi_data, aes(x = x, y = density)) +
+  geom_line(color = "black", linewidth = 1) +
+  labs(title = "Chi-square distribution with df = {closest_state}",
+       x = "x", y = "Density") +
+  theme_minimal(base_size = 12) +
+  transition_states(df, transition_length = 2, state_length = 1, wrap = FALSE) +
+  ease_aes("linear") 
+
+p
+
+```
+
+Animated visualization of the $\chi^2$-distribution as the degrees of freedom increase from 3 to 20. As the degrees of freedom grow, the distribution becomes more symmetric and approaches the shape of the normal distribution. This demonstrates how the chi-square distribution’s skewness diminishes with larger sample sizes.
+:::

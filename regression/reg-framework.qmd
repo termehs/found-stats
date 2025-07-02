@@ -227,13 +227,13 @@ The most common estimator used is the **Ordinary Least Squares (OLS)** method, w
 
 ::: {#tbl-summary .center}
 | Concept                     | Description |
-|---------------------|-----------------------------------------|
+|-------------------------------|----------------------------------------------------------|
 | $E(Y \mid X)$              | Conditional expectation of $Y$ given $X$ |
 | PRF: $E(Y \mid X) = \beta_0 + \beta_1 X$ | Deterministic average relationship |
-| PRM: $Y = \beta_0 + \beta_1 X + \varepsilon$ | Full data-generating process including random error |
-| SRF: $\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X$ | Estimated regression line based on sample data |
+| PRM: $Y = b_0 + b_1 X + \varepsilon$ | Full data-generating process including random error |
+| SRF: $\hat{Y} = b_0 + b_1 X$ | Estimated regression line based on sample data |
 | $\varepsilon$              | Error term capturing deviations from the mean |
-| Estimators                 | Procedures for computing $\hat{\beta}_0$, $\hat{\beta}_1$ from data |
+| Estimators                 | Procedures for computing $b_0$, $b_1$ from data |
 
 Summary of regression concepts so far.
 :::
