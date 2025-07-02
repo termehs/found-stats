@@ -4,8 +4,8 @@ So far, we have focused primarily on inferential statistical methods for quantit
 
 This is where the **Chi-Square method** ($\chi^2$) becomes useful. The chi-square (pronounced "kai-square") test is a non-parametric method used for hypothesis testing involving categorical data. It is particularly valuable when we are interested in understanding:
 
--   Whether the observed distribution of a categorical variable matches an expected distribution (**goodness-of-fit test**)
--   Whether there is a statistically significant association between two categorical variables (**test of independence** in a contingency table)
+-   Whether the observed distribution of a categorical variable matches an expected distribution (**goodness-of-fit test** @sec-chi2gof)
+-   Whether there is a statistically significant association between two categorical variables (**test of independence** in a contingency table @sec-chi2ind)
 
 These tests rely on comparing *observed frequencies* with *expected frequencies*, and the test statistic follows a Chi-Square distribution under the null hypothesis. Each of these tests has its assumptions and limitations, but both are foundational tools in categorical data analysis.
 

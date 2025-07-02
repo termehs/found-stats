@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.7.29">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Termeh Shafie">
-<title>25&nbsp; Simple Linear Regression – Foundational Statistics</title>
+<title>27&nbsp; Simple Linear Regression – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/slr.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/slr.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -325,18 +325,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../inferential/chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Regression Analysis</span></a>
+ <span class="menu-text">Chi Square Tests</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -344,14 +338,43 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The Chi Square Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2-gof.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Goodness-of-Fit Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2-ind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regression/slr.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,13 +385,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
@@ -397,12 +420,12 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#the-least-squares-method-fitting-a-straight-line" id="toc-the-least-squares-method-fitting-a-straight-line" class="nav-link active" data-scroll-target="#the-least-squares-method-fitting-a-straight-line"><span class="header-section-number">25.1</span> The Least Squares Method: Fitting a Straight Line</a></li>
+<li><a href="#the-least-squares-method-fitting-a-straight-line" id="toc-the-least-squares-method-fitting-a-straight-line" class="nav-link active" data-scroll-target="#the-least-squares-method-fitting-a-straight-line"><span class="header-section-number">27.1</span> The Least Squares Method: Fitting a Straight Line</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/slr.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-slr" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/slr.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-slr" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></h1>
 </div>
 
 
@@ -467,8 +490,8 @@ s_{xy} = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})
 <li><p><span class="math inline">\(s_x\)</span> and <span class="math inline">\(s_y\)</span> are the <strong>sample standard deviations</strong> of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p></li>
 </ul>
 <p>The sign and magnitude of this value (<span class="math inline">\(-1 &lt; r_{xy} &lt; 1\)</span>) determine the strength and direction of the linear relationship (see <a href="../descriptive-stats/dispersion-measures.html" class="quarto-xref"><span>Chapter 7</span></a> for more detail).</p>
-<section id="the-least-squares-method-fitting-a-straight-line" class="level2" data-number="25.1"><h2 data-number="25.1" class="anchored" data-anchor-id="the-least-squares-method-fitting-a-straight-line">
-<span class="header-section-number">25.1</span> The Least Squares Method: Fitting a Straight Line</h2>
+<section id="the-least-squares-method-fitting-a-straight-line" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="the-least-squares-method-fitting-a-straight-line">
+<span class="header-section-number">27.1</span> The Least Squares Method: Fitting a Straight Line</h2>
 <p>Once we suspect that a linear relationship exists between two variables, we aim to quantify it using a <strong>regression line</strong> of the form:</p>
 <p><span class="math display">\[
 y = b_0 + b_1 x
@@ -953,7 +976,7 @@ b_0 = \bar{y} - b_1 \bar{x}
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../regression/reg-framework.html" class="pagination-link" aria-label="The Regression Framework">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

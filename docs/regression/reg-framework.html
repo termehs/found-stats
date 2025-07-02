@@ -8,7 +8,7 @@
 
 <meta name="author" content="Termeh Shafie">
 
-<title>24&nbsp; The Regression Framework – Foundational Statistics</title>
+<title>26&nbsp; The Regression Framework – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../regression/slr.html" rel="next">
-<link href="../inferential/chi2.html" rel="prev">
+<link href="../chi2/chi2-ind.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -113,7 +113,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-framework.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-framework.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -343,18 +343,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Hypothesis Testing</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../inferential/chi2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Regression Analysis</span></a>
+ <span class="menu-text">Chi Square Tests</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -362,14 +356,43 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The Chi Square Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2-gof.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Goodness-of-Fit Test</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi2/chi2-ind.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regression Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regression/slr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
       </ul>
@@ -380,13 +403,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
@@ -417,27 +440,27 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#conditional-expectation-and-regression-functions" id="toc-conditional-expectation-and-regression-functions" class="nav-link active" data-scroll-target="#conditional-expectation-and-regression-functions"><span class="header-section-number">24.1</span> Conditional Expectation and Regression Functions</a>
+  <li><a href="#conditional-expectation-and-regression-functions" id="toc-conditional-expectation-and-regression-functions" class="nav-link active" data-scroll-target="#conditional-expectation-and-regression-functions"><span class="header-section-number">26.1</span> Conditional Expectation and Regression Functions</a>
   <ul class="collapse">
-  <li><a href="#the-conditional-expectation-function-cef" id="toc-the-conditional-expectation-function-cef" class="nav-link" data-scroll-target="#the-conditional-expectation-function-cef"><span class="header-section-number">24.1.1</span> The Conditional Expectation Function (CEF)</a></li>
-  <li><a href="#linear-conditional-expectation-population-linear-regression-function" id="toc-linear-conditional-expectation-population-linear-regression-function" class="nav-link" data-scroll-target="#linear-conditional-expectation-population-linear-regression-function"><span class="header-section-number">24.1.2</span> Linear Conditional Expectation: Population Linear Regression Function</a></li>
+  <li><a href="#the-conditional-expectation-function-cef" id="toc-the-conditional-expectation-function-cef" class="nav-link" data-scroll-target="#the-conditional-expectation-function-cef"><span class="header-section-number">26.1.1</span> The Conditional Expectation Function (CEF)</a></li>
+  <li><a href="#linear-conditional-expectation-population-linear-regression-function" id="toc-linear-conditional-expectation-population-linear-regression-function" class="nav-link" data-scroll-target="#linear-conditional-expectation-population-linear-regression-function"><span class="header-section-number">26.1.2</span> Linear Conditional Expectation: Population Linear Regression Function</a></li>
   </ul></li>
-  <li><a href="#the-linear-population-regression-model" id="toc-the-linear-population-regression-model" class="nav-link" data-scroll-target="#the-linear-population-regression-model"><span class="header-section-number">24.2</span> The Linear Population Regression Model</a>
+  <li><a href="#the-linear-population-regression-model" id="toc-the-linear-population-regression-model" class="nav-link" data-scroll-target="#the-linear-population-regression-model"><span class="header-section-number">26.2</span> The Linear Population Regression Model</a>
   <ul class="collapse">
-  <li><a href="#the-error-term-and-key-assumptions" id="toc-the-error-term-and-key-assumptions" class="nav-link" data-scroll-target="#the-error-term-and-key-assumptions"><span class="header-section-number">24.2.1</span> The Error Term and Key Assumptions</a></li>
-  <li><a href="#interpreting-the-zero-conditional-mean" id="toc-interpreting-the-zero-conditional-mean" class="nav-link" data-scroll-target="#interpreting-the-zero-conditional-mean"><span class="header-section-number">24.2.2</span> Interpreting the Zero Conditional Mean</a></li>
+  <li><a href="#the-error-term-and-key-assumptions" id="toc-the-error-term-and-key-assumptions" class="nav-link" data-scroll-target="#the-error-term-and-key-assumptions"><span class="header-section-number">26.2.1</span> The Error Term and Key Assumptions</a></li>
+  <li><a href="#interpreting-the-zero-conditional-mean" id="toc-interpreting-the-zero-conditional-mean" class="nav-link" data-scroll-target="#interpreting-the-zero-conditional-mean"><span class="header-section-number">26.2.2</span> Interpreting the Zero Conditional Mean</a></li>
   </ul></li>
-  <li><a href="#population-regression-function-vs.-population-regression-model" id="toc-population-regression-function-vs.-population-regression-model" class="nav-link" data-scroll-target="#population-regression-function-vs.-population-regression-model"><span class="header-section-number">24.3</span> Population Regression Function vs.&nbsp;Population Regression Model</a></li>
-  <li><a href="#sample-regression-function-srf" id="toc-sample-regression-function-srf" class="nav-link" data-scroll-target="#sample-regression-function-srf"><span class="header-section-number">24.4</span> Sample Regression Function (SRF)</a></li>
+  <li><a href="#population-regression-function-vs.-population-regression-model" id="toc-population-regression-function-vs.-population-regression-model" class="nav-link" data-scroll-target="#population-regression-function-vs.-population-regression-model"><span class="header-section-number">26.3</span> Population Regression Function vs.&nbsp;Population Regression Model</a></li>
+  <li><a href="#sample-regression-function-srf" id="toc-sample-regression-function-srf" class="nav-link" data-scroll-target="#sample-regression-function-srf"><span class="header-section-number">26.4</span> Sample Regression Function (SRF)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-framework.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-framework.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-framework.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-regframework" class="quarto-section-identifier"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></h1>
+<h1 class="title"><span id="sec-regframework" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></h1>
 </div>
 
 
@@ -466,8 +489,8 @@ window.Quarto = {
 <li><span class="math inline">\(Y\)</span>: the response or dependent variable (e.g., oil usage in litres per household),</li>
 <li><span class="math inline">\(X\)</span>: the predictor or independent variable (e.g., outdoor temperature in degrees Celsius).</li>
 </ul>
-<p>If we only observe oil usage but have no information about temperature, our best estimate for any household’s usage is the overall average of all observed values. This is called the marginal expectation of <span class="math inline">\(Y\)</span> and does not account for other factors, as shown in the left panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;<span>24.1</span></a>.</p>
-<p>However, if we also know the temperature on the day the oil was used, as shown in the right panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;<span>24.1</span></a>. Then we can make a more informed estimate. Rather than using the overall average, we estimate the conditional expectation of oil usage given the temperature. In other words, we ask:</p>
+<p>If we only observe oil usage but have no information about temperature, our best estimate for any household’s usage is the overall average of all observed values. This is called the marginal expectation of <span class="math inline">\(Y\)</span> and does not account for other factors, as shown in the left panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;<span>26.1</span></a>.</p>
+<p>However, if we also know the temperature on the day the oil was used, as shown in the right panel of <a href="#fig-slrex" class="quarto-xref">Figure&nbsp;<span>26.1</span></a>. Then we can make a more informed estimate. Rather than using the overall average, we estimate the conditional expectation of oil usage given the temperature. In other words, we ask:</p>
 <blockquote class="blockquote">
 <p>What is our best estimate of oil usage <span class="math inline">\(Y\)</span> if today’s temperature <span class="math inline">\(X\)</span> is 10°C? Or when <span class="math inline">\(X\)</span> is any other value?</p>
 </blockquote>
@@ -482,20 +505,20 @@ E(Y \mid X)
 <img src="imgs/‎slr-ex.png" id="fig-popsamp" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-slrex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;24.1: Visualizing the conditional structure of a negatively correlated relationship between two variables. The left panel shows the marginal distribution of y, while the right panel displays a scatterplot of (x, y) with marginal histogram of y aligned to the vertical axis. Dotted lines project each point to the x- and y-axes, suggesting conditional reasoning: given a value of x, what is our best guess for y?
+Figure&nbsp;26.1: Visualizing the conditional structure of a negatively correlated relationship between two variables. The left panel shows the marginal distribution of y, while the right panel displays a scatterplot of (x, y) with marginal histogram of y aligned to the vertical axis. Dotted lines project each point to the x- and y-axes, suggesting conditional reasoning: given a value of x, what is our best guess for y?
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="conditional-expectation-and-regression-functions" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="conditional-expectation-and-regression-functions"><span class="header-section-number">24.1</span> Conditional Expectation and Regression Functions</h2>
+<section id="conditional-expectation-and-regression-functions" class="level2" data-number="26.1">
+<h2 data-number="26.1" class="anchored" data-anchor-id="conditional-expectation-and-regression-functions"><span class="header-section-number">26.1</span> Conditional Expectation and Regression Functions</h2>
 <p>Regression analysis is fundamentally about understanding how the <strong>average value</strong> of one variable, <span class="math inline">\(Y\)</span>, changes in response to another variable, <span class="math inline">\(X\)</span>. This is formalized through the concept of <strong>conditional expectation</strong>:</p>
 <p><span class="math display">\[
 E(Y \mid X)
 \]</span></p>
 <p>This function gives us the expected (average) value of <span class="math inline">\(Y\)</span>, given a specific value of <span class="math inline">\(X\)</span>. Rather than modeling the entire distribution of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>, regression focuses on modeling this average behavior—summarized by the <strong>Conditional Expectation Function (CEF)</strong>.</p>
-<section id="the-conditional-expectation-function-cef" class="level3" data-number="24.1.1">
-<h3 data-number="24.1.1" class="anchored" data-anchor-id="the-conditional-expectation-function-cef"><span class="header-section-number">24.1.1</span> The Conditional Expectation Function (CEF)</h3>
+<section id="the-conditional-expectation-function-cef" class="level3" data-number="26.1.1">
+<h3 data-number="26.1.1" class="anchored" data-anchor-id="the-conditional-expectation-function-cef"><span class="header-section-number">26.1.1</span> The Conditional Expectation Function (CEF)</h3>
 <p>The CEF, <span class="math inline">\(E(Y \mid X)\)</span>, captures how the mean of <span class="math inline">\(Y\)</span> varies with <span class="math inline">\(X\)</span>. It represents the best estimate of <span class="math inline">\(Y\)</span> we can make, on average, given that we know the value of <span class="math inline">\(X\)</span>. In essence, the CEF describes the <strong>population regression function</strong>:</p>
 <p><span class="math display">\[
 Y = f(X) = E(Y \mid X)
@@ -505,8 +528,8 @@ Y = f(X) = E(Y \mid X)
 <p><em>“What is the average value of <span class="math inline">\(Y\)</span>, given each possible value of <span class="math inline">\(X\)</span>?”</em></p>
 </blockquote>
 </section>
-<section id="linear-conditional-expectation-population-linear-regression-function" class="level3" data-number="24.1.2">
-<h3 data-number="24.1.2" class="anchored" data-anchor-id="linear-conditional-expectation-population-linear-regression-function"><span class="header-section-number">24.1.2</span> Linear Conditional Expectation: Population Linear Regression Function</h3>
+<section id="linear-conditional-expectation-population-linear-regression-function" class="level3" data-number="26.1.2">
+<h3 data-number="26.1.2" class="anchored" data-anchor-id="linear-conditional-expectation-population-linear-regression-function"><span class="header-section-number">26.1.2</span> Linear Conditional Expectation: Population Linear Regression Function</h3>
 <p>Often, we assume a linear relationship between <span class="math inline">\(X\)</span> and the expected value of <span class="math inline">\(Y\)</span>. This leads us to define the <strong>population linear regression function</strong> as: <span class="math display">\[
 E(Y \mid X) = \beta_0 + \beta_1 X
 \]</span></p>
@@ -553,8 +576,8 @@ E(Y \mid X) = \beta_0 + \beta_1 X
 </div>
 </section>
 </section>
-<section id="the-linear-population-regression-model" class="level2" data-number="24.2">
-<h2 data-number="24.2" class="anchored" data-anchor-id="the-linear-population-regression-model"><span class="header-section-number">24.2</span> The Linear Population Regression Model</h2>
+<section id="the-linear-population-regression-model" class="level2" data-number="26.2">
+<h2 data-number="26.2" class="anchored" data-anchor-id="the-linear-population-regression-model"><span class="header-section-number">26.2</span> The Linear Population Regression Model</h2>
 <p>The <strong>simple linear regression model</strong> (also called bivariate or two-variable regression which we focus on more in the next chapter) formalizes this idea by introducing an <strong>error term</strong>:</p>
 <p><span class="math display">\[
 Y = \beta_0 + \beta_1 X + \varepsilon
@@ -569,8 +592,8 @@ Y = \beta_0 + \beta_1 X + \varepsilon
 Y = E(Y \mid X) + \varepsilon \quad \Rightarrow \quad \varepsilon = Y - E(Y \mid X)
 \]</span></p>
 <p>This highlights that <span class="math inline">\(\varepsilon\)</span> captures the deviation of an individual outcome from the average (expected) value.</p>
-<section id="the-error-term-and-key-assumptions" class="level3" data-number="24.2.1">
-<h3 data-number="24.2.1" class="anchored" data-anchor-id="the-error-term-and-key-assumptions"><span class="header-section-number">24.2.1</span> The Error Term and Key Assumptions</h3>
+<section id="the-error-term-and-key-assumptions" class="level3" data-number="26.2.1">
+<h3 data-number="26.2.1" class="anchored" data-anchor-id="the-error-term-and-key-assumptions"><span class="header-section-number">26.2.1</span> The Error Term and Key Assumptions</h3>
 <p>The term <span class="math inline">\(\varepsilon\)</span> plays a critical role in ensuring valid interpretation and estimation of regression parameters. It represents omitted variables, measurement errors, and randomness in the data.</p>
 <p>Two key assumptions about <span class="math inline">\(\varepsilon\)</span> are:</p>
 <ol type="1">
@@ -590,8 +613,8 @@ E(Y \mid X) = \beta_0 + \beta_1 X
 <p>This implies that <span class="math inline">\(X\)</span> and <span class="math inline">\(\varepsilon\)</span> are uncorrelated in the population—i.e., the explanatory variable <span class="math inline">\(X\)</span> contains no information about the error term. If this assumption is violated, our estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> may be biased.</p></li>
 </ol>
 </section>
-<section id="interpreting-the-zero-conditional-mean" class="level3" data-number="24.2.2">
-<h3 data-number="24.2.2" class="anchored" data-anchor-id="interpreting-the-zero-conditional-mean"><span class="header-section-number">24.2.2</span> Interpreting the Zero Conditional Mean</h3>
+<section id="interpreting-the-zero-conditional-mean" class="level3" data-number="26.2.2">
+<h3 data-number="26.2.2" class="anchored" data-anchor-id="interpreting-the-zero-conditional-mean"><span class="header-section-number">26.2.2</span> Interpreting the Zero Conditional Mean</h3>
 <p>It’s important to note that:</p>
 <ul>
 <li><span class="math inline">\(E(\varepsilon \mid X) = 0 \Rightarrow E(\varepsilon) = 0\)</span> (mean independence implies zero mean)</li>
@@ -601,8 +624,8 @@ E(Y \mid X) = \beta_0 + \beta_1 X
 <p>This is essential for interpreting <span class="math inline">\(\beta_1\)</span> as the causal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> in many settings.</p>
 </section>
 </section>
-<section id="population-regression-function-vs.-population-regression-model" class="level2" data-number="24.3">
-<h2 data-number="24.3" class="anchored" data-anchor-id="population-regression-function-vs.-population-regression-model"><span class="header-section-number">24.3</span> Population Regression Function vs.&nbsp;Population Regression Model</h2>
+<section id="population-regression-function-vs.-population-regression-model" class="level2" data-number="26.3">
+<h2 data-number="26.3" class="anchored" data-anchor-id="population-regression-function-vs.-population-regression-model"><span class="header-section-number">26.3</span> Population Regression Function vs.&nbsp;Population Regression Model</h2>
 <p>To deepen our understanding, it is essential to distinguish between two related but distinct concepts:</p>
 <p><strong>1. Population Regression Function (PRF)</strong><br>
 The Population Regression Function expresses a deterministic relationship between <span class="math inline">\(X\)</span> and the expected value of <span class="math inline">\(Y\)</span>:</p>
@@ -629,8 +652,8 @@ Y = \beta_0 + \beta_1 X + \varepsilon
 </ul>
 <p>So while the PRF gives the average trend, the PRM provides a more realistic model that includes random noise or unobserved influences.</p>
 </section>
-<section id="sample-regression-function-srf" class="level2" data-number="24.4">
-<h2 data-number="24.4" class="anchored" data-anchor-id="sample-regression-function-srf"><span class="header-section-number">24.4</span> Sample Regression Function (SRF)</h2>
+<section id="sample-regression-function-srf" class="level2" data-number="26.4">
+<h2 data-number="26.4" class="anchored" data-anchor-id="sample-regression-function-srf"><span class="header-section-number">26.4</span> Sample Regression Function (SRF)</h2>
 <p>In practice, we do not observe the entire population. Instead, we work with a random sample drawn from the population.</p>
 <p>Since the <strong>true parameters</strong> <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> of the population regression model are unknown, we use the sample to estimate them. The regression line we obtain from the sample is called the <strong>Sample Regression Function (SRF)</strong>:</p>
 <p>If we had access to the entire population, we could compute the PRF exactly and predict <span class="math inline">\(Y\)</span> from <span class="math inline">\(X\)</span> precisely in expectation. In reality, we only observe a finite, random sample, so we must rely on estimation procedures. We use these procedures to estimate the parameters of the PRM, resulting in a sample-based approximation of the PRF.</p>
@@ -641,11 +664,11 @@ Y = \beta_0 + \beta_1 X + \varepsilon
 <li>Enables us to assess uncertainty and perform statistical inference</li>
 </ul>
 <p>The most common estimator used is the <strong>Ordinary Least Squares (OLS)</strong> method, which we will explore in the next chapter.</p>
-<p><a href="#tbl-summary" class="quarto-xref">Table&nbsp;<span>24.1</span></a> summarizes the concepts introduced so far.</p>
+<p><a href="#tbl-summary" class="quarto-xref">Table&nbsp;<span>26.1</span></a> summarizes the concepts introduced so far.</p>
 <div id="tbl-summary" class="center quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;24.1: Summary of regression concepts so far.
+Table&nbsp;26.1: Summary of regression concepts so far.
 </figcaption>
 <div aria-describedby="tbl-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="center caption-top table">
@@ -1095,13 +1118,13 @@ Table&nbsp;24.1: Summary of regression concepts so far.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../inferential/chi2.html" class="pagination-link" aria-label="Chi Square Tests">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Chi Square Tests</span></span>
+      <a href="../chi2/chi2-ind.html" class="pagination-link" aria-label="Testing for Independence">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Testing for Independence</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../regression/slr.html" class="pagination-link" aria-label="Simple Linear Regression">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
