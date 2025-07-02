@@ -1,0 +1,503 @@
+# Regression Inference {#sec-reginf}
+
+Up until now, we have focused on fitting a straight line to a given dataset. This is a purely descriptive task, we are summarizing the data using a linear trend.
+
+Now we shift our attention to **statistical inference**. Instead of just describing the data, we want to draw conclusions about the underlying **data-generating process**. In this context, we assume that the data were produced by a regression model; a hypothetical mechanism involving randomness that governs how the observed values arise.
+
+Our concern is understanding the reliability of the coefficient estimates. Are they statistically significant? Are they meaningfully different from zero? To address such questions, we use tools like confidence intervals and hypothesis tests, just as we did in @sec-est and @sec-hyptest.
+
+
+## Simple Linear Regression
+We think of each observed value $y_i$ not just as a number, but as a realization of a **random variable** $Y_i$, generated according to the following model:
+
+$$
+Y = \beta_0 + \beta_1 x + \varepsilon
+$$
+
+Here, $\beta_0$ and $\beta_1$ are unknown parameters, and $\varepsilon$ is a random error term. This expression means that the outcome $Y$ is made up of two parts:
+
+- A **deterministic part**, which is a linear function of the predictor $x$: $\beta_0 + \beta_1 x$
+- A **random part**, the error term $\varepsilon$, which captures the effect of other influences not included in the model
+
+see @sec-regframework for more detail.
+
+### Assumptions
+
+In the **standard model for simple linear regression**, we make the following assumptions:
+
+1. The values $x_1, x_2, \dots, x_n$ are treated as fixed, non-random inputs.
+
+2. For each fixed $x_i$, the corresponding response variable $Y_i$ satisfies:
+
+   $$
+   Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+   $$
+
+3. The error terms $\varepsilon_1, \varepsilon_2, \dots, \varepsilon_n$ are **independent and normally distributed random variables** with:
+
+   $$
+   \varepsilon_i \sim \mathcal{N}(0, \sigma^2)
+   $$
+
+   That is, they have mean 0 and the same variance $\sigma^2$, and they are mutually independent.
+
+Our goal is to estimate the unknown parameters $\beta_0$ and $\beta_1$. In practice, it is often $\beta_1$ — the slope — that is of greatest interest, as it measures the strength and direction of the relationship between $x$ and $y$.
+
+To estimate these parameters, we use the **least squares method**, fitting a line of the form:
+
+$$
+y = b_0 + b_1 x
+$$
+
+The resulting estimates $b_0$ and $b_1$ are called **point estimates** of $\beta_0$ and $\beta_1$, respectively:
+
+$$
+\hat{\beta}_0 = b_0 \quad \text{and} \quad \hat{\beta}_1 = b_1
+$$
+
+Under the model assumptions, it can be shown that both $b_0$ and $b_1$ are **unbiased estimators**, meaning:
+
+$$
+E(b_0) = \beta_0 \quad \text{and} \quad E(b_1) = \beta_1
+$$
+
+
+
+### Variance of the Estimator $b_1$
+
+We are also interested in how precise our estimate $b_1$ is. The variance of $b_1$ is given by:
+
+$$
+\mathrm{Var}(b_1) = \frac{\sigma^2}{\sum (x_i - \bar{x})^2} = \frac{\sigma^2}{(n - 1)s_x^2}
+$$
+
+This tells us that the spread of the $x$ values (captured by $s_x^2$) plays an important role in determining the precision of the slope estimate.
+
+In practice, the true error variance $\sigma^2$ is unknown. To estimate $\mathrm{Var}(b_1)$ from the data, we replace $\sigma^2$ with the **residual variance** $s_e^2$, which is an unbiased estimator of $\sigma^2$ and is computed as:
+
+$$
+s_e^2 = \frac{\text{SSE}}{n - 2}
+$$
+
+We then obtain the estimated variance of $b_1$ as:
+
+$$
+s_{b_1}^2 = \frac{s_e^2}{(n - 1)s_x^2}
+$$
+
+This estimated variance will be used to construct **confidence intervals** and perform **hypothesis tests** about $\beta_1$ in the following sections.
+
+
+
+### Confidence Interval for $\beta_1$
+Once we have estimated the regression coefficients using the least squares method, we may want to make **inferences** about the true (but unknown) population parameter $\beta_1$. Two important tools for this purpose are **confidence intervals** and **hypothesis testing**.
+
+We already know that the point estimate $b_1$ is an unbiased estimator of the true slope $\beta_1$. Furthermore, under the classical linear regression assumptions (including normal, independent, and homoscedastic errors), $b_1$ is approximately normally distributed for large samples, or **t-distributed** for small samples.
+
+To quantify the uncertainty in our estimate, we construct a **confidence interval** for $\beta_1$:
+
+$$
+b_1 \pm t_{\nu, \alpha/2} \cdot s_{b_1}
+$$
+
+where:
+
+- $s_{b_1}$ is the estimated standard error of $b_1$
+- $t_{\nu, \alpha/2}$ is the critical value from the $t$-distribution with $\nu = n - 2$ degrees of freedom
+- $\alpha$ is the significance level (e.g., $\alpha = 0.05$ gives a 95% confidence interval)
+
+If the sample size is large ($n \geq 30$), the $t$-distribution can be approximated by the standard normal distribution $\mathcal{N}(0, 1)$, and the confidence interval becomes:
+
+$$
+b_1 \pm z_{\alpha/2} \cdot s_{b_1}
+$$
+
+This interval provides a range of plausible values for the true slope $\beta_1$ at the chosen confidence level.
+
+### Hypothesis Testing for $\beta_1$
+We may also wish to formally test hypotheses about the slope coefficient. For example, suppose we want to test whether $\beta_1$ equals a specific value $\beta_1^*$ — often this is 0, corresponding to the absence of a linear relationship.
+
+We set up the null and alternative hypotheses:
+
+- $H_0$: $\beta_1 = \beta_1^*$ (null hypothesis)
+- $H_1$: $\beta_1 \ne \beta_1^*$ (two-sided alternative), or
+- $H_1$: $\beta_1 > \beta_1^*$ or $\beta_1 < \beta_1^*$ (one-sided alternatives)
+
+A common special case is:
+
+- $H_0$: $\beta_1 = 0$
+- $H_1$: $\beta_1 \ne 0$
+
+This tests whether there is *any linear relationship at all* between the predictor and response.
+
+
+To perform the test, we use the following **$t$-statistic**:
+
+$$
+t = \frac{b_1 - \beta_1^*}{s_{b_1}}
+$$
+
+If $H_0$ is true, this statistic follows a $t$-distribution with $\nu = n - 2$ degrees of freedom. In the special case when testing $H_0: \beta_1 = 0$, the test statistic simplifies to:
+
+$$
+t = \frac{b_1}{s_{b_1}}
+$$
+
+We then compare the calculated $t$ value to critical values from the $t$-distribution to decide whether to reject $H_0$. Just like before (@sec-hyptest) the rejection region depends on:
+
+- The significance level (e.g., $\alpha = 0.05$)
+- The type of alternative hypothesis (one- or two-sided)
+
+If the $t$-statistic falls into the rejection region, we conclude that there is statistically significant evidence that $\beta_1$ differs from $\beta_1^*$ (e.g., that a linear relationship exists).
+
+### Hypothesis Testing for $\beta_1$: t-Test and F-Test Equivalence
+
+In simple linear regression, a common question is whether the explanatory variable $x$ has any linear influence on the response variable $y$. This is typically tested by assessing whether the slope coefficient $\beta_1$ equals zero.
+
+We state the hypotheses as:
+
+- $H_0$: $\beta_1 = 0$  (no linear relationship)
+- $H_1$: $\beta_1 \ne 0$  (there is a linear relationship)
+
+To test this, we use the **F-statistic** from the ANOVA table, which compares the explained and unexplained variance in $y$. We define:
+
+- $F_\text{obs}$: the observed F-statistic
+- $F_c$: the critical value from the $F$ distribution at the chosen significance level
+
+We reject $H_0$ only if the observed statistic exceeds the critical value:
+
+$$
+F_{\text{obs}} > F_c
+$$
+
+In the special case of testing $\beta_1 = 0$ in a simple linear regression**, the F-test and t-test are mathematically equivalent. That is:
+
+$$
+F = t^2
+$$
+
+Both tests always lead to exactly the same conclusion in this setting. While the t-test focuses on the slope coefficient $b_1$ directly, the F-test evaluates the overall significance of the model. In simple linear regression, both refer to the same one predictor, so they test the same null hypothesis. We will return to the F test again below for multiple linear regression.
+
+#### Example 28.1: Savings and Income {.unnumbered}
+
+Let’s apply these ideas to an example. Suppose we want to understand how **savings** (in hundreds of EUR) depend on **income** (also in hundreds of EUR). We collect data from 10 individuals:
+
+| Income ($x$) | Savings ($y$) |
+|--------------|----------------|
+| 18           | 8              |
+| 44           | 52             |
+| 31           | 30             |
+| 38           | 31             |
+| 36           | 30             |
+| 26           | 25             |
+| 24           | 8              |
+| 51           | 45             |
+| 22           | 3              |
+| 30           | 16             |
+
+Our goal is to determine whether income significantly predicts savings using a simple linear regression model:
+
+$$
+y = \beta_0 + \beta_1 x + \varepsilon
+$$
+
+We'll estimate $b_1$, construct a confidence interval for $\beta_1$, and test the hypothesis $H_0: \beta_1 = 0$ using both a **t-test** and **F-test** to verify they produce the same result. This is done with R and the R output for the the above regression is as follows (the middle part is the 95% confidence interval fir $\beta_1$):
+```{r}
+# Savings and income data
+income <- c(18, 44, 31, 38, 36, 26, 24, 51, 22, 30)
+savings <- c(8, 52, 30, 31, 30, 25, 8, 45, 3, 16)
+df <- data.frame(x = income, y = savings)
+
+# Fit linear model
+fit <- lm(y ~ x, data = df)
+
+# Summary and confidence interval
+summary(fit)
+confint(fit)
+
+# ANOVA table
+anova(fit)
+
+```
+
+The interpretation is as follows:
+
+- The slope coefficient $b_1$ represents the average change in savings per 1 unit (hundred EUR) increase in income.
+- The confidence interval for $\beta_1$ tells us the range of plausible values.
+-	If the interval does not include 0, and the p-value is below the significance threshold (e.g., 0.05), we reject $H_0$ and conclude that income has a statistically significant effect on savings.
+- The F-statistic and the square of the t-statistic for $b_1$ are equal, confirming the equivalence of both tests in this case.
+
+
+
+
+::: {.callout-note title="Introducing the F-distribution in Regression"}
+
+The **F-distribution** arises when comparing two variances — one typically explained by a model, and the other left unexplained (the residual variance). It is commonly used in regression analysis to evaluate whether the **regression model explains a significant proportion of the total variation** in the response variable.
+
+In the case of simple linear regression, the F-statistic is defined as:
+
+$$
+F = \frac{MSR}{MSE}
+$$
+
+where:
+
+- $MSR$ is the **mean square due to regression**, i.e., the variation explained by the model,
+- $MSE$ is the **mean square error**, i.e., the average of the squared residuals.
+
+Under the null hypothesis that the slope $\beta_1 = 0$ (no linear relationship), the F-statistic follows an **F-distribution** with two degrees of freedom: $(1, n - 2)$ degrees of freedom, where $n$ is the sample size.
+
+We use this distribution to determine whether the observed $F$ value is unusually large. A large $F$ value indicates that the model explains a significantly greater amount of variability than would be expected by chance.
+
+In simple linear regression, the F-test and the squared t-test for $\beta_1$ are mathematically equivalent:
+$$
+F = t^2
+$$
+However, the F-distribution plays a much larger role in **multiple regression**, where it tests the significance of all predictors jointly.
+
+Like the chi-square test, the F-test is **one-sided**: we only reject the null hypothesis when the observed F-statistic is **sufficiently large**, as shown in @fig-fdist.
+
+::: {#fig-fdist .center}
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 4
+#| fig-width: 7
+library(ggplot2)
+
+# Parameters for F-distribution
+df1 <- 6
+df2 <- 10
+alpha <- 0.05
+crit_val <- qf(1 - alpha, df1, df2)
+
+# Data for curve
+x_vals <- seq(0, 10, length.out = 1000)
+y_vals <- df(x_vals, df1, df2)
+df_plot <- data.frame(x = x_vals, y = y_vals)
+
+# Shaded critical region
+df_crit <- subset(df_plot, x >= crit_val)
+y_crit <- df(crit_val, df1, df2)
+
+# Plot
+ggplot(df_plot, aes(x = x, y = y)) +
+  geom_line(color = "black", linewidth = 0.7) +
+
+  # Acceptance region
+  geom_area(data = subset(df_plot, x <= crit_val), fill = "lightgrey", alpha = 0.5) +
+
+  # Critical region
+  geom_area(data = df_crit, fill = "firebrick", alpha = 0.6) +
+
+  # Critical value line
+  annotate("segment", x = crit_val, xend = crit_val, y = 0, yend = y_crit,
+           linetype = "solid", color = "firebrick") +
+
+  # Annotations
+  annotate("text", x = 1.5, y = -0.02, label = "Non-rejection region", size = 4.5) +
+  annotate("text", x = 4.3, y = -0.02, label = "Critical region", size = 4.5, color = "firebrick") +
+  annotate("text", x = crit_val + 0.9, y = 0.12, label = "α", color = "firebrick", size = 4.5) +
+  annotate("segment", x = crit_val + 0.8, xend = crit_val + 0.3, y = 0.11, yend = 0.04,
+           arrow = arrow(length = unit(0.18, "cm")), color = "firebrick") +
+
+  # Theme adjustments
+  labs(x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+```
+This figure illustrates the F-distribution with the critical region shaded in red, corresponding to the upper tail of the distribution where we would reject the null hypothesis. As with the chi-square distribution, the F-test is right-tailed because we are only interested in whether the observed F-statistic is significantly larger than expected under $H_0$.
+:::
+:::
+
+
+
+## The Multiple Linear Regression Model
+
+In multiple regression, we model the response $y$ as a linear combination of several predictors:
+
+$$
+Y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_K x_{Ki} + \varepsilon_i
+$$
+
+Here:
+
+- $Y_i$ is the response for observation $i$
+- $x_{1i}, x_{2i}, \dots, x_{Ki}$ are the values of $K$ predictors for observation $i$
+- $\beta_0$ is the intercept
+- $\beta_1, \dots, \beta_K$ are the unknown slope parameters
+- $\varepsilon_i$ is the error term, capturing randomness and unobserved effects
+
+This model allows us to assess how **each predictor influences $y$ while holding all other variables constant**. In contrast to simple regression, where effects are unadjusted, multiple regression gives **adjusted estimates** that help untangle overlapping influences.
+
+
+### Model Assumptions
+
+Just as with simple regression, multiple regression relies on several key assumptions:
+
+1. **Linearity**: The relationship between $y$ and the predictors is linear in the parameters.
+2. **Fixed predictors**: The $x$-values are treated as fixed (non-random) in repeated samples.
+3. **Independent errors**: The errors $\varepsilon_i$ are independent across observations.
+4. **Homoskedasticity**: The errors have constant variance: $\operatorname{Var}(\varepsilon_i) = \sigma^2$.
+5. **Normality**: The errors are normally distributed: $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$.
+
+These assumptions are needed to ensure valid estimation, inference, and prediction. We estimate the unknown parameters $\beta_0, \dots, \beta_K$ using the **least squares method**, just as in simple regression. The goal is to minimize the sum of squared differences between observed and predicted values:
+
+$$
+\text{SSE} = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - b_0 - b_1 x_{1i} - \dots - b_K x_{Ki})^2
+$$
+
+This yields the **least squares estimates** $b_0, b_1, \dots, b_K$.
+
+Under the model assumptions, these estimates are **unbiased**:
+
+$$
+E[b_k] = \beta_k \quad \text{for all } k = 0, \dots, K
+$$
+
+This means that, on average, the estimated coefficients correctly reflect the true population parameters.
+
+### Residual Variance and Model Fit
+
+After estimating the regression function, we estimate the variance of the errors using the **residual mean square**:
+
+$$
+s_e^2 = \frac{SSE}{n - K - 1} = \frac{\sum (y_i - \hat{y}_i)^2}{n - K - 1}
+$$
+
+This estimate tells us how much observed values tend to deviate from their predicted values. It generalizes the residual variance concept from simple regression to cases with multiple predictors.
+
+
+## Confidence Intervals for Coefficients
+
+Once we’ve estimated the model parameters using least squares, we often want to understand the **uncertainty** in those estimates. Two central tools for doing this are **confidence intervals** and **hypothesis tests**, particularly concerning individual regression coefficients. We start with the former.
+
+Each estimated coefficient in the regression model, denoted $b_j$, is only an estimate of the true but unknown population coefficient $\beta_j$. Due to sampling variability, this estimate is subject to uncertainty. To capture this uncertainty, we construct a confidence interval.
+
+A 95% confidence interval for $\beta_j$ takes the form:
+
+$$
+b_j \pm t_{\nu, 0.025} \cdot s_{b_j}
+$$
+
+Here, $s_{b_j}$ is the standard error of $b_j$, and $t_{\nu, 0.025}$ is the critical value from the $t$-distribution with $\nu = n - K - 1$ degrees of freedom. The interval gives us a range of values within which the true coefficient $\beta_j$ is likely to fall, assuming the model assumptions hold.
+
+In practical work, these intervals are usually reported alongside the model output in software such as R, and they serve as a direct way to assess both the magnitude and uncertainty of an effect.
+
+## Hypothesis Testing for Individual Predictors
+
+Beyond estimating coefficients, we often want to test whether a given variable contributes meaningfully to explaining $y$ in the presence of other variables. To do this, we test whether the corresponding coefficient is equal to zero. This leads to the hypothesis:
+
+$$
+H_0: \beta_j = 0 \quad \text{versus} \quad H_1: \beta_j \neq 0
+$$
+
+We calculate a $t$-statistic using the formula:
+
+$$
+t = \frac{b_j}{s_{b_j}}
+$$
+
+This statistic measures how many standard errors the estimate is away from zero. If the result is far enough from zero, relative to the $t$-distribution, we reject the null hypothesis. The $t$-distribution used here has $n - K - 1$ degrees of freedom, which accounts for both the sample size and the number of estimated parameters.
+
+
+## Joint Hypothesis Testing in Multiple Linear Regression
+
+So far, we've looked at inference for individual regression coefficients—asking whether a single explanatory variable has a statistically significant effect on the response variable. But in multiple regression, a more fundamental question often comes first:
+
+> Do all the predictors together explain any of the variation in the response variable?
+
+This leads to a **joint hypothesis test**, where we test whether *all* regression coefficients, except the intercept, are simultaneously equal to zero. This is also knows as an **omnibus test**.
+
+We formulate the hypotheses as:
+
+$$
+H_0: \beta_1 = \beta_2 = \dots = \beta_K = 0
+$$
+
+$$
+H_1: \text{At least one } \beta_j \neq 0, \quad j = 1, 2, \dots, K
+$$
+
+Under the null hypothesis, none of the explanatory variables contribute linearly to explaining $y$. In other words, we might as well discard them all and use only the intercept to predict $y$.
+
+To test this joint hypothesis, we use the **F-statistic** from the regression's ANOVA table:
+
+$$
+F = \frac{MSR}{MSE}
+$$
+
+where:
+
+- $MSR$ is the mean square for regression: $MSR = \frac{SSR}{K}$
+- $MSE$ is the mean square for error: $MSE = \frac{SSE}{n - K - 1}$
+
+This F-statistic follows an **F-distribution** with $K$ degrees of freedom in the numerator and $n - K - 1$ in the denominator, assuming the null hypothesis is true.
+
+If the observed value of $F$ is **large**, this suggests that the model explains a substantial portion of the variability in $y$, and we reject the null hypothesis.
+
+In practical terms:
+
+- A **small F-value** suggests that the predictors, taken together, do not improve prediction beyond what we'd expect by chance.
+- A **large F-value** provides evidence that at least one of the explanatory variables contributes meaningfully to the model.
+
+Software, such as R, will compute the F-statistic and the corresponding $p$-value automatically. The result is typically reported in the regression output, adn the corresponding $p$-value can be used to perform the test,
+
+
+#### Example 28.1: Sales in Different Districts (Cont'd) {.unnumbered}
+We continue with Example 28.1 from @sec-mlr where the response variable is:
+
+- $y$: total sales (in millions of EUR)
+
+and the two explanatory variables are:
+
+- $x_1$: population size (in 100,000s of people)
+- $x_2$: advertising volume (in 10,000s of EUR)
+
+We test (at the 1% significance level) whether $x_1$ and $x_2$ together can explain the variation in $y$. In other words, we will perform an F-test.
+
+
+We set up the null and alternative hypotheses as follows:
+
+- Null hypothesis: $H_0 : \beta_1 = \beta_2 = 0$  \
+ (Neither predictor has a linear effect on $y$.)
+
+- Alternative hypothesis: $H_1 :$ At least one of $\beta_1$, $\beta_2$ is nonzero \
+(At least one predictor contributes to explaining $y$.)
+
+
+We read from the output below that the observed value of the F statistic is equal to
+$$
+F = 88.1
+$$
+on $K=2$ and $n-K-1 = 8-2-1 = 5$ degrees of freedom.
+
+```{r}
+sales_df <- data.frame(
+  district = 1:8,
+  y  = c(5.4, 3.8, 10.6, 5.2, 4.5, 2.7, 2.5, 4.5),  # sales (million EUR)
+  x1 = c(5.0, 4.2, 10.0, 4.4, 3.6, 1.3, 2.7, 3.0),   # population (×100 000)
+  x2 = c(5.0, 3.0, 9.0, 3.5, 5.0, 2.0, 1.8, 4.7)     # advertising (×10 000 EUR)
+)
+
+fit_sales <- lm(y ~ x1 + x2, data = sales_df)
+summary(fit_sales)
+```
+
+
+We reject the null hypothesis at the 1% significance level since the $p$-value is much smaller than 0.1. This means there is strong evidence that at least one of the explanatory variables has a significant linear relationship with $y$.
+
+::: {.callout-note title="Using the $p$-value for the F-test"}
+In modern statistical practice, we almost always rely on the $p$-value reported in the regression output to evaluate the F-test. There is *no need to consult critical value tables manually*, since the $p$-value directly tells us how likely it is to observe an F-statistic as large as the one obtained, assuming the null hypothesis is true.
+
+If the $p$-value is smaller than the chosen significance level (e.g., 0.05 or 0.01), we reject the null hypothesis. Otherwise, we fail to reject it. This approach is both convenient and precise, especially with software like R that handles the calculations automatically.
+:::
+
+
+

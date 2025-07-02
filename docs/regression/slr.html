@@ -27,7 +27,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../regression/mlr.html" rel="next">
 <link href="../regression/reg-framework.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -90,7 +90,7 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script>
+</script><link rel="stylesheet" href="../styles.css">
 </head>
 <body class="nav-sidebar floating quarto-light">
 
@@ -377,6 +377,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/mlr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Multiple Linear Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/reg-inf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regression Inference</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -421,6 +433,8 @@ window.Quarto = {
    
   <ul>
 <li><a href="#the-least-squares-method-fitting-a-straight-line" id="toc-the-least-squares-method-fitting-a-straight-line" class="nav-link active" data-scroll-target="#the-least-squares-method-fitting-a-straight-line"><span class="header-section-number">27.1</span> The Least Squares Method: Fitting a Straight Line</a></li>
+  <li><a href="#residuals-and-sums-of-squares" id="toc-residuals-and-sums-of-squares" class="nav-link" data-scroll-target="#residuals-and-sums-of-squares"><span class="header-section-number">27.2</span> Residuals and Sums of Squares</a></li>
+  <li><a href="#the-anova-table" id="toc-the-anova-table" class="nav-link" data-scroll-target="#the-anova-table"><span class="header-section-number">27.3</span> The ANOVA Table</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -536,11 +550,29 @@ In contrast, <strong>correlation</strong> treats the two variables symmetrically
 and the correlation coefficient <span class="math inline">\(r_{xy} = r_{yx}\)</span>.</p>
 </div>
 </div>
-<p>The <strong>least squares method</strong> fits a line to the data by minimizing the <strong>sum of the squared vertical distances</strong> (residuals) between the observed <span class="math inline">\(y\)</span> values and the values predicted by the line:</p>
-<p><span class="math display">\[
-\text{RSS} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
-\]</span></p>
-<p>This approach gives us a “best-fitting” line in the sense that it minimizes prediction errors overall.</p>
+<p>Our goal is to find a line that best captures the relationship between a predictor variable <span class="math inline">\(x\)</span> and a response variable <span class="math inline">\(y\)</span>. Real-world data, however, rarely fall exactly on a perfect line. Each observed value <span class="math inline">\(y_i\)</span> is typically slightly above or below the value predicted by the line at the corresponding <span class="math inline">\(x_i\)</span>. The difference between the actual value and the predicted value is called the residual, denoted by <span class="math inline">\(e_i\)</span> (which can be seen as an estimate of the error term in the model).</p>
+<p>Mathematically, the residual for observation <span class="math inline">\(i\)</span> is defined as <span class="math inline">\(e_i = y_i - \hat{y}_i\)</span>, where <span class="math inline">\(\hat{y}_i = b_0 + b_1 x_i\)</span> is the value predicted by the regression line. Residuals reflect how far off our predictions are from the actual data points. A positive residual means the observed value lies above the line, while a negative residual indicates it lies below. This is shown in <a href="#fig-ols" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>.</p>
+<p>The <strong>least squares method</strong> — the foundation of ordinary linear regression — seeks to find the values of the intercept <span class="math inline">\(b_0\)</span> and slope <span class="math inline">\(b_1\)</span> that produce the “best-fitting” line.</p>
+<p>But what does “best-fitting” mean? In this context, it refers to the line that minimizes the total squared vertical distances between the observed values <span class="math inline">\(y_i\)</span> and their predicted counterparts <span class="math inline">\(\hat{y}_i\)</span>. These vertical distances are precisely the residuals, and the objective is to minimize the <strong>Error Sum of Squares (SSE)</strong> (also known as residual sum of squares):</p>
+<p><span class="math inline">\(\text{SSE} = \sum_{i=1}^{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2\)</span></p>
+<p>Squaring the residuals serves two purposes. First, it ensures that all errors contribute positively to the total (so they don’t cancel out), and second, it gives disproportionately more weight to larger errors, thereby penalizing predictions that are far from the observed data.</p>
+<p>By finding the values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> that minimize this sum, the least squares method provides a regression line that captures the overall trend in the data as effectively as possible. This line represents the best linear approximation to the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the sense that it minimizes total prediction error under the squared loss criterion.</p>
+<p>In summary, the method of least squares gives us a principled way to estimate a linear relationship from data by focusing on how closely our predictions align with observed outcomes, and adjusting the line to minimize those discrepancies.</p>
+<div id="fig-ols" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="slr_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.1: Illustration of a simple linear regression line with a negatively sloped fit. The residual <span class="math inline">\(e_i\)</span> represents the vertical difference between the observed value and the fitted value <span class="math inline">\(\hat{y}_i\)</span>, both evaluated at <span class="math inline">\(x_i\)</span>.
+</figcaption></figure>
+</div>
 <p>To find the optimal values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>, we use the following formulas:</p>
 <p><strong>Slope:</strong></p>
 <p><span class="math display">\[
@@ -565,15 +597,482 @@ b_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}
 b_0 = \bar{y} - b_1 \bar{x}
 \]</span></p>
 <p><span class="math inline">\(b_1\)</span> (slope) is the main coefficient of interest. It tells us how much we expect <span class="math inline">\(y\)</span> to change, on average, for a one-unit increase in <span class="math inline">\(x\)</span>. Its sign tells us the direction (positive or negative association), and its magnitude tells us the strength of the relationship.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Derivation of OLS Estimators
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Where do the formulas for <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> come from? We want to estimate the regression line:</p>
+<p><span class="math display">\[
+y_i = b_0 + b_1 x_i + \varepsilon_i
+\]</span></p>
+<p>To find the values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> that minimize the residual sum of squares (RSS):</p>
+<p><span class="math display">\[
+\text{RSS} = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
+\]</span></p>
+<p><strong>Step 1: Take Partial Derivatives</strong></p>
+<p>We compute the first derivatives of RSS with respect to <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial \text{RSS}}{\partial b_0} = -2 \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial \text{RSS}}{\partial b_1} = -2 \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i)
+\]</span></p>
+<p><strong>Step 2: Set Derivatives to Zero (Normal Equations)</strong></p>
+<p>To minimize RSS, set both derivatives equal to zero:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} (y_i - b_0 - b_1 x_i) = 0
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0
+\]</span></p>
+<hr>
+<p><strong>Step 3: Solve for <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span></strong></p>
+<p>From the first equation:</p>
+<p><span class="math display">\[
+\sum y_i = n b_0 + b_1 \sum x_i \Rightarrow b_0 = \bar{y} - b_1 \bar{x}
+\]</span></p>
+<p>Substitute this into the second normal equation and simplify:</p>
+<p><span class="math display">\[
+\sum x_i y_i = b_0 \sum x_i + b_1 \sum x_i^2
+\]</span></p>
+<p>Use the substitution for <span class="math inline">\(b_0\)</span> and apply algebra:</p>
+<p><span class="math display">\[
+b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
+\]</span></p>
+<p>This gives us the slope <span class="math inline">\(b_1\)</span>. Once <span class="math inline">\(b_1\)</span> is known, plug back in to get:</p>
+<p><span class="math display">\[
+b_0 = \bar{y} - b_1 \bar{x}
+\]</span></p>
+<p><strong>Final Formulas</strong></p>
+<ul>
+<li>Slope: <span class="math display">\[
+b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
+\]</span>
+</li>
+<li>Intercept: <span class="math display">\[
+b_0 = \bar{y} - b_1 \bar{x}
+\]</span>
+</li>
+</ul>
+<p>These are the <strong>least squares estimates</strong> of the intercept and slope.</p>
+</div>
+</div>
+<section id="example-27.1-oil-consumption-and-outdoor-temperature" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-27.1-oil-consumption-and-outdoor-temperature">Example 27.1: Oil Consumption and Outdoor Temperature</h4>
+<p>This example analyzes how <strong>monthly oil consumption</strong> varies with <strong>outdoor temperature</strong>. We model the relationship using simple linear regression.</p>
+<p>We define:</p>
+<ul>
+<li>
+<span class="math inline">\(x\)</span>: average outdoor temperature in °C<br>
+</li>
+<li>
+<span class="math inline">\(y\)</span>: monthly oil consumption in liters</li>
+</ul>
+<p>We want to estimate the model:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x + \varepsilon
+\]</span></p>
+<p><strong>Observed Data</strong></p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Month</th>
+<th>
+<span class="math inline">\(x\)</span> (°C)</th>
+<th>
+<span class="math inline">\(y\)</span> (liters)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>June</td>
+<td>15.1</td>
+<td>155</td>
+</tr>
+<tr class="even">
+<td>July</td>
+<td>14.4</td>
+<td>75</td>
+</tr>
+<tr class="odd">
+<td>August</td>
+<td>15.2</td>
+<td>135</td>
+</tr>
+<tr class="even">
+<td>September</td>
+<td>10.2</td>
+<td>225</td>
+</tr>
+<tr class="odd">
+<td>October</td>
+<td>8.3</td>
+<td>275</td>
+</tr>
+<tr class="even">
+<td>November</td>
+<td>3.8</td>
+<td>385</td>
+</tr>
+<tr class="odd">
+<td>December</td>
+<td>0.5</td>
+<td>470</td>
+</tr>
+<tr class="even">
+<td>January</td>
+<td>-1.4</td>
+<td>525</td>
+</tr>
+<tr class="odd">
+<td>February</td>
+<td>-4.1</td>
+<td>625</td>
+</tr>
+<tr class="even">
+<td>March</td>
+<td>1.2</td>
+<td>450</td>
+</tr>
+</tbody>
+</table>
+<p>We create new columns in the data table to facilitate the calculations the regression coefficients:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(y\)</span></th>
+<th><span class="math inline">\(x^2\)</span></th>
+<th><span class="math inline">\(y^2\)</span></th>
+<th><span class="math inline">\(xy\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>15.1</td>
+<td>155</td>
+<td>228.01</td>
+<td>24025</td>
+<td>2340.5</td>
+</tr>
+<tr class="even">
+<td>14.4</td>
+<td>75</td>
+<td>207.36</td>
+<td>5625</td>
+<td>1080</td>
+</tr>
+<tr class="odd">
+<td>15.2</td>
+<td>135</td>
+<td>231.04</td>
+<td>18225</td>
+<td>2052</td>
+</tr>
+<tr class="even">
+<td>10.2</td>
+<td>225</td>
+<td>104.04</td>
+<td>50625</td>
+<td>2295</td>
+</tr>
+<tr class="odd">
+<td>8.3</td>
+<td>275</td>
+<td>68.89</td>
+<td>75625</td>
+<td>2282.5</td>
+</tr>
+<tr class="even">
+<td>3.8</td>
+<td>385</td>
+<td>14.44</td>
+<td>148225</td>
+<td>1463</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>470</td>
+<td>0.25</td>
+<td>220900</td>
+<td>235</td>
+</tr>
+<tr class="even">
+<td>-1.4</td>
+<td>525</td>
+<td>1.96</td>
+<td>275625</td>
+<td>-735</td>
+</tr>
+<tr class="odd">
+<td>-4.1</td>
+<td>625</td>
+<td>16.81</td>
+<td>390625</td>
+<td>-2562.5</td>
+</tr>
+<tr class="even">
+<td>1.2</td>
+<td>450</td>
+<td>1.44</td>
+<td>202500</td>
+<td>540</td>
+</tr>
+<tr class="odd">
+<td><strong>Σ</strong></td>
+<td></td>
+<td><strong>874.24</strong></td>
+<td><strong>1160995</strong></td>
+<td><strong>8990.5</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\sum x = 63.2\)</span></li>
+<li><span class="math inline">\(\sum y = 3320\)</span></li>
+<li><span class="math inline">\(n = 10\)</span></li>
+</ul>
+<p>We now can estimate the coefficients using the least squares formulas:</p>
+<p><span class="math inline">\(\hat{b}_1 = \frac{\sum xy - \frac{1}{n} \sum x \sum y}{\sum x^2 - \frac{1}{n} (\sum x)^2}\)</span></p>
+<p><span class="math inline">\(\hat{b}_0 = \bar{y} - \hat{b}_1 \bar{x}\)</span></p>
+<p>Plugging in the values:</p>
+<ul>
+<li><span class="math inline">\(\bar{x} = \frac{63.2}{10} = 6.32\)</span></li>
+<li><span class="math inline">\(\bar{y} = \frac{3320}{10} = 332\)</span></li>
+</ul>
+<p>Then:</p>
+<p><span class="math inline">\(\hat{b}_1 = \frac{8990.5 - \frac{63.2 \cdot 3320}{10}}{874.24 - \frac{63.2^2}{10}} \approx -25.3\)</span></p>
+<p><span class="math inline">\(\hat{b}_0 = 332 - (-25.3)(6.32) \approx 492\)</span></p>
+<p>The fitted regression line is thus given by:</p>
+<p><span class="math inline">\(\hat{y} = 492 - 25.3x\)</span></p>
+<p>and visualized in <a href="#fig-oil" class="quarto-xref">Figure&nbsp;<span>27.2</span></a>. This tells us:</p>
+<ul>
+<li>When the temperature is 0°C, predicted oil usage is about 492 liters.</li>
+<li>For each 1°C increase in temperature, oil consumption decreases by approximately 25.3 liters.</li>
+</ul>
+<div id="fig-oil" class="centere quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-oil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="slr_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+<figure class="figure"><p><img src="slr_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>INCLUDE BETTER PLOT SHOWING RESIDUALS!</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;27.2: Scatter plot of data points with the estimated regression line for example 27.1.
+</figcaption></figure>
+</div>
+<p>The R output for this model fit is the following:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ x, data = oil_df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-52.932 -10.235  -7.991  19.960  44.747 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  491.617     12.596   39.03 2.04e-10 ***
+x            -25.256      1.347  -18.75 6.77e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 29.36 on 8 degrees of freedom
+Multiple R-squared:  0.9777,    Adjusted R-squared:  0.975 
+F-statistic: 351.5 on 1 and 8 DF,  p-value: 6.769e-08</code></pre>
+</div>
+</div>
+</section></section><section id="residuals-and-sums-of-squares" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="residuals-and-sums-of-squares">
+<span class="header-section-number">27.2</span> Residuals and Sums of Squares</h2>
+<p>In simple linear regression, each predicted value <span class="math inline">\(\hat{y}_i\)</span> is calculated using the estimated regression line:</p>
+<p><span class="math display">\[
+\hat{y}_i = b_0 + b_1 x_i
+\]</span></p>
+<p>This value represents the model’s best guess for <span class="math inline">\(y_i\)</span> based on the corresponding <span class="math inline">\(x_i\)</span>. However, the predicted value rarely matches the observed outcome exactly. The already mentioned <strong>residual</strong> is defined as the difference between the actual value and the predicted one:</p>
+<p><span class="math display">\[
+e_i = y_i - \hat{y}_i
+\]</span></p>
+<p>Residuals represent the portion of the outcome <em>not explained</em> by the model. For the oil consumption data, the residuals quantify the mismatch between predicted oil usage based on temperature and the actual recorded usage. The following table shows the residuals calculated for each observation in the dataset:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 42%">
+<col style="width: 37%">
+</colgroup>
+<thead><tr class="header">
+<th><span class="math inline">\(x_i\)</span></th>
+<th><span class="math inline">\(y_i\)</span></th>
+<th><span class="math inline">\(\hat{y}_i = 492 - 25.3x_i\)</span></th>
+<th><span class="math inline">\(e_i = y_i - \hat{y}_i\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>15.1</td>
+<td>155</td>
+<td>109.97</td>
+<td>45.03</td>
+</tr>
+<tr class="even">
+<td>14.4</td>
+<td>75</td>
+<td>127.68</td>
+<td>-52.68</td>
+</tr>
+<tr class="odd">
+<td>15.2</td>
+<td>135</td>
+<td>107.44</td>
+<td>27.56</td>
+</tr>
+<tr class="even">
+<td>10.2</td>
+<td>225</td>
+<td>233.94</td>
+<td>-8.94</td>
+</tr>
+<tr class="odd">
+<td>8.3</td>
+<td>275</td>
+<td>282.01</td>
+<td>-7.01</td>
+</tr>
+<tr class="even">
+<td>3.8</td>
+<td>385</td>
+<td>395.86</td>
+<td>-10.86</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>470</td>
+<td>479.35</td>
+<td>-9.35</td>
+</tr>
+<tr class="even">
+<td>-1.4</td>
+<td>525</td>
+<td>527.42</td>
+<td>-2.42</td>
+</tr>
+<tr class="odd">
+<td>-4.1</td>
+<td>625</td>
+<td>595.73</td>
+<td>29.27</td>
+</tr>
+<tr class="even">
+<td>1.2</td>
+<td>450</td>
+<td>461.64</td>
+<td>-11.64</td>
+</tr>
+</tbody>
+</table>
+<p>Understanding residuals leads us to an important decomposition of the <strong>total variation</strong> in the response variable <span class="math inline">\(y\)</span>. This total variation, measured as the sum of squared deviations from the mean <span class="math inline">\(\bar{y}\)</span>, is called the <strong>Total Sum of Squares (SST)</strong>:</p>
+<p><span class="math display">\[
+SST = \sum_{i=1}^{n} (y_i - \bar{y})^2
+\]</span></p>
+<p>This total variation can be split into two components. The first is the <strong>Regression Sum of Squares (SSR)</strong>, which measures the variation explained by the regression line, that is, the part captured by the differences between the predicted values and the mean:</p>
+<p><span class="math display">\[
+SSR = \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2
+\]</span></p>
+<p>The second is the <strong>Error Sum of Squares (SSE)</strong>, which captures the unexplained variation, the part of <span class="math inline">\(y\)</span> that remains in the residuals:</p>
+<p><span class="math display">\[
+SSE = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} e_i^2
+\]</span></p>
+<p>Together, these satisfy the identity:</p>
+<p><span class="math display">\[
+SST = SSR + SSE
+\]</span></p>
+</section><section id="the-anova-table" class="level2" data-number="27.3"><h2 data-number="27.3" class="anchored" data-anchor-id="the-anova-table">
+<span class="header-section-number">27.3</span> The ANOVA Table</h2>
+<p>The above decomposition of sum of squares forms the foundation of the <strong>ANOVA (Analysis of Variance) table</strong> shown in <a href="#tbl-anove" class="quarto-xref">Table&nbsp;<span>27.1</span></a>. The table summarizes how much of the total variability in <span class="math inline">\(y\)</span> is explained by the model versus left in the residuals:</p>
+<div id="tbl-anove" class="center quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anove-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;27.1: ANOVA table showing the decomposition of total variation in the response variable into variation explained by the regression model (SSR) and unexplained variation (SSE), along with their associated degrees of freedom and mean squares.
+</figcaption><div aria-describedby="tbl-anove-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="center caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 21%">
+<col style="width: 34%">
+<col style="width: 29%">
+</colgroup>
+<thead><tr class="header">
+<th>Source</th>
+<th>Sum of Squares (SS)</th>
+<th>Degrees of Freedom (df)</th>
+<th>Mean Square (MS)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Regression</td>
+<td>SSR</td>
+<td>1</td>
+<td><span class="math inline">\(MSR = SSR / 1\)</span></td>
+</tr>
+<tr class="even">
+<td>Residual</td>
+<td>SSE</td>
+<td><span class="math inline">\(n - 2\)</span></td>
+<td><span class="math inline">\(MSE = SSE / (n - 2)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>SST</td>
+<td><span class="math inline">\(n - 1\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The quantity <span class="math inline">\(MSE\)</span> is also known as the <strong>residual variance</strong> and plays a key role in inference.</p>
+<p>To evaluate how well the regression line captures the observed data, we compute the <strong>coefficient of determination</strong>, denoted <span class="math inline">\(R^2\)</span>:</p>
+<p><span class="math display">\[
+R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}
+\]</span></p>
+<p>This value represents the <em>proportion of total variation in <span class="math inline">\(y\)</span> that is explained by the model</em>. It lies between 0 and 1. If <span class="math inline">\(R^2 = 1\)</span>, the model perfectly fits the data and all residuals are zero. If <span class="math inline">\(R^2 = 0\)</span>, the model fails to explain any variation, and the predicted values are simply equal to the mean <span class="math inline">\(\bar{y}\)</span>.</p>
+<p>In the oil consumption example, the ANOVA table yields the following result in R:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: y
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+x          1 302866  302866  351.46 6.769e-08 ***
+Residuals  8   6894     862                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Thus we have that:</p>
+<ul>
+<li>
+<span class="math inline">\(SSR = 302886\)</span>,<br>
+</li>
+<li>
+<span class="math inline">\(SST = 309760\)</span>,<br>
+</li>
+<li>So,</li>
+</ul>
+<p><span class="math display">\[
+R^2 = \frac{302886}{309760} = 0.978
+\]</span> which you can also read from the R output above.</p>
+<p>This means that</p>
+<blockquote class="blockquote">
+<p>97.8% of the variation in oil consumption is explained by the temperature-based regression model</p>
+</blockquote>
+<p>indicating a very strong linear relationship between the two variables.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -980,8 +1479,8 @@ b_0 = \bar{y} - b_1 \bar{x}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../regression/mlr.html" class="pagination-link" aria-label="Multiple Linear Regression">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Multiple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

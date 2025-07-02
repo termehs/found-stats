@@ -85,13 +85,95 @@ $$x \leftrightarrow y$$
 :::
 
 
-The **least squares method** fits a line to the data by minimizing the **sum of the squared vertical distances** (residuals) between the observed $y$ values and the values predicted by the line:
+Our goal is to find a line that best captures the relationship between a predictor variable $x$ and a response variable $y$. Real-world data, however, rarely fall exactly on a perfect line. Each observed value $y_i$ is typically slightly above or below the value predicted by the line at the corresponding $x_i$. The difference between the actual value and the predicted value is called the residual, denoted by $e_i$ (which can be seen as an estimate of the error term in the model).
 
-$$
-\text{RSS} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
-$$
+Mathematically, the residual for observation $i$ is defined as $e_i = y_i - \hat{y}_i$, where $\hat{y}_i = b_0 + b_1 x_i$ is the value predicted by the regression line. Residuals reflect how far off our predictions are from the actual data points. A positive residual means the observed value lies above the line, while a negative residual indicates it lies below. This is shown in @fig-ols.
 
-This approach gives us a "best-fitting" line in the sense that it minimizes prediction errors overall.
+The **least squares method** — the foundation of ordinary linear regression — seeks to find the values of the intercept $b_0$ and slope $b_1$ that produce the "best-fitting" line. 
+
+But what does "best-fitting" mean? In this context, it refers to the line that minimizes the total squared vertical distances between the observed values $y_i$ and their predicted counterparts $\hat{y}_i$. These vertical distances are precisely the residuals, and the objective is to minimize the **Error Sum of Squares (SSE)** (also known as residual sum of squares):
+
+$\text{SSE} = \sum_{i=1}^{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2$
+
+Squaring the residuals serves two purposes. First, it ensures that all errors contribute positively to the total (so they don’t cancel out), and second, it gives disproportionately more weight to larger errors, thereby penalizing predictions that are far from the observed data.
+
+By finding the values of $b_0$ and $b_1$ that minimize this sum, the least squares method provides a regression line that captures the overall trend in the data as effectively as possible. This line represents the best linear approximation to the relationship between $x$ and $y$ in the sense that it minimizes total prediction error under the squared loss criterion.
+
+In summary, the method of least squares gives us a principled way to estimate a linear relationship from data by focusing on how closely our predictions align with observed outcomes, and adjusting the line to minimize those discrepancies. 
+
+::: {#fig-ols .center}
+```{r}
+#| echo: false
+#| fig-height: 5
+#| fig-width: 7
+#| fig-align: center
+# ---- schematic-lm-negative -----------------------------------------------
+library(ggplot2)
+
+# Example data with a negative trend ----------------------------------------
+set.seed(77)
+df <- data.frame(
+  x = seq(1, 10, length.out = 11),
+  y = 15 - 0.9 * seq(1, 10, length.out = 11) + rnorm(11, sd = 2)
+)
+
+# Fit OLS model
+fit <- lm(y ~ x, data = df)
+df$y_hat <- predict(fit)
+df$resid <- residuals(fit)
+
+# Highlight two observations
+i <- 6                # main point for residual bracket
+
+x_i <- df$x[i]; y_i <- df$y[i];     yhat_i <- df$y_hat[i]
+
+
+# Build plot ---------------------------------------------------------------
+ggplot(df, aes(x, y)) +
+  geom_point(colour = "grey", size = 3) +
+  geom_smooth(method = "lm", se = FALSE, colour = "grey43",alpha = 0.5,
+              linewidth = 1) +               # negative-slope line
+  
+  # Vertical segments for fitted and residual at x_i
+  geom_segment(aes(x = x_i, xend = x_i, y = 0,      yend = yhat_i),
+               colour = "steelblue", linewidth = 0.7) +
+  geom_segment(aes(x = x_i, xend = x_i, y = yhat_i, yend = y_i),
+               colour = "firebrick", linewidth = 0.7) +
+  
+  # Curly-brace text glyphs
+  annotate("text", x = x_i + 0.4, y = (y_i + yhat_i) / 2,
+           label = "}", size = 10, hjust = 1, color = "firebrick") +
+
+  
+  # Residual & fitted-value labels
+  annotate("text", x = x_i + 0.5, y = (y_i + yhat_i) / 2,
+           label = expression(e[i]~"= residual"), hjust = 0, size = 4.2, color = "firebrick") +
+  annotate("text", x = x_i + 0.2, y = yhat_i / 2,
+           label = expression(hat(y)[i]~"= fitted value"), hjust = 0, size = 4.2, color = "steelblue") +
+
+  
+  # Axis-tick annotations
+  annotate("text", x = x_i, y = min(df$y) - 1, label = expression(x[i]), vjust = 1) +
+
+  
+  # Equation label (negative slope)
+  annotate("text", x = max(df$x) - 0.5, y = max(df$y_hat) - 11.5,
+           label = expression(hat(y) == b[0] + b[1]*x),
+           hjust = 0, size = 4, colour = "grey43") +
+  
+  # Axes & theme tweaks
+  labs(x = "x", y = "y") +
+  coord_cartesian(ylim = c(min(df$y) - 2, max(df$y) + 2), clip = "off") +
+  coord_cartesian(xlim = c(0,10.5), clip = "off") +
+  theme_classic(base_size = 13) +
+  theme(
+    panel.grid = element_blank(),
+    plot.margin = margin(10, 22, 20, 20)
+  )
+```
+
+Illustration of a simple linear regression line with a negatively sloped fit. The residual $e_i$ represents the vertical difference between the observed value and the fitted value $\hat{y}_i$, both evaluated at $x_i$.
+:::
 
 
 To find the optimal values of $b_0$ and $b_1$, we use the following formulas:
@@ -122,31 +204,314 @@ $$
 
 $b_1$ (slope) is the main coefficient of interest. It tells us how much we expect $y$ to change, on average, for a one-unit increase in $x$. Its sign tells us the direction (positive or negative association), and its magnitude tells us the strength of the relationship.
 
+::: {.callout-note }
+## Derivation of OLS Estimators
+Where do the formulas for $b_0$ and $b_1$ come from? We want to estimate the regression line:
 
+$$
+y_i = b_0 + b_1 x_i + \varepsilon_i
+$$
+
+To find the values of $b_0$ and $b_1$ that minimize the residual sum of squares (RSS):
+
+$$
+\text{RSS} = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
+$$
+
+**Step 1: Take Partial Derivatives**
+
+We compute the first derivatives of RSS with respect to $b_0$ and $b_1$:
+
+$$
+\frac{\partial \text{RSS}}{\partial b_0} = -2 \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)
+$$
+
+$$
+\frac{\partial \text{RSS}}{\partial b_1} = -2 \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i)
+$$
+
+**Step 2: Set Derivatives to Zero (Normal Equations)**
+
+To minimize RSS, set both derivatives equal to zero:
+
+$$
+\sum_{i=1}^{n} (y_i - b_0 - b_1 x_i) = 0
+$$
+
+$$
+\sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0
+$$
+
+---
+
+**Step 3: Solve for $b_0$ and $b_1$**
+
+From the first equation:
+
+$$
+\sum y_i = n b_0 + b_1 \sum x_i \Rightarrow b_0 = \bar{y} - b_1 \bar{x}
+$$
+
+Substitute this into the second normal equation and simplify:
+
+$$
+\sum x_i y_i = b_0 \sum x_i + b_1 \sum x_i^2
+$$
+
+Use the substitution for $b_0$ and apply algebra:
+
+$$
+b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
+$$
+
+This gives us the slope $b_1$. Once $b_1$ is known, plug back in to get:
+
+$$
+b_0 = \bar{y} - b_1 \bar{x}
+$$
+
+**Final Formulas**
+
+- Slope:
+  $$
+  b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
+  $$
+- Intercept:
+  $$
+  b_0 = \bar{y} - b_1 \bar{x}
+  $$
+
+These are the **least squares estimates** of the intercept and slope.
+
+:::
+
+#### Example 27.1: Oil Consumption and Outdoor Temperature {.unnumbered}
+
+This example analyzes how **monthly oil consumption** varies with **outdoor temperature**. We model the relationship using simple linear regression.
+
+We define:
+
+- $x$: average outdoor temperature in °C  
+- $y$: monthly oil consumption in liters
+
+We want to estimate the model:
+
+$$
+y = \beta_0 + \beta_1 x + \varepsilon
+$$
+
+**Observed Data**
+
+| Month     | $x$ (°C) | $y$ (liters) |
+|-----------|----------|--------------|
+| June      | 15.1     | 155          |
+| July      | 14.4     | 75           |
+| August    | 15.2     | 135          |
+| September | 10.2     | 225          |
+| October   | 8.3      | 275          |
+| November  | 3.8      | 385          |
+| December  | 0.5      | 470          |
+| January   | -1.4     | 525          |
+| February  | -4.1     | 625          |
+| March     | 1.2      | 450          |
+
+We create new columns in the data table to facilitate the calculations the regression coefficients:
+
+| $x$   | $y$   | $x^2$   | $y^2$    | $xy$     |
+|-------|-------|---------|----------|----------|
+| 15.1  | 155   | 228.01  | 24025    | 2340.5   |
+| 14.4  | 75    | 207.36  | 5625     | 1080     |
+| 15.2  | 135   | 231.04  | 18225    | 2052     |
+| 10.2  | 225   | 104.04  | 50625    | 2295     |
+| 8.3   | 275   | 68.89   | 75625    | 2282.5   |
+| 3.8   | 385   | 14.44   | 148225   | 1463     |
+| 0.5   | 470   | 0.25    | 220900   | 235      |
+| -1.4  | 525   | 1.96    | 275625   | -735     |
+| -4.1  | 625   | 16.81   | 390625   | -2562.5  |
+| 1.2   | 450   | 1.44    | 202500   | 540      |
+| **Σ** |       | **874.24** | **1160995** | **8990.5** |
+
+- $\sum x = 63.2$
+- $\sum y = 3320$
+- $n = 10$
+
+We now can estimate the coefficients using the least squares formulas:
+
+$\hat{b}_1 = \frac{\sum xy - \frac{1}{n} \sum x \sum y}{\sum x^2 - \frac{1}{n} (\sum x)^2}$
+
+$\hat{b}_0 = \bar{y} - \hat{b}_1 \bar{x}$
+
+Plugging in the values:
+
+- $\bar{x} = \frac{63.2}{10} = 6.32$
+- $\bar{y} = \frac{3320}{10} = 332$
+
+Then:
+
+$\hat{b}_1 = \frac{8990.5 - \frac{63.2 \cdot 3320}{10}}{874.24 - \frac{63.2^2}{10}} \approx -25.3$
+
+$\hat{b}_0 = 332 - (-25.3)(6.32) \approx 492$
+
+The fitted regression line is thus given by:
+
+$\hat{y} = 492 - 25.3x$
+
+and visualized in @fig-oil. This tells us:
+
+- When the temperature is 0°C, predicted oil usage is about 492 liters.
+- For each 1°C increase in temperature, oil consumption decreases by approximately 25.3 liters.
+
+
+::: {#fig-oil .centere}
 ```{r}
 #| echo: false
 #| fig-height: 4
 #| fig-width: 4
 #| fig-align: center
-# ---- regression-plot --------------------------------------------------------
-# Using same example data as before
-df <- data.frame(
-  x = c(5, 7, 9, 10, 12, 14, 15, 17, 19, 21),
-  y = c(35, 31, 28, 25, 22, 19, 17, 14, 12, 10)
+# ---- oil-temperature-regression --------------------------------------------
+
+
+# Data
+oil_df <- data.frame(
+  month = c("Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"),
+  x = c(15.1, 14.4, 15.2, 10.2, 8.3, 3.8, 0.5, -1.4, -4.1, 1.2),
+  y = c(155, 75, 135, 225, 275, 385, 470, 525, 625, 450)
 )
 
-library(ggplot2)
-
-ggplot(df, aes(x = x, y = y)) +
-  geom_point(color = "steelblue", size = 2) +
+# Plot
+ggplot(oil_df, aes(x = x, y = y)) +
+  geom_point(color = "steelblue", size = 3) +
   geom_smooth(method = "lm", se = FALSE, color = "firebrick", linewidth = 1) +
   labs(
-    x = "x",
-    y = "y"
+    x = "Temperature (°C)",
+    y = "Oil Consumption (liters)"
   ) +
   theme_minimal()
 ```
 
-INCLUDE BETTER PLOT SHOWING RESIDUALS!
+Scatter plot of data points with the estimated regression line for example 27.1.
+
+:::
+
+The R output for this model fit is the following:
+```{r}
+#| echo: false
+# ---- anova-oil-example -------------------------------------------------------
+# Oil-consumption data
+oil_df <- data.frame(
+  month = c("Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"),
+  x = c(15.1, 14.4, 15.2, 10.2,  8.3,  3.8,  0.5, -1.4, -4.1,  1.2),
+  y = c(155,   75,  135, 225,  275, 385, 470, 525, 625, 450)
+)
+
+# Fit simple linear regression
+fit <- lm(y ~ x, data = oil_df)
+
+summary(fit)
+```
+
+## Residuals and Sums of Squares
+
+In simple linear regression, each predicted value $\hat{y}_i$ is calculated using the estimated regression line:
+
+$$
+\hat{y}_i = b_0 + b_1 x_i
+$$
+
+This value represents the model’s best guess for $y_i$ based on the corresponding $x_i$. However, the predicted value rarely matches the observed outcome exactly. The already mentioned **residual**  is defined as the difference between the actual value and the predicted one:
+
+$$
+e_i = y_i - \hat{y}_i
+$$
+
+Residuals represent the portion of the outcome *not explained* by the model. For the oil consumption data, the residuals quantify the mismatch between predicted oil usage based on temperature and the actual recorded usage. The following table shows the residuals calculated for each observation in the dataset:
+
+| $x_i$ | $y_i$ | $\hat{y}_i = 492 - 25.3x_i$ | $e_i = y_i - \hat{y}_i$ |
+|-------|-------|-----------------------------|--------------------------|
+| 15.1  | 155   | 109.97                      | 45.03                    |
+| 14.4  | 75    | 127.68                      | -52.68                   |
+| 15.2  | 135   | 107.44                      | 27.56                    |
+| 10.2  | 225   | 233.94                      | -8.94                    |
+| 8.3   | 275   | 282.01                      | -7.01                    |
+| 3.8   | 385   | 395.86                      | -10.86                   |
+| 0.5   | 470   | 479.35                      | -9.35                    |
+| -1.4  | 525   | 527.42                      | -2.42                    |
+| -4.1  | 625   | 595.73                      | 29.27                    |
+| 1.2   | 450   | 461.64                      | -11.64                   |
+
+Understanding residuals leads us to an important decomposition of the **total variation** in the response variable $y$. This total variation, measured as the sum of squared deviations from the mean $\bar{y}$, is called the **Total Sum of Squares (SST)**:
+
+$$
+SST = \sum_{i=1}^{n} (y_i - \bar{y})^2
+$$
+
+This total variation can be split into two components. The first is the **Regression Sum of Squares (SSR)**, which measures the variation explained by the regression line, that is, the part captured by the differences between the predicted values and the mean:
+
+$$
+SSR = \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2
+$$
+
+The second is the **Error Sum of Squares (SSE)**, which captures the unexplained variation, the part of $y$ that remains in the residuals:
+
+$$
+SSE = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} e_i^2
+$$
+
+Together, these satisfy the identity:
+
+$$
+SST = SSR + SSE
+$$
 
 
+## The ANOVA Table
+The above decomposition of sum of squares forms the foundation of the **ANOVA (Analysis of Variance) table** shown in @tbl-anove. The table summarizes how much of the total variability in $y$ is explained by the model versus left in the residuals:
+
+
+::: {#tbl-anove .center}
+
+| Source       | Sum of Squares (SS) | Degrees of Freedom (df) | Mean Square (MS)          |
+|--------------|---------------------|---------------------------------|----------------------------|
+| Regression   | SSR                 | 1                        | $MSR = SSR / 1$            |
+| Residual     | SSE                 | $n - 2$                  | $MSE = SSE / (n - 2)$      |
+| Total        | SST                 | $n - 1$                  |                            |
+
+ANOVA table showing the decomposition of total variation in the response variable into variation explained by the regression model (SSR) and unexplained variation (SSE), along with their associated degrees of freedom and mean squares.
+:::
+
+The quantity $MSE$ is also known as the **residual variance** and plays a key role in inference.
+
+To evaluate how well the regression line captures the observed data, we compute the **coefficient of determination**, denoted $R^2$:
+
+$$
+R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}
+$$
+
+This value represents the *proportion of total variation in $y$ that is explained by the model*. It lies between 0 and 1. If $R^2 = 1$, the model perfectly fits the data and all residuals are zero. If $R^2 = 0$, the model fails to explain any variation, and the predicted values are simply equal to the mean $\bar{y}$.
+
+In the oil consumption example, the ANOVA table yields the following result in R:
+```{r}
+#| echo: false
+
+# Display the ANOVA table
+anova(fit)
+
+```
+
+
+Thus we have that:
+  
+- $SSR = 302886$,  
+- $SST = 309760$,  
+- So,
+
+$$
+R^2 = \frac{302886}{309760} = 0.978
+$$
+which you can also read from the R output above.
+
+This means that 
+
+> 97.8% of the variation in oil consumption is explained by the temperature-based regression model 
+
+indicating a very strong linear relationship between the two variables.

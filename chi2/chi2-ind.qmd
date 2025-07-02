@@ -3,7 +3,7 @@ We now consider the second $\chi^2$ method, namely the **test of independence in
 
 When investigating the relationship between two **qualitative (categorical)** variables, a common method is the **chi-square test of independence**. This method allows us to determine whether there is a significant association between the two variables in the population, based on data observed in a sample.
 
-#### Example 23.3: Income Level and Housing Cost  {.unnumbered}
+#### Example 25.1: Income Level and Housing Cost  {.unnumbered}
 A sample of **500 single-person households** is classified based on their disposable income (low, medium, high) and their housing costs (low, medium, high). The data is presented in a contingency table:
 
 | Housing Cost | Low Income | Medium Income | High Income | Total |
@@ -117,7 +117,7 @@ To ensure the approximation is valid, a common guideline is:
 
 
 
-#### Example 23.3: Income Level and Housing Cost (Cont'd) {.unnumbered}
+#### Example 25.1: Income Level and Housing Cost (Cont'd) {.unnumbered}
 We are given a $3 \times 3$ contingency table of education level and income level among 500 individuals. The goal is to determine whether education level and income level are statistically independent.
 
 | Education Level | Low Income | Medium Income | High Income | Row Totals ($R_i$) |

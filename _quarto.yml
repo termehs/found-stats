@@ -63,6 +63,8 @@ book:
       chapters:
       - regression/reg-framework.qmd
       - regression/slr.qmd
+      - regression/mlr.qmd
+      - regression/reg-inf.qmd
     - part: references.qmd
   appendices:
   - appendix/normal-table.qmd
@@ -70,14 +72,14 @@ book:
   - appendix/chi2-table.qmd
 bibliography: references.bib
 
-number-sections: true 
-
+  
 format:
   html:
+    css: styles.css
     execute:
-    echo: false
-    warning: false
-    message: false
+      echo: false
+      warning: false
+      message: false
     mermaid:
       theme: default
     theme: cosmo
