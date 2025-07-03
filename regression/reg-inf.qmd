@@ -336,42 +336,55 @@ Here:
 
 This model allows us to assess how **each predictor influences $y$ while holding all other variables constant**. In contrast to simple regression, where effects are unadjusted, multiple regression gives **adjusted estimates** that help untangle overlapping influences.
 
+## Assumptions and the Gauss–Markov Theorem
 
-### Model Assumptions
+Like simple linear regression, the multiple linear regression model is built on a set of fundamental assumptions that ensure the reliability of the estimates and the validity of inference procedures.
 
-Just as with simple regression, multiple regression relies on several key assumptions:
-
-1. **Linearity**: The relationship between $y$ and the predictors is linear in the parameters.
-2. **Fixed predictors**: The $x$-values are treated as fixed (non-random) in repeated samples.
-3. **Independent errors**: The errors $\varepsilon_i$ are independent across observations.
-4. **Homoskedasticity**: The errors have constant variance: $\operatorname{Var}(\varepsilon_i) = \sigma^2$.
-5. **Normality**: The errors are normally distributed: $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$.
-
-These assumptions are needed to ensure valid estimation, inference, and prediction. We estimate the unknown parameters $\beta_0, \dots, \beta_K$ using the **least squares method**, just as in simple regression. The goal is to minimize the sum of squared differences between observed and predicted values:
+At the core of the model is the assumption that the relationship between the response variable $y$ and the explanatory variables $x_1, x_2, \dots, x_K$ is **linear in parameters**. This means the model takes the form:
 
 $$
-\text{SSE} = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - b_0 - b_1 x_{1i} - \dots - b_K x_{Ki})^2
+y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_K x_{Ki} + \varepsilon_i,
 $$
 
-This yields the **least squares estimates** $b_0, b_1, \dots, b_K$.
+where $\varepsilon_i$ is a random error term.
 
-Under the model assumptions, these estimates are **unbiased**:
+For the least squares estimates to perform well, the following assumptions must hold:
+
+1. **Linearity**: The model must be linear in the coefficients. This does not mean that the relationship between $x$ and $y$ must look linear visually, but rather that the parameters appear in a linear form (i.e., no squares, logs, or interactions unless explicitly modeled).
+
+2. **Fixed explanatory variables**: The values of the explanatory variables $x_{1i}, \dots, x_{Ki}$ are assumed to be non-random across repeated samples. This means we condition on $X$ when making inference about $\beta$.
+
+3. **Zero mean of errors**: The error terms are assumed to have an expected value of zero: $E[\varepsilon_i] = 0$ for all $i$.
+
+4. **Independence of errors**: The errors are independent of one another across observations. This rules out autocorrelation or clustering unless specifically accounted for in the model.
+
+5. **Constant variance (Homoskedasticity)**: All errors have the same variance: $\operatorname{Var}(\varepsilon_i) = \sigma^2$. If the variance of errors changes with the level of a predictor, we have **heteroskedasticity**, which violates this assumption.
+
+6. **No perfect multicollinearity**: The explanatory variables must not be perfectly linearly related. That is, no predictor can be expressed as an exact linear combination of the others. This ensures that the matrix $X'X$ is invertible.
+
+Under these assumptions (excluding the assumption of normality) we can invoke the **Gauss–Markov Theorem**, which is a cornerstone of classical regression theory. It states:
+
+> Among all linear and unbiased estimators, the **least squares estimator** has the **smallest variance**. That is, it is the **Best Linear Unbiased Estimator (BLUE)** of the regression coefficients.
+
+This result justifies using least squares even in the absence of normally distributed errors, as long as the other assumptions hold.
+
+If, in addition to the above assumptions, we assume that the errors $\varepsilon_i$ are **normally distributed** (i.e., $\varepsilon_i \sim \mathcal{N}(0, \sigma^2)$), then the least squares estimators not only remain unbiased and efficient but also follow a known sampling distribution. Specifically, the estimated coefficients follow a multivariate normal distribution, which enables us to perform t-tests, F-tests, and construct confidence intervals using standard inferential tools.
+
+To estimate the coefficients $\beta_0, \dots, \beta_K$, we apply the **method of least squares**, which minimizes the **sum of squared residuals**:
 
 $$
-E[b_k] = \beta_k \quad \text{for all } k = 0, \dots, K
+\text{SSE} = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - b_0 - b_1 x_{1i} - \dots - b_K x_{Ki})^2.
 $$
 
-This means that, on average, the estimated coefficients correctly reflect the true population parameters.
-
-### Residual Variance and Model Fit
-
-After estimating the regression function, we estimate the variance of the errors using the **residual mean square**:
+The solution yields the least squares estimates $b_0, b_1, \dots, b_K$, which are point estimates of the unknown population coefficients. Under the model assumptions, each $b_k$ is an **unbiased** estimator of the corresponding $\beta_k$:
 
 $$
-s_e^2 = \frac{SSE}{n - K - 1} = \frac{\sum (y_i - \hat{y}_i)^2}{n - K - 1}
+E[b_k] = \beta_k.
 $$
 
-This estimate tells us how much observed values tend to deviate from their predicted values. It generalizes the residual variance concept from simple regression to cases with multiple predictors.
+This guarantees that the estimates are, on average, correct in repeated sampling.
+
+In summary, the classical linear regression model provides a solid statistical framework for estimation and inference—but only when its assumptions are satisfied. The Gauss–Markov Theorem confirms the optimality of least squares under fairly minimal conditions, making it the default approach in many applied settings.
 
 
 ## Confidence Intervals for Coefficients

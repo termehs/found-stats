@@ -442,16 +442,11 @@ window.Quarto = {
   <li><a href="#hypothesis-testing-for-beta_1-t-test-and-f-test-equivalence" id="toc-hypothesis-testing-for-beta_1-t-test-and-f-test-equivalence" class="nav-link" data-scroll-target="#hypothesis-testing-for-beta_1-t-test-and-f-test-equivalence"><span class="header-section-number">29.1.5</span> Hypothesis Testing for <span class="math inline">\(\beta_1\)</span>: t-Test and F-Test Equivalence</a></li>
   </ul>
 </li>
-  <li>
-<a href="#the-multiple-linear-regression-model" id="toc-the-multiple-linear-regression-model" class="nav-link" data-scroll-target="#the-multiple-linear-regression-model"><span class="header-section-number">29.2</span> The Multiple Linear Regression Model</a>
-  <ul class="collapse">
-<li><a href="#model-assumptions" id="toc-model-assumptions" class="nav-link" data-scroll-target="#model-assumptions"><span class="header-section-number">29.2.1</span> Model Assumptions</a></li>
-  <li><a href="#residual-variance-and-model-fit" id="toc-residual-variance-and-model-fit" class="nav-link" data-scroll-target="#residual-variance-and-model-fit"><span class="header-section-number">29.2.2</span> Residual Variance and Model Fit</a></li>
-  </ul>
-</li>
-  <li><a href="#confidence-intervals-for-coefficients" id="toc-confidence-intervals-for-coefficients" class="nav-link" data-scroll-target="#confidence-intervals-for-coefficients"><span class="header-section-number">29.3</span> Confidence Intervals for Coefficients</a></li>
-  <li><a href="#hypothesis-testing-for-individual-predictors" id="toc-hypothesis-testing-for-individual-predictors" class="nav-link" data-scroll-target="#hypothesis-testing-for-individual-predictors"><span class="header-section-number">29.4</span> Hypothesis Testing for Individual Predictors</a></li>
-  <li><a href="#joint-hypothesis-testing-in-multiple-linear-regression" id="toc-joint-hypothesis-testing-in-multiple-linear-regression" class="nav-link" data-scroll-target="#joint-hypothesis-testing-in-multiple-linear-regression"><span class="header-section-number">29.5</span> Joint Hypothesis Testing in Multiple Linear Regression</a></li>
+  <li><a href="#the-multiple-linear-regression-model" id="toc-the-multiple-linear-regression-model" class="nav-link" data-scroll-target="#the-multiple-linear-regression-model"><span class="header-section-number">29.2</span> The Multiple Linear Regression Model</a></li>
+  <li><a href="#assumptions-and-the-gaussmarkov-theorem" id="toc-assumptions-and-the-gaussmarkov-theorem" class="nav-link" data-scroll-target="#assumptions-and-the-gaussmarkov-theorem"><span class="header-section-number">29.3</span> Assumptions and the Gauss–Markov Theorem</a></li>
+  <li><a href="#confidence-intervals-for-coefficients" id="toc-confidence-intervals-for-coefficients" class="nav-link" data-scroll-target="#confidence-intervals-for-coefficients"><span class="header-section-number">29.4</span> Confidence Intervals for Coefficients</a></li>
+  <li><a href="#hypothesis-testing-for-individual-predictors" id="toc-hypothesis-testing-for-individual-predictors" class="nav-link" data-scroll-target="#hypothesis-testing-for-individual-predictors"><span class="header-section-number">29.5</span> Hypothesis Testing for Individual Predictors</a></li>
+  <li><a href="#joint-hypothesis-testing-in-multiple-linear-regression" id="toc-joint-hypothesis-testing-in-multiple-linear-regression" class="nav-link" data-scroll-target="#joint-hypothesis-testing-in-multiple-linear-regression"><span class="header-section-number">29.6</span> Joint Hypothesis Testing in Multiple Linear Regression</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-inf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -788,40 +783,41 @@ Y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_K x_{Ki} + \vare
 <span class="math inline">\(\varepsilon_i\)</span> is the error term, capturing randomness and unobserved effects</li>
 </ul>
 <p>This model allows us to assess how <strong>each predictor influences <span class="math inline">\(y\)</span> while holding all other variables constant</strong>. In contrast to simple regression, where effects are unadjusted, multiple regression gives <strong>adjusted estimates</strong> that help untangle overlapping influences.</p>
-<section id="model-assumptions" class="level3" data-number="29.2.1"><h3 data-number="29.2.1" class="anchored" data-anchor-id="model-assumptions">
-<span class="header-section-number">29.2.1</span> Model Assumptions</h3>
-<p>Just as with simple regression, multiple regression relies on several key assumptions:</p>
+</section><section id="assumptions-and-the-gaussmarkov-theorem" class="level2" data-number="29.3"><h2 data-number="29.3" class="anchored" data-anchor-id="assumptions-and-the-gaussmarkov-theorem">
+<span class="header-section-number">29.3</span> Assumptions and the Gauss–Markov Theorem</h2>
+<p>Like simple linear regression, the multiple linear regression model is built on a set of fundamental assumptions that ensure the reliability of the estimates and the validity of inference procedures.</p>
+<p>At the core of the model is the assumption that the relationship between the response variable <span class="math inline">\(y\)</span> and the explanatory variables <span class="math inline">\(x_1, x_2, \dots, x_K\)</span> is <strong>linear in parameters</strong>. This means the model takes the form:</p>
+<p><span class="math display">\[
+y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_K x_{Ki} + \varepsilon_i,
+\]</span></p>
+<p>where <span class="math inline">\(\varepsilon_i\)</span> is a random error term.</p>
+<p>For the least squares estimates to perform well, the following assumptions must hold:</p>
 <ol type="1">
-<li>
-<strong>Linearity</strong>: The relationship between <span class="math inline">\(y\)</span> and the predictors is linear in the parameters.</li>
-<li>
-<strong>Fixed predictors</strong>: The <span class="math inline">\(x\)</span>-values are treated as fixed (non-random) in repeated samples.</li>
-<li>
-<strong>Independent errors</strong>: The errors <span class="math inline">\(\varepsilon_i\)</span> are independent across observations.</li>
-<li>
-<strong>Homoskedasticity</strong>: The errors have constant variance: <span class="math inline">\(\operatorname{Var}(\varepsilon_i) = \sigma^2\)</span>.</li>
-<li>
-<strong>Normality</strong>: The errors are normally distributed: <span class="math inline">\(\varepsilon_i \sim \mathcal{N}(0, \sigma^2)\)</span>.</li>
+<li><p><strong>Linearity</strong>: The model must be linear in the coefficients. This does not mean that the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> must look linear visually, but rather that the parameters appear in a linear form (i.e., no squares, logs, or interactions unless explicitly modeled).</p></li>
+<li><p><strong>Fixed explanatory variables</strong>: The values of the explanatory variables <span class="math inline">\(x_{1i}, \dots, x_{Ki}\)</span> are assumed to be non-random across repeated samples. This means we condition on <span class="math inline">\(X\)</span> when making inference about <span class="math inline">\(\beta\)</span>.</p></li>
+<li><p><strong>Zero mean of errors</strong>: The error terms are assumed to have an expected value of zero: <span class="math inline">\(E[\varepsilon_i] = 0\)</span> for all <span class="math inline">\(i\)</span>.</p></li>
+<li><p><strong>Independence of errors</strong>: The errors are independent of one another across observations. This rules out autocorrelation or clustering unless specifically accounted for in the model.</p></li>
+<li><p><strong>Constant variance (Homoskedasticity)</strong>: All errors have the same variance: <span class="math inline">\(\operatorname{Var}(\varepsilon_i) = \sigma^2\)</span>. If the variance of errors changes with the level of a predictor, we have <strong>heteroskedasticity</strong>, which violates this assumption.</p></li>
+<li><p><strong>No perfect multicollinearity</strong>: The explanatory variables must not be perfectly linearly related. That is, no predictor can be expressed as an exact linear combination of the others. This ensures that the matrix <span class="math inline">\(X'X\)</span> is invertible.</p></li>
 </ol>
-<p>These assumptions are needed to ensure valid estimation, inference, and prediction. We estimate the unknown parameters <span class="math inline">\(\beta_0, \dots, \beta_K\)</span> using the <strong>least squares method</strong>, just as in simple regression. The goal is to minimize the sum of squared differences between observed and predicted values:</p>
+<p>Under these assumptions (excluding the assumption of normality) we can invoke the <strong>Gauss–Markov Theorem</strong>, which is a cornerstone of classical regression theory. It states:</p>
+<blockquote class="blockquote">
+<p>Among all linear and unbiased estimators, the <strong>least squares estimator</strong> has the <strong>smallest variance</strong>. That is, it is the <strong>Best Linear Unbiased Estimator (BLUE)</strong> of the regression coefficients.</p>
+</blockquote>
+<p>This result justifies using least squares even in the absence of normally distributed errors, as long as the other assumptions hold.</p>
+<p>If, in addition to the above assumptions, we assume that the errors <span class="math inline">\(\varepsilon_i\)</span> are <strong>normally distributed</strong> (i.e., <span class="math inline">\(\varepsilon_i \sim \mathcal{N}(0, \sigma^2)\)</span>), then the least squares estimators not only remain unbiased and efficient but also follow a known sampling distribution. Specifically, the estimated coefficients follow a multivariate normal distribution, which enables us to perform t-tests, F-tests, and construct confidence intervals using standard inferential tools.</p>
+<p>To estimate the coefficients <span class="math inline">\(\beta_0, \dots, \beta_K\)</span>, we apply the <strong>method of least squares</strong>, which minimizes the <strong>sum of squared residuals</strong>:</p>
 <p><span class="math display">\[
-\text{SSE} = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - b_0 - b_1 x_{1i} - \dots - b_K x_{Ki})^2
+\text{SSE} = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - b_0 - b_1 x_{1i} - \dots - b_K x_{Ki})^2.
 \]</span></p>
-<p>This yields the <strong>least squares estimates</strong> <span class="math inline">\(b_0, b_1, \dots, b_K\)</span>.</p>
-<p>Under the model assumptions, these estimates are <strong>unbiased</strong>:</p>
+<p>The solution yields the least squares estimates <span class="math inline">\(b_0, b_1, \dots, b_K\)</span>, which are point estimates of the unknown population coefficients. Under the model assumptions, each <span class="math inline">\(b_k\)</span> is an <strong>unbiased</strong> estimator of the corresponding <span class="math inline">\(\beta_k\)</span>:</p>
 <p><span class="math display">\[
-E[b_k] = \beta_k \quad \text{for all } k = 0, \dots, K
+E[b_k] = \beta_k.
 \]</span></p>
-<p>This means that, on average, the estimated coefficients correctly reflect the true population parameters.</p>
-</section><section id="residual-variance-and-model-fit" class="level3" data-number="29.2.2"><h3 data-number="29.2.2" class="anchored" data-anchor-id="residual-variance-and-model-fit">
-<span class="header-section-number">29.2.2</span> Residual Variance and Model Fit</h3>
-<p>After estimating the regression function, we estimate the variance of the errors using the <strong>residual mean square</strong>:</p>
-<p><span class="math display">\[
-s_e^2 = \frac{SSE}{n - K - 1} = \frac{\sum (y_i - \hat{y}_i)^2}{n - K - 1}
-\]</span></p>
-<p>This estimate tells us how much observed values tend to deviate from their predicted values. It generalizes the residual variance concept from simple regression to cases with multiple predictors.</p>
-</section></section><section id="confidence-intervals-for-coefficients" class="level2" data-number="29.3"><h2 data-number="29.3" class="anchored" data-anchor-id="confidence-intervals-for-coefficients">
-<span class="header-section-number">29.3</span> Confidence Intervals for Coefficients</h2>
+<p>This guarantees that the estimates are, on average, correct in repeated sampling.</p>
+<p>In summary, the classical linear regression model provides a solid statistical framework for estimation and inference—but only when its assumptions are satisfied. The Gauss–Markov Theorem confirms the optimality of least squares under fairly minimal conditions, making it the default approach in many applied settings.</p>
+</section><section id="confidence-intervals-for-coefficients" class="level2" data-number="29.4"><h2 data-number="29.4" class="anchored" data-anchor-id="confidence-intervals-for-coefficients">
+<span class="header-section-number">29.4</span> Confidence Intervals for Coefficients</h2>
 <p>Once we’ve estimated the model parameters using least squares, we often want to understand the <strong>uncertainty</strong> in those estimates. Two central tools for doing this are <strong>confidence intervals</strong> and <strong>hypothesis tests</strong>, particularly concerning individual regression coefficients. We start with the former.</p>
 <p>Each estimated coefficient in the regression model, denoted <span class="math inline">\(b_j\)</span>, is only an estimate of the true but unknown population coefficient <span class="math inline">\(\beta_j\)</span>. Due to sampling variability, this estimate is subject to uncertainty. To capture this uncertainty, we construct a confidence interval.</p>
 <p>A 95% confidence interval for <span class="math inline">\(\beta_j\)</span> takes the form:</p>
@@ -830,8 +826,8 @@ b_j \pm t_{\nu, 0.025} \cdot s_{b_j}
 \]</span></p>
 <p>Here, <span class="math inline">\(s_{b_j}\)</span> is the standard error of <span class="math inline">\(b_j\)</span>, and <span class="math inline">\(t_{\nu, 0.025}\)</span> is the critical value from the <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(\nu = n - K - 1\)</span> degrees of freedom. The interval gives us a range of values within which the true coefficient <span class="math inline">\(\beta_j\)</span> is likely to fall, assuming the model assumptions hold.</p>
 <p>In practical work, these intervals are usually reported alongside the model output in software such as R, and they serve as a direct way to assess both the magnitude and uncertainty of an effect.</p>
-</section><section id="hypothesis-testing-for-individual-predictors" class="level2" data-number="29.4"><h2 data-number="29.4" class="anchored" data-anchor-id="hypothesis-testing-for-individual-predictors">
-<span class="header-section-number">29.4</span> Hypothesis Testing for Individual Predictors</h2>
+</section><section id="hypothesis-testing-for-individual-predictors" class="level2" data-number="29.5"><h2 data-number="29.5" class="anchored" data-anchor-id="hypothesis-testing-for-individual-predictors">
+<span class="header-section-number">29.5</span> Hypothesis Testing for Individual Predictors</h2>
 <p>Beyond estimating coefficients, we often want to test whether a given variable contributes meaningfully to explaining <span class="math inline">\(y\)</span> in the presence of other variables. To do this, we test whether the corresponding coefficient is equal to zero. This leads to the hypothesis:</p>
 <p><span class="math display">\[
 H_0: \beta_j = 0 \quad \text{versus} \quad H_1: \beta_j \neq 0
@@ -841,8 +837,8 @@ H_0: \beta_j = 0 \quad \text{versus} \quad H_1: \beta_j \neq 0
 t = \frac{b_j}{s_{b_j}}
 \]</span></p>
 <p>This statistic measures how many standard errors the estimate is away from zero. If the result is far enough from zero, relative to the <span class="math inline">\(t\)</span>-distribution, we reject the null hypothesis. The <span class="math inline">\(t\)</span>-distribution used here has <span class="math inline">\(n - K - 1\)</span> degrees of freedom, which accounts for both the sample size and the number of estimated parameters.</p>
-</section><section id="joint-hypothesis-testing-in-multiple-linear-regression" class="level2" data-number="29.5"><h2 data-number="29.5" class="anchored" data-anchor-id="joint-hypothesis-testing-in-multiple-linear-regression">
-<span class="header-section-number">29.5</span> Joint Hypothesis Testing in Multiple Linear Regression</h2>
+</section><section id="joint-hypothesis-testing-in-multiple-linear-regression" class="level2" data-number="29.6"><h2 data-number="29.6" class="anchored" data-anchor-id="joint-hypothesis-testing-in-multiple-linear-regression">
+<span class="header-section-number">29.6</span> Joint Hypothesis Testing in Multiple Linear Regression</h2>
 <p>So far, we’ve looked at inference for individual regression coefficients—asking whether a single explanatory variable has a statistically significant effect on the response variable. But in multiple regression, a more fundamental question often comes first:</p>
 <blockquote class="blockquote">
 <p>Do all the predictors together explain any of the variation in the response variable?</p>

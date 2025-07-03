@@ -65,6 +65,7 @@ book:
       - regression/slr.qmd
       - regression/mlr.qmd
       - regression/reg-inf.qmd
+      - regression/reg-cats.qmd
     - part: references.qmd
   appendices:
   - appendix/normal-table.qmd

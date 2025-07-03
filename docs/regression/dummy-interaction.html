@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Termeh Shafie">
-<title>27&nbsp; Simple Linear Regression – Foundational Statistics</title>
+
+<title>30&nbsp; Dummy Variables and Interaction Terms – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -27,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../regression/mlr.html" rel="next">
-<link href="../regression/reg-framework.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../regression/reg-inf.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -39,7 +43,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -65,7 +70,12 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -90,25 +100,34 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><link rel="stylesheet" href="../styles.css">
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
+
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/slr.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/dummy-interaction.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dummy Variables and Interaction Terms</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -123,7 +142,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -137,8 +156,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -163,7 +182,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -172,8 +191,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -192,7 +211,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -201,8 +220,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -227,7 +246,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -236,8 +255,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -262,7 +281,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -271,8 +290,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
@@ -297,7 +316,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
@@ -306,8 +325,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
@@ -326,7 +345,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
@@ -335,8 +354,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chi2/chi2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The Chi Square Method</span></span></a>
@@ -355,7 +374,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -364,8 +383,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
@@ -373,7 +392,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regression/slr.html" class="sidebar-item-text sidebar-link active">
+  <a href="../regression/slr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></a>
   </div>
 </li>
@@ -389,8 +408,14 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regression Inference</span></span></a>
   </div>
 </li>
-      </ul>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/dummy-interaction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dummy Variables and Interaction Terms</span></span></a>
+  </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
@@ -403,8 +428,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span></a>
@@ -423,23 +448,21 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-<li><a href="#the-least-squares-method-fitting-a-straight-line" id="toc-the-least-squares-method-fitting-a-straight-line" class="nav-link active" data-scroll-target="#the-least-squares-method-fitting-a-straight-line"><span class="header-section-number">27.1</span> The Least Squares Method: Fitting a Straight Line</a></li>
-  <li><a href="#residuals-and-sums-of-squares" id="toc-residuals-and-sums-of-squares" class="nav-link" data-scroll-target="#residuals-and-sums-of-squares"><span class="header-section-number">27.2</span> Residuals and Sums of Squares</a></li>
-  <li><a href="#the-anova-table" id="toc-the-anova-table" class="nav-link" data-scroll-target="#the-anova-table"><span class="header-section-number">27.3</span> The ANOVA Table</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/slr.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-slr" class="quarto-section-identifier"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Simple Linear Regression</span></span></h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/dummy-interaction.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dummy Variables and Interaction Terms</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-dumint" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Dummy Variables and Interaction Terms</span></span></h1>
 </div>
 
 
@@ -453,629 +476,14 @@ window.Quarto = {
   
 
 
-</header><p>In many practical situations, we are interested in understanding how two observed quantitative variables relate to one another. Suppose we have a dataset with <span class="math inline">\(n\)</span> paired observations of two variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th>Observation</th>
-<th><span class="math inline">\(x\)</span></th>
-<th><span class="math inline">\(y\)</span></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td><span class="math inline">\(x_1\)</span></td>
-<td><span class="math inline">\(y_1\)</span></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td><span class="math inline">\(x_2\)</span></td>
-<td><span class="math inline">\(y_2\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-<td><span class="math inline">\(\vdots\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(n\)</span></td>
-<td><span class="math inline">\(x_n\)</span></td>
-<td><span class="math inline">\(y_n\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>A first step in analyzing this relationship is to visualize the data using a scatterplot, where each point represents a pair <span class="math inline">\((x_i, y_i)\)</span>. This helps us assess whether a <strong>linear pattern</strong> is plausible:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="slr_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Before we fit a regression line, we examine how the variables covary. The correlation coefficient is a standardized measure of the <strong>linear association</strong> between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
-<p><span class="math display">\[
-r_{xy} = \frac{s_{xy}}{s_x s_y}
-\]</span></p>
-<p>Where:</p>
-<ul>
-<li><p><span class="math inline">\(s_{xy}\)</span> is the sample covariance between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>: <span class="math display">\[
-s_{xy} = \frac{1}{n - 1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})
-\]</span></p></li>
-<li><p><span class="math inline">\(s_x\)</span> and <span class="math inline">\(s_y\)</span> are the <strong>sample standard deviations</strong> of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p></li>
-</ul>
-<p>The sign and magnitude of this value (<span class="math inline">\(-1 &lt; r_{xy} &lt; 1\)</span>) determine the strength and direction of the linear relationship (see <a href="../descriptive-stats/dispersion-measures.html" class="quarto-xref"><span>Chapter 7</span></a> for more detail).</p>
-<section id="the-least-squares-method-fitting-a-straight-line" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="the-least-squares-method-fitting-a-straight-line">
-<span class="header-section-number">27.1</span> The Least Squares Method: Fitting a Straight Line</h2>
-<p>Once we suspect that a linear relationship exists between two variables, we aim to quantify it using a <strong>regression line</strong> of the form:</p>
-<p><span class="math display">\[
-y = b_0 + b_1 x
-\]</span></p>
-<p>Where:</p>
-<ul>
-<li>
-<span class="math inline">\(y\)</span> is the <strong>dependent variable</strong> (also called the response variable),</li>
-<li>
-<span class="math inline">\(x\)</span> is the <strong>independent variable</strong> (also called the predictor or explanatory variable),</li>
-<li>
-<span class="math inline">\(b_0\)</span> is the <strong>intercept</strong> (the value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x = 0\)</span>),</li>
-<li>
-<span class="math inline">\(b_1\)</span> is the <strong>slope</strong> (the change in <span class="math inline">\(y\)</span> for a one-unit change in <span class="math inline">\(x\)</span>).</li>
-</ul>
-<p>This regression line is intended to summarize the overall trend in the data, allowing us to predict the average value of <span class="math inline">\(y\)</span> for a given <span class="math inline">\(x\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note 1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In regression analysis, we are describing how <span class="math inline">\(y\)</span> is associated with <span class="math inline">\(x\)</span>—but this is not the same as proving causation. The analysis shows a <strong>statistical association</strong>, not a causal one.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note 2
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In <strong>regression</strong>, we treat <span class="math inline">\(x\)</span> as the variable that helps explain <span class="math inline">\(y\)</span>. We focus on a <strong>directional relationship</strong>, often written as:<br><span class="math display">\[x \rightarrow y\]</span><br>
-In contrast, <strong>correlation</strong> treats the two variables symmetrically: <span class="math display">\[x \leftrightarrow y\]</span><br>
-and the correlation coefficient <span class="math inline">\(r_{xy} = r_{yx}\)</span>.</p>
-</div>
-</div>
-<p>Our goal is to find a line that best captures the relationship between a predictor variable <span class="math inline">\(x\)</span> and a response variable <span class="math inline">\(y\)</span>. Real-world data, however, rarely fall exactly on a perfect line. Each observed value <span class="math inline">\(y_i\)</span> is typically slightly above or below the value predicted by the line at the corresponding <span class="math inline">\(x_i\)</span>. The difference between the actual value and the predicted value is called the residual, denoted by <span class="math inline">\(e_i\)</span> (which can be seen as an estimate of the error term in the model).</p>
-<p>Mathematically, the residual for observation <span class="math inline">\(i\)</span> is defined as <span class="math inline">\(e_i = y_i - \hat{y}_i\)</span>, where <span class="math inline">\(\hat{y}_i = b_0 + b_1 x_i\)</span> is the value predicted by the regression line. Residuals reflect how far off our predictions are from the actual data points. A positive residual means the observed value lies above the line, while a negative residual indicates it lies below. This is shown in <a href="#fig-ols" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>.</p>
-<p>The <strong>least squares method</strong> — the foundation of ordinary linear regression — seeks to find the values of the intercept <span class="math inline">\(b_0\)</span> and slope <span class="math inline">\(b_1\)</span> that produce the “best-fitting” line.</p>
-<p>But what does “best-fitting” mean? In this context, it refers to the line that minimizes the total squared vertical distances between the observed values <span class="math inline">\(y_i\)</span> and their predicted counterparts <span class="math inline">\(\hat{y}_i\)</span>. These vertical distances are precisely the residuals, and the objective is to minimize the <strong>Error Sum of Squares (SSE)</strong> (also known as residual sum of squares):</p>
-<p><span class="math inline">\(\text{SSE} = \sum_{i=1}^{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2\)</span></p>
-<p>Squaring the residuals serves two purposes. First, it ensures that all errors contribute positively to the total (so they don’t cancel out), and second, it gives disproportionately more weight to larger errors, thereby penalizing predictions that are far from the observed data.</p>
-<p>By finding the values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> that minimize this sum, the least squares method provides a regression line that captures the overall trend in the data as effectively as possible. This line represents the best linear approximation to the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the sense that it minimizes total prediction error under the squared loss criterion.</p>
-<p>In summary, the method of least squares gives us a principled way to estimate a linear relationship from data by focusing on how closely our predictions align with observed outcomes, and adjusting the line to minimize those discrepancies.</p>
-<div id="fig-ols" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="slr_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;27.1: Illustration of a simple linear regression line with a negatively sloped fit. The residual <span class="math inline">\(e_i\)</span> represents the vertical difference between the observed value and the fitted value <span class="math inline">\(\hat{y}_i\)</span>, both evaluated at <span class="math inline">\(x_i\)</span>.
-</figcaption></figure>
-</div>
-<p>To find the optimal values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>, we use the following formulas:</p>
-<p><strong>Slope:</strong></p>
-<p><span class="math display">\[
-b_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}
-{\sum_{i=1}^{n}(x_i - \bar{x})^2}
-= \frac{s_{xy}}{s_x^2} = r_{xy} \cdot \frac{s_y}{s_x}
-\]</span></p>
-<p>where:</p>
-<ul>
-<li>
-<span class="math inline">\(s_{xy}\)</span> is the sample covariance between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>
-</li>
-<li>
-<span class="math inline">\(s_x^2\)</span> is the sample variance of <span class="math inline">\(x\)</span>
-</li>
-<li>
-<span class="math inline">\(r_{xy}\)</span> is the correlation coefficient</li>
-</ul>
-<p><span class="math inline">\(b_0\)</span> (intercept) is the predicted value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x = 0\)</span>. It tells us where the regression line crosses the <span class="math inline">\(y\)</span>-axis. While sometimes meaningful, in many cases it’s just a mathematical anchor and not of direct interest.</p>
-<p><strong>Intercept:</strong></p>
-<p><span class="math display">\[
-b_0 = \bar{y} - b_1 \bar{x}
-\]</span></p>
-<p><span class="math inline">\(b_1\)</span> (slope) is the main coefficient of interest. It tells us how much we expect <span class="math inline">\(y\)</span> to change, on average, for a one-unit increase in <span class="math inline">\(x\)</span>. Its sign tells us the direction (positive or negative association), and its magnitude tells us the strength of the relationship.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Derivation of OLS Estimators
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Where do the formulas for <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> come from? We want to estimate the regression line:</p>
-<p><span class="math display">\[
-y_i = b_0 + b_1 x_i + \varepsilon_i
-\]</span></p>
-<p>To find the values of <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> that minimize the error sum of squares (SSE):</p>
-<p><span class="math display">\[
-\text{SSE} = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2
-\]</span></p>
-<p><strong>Step 1: Take Partial Derivatives</strong></p>
-<p>We compute the first derivatives of SSE with respect to <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span>:</p>
-<p><span class="math display">\[
-\frac{\partial \text{SSE}}{\partial b_0} = -2 \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)
-\]</span></p>
-<p><span class="math display">\[
-\frac{\partial \text{SSE}}{\partial b_1} = -2 \sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i)
-\]</span></p>
-<p><strong>Step 2: Set Derivatives to Zero (Normal Equations)</strong></p>
-<p>To minimize SSE, set both derivatives equal to zero:</p>
-<p><span class="math display">\[
-\sum_{i=1}^{n} (y_i - b_0 - b_1 x_i) = 0
-\]</span></p>
-<p><span class="math display">\[
-\sum_{i=1}^{n} x_i (y_i - b_0 - b_1 x_i) = 0
-\]</span></p>
-<hr>
-<p><strong>Step 3: Solve for <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span></strong></p>
-<p>From the first equation:</p>
-<p><span class="math display">\[
-\sum y_i = n b_0 + b_1 \sum x_i \Rightarrow b_0 = \bar{y} - b_1 \bar{x}
-\]</span></p>
-<p>Substitute this into the second normal equation and simplify:</p>
-<p><span class="math display">\[
-\sum x_i y_i = b_0 \sum x_i + b_1 \sum x_i^2
-\]</span></p>
-<p>Use the substitution for <span class="math inline">\(b_0\)</span> and apply algebra:</p>
-<p><span class="math display">\[
-b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
-\]</span></p>
-<p>This gives us the slope <span class="math inline">\(b_1\)</span>. Once <span class="math inline">\(b_1\)</span> is known, plug back in to get:</p>
-<p><span class="math display">\[
-b_0 = \bar{y} - b_1 \bar{x}
-\]</span></p>
-<p><strong>Final Formulas</strong></p>
-<ul>
-<li>Slope: <span class="math display">\[
-b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
-\]</span>
-</li>
-<li>Intercept: <span class="math display">\[
-b_0 = \bar{y} - b_1 \bar{x}
-\]</span>
-</li>
-</ul>
-<p>These are the <strong>least squares estimates</strong> of the intercept and slope.</p>
-</div>
-</div>
-<section id="example-27.1-oil-consumption-and-outdoor-temperature" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-27.1-oil-consumption-and-outdoor-temperature">Example 27.1: Oil Consumption and Outdoor Temperature</h4>
-<p>This example analyzes how <strong>monthly oil consumption</strong> varies with <strong>outdoor temperature</strong>. We model the relationship using simple linear regression.</p>
-<p>We define:</p>
-<ul>
-<li>
-<span class="math inline">\(x\)</span>: average outdoor temperature in °C<br>
-</li>
-<li>
-<span class="math inline">\(y\)</span>: monthly oil consumption in liters</li>
-</ul>
-<p>We want to estimate the model:</p>
-<p><span class="math display">\[
-y = \beta_0 + \beta_1 x + \varepsilon
-\]</span></p>
-<p><strong>Observed Data</strong></p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th>Month</th>
-<th>
-<span class="math inline">\(x\)</span> (°C)</th>
-<th>
-<span class="math inline">\(y\)</span> (liters)</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>June</td>
-<td>15.1</td>
-<td>155</td>
-</tr>
-<tr class="even">
-<td>July</td>
-<td>14.4</td>
-<td>75</td>
-</tr>
-<tr class="odd">
-<td>August</td>
-<td>15.2</td>
-<td>135</td>
-</tr>
-<tr class="even">
-<td>September</td>
-<td>10.2</td>
-<td>225</td>
-</tr>
-<tr class="odd">
-<td>October</td>
-<td>8.3</td>
-<td>275</td>
-</tr>
-<tr class="even">
-<td>November</td>
-<td>3.8</td>
-<td>385</td>
-</tr>
-<tr class="odd">
-<td>December</td>
-<td>0.5</td>
-<td>470</td>
-</tr>
-<tr class="even">
-<td>January</td>
-<td>-1.4</td>
-<td>525</td>
-</tr>
-<tr class="odd">
-<td>February</td>
-<td>-4.1</td>
-<td>625</td>
-</tr>
-<tr class="even">
-<td>March</td>
-<td>1.2</td>
-<td>450</td>
-</tr>
-</tbody>
-</table>
-<p>We create new columns in the data table to facilitate the calculations the regression coefficients:</p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th><span class="math inline">\(x\)</span></th>
-<th><span class="math inline">\(y\)</span></th>
-<th><span class="math inline">\(x^2\)</span></th>
-<th><span class="math inline">\(y^2\)</span></th>
-<th><span class="math inline">\(xy\)</span></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>15.1</td>
-<td>155</td>
-<td>228.01</td>
-<td>24025</td>
-<td>2340.5</td>
-</tr>
-<tr class="even">
-<td>14.4</td>
-<td>75</td>
-<td>207.36</td>
-<td>5625</td>
-<td>1080</td>
-</tr>
-<tr class="odd">
-<td>15.2</td>
-<td>135</td>
-<td>231.04</td>
-<td>18225</td>
-<td>2052</td>
-</tr>
-<tr class="even">
-<td>10.2</td>
-<td>225</td>
-<td>104.04</td>
-<td>50625</td>
-<td>2295</td>
-</tr>
-<tr class="odd">
-<td>8.3</td>
-<td>275</td>
-<td>68.89</td>
-<td>75625</td>
-<td>2282.5</td>
-</tr>
-<tr class="even">
-<td>3.8</td>
-<td>385</td>
-<td>14.44</td>
-<td>148225</td>
-<td>1463</td>
-</tr>
-<tr class="odd">
-<td>0.5</td>
-<td>470</td>
-<td>0.25</td>
-<td>220900</td>
-<td>235</td>
-</tr>
-<tr class="even">
-<td>-1.4</td>
-<td>525</td>
-<td>1.96</td>
-<td>275625</td>
-<td>-735</td>
-</tr>
-<tr class="odd">
-<td>-4.1</td>
-<td>625</td>
-<td>16.81</td>
-<td>390625</td>
-<td>-2562.5</td>
-</tr>
-<tr class="even">
-<td>1.2</td>
-<td>450</td>
-<td>1.44</td>
-<td>202500</td>
-<td>540</td>
-</tr>
-<tr class="odd">
-<td><strong>Σ</strong></td>
-<td></td>
-<td><strong>874.24</strong></td>
-<td><strong>1160995</strong></td>
-<td><strong>8990.5</strong></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><span class="math inline">\(\sum x = 63.2\)</span></li>
-<li><span class="math inline">\(\sum y = 3320\)</span></li>
-<li><span class="math inline">\(n = 10\)</span></li>
-</ul>
-<p>We now can estimate the coefficients using the least squares formulas:</p>
-<p><span class="math inline">\(\hat{b}_1 = \frac{\sum xy - \frac{1}{n} \sum x \sum y}{\sum x^2 - \frac{1}{n} (\sum x)^2}\)</span></p>
-<p><span class="math inline">\(\hat{b}_0 = \bar{y} - \hat{b}_1 \bar{x}\)</span></p>
-<p>Plugging in the values:</p>
-<ul>
-<li><span class="math inline">\(\bar{x} = \frac{63.2}{10} = 6.32\)</span></li>
-<li><span class="math inline">\(\bar{y} = \frac{3320}{10} = 332\)</span></li>
-</ul>
-<p>Then:</p>
-<p><span class="math inline">\(\hat{b}_1 = \frac{8990.5 - \frac{63.2 \cdot 3320}{10}}{874.24 - \frac{63.2^2}{10}} \approx -25.3\)</span></p>
-<p><span class="math inline">\(\hat{b}_0 = 332 - (-25.3)(6.32) \approx 492\)</span></p>
-<p>The fitted regression line is thus given by:</p>
-<p><span class="math inline">\(\hat{y} = 492 - 25.3x\)</span></p>
-<p>and visualized in <a href="#fig-oil" class="quarto-xref">Figure&nbsp;<span>27.2</span></a>. This tells us:</p>
-<ul>
-<li>When the temperature is 0°C, predicted oil usage is about 492 liters.</li>
-<li>For each 1°C increase in temperature, oil consumption decreases by approximately 25.3 liters.</li>
-</ul>
-<div id="fig-oil" class="centere quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-oil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="slr_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;27.2: Scatter plot of data points with the estimated regression line for example 27.1.
-</figcaption></figure>
-</div>
-<p>The R output for this model fit is the following:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = y ~ x, data = oil_df)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--52.932 -10.235  -7.991  19.960  44.747 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  491.617     12.596   39.03 2.04e-10 ***
-x            -25.256      1.347  -18.75 6.77e-08 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 29.36 on 8 degrees of freedom
-Multiple R-squared:  0.9777,    Adjusted R-squared:  0.975 
-F-statistic: 351.5 on 1 and 8 DF,  p-value: 6.769e-08</code></pre>
-</div>
-</div>
-</section></section><section id="residuals-and-sums-of-squares" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="residuals-and-sums-of-squares">
-<span class="header-section-number">27.2</span> Residuals and Sums of Squares</h2>
-<p>In simple linear regression, each predicted value <span class="math inline">\(\hat{y}_i\)</span> is calculated using the estimated regression line:</p>
-<p><span class="math display">\[
-\hat{y}_i = b_0 + b_1 x_i
-\]</span></p>
-<p>This value represents the model’s best guess for <span class="math inline">\(y_i\)</span> based on the corresponding <span class="math inline">\(x_i\)</span>. However, the predicted value rarely matches the observed outcome exactly. The already mentioned <strong>residual</strong> is defined as the difference between the actual value and the predicted one:</p>
-<p><span class="math display">\[
-e_i = y_i - \hat{y}_i
-\]</span></p>
-<p>Residuals represent the portion of the outcome <em>not explained</em> by the model. For the oil consumption data, the residuals quantify the mismatch between predicted oil usage based on temperature and the actual recorded usage. The following table shows the residuals calculated for each observation in the dataset:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 42%">
-<col style="width: 37%">
-</colgroup>
-<thead><tr class="header">
-<th><span class="math inline">\(x_i\)</span></th>
-<th><span class="math inline">\(y_i\)</span></th>
-<th><span class="math inline">\(\hat{y}_i = 492 - 25.3x_i\)</span></th>
-<th><span class="math inline">\(e_i = y_i - \hat{y}_i\)</span></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>15.1</td>
-<td>155</td>
-<td>109.97</td>
-<td>45.03</td>
-</tr>
-<tr class="even">
-<td>14.4</td>
-<td>75</td>
-<td>127.68</td>
-<td>-52.68</td>
-</tr>
-<tr class="odd">
-<td>15.2</td>
-<td>135</td>
-<td>107.44</td>
-<td>27.56</td>
-</tr>
-<tr class="even">
-<td>10.2</td>
-<td>225</td>
-<td>233.94</td>
-<td>-8.94</td>
-</tr>
-<tr class="odd">
-<td>8.3</td>
-<td>275</td>
-<td>282.01</td>
-<td>-7.01</td>
-</tr>
-<tr class="even">
-<td>3.8</td>
-<td>385</td>
-<td>395.86</td>
-<td>-10.86</td>
-</tr>
-<tr class="odd">
-<td>0.5</td>
-<td>470</td>
-<td>479.35</td>
-<td>-9.35</td>
-</tr>
-<tr class="even">
-<td>-1.4</td>
-<td>525</td>
-<td>527.42</td>
-<td>-2.42</td>
-</tr>
-<tr class="odd">
-<td>-4.1</td>
-<td>625</td>
-<td>595.73</td>
-<td>29.27</td>
-</tr>
-<tr class="even">
-<td>1.2</td>
-<td>450</td>
-<td>461.64</td>
-<td>-11.64</td>
-</tr>
-</tbody>
-</table>
-<p>Understanding residuals leads us to an important decomposition of the <strong>total variation</strong> in the response variable <span class="math inline">\(y\)</span>. This total variation, measured as the sum of squared deviations from the mean <span class="math inline">\(\bar{y}\)</span>, is called the <strong>Total Sum of Squares (SST)</strong>:</p>
-<p><span class="math display">\[
-SST = \sum_{i=1}^{n} (y_i - \bar{y})^2
-\]</span></p>
-<p>This total variation can be split into two components. The first is the <strong>Regression Sum of Squares (SSR)</strong>, which measures the variation explained by the regression line, that is, the part captured by the differences between the predicted values and the mean:</p>
-<p><span class="math display">\[
-SSR = \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2
-\]</span></p>
-<p>The second is the <strong>Error Sum of Squares (SSE)</strong>, which captures the unexplained variation, the part of <span class="math inline">\(y\)</span> that remains in the residuals:</p>
-<p><span class="math display">\[
-SSE = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} e_i^2
-\]</span></p>
-<p>Together, these satisfy the identity:</p>
-<p><span class="math display">\[
-SST = SSR + SSE
-\]</span></p>
-</section><section id="the-anova-table" class="level2" data-number="27.3"><h2 data-number="27.3" class="anchored" data-anchor-id="the-anova-table">
-<span class="header-section-number">27.3</span> The ANOVA Table</h2>
-<p>The above decomposition of sum of squares forms the foundation of the <strong>ANOVA (Analysis of Variance) table</strong> shown in <a href="#tbl-anove" class="quarto-xref">Table&nbsp;<span>27.1</span></a>. The table summarizes how much of the total variability in <span class="math inline">\(y\)</span> is explained by the model versus left in the residuals:</p>
-<div id="tbl-anove" class="center quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anove-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;27.1: ANOVA table showing the decomposition of total variation in the response variable into variation explained by the regression model (SSR) and unexplained variation (SSE), along with their associated degrees of freedom and mean squares.
-</figcaption><div aria-describedby="tbl-anove-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="center caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 21%">
-<col style="width: 34%">
-<col style="width: 29%">
-</colgroup>
-<thead><tr class="header">
-<th>Source</th>
-<th>Sum of Squares (SS)</th>
-<th>Degrees of Freedom (df)</th>
-<th>Mean Square (MS)</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Regression</td>
-<td>SSR</td>
-<td>1</td>
-<td><span class="math inline">\(MSR = SSR / 1\)</span></td>
-</tr>
-<tr class="even">
-<td>Residual</td>
-<td>SSE</td>
-<td><span class="math inline">\(n - 2\)</span></td>
-<td><span class="math inline">\(MSE = SSE / (n - 2)\)</span></td>
-</tr>
-<tr class="odd">
-<td>Total</td>
-<td>SST</td>
-<td><span class="math inline">\(n - 1\)</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>The quantity <span class="math inline">\(MSE\)</span> is also known as the <strong>residual variance</strong> and plays a key role in inference.</p>
-<p>To evaluate how well the regression line captures the observed data, we compute the <strong>coefficient of determination</strong>, denoted <span class="math inline">\(R^2\)</span>:</p>
-<p><span class="math display">\[
-R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}
-\]</span></p>
-<p>This value represents the <em>proportion of total variation in <span class="math inline">\(y\)</span> that is explained by the model</em>. It lies between 0 and 1. If <span class="math inline">\(R^2 = 1\)</span>, the model perfectly fits the data and all residuals are zero. If <span class="math inline">\(R^2 = 0\)</span>, the model fails to explain any variation, and the predicted values are simply equal to the mean <span class="math inline">\(\bar{y}\)</span>.</p>
-<p>In the oil consumption example, the ANOVA table yields the following result in R:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: y
-          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-x          1 302866  302866  351.46 6.769e-08 ***
-Residuals  8   6894     862                      
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>Thus we have that:</p>
-<ul>
-<li>
-<span class="math inline">\(SSR = 302886\)</span>,<br>
-</li>
-<li>
-<span class="math inline">\(SST = 309760\)</span>,<br>
-</li>
-<li>So,</li>
-</ul>
-<p><span class="math display">\[
-R^2 = \frac{302886}{309760} = 0.978
-\]</span> which you can also read from the R output above.</p>
-<p>This means that</p>
-<blockquote class="blockquote">
-<p>97.8% of the variation in oil consumption is explained by the temperature-based regression model</p>
-</blockquote>
-<p>indicating a very strong linear relationship between the two variables.</p>
+</header>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1473,30 +881,35 @@ R^2 = \frac{302886}{309760} = 0.978
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../regression/reg-framework.html" class="pagination-link" aria-label="The Regression Framework">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span>
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../regression/reg-inf.html" class="pagination-link" aria-label="Regression Inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regression Inference</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../regression/mlr.html" class="pagination-link" aria-label="Multiple Linear Regression">
-        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Multiple Linear Regression</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/dummy-interaction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
+
+
 
 
 </body></html>
