@@ -1,0 +1,163 @@
+# Residual Analysis and Model Diagnostics {#sec-diagnostics}
+
+When conducting statistical analysis and drawing conclusions, we usually rely on certain assumptions about the underlying data-generating process. In regression analysis, these assumptions allow us to make valid inferences about the relationship between the dependent variable and one or more independent variables.
+
+Because the independent variables divide the full dataset into many subpopulations (based on the values of the predictors), regression analysis can be viewed as simultaneously studying the behavior of the dependent variable across these various groups.
+
+In order to make reliable predictions and interpretations that generalize to the whole population—or to unseen data—we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.
+
+This is where residual analysis and model diagnostics come in: they help us verify whether the assumptions behind the regression model hold in practice. In the following section, we will review these assumptions and learn how to evaluate them using graphical and statistical tools.
+
+## Heteroskedasticity: When Error Variance is Not Constant
+
+One of the key assumptions of the classical linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as **homoskedasticity**, and it is formally stated as:
+
+> The error term has constant variance, i.e.  
+> $\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2$ for all $i$.
+
+When this assumption is violated—meaning the error variance changes with the level of one or more explanatory variables—the model is said to exhibit **heteroskedasticity**.
+
+### Why does heteroskedasticity matter?
+
+Although ordinary least squares (OLS) estimation still produces unbiased and consistent coefficient estimates in the presence of heteroskedasticity, its inferential properties break down. In particular, the usual formulas for calculating standard errors, t-values, and confidence intervals are no longer valid. This means that even if the point estimates are correct on average, we may draw incorrect conclusions from hypothesis tests or construct misleading confidence intervals.
+
+Thus, heteroskedasticity does not bias the estimates of the regression coefficients, but it does make our statistical inference unreliable.
+
+To understand the practical implications, consider the role of the OLS standard errors. These are used to test hypotheses, construct confidence intervals, and perform F-tests. If the assumption of homoskedasticity fails, the standard errors are misestimated (often too small) leading to overly optimistic results. For example, a t-test might suggest that a coefficient is statistically significant when it is not.
+
+Even in large samples, heteroskedasticity can persist, and its effects on inference remain. Therefore, it is essential to detect and correct for heteroskedasticity before making conclusions based on statistical significance.
+
+### Addressing heteroskedasticity
+
+If heteroskedasticity is suspected or detected, we can still proceed with regression analysis by adapting our tools. Instead of relying on standard OLS inference, we use **robust standard errors**, which correct for the presence of non-constant error variance. These robust errors allow us to compute valid t-statistics and confidence intervals, even if the errors are heteroskedastic.
+
+Robust standard errors are easy to implement in most statistical software and are often used by default in empirical research for this reason. While they do not change the coefficient estimates themselves, they adjust the variability around them, providing more accurate inference.
+
+
+#### Example: Detecting and Correcting for Heteroskedasticity {.unnumbered}
+
+To see how heteroskedasticity works in practice, we revisit the `wage` example from previous chapter. We will model the log of hourly wage ($\log(y)$) as a function of education ($x_1$), experience ($x_2$), and experience squared:
+
+$$
+\log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2 + \beta_3 \cdot x_2^2 + \varepsilon
+$$
+
+This model allows us to account for the nonlinear effect of experience on wages while estimating the returns to education.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(wooldridge)
+library(dplyr)
+
+data("wage1")
+
+# Add experience squared
+wage1 <- wage1 %>%
+  mutate(exper2 = exper^2)
+
+# Fit the OLS model
+model <- lm(log(wage) ~ educ + exper + exper2, data = wage1)
+
+summary(model)
+```
+
+An informal but useful way to detect heteroskedasticity is to plot the residuals against the fitted values from the model. If the variance of the residuals increases or decreases systematically with the fitted values, we likely have heteroskedasticity.
+
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 4
+
+library(ggplot2)
+
+wage1$resid <- resid(model)
+wage1$fitted <- fitted(model)
+
+ggplot(wage1, aes(x = fitted, y = resid)) +
+  geom_point(alpha = 0.4) +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  labs(
+    x = "Fitted values",
+    y = "Residuals"
+  ) +
+  theme_minimal()
+```  
+
+We observe a funnel shape; where the spread of residuals increases with fitted values, that indicates increasing error variance, which is a form of heteroskedasticity.
+
+
+Even if heteroskedasticity is present, we can still conduct valid inference by using robust standard errors. These correct the standard errors without changing the coefficient estimates.
+
+```{r}
+#| message: false
+#| warning: false
+
+# Robust standard errors using lmtest + sandwich
+library(sandwich)
+library(lmtest)
+
+coeftest(model, vcov = vcovHC(model, type = "HC1"))
+```
+
+Robust standard errors may be larger or smaller than the original OLS standard errors. When heteroskedasticity is strong, the differences can be substantial. In such cases, relying on the conventional (non-robust) inference may lead to misleading conclusions about significance levels and confidence intervals.
+
+Therefore, it is good practice to report robust standard errors whenever there is a suspicion of heteroskedasticity or even by default in many empirical studies.
+
+
+### Formal Test for Heteroskedasticity: Breusch-Pagan Test
+
+While residual plots can give us informal evidence of heteroskedasticity, we can also conduct a formal statistical test. One commonly used method is the **Breusch-Pagan (BP) test**.
+
+The null hypothesis of the BP test is that the error variance is constant across all observations (i.e., homoskedasticity). The alternative is that the variance of the errors depends on one or more of the explanatory variables.
+
+We test:
+
+$$
+H_0: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) = \sigma^2 \quad \text{(homoskedasticity)}
+$$
+
+against
+
+$$
+H_1: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text{(heteroskedasticity)}
+$$
+
+STep-by-step, we then do the folllwing:
+
+1. Estimate the original regression model and obtain the OLS residuals.
+2. Square the residuals and regress them on all the explanatory variables.
+3. Perform an F-test (or LM test) on the joint significance of the regressors.
+4. If the test is significant, we reject the null hypothesis of homoskedasticity.
+
+#### Example: Detecting and Correcting for Heteroskedasticity (Cont'd) {.unnumbered}
+The test for our example is given below:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(lmtest)
+
+# Recall the model:
+# log(wage) ~ educ + exper + exper^2
+
+bptest(model)
+```
+
+
+The test returns a $p$-value.
+
+- If the $p$-value is less than your significance level (commonly 0.05), you reject the null hypothesis of constant variance.
+-	This suggests the presence of heteroskedasticity, meaning that standard OLS inference may not be valid.
+
+As seen, heteroskedasticity is detected here as well, and we should proceed by using robust standard errors, as shown above.
+
+::: {.callout-note title="Weighted Least Squares (WLS)"}
+In situations where heteroskedasticity is present, another possible remedy—besides using robust standard errors—is the **Weighted Least Squares (WLS)** method.
+
+The main idea behind WLS is to transform the regression equation so that the new errors become homoskedastic. This is done by giving less weight to observations with higher variance and more weight to those with lower variance. When the form of heteroskedasticity is known or can be estimated, WLS can yield more efficient coefficient estimates than OLS.
+
+However, because WLS relies on specifying a correct model for the error variance (which is often difficult in practice), it is not covered in detail in this material. For our purposes, robust standard errors provide a more flexible and commonly used solution.
+:::

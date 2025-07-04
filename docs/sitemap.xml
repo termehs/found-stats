@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/inferential/intro-inference.html</loc>
-    <lastmod>2025-06-05T06:31:03.911Z</lastmod>
+    <lastmod>2025-07-04T08:17:37.912Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/inferential/estimation.html</loc>
@@ -139,5 +139,9 @@
   <url>
     <loc>https://termehs.github.io/found-stats/appendix/chi2-table.html</loc>
     <lastmod>2025-06-23T12:53:42.097Z</lastmod>
+  </url>
+  <url>
+    <loc>https://termehs.github.io/found-stats/regression/reg-diagnostics.html</loc>
+    <lastmod>2025-07-04T08:40:02.787Z</lastmod>
   </url>
 </urlset>

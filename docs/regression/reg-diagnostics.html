@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
-<title>20&nbsp; From Probability to Statistical Inference – Foundational Statistics</title>
+<title>31&nbsp; Residual Analysis and Model Diagnostics – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +20,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -31,8 +27,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inferential/estimation.html" rel="next">
-<link href="../sampling-dists/clt.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../regression/reg-cats.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,12 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,34 +90,25 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+</script><link rel="stylesheet" href="../styles.css">
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/intro-inference.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-diagnostics.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -142,7 +123,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -156,8 +137,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -182,7 +163,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -191,8 +172,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -211,7 +192,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -220,8 +201,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -246,7 +227,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -255,8 +236,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -281,7 +262,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -290,8 +271,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
@@ -316,7 +297,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
@@ -325,10 +306,10 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
   </div>
 </li>
@@ -345,7 +326,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
@@ -354,8 +335,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chi2/chi2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The Chi Square Method</span></span></a>
@@ -374,7 +355,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -383,8 +364,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
@@ -414,8 +395,14 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Categorical Variables in Regression</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/reg-diagnostics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
@@ -428,8 +415,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span></a>
@@ -448,21 +435,28 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#heteroskedasticity-when-error-variance-is-not-constant" id="toc-heteroskedasticity-when-error-variance-is-not-constant" class="nav-link active" data-scroll-target="#heteroskedasticity-when-error-variance-is-not-constant"><span class="header-section-number">31.1</span> Heteroskedasticity: When Error Variance is Not Constant</a>
+  <ul class="collapse">
+<li><a href="#why-does-heteroskedasticity-matter" id="toc-why-does-heteroskedasticity-matter" class="nav-link" data-scroll-target="#why-does-heteroskedasticity-matter"><span class="header-section-number">31.1.1</span> Why does heteroskedasticity matter?</a></li>
+  <li><a href="#addressing-heteroskedasticity" id="toc-addressing-heteroskedasticity" class="nav-link" data-scroll-target="#addressing-heteroskedasticity"><span class="header-section-number">31.1.2</span> Addressing heteroskedasticity</a></li>
+  <li><a href="#formal-test-for-heteroskedasticity-breusch-pagan-test" id="toc-formal-test-for-heteroskedasticity-breusch-pagan-test" class="nav-link" data-scroll-target="#formal-test-for-heteroskedasticity-breusch-pagan-test"><span class="header-section-number">31.1.3</span> Formal Test for Heteroskedasticity: Breusch-Pagan Test</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-diagnostics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inferential/intro-inference.html">Inferential Statistics</a></li><li class="breadcrumb-item"><a href="../inferential/intro-inference.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-prob2inf" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-diagnostics.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-diagnostics" class="quarto-section-identifier"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></span></h1>
 </div>
 
 
@@ -476,56 +470,138 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>Most statistical journeys begin with descriptive statistics; calculating averages, medians, spreads, and trends to summarize what we see in our data. But knowing <em>how it is</em> only gets us partway. At some point, we want to go further. We ask:</p>
+</header><p>When conducting statistical analysis and drawing conclusions, we usually rely on certain assumptions about the underlying data-generating process. In regression analysis, these assumptions allow us to make valid inferences about the relationship between the dependent variable and one or more independent variables.</p>
+<p>Because the independent variables divide the full dataset into many subpopulations (based on the values of the predictors), regression analysis can be viewed as simultaneously studying the behavior of the dependent variable across these various groups.</p>
+<p>In order to make reliable predictions and interpretations that generalize to the whole population—or to unseen data—we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.</p>
+<p>This is where residual analysis and model diagnostics come in: they help us verify whether the assumptions behind the regression model hold in practice. In the following section, we will review these assumptions and learn how to evaluate them using graphical and statistical tools.</p>
+<section id="heteroskedasticity-when-error-variance-is-not-constant" class="level2" data-number="31.1"><h2 data-number="31.1" class="anchored" data-anchor-id="heteroskedasticity-when-error-variance-is-not-constant">
+<span class="header-section-number">31.1</span> Heteroskedasticity: When Error Variance is Not Constant</h2>
+<p>One of the key assumptions of the classical linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as <strong>homoskedasticity</strong>, and it is formally stated as:</p>
 <blockquote class="blockquote">
-<p>Is this result just a fluke? Will it happen again? Can we generalize it?*</p>
+<p>The error term has constant variance, i.e.<br><span class="math inline">\(\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
 </blockquote>
-<p>To answer these questions, we need more than summaries. We need a framework to quantify uncertainty, and that’s where probability theory does its magic. It helps us model randomness and variation in data, turning questions about <em>how things are</em> into questions about <em>how things might be</em>.</p>
-<p>Enter <strong>inferential statistics</strong>: the part of statistics that uses sample data, guided by probability, to draw conclusions about the larger population. This is where we estimate unknown values, test hypotheses, and make data-driven decisions, even when we can’t see the whole picture.</p>
-<p>In the coming sections, we’ll explore the key tools of inference, and how they allow us to move thoughtfully from <em>what we observe</em> to <em>what we believe</em> about the world. In the following section, we’ll begin exploring the methods and logic behind inferential statistics, starting with estimation techniques and building toward hypothesis testing. Let’s dive into how we can responsibly and rigorously make sense of the unknown.</p>
-<div class="center">
-<div id="fig-inf" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-inf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="imgs/desc-prob-inf.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+<p>When this assumption is violated—meaning the error variance changes with the level of one or more explanatory variables—the model is said to exhibit <strong>heteroskedasticity</strong>.</p>
+<section id="why-does-heteroskedasticity-matter" class="level3" data-number="31.1.1"><h3 data-number="31.1.1" class="anchored" data-anchor-id="why-does-heteroskedasticity-matter">
+<span class="header-section-number">31.1.1</span> Why does heteroskedasticity matter?</h3>
+<p>Although ordinary least squares (OLS) estimation still produces unbiased and consistent coefficient estimates in the presence of heteroskedasticity, its inferential properties break down. In particular, the usual formulas for calculating standard errors, t-values, and confidence intervals are no longer valid. This means that even if the point estimates are correct on average, we may draw incorrect conclusions from hypothesis tests or construct misleading confidence intervals.</p>
+<p>Thus, heteroskedasticity does not bias the estimates of the regression coefficients, but it does make our statistical inference unreliable.</p>
+<p>To understand the practical implications, consider the role of the OLS standard errors. These are used to test hypotheses, construct confidence intervals, and perform F-tests. If the assumption of homoskedasticity fails, the standard errors are misestimated (often too small) leading to overly optimistic results. For example, a t-test might suggest that a coefficient is statistically significant when it is not.</p>
+<p>Even in large samples, heteroskedasticity can persist, and its effects on inference remain. Therefore, it is essential to detect and correct for heteroskedasticity before making conclusions based on statistical significance.</p>
+</section><section id="addressing-heteroskedasticity" class="level3" data-number="31.1.2"><h3 data-number="31.1.2" class="anchored" data-anchor-id="addressing-heteroskedasticity">
+<span class="header-section-number">31.1.2</span> Addressing heteroskedasticity</h3>
+<p>If heteroskedasticity is suspected or detected, we can still proceed with regression analysis by adapting our tools. Instead of relying on standard OLS inference, we use <strong>robust standard errors</strong>, which correct for the presence of non-constant error variance. These robust errors allow us to compute valid t-statistics and confidence intervals, even if the errors are heteroskedastic.</p>
+<p>Robust standard errors are easy to implement in most statistical software and are often used by default in empirical research for this reason. While they do not change the coefficient estimates themselves, they adjust the variability around them, providing more accurate inference.</p>
+<section id="example-detecting-and-correcting-for-heteroskedasticity" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-detecting-and-correcting-for-heteroskedasticity">Example: Detecting and Correcting for Heteroskedasticity</h4>
+<p>To see how heteroskedasticity works in practice, we revisit the <code>wage</code> example from previous chapter. We will model the log of hourly wage (<span class="math inline">\(\log(y)\)</span>) as a function of education (<span class="math inline">\(x_1\)</span>), experience (<span class="math inline">\(x_2\)</span>), and experience squared:</p>
+<p><span class="math display">\[
+\log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2 + \beta_3 \cdot x_2^2 + \varepsilon
+\]</span></p>
+<p>This model allows us to account for the nonlinear effect of experience on wages while estimating the returns to education.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ educ + exper + exper2, data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.96387 -0.29375 -0.04009  0.29497  1.30216 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.1279975  0.1059323   1.208    0.227    
+educ         0.0903658  0.0074680  12.100  &lt; 2e-16 ***
+exper        0.0410089  0.0051965   7.892 1.77e-14 ***
+exper2      -0.0007136  0.0001158  -6.164 1.42e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4459 on 522 degrees of freedom
+Multiple R-squared:  0.3003,    Adjusted R-squared:  0.2963 
+F-statistic: 74.67 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20.1: Inferential statistics builds on descriptive summaries and probability theory to predict and generalize beyond the data at hand.
-</figcaption>
+</div>
+<p>An informal but useful way to detect heteroskedasticity is to plot the residuals against the fitted values from the model. If the variance of the residuals increases or decreases systematically with the fitted values, we likely have heteroskedasticity.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="reg-diagnostics_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
 </figure>
 </div>
 </div>
-<p>Up until now, our focus has been on the domain of <strong>probability theory</strong>. This has allowed us to answer questions like:</p>
-<blockquote class="blockquote">
-<p>What is the probability that a certain outcome will occur?</p>
-</blockquote>
-<p>For instance, imagine we know that 30% of a population of 1000 people own a car. If we randomly select a sample of 100 individuals, we can calculate the probability that 50 or more of them are car owners using tools from probability.</p>
-<p>But now, we turn the tables.</p>
-<p>Instead of starting with known population characteristics and predicting sample behavior, we enter the world of <strong>statistical inference</strong> — where we begin with a sample and aim to draw conclusions about the larger population. Inference flips the problem around:</p>
-<blockquote class="blockquote">
-<p>Given data from a sample, what can we say about the population it came from?</p>
-</blockquote>
-<p>Let’s revisit the earlier example but from a different angle. Suppose we randomly select 100 people from a population of 1000 but this time, we don’t know what percentage of the population owns a car. We observe that 40 out of the 100 in our sample are car owners. The central question becomes:</p>
-<blockquote class="blockquote">
-<p>What can we infer about the proportion of car owners in the entire population?</p>
-</blockquote>
-<p>This, in essence, is what <strong>statistical inference</strong> is about: using data from a sample to make educated guesses about unknown parameters in a population distribution. While probability theory helps us determine the behavior of a sample given known population traits, statistical inference works in reverse; aiming to uncover population-level truths from sample-level evidence.</p>
-<p>In practice, statistical inference involves several important techniques, including:</p>
+</div>
+<p>We observe a funnel shape; where the spread of residuals increases with fitted values, that indicates increasing error variance, which is a form of heteroskedasticity.</p>
+<p>Even if heteroskedasticity is present, we can still conduct valid inference by using robust standard errors. These correct the standard errors without changing the coefficient estimates.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+t test of coefficients:
+
+               Estimate  Std. Error t value  Pr(&gt;|t|)    
+(Intercept)  0.12799752  0.10712606  1.1948    0.2327    
+educ         0.09036582  0.00778267 11.6112 &lt; 2.2e-16 ***
+exper        0.04100887  0.00502368  8.1631 2.464e-15 ***
+exper2      -0.00071356  0.00010978 -6.5001 1.877e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Robust standard errors may be larger or smaller than the original OLS standard errors. When heteroskedasticity is strong, the differences can be substantial. In such cases, relying on the conventional (non-robust) inference may lead to misleading conclusions about significance levels and confidence intervals.</p>
+<p>Therefore, it is good practice to report robust standard errors whenever there is a suspicion of heteroskedasticity or even by default in many empirical studies.</p>
+</section></section><section id="formal-test-for-heteroskedasticity-breusch-pagan-test" class="level3" data-number="31.1.3"><h3 data-number="31.1.3" class="anchored" data-anchor-id="formal-test-for-heteroskedasticity-breusch-pagan-test">
+<span class="header-section-number">31.1.3</span> Formal Test for Heteroskedasticity: Breusch-Pagan Test</h3>
+<p>While residual plots can give us informal evidence of heteroskedasticity, we can also conduct a formal statistical test. One commonly used method is the <strong>Breusch-Pagan (BP) test</strong>.</p>
+<p>The null hypothesis of the BP test is that the error variance is constant across all observations (i.e., homoskedasticity). The alternative is that the variance of the errors depends on one or more of the explanatory variables.</p>
+<p>We test:</p>
+<p><span class="math display">\[
+H_0: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) = \sigma^2 \quad \text{(homoskedasticity)}
+\]</span></p>
+<p>against</p>
+<p><span class="math display">\[
+H_1: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text{(heteroskedasticity)}
+\]</span></p>
+<p>STep-by-step, we then do the folllwing:</p>
+<ol type="1">
+<li>Estimate the original regression model and obtain the OLS residuals.</li>
+<li>Square the residuals and regress them on all the explanatory variables.</li>
+<li>Perform an F-test (or LM test) on the joint significance of the regressors.</li>
+<li>If the test is significant, we reject the null hypothesis of homoskedasticity.</li>
+</ol>
+<section id="example-detecting-and-correcting-for-heteroskedasticity-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-detecting-and-correcting-for-heteroskedasticity-contd">Example: Detecting and Correcting for Heteroskedasticity (Cont’d)</h4>
+<p>The test for our example is given below:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    studentized Breusch-Pagan test
+
+data:  model
+BP = 19.84, df = 3, p-value = 0.0001832</code></pre>
+</div>
+</div>
+<p>The test returns a <span class="math inline">\(p\)</span>-value.</p>
 <ul>
-<li><strong>Point estimation</strong>, where we use sample data to provide a single best guess of a population parameter.</li>
-<li><strong>Interval estimation</strong>, where we compute confidence intervals to express the uncertainty around our estimates.</li>
-<li><strong>Hypothesis testing</strong>, where we formally assess claims about population characteristics using sample evidence.</li>
+<li>If the <span class="math inline">\(p\)</span>-value is less than your significance level (commonly 0.05), you reject the null hypothesis of constant variance.</li>
+<li>This suggests the presence of heteroskedasticity, meaning that standard OLS inference may not be valid.</li>
 </ul>
-<p>This shift, from description and theory to inference and decision-making, marks a crucial transition in the statistical journey. It enables us to go beyond the data at hand and make broader conclusions about the world.</p>
-<p>In the chapters ahead, we’ll explore each of these methods; learning how to estimate, quantify uncertainty, and test ideas using the powerful tools of inferential statistics.</p>
+<p>As seen, heteroskedasticity is detected here as well, and we should proceed by using robust standard errors, as shown above.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Weighted Least Squares (WLS)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Weighted Least Squares (WLS)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In situations where heteroskedasticity is present, another possible remedy—besides using robust standard errors—is the <strong>Weighted Least Squares (WLS)</strong> method.</p>
+<p>The main idea behind WLS is to transform the regression equation so that the new errors become homoskedastic. This is done by giving less weight to observations with higher variance and more weight to those with lower variance. When the form of heteroskedasticity is known or can be estimated, WLS can yield more efficient coefficient estimates than OLS.</p>
+<p>However, because WLS relies on specifying a correct model for the error variance (which is often difficult in practice), it is not covered in detail in this material. For our purposes, robust standard errors provide a more flexible and commonly used solution.</p>
+</div>
+</div>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -923,35 +999,30 @@ Figure&nbsp;20.1: Inferential statistics builds on descriptive summaries and pro
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../sampling-dists/clt.html" class="pagination-link" aria-label="Central Limit Theorem">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Central Limit Theorem</span></span>
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../regression/reg-cats.html" class="pagination-link" aria-label="Categorical Variables in Regression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Categorical Variables in Regression</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inferential/estimation.html" class="pagination-link" aria-label="Estimation">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Estimation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/inferential/intro-inference.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-diagnostics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
