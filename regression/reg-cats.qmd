@@ -101,8 +101,8 @@ $$
 
 where
 
-- $y$ is `wage`
-- $x_1$ is `gender` taking on value `1` if the respondent is a woman, and `0` if a man. 
+- $y$ is wage
+- $x_1$ is gender taking on value `1` if the respondent is female, and `0` if male. 
 
 
 The estimated model is:
@@ -143,7 +143,7 @@ The overall line is visualized below:
 # Plot with fitted values
 ggplot(wage_data, aes(x = female, y = wage)) +
   geom_jitter(width = 0.1, alpha = 0.4) +
-  stat_smooth(method = "lm", se = FALSE, color = "darkred") +
+  stat_smooth(method = "lm", se = FALSE, color = "darkorange") +
   scale_x_continuous(breaks = c(0,1), labels = c("Male", "Female")) +
   labs(
     x = "Gender",
@@ -221,3 +221,431 @@ This example demonstrates how dummy variables allow us to estimate group differe
 
 A simple model showed a gender wage gap of USD2.51/hour. After controlling for education, the gap decreased to USD2.27/hour, but remained statistically significant highlighting the value of including relevant covariates in a regression model.
   
+  
+### Using Dummy Variables for Multiple Categories
+In many real-world analyses, we want to compare outcomes across several distinct groups and not just two. When a categorical variable has more than two levels, we cannot capture its effects with a single dummy variable. Instead, we must create multiple dummy variables, each representing one of the non-reference categories.
+
+
+#### Example 30.3: Wage Differences Across Gender and Marital Status {.unnumbered}
+In this example, we examine how wages vary across four groups defined by the combination of gender and marital status:
+
+- single men  
+- married men  
+- single women  
+- married women
+
+To do this, we create three dummy variables, one for each group except the reference group (here, single men). This allows us to estimate how each group's average wage differs from the base category, *while controlling for education, experience, and tenure*. The response is the natural logarithm of the hourly wage.
+
+- Do married men earn more than single men?
+- Are single women and married women paid differently?
+- What happens to the gender wage gap once we account for experience and education?
+
+This example showcases the flexibility of multiple regression models and how dummy variables allow us to capture meaningful differences between discrete categories in a statistically rigorous way.
+
+
+```{r}
+#| message: false
+#| warning: false
+library(wooldridge)   # data
+library(dplyr)        # data manipulation
+library(broom)        # nice model summaries
+library(car)          # hypothesis tests
+
+data("wage1")
+
+wage_df <- wage1 %>%
+  mutate(
+    marriedmale   = ifelse(married == 1 & female == 0, 1, 0),
+    marriedfemale = ifelse(married == 1 & female == 1, 1, 0),
+    singlefemale  = ifelse(married == 0 & female == 1, 1, 0)
+    # Reference group: single male (married == 0 & female == 0)
+  )
+model <- lm(log(wage) ~ marriedmale + marriedfemale + singlefemale +
+              educ + exper + tenure,
+            data = wage_df)
+
+summary(model)
+
+```
+The dummy coefficients are in log points.  To express them as percentage
+effects we use
+$$ \% \text{ change} = (\mathrm{e}^{b}-1)\times 100) $$:
+
+```{r}
+dummy_coefs <- tidy(model) %>%
+  filter(term %in% c("marriedmale", "marriedfemale", "singlefemale")) %>%
+  mutate(pct_change = (exp(estimate) - 1) * 100) %>%
+  select(term, estimate, pct_change, p.value)
+
+knitr::kable(dummy_coefs,
+             col.names = c("Dummy", "Log-coef", "% change vs. single male", "p-value"),
+             digits = 3)
+             
+```
+
+We note the following:
+
+- Married men earn roughly 29 % more than single men with the same
+schooling, experience and tenure.
+-	Married women earn about 18 % less than single men, while
+single women earn roughly 10 % less.
+
+All effects are highly significant at conventional levels.
+
+The plot  below shows straight, parallel lines for the predicted log-wage
+and the same predictions exponentiated back to the wage scale, which appear as curved lines.
+
+::: {.cell}
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4
+
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 4
+
+library(wooldridge)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+
+data("wage1")
+
+# Add dummy variables to main dataset
+wage_df <- wage1 %>%
+  mutate(
+    marriedmale   = ifelse(married == 1 & female == 0, 1, 0),
+    marriedfemale = ifelse(married == 1 & female == 1, 1, 0),
+    singlefemale  = ifelse(married == 0 & female == 1, 1, 0)
+  )
+
+# Fit the regression model on log(wage)
+model <- lm(log(wage) ~ marriedmale + marriedfemale + singlefemale +
+              educ + exper + tenure, data = wage_df)
+
+# Build a grid of values to predict from
+educ_seq <- seq(8, 20, by = 0.5)
+plot_df <- expand.grid(
+  educ = educ_seq,
+  group = c("Single male", "Married male", "Single female", "Married female")
+)
+
+# Add dummy indicators and control variables
+plot_df$marriedmale   <- ifelse(plot_df$group == "Married male", 1, 0)
+plot_df$marriedfemale <- ifelse(plot_df$group == "Married female", 1, 0)
+plot_df$singlefemale  <- ifelse(plot_df$group == "Single female", 1, 0)
+plot_df$exper  <- mean(wage_df$exper, na.rm = TRUE)
+plot_df$tenure <- mean(wage_df$tenure, na.rm = TRUE)
+
+# Predict
+plot_df$logw_hat <- predict(model, newdata = plot_df)
+plot_df$wage_hat <- exp(plot_df$logw_hat)
+
+# Define custom colors
+pal <- c("Single male"   = "steelblue",
+         "Married male"  = "forestgreen",
+         "Single female" = "tomato",
+         "Married female"= "orchid")
+
+# Panel A: log scale
+p1 <- ggplot(plot_df, aes(x = educ, y = logw_hat, color = group)) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = pal) +
+  labs(
+    title = "A. Predicted log(wage)",
+    x = "Years of education",
+    y = "log(wage)",
+    color = "Group"
+  ) +
+  theme_minimal()
+
+# Panel B: original scale
+p2 <- ggplot(plot_df, aes(x = educ, y = wage_hat, color = group)) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = pal) +
+  labs(
+    title = "B. Predicted wage (USD/hour)",
+    x = "Years of education",
+    y = "Wage",
+    color = "Group"
+  ) +
+  theme_minimal()
+
+# Combine with shared legend
+p1 + p2 + plot_layout(guides = "collect")
+```
+
+:::
+
+
+## Interaction Terms in Regression
+
+So far, we’ve allowed different intercepts in our regression models, for example, when comparing groups. But what if the slope of a variable also changes depending on the level of another variable? This is where interaction terms come into play.
+
+In a typical multiple regression, we often assume that the effect of one explanatory variable is independent of the others. That is, the increase in $y$ from a one-unit increase in $x_1$ is always the same, no matter the value of $x_2$. However, this assumption doesn’t always reflect reality. In many cases, the effect of one variable depends on another.
+
+To capture this dependency, we include an interaction term; a product of the two variables:
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 (x_1 \cdot x_2) + u
+$$
+
+In this model:
+
+-	The effect of $x_1$ on $y$ changes with the value of $x_2$:
+$$
+\frac{\Delta y}{\Delta x_1} = \beta_1 + \beta_3 x_2
+$$
+
+-	Likewise, the effect of $x_2$ on $y$ depends on $x_1$:
+$$
+\frac{\Delta y}{\Delta x_2} = \beta_2 + \beta_3 x_1
+$$
+
+The coefficient $\beta_3$ captures the interaction effect. If $\beta_3$ is positive, then the presence of a higher $x_2$ amplifies the effect of $x_1$. If negative, it dampens it. Interaction terms thus allow for a more flexible model structure, where the relationship between variables can adapt depending on context.
+
+
+
+#### Example 30.4: Interaction Between Education and Experience {.unnumbered}
+
+Let’s revisit the `wage1` dataset where the response is salary ($y$). Suppose we suspect that the return to experience ($x_1$) may differ depending on how many years of education ($x_2$) someone has. We estimate the model:
+
+$$
+\log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2 + \beta_3 (x_1 \cdot x_2) + \varepsilon
+$$
+
+If $\beta_3 > 0$, then experience becomes more valuable as education increases.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(wooldridge)
+library(dplyr)
+library(ggplot2)
+
+data("wage1")
+
+# Create interaction term
+wage1 <- wage1 %>%
+  mutate(ed_exp = educ * exper)
+
+# Estimate interaction model
+model_inter <- lm(log(wage) ~ educ + exper + ed_exp, data = wage1)
+
+summary(model_inter)
+```
+
+
+Interpreting the Interaction:
+
+- $\beta_2$: The return to one year of experience if education is zero
+- $\beta_3$: The change in the return to experience for each additional year of education
+-	If $\beta_3 > 0$, people with more schooling benefit more from each year of experience
+
+We can visualize the interaction effect below:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 7
+#| fig-height: 4
+
+library(wooldridge)
+library(dplyr)
+library(ggplot2)
+
+data("wage1")
+
+# Step 1: Estimate the model with interaction term
+wage1 <- wage1 %>%
+  mutate(ed_exp = educ * exper)
+
+model_inter <- lm(log(wage) ~ educ + exper + ed_exp, data = wage1)
+
+# Step 2: Build prediction grid
+exp_seq <- seq(0, 30, by = 1)
+educ_levels <- c(8, 12, 16)
+
+plot_df <- expand.grid(exper = exp_seq, educ = educ_levels)
+
+# Step 3: Create interaction term BEFORE predicting
+plot_df$ed_exp <- plot_df$educ * plot_df$exper
+
+# Step 4: Predict log(wage) and convert to wage scale
+plot_df$logw_hat <- predict(model_inter, newdata = plot_df)
+plot_df$wage_hat <- exp(plot_df$logw_hat)
+
+# Label education for plot
+plot_df$Education <- factor(plot_df$educ, labels = paste(educ_levels, "years"))
+
+# Step 5: Plot
+ggplot(plot_df, aes(x = exper, y = wage_hat, colour = Education)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Interaction of Education and Experience on Wage",
+    x = "Years of Experience",
+    y = "Predicted Wage (USD/hour)",
+    colour = "Education Level"
+  ) +
+  theme_minimal()
+```
+
+This model allows the slope of experience to vary with education. The lines in the plot diverge: people with more education experience a steeper wage growth with increasing experience, consistent with a positive interaction term.
+
+## Combining Dummy Variables and Interaction Terms
+
+Up to this point, we've used dummy variables to allow for different intercepts across groups (e.g., gender or marital status). We've also seen how interaction terms let the effect of one variable depend on the level of another. Now we combine these ideas to build more flexible models that allow *both intercepts and slopes* to vary across groups.
+
+This is especially useful when analyzing how a continuous variable like education or experience affects the outcome differently depending on group membership (e.g., male vs. female).
+
+By including both dummy variables and interaction terms, we can:
+
+-	Estimate different intercepts across groups
+- Allow the slope of a continuous variable to vary by group
+- Test whether group differences in outcomes are only in levels (intercepts), or also in how the outcome responds to predictors (slopes)
+
+#### Example 30.3: Wage Differences Across Gender and Marital Status (Cont'd) {.unnumbered}
+Let’s consider the model:
+
+$$
+\log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2  + \beta_3 \cdot (x_1 \cdot x_2) + \varepsilon
+$$
+where
+
+- $y$ is wage
+- $x_1$ is gender (0 male, 1 female)
+- $x_2$ is education
+- $x_1 \cdot x_2$ is the interaction between gender and edcuation
+
+Moreover, we have that:
+
+- $\beta_0$ is the intercept for men
+- $\beta_1$ is the gender gap in intercepts (female vs. male)
+- $\beta_2$ is the return to education for men
+- $\beta_3$ is the difference in slope for women vs. men
+
+This model allows both the starting wage and the rate of wage growth with education to differ by gender.
+
+The model can be seen as two regressions:
+
+- For `men` ($\text{gender} = 0$):
+
+$$
+\log(y) = \underbrace{\beta_0}_{intercept} + \underbrace{\beta_2}_{slope} \cdot x_2
+$$
+
+- For `women`
+($\text{gender} = 1$):
+
+$$
+\log(y) = \underbrace{(\beta_0 + \beta_1)}_{intercept} +  \underbrace{(\beta_2 + \beta_3)}_{slope} \cdot x_2
+$$
+
+So:
+
+- $\beta_1$ shows how women’s wages differ at zero education
+- $\beta_3$ shows whether the return to education is higher or lower for women
+
+The model is fit in R and the otuput is as follows:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(wooldridge)
+library(dplyr)
+
+data("wage1")
+
+# Add interaction term
+wage1 <- wage1 %>%
+  mutate(fem_educ = female * educ)
+
+# Estimate the model
+model_interact <- lm(log(wage) ~ female + educ + fem_educ, data = wage1)
+
+summary(model_interact)
+```
+
+
+We now plot the predicted $\log(wage)$ for men and women across different education levels:
+
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 4
+
+library(ggplot2)
+library(patchwork)
+
+# -------------------------------------------------------------------
+# 1. Coefficient sets -----------------------------------------------
+# (You can replace these with estimates from your own regression.)
+beta0 <- 5        # intercept for men
+beta1 <- -1       # female dummy (women vs. men, at zero educ)
+beta2 <- 0.4      # return to education for men
+beta3_neg <- -0.05  # interaction: gap widens (β3 < 0)
+beta3_pos <-  0.05  # interaction: gap narrows/reverses (β3 > 0)
+
+# -------------------------------------------------------------------
+# 2. Prediction grid -------------------------------------------------
+educ_seq <- seq(8, 20, by = 0.5)
+grid <- expand.grid(
+  educ   = educ_seq,
+  female = c(0, 1)
+)
+grid$Gender <- factor(grid$female, labels = c("Male", "Female"))
+
+# Helper to compute wage
+predict_wage <- function(beta3) {
+  with(grid,
+       beta0 + beta1 * female + beta2 * educ + beta3 * female * educ)
+}
+
+grid$wage_a <- predict_wage(beta3_neg)  # Panel (a)
+grid$wage_b <- predict_wage(beta3_pos)  # Panel (b)
+
+# -------------------------------------------------------------------
+# 3. Plot panels -----------------------------------------------------
+pal <- c("Male" = "steelblue", "Female" = "firebrick")
+
+p_a <- ggplot(grid, aes(x = educ, y = wage_a, colour = Gender)) +
+  geom_line(size = 1.3) +
+  scale_colour_manual(values = pal) +
+  labs(
+    x = "Years of education",
+    y = "Wage",
+    colour = "Group"
+  ) +
+  theme_minimal(base_size = 11)
+
+p_b <- ggplot(grid, aes(x = educ, y = wage_b, colour = Gender)) +
+  geom_line(size = 1.3) +
+  scale_colour_manual(values = pal) +
+  labs(
+    x = "Years of education",
+    y = "Wage",
+    colour = "Group"
+  ) +
+  theme_minimal(base_size = 11)
+
+p_a + p_b + plot_layout(guides = "collect")
+```
+
+What we see in the above plot is the following:
+
+(a): Both lines rise with education, but the line for women is always below the line for men, and the vertical distance grows as education increases (negative $\beta_1$ and $\beta_3$).
+
+(b): Women start below men at low education levels, yet because $\beta_3$ is positive, women’s slope is steeper; the lines converge and eventually cross, so the gap narrows and reverses at higher education.
+
+
+
+
+These models provide a more nuanced understanding of group-specific effects and are essential when policy implications depend on heterogeneous responses across groups.
