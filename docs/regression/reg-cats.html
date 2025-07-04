@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.29">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Termeh Shafie">
-
 <title>30&nbsp; Categorical Variables in Regression – Foundational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
@@ -23,7 +20,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -31,7 +27,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../regression/reg-diagnostics.html" rel="next">
 <link href="../regression/reg-inf.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -43,8 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-6bb5ad484749947dbf006bb4d74c4af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -70,12 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -100,17 +90,12 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+</script><link rel="stylesheet" href="../styles.css">
 </head>
-
 <body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -121,13 +106,9 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Foundational Statistics</a> 
         <div class="sidebar-tools-main">
@@ -142,7 +123,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -156,8 +137,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../introduction/what-is-stats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is Statistics?</span></span></a>
@@ -182,7 +163,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -191,8 +172,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../descriptive-stats/describe-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Describing a Dataset</span></span></a>
@@ -211,7 +192,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -220,8 +201,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prob-theory/prob-concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
@@ -246,7 +227,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -255,8 +236,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rvs-probdists/random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Random Variables</span></span></a>
@@ -281,7 +262,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -290,8 +271,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sampling-dists/sampling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Sampling</span></span></a>
@@ -316,7 +297,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
@@ -325,8 +306,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../inferential/intro-inference.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">From Probability to Statistical Inference</span></span></a>
@@ -345,7 +326,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
@@ -354,8 +335,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chi2/chi2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The Chi Square Method</span></span></a>
@@ -374,7 +355,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -383,8 +364,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regression/reg-framework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">The Regression Framework</span></span></a>
@@ -414,8 +395,14 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Categorical Variables in Regression</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/reg-diagnostics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">References</span></span>
@@ -428,8 +415,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendix/normal-table.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span></a>
@@ -448,20 +435,29 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#dummy-variables" id="toc-dummy-variables" class="nav-link active" data-scroll-target="#dummy-variables"><span class="header-section-number">30.1</span> Dummy Variables</a>
+  <ul class="collapse">
+<li><a href="#more-than-two-categories" id="toc-more-than-two-categories" class="nav-link" data-scroll-target="#more-than-two-categories"><span class="header-section-number">30.1.1</span> More Than Two Categories</a></li>
+  <li><a href="#interpreting-a-regression-model-with-a-dummy" id="toc-interpreting-a-regression-model-with-a-dummy" class="nav-link" data-scroll-target="#interpreting-a-regression-model-with-a-dummy"><span class="header-section-number">30.1.2</span> Interpreting a Regression Model with a Dummy</a></li>
+  <li><a href="#using-dummy-variables-for-multiple-categories" id="toc-using-dummy-variables-for-multiple-categories" class="nav-link" data-scroll-target="#using-dummy-variables-for-multiple-categories"><span class="header-section-number">30.1.3</span> Using Dummy Variables for Multiple Categories</a></li>
+  </ul>
+</li>
+  <li><a href="#interaction-terms-in-regression" id="toc-interaction-terms-in-regression" class="nav-link" data-scroll-target="#interaction-terms-in-regression"><span class="header-section-number">30.2</span> Interaction Terms in Regression</a></li>
+  <li><a href="#combining-dummy-variables-and-interaction-terms" id="toc-combining-dummy-variables-and-interaction-terms" class="nav-link" data-scroll-target="#combining-dummy-variables-and-interaction-terms"><span class="header-section-number">30.3</span> Combining Dummy Variables and Interaction Terms</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-cats.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-cats.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Categorical Variables in Regression</span></a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regression/reg-framework.html">Regression Analysis</a></li><li class="breadcrumb-item"><a href="../regression/reg-cats.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Categorical Variables in Regression</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title"><span id="sec-regcats" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Categorical Variables in Regression</span></span></h1>
 </div>
 
@@ -476,19 +472,445 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<p>Up to this point, we have focused on regression models involving quantitative (numerical) predictors, such as age, income, or temperature—variables that have an inherent numeric scale and can be interpreted in terms of magnitudes and differences.</p>
+</header><p>Up to this point, we have focused on regression models involving quantitative (numerical) predictors, such as age, income, or temperature—variables that have an inherent numeric scale and can be interpreted in terms of magnitudes and differences.</p>
 <p>However, many important characteristics in real-world data are <strong>qualitative</strong> or <strong>categorical</strong> in nature. For example, whether a person is male or female, whether a worker belongs to a union, or which region or country an observation comes from. These variables do not carry numeric meaning on their own, yet they can have a significant influence on the outcome we are modeling.</p>
 <p>To include such variables in a regression framework, we introduce the concept of <strong>dummy variables</strong>. A dummy variable is a binary indicator—usually coded as 0 or 1—that allows us to represent membership in a particular category. For example, a variable for gender might be coded as 1 for male and 0 for female (or vice versa). More complex categorical variables with more than two levels—such as political affiliation or region—can be handled by creating multiple dummy variables.</p>
 <p>Moreover, we often want to explore whether the effect of one variable depends on the level of another; for instance, whether the effect of education on wages differs between men and women. In such cases, we use <strong>interaction terms</strong>, which allow the slope of one predictor to vary across categories defined by another.</p>
 <p>This section introduces how to incorporate categorical information into regression models using dummy variables, and how to extend these models with interaction terms to capture more nuanced relationships in the data.</p>
+<section id="dummy-variables" class="level2" data-number="30.1"><h2 data-number="30.1" class="anchored" data-anchor-id="dummy-variables">
+<span class="header-section-number">30.1</span> Dummy Variables</h2>
+<p>In regression analysis, not all explanatory variables are numerical. Some variables are <strong>categorical</strong> or <strong>qualitative</strong>, such as gender, region, or housing type, which cannot be directly entered into a regression equation in their raw form. To include these in a linear model, we convert them into <strong>dummy variables</strong>.</p>
+<p>A dummy variable is a binary (0/1) variable that indicates the presence or absence of a particular category. For instance, consider a variable like gender with two categories: “man” and “woman”. We can recode this into a dummy variable where:</p>
+<ul>
+<li>0 = man<br>
+</li>
+<li>1 = woman</li>
+</ul>
+<p>This new variable can then be used in the regression model as if it were a standard numerical predictor. The coefficient for the dummy variable represents the average difference in the response variable between the two groups—controlling for any other variables in the model.</p>
+<section id="more-than-two-categories" class="level3" data-number="30.1.1"><h3 data-number="30.1.1" class="anchored" data-anchor-id="more-than-two-categories">
+<span class="header-section-number">30.1.1</span> More Than Two Categories</h3>
+<p>If a categorical variable has more than two categories, say, housing type with values like “rental apartment,” “condominium,” “detached house,” and “other”, we cannot capture it with a single dummy. Instead, we create multiple dummy variables. A rule of thumb is that a variable with <span class="math inline">\(c\)</span> categories requires <span class="math inline">\(c - 1\)</span> dummy variables. Each of these represents one of the categories, and the category that is <strong>not</strong> included serves as the <strong>reference group</strong>.</p>
+<p>For example, if we choose “rental apartment” as the reference group, the model might include:</p>
+<ul>
+<li>
+<code>condo</code>: 1 if condominium, 0 otherwise<br>
+</li>
+<li>
+<code>house</code>: 1 if detached house, 0 otherwise<br>
+</li>
+<li>
+<code>other</code>: 1 if other form of housing, 0 otherwise</li>
+</ul>
+<p>The intercept in the regression now represents the expected value for the reference group, and each dummy variable’s coefficient tells us how much the average differs for that group relative to the reference.</p>
+<section id="example-30.1-modeling-house-price" class="level4 unnnumered"><h4 class="unnnumered anchored" data-anchor-id="example-30.1-modeling-house-price">Example 30.1: Modeling House Price</h4>
+<p>To see how dummy variables work in practice, consider the following example. Suppose we are interested in modeling the selling price of houses (measured in units of 100000 EUR). Alongside numerical predictors such as <code>living area</code> (<span class="math inline">\(x_1\)</span>) and <code>lot size</code> (<span class="math inline">\(x_2\)</span>), we also suspect that the <code>presence of a garage</code> affects the selling price.</p>
+<p>Since garage is a categorical variable with two levels; either a house has a garage or it doesn’t, we introduce a dummy variable <span class="math inline">\(x_3\)</span>, defined as:</p>
+<ul>
+<li>
+<span class="math inline">\(x_3 = 1\)</span> if the house has a garage</li>
+<li>
+<span class="math inline">\(x_3 = 0\)</span> if the house does not have a garage</li>
+</ul>
+<p>This allows us to include garage status in a standard linear regression model:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \varepsilon
+\]</span></p>
+<p>We then estimate this model using data from a sample of 20 houses. The estimated regression equation is:</p>
+<p><span class="math display">\[
+\hat{y} = -5.98 + 0.104x_1 + 0.243x_2 + 2.22x_3
+\]</span></p>
+<p>Each coefficient in the regression model has a specific interpretation:</p>
+<ul>
+<li><p>The coefficient <span class="math inline">\(b_1 = 0.104\)</span> means that, <em>holding lot size and garage status constant</em>, each additional square meter of living space increases the expected selling price by approximately 10400 EUR.</p></li>
+<li><p>Similarly, <span class="math inline">\(b_2 = 0.243\)</span> tells us that, <em>keeping living area and garage status fixed</em>, an additional 100 square meters of lot area increases the expected selling price by about 24300 EUR.</p></li>
+<li><p>The coefficient for the dummy variable, <span class="math inline">\(b_3 = 2.22\)</span>, represents the <em>average difference in price between houses with and without a garage</em>, after adjusting for differences in living area and lot size. Specifically, houses <em>with a garage</em> sell for approximately 222000 EUR more than comparable houses <em>without a garage</em>.</p></li>
+</ul>
+<p>This example shows how dummy variables allow us to quantify the effect of qualitative features, like garage presence, in a regression framework. They make it possible to estimate how much categories like “has garage” contribute to the outcome, while controlling for other factors in the model.</p>
+</section></section><section id="interpreting-a-regression-model-with-a-dummy" class="level3" data-number="30.1.2"><h3 data-number="30.1.2" class="anchored" data-anchor-id="interpreting-a-regression-model-with-a-dummy">
+<span class="header-section-number">30.1.2</span> Interpreting a Regression Model with a Dummy</h3>
+<p>Suppose we model the response variable <span class="math inline">\(y\)</span> (e.g., price, income, or score) as a function of a quantitative variable <span class="math inline">\(x_1\)</span> (e.g., experience or education) and a dummy variable <span class="math inline">\(x_2\)</span>, such as gender (where <span class="math inline">\(x_2 = 0\)</span> for men and <span class="math inline">\(x_2 = 1\)</span> for women). The estimated regression model is:</p>
+<p><span class="math display">\[
+\hat{y} = b_0 + b_1 x_1 + b_2 x_2
+\]</span></p>
+<p>To interpret the effect of the dummy variable, we substitute its two possible values into the equation:</p>
+<ul>
+<li><p>When <span class="math inline">\(x_2 = 0\)</span> (e.g., for men): <span class="math display">\[
+\hat{y} = b_0 + b_1 x_1 + b_2 \underbrace{x_2}_{=0} = b_0 + b_1 x_1
+\]</span></p></li>
+<li><p>When <span class="math inline">\(x_2 = 1\)</span> (e.g., for women): <span class="math display">\[
+\hat{y} = b_0 + b_1 x_1 + b_2\underbrace{x_2}_{=1} = b_0 + b_1 x_1 + b_2 =  (b_0 + b_2) + b_1 x_1
+\]</span></p></li>
+</ul>
+<p>Thus, <em>the two groups share the same slope (<span class="math inline">\(b_1\)</span>), but have different intercepts</em>:</p>
+<ul>
+<li>Group 0: intercept is <span class="math inline">\(b_0\)</span>
+</li>
+<li>Group 1: intercept is <span class="math inline">\(b_0 + b_2\)</span>
+</li>
+</ul>
+<p>In other words, the dummy variable <em>shifts the regression line vertically</em>, but does <em>not change the slope</em> of the relationship between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y\)</span>.</p>
+<section id="example-30.2-gender-differences-in-wages" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-30.2-gender-differences-in-wages">Example 30.2: Gender Differences in Wages</h4>
+<p>This example investigates whether there is a difference in wages between men and women using data from the <code>wage1</code> dataset in the <code>wooldridge</code> package.</p>
+<p>The regression model includes a dummy variable for gender:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x + \varepsilon
+\]</span></p>
+<p>where</p>
+<ul>
+<li>
+<span class="math inline">\(y\)</span> is wage</li>
+<li>
+<span class="math inline">\(x_1\)</span> is gender taking on value <code>1</code> if the respondent is female, and <code>0</code> if male.</li>
+</ul>
+<p>The estimated model is:</p>
+<p><span class="math display">\[
+\hat{y} = 7.10 - 2.51 \cdot x_1
+\]</span> as seen from output below.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = wage ~ female, data = wage_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.5995 -1.8495 -0.9877  1.4260 17.8805 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   7.0995     0.2100  33.806  &lt; 2e-16 ***
+female       -2.5118     0.3034  -8.279 1.04e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.476 on 524 degrees of freedom
+Multiple R-squared:  0.1157,    Adjusted R-squared:  0.114 
+F-statistic: 68.54 on 1 and 524 DF,  p-value: 1.042e-15</code></pre>
+</div>
+</div>
+<p>Interpretation:</p>
+<ul>
+<li>The intercept (7.10) represents the average hourly wage for men (gender = 0).</li>
+<li>The coefficient for gender (-2.51) indicates that, on average, women earn $2.51 less per hour than men.</li>
+</ul>
+<p>The overall line is visualized below:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above model does not control for any other variables, such as education. Now, we add educ (years of education) to the model as estimate as:</p>
+<p><span class="math display">\[
+\hat{y} = b_0 + b_1 \cdot x_1 + b_2 \cdot x_2
+\]</span> with coefficients shown in the below output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = wage ~ female + educ, data = wage_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.9890 -1.8702 -0.6651  1.0447 15.4998 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.62282    0.67253   0.926    0.355    
+female      -2.27336    0.27904  -8.147 2.76e-15 ***
+educ         0.50645    0.05039  10.051  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.186 on 523 degrees of freedom
+Multiple R-squared:  0.2588,    Adjusted R-squared:  0.256 
+F-statistic: 91.32 on 2 and 523 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Now, the estimated coefficient on female is -2.27, which still indicates a wage gap, but slightly smaller. This suggests that some of the wage difference was due to differences in education levels between men and women.</p>
+<p>The interpretation of the coefficients:</p>
+<ul>
+<li>Intercept (<span class="math inline">\(b_0\)</span>): Predicted wage for a male with 0 years of education.</li>
+<li>Gender (<span class="math inline">\(b_1\)</span>): Women earn 2.27 USD less on average, holding education constant.</li>
+<li>Education (<span class="math inline">\(b_2\)</span>): Each additional year of education increases expected wage by approximately the amount given by the coefficient.</li>
+</ul>
+<p>To make it clear that the two gender‐specific lines share the same slope (for education) but have different intercepts, we visualize both lines given different values of the dummy (gender):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This plot illustrates two parallel regression lines; one for each group defined by the dummy variable <span class="math inline">\(x_1\)</span>. The lines are parallel because they have the same slope, but they are vertically separated because they have different intercepts. The vertical gap represents the coefficient <span class="math inline">\(b_2\)</span>, which quantifies the average difference between the two groups, after adjusting for <span class="math inline">\(x_1\)</span>.</p>
+<p>This example demonstrates how dummy variables allow us to estimate group differences (in this case, by gender) and how those estimates change when we control for additional variables like education.</p>
+<p>A simple model showed a gender wage gap of USD2.51/hour. After controlling for education, the gap decreased to USD2.27/hour, but remained statistically significant highlighting the value of including relevant covariates in a regression model.</p>
+</section></section><section id="using-dummy-variables-for-multiple-categories" class="level3" data-number="30.1.3"><h3 data-number="30.1.3" class="anchored" data-anchor-id="using-dummy-variables-for-multiple-categories">
+<span class="header-section-number">30.1.3</span> Using Dummy Variables for Multiple Categories</h3>
+<p>In many real-world analyses, we want to compare outcomes across several distinct groups and not just two. When a categorical variable has more than two levels, we cannot capture its effects with a single dummy variable. Instead, we must create multiple dummy variables, each representing one of the non-reference categories.</p>
+<section id="example-30.3-wage-differences-across-gender-and-marital-status" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-30.3-wage-differences-across-gender-and-marital-status">Example 30.3: Wage Differences Across Gender and Marital Status</h4>
+<p>In this example, we examine how wages vary across four groups defined by the combination of gender and marital status:</p>
+<ul>
+<li>single men<br>
+</li>
+<li>married men<br>
+</li>
+<li>single women<br>
+</li>
+<li>married women</li>
+</ul>
+<p>To do this, we create three dummy variables, one for each group except the reference group (here, single men). This allows us to estimate how each group’s average wage differs from the base category, <em>while controlling for education, experience, and tenure</em>. The response is the natural logarithm of the hourly wage.</p>
+<ul>
+<li>Do married men earn more than single men?</li>
+<li>Are single women and married women paid differently?</li>
+<li>What happens to the gender wage gap once we account for experience and education?</li>
+</ul>
+<p>This example showcases the flexibility of multiple regression models and how dummy variables allow us to capture meaningful differences between discrete categories in a statistically rigorous way.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ marriedmale + marriedfemale + singlefemale + 
+    educ + exper + tenure, data = wage_df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.95351 -0.24423 -0.04262  0.24501  1.20538 
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    0.387817   0.102322   3.790 0.000168 ***
+marriedmale    0.292091   0.055389   5.273 1.97e-07 ***
+marriedfemale -0.120235   0.057984  -2.074 0.038611 *  
+singlefemale  -0.096750   0.057463  -1.684 0.092845 .  
+educ           0.083533   0.006861  12.175  &lt; 2e-16 ***
+exper          0.003164   0.001655   1.912 0.056459 .  
+tenure         0.015684   0.002921   5.370 1.19e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4058 on 519 degrees of freedom
+Multiple R-squared:  0.4238,    Adjusted R-squared:  0.4172 
+F-statistic: 63.63 on 6 and 519 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The dummy coefficients are in log points. To express them as percentage effects we use <span class="math display">\[ \% \text{ change} = (\mathrm{e}^{b}-1)\times 100) \]</span>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">Dummy</th>
+<th style="text-align: right;">Log-coef</th>
+<th style="text-align: right;">% change vs.&nbsp;single male</th>
+<th style="text-align: right;">p-value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">marriedmale</td>
+<td style="text-align: right;">0.292</td>
+<td style="text-align: right;">33.922</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">marriedfemale</td>
+<td style="text-align: right;">-0.120</td>
+<td style="text-align: right;">-11.329</td>
+<td style="text-align: right;">0.039</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">singlefemale</td>
+<td style="text-align: right;">-0.097</td>
+<td style="text-align: right;">-9.222</td>
+<td style="text-align: right;">0.093</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We note the following:</p>
+<ul>
+<li>Married men earn roughly 29 % more than single men with the same schooling, experience and tenure.</li>
+<li>Married women earn about 18 % less than single men, while single women earn roughly 10 % less.</li>
+</ul>
+<p>All effects are highly significant at conventional levels.</p>
+<p>The plot below shows straight, parallel lines for the predicted log-wage and the same predictions exponentiated back to the wage scale, which appear as curved lines.</p>
+<div class="cell">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section></section><section id="interaction-terms-in-regression" class="level2" data-number="30.2"><h2 data-number="30.2" class="anchored" data-anchor-id="interaction-terms-in-regression">
+<span class="header-section-number">30.2</span> Interaction Terms in Regression</h2>
+<p>So far, we’ve allowed different intercepts in our regression models, for example, when comparing groups. But what if the slope of a variable also changes depending on the level of another variable? This is where interaction terms come into play.</p>
+<p>In a typical multiple regression, we often assume that the effect of one explanatory variable is independent of the others. That is, the increase in <span class="math inline">\(y\)</span> from a one-unit increase in <span class="math inline">\(x_1\)</span> is always the same, no matter the value of <span class="math inline">\(x_2\)</span>. However, this assumption doesn’t always reflect reality. In many cases, the effect of one variable depends on another.</p>
+<p>To capture this dependency, we include an interaction term; a product of the two variables:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 (x_1 \cdot x_2) + u
+\]</span></p>
+<p>In this model:</p>
+<ul>
+<li><p>The effect of <span class="math inline">\(x_1\)</span> on <span class="math inline">\(y\)</span> changes with the value of <span class="math inline">\(x_2\)</span>: <span class="math display">\[
+\frac{\Delta y}{\Delta x_1} = \beta_1 + \beta_3 x_2
+\]</span></p></li>
+<li><p>Likewise, the effect of <span class="math inline">\(x_2\)</span> on <span class="math inline">\(y\)</span> depends on <span class="math inline">\(x_1\)</span>: <span class="math display">\[
+\frac{\Delta y}{\Delta x_2} = \beta_2 + \beta_3 x_1
+\]</span></p></li>
+</ul>
+<p>The coefficient <span class="math inline">\(\beta_3\)</span> captures the interaction effect. If <span class="math inline">\(\beta_3\)</span> is positive, then the presence of a higher <span class="math inline">\(x_2\)</span> amplifies the effect of <span class="math inline">\(x_1\)</span>. If negative, it dampens it. Interaction terms thus allow for a more flexible model structure, where the relationship between variables can adapt depending on context.</p>
+<section id="example-30.4-interaction-between-education-and-experience" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-30.4-interaction-between-education-and-experience">Example 30.4: Interaction Between Education and Experience</h4>
+<p>Let’s revisit the <code>wage1</code> dataset where the response is salary (<span class="math inline">\(y\)</span>). Suppose we suspect that the return to experience (<span class="math inline">\(x_1\)</span>) may differ depending on how many years of education (<span class="math inline">\(x_2\)</span>) someone has. We estimate the model:</p>
+<p><span class="math display">\[
+\log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2 + \beta_3 (x_1 \cdot x_2) + \varepsilon
+\]</span></p>
+<p>If <span class="math inline">\(\beta_3 &gt; 0\)</span>, then experience becomes more valuable as education increases.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ educ + exper + ed_exp, data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.05543 -0.29549 -0.05335  0.31047  1.44788 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.1532232  0.1673326   0.916   0.3603    
+educ         0.1030365  0.0127368   8.090 4.22e-15 ***
+exper        0.0132641  0.0060374   2.197   0.0285 *  
+ed_exp      -0.0002473  0.0004945  -0.500   0.6172    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4617 on 522 degrees of freedom
+Multiple R-squared:  0.2497,    Adjusted R-squared:  0.2454 
+F-statistic: 57.91 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Interpreting the Interaction:</p>
+<ul>
+<li>
+<span class="math inline">\(\beta_2\)</span>: The return to one year of experience if education is zero</li>
+<li>
+<span class="math inline">\(\beta_3\)</span>: The change in the return to experience for each additional year of education</li>
+<li>If <span class="math inline">\(\beta_3 &gt; 0\)</span>, people with more schooling benefit more from each year of experience</li>
+</ul>
+<p>We can visualize the interaction effect below:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This model allows the slope of experience to vary with education. The lines in the plot diverge: people with more education experience a steeper wage growth with increasing experience, consistent with a positive interaction term.</p>
+</section></section><section id="combining-dummy-variables-and-interaction-terms" class="level2" data-number="30.3"><h2 data-number="30.3" class="anchored" data-anchor-id="combining-dummy-variables-and-interaction-terms">
+<span class="header-section-number">30.3</span> Combining Dummy Variables and Interaction Terms</h2>
+<p>Up to this point, we’ve used dummy variables to allow for different intercepts across groups (e.g., gender or marital status). We’ve also seen how interaction terms let the effect of one variable depend on the level of another. Now we combine these ideas to build more flexible models that allow <em>both intercepts and slopes</em> to vary across groups.</p>
+<p>This is especially useful when analyzing how a continuous variable like education or experience affects the outcome differently depending on group membership (e.g., male vs.&nbsp;female).</p>
+<p>By including both dummy variables and interaction terms, we can:</p>
+<ul>
+<li>Estimate different intercepts across groups</li>
+<li>Allow the slope of a continuous variable to vary by group</li>
+<li>Test whether group differences in outcomes are only in levels (intercepts), or also in how the outcome responds to predictors (slopes)</li>
+</ul>
+<section id="example-30.3-wage-differences-across-gender-and-marital-status-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-30.3-wage-differences-across-gender-and-marital-status-contd">Example 30.3: Wage Differences Across Gender and Marital Status (Cont’d)</h4>
+<p>Let’s consider the model:</p>
+<p><span class="math display">\[
+\log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2  + \beta_3 \cdot (x_1 \cdot x_2) + \varepsilon
+\]</span> where</p>
+<ul>
+<li>
+<span class="math inline">\(y\)</span> is wage</li>
+<li>
+<span class="math inline">\(x_1\)</span> is gender (0 male, 1 female)</li>
+<li>
+<span class="math inline">\(x_2\)</span> is education</li>
+<li>
+<span class="math inline">\(x_1 \cdot x_2\)</span> is the interaction between gender and edcuation</li>
+</ul>
+<p>Moreover, we have that:</p>
+<ul>
+<li>
+<span class="math inline">\(\beta_0\)</span> is the intercept for men</li>
+<li>
+<span class="math inline">\(\beta_1\)</span> is the gender gap in intercepts (female vs.&nbsp;male)</li>
+<li>
+<span class="math inline">\(\beta_2\)</span> is the return to education for men</li>
+<li>
+<span class="math inline">\(\beta_3\)</span> is the difference in slope for women vs.&nbsp;men</li>
+</ul>
+<p>This model allows both the starting wage and the rate of wage growth with education to differ by gender.</p>
+<p>The model can be seen as two regressions:</p>
+<ul>
+<li>For <code>men</code> (<span class="math inline">\(\text{gender} = 0\)</span>):</li>
+</ul>
+<p><span class="math display">\[
+\log(y) = \underbrace{\beta_0}_{intercept} + \underbrace{\beta_2}_{slope} \cdot x_2
+\]</span></p>
+<ul>
+<li>For <code>women</code> (<span class="math inline">\(\text{gender} = 1\)</span>):</li>
+</ul>
+<p><span class="math display">\[
+\log(y) = \underbrace{(\beta_0 + \beta_1)}_{intercept} +  \underbrace{(\beta_2 + \beta_3)}_{slope} \cdot x_2
+\]</span></p>
+<p>So:</p>
+<ul>
+<li>
+<span class="math inline">\(\beta_1\)</span> shows how women’s wages differ at zero education</li>
+<li>
+<span class="math inline">\(\beta_3\)</span> shows whether the return to education is higher or lower for women</li>
+</ul>
+<p>The model is fit in R and the otuput is as follows:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ female + educ + fem_educ, data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.02673 -0.27468 -0.03721  0.26221  1.34740 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  8.260e-01  1.181e-01   6.997 8.08e-12 ***
+female      -3.601e-01  1.854e-01  -1.942   0.0527 .  
+educ         7.723e-02  8.988e-03   8.593  &lt; 2e-16 ***
+fem_educ    -6.409e-05  1.450e-02  -0.004   0.9965    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4459 on 522 degrees of freedom
+Multiple R-squared:  0.3002,    Adjusted R-squared:  0.2962 
+F-statistic: 74.65 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>We now plot the predicted <span class="math inline">\(\log(wage)\)</span> for men and women across different education levels:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What we see in the above plot is the following:</p>
+<p>(a): Both lines rise with education, but the line for women is always below the line for men, and the vertical distance grows as education increases (negative <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_3\)</span>).</p>
+<p>(b): Women start below men at low education levels, yet because <span class="math inline">\(\beta_3\)</span> is positive, women’s slope is steeper; the lines converge and eventually cross, so the gap narrows and reverses at higher education.</p>
+<p>These models provide a more nuanced understanding of group-specific effects and are essential when policy implications depend on heterogeneous responses across groups.</p>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -886,35 +1308,30 @@ window.Quarto = {
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="../regression/reg-inf.html" class="pagination-link" aria-label="Regression Inference">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Regression Inference</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../regression/reg-diagnostics.html" class="pagination-link" aria-label="Residual Analysis and Model Diagnostics">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Foundational Statistics by Termeh Shafie.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-cats.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-cats.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
