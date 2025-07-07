@@ -445,13 +445,48 @@ window.Quarto = {
    
   <ul>
 <li>
-<a href="#heteroskedasticity-when-error-variance-is-not-constant" id="toc-heteroskedasticity-when-error-variance-is-not-constant" class="nav-link active" data-scroll-target="#heteroskedasticity-when-error-variance-is-not-constant"><span class="header-section-number">31.1</span> Heteroskedasticity: When Error Variance is Not Constant</a>
+<a href="#constant-variance-assumption-homoskedasticity" id="toc-constant-variance-assumption-homoskedasticity" class="nav-link active" data-scroll-target="#constant-variance-assumption-homoskedasticity"><span class="header-section-number">31.1</span> Constant Variance Assumption (Homoskedasticity)</a>
   <ul class="collapse">
 <li><a href="#why-does-heteroskedasticity-matter" id="toc-why-does-heteroskedasticity-matter" class="nav-link" data-scroll-target="#why-does-heteroskedasticity-matter"><span class="header-section-number">31.1.1</span> Why does heteroskedasticity matter?</a></li>
   <li><a href="#addressing-heteroskedasticity" id="toc-addressing-heteroskedasticity" class="nav-link" data-scroll-target="#addressing-heteroskedasticity"><span class="header-section-number">31.1.2</span> Addressing heteroskedasticity</a></li>
   <li><a href="#formal-test-for-heteroskedasticity-breusch-pagan-test" id="toc-formal-test-for-heteroskedasticity-breusch-pagan-test" class="nav-link" data-scroll-target="#formal-test-for-heteroskedasticity-breusch-pagan-test"><span class="header-section-number">31.1.3</span> Formal Test for Heteroskedasticity: Breusch-Pagan Test</a></li>
   </ul>
 </li>
+  <li>
+<a href="#linearity-assumption" id="toc-linearity-assumption" class="nav-link" data-scroll-target="#linearity-assumption"><span class="header-section-number">31.2</span> Linearity Assumption</a>
+  <ul class="collapse">
+<li><a href="#functional-form-misspecification" id="toc-functional-form-misspecification" class="nav-link" data-scroll-target="#functional-form-misspecification"><span class="header-section-number">31.2.1</span> Functional Form Misspecification</a></li>
+  <li><a href="#the-reset-test" id="toc-the-reset-test" class="nav-link" data-scroll-target="#the-reset-test"><span class="header-section-number">31.2.2</span> The RESET Test</a></li>
+  <li><a href="#visual-checks-for-linearity" id="toc-visual-checks-for-linearity" class="nav-link" data-scroll-target="#visual-checks-for-linearity"><span class="header-section-number">31.2.3</span> Visual Checks for Linearity</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#normality-assumption" id="toc-normality-assumption" class="nav-link" data-scroll-target="#normality-assumption"><span class="header-section-number">31.3</span> Normality Assumption</a>
+  <ul class="collapse">
+<li><a href="#how-can-we-check-normality" id="toc-how-can-we-check-normality" class="nav-link" data-scroll-target="#how-can-we-check-normality"><span class="header-section-number">31.3.1</span> How Can We Check Normality?</a></li>
+  <li><a href="#what-to-do-if-normality-fails" id="toc-what-to-do-if-normality-fails" class="nav-link" data-scroll-target="#what-to-do-if-normality-fails"><span class="header-section-number">31.3.2</span> What to Do If Normality Fails?</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#zero-conditional-mean-assumption" id="toc-zero-conditional-mean-assumption" class="nav-link" data-scroll-target="#zero-conditional-mean-assumption"><span class="header-section-number">31.4</span> Zero Conditional Mean Assumption</a>
+  <ul class="collapse">
+<li><a href="#endogeneity" id="toc-endogeneity" class="nav-link" data-scroll-target="#endogeneity"><span class="header-section-number">31.4.1</span> Endogeneity</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#random-sample-assumption" id="toc-random-sample-assumption" class="nav-link" data-scroll-target="#random-sample-assumption"><span class="header-section-number">31.5</span> Random Sample Assumption</a>
+  <ul class="collapse">
+<li><a href="#consequences-of-violating-random-sampling" id="toc-consequences-of-violating-random-sampling" class="nav-link" data-scroll-target="#consequences-of-violating-random-sampling"><span class="header-section-number">31.5.1</span> Consequences of Violating Random Sampling</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#no-perfect-collinearity-assumption" id="toc-no-perfect-collinearity-assumption" class="nav-link" data-scroll-target="#no-perfect-collinearity-assumption"><span class="header-section-number">31.6</span> No Perfect Collinearity Assumption</a>
+  <ul class="collapse">
+<li><a href="#what-happens-if-the-assumption-is-violated" id="toc-what-happens-if-the-assumption-is-violated" class="nav-link" data-scroll-target="#what-happens-if-the-assumption-is-violated"><span class="header-section-number">31.6.1</span> What Happens if the Assumption Is Violated?</a></li>
+  <li><a href="#dealing-with-collinearity" id="toc-dealing-with-collinearity" class="nav-link" data-scroll-target="#dealing-with-collinearity"><span class="header-section-number">31.6.2</span> Dealing with Collinearity</a></li>
+  </ul>
+</li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-diagnostics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -474,8 +509,8 @@ window.Quarto = {
 <p>Because the independent variables divide the full dataset into many subpopulations (based on the values of the predictors), regression analysis can be viewed as simultaneously studying the behavior of the dependent variable across these various groups.</p>
 <p>In order to make reliable predictions and interpretations that generalize to the whole population—or to unseen data—we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.</p>
 <p>This is where residual analysis and model diagnostics come in: they help us verify whether the assumptions behind the regression model hold in practice. In the following section, we will review these assumptions and learn how to evaluate them using graphical and statistical tools.</p>
-<section id="heteroskedasticity-when-error-variance-is-not-constant" class="level2" data-number="31.1"><h2 data-number="31.1" class="anchored" data-anchor-id="heteroskedasticity-when-error-variance-is-not-constant">
-<span class="header-section-number">31.1</span> Heteroskedasticity: When Error Variance is Not Constant</h2>
+<section id="constant-variance-assumption-homoskedasticity" class="level2" data-number="31.1"><h2 data-number="31.1" class="anchored" data-anchor-id="constant-variance-assumption-homoskedasticity">
+<span class="header-section-number">31.1</span> Constant Variance Assumption (Homoskedasticity)</h2>
 <p>One of the key assumptions of the classical linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as <strong>homoskedasticity</strong>, and it is formally stated as:</p>
 <blockquote class="blockquote">
 <p>The error term has constant variance, i.e.<br><span class="math inline">\(\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
@@ -491,7 +526,7 @@ window.Quarto = {
 <span class="header-section-number">31.1.2</span> Addressing heteroskedasticity</h3>
 <p>If heteroskedasticity is suspected or detected, we can still proceed with regression analysis by adapting our tools. Instead of relying on standard OLS inference, we use <strong>robust standard errors</strong>, which correct for the presence of non-constant error variance. These robust errors allow us to compute valid t-statistics and confidence intervals, even if the errors are heteroskedastic.</p>
 <p>Robust standard errors are easy to implement in most statistical software and are often used by default in empirical research for this reason. While they do not change the coefficient estimates themselves, they adjust the variability around them, providing more accurate inference.</p>
-<section id="example-detecting-and-correcting-for-heteroskedasticity" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-detecting-and-correcting-for-heteroskedasticity">Example: Detecting and Correcting for Heteroskedasticity</h4>
+<section id="example-31.1-detecting-and-correcting-for-heteroskedasticity" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-31.1-detecting-and-correcting-for-heteroskedasticity">Example 31.1: Detecting and Correcting for Heteroskedasticity</h4>
 <p>To see how heteroskedasticity works in practice, we revisit the <code>wage</code> example from previous chapter. We will model the log of hourly wage (<span class="math inline">\(\log(y)\)</span>) as a function of education (<span class="math inline">\(x_1\)</span>), experience (<span class="math inline">\(x_2\)</span>), and experience squared:</p>
 <p><span class="math display">\[
 \log(y) = \beta_0 + \beta_1 \cdot x_1 + \beta_2 \cdot x_2 + \beta_3 \cdot x_2^2 + \varepsilon
@@ -567,7 +602,7 @@ H_1: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text
 <li>Perform an F-test (or LM test) on the joint significance of the regressors.</li>
 <li>If the test is significant, we reject the null hypothesis of homoskedasticity.</li>
 </ol>
-<section id="example-detecting-and-correcting-for-heteroskedasticity-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-detecting-and-correcting-for-heteroskedasticity-contd">Example: Detecting and Correcting for Heteroskedasticity (Cont’d)</h4>
+<section id="example-31.1-detecting-and-correcting-for-heteroskedasticity-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-31.1-detecting-and-correcting-for-heteroskedasticity-contd">Example 31.1: Detecting and Correcting for Heteroskedasticity (Cont’d)</h4>
 <p>The test for our example is given below:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -594,14 +629,380 @@ Weighted Least Squares (WLS)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In situations where heteroskedasticity is present, another possible remedy—besides using robust standard errors—is the <strong>Weighted Least Squares (WLS)</strong> method.</p>
+<p>In situations where heteroskedasticity is present, another possible remedy—besides using robust standard errors is the <strong>Weighted Least Squares (WLS)</strong> method.</p>
 <p>The main idea behind WLS is to transform the regression equation so that the new errors become homoskedastic. This is done by giving less weight to observations with higher variance and more weight to those with lower variance. When the form of heteroskedasticity is known or can be estimated, WLS can yield more efficient coefficient estimates than OLS.</p>
 <p>However, because WLS relies on specifying a correct model for the error variance (which is often difficult in practice), it is not covered in detail in this material. For our purposes, robust standard errors provide a more flexible and commonly used solution.</p>
 </div>
 </div>
+</section></section></section><section id="linearity-assumption" class="level2" data-number="31.2"><h2 data-number="31.2" class="anchored" data-anchor-id="linearity-assumption">
+<span class="header-section-number">31.2</span> Linearity Assumption</h2>
+<p>One of the most important assumptions in the classical linear model is that the relationship between the dependent variable and the explanatory variables is correctly specified and <strong>linear in parameters</strong>.If this assumption is violated, the model is misspecified, and the estimates from ordinary least squares (OLS) will be both biased and inconsistent.</p>
+<p>Although the term “linear regression” refers to linearity in the parameters, not necessarily in the variables themselves, this still imposes restrictions on the functional form of the model. For example, a simple model like</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x + \varepsilon
+\]</span></p>
+<p>assumes a straight-line relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>. However, in many real-world applications, the true relationship may be curved or involve interactions. If we fail to account for this, our model may omit important nonlinearities or combinations of variables.</p>
+<section id="functional-form-misspecification" class="level3" data-number="31.2.1"><h3 data-number="31.2.1" class="anchored" data-anchor-id="functional-form-misspecification">
+<span class="header-section-number">31.2.1</span> Functional Form Misspecification</h3>
+<p>Even when we include the correct variables, the functional form of the relationship between the variables may still be incorrect. This problem is known as <strong>functional form misspecification</strong>.</p>
+<p>Some common techniques to model nonlinearity include:</p>
+<ul>
+<li>Including squared or higher-order polynomial terms: e.g., <span class="math inline">\(x^2\)</span>, <span class="math inline">\(x^3\)</span>
+</li>
+<li>Including interaction terms between variables: e.g., <span class="math inline">\(x_1 \cdot x_2\)</span>
+</li>
+<li>Applying transformations such as logarithms: e.g., <span class="math inline">\(\log(x)\)</span>
+</li>
+</ul>
+<p>One strategy for detecting misspecification is to estimate an unrestricted model that includes these nonlinear terms, and then test whether they can be jointly excluded using an <strong>F-test</strong>. However, this approach requires knowing which nonlinear terms to include ahead of time which is not always the case.</p>
+</section><section id="the-reset-test" class="level3" data-number="31.2.2"><h3 data-number="31.2.2" class="anchored" data-anchor-id="the-reset-test">
+<span class="header-section-number">31.2.2</span> The RESET Test</h3>
+<p>To address this limitation, we can use a general test for functional form misspecification known as the <strong>RESET test</strong> (Regression Specification Error Test), developed by Ramsey. The core idea is that in a correctly specified model, <em>no nonlinear functions of the fitted values should be significant</em> when added to the regression.</p>
+<p>The test proceeds by augmenting the original model with powers of the fitted values:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \delta_1 \hat{y}^2 + \delta_2 \hat{y}^3 + \varepsilon
+\]</span></p>
+<p>The null hypothesis is that the additional nonlinear terms do <em>not</em> improve the model:</p>
+<p><span class="math display">\[
+H_0: \delta_1 = 0,\ \delta_2 = 0
+\]</span></p>
+<p>If we reject <span class="math inline">\(H_0\)</span>, it suggests that the model may be misspecified and that important nonlinear terms or interactions have been omitted.</p>
+</section><section id="visual-checks-for-linearity" class="level3" data-number="31.2.3"><h3 data-number="31.2.3" class="anchored" data-anchor-id="visual-checks-for-linearity">
+<span class="header-section-number">31.2.3</span> Visual Checks for Linearity</h3>
+<p>In addition to formal tests such as the RESET test, we can visually assess whether the linearity assumption is reasonable by plotting the residuals from our regression model.</p>
+<p>Two standard plots are especially useful:</p>
+<ol type="1">
+<li>
+<strong>Residuals vs.&nbsp;Fitted Values</strong><br>
+</li>
+<li><strong>Residuals vs.&nbsp;Individual Predictors</strong></li>
+</ol>
+<p>Both types of plots help reveal patterns that may suggest the model is misspecified, for example, by omitting nonlinear relationships.</p>
+<section id="example-31.2-birth-weight-data" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-31.2-birth-weight-data">Example 31.2: Birth Weight Data</h4>
+<p>To illustrate the linearity assumption further, consider a model using data from the <code>bwght</code> dataset, which contains information on birth weight (<code>bwght</code>) and maternal characteristics.</p>
+<p>We begin with a general regression model:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + \varepsilon
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>
+<span class="math inline">\(y\)</span>: birth weight of child (in ounces)</li>
+<li>
+<span class="math inline">\(x_{1}\)</span>: number of cigarettes smoked per day during pregnancy</li>
+<li>
+<span class="math inline">\(x_{2}\)</span>: family income (in thousands of dollars)</li>
+</ul>
+<p>The model can then be specified as:</p>
+<p><span class="math display">\[
+\text{bwght} = \beta_0 + \beta_1 \cdot \text{cigs} + \beta_2 \cdot \text{faminc}+ \varepsilon
+\]</span></p>
+<p>We estimate this model using OLS and then check the residuals to assess whether the linear form is appropriate.</p>
+<p>We estimate the model in R:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = bwght ~ cigs + faminc, data = bwght)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-96.061 -11.543   0.638  13.126 150.083 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 116.97413    1.04898 111.512  &lt; 2e-16 ***
+cigs         -0.46341    0.09158  -5.060 4.75e-07 ***
+faminc        0.09276    0.02919   3.178  0.00151 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20.06 on 1385 degrees of freedom
+Multiple R-squared:  0.0298,    Adjusted R-squared:  0.0284 
+F-statistic: 21.27 on 2 and 1385 DF,  p-value: 7.942e-10</code></pre>
+</div>
+</div>
+<p>The linearity assumption in multiple regression requires that the relationship between each predictor and the dependent variable is <em>linear</em>, while <em>holding other variables constant</em>. To assess this visually, we can plot residuals against each explanatory variable. A well-specified model will show residuals scattered randomly around zero without systematic patterns.</p>
+<p>The plot below shows the residuals versus family income from the fitted multiple linear regression model.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="reg-diagnostics_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this case, we see the following:</p>
+<ul>
+<li>The residuals appear randomly distributed across the range of family income.</li>
+<li>The blue LOESS curve is nearly flat, suggesting no systematic deviation from linearity.</li>
+<li>There is no visible curvature, so a <em>linear term</em> for <code>faminc</code> appears appropriate.</li>
+<li>Some variation in spread (larger residual spread at lower income levels) could indicate heteroskedasticity, but this does not affect the linearity assumption directly.</li>
+</ul>
+<p>We would here conclude <em>no evidence of non-linearity</em> in the relationship between family income and birth weight. Thus, the linearity assumption for <code>faminc</code> seems reasonable.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can repeat this kind of residual check for each predictor (e.g., <code>cigs</code>) to evaluate the linearity assumption across the full model.</p>
+</div>
+</div>
+</section></section></section><section id="normality-assumption" class="level2" data-number="31.3"><h2 data-number="31.3" class="anchored" data-anchor-id="normality-assumption">
+<span class="header-section-number">31.3</span> Normality Assumption</h2>
+<p>In the classical linear model, one assumption states that the error terms should be normally distributed:</p>
+<p><span class="math display">\[
+\varepsilon_i \sim \mathcal{N}(0, \sigma^2)
+\]</span></p>
+<p>This assumption is not required for OLS to be unbiased or consistent. However, it is crucial for valid inference in small samples; specifically, to ensure that <span class="math inline">\(t\)</span>- and <span class="math inline">\(F\)</span>-statistics follow their theoretical distributions. If the errors are not normally distributed:</p>
+<ul>
+<li>
+<span class="math inline">\(p\)</span>-values may be incorrect,</li>
+<li>Confidence intervals may not have the advertised coverage rate,</li>
+<li>Type I error rates may deviate from the nominal level.</li>
+</ul>
+<p>For large samples, the <strong>Central Limit Theorem (CLT)</strong> helps mitigate this issue, but for smaller datasets, verifying normality is important.</p>
+<section id="how-can-we-check-normality" class="level3" data-number="31.3.1"><h3 data-number="31.3.1" class="anchored" data-anchor-id="how-can-we-check-normality">
+<span class="header-section-number">31.3.1</span> How Can We Check Normality?</h3>
+<p>Although the true errors are unobserved, we can again inspect the residuals, which serve as estimates of the errors. Since raw residuals are not ideal for this purpose (they can have unequal variances and be dependent), we typically use <strong>standardized residuals</strong> (also known as studentized residuals).</p>
+<p>There are two common visual tools to assess normality:</p>
+<ul>
+<li>
+<strong>Histogram of residuals</strong> overlaid with a normal density curve.</li>
+<li>
+<strong>QQ-plot</strong> comparing the distribution of residuals to a normal distribution.</li>
+</ul>
+<section id="example-31.2-birth-weight-data-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-31.2-birth-weight-data-contd">Example 31.2: Birth Weight Data (Cont’d)</h4>
+<p>We revisit the birth weight regression model:</p>
+<p><span class="math display">\[
+\text{bwght} = \beta_0 + \beta_1 \cdot \text{cigs} + \beta_2 \cdot \text{faminc} + \varepsilon
+\]</span></p>
+<p>We assess the normality of the residuals visually.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="reg-diagnostics_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>What can we interpret here?</p>
+</blockquote>
+<p>The <strong>histogram</strong> shows that the red kernel-density curve is very close to the dashed blue normal curve, indicating that the bulk of the residuals align well with a normal distribution.</p>
+<p>The <strong>QQ-plot</strong> reinforces this impression: most points lie on or very near the dashed reference line, with only mild departures in the extreme tails. A handful of large residuals appear in the upper-right corner, suggesting slight heavy-tail behaviour.</p>
+<p>Overall, the residuals look approximately normal. Minor tail deviations are common in real data and, for moderate or large samples, are unlikely to invalidate inference. If precise small-sample inference were critical, we might investigate these outliers or consider robust methods, but no major violation of the normality assumption is evident.</p>
+</section></section><section id="what-to-do-if-normality-fails" class="level3" data-number="31.3.2"><h3 data-number="31.3.2" class="anchored" data-anchor-id="what-to-do-if-normality-fails">
+<span class="header-section-number">31.3.2</span> What to Do If Normality Fails?</h3>
+<p>If these plots show significant deviation from normality, especially in small samples, consider the following actions:</p>
+<ul>
+<li>Apply a transformation (e.g., log or square root) to the dependent variable.</li>
+<li>Add missing nonlinear terms or relevant predictors.</li>
+<li>Consider robust methods or use bootstrapped standard errors.</li>
+<li>Double-check for outliers or data entry issues.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Formal tests like the <strong>Shapiro-Wilk test</strong> or <strong>Jarque-Bera test</strong> also exist but are not covered here. Visual checks are often sufficient in practice.</p>
+</div>
+</div>
+</section></section><section id="zero-conditional-mean-assumption" class="level2" data-number="31.4"><h2 data-number="31.4" class="anchored" data-anchor-id="zero-conditional-mean-assumption">
+<span class="header-section-number">31.4</span> Zero Conditional Mean Assumption</h2>
+<p>A key assumption in multiple linear regression is the <em>zero conditional mean</em> assumption:</p>
+<p><span class="math display">\[
+\mathbb{E}[\varepsilon \mid X_1, X_2, \dots, X_K] = 0
+\]</span></p>
+<p>This means that the expected value of the error term should be zero, given all the explanatory variables. In simpler terms, after accounting for the included predictors, there should be no remaining systematic pattern in the errors.</p>
+<section id="endogeneity" class="level3" data-number="31.4.1"><h3 data-number="31.4.1" class="anchored" data-anchor-id="endogeneity">
+<span class="header-section-number">31.4.1</span> Endogeneity</h3>
+<p>If this assumption fails, the regression model suffers from <strong>endogeneity</strong>, which leads to:</p>
+<ul>
+<li>
+<strong>Biased</strong> and <strong>inconsistent</strong> OLS estimates,</li>
+<li>Incorrect estimates of causal effects,</li>
+<li>Invalid confidence intervals and hypothesis tests.</li>
+</ul>
+<p>This undermines the entire reliability of the model’s results.</p>
+<p>So what is endogeneity?</p>
+<p>In regression analysis, endogeneity refers to a situation where one or more explanatory variables are correlated with the error term. This violates a key assumption of the classical linear regression model, which states that the expected value of the error should be zero, conditional on all explanatory variables:</p>
+<p><span class="math display">\[
+E[\varepsilon \mid X_1, X_2, \dots, X_K] = 0
+\]</span></p>
+<p>When this assumption fails, the ordinary least squares (OLS) estimator no longer produces unbiased or consistent estimates. As a result, our coefficient estimates can be misleading and cannot be reliably interpreted as causal effects.</p>
+<p>To illustrate the concept see <a href="#fig-endogen" class="quarto-xref">Figure&nbsp;<span>31.1</span></a>. Imagine we are estimating a model where log wages (<span class="math inline">\(y\)</span> )depend on years of schooling (<span class="math inline">\(x\)</span>). If another variable, say ability which is unobserved, affects both education and earnings, it becomes part of the error term (<span class="math inline">\(\varepsilon\)</span>). Because education is correlated with ability, it is also correlated with the error term, thus violating the zero conditional mean assumption. As a result, OLS will tend to overestimate the effect of education on wages, attributing to education what is really due to ability.</p>
+<div id="fig-endogen" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-endogen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="imgs/endogen.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-endogen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;31.1: This diagram illustrates the difference between standard regression and a model with endogeneity. In standard regression, the explanatory variable <span class="math inline">\(x\)</span> is uncorrelated with the error term <span class="math inline">\(\varepsilon\)</span>, ensuring OLS estimates are consistent (left). In contrast, under endogeneity, there is a correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(\varepsilon\)</span>, violating the assumption <span class="math inline">\(E[\varepsilon \mid x] = 0\)</span> and leading to biased and inconsistent OLS estimates (right).
+</figcaption></figure>
+</div>
+<p>Endogeneity often arises in practice through several mechanisms. One common cause is <strong>omitted variable bias</strong>. This happens when a relevant explanatory variable is excluded from the model, and the omitted variable is correlated both with the dependent variable and with one or more included regressors. For example, in a model that aims to estimate the effect of education on wages, failing to control for innate ability, if it affects both education and income, can lead to biased results. The variation in wages attributed to education may in fact be partly due to unobserved differences in ability.</p>
+<p>Another source of endogeneity is <strong>simultaneity</strong>, which occurs when one of the explanatory variables is jointly determined with the outcome variable. A classic example is price and quantity in supply and demand models, where both are determined simultaneously by market forces.</p>
+<p>Finally, <strong>measurement error</strong> in explanatory variables can also lead to endogeneity, especially if the measurement error is systematically related to the dependent variable or other regressors.</p>
+<p>Unlike assumptions such as linearity or homoskedasticity, the zero conditional mean assumption cannot be verified with a residual plot. Instead, it requires domain knowledge, thoughtful model specification, and in some cases, instrumental variable techniques or panel data methods.</p>
+<p>Here are some practical questions to consider:</p>
+<ul>
+<li>Are all relevant variables included in the model?</li>
+<li>Could any variable be simultaneously influenced by the dependent variable?</li>
+<li>Is there measurement error in the key explanatory variables?</li>
+<li>Is the sample subject to selection bias?</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled" title="Endogeneity undermines causal inference">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Endogeneity undermines causal inference
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When endogeneity is present, we can no longer trust OLS estimates to reflect the true causal effects of our explanatory variables.</p>
+</div>
+</div>
+<section id="example-31.3-john-snow-and-the-london-cholera-epidemic" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-31.3-john-snow-and-the-london-cholera-epidemic">Example 31.3: John Snow and the London Cholera Epidemic</h4>
+<p>In 1855, physician John Snow famously investigated the causes of cholera in London. He hypothesized that cholera was waterborne, a radical claim at the time. However, he faced a challenge: people who consumed contaminated water were also more likely to be poor, live in overcrowded housing, and be exposed to poor sanitation, factors that could independently contribute to illness. This made it difficult to establish a causal link between water quality and cholera using simple correlation.</p>
+<p>To overcome this, Snow employed an instrumental variable strategy. He used the identity of the water company supplying a household as an instrument for water quality. Specifically, the Lambeth Water Company sourced its water from an upstream location on the Thames, above the main sewage discharge points, while other companies collected water downstream, from more polluted sections of the river.</p>
+<p>Because households typically could not choose their water provider as this was determined by geography, the company serving them provided an exogenous source of variation in water quality. By comparing cholera incidence across areas served by different companies, Snow was able to demonstrate a strong link between contaminated water and disease, helping to establish the modern understanding of waterborne transmission.</p>
+</section></section></section><section id="random-sample-assumption" class="level2" data-number="31.5"><h2 data-number="31.5" class="anchored" data-anchor-id="random-sample-assumption">
+<span class="header-section-number">31.5</span> Random Sample Assumption</h2>
+<p>One of the foundational assumptions of linear regression is that the data comes from a random sample from the population of interest. This means that each observation is drawn independently and has an equal chance of being selected. Under this assumption, the estimators produced by OLS are unbiased and the usual inference procedures (e.g., <span class="math inline">\(t\)</span>-tests and <span class="math inline">\(F\)</span>-tests) are valid.</p>
+<p>However, when the random sampling assumption is violated, serious problems can arise. For example, if the sample is non-randomly selected, it may not be representative of the broader population. This is known as sample selection bias.</p>
+<p>A common form of selection bias occurs when the likelihood of an observation being included in the sample is related to the outcome variable or the error term. For instance, consider a wage regression that includes only individuals who are employed. If the decision to work is related to unobserved factors that also affect wages—like motivation or health—then the sample is no longer random, and OLS estimates will be biased and inconsistent.</p>
+<p>Another issue arises with dependent observations, such as data collected from the same individual over time (panel data) or from individuals within the same household or community. In such cases, the assumption of independent errors may no longer hold, leading to underestimated standard errors and overstated statistical significance.</p>
+<section id="consequences-of-violating-random-sampling" class="level3" data-number="31.5.1"><h3 data-number="31.5.1" class="anchored" data-anchor-id="consequences-of-violating-random-sampling">
+<span class="header-section-number">31.5.1</span> Consequences of Violating Random Sampling</h3>
+<ul>
+<li>Bias: If the sample is systematically different from the population, the estimated coefficients may not reflect true population parameters.</li>
+<li>Inconsistency: Even as the sample size grows, estimates do not converge to the correct values.</li>
+<li>Invalid Inference: Standard errors, <span class="math inline">\(p\)</span>-values, and confidence intervals may be misleading.</li>
+</ul>
+<p>Ensuring that the sample is representative of the population is therefore crucial for drawing reliable conclusions from regression analysis. In practice, this means paying close attention to how the data was collected and whether any units were systematically excluded.</p>
+<pre class="callout-note"><code>In more advanced settings, techniques like **Heckman correction**, **inverse probability weighting**, or **hierarchical modeling** can help address non-random sampling issues.</code></pre>
+</section></section><section id="no-perfect-collinearity-assumption" class="level2" data-number="31.6"><h2 data-number="31.6" class="anchored" data-anchor-id="no-perfect-collinearity-assumption">
+<span class="header-section-number">31.6</span> No Perfect Collinearity Assumption</h2>
+<p>Another key assumption in multiple linear regression is that the explanatory variables must not exhibit <strong>perfect collinearity</strong>. This means that no independent variable in the model can be written as an exact linear combination of the others. Formally, if <span class="math inline">\(x_1, x_2, \dots, x_k\)</span> are regressors, we must not have a situation where:</p>
+<p><span class="math display">\[
+x_j = \gamma_1 x_1 + \dots + \gamma_{j-1} x_{j-1} + \gamma_{j+1} x_{j+1} + \dots + \gamma_k x_k
+\]</span></p>
+<p>When perfect collinearity exists, the <strong>design matrix</strong> becomes singular and cannot be inverted, which is necessary for computing OLS estimates. In other words, OLS cannot be computed when two or more regressors convey exactly the same information.</p>
+<p>A classic example is including both a dummy variable for “female” and one for “male” in the same model along with an intercept. Since “male” is just one minus “female,” the two dummies are perfectly collinear with the intercept and each other. Similarly, including both total income and log income may lead to approximate (or in some cases, perfect) multicollinearity.</p>
+<section id="what-happens-if-the-assumption-is-violated" class="level3" data-number="31.6.1"><h3 data-number="31.6.1" class="anchored" data-anchor-id="what-happens-if-the-assumption-is-violated">
+<span class="header-section-number">31.6.1</span> What Happens if the Assumption Is Violated?</h3>
+<p>If perfect collinearity is present, the model becomes non-identifiable and the OLS procedure cannot determine unique estimates for the regression coefficients. Statistical software will often drop one of the redundant variables automatically or return an error indicating a singular matrix.</p>
+<p>However, imperfect or high <strong>multicollinearity</strong> (i.e., when predictors are highly but not perfectly correlated) does not prevent OLS from running, but it can lead to unstable estimates and inflated standard errors, making it harder to determine the significance of individual predictors.</p>
+</section><section id="dealing-with-collinearity" class="level3" data-number="31.6.2"><h3 data-number="31.6.2" class="anchored" data-anchor-id="dealing-with-collinearity">
+<span class="header-section-number">31.6.2</span> Dealing with Collinearity</h3>
+<p>To handle perfect collinearity:</p>
+<ul>
+<li>Remove one of the redundant variables (e.g., drop one dummy in a full set of category indicators).</li>
+<li>Reconsider the model specification to avoid including variables that are linear combinations of others.</li>
+<li>Use domain knowledge to prioritize which variable carries more meaningful variation.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always check your model for redundancy when including multiple dummy variables, interaction terms, or transformed versions of the same variable.</p>
+</div>
+</div>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li><p>Three regression models are considered, each generating simulated data:</p></li>
+<li><p><span class="math inline">\(y = 3 + 5x + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon \sim \mathcal{N}(0, 1)\)</span><br></p></li>
+<li><p><span class="math inline">\(y = 3 + 5x + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon \sim \mathcal{N}(0, x^2)\)</span><br></p></li>
+<li><p><span class="math inline">\(y = 3 + 5x^2 + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon \sim \mathcal{N}(0, 25)\)</span></p></li>
+</ol>
+<p>For each model, residual plots (fitted values vs.&nbsp;residuals) and histograms of residuals have been produced and shown below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="imgs/sim-mods-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="imgs/sim-mods-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p><strong>Tasks:</strong></p>
+<ol type="a">
+<li>Evaluate the following assumptions for each model based on the residual plots:</li>
+</ol>
+<ul>
+<li>Linearity</li>
+<li>Constant variance (homoskedasticity)</li>
+</ul>
+<ol start="2" type="a">
+<li><p>Use the histograms of residuals to assess the normality assumption. What can you conclude for each model?</p></li>
+<li><p>You create a new variable containing the squared residuals from model (1), and regress it on the same independent variable used in the model. What classical assumption are you testing, and what is the name of the test?</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<section id="solution" class="level3 callout-body-container callout-body" data-number="31.6.3"><h3 data-number="31.6.3" class="anchored" data-anchor-id="solution">
+<span class="header-section-number">31.6.3</span> 🧠 Solution</h3>
+<p><strong>(a) Assumption evaluation from residual plots:</strong></p>
+<ul>
+<li><p><strong>Model 1</strong>:<br></p></li>
+<li><p>The residuals appear to be centered around zero and have constant spread across all fitted values.<br>
+✅ Linearity assumption is valid<br>
+✅ Homoskedasticity assumption is valid</p></li>
+<li><p><strong>Model 2</strong>:<br>
+The residuals are centered around zero, so the linearity assumption is satisfied.<br>
+However, the spread increases with the fitted values—indicative of <strong>heteroskedasticity</strong>.<br>
+✅ Linearity<br>
+❌ Constant variance</p></li>
+<li><p><strong>Model 3</strong>:<br>
+The residuals do not center around zero consistently. For small and large fitted values, residuals are mostly positive, while for medium fitted values they are mostly negative—suggesting <strong>non-linearity</strong>. However, the spread seems roughly constant.<br>
+❌ Linearity<br>
+✅ Constant variance</p></li>
+</ul>
+<p><strong>(b) Evaluation of normality (from histograms):</strong></p>
+<ul>
+<li>
+<strong>Model 1</strong>: Residuals follow a bell-shaped curve, indicating approximate <strong>normality</strong>.</li>
+<li>
+<strong>Model 2</strong>: Slightly peaked distribution—possibly not normal. A formal test may be needed.</li>
+<li>
+<strong>Model 3</strong>: Clearly <strong>non-normal</strong> distribution with skewness or multimodality.</li>
+</ul>
+<hr>
+<p><strong>(c) Testing squared residuals on the original regressors:</strong></p>
+<p>You are testing whether the <strong>error variance</strong> depends on the independent variable <span class="math inline">\(x\)</span>—that is, testing for <strong>heteroskedasticity</strong>.</p>
+<p>This is known as the <strong>Breusch–Pagan test</strong>, used to assess violation of the constant variance (homoskedasticity) assumption.</p>
+</section>
+</div>
+</div>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

@@ -515,3 +515,123 @@ This means that
 > 97.8% of the variation in oil consumption is explained by the temperature-based regression model 
 
 indicating a very strong linear relationship between the two variables.
+
+## Exercises {.unnumbered}
+
+1. You are given the following small dataset with 4 observations:
+
+| $x$ | $y$ |
+|----:|----:|
+|  1  |  2  |
+|  2  |  3  |
+|  4  |  6  |
+|  5  |  8  |
+
+We want to fit the model:
+
+$$
+y = b_0 + b_1 x + \varepsilon
+$$
+
+**Tasks:**
+
+(a) Calculate the means of $x$ and $y$
+(b) Compute the slope estimate $b_1 = \dfrac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$
+(c) Compute the intercept $b_0 = \bar{y} - b_1 \bar{x}$
+(d) Write out the estimated regression line
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+**(a) Compute the means**
+
+$$
+\bar{x} = \frac{1 + 2 + 4 + 5}{4} = \frac{12}{4} = 3 \\
+\bar{y} = \frac{2 + 3 + 6 + 8}{4} = \frac{19}{4} = 4.75
+$$
+
+
+
+**(b) Compute $b_1$**
+
+We calculate the numerator and denominator separately:
+
+$\sum (x_i - \bar{x})(y_i - \bar{y})$:
+
+| $x$ | $y$ | $x_i - \bar{x}$ | $y_i - \bar{y}$ | $(x_i - \bar{x})(y_i - \bar{y})$ |
+|----:|----:|------------------:|------------------:|-------------------------------:|
+|  1  |  2  | -2               | -2.75            | 5.5                            |
+|  2  |  3  | -1               | -1.75            | 1.75                           |
+|  4  |  6  |  1               | 1.25             | 1.25                           |
+|  5  |  8  |  2               | 3.25             | 6.5                            |
+|     |     |                  |                  | **15.0**                        |
+
+$\sum (x_i - \bar{x})^2$:
+
+$$
+(-2)^2 + (-1)^2 + 1^2 + 2^2 = 4 + 1 + 1 + 4 = 10
+$$
+
+So:
+
+$$
+b_1 = \frac{15}{10} = 1.5
+$$
+
+---
+
+**(c) Compute $b_0$**
+
+$$
+b_0 = \bar{y} - b_1 \bar{x} = 4.75 - 1.5 \cdot 3 = 4.75 - 4.5 = 0.25
+$$
+
+---
+
+**(d) Regression line**
+
+$$
+\hat{y} = 0.25 + 1.5x
+$$
+
+This means for every 1 unit increase in $x$, $y$ increases by 1.5 on average.
+
+:::
+
+
+2. We want to understand how a car's horsepower (`hp`) affects its fuel efficiency measured in miles per gallon (`mpg`).  The following mdoel was fit:
+
+```{r}
+#| message: false
+#| warning: false
+
+# Load the data
+data(mtcars)
+
+# Fit a simple linear regression model
+model <- lm(mpg ~ hp, data = mtcars)
+
+# Display the regression summary
+summary(model)
+```
+
+**Tasks**
+
+(a) Write out the estimated regression equation in the form  
+   $\hat{y} = b_0 + b_1 x$, where $x$ is horsepower and $y$ is mpg.  
+(b) Interpret the intercept $b_0$ in context.  
+(c) Interpret the slope $b_1$ in context.  
+
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+(a) Based on the regression output we get:
+
+$$
+\hat{\text{mpg}} = 30.10 - 0.068 \cdot \text{hp}
+$$
+
+(b) **Intercept ($b_0 \approx 30.10$):** This means that a car with 0 horsepower is predicted to have 30.10 mpg. Although unrealistic (cars don't have 0 hp), it serves as a baseline in the regression equation.
+
+(c) **Slope ($b_1 \approx -0.068$):** For each additional unit of horsepower, mpg is predicted to decrease by about 0.068. In other words, more powerful engines tend to reduce fuel efficiency.
+:::
+

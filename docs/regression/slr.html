@@ -447,6 +447,7 @@ window.Quarto = {
 <li><a href="#the-least-squares-method-fitting-a-straight-line" id="toc-the-least-squares-method-fitting-a-straight-line" class="nav-link active" data-scroll-target="#the-least-squares-method-fitting-a-straight-line"><span class="header-section-number">27.1</span> The Least Squares Method: Fitting a Straight Line</a></li>
   <li><a href="#residuals-and-sums-of-squares" id="toc-residuals-and-sums-of-squares" class="nav-link" data-scroll-target="#residuals-and-sums-of-squares"><span class="header-section-number">27.2</span> Residuals and Sums of Squares</a></li>
   <li><a href="#the-anova-table" id="toc-the-anova-table" class="nav-link" data-scroll-target="#the-anova-table"><span class="header-section-number">27.3</span> The ANOVA Table</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/slr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -1085,6 +1086,201 @@ R^2 = \frac{302886}{309760} = 0.978
 <p>97.8% of the variation in oil consumption is explained by the temperature-based regression model</p>
 </blockquote>
 <p>indicating a very strong linear relationship between the two variables.</p>
+</section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>You are given the following small dataset with 4 observations:</li>
+</ol>
+<table class="caption-top table">
+<thead><tr class="header">
+<th style="text-align: right;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(y\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+<p>We want to fit the model:</p>
+<p><span class="math display">\[
+y = b_0 + b_1 x + \varepsilon
+\]</span></p>
+<p><strong>Tasks:</strong></p>
+<ol type="a">
+<li>Calculate the means of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>
+</li>
+<li>Compute the slope estimate <span class="math inline">\(b_1 = \dfrac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}\)</span>
+</li>
+<li>Compute the intercept <span class="math inline">\(b_0 = \bar{y} - b_1 \bar{x}\)</span>
+</li>
+<li>Write out the estimated regression line</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) Compute the means</strong></p>
+<p><span class="math display">\[
+\bar{x} = \frac{1 + 2 + 4 + 5}{4} = \frac{12}{4} = 3 \\
+\bar{y} = \frac{2 + 3 + 6 + 8}{4} = \frac{19}{4} = 4.75
+\]</span></p>
+<p><strong>(b) Compute <span class="math inline">\(b_1\)</span></strong></p>
+<p>We calculate the numerator and denominator separately:</p>
+<p><span class="math inline">\(\sum (x_i - \bar{x})(y_i - \bar{y})\)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 40%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: right;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(y\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(x_i - \bar{x}\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(y_i - \bar{y}\)</span></th>
+<th style="text-align: right;"><span class="math inline">\((x_i - \bar{x})(y_i - \bar{y})\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-2</td>
+<td style="text-align: right;">-2.75</td>
+<td style="text-align: right;">5.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1.75</td>
+<td style="text-align: right;">1.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">1.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3.25</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>15.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\sum (x_i - \bar{x})^2\)</span>:</p>
+<p><span class="math display">\[
+(-2)^2 + (-1)^2 + 1^2 + 2^2 = 4 + 1 + 1 + 4 = 10
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+b_1 = \frac{15}{10} = 1.5
+\]</span></p>
+<hr>
+<p><strong>(c) Compute <span class="math inline">\(b_0\)</span></strong></p>
+<p><span class="math display">\[
+b_0 = \bar{y} - b_1 \bar{x} = 4.75 - 1.5 \cdot 3 = 4.75 - 4.5 = 0.25
+\]</span></p>
+<hr>
+<p><strong>(d) Regression line</strong></p>
+<p><span class="math display">\[
+\hat{y} = 0.25 + 1.5x
+\]</span></p>
+<p>This means for every 1 unit increase in <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> increases by 1.5 on average.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>We want to understand how a car’s horsepower (<code>hp</code>) affects its fuel efficiency measured in miles per gallon (<code>mpg</code>). The following mdoel was fit:</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ hp, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.7121 -2.1122 -0.8854  1.5819  8.2360 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 30.09886    1.63392  18.421  &lt; 2e-16 ***
+hp          -0.06823    0.01012  -6.742 1.79e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.863 on 30 degrees of freedom
+Multiple R-squared:  0.6024,    Adjusted R-squared:  0.5892 
+F-statistic: 45.46 on 1 and 30 DF,  p-value: 1.788e-07</code></pre>
+</div>
+</div>
+<p><strong>Tasks</strong></p>
+<ol type="a">
+<li>Write out the estimated regression equation in the form<br><span class="math inline">\(\hat{y} = b_0 + b_1 x\)</span>, where <span class="math inline">\(x\)</span> is horsepower and <span class="math inline">\(y\)</span> is mpg.<br>
+</li>
+<li>Interpret the intercept <span class="math inline">\(b_0\)</span> in context.<br>
+</li>
+<li>Interpret the slope <span class="math inline">\(b_1\)</span> in context.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Based on the regression output we get:</li>
+</ol>
+<p><span class="math display">\[
+\hat{\text{mpg}} = 30.10 - 0.068 \cdot \text{hp}
+\]</span></p>
+<ol start="2" type="a">
+<li><p><strong>Intercept (<span class="math inline">\(b_0 \approx 30.10\)</span>):</strong> This means that a car with 0 horsepower is predicted to have 30.10 mpg. Although unrealistic (cars don’t have 0 hp), it serves as a baseline in the regression equation.</p></li>
+<li><p><strong>Slope (<span class="math inline">\(b_1 \approx -0.068\)</span>):</strong> For each additional unit of horsepower, mpg is predicted to decrease by about 0.068. In other words, more powerful engines tend to reduce fuel efficiency.</p></li>
+</ol>
+</div>
+</div>
+</div>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

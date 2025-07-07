@@ -514,3 +514,94 @@ If the $p$-value is smaller than the chosen significance level (e.g., 0.05 or 0.
 
 
 
+## Exercises {.unnumbered}
+
+1. We model **miles per gallon (`mpg`)** as a function of two predictors: **horsepower (`hp`)** and **weight (`wt`)**.
+
+```{r}
+#| message: false
+#| warning: false
+
+# Fit the multiple regression model
+model_infer <- lm(mpg ~ hp + wt, data = mtcars)
+
+# View the regression summary
+summary(model_infer)
+```
+
+**Tasks**
+
+a. Write out the estimated regression equation using the model output.  
+b. Which coefficients are statistically significant at the 5% level?  
+c. Interpret the coefficient on `wt` in the context of the model.  
+d. What does the p-value for `hp` tell you about its relationship with `mpg`, after controlling for `wt`?
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+a. Based on the model output, we get the estimated equation:
+
+$$
+\widehat{\text{mpg}} = 37.23 - 0.032 \cdot \text{hp} - 3.88 \cdot \text{wt}
+$$
+
+b. The coefficients on both `hp` and `wt` are statistically significant at the 5% level. Their p-values are:
+
+- `hp`: p ≈ 0.002
+- `wt`: p < 0.001
+
+c. The coefficient for `wt` is approximately **−3.88**. This means that, *holding horsepower constant*, a 1-unit increase in car weight (1,000 lbs) is associated with a **3.88 mpg decrease** in fuel efficiency on average.
+
+d. The p-value for `hp` (≈ 0.002) indicates that horsepower has a statistically significant **negative** relationship with `mpg`, even when we account for car weight. More horsepower reduces fuel efficiency after adjusting for weight.
+
+:::
+
+2. We want to understand how **home prices** are affected by three factors: **lot size**, **square footage**, and **number of bedrooms**. To do this, we fit the following multiple linear regression model using data from the `hprice1` dataset in the `wooldridge` package:
+
+$$
+\text{price} = \beta_0 + \beta_1\,\text{lotsize} + \beta_2\,\text{sqrft} + \beta_3\,\text{bdrms} + \varepsilon
+$$
+
+where:
+
+- $\text{price}$ is the house price in thousands of dollars,
+- $\text{lotsize}$ is the size of the lot in square feet,
+- $\text{sqrft}$ is the size of the house in square feet,
+- $\text{bdrms}$ is the number of bedrooms.
+
+We obtained the following **95% confidence intervals** for the estimated coefficients:
+
+| Term       | 2.5 %        | 97.5 %       |
+|------------|--------------|--------------|
+| Intercept  | $-80.38$     | $36.84$      |
+| lotsize    | $0.00079$    | $0.00333$    |
+| sqrft      | $0.0965$     | $0.1491$     |
+| bdrms      | $-4.07$      | $31.77$      |
+
+
+a. For each coefficient, determine whether zero is included in the interval. What does this imply about the hypothesis $H_0: \beta_k = 0$?
+
+b. Interpret the confidence interval for $\beta_1$ (the effect of lot size).
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+**(a) Hypothesis Tests via Confidence Intervals:**
+
+- **lotsize:**  
+  The interval is $(0.00079,\; 0.00333)$, which **does not contain 0**.  
+  ⟶ We reject $H_0: \beta_1 = 0$. Lot size has a statistically significant positive effect on house price.
+
+- **sqrft:**  
+  The interval is $(0.0965,\; 0.1491)$, again **excluding 0**.  
+  ⟶ $H_0: \beta_2 = 0$ is rejected. Square footage significantly affects price.
+
+- **bdrms:**  
+  The interval is $(-4.07,\; 31.77)$, which **includes 0**.  
+  ⟶ We **fail to reject** $H_0: \beta_3 = 0$. The number of bedrooms does **not** have a statistically significant effect when controlling for the other variables.
+
+**(b) Interpretation of $\beta_1$ (lotsize):**
+
+We are 95% confident that the effect of a one square foot increase in lot size is associated with an increase in house price between **$0.00079 and $0.00333 thousand dollars**, or **$0.79 to $3.33 dollars**, holding square footage and number of bedrooms constant.
+
+:::
+
+

@@ -449,6 +449,7 @@ window.Quarto = {
   <li><a href="#decomposing-variation-in-multiple-linear-regression" id="toc-decomposing-variation-in-multiple-linear-regression" class="nav-link" data-scroll-target="#decomposing-variation-in-multiple-linear-regression"><span class="header-section-number">28.3</span> Decomposing Variation in Multiple Linear Regression</a></li>
   <li><a href="#anova-table-in-multiple-regression" id="toc-anova-table-in-multiple-regression" class="nav-link" data-scroll-target="#anova-table-in-multiple-regression"><span class="header-section-number">28.4</span> ANOVA Table in Multiple Regression</a></li>
   <li><a href="#adjusted-r%C2%B2-a-caution-against-overfitting" id="toc-adjusted-r²-a-caution-against-overfitting" class="nav-link" data-scroll-target="#adjusted-r%C2%B2-a-caution-against-overfitting"><span class="header-section-number">28.5</span> Adjusted R²: A Caution Against Overfitting</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/mlr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -908,9 +909,132 @@ F-statistic: 23.95 on 2 and 5 DF,  p-value: 0.002748</code></pre>
 </div>
 <p>In the multiple-regression output, the sign of the coefficient on <span class="math inline">\(x_1\)</span> reverses: it becomes negative once <span class="math inline">\(x_2\)</span> is included. The scatterplot clarifies why: points with identical <span class="math inline">\(x_2\)</span> values form nearly parallel, upward-sloping bands, but across bands <span class="math inline">\(x_2\)</span> increases along with <span class="math inline">\(x_1\)</span>, and <span class="math inline">\(x_2\)</span> has a much stronger positive association with <span class="math inline">\(y\)</span>. That mutual rise means the simple model confounded the effect of <span class="math inline">\(x_1\)</span> with that of <span class="math inline">\(x_2\)</span>; when <span class="math inline">\(x_2\)</span> is controlled for, the adjusted relationship between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(y\)</span> turns negative.</p>
 <p>This example shows how omitting a relevant variable can mislead both coefficient estimates and substantive conclusions. Multiple linear regression helps disentangle each predictor’s unique contribution by holding the others constant, preventing such reversals.</p>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>Assume we will model (logged) hourly wage as a function of schooling and labor‐market experience and get the follwing output:</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(wage) ~ educ + exper, data = wage1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.05800 -0.30136 -0.04539  0.30601  1.44425 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 0.216854   0.108595   1.997   0.0464 *  
+educ        0.097936   0.007622  12.848  &lt; 2e-16 ***
+exper       0.010347   0.001555   6.653 7.24e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4614 on 523 degrees of freedom
+Multiple R-squared:  0.2493,    Adjusted R-squared:  0.2465 
+F-statistic: 86.86 on 2 and 523 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p><strong>Tasks</strong></p>
+<ol type="a">
+<li>Write the estimated regression equation in the form<br><span class="math inline">\(\widehat{\log(\text{wage})} = b_0 + b_1 \, \text{educ} + b_2 \, \text{exper}\)</span>.</li>
+<li>Interpret the intercept <span class="math inline">\(b_0\)</span>.</li>
+<li>Interpret <span class="math inline">\(b_1\)</span>, the coefficient on <strong>educ</strong>.</li>
+<li>Interpret <span class="math inline">\(b_2\)</span>, the coefficient on <strong>exper</strong>.</li>
+<li>Look at the output from and interpret the <strong>R-squared</strong> value reported. What does it tell us in this context?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>The output gives<br><span class="math display">\[
+\widehat{\log(\text{wage})}
+\; = \;
+1.24 \; + \; 0.083\,\text{educ} \; + \; 0.019\,\text{exper}
+\]</span></p></li>
+<li><p><strong>Intercept (<span class="math inline">\(b_0 \approx 0.217\)</span>).</strong><br>
+A worker with zero years of schooling and zero years of experience is predicted to have <span class="math inline">\(\log(\text{wage}) \approx 1.24\)</span>.<br>
+Exponentiating, that corresponds to an hourly wage of about $** 0.217**.<br>
+Although such a combination is rare, the intercept serves to anchor the regression surface.</p></li>
+<li><p><strong>Schooling coefficient (<span class="math inline">\(b_1 \approx 0.098\)</span>).</strong><br>
+Holding experience constant, each additional year of education is associated with an <strong>9.8 %</strong> increase in hourly wage.<br>
+(Because the dependent variable is in logs, the coefficient can be interpreted approximately as a percentage change.)</p></li>
+<li><p><strong>Experience coefficient (<span class="math inline">\(b_2 \approx 0.010\)</span>).</strong><br>
+Conditional on schooling, each extra year of labor‐market experience raises predicted hourly wage by about <strong>1.0 %</strong>.</p></li>
+<li>
+<p><span class="math inline">\(R^2= 0.9055\)</span></p>
+<p>An <span class="math inline">\(R^2\)</span> of <strong>0.9055</strong> means that the regression model accounts for <strong>about 90.55 %</strong> of the total variation in hourly wages observed in the sample. Put differently, differences in education and experience explain the vast majority of wage differences across individuals in this dataset, leaving only ≈ 9.45 % of the wage variation unexplained by the model.</p>
+<p>Such a high <span class="math inline">\(R^2\)</span> suggests an excellent in-sample fit. However, we should still be cautious: a high <span class="math inline">\(R^2\)</span> does not guarantee that the model is causal, free of omitted-variable bias, or equally accurate for new data.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A researcher fits the following regression model:</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = wage ~ educ + exper + tenure, data = wage1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.6068 -1.7747 -0.6279  1.1969 14.6536 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -2.87273    0.72896  -3.941 9.22e-05 ***
+educ         0.59897    0.05128  11.679  &lt; 2e-16 ***
+exper        0.02234    0.01206   1.853   0.0645 .  
+tenure       0.16927    0.02164   7.820 2.93e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.084 on 522 degrees of freedom
+Multiple R-squared:  0.3064,    Adjusted R-squared:  0.3024 
+F-statistic: 76.87 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>In this regression of <code>hourly wage</code> on <code>education</code>, <code>experience</code>, and <code>tenure</code>, explain:</p>
+<ol type="a">
+<li>Which variables are being “controlled for” in this model?<br>
+</li>
+<li>Why is it important to control for these variables when estimating the effect of education on wages?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>In this model, the variables <strong>experience</strong> and <strong>tenure</strong> are being <em>controlled for</em> when estimating the effect of <strong>education</strong> on <strong>wage</strong>. That means the estimated coefficient on <code>educ</code> reflects the relationship between education and wage, <em>holding experience and tenure constant</em>.</p></li>
+<li><p>Controlling for these variables is important because they are also likely to affect wages. For example, more experienced workers usually earn higher wages, and longer tenure may also lead to higher pay. If we didn’t include these variables, the estimated effect of education might be <strong>confounded</strong>, that is, part of the variation attributed to education could actually be due to differences in experience or tenure. By including them in the regression, we isolate the effect of education net of these other factors.</p></li>
+</ol>
+</div>
+</div>
+</div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

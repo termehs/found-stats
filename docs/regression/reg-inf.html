@@ -459,6 +459,7 @@ window.Quarto = {
   <li><a href="#confidence-intervals-for-coefficients" id="toc-confidence-intervals-for-coefficients" class="nav-link" data-scroll-target="#confidence-intervals-for-coefficients"><span class="header-section-number">29.4</span> Confidence Intervals for Coefficients</a></li>
   <li><a href="#hypothesis-testing-for-individual-predictors" id="toc-hypothesis-testing-for-individual-predictors" class="nav-link" data-scroll-target="#hypothesis-testing-for-individual-predictors"><span class="header-section-number">29.5</span> Hypothesis Testing for Individual Predictors</a></li>
   <li><a href="#joint-hypothesis-testing-in-multiple-linear-regression" id="toc-joint-hypothesis-testing-in-multiple-linear-regression" class="nav-link" data-scroll-target="#joint-hypothesis-testing-in-multiple-linear-regression"><span class="header-section-number">29.6</span> Joint Hypothesis Testing in Multiple Linear Regression</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/termehs/found-stats/edit/main/regression/reg-inf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/termehs/found-stats/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -947,9 +948,160 @@ Using the <span class="math inline">\(p\)</span>-value for the F-test
 <p>If the <span class="math inline">\(p\)</span>-value is smaller than the chosen significance level (e.g., 0.05 or 0.01), we reject the null hypothesis. Otherwise, we fail to reject it. This approach is both convenient and precise, especially with software like R that handles the calculations automatically.</p>
 </div>
 </div>
+</section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li>We model <strong>miles per gallon (<code>mpg</code>)</strong> as a function of two predictors: <strong>horsepower (<code>hp</code>)</strong> and <strong>weight (<code>wt</code>)</strong>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ hp + wt, data = mtcars)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-3.941 -1.600 -0.182  1.050  5.854 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 37.22727    1.59879  23.285  &lt; 2e-16 ***
+hp          -0.03177    0.00903  -3.519  0.00145 ** 
+wt          -3.87783    0.63273  -6.129 1.12e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.593 on 29 degrees of freedom
+Multiple R-squared:  0.8268,    Adjusted R-squared:  0.8148 
+F-statistic: 69.21 on 2 and 29 DF,  p-value: 9.109e-12</code></pre>
+</div>
+</div>
+<p><strong>Tasks</strong></p>
+<ol type="a">
+<li>Write out the estimated regression equation using the model output.<br>
+</li>
+<li>Which coefficients are statistically significant at the 5% level?<br>
+</li>
+<li>Interpret the coefficient on <code>wt</code> in the context of the model.<br>
+</li>
+<li>What does the p-value for <code>hp</code> tell you about its relationship with <code>mpg</code>, after controlling for <code>wt</code>?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Based on the model output, we get the estimated equation:</li>
+</ol>
+<p><span class="math display">\[
+\widehat{\text{mpg}} = 37.23 - 0.032 \cdot \text{hp} - 3.88 \cdot \text{wt}
+\]</span></p>
+<ol start="2" type="a">
+<li>The coefficients on both <code>hp</code> and <code>wt</code> are statistically significant at the 5% level. Their p-values are:</li>
+</ol>
+<ul>
+<li>
+<code>hp</code>: p ≈ 0.002</li>
+<li>
+<code>wt</code>: p &lt; 0.001</li>
+</ul>
+<ol start="3" type="a">
+<li><p>The coefficient for <code>wt</code> is approximately <strong>−3.88</strong>. This means that, <em>holding horsepower constant</em>, a 1-unit increase in car weight (1,000 lbs) is associated with a <strong>3.88 mpg decrease</strong> in fuel efficiency on average.</p></li>
+<li><p>The p-value for <code>hp</code> (≈ 0.002) indicates that horsepower has a statistically significant <strong>negative</strong> relationship with <code>mpg</code>, even when we account for car weight. More horsepower reduces fuel efficiency after adjusting for weight.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>We want to understand how <strong>home prices</strong> are affected by three factors: <strong>lot size</strong>, <strong>square footage</strong>, and <strong>number of bedrooms</strong>. To do this, we fit the following multiple linear regression model using data from the <code>hprice1</code> dataset in the <code>wooldridge</code> package:</li>
+</ol>
+<p><span class="math display">\[
+\text{price} = \beta_0 + \beta_1\,\text{lotsize} + \beta_2\,\text{sqrft} + \beta_3\,\text{bdrms} + \varepsilon
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>
+<span class="math inline">\(\text{price}\)</span> is the house price in thousands of dollars,</li>
+<li>
+<span class="math inline">\(\text{lotsize}\)</span> is the size of the lot in square feet,</li>
+<li>
+<span class="math inline">\(\text{sqrft}\)</span> is the size of the house in square feet,</li>
+<li>
+<span class="math inline">\(\text{bdrms}\)</span> is the number of bedrooms.</li>
+</ul>
+<p>We obtained the following <strong>95% confidence intervals</strong> for the estimated coefficients:</p>
+<table class="caption-top table">
+<thead><tr class="header">
+<th>Term</th>
+<th>2.5 %</th>
+<th>97.5 %</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td><span class="math inline">\(-80.38\)</span></td>
+<td><span class="math inline">\(36.84\)</span></td>
+</tr>
+<tr class="even">
+<td>lotsize</td>
+<td><span class="math inline">\(0.00079\)</span></td>
+<td><span class="math inline">\(0.00333\)</span></td>
+</tr>
+<tr class="odd">
+<td>sqrft</td>
+<td><span class="math inline">\(0.0965\)</span></td>
+<td><span class="math inline">\(0.1491\)</span></td>
+</tr>
+<tr class="even">
+<td>bdrms</td>
+<td><span class="math inline">\(-4.07\)</span></td>
+<td><span class="math inline">\(31.77\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li><p>For each coefficient, determine whether zero is included in the interval. What does this imply about the hypothesis <span class="math inline">\(H_0: \beta_k = 0\)</span>?</p></li>
+<li><p>Interpret the confidence interval for <span class="math inline">\(\beta_1\)</span> (the effect of lot size).</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>(a) Hypothesis Tests via Confidence Intervals:</strong></p>
+<ul>
+<li><p><strong>lotsize:</strong><br>
+The interval is <span class="math inline">\((0.00079,\; 0.00333)\)</span>, which <strong>does not contain 0</strong>.<br>
+⟶ We reject <span class="math inline">\(H_0: \beta_1 = 0\)</span>. Lot size has a statistically significant positive effect on house price.</p></li>
+<li><p><strong>sqrft:</strong><br>
+The interval is <span class="math inline">\((0.0965,\; 0.1491)\)</span>, again <strong>excluding 0</strong>.<br>
+⟶ <span class="math inline">\(H_0: \beta_2 = 0\)</span> is rejected. Square footage significantly affects price.</p></li>
+<li><p><strong>bdrms:</strong><br>
+The interval is <span class="math inline">\((-4.07,\; 31.77)\)</span>, which <strong>includes 0</strong>.<br>
+⟶ We <strong>fail to reject</strong> <span class="math inline">\(H_0: \beta_3 = 0\)</span>. The number of bedrooms does <strong>not</strong> have a statistically significant effect when controlling for the other variables.</p></li>
+</ul>
+<p><strong>(b) Interpretation of <span class="math inline">\(\beta_1\)</span> (lotsize):</strong></p>
+<p>We are 95% confident that the effect of a one square foot increase in lot size is associated with an increase in house price between <strong>$0.00079 and $0.00333 thousand dollars</strong>, or <strong>$0.79 to $3.33 dollars</strong>, holding square footage and number of bedrooms constant.</p>
+</div>
+</div>
+</div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();

@@ -368,4 +368,87 @@ In the multiple-regression output, the sign of the coefficient on $x_1$ reverses
 
 This example shows how omitting a relevant variable can mislead both coefficient estimates and substantive conclusions. Multiple linear regression helps disentangle each predictor’s unique contribution by holding the others constant, preventing such reversals.
 
+## Exercises {.unnumbered}
+ 
+1. Assume we will model (logged) hourly wage as a function of schooling and labor‐market experience and get the follwing output:
 
+```{r}
+#| message: false
+#| warning: false
+
+library(wooldridge)
+
+data("wage1")
+
+# Fit a multiple linear regression
+model_wage <- lm(log(wage) ~ educ + exper, data = wage1)
+
+# Display regression output
+summary(model_wage)
+```
+
+**Tasks**
+
+(a) Write the estimated regression equation in the form  
+   $\widehat{\log(\text{wage})} = b_0 + b_1 \, \text{educ} + b_2 \, \text{exper}$.
+(b) Interpret the intercept $b_0$.
+(c) Interpret $b_1$, the coefficient on **educ**.
+(d) Interpret $b_2$, the coefficient on **exper**.
+(e) Look at the output from and interpret the **R-squared** value reported. What does it tell us in this context?
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+
+(a) The output gives  
+$$
+\widehat{\log(\text{wage})}
+\; = \;
+1.24 \; + \; 0.083\,\text{educ} \; + \; 0.019\,\text{exper}
+$$
+
+(b) **Intercept ($b_0 \approx 0.217$).**  
+   A worker with zero years of schooling and zero years of experience is predicted to have $\log(\text{wage}) \approx 1.24$.  
+   Exponentiating, that corresponds to an hourly wage of about \$** 0.217**.  
+   Although such a combination is rare, the intercept serves to anchor the regression surface.
+
+(c) **Schooling coefficient ($b_1 \approx 0.098$).**  
+   Holding experience constant, each additional year of education is associated with an **9.8 %** increase in hourly wage.  
+   (Because the dependent variable is in logs, the coefficient can be interpreted approximately as a percentage change.)
+
+(d) **Experience coefficient ($b_2 \approx 0.010$).**  
+   Conditional on schooling, each extra year of labor‐market experience raises predicted hourly wage by about **1.0 %**.
+   
+(e) $R^2= 0.9055$
+
+    An $R^2$ of **0.9055** means that the regression model accounts for **about 90.55 %** of the total variation in hourly wages observed in the sample. Put differently, differences in education and experience explain the vast majority of wage differences across individuals in this dataset, leaving only ≈ 9.45 % of the wage variation unexplained by the model.
+
+    Such a high $R^2$ suggests an excellent in-sample fit. However, we should still be cautious: a high $R^2$ does not guarantee that the model is causal, free of omitted-variable bias, or equally accurate for new data.
+:::
+
+2. A researcher fits the following regression model:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(wooldridge)
+data("wage1")
+
+model_control <- lm(wage ~ educ + exper + tenure, data = wage1)
+summary(model_control)
+```
+
+
+In this regression of `hourly wage` on `education`, `experience`, and `tenure`, explain:
+
+(a) Which variables are being "controlled for" in this model?  
+(b) Why is it important to control for these variables when estimating the effect of education on wages?
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+
+(a) In this model, the variables **experience** and **tenure** are being *controlled for* when estimating the effect of **education** on **wage**. That means the estimated coefficient on `educ` reflects the relationship between education and wage, *holding experience and tenure constant*.
+
+(b) Controlling for these variables is important because they are also likely to affect wages. For example, more experienced workers usually earn higher wages, and longer tenure may also lead to higher pay. If we didn’t include these variables, the estimated effect of education might be **confounded**, that is, part of the variation attributed to education could actually be due to differences in experience or tenure. By including them in the regression, we isolate the effect of education net of these other factors.
+
+:::

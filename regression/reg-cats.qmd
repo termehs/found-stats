@@ -649,3 +649,105 @@ What we see in the above plot is the following:
 
 
 These models provide a more nuanced understanding of group-specific effects and are essential when policy implications depend on heterogeneous responses across groups.
+
+
+## Exercises {.unnumbered}
+
+1. We study how a mother’s behavior and family income affect the birth weight (in ounces) of her baby by estimating the following regression:
+
+$$
+\text{bwght} = \beta_0 + \beta_1\,\text{cigs} + \beta_2\,\text{income} + \beta_3\,\text{male} + \varepsilon
+$$
+
+where:
+
+- `bwght`: birth weight in ounces,
+- `cigs`: average number of cigarettes smoked per day during pregnancy,
+- `income`: family income in \$1,000s,
+- `male`: a dummy variable equal to 1 if the child is male, 0 if female.
+
+
+Assume the estimated equation is:
+
+$$
+\widehat{\text{bwght}} = 116.99 - 0.51 \cdot \text{cigs} + 0.09 \cdot \text{income} + 0.95 \cdot \text{male}
+$$
+
+
+a. What is the effect of each additional cigarette smoked per day on birth weight?
+
+b. Interpret the coefficient on `male`. What does it tell us about differences in birth weight?
+
+c. Write the predicted birth weight equations for male and female babies.
+
+d. By how many ounces is a male baby expected to weigh more (or less) than a female baby, holding other variables constant?
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+**(a)** The coefficient on `cigs` is **-0.51**, which means each additional cigarette smoked per day by the mother is associated with a **0.51-ounce decrease** in birth weight, on average.
+
+**(b)** The coefficient on `male` is **0.95**, indicating that, **holding smoking and income constant**, male babies weigh about **0.95 ounces more** than female babies on average.
+
+**(c)**  
+For **females** (male = 0):  
+$$
+\widehat{\text{bwght}} = 116.99 - 0.51 \cdot \text{cigs} + 0.09 \cdot \text{income}
+$$
+
+For **males** (male = 1):  
+$$
+\widehat{\text{bwght}} = 116.99 - 0.51 \cdot \text{cigs} + 0.09 \cdot \text{income} + 0.95
+$$
+
+So the slope is the same, but males have a higher intercept.
+
+**(d)** Male babies are predicted to weigh about **0.95 ounces more** than females, all else equal.
+
+:::
+
+
+2. We want to explore whether the relationship between education and wages differs by gender. Consider the following estimated regression equation:
+
+$$
+\widehat{\log(\text{wage})} = 0.50 + 0.08\,\text{educ} - 0.20\,\text{female} + 0.03\,(\text{female} \times \text{educ})
+$$
+
+where:
+
+- `educ`: years of education,
+- `female`: dummy variable (1 if female, 0 if male),
+- `female × educ`: interaction term between gender and education.
+
+
+
+a. What is the estimated return to education for men?
+
+b. What is the estimated return to education for women?
+
+c. What is the estimated difference in log(wage) between men and women with 12 years of education?
+
+d. Does the gender wage gap increase or decrease with education? Explain using the coefficient on the interaction term.
+
+::: {.callout-tip title="Solution" collapse="true"}
+
+**(a)** For **men** (`female = 0`), the return to education is simply the coefficient on `educ`:  
+$$
+\text{Return for men} = 0.08
+$$  
+So, for each additional year of education, men's log(wage) increases by 0.08.
+
+**(b)** For **women** (`female = 1`), the return to education is:  
+$$
+0.08 + 0.03 = 0.11
+$$  
+Thus, each year of education increases women's log(wage) by 0.11 on average.
+
+**(c)** The gender difference in predicted log(wage) at 12 years of education is:  
+$$
+\Delta = -0.20 + 0.03 \cdot 12 = -0.20 + 0.36 = 0.16
+$$  
+So, at 12 years of education, **women are predicted to earn more** than men (since the log-wage difference is positive).
+
+**(d)** The interaction coefficient is **+0.03**, meaning the wage gap **narrows and reverses** as education increases. At low education levels, women earn less, but the gap shrinks by 0.03 in log(wage) per year of education.
+
+:::
