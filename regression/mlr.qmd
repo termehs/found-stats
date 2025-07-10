@@ -403,7 +403,7 @@ summary(model_wage)
 $$
 \widehat{\log(\text{wage})}
 \; = \;
-1.24 \; + \; 0.083\,\text{educ} \; + \; 0.019\,\text{exper}
+0.217 \; + \; 0.098\,\text{educ} \; + \; 0.010\,\text{exper}
 $$
 
 (b) **Intercept ($b_0 \approx 0.217$).**  
@@ -418,12 +418,16 @@ $$
 (d) **Experience coefficient ($b_2 \approx 0.010$).**  
    Conditional on schooling, each extra year of labor‐market experience raises predicted hourly wage by about **1.0 %**.
    
-(e) $R^2= 0.9055$
+(e) $R^2= 0.2493$
 
-    An $R^2$ of **0.9055** means that the regression model accounts for **about 90.55 %** of the total variation in hourly wages observed in the sample. Put differently, differences in education and experience explain the vast majority of wage differences across individuals in this dataset, leaving only ≈ 9.45 % of the wage variation unexplained by the model.
+This means that approximately **24.93%** of the variation in the **log of hourly wage** is explained by the regression model that includes **years of education (`educ`)** and **work experience (`exper`)** as predictors.
 
-    Such a high $R^2$ suggests an excellent in-sample fit. However, we should still be cautious: a high $R^2$ does not guarantee that the model is causal, free of omitted-variable bias, or equally accurate for new data.
+Since the dependent variable is on a logarithmic scale, we interpret this R² as the proportion of variation in **log(wage)** accounted for by the model. This still gives us a sense of how well the model fits the data, though on a transformed scale.
+
+> **Note:**  
+> While an R² value of around 0.25 may appear modest, it is common in social science research where many unobserved factors affect outcomes like wages. The statistically significant coefficients suggest that both education and experience play meaningful roles in explaining wage variation.
 :::
+
 
 2. A researcher fits the following regression model:
 

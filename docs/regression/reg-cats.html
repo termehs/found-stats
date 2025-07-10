@@ -900,15 +900,19 @@ F-statistic: 74.65 on 3 and 522 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="864"></p>
+<figure class="figure"><p><img src="reg-cats_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>What we see in the above plot is the following:</p>
-<p>(a): Both lines rise with education, but the line for women is always below the line for men, and the vertical distance grows as education increases (negative <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_3\)</span>).</p>
-<p>(b): Women start below men at low education levels, yet because <span class="math inline">\(\beta_3\)</span> is positive, women’s slope is steeper; the lines converge and eventually cross, so the gap narrows and reverses at higher education.</p>
-<p>These models provide a more nuanced understanding of group-specific effects and are essential when policy implications depend on heterogeneous responses across groups.</p>
+<p>The graph displays the predicted values of <code>log(wage)</code> across different levels of education, separately for males and females.</p>
+<ul>
+<li>Both trend lines are upward-sloping, meaning that more years of education are associated with higher predicted log(wage) for both genders.</li>
+<li>The intercept for men is higher than that for women, indicating that at lower education levels, men are predicted to earn more than women.</li>
+<li>The slope for men is slightly steeper than that for women, suggesting that the returns to education are marginally higher for men. However, the difference in slopes is subtle and may not be easily visible to the eye.</li>
+<li>This difference is modeled through an interaction term between gender and education in the regression. Even when visually hard to detect, the interaction effect can be tested statistically in the regression output.</li>
+</ul>
+<p>In sum, while both genders benefit from increased education, the model predicts a slightly larger benefit for men, both in starting point (intercept) and growth (slope).</p>
 </section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
 <li>We study how a mother’s behavior and family income affect the birth weight (in ounces) of her baby by estimating the following regression:</li>

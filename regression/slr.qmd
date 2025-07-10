@@ -93,7 +93,7 @@ The **least squares method** — the foundation of ordinary linear regression �
 
 But what does "best-fitting" mean? In this context, it refers to the line that minimizes the total squared vertical distances between the observed values $y_i$ and their predicted counterparts $\hat{y}_i$. These vertical distances are precisely the residuals, and the objective is to minimize the **Error Sum of Squares (SSE)** (also known as residual sum of squares):
 
-$\text{SSE} = \sum_{i=1}^{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2$
+$\text{SSE} =  \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2$
 
 Squaring the residuals serves two purposes. First, it ensures that all errors contribute positively to the total (so they don’t cancel out), and second, it gives disproportionately more weight to larger errors, thereby penalizing predictions that are far from the observed data.
 
