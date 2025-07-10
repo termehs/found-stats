@@ -487,7 +487,6 @@ plot_df$Education <- factor(plot_df$educ, labels = paste(educ_levels, "years"))
 ggplot(plot_df, aes(x = exper, y = wage_hat, colour = Education)) +
   geom_line(size = 1.2) +
   labs(
-    title = "Interaction of Education and Experience on Wage",
     x = "Years of Experience",
     y = "Predicted Wage (USD/hour)",
     colour = "Education Level"
