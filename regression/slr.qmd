@@ -516,6 +516,35 @@ This means that
 
 indicating a very strong linear relationship between the two variables.
 
+
+::: {.callout-note title="R-squared and Correlation in Simple Linear Regression"}
+
+In **simple linear regression**, where we model the relationship between a single explanatory variable $x$ and a response variable $y$:
+
+$$
+y = \beta_0 + \beta_1 x + \varepsilon
+$$
+
+the **R-squared** value has a very clear interpretation:
+
+> **R-squared is equal to the square of the Pearson correlation coefficient between $x$ and $y$.**
+
+That is:
+
+$$
+R^2 = \text{Corr}(x, y)^2
+$$
+
+This means that in simple linear regression:
+
+- R-squared tells us the **proportion of the variance in $y$ that is explained by $x$**.
+- If the correlation between $x$ and $y$ is strong (positive or negative), R-squared will be close to 1.
+- If there is no linear relationship, the correlation (and thus R-squared) will be close to 0.
+
+This direct relationship **only holds** in simple linear regression, not in multiple regression settings.
+
+:::
+
 ## Exercises {.unnumbered}
 
 1. You are given the following small dataset with 4 observations:
