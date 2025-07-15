@@ -1086,13 +1086,13 @@ R^2 = \frac{302886}{309760} = 0.978
 <p>97.8% of the variation in oil consumption is explained by the temperature-based regression model</p>
 </blockquote>
 <p>indicating a very strong linear relationship between the two variables.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="R-squared and Correlation in Simple Linear Regression">
+<div class="callout callout-style-default callout-note callout-titled" title="$R^2$ and Correlation in Simple Linear Regression">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R-squared and Correlation in Simple Linear Regression
+<span class="math inline">\(R^2\)</span> and Correlation in Simple Linear Regression
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1100,18 +1100,18 @@ R-squared and Correlation in Simple Linear Regression
 <p><span class="math display">\[
 y = \beta_0 + \beta_1 x + \varepsilon
 \]</span></p>
-<p>the <strong>R-squared</strong> value has a very clear interpretation:</p>
+<p>the <span class="math inline">\(R^2\)</span> value has a very clear interpretation:</p>
 <blockquote class="blockquote">
-<p><strong>R-squared is equal to the square of the Pearson correlation coefficient between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</strong></p>
+<p><strong><span class="math inline">\(R^2\)</span> is equal to the square of the Pearson correlation coefficient between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</strong></p>
 </blockquote>
 <p>That is:</p>
 <p><span class="math display">\[
-R^2 = \text{Corr}(x, y)^2
-\]</span></p>
+R^2 = \text{Corr}(x, y)^2 = r^2
+\]</span> (See <a href="../descriptive-stats/dispersion-measures.html#sec-descriptives-cov" class="quarto-xref"><span>Section 7.6</span></a> for a definition of <span class="math inline">\(r\)</span>).</p>
 <p>This means that in simple linear regression:</p>
 <ul>
 <li>R-squared tells us the <strong>proportion of the variance in <span class="math inline">\(y\)</span> that is explained by <span class="math inline">\(x\)</span></strong>.</li>
-<li>If the correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is strong (positive or negative), R-squared will be close to 1.</li>
+<li>If the correlation between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is strong (positive or negative), <span class="math inline">\(R^2\)</span> will be close to 1.</li>
 <li>If there is no linear relationship, the correlation (and thus R-squared) will be close to 0.</li>
 </ul>
 <p>This direct relationship <strong>only holds</strong> in simple linear regression, not in multiple regression settings.</p>
