@@ -1,3 +1,13 @@
 # Welcome {.unnumbered}
 
-This book is work in progress.
+Hi there, and welcome! 👋
+
+This book is a work-in-progress collection of my lecture notes for a bachelor-level course in **Introductory Statistics**. It's meant to serve as a helpful guide for anyone starting out with statistics — whether you're a student in the course or just someone curious about the subject.
+
+I've organized the material into logical parts, starting with the basics; what statistics is all about, some foundational math, and how surveys and data types work. From there, we move into the fun stuff: describing data, exploring probability theory, working with random variables and distributions, learning about sampling, and getting into inferential stats like estimation and hypothesis testing.
+
+Later sections dive into topics like chi-square tests and regression analysis, and we've also included some handy statistical tables in the appendix for quick lookup.
+
+Since this is still a work in progress, you might notice things shifting around or being updated. If you spot any mistakes, confusing bits, or have suggestions, feel free to reach out. Feedback is always welcome!
+
+Happy learning! 🤓

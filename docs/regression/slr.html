@@ -605,6 +605,26 @@ b_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}
 <span class="math inline">\(r_{xy}\)</span> is the correlation coefficient</li>
 </ul>
 <p><span class="math inline">\(b_0\)</span> (intercept) is the predicted value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x = 0\)</span>. It tells us where the regression line crosses the <span class="math inline">\(y\)</span>-axis. While sometimes meaningful, in many cases it’s just a mathematical anchor and not of direct interest.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Using the Shortcut Formula for Regression Slope">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Using the Shortcut Formula for Regression Slope
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes we only have access to summary statistics (like <span class="math inline">\(\sum x\)</span>, <span class="math inline">\(\sum y\)</span>, <span class="math inline">\(\sum xy\)</span>, etc.) rather than raw data. In such cases, we can use the following <strong>shortcut formula</strong> for the slope of the least-squares regression line:</p>
+<p><span class="math display">\[
+b_1 = \frac{\sum xy - n \bar{x} \bar{y}}{\sum x^2 - n \bar{x}^2}
+= \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
+= \frac{s_{xy}}{s_x^2}
+= r_{xy} \cdot \frac{s_y}{s_x}
+\]</span></p>
+<p>This formula is algebraically equivalent to the definition-based approach and is especially useful when working with pre-computed or summarized data.</p>
+</div>
+</div>
 <p><strong>Intercept:</strong></p>
 <p><span class="math display">\[
 b_0 = \bar{y} - b_1 \bar{x}
@@ -1160,7 +1180,7 @@ y = b_0 + b_1 x + \varepsilon
 <li>Write out the estimated regression line</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1169,7 +1189,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>(a) Compute the means</strong></p>
 <p><span class="math display">\[
@@ -1288,7 +1308,7 @@ F-statistic: 45.46 on 1 and 30 DF,  p-value: 1.788e-07</code></pre>
 <li>Interpret the slope <span class="math inline">\(b_1\)</span> in context.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1297,7 +1317,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>Based on the regression output we get:</li>
