@@ -401,7 +401,7 @@ Formal tests like the **Shapiro-Wilk test** or **Jarque-Bera test** also exist b
 A key assumption in multiple linear regression is the *zero conditional mean* assumption:
 
 $$
-\mathbb{E}[\varepsilon \mid X_1, X_2, \dots, X_K] = 0
+E[\varepsilon \mid X_1, X_2, \dots, X_K] = 0
 $$
 
 This means that the expected value of the error term should be zero, given all the explanatory variables. In simpler terms, after accounting for the included predictors, there should be no remaining systematic pattern in the errors.
@@ -540,7 +540,6 @@ For each model, residual plots (fitted values vs. residuals) and histograms of r
 (c) You create a new variable containing the squared residuals from model (1), and regress it on the same independent variable used in the model. What classical assumption are you testing, and what is the name of the test?
 
 ::: {.callout-tip title="Solution" collapse="true"}
-### 🧠 Solution
 
 **(a) Assumption evaluation from residual plots:**
 

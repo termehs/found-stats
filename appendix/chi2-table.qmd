@@ -60,5 +60,4 @@ names(chi_table_formatted)[-1] <- paste0("&alpha; = ", names(chi_table_formatted
 kable(chi_table_formatted, escape = FALSE, format = "html",
       caption = "One-sided critical values for the χ²-distribution: P(X² > χ²<sub>&nu;, &alpha;</sub>) = &alpha;") %>%
   kable_styling(full_width = FALSE, position = "left")
-
 ```

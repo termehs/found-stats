@@ -11,3 +11,10 @@ Later sections dive into topics like chi-square tests and regression analysis, a
 Since this is still a work in progress, you might notice things shifting around or being updated. If you spot any mistakes, confusing bits, or have suggestions, feel free to reach out. Feedback is always welcome!
 
 Happy learning! 🤓
+
+
+## License
+
+This book is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
+You're free to **share** and **adapt** the material — just make sure to give appropriate credit, and **please don’t use it for commercial purposes**.
