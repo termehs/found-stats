@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Foundational Statistics",
     "section": "",
-    "text": "Welcome\nHi there, and welcome! 👋\nThis little book is a growing collection of my lecture notes for an undergrad Introductory Stats course. It’s here to help you make sense of statistics, whether you’re taking the class or just randomly curious about what standard deviations and \\(p\\)-values are all about.\nWe start with the basics: what stats actually is, a bit of math warm-up, and how we wrangle surveys and data types. Then we roll into the good stuff: summarizing data, dabbling in probability, playing with random variables, and diving into sampling and inference (yes, including the infamous hypothesis tests).\nFurther down the line, we get into things like chi-square tests, regression, and there’s even a stash of handy stat tables at the end for those moments when you need a quick lookup.\nNow go forth and crunch some numbers. Happy learning!🤓",
+    "text": "Welcome\nHi there, and welcome! 👋\nThis little book is a growing collection of my lecture notes for an undergrad Introductory Stats course. It’s here to help you make sense of statistics, whether you’re taking the class or just randomly curious about what standard deviations and \\(p\\)-values are all about.\nWe start with the basics: what stats actually is, a bit of math warm-up, and how we wrangle surveys and data types. Then we roll into the good stuff: summarizing data, dabbling in probability, playing with random variables, and diving into sampling and inference (yes, including the infamous hypothesis tests).\nFurther down the line, we get into things like chi-square tests, regression, and there’s even a stash of handy stat tables at the end for those moments when you need a quick lookup.\nHappy learning!🤓",
     "crumbs": [
       "Welcome"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#license",
     "title": "Foundational Statistics",
     "section": "License",
-    "text": "License\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\nYou’re free to share and adapt the material — just make sure to give appropriate credit, and please don’t use it for commercial purposes.",
+    "text": "License\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\nYou’re free to share and adapt the material, just make sure to give appropriate credit, and please don’t use it for commercial purposes.",
     "crumbs": [
       "Welcome"
     ]

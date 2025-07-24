@@ -8,13 +8,13 @@ We start with the basics: what stats actually *is*, a bit of math warm-up, and h
 
 Further down the line, we get into things like chi-square tests, regression, and there’s even a stash of handy stat tables at the end for those moments when you need a quick lookup.
 
-> **Heads up:** this is still a work in progress, so things might move around or get polished as we go. If you spot anything weird, broken, or just plain confusing, do let me know! I’d love your feedback.
+> **Heads up:** this is still a work in progress, so things might move around or get polished as we go. If you spot anything weird, broken, or just plain confusing, do let me know. I’d love your feedback.
 
-Now go forth and crunch some numbers. Happy learning!🤓
+Happy learning!🤓
 
 
 ## License
 
 This book is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
 
-You're free to **share** and **adapt** the material — just make sure to give appropriate credit, and **please don’t use it for commercial purposes**.
+You're free to **share** and **adapt** the material, just make sure to give appropriate credit, and **please don’t use it for commercial purposes**.
