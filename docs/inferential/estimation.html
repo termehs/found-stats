@@ -732,7 +732,7 @@ Table&nbsp;21.1: Commonly used confidence levels and their corresponding critica
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-cfi-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-confidence-interval" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" data-fig-align="center">
+<div id="fig-confidence-interval" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="672">
 <figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-confidence-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="estimation_files/figure-html/fig-confidence-interval-1.png" id="fig-confidence-interval" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" data-ref-parent="fig-cfi-2" width="672">
 </div>
@@ -1536,15 +1536,19 @@ Warning
 \]</span> With <span class="math inline">\(z_{\alpha/2} = z_{0.025} = 1.96\)</span>, we compute:</p>
 <p><span class="math display">\[
 0.36 - 0.27 \pm 1.96 \cdot \sqrt{ \frac{0.36(1 - 0.36)}{150} + \frac{0.27(1 - 0.27)}{250} }
-\]</span> <span class="math display">\[
-\begin{split} 0.09 \pm 1.96 \cdot \sqrt{ \frac{0.2304}{150} + \frac{0.1971}{250} }
-&amp; = 0.09 \pm 1.96 \cdot \sqrt{0.001536 + 0.0007884}
-\\ &amp; = 0.09 \pm 1.96 \cdot 0.0406
-\\ &amp;= 0.09 \pm 0.0796
+\]</span></p>
+<p><span class="math display">\[
+\begin{split}
+0.09 \pm 1.96 \cdot \sqrt{ \frac{0.2304}{150} + \frac{0.1971}{250} }
+&amp;= 0.09 \pm 1.96 \cdot \sqrt{0.001536 + 0.0007884} \\
+&amp;= 0.09 \pm 1.96 \cdot 0.0482 \\
+&amp;= 0.09 \pm 0.0945
 \end{split}
-\]</span> So the 95% confidence interval is: <span class="math display">\[
-[0.0104,\ 0.1696]
-\]</span> We estimate that the difference in support between the two populations is between 1.0% and 17.0%, with population 1 showing more support. Since the entire interval is above 0, this suggests a real difference in proportions between the populations.</p>
+\]</span> So the 95% confidence interval is:</p>
+<p><span class="math display">\[
+[-0.0045,\ 0.1845]
+\]</span> We estimate that the difference in support between the two populations is between –0.5% and 18.5%, with population 1 showing slightly more support.<br>
+Since the interval includes 0, this suggests a significant difference in proportions between the populations.</p>
 </section></section></section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
 <li>A random sample of 120 families was drawn from a population of approximately 5000 families. The number of children in each selected family was recorded. The sample yielded <span class="math inline">\(\bar{x} = 1.28\)</span> (mean number of children) and <span class="math inline">\(s = 1.10\)</span> (sample standard deviation). Assuming the sample is drawn using simple random sampling, calculate a 99% confidence interval for the population mean <span class="math inline">\(\mu\)</span>, the average number of children per family.</li>

@@ -1120,18 +1120,22 @@ With $z_{\alpha/2} = z_{0.025} = 1.96$, we compute:
 $$
 0.36 - 0.27 \pm 1.96 \cdot \sqrt{ \frac{0.36(1 - 0.36)}{150} + \frac{0.27(1 - 0.27)}{250} }
 $$
+
 $$
-\begin{split} 0.09 \pm 1.96 \cdot \sqrt{ \frac{0.2304}{150} + \frac{0.1971}{250} }
-& = 0.09 \pm 1.96 \cdot \sqrt{0.001536 + 0.0007884}
-\\ & = 0.09 \pm 1.96 \cdot 0.0406
-\\ &= 0.09 \pm 0.0796
+\begin{split} 
+0.09 \pm 1.96 \cdot \sqrt{ \frac{0.2304}{150} + \frac{0.1971}{250} } 
+&= 0.09 \pm 1.96 \cdot \sqrt{0.001536 + 0.0007884} \\
+&= 0.09 \pm 1.96 \cdot 0.0482 \\
+&= 0.09 \pm 0.0945
 \end{split}
 $$
 So the 95% confidence interval is:
+
 $$
-[0.0104,\ 0.1696]
+[-0.0045,\ 0.1845]
 $$
-We estimate that the difference in support between the two populations is between 1.0% and 17.0%, with population 1 showing more support. Since the entire interval is above 0, this suggests a real difference in proportions between the populations.
+We estimate that the difference in support between the two populations is between –0.5% and 18.5%, with population 1 showing slightly more support.  
+Since the interval includes 0, this suggests a significant difference in proportions between the populations.
 
 ## Exercises {.unnumbered}
 

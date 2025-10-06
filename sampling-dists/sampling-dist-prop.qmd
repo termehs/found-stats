@@ -203,35 +203,39 @@ $$
 Compute each term from $k = 0$ to $k = 5$ using this formula:
 $$
 \begin{aligned}
-P(X = 0) &= \binom{100}{0} \cdot (0.04)^0 \cdot (0.96)^{100}
-= 1 \cdot 1 \cdot 0.0166 = \mathbf{0.0166} \\\\
-P(X = 1) &= \binom{100}{1} \cdot (0.04)^1 \cdot (0.96)^{99}
-= 100 \cdot 0.04 \cdot 0.0173 = \mathbf{0.0692} \\\\
-P(X = 2) &= \binom{100}{2} \cdot (0.04)^2 \cdot (0.96)^{98}
-= 4950 \cdot 0.0016 \cdot 0.0180 = \mathbf{0.1426} \\\\
-P(X = 3) &= \binom{100}{3} \cdot (0.04)^3 \cdot (0.96)^{97}
-= 161700 \cdot 0.000064 \cdot 0.0187 = \mathbf{0.1952} \\\\
-P(X = 4) &= \binom{100}{4} \cdot (0.04)^4 \cdot (0.96)^{96}
-= 3921225 \cdot 0.00000256 \cdot 0.0195 = \mathbf{0.1797} \\\\
-P(X = 5) &= \binom{100}{5} \cdot (0.04)^5 \cdot (0.96)^{95}
-= 75287520 \cdot 0.00000102 \cdot 0.0203 = \mathbf{0.1234}
+P(X = 0) &= \binom{100}{0} (0.04)^0 (0.96)^{100}
+= 1 \cdot 1 \cdot 0.01687 = \mathbf{0.0169} \\\\
+P(X = 1) &= \binom{100}{1} (0.04)^1 (0.96)^{99}
+= 100 \cdot 0.04 \cdot 0.01757 = \mathbf{0.0703} \\\\
+P(X = 2) &= \binom{100}{2} (0.04)^2 (0.96)^{98}
+= 4950 \cdot 0.0016 \cdot 0.01831 = \mathbf{0.1450} \\\\
+P(X = 3) &= \binom{100}{3} (0.04)^3 (0.96)^{97}
+= 161700 \cdot 0.000064 \cdot 0.01909 = \mathbf{0.1973} \\\\
+P(X = 4) &= \binom{100}{4} (0.04)^4 (0.96)^{96}
+= 3921225 \cdot 0.00000256 \cdot 0.01989 = \mathbf{0.1994} \\\\
+P(X = 5) &= \binom{100}{5} (0.04)^5 (0.96)^{95}
+= 75287520 \cdot 0.0000001024 \cdot 0.02073 = \mathbf{0.1595}
 \end{aligned}
 $$
+
 
 Now we sum these:
 
 $$
 \begin{aligned}
-P(X \leq 5) &= 0.0166 + 0.0692 + 0.1426 + 0.1952 + 0.1797 + 0.1234 \\
-&=  0.7267
+P(X \leq 5) &= 0.0169 + 0.0703 + 0.1450 + 0.1973 + 0.1994 + 0.1595 \\
+&= 0.7884
 \end{aligned}
 $$
+
 Final answer is then:
+
 $$
-P(X > 5) = 1 - P(X \leq 5) = 1-0.7267 = \boxed{0.2733}
+P(X > 5) = 1 - P(X \leq 5) = 1 - 0.7884 = \boxed{0.2116}
 $$
 
-There is approximately a 27.33% chance of observing more than 5 defective items in a random sample of 100 when the defect rate is 4%.
+There is approximately a **21.16%** chance of observing more than 5 defective items in a random sample of 100 when the defect rate is 4%. Using the **normal approximation** (with or without continuity correction), the result is close:  
+$$ P(X > 5) \approx 0.2206 $$.
 
-With normal approximation the answer would be $P(X > 5) \approx 0.2206$ (double check this by yourselves). So the normal approximation underestimates the true probability in this case, not surprising since the sample size is modest and $np$ is close to the lower cutoff for using normal approximation reliably.
+Thus, the normal approximation slightly overestimates the true probability in this case, which can happen when $np = 4$ is near the lower bound for the normal approximation’s reliability.
 :::
