@@ -263,7 +263,17 @@ $$
 Since $2.41 < 5.991$, we fail to reject $H_0$. There is no significant difference between the observed and expected brightness levels. The data is consistent with the claimed distribution at the 5% level.
 :::
 
-2.  Suppose a state lottery randomly draws one number from the integers 1 through 5 each week. Over 100 weeks, the frequency of each number is recorded. Test whether these numbers are drawn uniformly, i.e., whether each number has an equal chance of being drawn.
+2.  Suppose a state lottery randomly draws one number from the integers 1 through 5 each week. Over 100 weeks, the frequency of each number is recorded. 
+
+  | Category | Observed Frequency |
+  |:----------|:------------------:|
+  | 1 | 15 |
+  | 2 | 24 |
+  | 3 | 19 |
+  | 4 | 22 |
+  | 5 | 20 |
+
+  Test whether these numbers are drawn uniformly, i.e., whether each number has an equal chance of being drawn.
 
 ::: {.callout-tip collapse="true"}
 ## Solution
