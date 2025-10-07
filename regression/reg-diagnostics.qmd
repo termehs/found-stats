@@ -4,7 +4,7 @@ When conducting statistical analysis and drawing conclusions, we usually rely on
 
 Because the independent variables divide the full dataset into many subpopulations (based on the values of the predictors), regression analysis can be viewed as simultaneously studying the behavior of the dependent variable across these various groups.
 
-In order to make reliable predictions and interpretations that generalize to the whole population—or to unseen data—we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.
+In order to make reliable predictions and interpretations that generalize to the whole population (or to unseen data) we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.
 
 This is where residual analysis and model diagnostics come in: they help us verify whether the assumptions behind the regression model hold in practice. In the following section, we will review these assumptions and learn how to evaluate them using graphical and statistical tools.
 
@@ -15,7 +15,7 @@ One of the key assumptions of the classical linear regression model is that the 
 > The error term has constant variance, i.e.  
 > $\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2$ for all $i$.
 
-When this assumption is violated—meaning the error variance changes with the level of one or more explanatory variables—the model is said to exhibit **heteroskedasticity**.
+When this assumption is violated, meaning the error variance changes with the level of one or more explanatory variables, the model is said to exhibit **heteroskedasticity**.
 
 ### Why does heteroskedasticity matter?
 
@@ -155,7 +155,7 @@ The test returns a $p$-value.
 As seen, heteroskedasticity is detected here as well, and we should proceed by using robust standard errors, as shown above.
 
 ::: {.callout-note title="Weighted Least Squares (WLS)"}
-In situations where heteroskedasticity is present, another possible remedy—besides using robust standard errors is the **Weighted Least Squares (WLS)** method.
+In situations where heteroskedasticity is present, another possible remedy, besides using robust standard errors is the **Weighted Least Squares (WLS)** method.
 
 The main idea behind WLS is to transform the regression equation so that the new errors become homoskedastic. This is done by giving less weight to observations with higher variance and more weight to those with lower variance. When the form of heteroskedasticity is known or can be estimated, WLS can yield more efficient coefficient estimates than OLS.
 
@@ -470,7 +470,7 @@ One of the foundational assumptions of linear regression is that the data comes 
 
 However, when the random sampling assumption is violated, serious problems can arise. For example, if the sample is non-randomly selected, it may not be representative of the broader population. This is known as sample selection bias.
 
-A common form of selection bias occurs when the likelihood of an observation being included in the sample is related to the outcome variable or the error term. For instance, consider a wage regression that includes only individuals who are employed. If the decision to work is related to unobserved factors that also affect wages—like motivation or health—then the sample is no longer random, and OLS estimates will be biased and inconsistent.
+A common form of selection bias occurs when the likelihood of an observation being included in the sample is related to the outcome variable or the error term. For instance, consider a wage regression that includes only individuals who are employed. If the decision to work is related to unobserved factors that also affect wage (like motivation or health) then the sample is no longer random, and OLS estimates will be biased and inconsistent.
 
 Another issue arises with dependent observations, such as data collected from the same individual over time (panel data) or from individuals within the same household or community. In such cases, the assumption of independent errors may no longer hold, leading to underestimated standard errors and overstated statistical significance.
 
@@ -550,12 +550,12 @@ For each model, residual plots (fitted values vs. residuals) and histograms of r
 
 - **Model 2**:  
   The residuals are centered around zero, so the linearity assumption is satisfied.  
-  However, the spread increases with the fitted values—indicative of **heteroskedasticity**.  
+  However, the spread increases with the fitted values, indicative of **heteroskedasticity**.  
   ✅ Linearity  
   ❌ Constant variance
 
 - **Model 3**:  
-  The residuals do not center around zero consistently. For small and large fitted values, residuals are mostly positive, while for medium fitted values they are mostly negative—suggesting **non-linearity**. However, the spread seems roughly constant.  
+  The residuals do not center around zero consistently. For small and large fitted values, residuals are mostly positive, while for medium fitted values they are mostly negative, suggesting **non-linearity**. However, the spread seems roughly constant.  
   ❌ Linearity  
   ✅ Constant variance
 
@@ -563,14 +563,14 @@ For each model, residual plots (fitted values vs. residuals) and histograms of r
 **(b) Evaluation of normality (from histograms):**
 
 - **Model 1**: Residuals follow a bell-shaped curve, indicating approximate **normality**.
-- **Model 2**: Slightly peaked distribution—possibly not normal. A formal test may be needed.
+- **Model 2**: Slightly peaked distribution, possibly not normal. A formal test may be needed.
 - **Model 3**: Clearly **non-normal** distribution with skewness or multimodality.
 
 ---
 
 **(c) Testing squared residuals on the original regressors:**
 
-You are testing whether the **error variance** depends on the independent variable $x$—that is, testing for **heteroskedasticity**.
+You are testing whether the **error variance** depends on the independent variable $x$, that is, testing for **heteroskedasticity**.
 
 This is known as the **Breusch–Pagan test**, used to assess violation of the constant variance (homoskedasticity) assumption.
 

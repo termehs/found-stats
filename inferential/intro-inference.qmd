@@ -22,7 +22,7 @@ For instance, imagine we know that 30% of a population of 1000 people own a car.
 
 But now, we turn the tables.
 
-Instead of starting with known population characteristics and predicting sample behavior, we enter the world of **statistical inference** — where we begin with a sample and aim to draw conclusions about the larger population. Inference flips the problem around:
+Instead of starting with known population characteristics and predicting sample behavior, we enter the world of **statistical inference**; where we begin with a sample and aim to draw conclusions about the larger population. Inference flips the problem around:
 
 > Given data from a sample, what can we say about the population it came from?
 

@@ -13,7 +13,7 @@ Naturally, we hope that the value of our estimate $\hat{\theta}$ is close to the
 
 For clarity, it's important to distinguish between three closely related but conceptually distinct terms in inferential statistics: **estimand**, **estimator**, and **estimate**.
 
-- **Estimand**: This is the **target** of our inference—the unknown quantity or parameter in the population we want to learn about. Examples include the population mean $\mu$, the proportion of voters supporting a policy $p$, or the difference in means between two groups $\mu_1 - \mu_2$.
+- **Estimand**: This is the **target** of our inference; the unknown quantity or parameter in the population we want to learn about. Examples include the population mean $\mu$, the proportion of voters supporting a policy $p$, or the difference in means between two groups $\mu_1 - \mu_2$.
 
 - **Estimator**: A formula or rule that we apply to sample data in order to make an informed guess about the estimand. It is a **random variable**, as it depends on the data, which in turn vary across samples. For instance, the sample mean $\bar{X}$ is an estimator for the population mean $\mu$.
 
@@ -73,7 +73,7 @@ Together, these properties give us a clear framework for evaluating the reliabil
 
 ## Point Estimation
 
-In statistical inference, we often aim to estimate unknown characteristics of a population—such as its average income, the proportion of voters in favor of a policy, or the variance in housing prices. This process of using data from a sample to calculate a single value as a “best guess” for a population parameter is known as **point estimation**.
+In statistical inference, we often aim to estimate unknown characteristics of a population such as its average income, the proportion of voters in favor of a policy, or the variance in housing prices. This process of using data from a sample to calculate a single value as a “best guess” for a population parameter is known as **point estimation**.
 
 Let us assume we have a random sample $X_1, X_2, \ldots, X_n$ of $n$ independent observations from a population with an unknown mean $\mu$ and variance $\sigma^2$. A **point estimator** is a function of the sample data used to estimate a population parameter.
 
@@ -347,11 +347,11 @@ So how do we interpret the confidence interval? Before we collect any data, we c
 
 > The interval was calculated using a procedure that, in the long run, produces intervals that contain the true mean in 95% of all cases.
 
-This is the essence of the frequentist interpretation of confidence intervals. It doesn’t tell us the probability that our specific interval contains $\mu$, but it does provide a measure of trust in the procedure we used to create it. That’s why we refer to it as a “confidence” interval — not because we are certain, but because we have reason to be confident based on the method’s performance over repeated samples.
+This is the essence of the frequentist interpretation of confidence intervals. It doesn’t tell us the probability that our specific interval contains $\mu$, but it does provide a measure of trust in the procedure we used to create it. That’s why we refer to it as a “confidence” interval, not because we are certain, but because we have reason to be confident based on the method’s performance over repeated samples.
 
 So far, we have only constructed 95% confidence intervals for a population mean. This means that if we were to repeat the sampling procedure many times, approximately 95% of those intervals would contain the true population mean, $\mu$.
 
-But 95% is not a fixed rule. We can choose other confidence levels—such as 90% or 99%—depending on how certain we want to be. The trade-off is that a *higher level* of confidence results in a *wider interval*, while a *lower confidence level* gives a *narrower but less certain estimate*.
+But 95% is not a fixed rule. We can choose other confidence levels, such as 90% or 99%, depending on how certain we want to be. The trade-off is that a *higher level* of confidence results in a *wider interval*, while a *lower confidence level* gives a *narrower but less certain estimate*.
 
 When the population standard deviation $\sigma$ is known and the sampling distribution of the mean is approximately normal (either by assumption or via the Central Limit Theorem), the general structure of a confidence interval for the mean is:
 

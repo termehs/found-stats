@@ -619,7 +619,7 @@ P(Y = y) = \sum_x P(x, y)
 <p>The row and column totals in the table reflect these marginal probabilities.</p>
 <section id="example-15.1-family-composition-contd" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.1-family-composition-contd">Example 15.1: Family Composition (cont’d)</h4>
 <p>At the end of each row in <a href="#tbl-jointex" class="quarto-xref">Table&nbsp;<span>15.1</span></a>, we see the marginal distribution of <span class="math inline">\(X\)</span>, denoted <span class="math inline">\(P(X = x)\)</span>. These values are computed by summing the probabilities across each row, that is, over all values of <span class="math inline">\(Y\)</span> for a fixed <span class="math inline">\(X\)</span>. The interpretation is simple: <span class="math inline">\(P(X = 1) = 0.27\)</span> means that 27% of the families have exactly one boy, regardless of how many girls they have.</p>
-<p>Similarly, the bottom row contains the marginal distribution of <span class="math inline">\(Y\)</span>, labeled <span class="math inline">\(P(Y = y)\)</span>. These probabilities are calculated by summing down each column — over all values of <span class="math inline">\(X\)</span> for a fixed number of girls <span class="math inline">\(Y = y\)</span>. For instance, <span class="math inline">\(P(Y = 0) = 0.64\)</span> indicates that 64% of the families have no girls, irrespective of how many boys they have.</p>
+<p>Similarly, the bottom row contains the marginal distribution of <span class="math inline">\(Y\)</span>, labeled <span class="math inline">\(P(Y = y)\)</span>. These probabilities are calculated by summing down each column over all values of <span class="math inline">\(X\)</span> for a fixed number of girls <span class="math inline">\(Y = y\)</span>. For instance, <span class="math inline">\(P(Y = 0) = 0.64\)</span> indicates that 64% of the families have no girls, irrespective of how many boys they have.</p>
 <p>These marginal distributions summarize the overall behavior of each variable independently, while the joint distribution reflects how the variables interact.</p>
 </section></section><section id="conditional-distributions" class="level2" data-number="15.4"><h2 data-number="15.4" class="anchored" data-anchor-id="conditional-distributions">
 <span class="header-section-number">15.4</span> Conditional Distributions</h2>
@@ -744,7 +744,7 @@ Number of girls (Y)
 <p>This approach allows us to analyze how knowledge of one variable informs us about the likely values of the other, a key idea that leads naturally into concepts like independence, correlation, and covariance, which we’ll explore next.</p>
 </section></section><section id="independence-of-random-variables" class="level2" data-number="15.5"><h2 data-number="15.5" class="anchored" data-anchor-id="independence-of-random-variables">
 <span class="header-section-number">15.5</span> Independence of Random Variables</h2>
-<p>When working with two or more random variables defined on the same experiment, an important question is whether they are <strong>independent</strong> — that is, whether the value of one gives us any information about the other.</p>
+<p>When working with two or more random variables defined on the same experiment, an important question is whether they are <strong>independent</strong>, that is, whether the value of one gives us any information about the other.</p>
 <p>Two discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are said to be <strong>independent</strong> if and only if:</p>
 <p><span class="math display">\[
 P(X = x, Y = y) = P(X = x) \cdot P(Y = y)
@@ -755,7 +755,7 @@ If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</s
 <p><span class="math display">\[
 P(A \cap B) = P(A) \cdot P(B)
 \]</span></p>
-<p>In this setting, each event <span class="math inline">\(X = x\)</span> and <span class="math inline">\(Y = y\)</span> can be thought of as a particular outcome — and we require that every pair of outcomes satisfies the multiplicative rule to call <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent.</p>
+<p>In this setting, each event <span class="math inline">\(X = x\)</span> and <span class="math inline">\(Y = y\)</span> can be thought of as a particular outcome, and we require that every pair of outcomes satisfies the multiplicative rule to call <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> independent.</p>
 <p>In applied settings, we often use prior experience or domain knowledge to assume independence between variables when it’s reasonable. For instance, if two numerical quantities are measured in such a way that one could not possibly influence the other, we usually model them as independent.</p>
 <section id="example-15.2-rolling-dice-twice" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-15.2-rolling-dice-twice">Example 15.2: Rolling Dice Twice</h4>
 <p>Let:</p>
@@ -867,13 +867,13 @@ P(X = x, Y = y) = P(X = x) \cdot P(Y = y)
 <li><span class="math inline">\(P(X = 1, Y = 1) = 0.4 \cdot 0.2 = 0.08\)</span></li>
 <li><span class="math inline">\(P(X = 2, Y = 2) = 0.6 \cdot 0.5 = 0.30\)</span></li>
 </ul>
-<p><a href="#tbl-jointex-ind" class="quarto-xref">Table&nbsp;<span>15.3</span></a> reflects the idea that independent random variables <em>“don’t talk to each other”</em> — knowing the value of one gives no information about the other.</p>
+<p><a href="#tbl-jointex-ind" class="quarto-xref">Table&nbsp;<span>15.3</span></a> reflects the idea that independent random variables <em>“don’t talk to each other”</em>, knowing the value of one gives no information about the other.</p>
 <p>The definition of independence extends beyond just two variables. A set of random variables <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> is said to be <strong>mutually independent</strong> if and only if:</p>
 <p><span class="math display">\[
 P(X_1 = x_1, X_2 = x_2, \dots, X_n = x_n) = P(X_1 = x_1) \cdot P(X_2 = x_2) \cdots P(X_n = x_n)
 \]</span></p>
 <p>for all combinations of values <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>.</p>
-<p>This definition guarantees that knowing the value of one variable gives us no information about the values of the others — all outcomes occur independently of one another.</p>
+<p>This definition guarantees that knowing the value of one variable gives us no information about the values of the others; all outcomes occur independently of one another.</p>
 </section><section id="covariance-and-correlation-observed-data" class="level2" data-number="15.7"><h2 data-number="15.7" class="anchored" data-anchor-id="covariance-and-correlation-observed-data">
 <span class="header-section-number">15.7</span> Covariance and Correlation: Observed Data</h2>
 <p>Now, suppose we have a data set with two measured variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
@@ -967,7 +967,7 @@ r_{xy} =
 </li>
 </ul>
 <p>The correlation coefficient always shares the same sign as the covariance, that is, if the covariance is positive, the correlation is positive, and vice versa.</p>
-<p>This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables — especially when comparing across different data sets or variables with different units.</p>
+<p>This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables, especially when comparing across different data sets or variables with different units.</p>
 </section><section id="expected-value-and-variance-of-sums-and-differences" class="level2" data-number="15.9"><h2 data-number="15.9" class="anchored" data-anchor-id="expected-value-and-variance-of-sums-and-differences">
 <span class="header-section-number">15.9</span> Expected Value and Variance of Sums and Differences</h2>
 <p>We now wrap up this chapter with a powerful and commonly used set of results: how to compute the expected value and variance of a sum or difference of two random variables. This is realted to what we covered in <a href="random-variables.html#sec-rvrules" class="quarto-xref"><span>Section 12.4</span></a>.</p>

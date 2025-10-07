@@ -503,7 +503,7 @@ window.Quarto = {
 
 </header><p>When conducting statistical analysis and drawing conclusions, we usually rely on certain assumptions about the underlying data-generating process. In regression analysis, these assumptions allow us to make valid inferences about the relationship between the dependent variable and one or more independent variables.</p>
 <p>Because the independent variables divide the full dataset into many subpopulations (based on the values of the predictors), regression analysis can be viewed as simultaneously studying the behavior of the dependent variable across these various groups.</p>
-<p>In order to make reliable predictions and interpretations that generalize to the whole population—or to unseen data—we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.</p>
+<p>In order to make reliable predictions and interpretations that generalize to the whole population (or to unseen data) we must make assumptions about the structure of the model and the behavior of the residuals (errors). If these assumptions are not at least approximately satisfied, the conclusions drawn from the model may be misleading.</p>
 <p>This is where residual analysis and model diagnostics come in: they help us verify whether the assumptions behind the regression model hold in practice. In the following section, we will review these assumptions and learn how to evaluate them using graphical and statistical tools.</p>
 <section id="constant-variance-assumption-homoskedasticity" class="level2" data-number="31.1"><h2 data-number="31.1" class="anchored" data-anchor-id="constant-variance-assumption-homoskedasticity">
 <span class="header-section-number">31.1</span> Constant Variance Assumption (Homoskedasticity)</h2>
@@ -511,7 +511,7 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>The error term has constant variance, i.e.<br><span class="math inline">\(\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
 </blockquote>
-<p>When this assumption is violated—meaning the error variance changes with the level of one or more explanatory variables—the model is said to exhibit <strong>heteroskedasticity</strong>.</p>
+<p>When this assumption is violated, meaning the error variance changes with the level of one or more explanatory variables, the model is said to exhibit <strong>heteroskedasticity</strong>.</p>
 <section id="why-does-heteroskedasticity-matter" class="level3" data-number="31.1.1"><h3 data-number="31.1.1" class="anchored" data-anchor-id="why-does-heteroskedasticity-matter">
 <span class="header-section-number">31.1.1</span> Why does heteroskedasticity matter?</h3>
 <p>Although ordinary least squares (OLS) estimation still produces unbiased and consistent coefficient estimates in the presence of heteroskedasticity, its inferential properties break down. In particular, the usual formulas for calculating standard errors, t-values, and confidence intervals are no longer valid. This means that even if the point estimates are correct on average, we may draw incorrect conclusions from hypothesis tests or construct misleading confidence intervals.</p>
@@ -625,7 +625,7 @@ Weighted Least Squares (WLS)
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In situations where heteroskedasticity is present, another possible remedy—besides using robust standard errors is the <strong>Weighted Least Squares (WLS)</strong> method.</p>
+<p>In situations where heteroskedasticity is present, another possible remedy, besides using robust standard errors is the <strong>Weighted Least Squares (WLS)</strong> method.</p>
 <p>The main idea behind WLS is to transform the regression equation so that the new errors become homoskedastic. This is done by giving less weight to observations with higher variance and more weight to those with lower variance. When the form of heteroskedasticity is known or can be estimated, WLS can yield more efficient coefficient estimates than OLS.</p>
 <p>However, because WLS relies on specifying a correct model for the error variance (which is often difficult in practice), it is not covered in detail in this material. For our purposes, robust standard errors provide a more flexible and commonly used solution.</p>
 </div>
@@ -879,7 +879,7 @@ Endogeneity undermines causal inference
 <span class="header-section-number">31.5</span> Random Sample Assumption</h2>
 <p>One of the foundational assumptions of linear regression is that the data comes from a random sample from the population of interest. This means that each observation is drawn independently and has an equal chance of being selected. Under this assumption, the estimators produced by OLS are unbiased and the usual inference procedures (e.g., <span class="math inline">\(t\)</span>-tests and <span class="math inline">\(F\)</span>-tests) are valid.</p>
 <p>However, when the random sampling assumption is violated, serious problems can arise. For example, if the sample is non-randomly selected, it may not be representative of the broader population. This is known as sample selection bias.</p>
-<p>A common form of selection bias occurs when the likelihood of an observation being included in the sample is related to the outcome variable or the error term. For instance, consider a wage regression that includes only individuals who are employed. If the decision to work is related to unobserved factors that also affect wages—like motivation or health—then the sample is no longer random, and OLS estimates will be biased and inconsistent.</p>
+<p>A common form of selection bias occurs when the likelihood of an observation being included in the sample is related to the outcome variable or the error term. For instance, consider a wage regression that includes only individuals who are employed. If the decision to work is related to unobserved factors that also affect wage (like motivation or health) then the sample is no longer random, and OLS estimates will be biased and inconsistent.</p>
 <p>Another issue arises with dependent observations, such as data collected from the same individual over time (panel data) or from individuals within the same household or community. In such cases, the assumption of independent errors may no longer hold, leading to underestimated standard errors and overstated statistical significance.</p>
 <section id="consequences-of-violating-random-sampling" class="level3" data-number="31.5.1"><h3 data-number="31.5.1" class="anchored" data-anchor-id="consequences-of-violating-random-sampling">
 <span class="header-section-number">31.5.1</span> Consequences of Violating Random Sampling</h3>
@@ -971,11 +971,11 @@ Solution
 ✅ Homoskedasticity assumption is valid</p></li>
 <li><p><strong>Model 2</strong>:<br>
 The residuals are centered around zero, so the linearity assumption is satisfied.<br>
-However, the spread increases with the fitted values—indicative of <strong>heteroskedasticity</strong>.<br>
+However, the spread increases with the fitted values, indicative of <strong>heteroskedasticity</strong>.<br>
 ✅ Linearity<br>
 ❌ Constant variance</p></li>
 <li><p><strong>Model 3</strong>:<br>
-The residuals do not center around zero consistently. For small and large fitted values, residuals are mostly positive, while for medium fitted values they are mostly negative—suggesting <strong>non-linearity</strong>. However, the spread seems roughly constant.<br>
+The residuals do not center around zero consistently. For small and large fitted values, residuals are mostly positive, while for medium fitted values they are mostly negative, suggesting <strong>non-linearity</strong>. However, the spread seems roughly constant.<br>
 ❌ Linearity<br>
 ✅ Constant variance</p></li>
 </ul>
@@ -984,13 +984,13 @@ The residuals do not center around zero consistently. For small and large fitted
 <li>
 <strong>Model 1</strong>: Residuals follow a bell-shaped curve, indicating approximate <strong>normality</strong>.</li>
 <li>
-<strong>Model 2</strong>: Slightly peaked distribution—possibly not normal. A formal test may be needed.</li>
+<strong>Model 2</strong>: Slightly peaked distribution, possibly not normal. A formal test may be needed.</li>
 <li>
 <strong>Model 3</strong>: Clearly <strong>non-normal</strong> distribution with skewness or multimodality.</li>
 </ul>
 <hr>
 <p><strong>(c) Testing squared residuals on the original regressors:</strong></p>
-<p>You are testing whether the <strong>error variance</strong> depends on the independent variable <span class="math inline">\(x\)</span>—that is, testing for <strong>heteroskedasticity</strong>.</p>
+<p>You are testing whether the <strong>error variance</strong> depends on the independent variable <span class="math inline">\(x\)</span>, that is, testing for <strong>heteroskedasticity</strong>.</p>
 <p>This is known as the <strong>Breusch–Pagan test</strong>, used to assess violation of the constant variance (homoskedasticity) assumption.</p>
 </div>
 </div>

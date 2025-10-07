@@ -265,7 +265,7 @@ Since $2.41 < 5.991$, we fail to reject $H_0$. There is no significant differenc
 
 2.  Suppose a state lottery randomly draws one number from the integers 1 through 5 each week. Over 100 weeks, the frequency of each number is recorded. 
 
-  | Category | Observed Frequency |
+  | Number | Observed Frequency |
   |:----------|:------------------:|
   | 1 | 15 |
   | 2 | 24 |

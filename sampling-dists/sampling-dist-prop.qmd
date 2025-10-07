@@ -1,5 +1,5 @@
 ## Sampling Distributions for a Sample Proportion {#sec-sampldist-prop}
-In many applications, we are interested not in the mean of a variable, but in the **proportion** of units in a population that possess a certain characteristic — for example, the proportion of voters who support a candidate, or the proportion of products that are defective.
+In many applications, we are interested not in the mean of a variable, but in the **proportion** of units in a population that possess a certain characteristic, for example, the proportion of voters who support a candidate, or the proportion of products that are defective.
 
 
 

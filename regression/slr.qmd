@@ -71,7 +71,7 @@ This regression line is intended to summarize the overall trend in the data, all
 
 ::: {.callout-note}
 ## Note 1
-In regression analysis, we are describing how $y$ is associated with $x$—but this is not the same as proving causation. The analysis shows a **statistical association**, not a causal one.
+In regression analysis, we are describing how $y$ is associated with $x$, but this is not the same as proving causation. The analysis shows a **statistical association**, not a causal one.
 :::
 
 
@@ -89,7 +89,7 @@ Our goal is to find a line that best captures the relationship between a predict
 
 Mathematically, the residual for observation $i$ is defined as $e_i = y_i - \hat{y}_i$, where $\hat{y}_i = b_0 + b_1 x_i$ is the value predicted by the regression line. Residuals reflect how far off our predictions are from the actual data points. A positive residual means the observed value lies above the line, while a negative residual indicates it lies below. This is shown in @fig-ols.
 
-The **least squares method** — the foundation of ordinary linear regression — seeks to find the values of the intercept $b_0$ and slope $b_1$ that produce the "best-fitting" line. 
+The **least squares method**, the foundation of ordinary linear regression, seeks to find the values of the intercept $b_0$ and slope $b_1$ that produce the "best-fitting" line. 
 
 But what does "best-fitting" mean? In this context, it refers to the line that minimizes the total squared vertical distances between the observed values $y_i$ and their predicted counterparts $\hat{y}_i$. These vertical distances are precisely the residuals, and the objective is to minimize the **Error Sum of Squares (SSE)** (also known as residual sum of squares):
 

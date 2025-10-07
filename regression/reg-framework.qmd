@@ -1,4 +1,5 @@
 # The Regression Framework {#sec-regframework}
+
 In this chapter, we explore the foundational ideas behind regression modeling, a central tool in statistics and data analysis for understanding relationships between variables. The goal of regression is to describe how the value of one variable depends on or is associated with changes in another.
 
 We begin by introducing the concept of conditional expectation, which captures how the average value of a response variable varies with a predictor. Building on this, we distinguish between the population regression function, which describes the systematic trend, and the population regression model, which incorporates randomness through an error term.
@@ -7,13 +8,14 @@ Understanding the difference between deterministic and stochastic components is 
 
 This chapter lays the groundwork for the methods and assumptions behind regression analysis and prepares us to learn how to estimate models.
 
-#### Motivating Example:  Oil Usage and Temperature {.unnumbered}
+#### Motivating Example: Oil Usage and Temperature {.unnumbered}
+
 In many real-world situations, we want to understand how one variable influences another. For example, how does outdoor temperature affect household oil consumption? Regression analysis is a statistical method used to model and explore such relationships between variables.
 
 Let’s define:
 
--	$Y$: the response or dependent variable (e.g., oil usage in litres per household),
--	$X$: the predictor or independent variable (e.g., outdoor temperature in degrees Celsius).
+-   $Y$: the response or dependent variable (e.g., oil usage in litres per household),
+-   $X$: the predictor or independent variable (e.g., outdoor temperature in degrees Celsius).
 
 If we only observe oil usage but have no information about temperature, our best estimate for any household’s usage is the overall average of all observed values. This is called the marginal expectation of $Y$ and does not account for other factors, as shown in the left panel of @fig-slrex.
 
@@ -21,34 +23,29 @@ However, if we also know the temperature on the day the oil was used, as shown i
 
 > What is our best estimate of oil usage $Y$ if today’s temperature $X$ is 10°C? Or when $X$ is any other value?
 
-This leads to the concept of conditional expectation:
-$$
+This leads to the concept of conditional expectation: $$
 E(Y \mid X)
-$$
-and represents the expected (mean) value of $Y$ given a specific value of $X$. Regression analysis helps us estimate this quantity—typically using a model such as a linear function.
+$$ and represents the expected (mean) value of $Y$ given a specific value of $X$. Regression analysis helps us estimate this quantity, typically using a model such as a linear function.
 
 At its core, regression is about estimating and interpreting how the average value of $Y$ changes conditionally on $X$.
 
 In the next section, we’ll formally introduce the simple linear regression model, estimate its parameters, and interpret the results.
 
-
 ::: {#fig-slrex .center}
-
 ![](imgs/‎slr-ex.png){#fig-popsamp fig-align="center" width="100%"}
 
 Visualizing the conditional structure of a negatively correlated relationship between two variables. The left panel shows the marginal distribution of y, while the right panel displays a scatterplot of (x, y) with marginal histogram of y aligned to the vertical axis. Dotted lines project each point to the x- and y-axes, suggesting conditional reasoning: given a value of x, what is our best guess for y?
 :::
 
-
 ## Conditional Expectation and Regression Functions
+
 Regression analysis is fundamentally about understanding how the **average value** of one variable, $Y$, changes in response to another variable, $X$. This is formalized through the concept of **conditional expectation**:
 
 $$
 E(Y \mid X)
 $$
 
-This function gives us the expected (average) value of $Y$, given a specific value of $X$. Rather than modeling the entire distribution of $Y$ for each value of $X$, regression focuses on modeling this average behavior—summarized by the **Conditional Expectation Function (CEF)**.
-
+This function gives us the expected (average) value of $Y$, given a specific value of $X$. Rather than modeling the entire distribution of $Y$ for each value of $X$, regression focuses on modeling this average behavior, summarized by the **Conditional Expectation Function (CEF)**.
 
 ### The Conditional Expectation Function (CEF)
 
@@ -60,22 +57,22 @@ $$
 
 This function answers the question:
 
-> _“What is the average value of  $Y$, given each possible value of $X$?”_
+> *“What is the average value of* $Y$, given each possible value of $X$?”
 
 ### Linear Conditional Expectation: Population Linear Regression Function
-Often, we assume a linear relationship between $X$ and the expected value of $Y$. This leads us to define the **population linear regression function** as:
-$$
+
+Often, we assume a linear relationship between $X$ and the expected value of $Y$. This leads us to define the **population linear regression function** as: $$
 E(Y \mid X) = \beta_0 + \beta_1 X
 $$
 
-- $\beta_0$: Intercept\
-representing the expected value of $Y$ when $X = 0$
-- $\beta_1$: Slope\
-representing the change in the expected value of $Y$ for a one-unit increase in $X$
+-   $\beta_0$: Intercept\
+    representing the expected value of $Y$ when $X = 0$
+-   $\beta_1$: Slope\
+    representing the change in the expected value of $Y$ for a one-unit increase in $X$
 
 This model is powerful in its simplicity and interpretability. However, it's important to remember that this is an assumption: *the true conditional expectation function may not be linear, but we approximate it as such*.
 
-::: {.callout-note}
+::: callout-note
 ### Including Additional Variables
 
 In many cases, $Y$ may be influenced by other variables besides $X$. Suppose another variable $Z$ also affects $Y$ linearly. The conditional expectation of $Y$ given $X$ and $Z$ is:
@@ -113,15 +110,16 @@ Thus, even with additional influencing variables, the regression function can st
 :::
 
 ## The Linear Population Regression Model
+
 The **simple linear regression model** (also called bivariate or two-variable regression which we focus on more in the next chapter) formalizes this idea by introducing an **error term**:
 
 $$
 Y = \beta_0 + \beta_1 X + \varepsilon
 $$
 
-- $\beta_0$: intercept (constant term)
-- $\beta_1$: slope (effect of $X$ on $Y$)
-- $\varepsilon$: error term, representing all other factors affecting $Y$ that are not included in the model
+-   $\beta_0$: intercept (constant term)
+-   $\beta_1$: slope (effect of $X$ on $Y$)
+-   $\varepsilon$: error term, representing all other factors affecting $Y$ that are not included in the model
 
 We can also express this as:
 
@@ -137,35 +135,34 @@ The term $\varepsilon$ plays a critical role in ensuring valid interpretation an
 
 Two key assumptions about $\varepsilon$ are:
 
-1. **Zero Conditional Mean**:
+1.  **Zero Conditional Mean**:
 
-   $$
-   E(\varepsilon \mid X) = 0
-   $$
+    $$
+    E(\varepsilon \mid X) = 0
+    $$
 
-   This means that, given $X$, the average value of $\varepsilon$ is zero. Put differently, there is no systematic pattern in the error once we condition on $X$. This implies:
+    This means that, given $X$, the average value of $\varepsilon$ is zero. Put differently, there is no systematic pattern in the error once we condition on $X$. This implies:
 
-   $$
-   E(Y \mid X) = \beta_0 + \beta_1 X
-   $$
+    $$
+    E(Y \mid X) = \beta_0 + \beta_1 X
+    $$
 
-   and ensures our model correctly captures the conditional mean of $Y$.
+    and ensures our model correctly captures the conditional mean of $Y$.
 
-2. **Uncorrelatedness with $X$**:
+2.  **Uncorrelatedness with** $X$:
 
-   $$
-   \text{Cov}(X, \varepsilon) = 0
-   $$
+    $$
+    \text{Cov}(X, \varepsilon) = 0
+    $$
 
-   This implies that $X$ and $\varepsilon$ are uncorrelated in the population—i.e., the explanatory variable $X$ contains no information about the error term. If this assumption is violated, our estimates of $\beta_0$ and $\beta_1$ may be biased.
-
+    This implies that $X$ and $\varepsilon$ are uncorrelated in the population, i.e., the explanatory variable $X$ contains no information about the error term. If this assumption is violated, our estimates of $\beta_0$ and $\beta_1$ may be biased.
 
 ### Interpreting the Zero Conditional Mean
 
 It's important to note that:
 
-- $E(\varepsilon \mid X) = 0 \Rightarrow E(\varepsilon) = 0$ (mean independence implies zero mean)
-- But $E(\varepsilon) = 0$ **does not imply** $E(\varepsilon \mid X) = 0$
+-   $E(\varepsilon \mid X) = 0 \Rightarrow E(\varepsilon) = 0$ (mean independence implies zero mean)
+-   But $E(\varepsilon) = 0$ **does not imply** $E(\varepsilon \mid X) = 0$
 
 The assumption $E(\varepsilon \mid X) = 0$ is stronger and more critical for the regression to capture the true conditional mean of $Y$. It means that, within each “slice” or subgroup of the population defined by $X$, the average error is zero.
 
@@ -184,9 +181,9 @@ $$
 
 This function tells us:
 
-- There is one and only one expected value of $Y$ for each value of $X$.
-- It captures the systematic component of the relationship between $X$ and $Y$.
-- It cannot be used to predict the exact value of $Y$ for an individual; it only tells us the average value.
+-   There is one and only one expected value of $Y$ for each value of $X$.
+-   It captures the systematic component of the relationship between $X$ and $Y$.
+-   It cannot be used to predict the exact value of $Y$ for an individual; it only tells us the average value.
 
 Thus, the PRF gives a fixed rule for how the mean of $Y$ changes with $X$, but it does not account for randomness or individual deviations from that average.
 
@@ -199,9 +196,9 @@ $$
 
 This model captures a probabilistic relationship between $X$ and $Y$:
 
-- $\varepsilon$ represents random variation around the expected value.
-- The model gives a complete data-generating process, accounting for both the systematic and unsystematic parts.
-- It recognizes that actual observed outcomes $Y$ vary, even for the same value of $X$.
+-   $\varepsilon$ represents random variation around the expected value.
+-   The model gives a complete data-generating process, accounting for both the systematic and unsystematic parts.
+-   It recognizes that actual observed outcomes $Y$ vary, even for the same value of $X$.
 
 So while the PRF gives the average trend, the PRM provides a more realistic model that includes random noise or unobserved influences.
 
@@ -209,31 +206,29 @@ So while the PRF gives the average trend, the PRM provides a more realistic mode
 
 In practice, we do not observe the entire population. Instead, we work with a random sample drawn from the population.
 
-
 Since the **true parameters** $\beta_0$ and $\beta_1$ of the population regression model are unknown, we use the sample to estimate them. The regression line we obtain from the sample is called the **Sample Regression Function (SRF)**:
 
-If we had access to the entire population, we could compute the PRF exactly and predict $Y$ from $X$ precisely in expectation. In reality, we only observe a finite, random sample, so we must rely on estimation procedures.
-We use these procedures to estimate the parameters of the PRM, resulting in a sample-based approximation of the PRF.
+If we had access to the entire population, we could compute the PRF exactly and predict $Y$ from $X$ precisely in expectation. In reality, we only observe a finite, random sample, so we must rely on estimation procedures. We use these procedures to estimate the parameters of the PRM, resulting in a sample-based approximation of the PRF.
 
 In the context of linear regression, we want an estimator that, based on our sample:
 
-- Computes $b_0=\hat{\beta}_0$ and $b_1=\hat{\beta}_1$
-- Allows us to make predictions $\hat{Y}$ for new values of $X$
-- Enables us to assess uncertainty and perform statistical inference
+-   Computes $b_0=\hat{\beta}_0$ and $b_1=\hat{\beta}_1$
+-   Allows us to make predictions $\hat{Y}$ for new values of $X$
+-   Enables us to assess uncertainty and perform statistical inference
 
-The most common estimator used is the **Ordinary Least Squares (OLS)** method, which we will explore in the next chapter. 
+The most common estimator used is the **Ordinary Least Squares (OLS)** method, which we will explore in the next chapter.
 
 @tbl-summary summarizes the concepts introduced so far.
 
 ::: {#tbl-summary .center}
-| Concept                     | Description |
-|-------------------------------|----------------------------------------------------------|
-| $E(Y \mid X)$              | Conditional expectation of $Y$ given $X$ |
+| Concept | Description |
+|-------------------------|----------------------------------------------|
+| $E(Y \mid X)$ | Conditional expectation of $Y$ given $X$ |
 | PRF: $E(Y \mid X) = \beta_0 + \beta_1 X$ | Deterministic average relationship |
 | PRM: $Y = b_0 + b_1 X + \varepsilon$ | Full data-generating process including random error |
 | SRF: $\hat{Y} = b_0 + b_1 X$ | Estimated regression line based on sample data |
-| $\varepsilon$              | Error term capturing deviations from the mean |
-| Estimators                 | Procedures for computing $b_0$, $b_1$ from data |
+| $\varepsilon$ | Error term capturing deviations from the mean |
+| Estimators | Procedures for computing $b_0$, $b_1$ from data |
 
 Summary of regression concepts so far.
 :::

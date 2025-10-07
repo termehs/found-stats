@@ -65,7 +65,7 @@ This means that Sweden can issue up to 17.58 million unique vehicle registration
 Imagine an ice cream shop that offers six different flavors. A customer selects three scoops of ice cream, where:
 
 -   The same flavor can be chosen multiple times (replacement).\
--   The order of the scoops does not matter— choosing *(vanilla, chocolate, vanilla)* is the same as *(chocolate, vanilla, vanilla)*.
+-   The order of the scoops does not matter: choosing *(vanilla, chocolate, vanilla)* is the same as *(chocolate, vanilla, vanilla)*.
 
 Since order is ignored, but repetition is allowed, we calculate the number of possible selections using **combinations with replacement**, given by the formula: $$\binom{N + n - 1}{n} = \frac{(N + n - 1)!}{n!(N - 1)!} $$
 

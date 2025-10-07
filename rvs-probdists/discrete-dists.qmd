@@ -170,9 +170,9 @@ $$
 
 This formula tells us to multiply each value $x$ by its probability $P(x)$ and then sum the results over all possible values of $X$. The result, $E(X)$, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of $X$ according to its probability distribution.
 
-The expected value represents the "center" of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.
+The expected value represents the "center" of the distribution, the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.
 
-It’s important to note that expected value doesn’t predict what will happen\* — it predicts what happens on average. It’s like asking, *“What would I get if the universe reran this scenario a million times?”*
+It’s important to note that expected value doesn’t predict what will happen\*, it predicts what happens on average. It’s like asking, *“What would I get if the universe reran this scenario a million times?”*
 
 #### Example 12.1: Coin Toss (continued) {.unnumbered}
 
@@ -201,7 +201,7 @@ $$
 X \in \{0, 2, 10, 50\}
 $$
 
-But — and here’s the key — just averaging those values like this:
+But, and here’s the key, just averaging those values like this:
 
 $$
 \frac{0 + 2 + 10 + 50}{4} = 15.5
@@ -251,7 +251,7 @@ $$
 
 So even though one person might win 50€, the average payout per ticket is just 90 cents. That means if you pay 1€ per ticket, you're losing 10 cents on average.
 
-Most of the time, lottery isn’t just random — it’s rigged (in favor of the organizers)
+Most of the time, lottery isn’t just random, it’s rigged (in favor of the organizers)
 
 ## Variance and Standard Deviation of a Discrete Random Variable
 
@@ -331,7 +331,7 @@ $$
 \sigma_X = \sqrt{27.39} \approx 5.23
 $$
 
-So in summary, the expected payout of 0.9€ indicated that on average, each ticket returns 90cents. However, no single ticket actually pays exactly 0.9€. This value is theoretical — it describes the average over many repetitions.
+So in summary, the expected payout of 0.9€ indicated that on average, each ticket returns 90cents. However, no single ticket actually pays exactly 0.9€. This value is theoretical; it describes the average over many repetitions.
 
 The standard deviation of 5.23€ tells us that the actual payout from a randomly chosen ticket typically deviates from the expected value by about 5€. This large spread reflects the presence of a few large prizes and many losing tickets.
 
@@ -392,9 +392,9 @@ $$
 This gives a total expected project cost of €35,710, with a standard deviation of about €1,022.
 
 ## The Bernoulli and Binomial Distribution  {#sec-binom}
-In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise — such as flipping a coin or checking if a customer buys a product — follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.
+In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise, such as flipping a coin or checking if a customer buys a product, follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.
 
-A random variable $X$ is said to follow a **Bernoulli distribution** if it takes on only two possible values: $0$ and $1$. These values typically represent the outcomes of a binary trial — such as failure or success — with probabilities $1 - p$ and $p$ respectively. The distribution is written as:
+A random variable $X$ is said to follow a **Bernoulli distribution** if it takes on only two possible values: $0$ and $1$. These values typically represent the outcomes of a binary trial (such as failure or success) with probabilities $1 - p$ and $p$ respectively. The distribution is written as:
 
 $$
 X \sim \text{Bernoulli}(p)

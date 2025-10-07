@@ -41,7 +41,7 @@ In the **standard model for simple linear regression**, we make the following as
 
    That is, they have mean 0 and the same variance $\sigma^2$, and they are mutually independent.
 
-Our goal is to estimate the unknown parameters $\beta_0$ and $\beta_1$. In practice, it is often $\beta_1$ — the slope — that is of greatest interest, as it measures the strength and direction of the relationship between $x$ and $y$.
+Our goal is to estimate the unknown parameters $\beta_0$ and $\beta_1$. In practice, it is often $\beta_1$, the slope, that is of greatest interest, as it measures the strength and direction of the relationship between $x$ and $y$.
 
 To estimate these parameters, we use the **least squares method**, fitting a line of the form:
 
@@ -115,7 +115,7 @@ $$
 This interval provides a range of plausible values for the true slope $\beta_1$ at the chosen confidence level.
 
 ### Hypothesis Testing for $\beta_1$
-We may also wish to formally test hypotheses about the slope coefficient. For example, suppose we want to test whether $\beta_1$ equals a specific value $\beta_1^*$ — often this is 0, corresponding to the absence of a linear relationship.
+We may also wish to formally test hypotheses about the slope coefficient. For example, suppose we want to test whether $\beta_1$ equals a specific value $\beta_1^*$ (often this is 0), corresponding to the absence of a linear relationship.
 
 We set up the null and alternative hypotheses:
 
@@ -232,7 +232,7 @@ The interpretation is as follows:
 
 ::: {.callout-note title="Introducing the F-distribution in Regression"}
 
-The **F-distribution** arises when comparing two variances — one typically explained by a model, and the other left unexplained (the residual variance). It is commonly used in regression analysis to evaluate whether the **regression model explains a significant proportion of the total variation** in the response variable.
+The **F-distribution** arises when comparing two variances, one typically explained by a model, and the other left unexplained (the residual variance). It is commonly used in regression analysis to evaluate whether the **regression model explains a significant proportion of the total variation** in the response variable.
 
 In the case of simple linear regression, the F-statistic is defined as:
 
@@ -384,7 +384,7 @@ $$
 
 This guarantees that the estimates are, on average, correct in repeated sampling.
 
-In summary, the classical linear regression model provides a solid statistical framework for estimation and inference—but only when its assumptions are satisfied. The Gauss–Markov Theorem confirms the optimality of least squares under fairly minimal conditions, making it the default approach in many applied settings.
+In summary, the classical linear regression model provides a solid statistical framework for estimation and inference, but only when its assumptions are satisfied. The Gauss–Markov Theorem confirms the optimality of least squares under fairly minimal conditions, making it the default approach in many applied settings.
 
 
 ## Confidence Intervals for Coefficients
@@ -422,7 +422,7 @@ This statistic measures how many standard errors the estimate is away from zero.
 
 ## Joint Hypothesis Testing in Multiple Linear Regression
 
-So far, we've looked at inference for individual regression coefficients—asking whether a single explanatory variable has a statistically significant effect on the response variable. But in multiple regression, a more fundamental question often comes first:
+So far, we've looked at inference for individual regression coefficients asking whether a single explanatory variable has a statistically significant effect on the response variable. But in multiple regression, a more fundamental question often comes first:
 
 > Do all the predictors together explain any of the variation in the response variable?
 

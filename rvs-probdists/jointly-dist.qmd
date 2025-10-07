@@ -102,7 +102,7 @@ The row and column totals in the table reflect these marginal probabilities.
 #### Example 15.1: Family Composition (cont'd) {.unnumbered}
 At the end of each row in @tbl-jointex, we see the marginal distribution of $X$, denoted $P(X = x)$. These values are computed by summing the probabilities across each row, that is, over all values of $Y$ for a fixed $X$. The interpretation is simple: $P(X = 1) = 0.27$ means that 27% of the families have exactly one boy, regardless of how many girls they have.
 
-Similarly, the bottom row contains the marginal distribution of $Y$, labeled $P(Y = y)$. These probabilities are calculated by summing down each column — over all values of $X$ for a fixed number of girls $Y = y$. For instance, $P(Y = 0) = 0.64$ indicates that 64% of the families have no girls, irrespective of how many boys they have.
+Similarly, the bottom row contains the marginal distribution of $Y$, labeled $P(Y = y)$. These probabilities are calculated by summing down each column over all values of $X$ for a fixed number of girls $Y = y$. For instance, $P(Y = 0) = 0.64$ indicates that 64% of the families have no girls, irrespective of how many boys they have.
 
 These marginal distributions summarize the overall behavior of each variable independently, while the joint distribution reflects how the variables interact.
 
@@ -179,7 +179,7 @@ This approach allows us to analyze how knowledge of one variable informs us abou
 
 ## Independence of Random Variables
 
-When working with two or more random variables defined on the same experiment, an important question is whether they are **independent** — that is, whether the value of one gives us any information about the other.
+When working with two or more random variables defined on the same experiment, an important question is whether they are **independent**, that is, whether the value of one gives us any information about the other.
 
 
 Two discrete random variables $X$ and $Y$ are said to be **independent** if and only if:
@@ -197,7 +197,7 @@ $$
 P(A \cap B) = P(A) \cdot P(B)
 $$
 
-In this setting, each event $X = x$ and $Y = y$ can be thought of as a particular outcome — and we require that every pair of outcomes satisfies the multiplicative rule to call $X$ and $Y$ independent.
+In this setting, each event $X = x$ and $Y = y$ can be thought of as a particular outcome, and we require that every pair of outcomes satisfies the multiplicative rule to call $X$ and $Y$ independent.
 
 In applied settings, we often use prior experience or domain knowledge to assume independence between variables when it's reasonable. For instance, if two numerical quantities are measured in such a way that one could not possibly influence the other, we usually model them as independent.
 
@@ -285,7 +285,7 @@ For example:
  - $P(X = 1, Y = 1) = 0.4 \cdot 0.2 = 0.08$
  - $P(X = 2, Y = 2) = 0.6 \cdot 0.5 = 0.30$
 
-@tbl-jointex-ind reflects the idea that independent random variables *“don’t talk to each other”* — knowing the value of one gives no information about the other.
+@tbl-jointex-ind reflects the idea that independent random variables *“don’t talk to each other”*, knowing the value of one gives no information about the other.
 
 The definition of independence extends beyond just two variables.
 A set of random variables $X_1, X_2, \dots, X_n$ is said to be **mutually independent** if and only if:
@@ -296,7 +296,7 @@ $$
 
 for all combinations of values $x_1, x_2, \dots, x_n$.
 
-This definition guarantees that knowing the value of one variable gives us no information about the values of the others — all outcomes occur independently of one another.
+This definition guarantees that knowing the value of one variable gives us no information about the values of the others; all outcomes occur independently of one another.
 
 ## Covariance and Correlation: Observed Data
 
@@ -386,7 +386,7 @@ Just like with sample data:
 The correlation coefficient always shares the same sign as the covariance,
 that is, if the covariance is positive, the correlation is positive, and vice versa.
 
-This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables — especially when comparing across different data sets or variables with different units.
+This makes correlation a useful, unitless summary of the strength and direction of the linear association between two variables, especially when comparing across different data sets or variables with different units.
 
 
 ## Expected Value and Variance of Sums and Differences

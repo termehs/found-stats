@@ -541,7 +541,7 @@ Note 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In regression analysis, we are describing how <span class="math inline">\(y\)</span> is associated with <span class="math inline">\(x\)</span>—but this is not the same as proving causation. The analysis shows a <strong>statistical association</strong>, not a causal one.</p>
+<p>In regression analysis, we are describing how <span class="math inline">\(y\)</span> is associated with <span class="math inline">\(x\)</span>, but this is not the same as proving causation. The analysis shows a <strong>statistical association</strong>, not a causal one.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -561,7 +561,7 @@ and the correlation coefficient <span class="math inline">\(r_{xy} = r_{yx}\)</s
 </div>
 <p>Our goal is to find a line that best captures the relationship between a predictor variable <span class="math inline">\(x\)</span> and a response variable <span class="math inline">\(y\)</span>. Real-world data, however, rarely fall exactly on a perfect line. Each observed value <span class="math inline">\(y_i\)</span> is typically slightly above or below the value predicted by the line at the corresponding <span class="math inline">\(x_i\)</span>. The difference between the actual value and the predicted value is called the residual, denoted by <span class="math inline">\(e_i\)</span> (which can be seen as an estimate of the error term in the model).</p>
 <p>Mathematically, the residual for observation <span class="math inline">\(i\)</span> is defined as <span class="math inline">\(e_i = y_i - \hat{y}_i\)</span>, where <span class="math inline">\(\hat{y}_i = b_0 + b_1 x_i\)</span> is the value predicted by the regression line. Residuals reflect how far off our predictions are from the actual data points. A positive residual means the observed value lies above the line, while a negative residual indicates it lies below. This is shown in <a href="#fig-ols" class="quarto-xref">Figure&nbsp;<span>27.1</span></a>.</p>
-<p>The <strong>least squares method</strong> — the foundation of ordinary linear regression — seeks to find the values of the intercept <span class="math inline">\(b_0\)</span> and slope <span class="math inline">\(b_1\)</span> that produce the “best-fitting” line.</p>
+<p>The <strong>least squares method</strong>, the foundation of ordinary linear regression, seeks to find the values of the intercept <span class="math inline">\(b_0\)</span> and slope <span class="math inline">\(b_1\)</span> that produce the “best-fitting” line.</p>
 <p>But what does “best-fitting” mean? In this context, it refers to the line that minimizes the total squared vertical distances between the observed values <span class="math inline">\(y_i\)</span> and their predicted counterparts <span class="math inline">\(\hat{y}_i\)</span>. These vertical distances are precisely the residuals, and the objective is to minimize the <strong>Error Sum of Squares (SSE)</strong> (also known as residual sum of squares):</p>
 <p><span class="math inline">\(\text{SSE} =  \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2\)</span></p>
 <p>Squaring the residuals serves two purposes. First, it ensures that all errors contribute positively to the total (so they don’t cancel out), and second, it gives disproportionately more weight to larger errors, thereby penalizing predictions that are far from the observed data.</p>

@@ -261,7 +261,7 @@ Because the sample is small ($n=8$), coefficient estimates come with substantial
 
 ## Adjusted R²: A Caution Against Overfitting
 
-When fitting a multiple linear regression model, it's tempting to keep adding explanatory variables to increase the model’s $R^2$ — the proportion of variation in the response variable explained by the model.
+When fitting a multiple linear regression model, it's tempting to keep adding explanatory variables to increase the model’s $R^2$; the proportion of variation in the response variable explained by the model.
 
 However, there's a caveat:  
 **$R^2$ can never decrease** when a new variable is added to the model. Even if that variable has no real relationship with the outcome, the $R^2$ will either increase or stay the same. This means a model can appear to improve in fit simply by becoming more complex, even if the added variables contribute little or nothing meaningful.

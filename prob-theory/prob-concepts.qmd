@@ -15,7 +15,7 @@ A **random experiment** is an event or process that, when performed, leads to on
 ### Properties of Random Experiments
 
 1.  **Uncertainty in Individual Outcomes**: The result of a single trial is unpredictable. You never really know what’s coming (just like your WiFi signal when you really need it).
-2.  **Reproducibility Under Similar Conditions**: The experiment can be performed multiple times under the same setup but the result may change every time (kind of like baking—you follow the same recipe, yet somehow, things go wrong).
+2.  **Reproducibility Under Similar Conditions**: The experiment can be performed multiple times under the same setup but the result may change every time (kind of like baking; you follow the same recipe, yet somehow, things go wrong).
 3.  **Patterns in the Long Run**: While single outcomes are uncertain, probability theory helps reveal long-term statistical regularities. In other words, while each trial is a mystery, repeat something enough times, and trends start to emerge (like realizing your cat will always knock things off the table).
 
 Examples of random experiments include:

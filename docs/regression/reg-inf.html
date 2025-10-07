@@ -509,7 +509,7 @@ Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 <p>That is, they have mean 0 and the same variance <span class="math inline">\(\sigma^2\)</span>, and they are mutually independent.</p>
 </li>
 </ol>
-<p>Our goal is to estimate the unknown parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. In practice, it is often <span class="math inline">\(\beta_1\)</span> — the slope — that is of greatest interest, as it measures the strength and direction of the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p>Our goal is to estimate the unknown parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. In practice, it is often <span class="math inline">\(\beta_1\)</span>, the slope, that is of greatest interest, as it measures the strength and direction of the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
 <p>To estimate these parameters, we use the <strong>least squares method</strong>, fitting a line of the form:</p>
 <p><span class="math display">\[
 y = b_0 + b_1 x
@@ -566,7 +566,7 @@ b_1 \pm z_{\alpha/2} \cdot s_{b_1}
 </section><section id="hypothesis-testing-for-beta_1" class="level3" data-number="29.1.4"><h3 data-number="29.1.4" class="anchored" data-anchor-id="hypothesis-testing-for-beta_1">
 <span class="header-section-number">29.1.4</span> Hypothesis Testing for <span class="math inline">\(\beta_1\)</span>
 </h3>
-<p>We may also wish to formally test hypotheses about the slope coefficient. For example, suppose we want to test whether <span class="math inline">\(\beta_1\)</span> equals a specific value <span class="math inline">\(\beta_1^*\)</span> — often this is 0, corresponding to the absence of a linear relationship.</p>
+<p>We may also wish to formally test hypotheses about the slope coefficient. For example, suppose we want to test whether <span class="math inline">\(\beta_1\)</span> equals a specific value <span class="math inline">\(\beta_1^*\)</span> (often this is 0), corresponding to the absence of a linear relationship.</p>
 <p>We set up the null and alternative hypotheses:</p>
 <ul>
 <li>
@@ -735,7 +735,7 @@ Introducing the F-distribution in Regression
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <strong>F-distribution</strong> arises when comparing two variances — one typically explained by a model, and the other left unexplained (the residual variance). It is commonly used in regression analysis to evaluate whether the <strong>regression model explains a significant proportion of the total variation</strong> in the response variable.</p>
+<p>The <strong>F-distribution</strong> arises when comparing two variances, one typically explained by a model, and the other left unexplained (the residual variance). It is commonly used in regression analysis to evaluate whether the <strong>regression model explains a significant proportion of the total variation</strong> in the response variable.</p>
 <p>In the case of simple linear regression, the F-statistic is defined as:</p>
 <p><span class="math display">\[
 F = \frac{MSR}{MSE}
@@ -824,7 +824,7 @@ y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_K x_{Ki} + \vare
 E[b_k] = \beta_k.
 \]</span></p>
 <p>This guarantees that the estimates are, on average, correct in repeated sampling.</p>
-<p>In summary, the classical linear regression model provides a solid statistical framework for estimation and inference—but only when its assumptions are satisfied. The Gauss–Markov Theorem confirms the optimality of least squares under fairly minimal conditions, making it the default approach in many applied settings.</p>
+<p>In summary, the classical linear regression model provides a solid statistical framework for estimation and inference, but only when its assumptions are satisfied. The Gauss–Markov Theorem confirms the optimality of least squares under fairly minimal conditions, making it the default approach in many applied settings.</p>
 </section><section id="confidence-intervals-for-coefficients" class="level2" data-number="29.4"><h2 data-number="29.4" class="anchored" data-anchor-id="confidence-intervals-for-coefficients">
 <span class="header-section-number">29.4</span> Confidence Intervals for Coefficients</h2>
 <p>Once we’ve estimated the model parameters using least squares, we often want to understand the <strong>uncertainty</strong> in those estimates. Two central tools for doing this are <strong>confidence intervals</strong> and <strong>hypothesis tests</strong>, particularly concerning individual regression coefficients. We start with the former.</p>
@@ -848,7 +848,7 @@ t = \frac{b_j}{s_{b_j}}
 <p>This statistic measures how many standard errors the estimate is away from zero. If the result is far enough from zero, relative to the <span class="math inline">\(t\)</span>-distribution, we reject the null hypothesis. The <span class="math inline">\(t\)</span>-distribution used here has <span class="math inline">\(n - K - 1\)</span> degrees of freedom, which accounts for both the sample size and the number of estimated parameters.</p>
 </section><section id="joint-hypothesis-testing-in-multiple-linear-regression" class="level2" data-number="29.6"><h2 data-number="29.6" class="anchored" data-anchor-id="joint-hypothesis-testing-in-multiple-linear-regression">
 <span class="header-section-number">29.6</span> Joint Hypothesis Testing in Multiple Linear Regression</h2>
-<p>So far, we’ve looked at inference for individual regression coefficients—asking whether a single explanatory variable has a statistically significant effect on the response variable. But in multiple regression, a more fundamental question often comes first:</p>
+<p>So far, we’ve looked at inference for individual regression coefficients asking whether a single explanatory variable has a statistically significant effect on the response variable. But in multiple regression, a more fundamental question often comes first:</p>
 <blockquote class="blockquote">
 <p>Do all the predictors together explain any of the variation in the response variable?</p>
 </blockquote>

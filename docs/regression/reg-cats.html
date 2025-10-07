@@ -469,9 +469,9 @@ window.Quarto = {
   
 
 
-</header><p>Up to this point, we have focused on regression models involving quantitative (numerical) predictors, such as age, income, or temperature—variables that have an inherent numeric scale and can be interpreted in terms of magnitudes and differences.</p>
+</header><p>Up to this point, we have focused on regression models involving quantitative (numerical) predictors, such as age, income, or temperature; variables that have an inherent numeric scale and can be interpreted in terms of magnitudes and differences.</p>
 <p>However, many important characteristics in real-world data are <strong>qualitative</strong> or <strong>categorical</strong> in nature. For example, whether a person is male or female, whether a worker belongs to a union, or which region or country an observation comes from. These variables do not carry numeric meaning on their own, yet they can have a significant influence on the outcome we are modeling.</p>
-<p>To include such variables in a regression framework, we introduce the concept of <strong>dummy variables</strong>. A dummy variable is a binary indicator—usually coded as 0 or 1—that allows us to represent membership in a particular category. For example, a variable for gender might be coded as 1 for male and 0 for female (or vice versa). More complex categorical variables with more than two levels—such as political affiliation or region—can be handled by creating multiple dummy variables.</p>
+<p>To include such variables in a regression framework, we introduce the concept of <strong>dummy variables</strong>. A dummy variable is a binary indicator (usually coded as 0 or 1) that allows us to represent membership in a particular category. For example, a variable for gender might be coded as 1 for male and 0 for female (or vice versa). More complex categorical variables with more than two levels (such as political affiliation or region) can be handled by creating multiple dummy variables.</p>
 <p>Moreover, we often want to explore whether the effect of one variable depends on the level of another; for instance, whether the effect of education on wages differs between men and women. In such cases, we use <strong>interaction terms</strong>, which allow the slope of one predictor to vary across categories defined by another.</p>
 <p>This section introduces how to incorporate categorical information into regression models using dummy variables, and how to extend these models with interaction terms to capture more nuanced relationships in the data.</p>
 <section id="dummy-variables" class="level2" data-number="30.1"><h2 data-number="30.1" class="anchored" data-anchor-id="dummy-variables">
@@ -483,7 +483,7 @@ window.Quarto = {
 </li>
 <li>1 = woman</li>
 </ul>
-<p>This new variable can then be used in the regression model as if it were a standard numerical predictor. The coefficient for the dummy variable represents the average difference in the response variable between the two groups—controlling for any other variables in the model.</p>
+<p>This new variable can then be used in the regression model as if it were a standard numerical predictor. The coefficient for the dummy variable represents the average difference in the response variable between the two group controlling for any other variables in the model.</p>
 <section id="more-than-two-categories" class="level3" data-number="30.1.1"><h3 data-number="30.1.1" class="anchored" data-anchor-id="more-than-two-categories">
 <span class="header-section-number">30.1.1</span> More Than Two Categories</h3>
 <p>If a categorical variable has more than two categories, say, housing type with values like “rental apartment,” “condominium,” “detached house,” and “other”, we cannot capture it with a single dummy. Instead, we create multiple dummy variables. A rule of thumb is that a variable with <span class="math inline">\(c\)</span> categories requires <span class="math inline">\(c - 1\)</span> dummy variables. Each of these represents one of the categories, and the category that is <strong>not</strong> included serves as the <strong>reference group</strong>.</p>

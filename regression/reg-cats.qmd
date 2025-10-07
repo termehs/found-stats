@@ -1,9 +1,9 @@
 # Categorical Variables in Regression {#sec-regcats}
-Up to this point, we have focused on regression models involving quantitative (numerical) predictors, such as age, income, or temperature—variables that have an inherent numeric scale and can be interpreted in terms of magnitudes and differences.
+Up to this point, we have focused on regression models involving quantitative (numerical) predictors, such as age, income, or temperature; variables that have an inherent numeric scale and can be interpreted in terms of magnitudes and differences.
 
 However, many important characteristics in real-world data are **qualitative** or **categorical** in nature. For example, whether a person is male or female, whether a worker belongs to a union, or which region or country an observation comes from. These variables do not carry numeric meaning on their own, yet they can have a significant influence on the outcome we are modeling.
 
-To include such variables in a regression framework, we introduce the concept of **dummy variables**. A dummy variable is a binary indicator—usually coded as 0 or 1—that allows us to represent membership in a particular category. For example, a variable for gender might be coded as 1 for male and 0 for female (or vice versa). More complex categorical variables with more than two levels—such as political affiliation or region—can be handled by creating multiple dummy variables.
+To include such variables in a regression framework, we introduce the concept of **dummy variables**. A dummy variable is a binary indicator (usually coded as 0 or 1) that allows us to represent membership in a particular category. For example, a variable for gender might be coded as 1 for male and 0 for female (or vice versa). More complex categorical variables with more than two levels (such as political affiliation or region) can be handled by creating multiple dummy variables.
 
 Moreover, we often want to explore whether the effect of one variable depends on the level of another; for instance, whether the effect of education on wages differs between men and women. In such cases, we use **interaction terms**, which allow the slope of one predictor to vary across categories defined by another.
 
@@ -18,7 +18,7 @@ A dummy variable is a binary (0/1) variable that indicates the presence or absen
 - 0 = man  
 - 1 = woman
 
-This new variable can then be used in the regression model as if it were a standard numerical predictor. The coefficient for the dummy variable represents the average difference in the response variable between the two groups—controlling for any other variables in the model.
+This new variable can then be used in the regression model as if it were a standard numerical predictor. The coefficient for the dummy variable represents the average difference in the response variable between the two group controlling for any other variables in the model.
 
 ### More Than Two Categories
 If a categorical variable has more than two categories, say, housing type with values like “rental apartment,” “condominium,” “detached house,” and “other”, we cannot capture it with a single dummy. Instead, we create multiple dummy variables. A rule of thumb is that a variable with $c$ categories requires $c - 1$ dummy variables. Each of these represents one of the categories, and the category that is **not** included serves as the **reference group**.

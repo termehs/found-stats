@@ -273,7 +273,7 @@ $$
 \bar{X} \sim \mathcal{N} \left( \mu_X, \frac{\sigma_X}{\sqrt{n}} \right)
 $$
 
-To calculate probabilities involving a sample mean, we often need to standardize it — that is, convert it to a standard normal variable. If the sample mean $\bar{X}$ is normally distributed with mean $\mu$ and standard deviation $\sigma / \sqrt{n}$, we can transform it using the formula:
+To calculate probabilities involving a sample mean, we often need to standardize it, that is, convert it to a standard normal variable. If the sample mean $\bar{X}$ is normally distributed with mean $\mu$ and standard deviation $\sigma / \sqrt{n}$, we can transform it using the formula:
 
 $$
 Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}

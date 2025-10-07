@@ -479,7 +479,7 @@ window.Quarto = {
 <span class="header-section-number">21.1</span> Estimators, Estimate, Estimands</h2>
 <p>For clarity, it’s important to distinguish between three closely related but conceptually distinct terms in inferential statistics: <strong>estimand</strong>, <strong>estimator</strong>, and <strong>estimate</strong>.</p>
 <ul>
-<li><p><strong>Estimand</strong>: This is the <strong>target</strong> of our inference—the unknown quantity or parameter in the population we want to learn about. Examples include the population mean <span class="math inline">\(\mu\)</span>, the proportion of voters supporting a policy <span class="math inline">\(p\)</span>, or the difference in means between two groups <span class="math inline">\(\mu_1 - \mu_2\)</span>.</p></li>
+<li><p><strong>Estimand</strong>: This is the <strong>target</strong> of our inference; the unknown quantity or parameter in the population we want to learn about. Examples include the population mean <span class="math inline">\(\mu\)</span>, the proportion of voters supporting a policy <span class="math inline">\(p\)</span>, or the difference in means between two groups <span class="math inline">\(\mu_1 - \mu_2\)</span>.</p></li>
 <li><p><strong>Estimator</strong>: A formula or rule that we apply to sample data in order to make an informed guess about the estimand. It is a <strong>random variable</strong>, as it depends on the data, which in turn vary across samples. For instance, the sample mean <span class="math inline">\(\bar{X}\)</span> is an estimator for the population mean <span class="math inline">\(\mu\)</span>.</p></li>
 <li><p><strong>Estimate</strong>: The <strong>actual numerical result</strong> obtained when we apply the estimator to a specific dataset. It is a <strong>fixed number</strong>, not a random variable. For example, if <span class="math inline">\(\bar{X} = 7.4\)</span> from our sample, then 7.4 is our estimate of the population mean.</p></li>
 </ul>
@@ -553,7 +553,7 @@ Figure&nbsp;21.1: Each board illustrates a combination of estimator characterist
 <p>Together, these properties give us a clear framework for evaluating the reliability of estimators. Ideally, we want an estimator that is unbiased and has the smallest possible variance, a combination that yields both accuracy and precision in estimation.</p>
 </section><section id="point-estimation" class="level2" data-number="21.3"><h2 data-number="21.3" class="anchored" data-anchor-id="point-estimation">
 <span class="header-section-number">21.3</span> Point Estimation</h2>
-<p>In statistical inference, we often aim to estimate unknown characteristics of a population—such as its average income, the proportion of voters in favor of a policy, or the variance in housing prices. This process of using data from a sample to calculate a single value as a “best guess” for a population parameter is known as <strong>point estimation</strong>.</p>
+<p>In statistical inference, we often aim to estimate unknown characteristics of a population such as its average income, the proportion of voters in favor of a policy, or the variance in housing prices. This process of using data from a sample to calculate a single value as a “best guess” for a population parameter is known as <strong>point estimation</strong>.</p>
 <p>Let us assume we have a random sample <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> of <span class="math inline">\(n\)</span> independent observations from a population with an unknown mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. A <strong>point estimator</strong> is a function of the sample data used to estimate a population parameter.</p>
 <p>For instance:</p>
 <ul>
@@ -674,9 +674,9 @@ Figure&nbsp;21.4: Simulation of 100 confidence intervals for the population mean
 <blockquote class="blockquote">
 <p>The interval was calculated using a procedure that, in the long run, produces intervals that contain the true mean in 95% of all cases.</p>
 </blockquote>
-<p>This is the essence of the frequentist interpretation of confidence intervals. It doesn’t tell us the probability that our specific interval contains <span class="math inline">\(\mu\)</span>, but it does provide a measure of trust in the procedure we used to create it. That’s why we refer to it as a “confidence” interval — not because we are certain, but because we have reason to be confident based on the method’s performance over repeated samples.</p>
+<p>This is the essence of the frequentist interpretation of confidence intervals. It doesn’t tell us the probability that our specific interval contains <span class="math inline">\(\mu\)</span>, but it does provide a measure of trust in the procedure we used to create it. That’s why we refer to it as a “confidence” interval, not because we are certain, but because we have reason to be confident based on the method’s performance over repeated samples.</p>
 <p>So far, we have only constructed 95% confidence intervals for a population mean. This means that if we were to repeat the sampling procedure many times, approximately 95% of those intervals would contain the true population mean, <span class="math inline">\(\mu\)</span>.</p>
-<p>But 95% is not a fixed rule. We can choose other confidence levels—such as 90% or 99%—depending on how certain we want to be. The trade-off is that a <em>higher level</em> of confidence results in a <em>wider interval</em>, while a <em>lower confidence level</em> gives a <em>narrower but less certain estimate</em>.</p>
+<p>But 95% is not a fixed rule. We can choose other confidence levels, such as 90% or 99%, depending on how certain we want to be. The trade-off is that a <em>higher level</em> of confidence results in a <em>wider interval</em>, while a <em>lower confidence level</em> gives a <em>narrower but less certain estimate</em>.</p>
 <p>When the population standard deviation <span class="math inline">\(\sigma\)</span> is known and the sampling distribution of the mean is approximately normal (either by assumption or via the Central Limit Theorem), the general structure of a confidence interval for the mean is:</p>
 <p><span class="math display">\[
 \bar{X} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
@@ -732,7 +732,7 @@ Table&nbsp;21.1: Commonly used confidence levels and their corresponding critica
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-cfi-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-confidence-interval" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="672">
+<div id="fig-confidence-interval" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" data-fig-align="center">
 <figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-confidence-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="estimation_files/figure-html/fig-confidence-interval-1.png" id="fig-confidence-interval" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" data-ref-parent="fig-cfi-2" width="672">
 </div>

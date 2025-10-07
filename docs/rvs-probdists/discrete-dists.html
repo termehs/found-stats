@@ -602,8 +602,8 @@ F(x) = P(X \leq x)
 E(X) = \sum_{x} x \cdot P(x) = \mu_X
 \]</span></p>
 <p>This formula tells us to multiply each value <span class="math inline">\(x\)</span> by its probability <span class="math inline">\(P(x)\)</span> and then sum the results over all possible values of <span class="math inline">\(X\)</span>. The result, <span class="math inline">\(E(X)\)</span>, gives us the value we expect to observe on average in the long run, if we were to randomly select a value of <span class="math inline">\(X\)</span> according to its probability distribution.</p>
-<p>The expected value represents the “center” of the distribution — the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.</p>
-<p>It’s important to note that expected value doesn’t predict what will happen* — it predicts what happens on average. It’s like asking, <em>“What would I get if the universe reran this scenario a million times?”</em></p>
+<p>The expected value represents the “center” of the distribution, the point where the values balance, considering how often each one occurs. For example, if a random variable has most of its probability mass near 1, its expected value will be close to 1.</p>
+<p>It’s important to note that expected value doesn’t predict what will happen*, it predicts what happens on average. It’s like asking, <em>“What would I get if the universe reran this scenario a million times?”</em></p>
 <section id="example-12.1-coin-toss-continued-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-12.1-coin-toss-continued-1">Example 12.1: Coin Toss (continued)</h4>
 <p>If you revisit the coin-toss example where <span class="math inline">\(X\)</span> counts the number of heads in two tosses, you would compute the expected value as:</p>
 <p><span class="math display">\[
@@ -626,7 +626,7 @@ E(X) = \sum_{x} x \cdot P(x) = 0 \cdot 0.25 + 1 \cdot 0.5 + 2 \cdot 0.25 = 1
 <p><span class="math display">\[
 X \in \{0, 2, 10, 50\}
 \]</span></p>
-<p>But — and here’s the key — just averaging those values like this:</p>
+<p>But, and here’s the key, just averaging those values like this:</p>
 <p><span class="math display">\[
 \frac{0 + 2 + 10 + 50}{4} = 15.5
 \]</span></p>
@@ -676,7 +676,7 @@ X \in \{0, 2, 10, 50\}
 E(X) = \sum_x x \cdot P(x) = 0 \cdot 0.91 + 2 \cdot 0.05 + 10 \cdot 0.03 + 50 \cdot 0.01 = 0.90
 \]</span></p>
 <p>So even though one person might win 50€, the average payout per ticket is just 90 cents. That means if you pay 1€ per ticket, you’re losing 10 cents on average.</p>
-<p>Most of the time, lottery isn’t just random — it’s rigged (in favor of the organizers)</p>
+<p>Most of the time, lottery isn’t just random, it’s rigged (in favor of the organizers)</p>
 </section></section><section id="variance-and-standard-deviation-of-a-discrete-random-variable" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="variance-and-standard-deviation-of-a-discrete-random-variable">
 <span class="header-section-number">13.4</span> Variance and Standard Deviation of a Discrete Random Variable</h2>
 <p>Just as sample variance measures the average squared deviation from the sample mean, the variance of a random variable measures the average squared deviation from its expected value, weighted by the probability mass function.</p>
@@ -781,7 +781,7 @@ E(X) = 1
 <p><span class="math display">\[
 \sigma_X = \sqrt{27.39} \approx 5.23
 \]</span></p>
-<p>So in summary, the expected payout of 0.9€ indicated that on average, each ticket returns 90cents. However, no single ticket actually pays exactly 0.9€. This value is theoretical — it describes the average over many repetitions.</p>
+<p>So in summary, the expected payout of 0.9€ indicated that on average, each ticket returns 90cents. However, no single ticket actually pays exactly 0.9€. This value is theoretical; it describes the average over many repetitions.</p>
 <p>The standard deviation of 5.23€ tells us that the actual payout from a randomly chosen ticket typically deviates from the expected value by about 5€. This large spread reflects the presence of a few large prizes and many losing tickets.</p>
 <p>Although the possibility of winning a large amount may seem appealing, the large variance masks the fact that the expected return is less than the ticket price, ensuring profit for the lottery organizers over time.</p>
 </section></section><section id="rules-for-expectation-and-variance" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="rules-for-expectation-and-variance">
@@ -840,8 +840,8 @@ E(Y) = 25000 + 900 \cdot E(X) = 25000 + 900 \cdot 11.9 = 35710
 <p>This gives a total expected project cost of €35,710, with a standard deviation of about €1,022.</p>
 </section></section><section id="sec-binom" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="sec-binom">
 <span class="header-section-number">13.6</span> The Bernoulli and Binomial Distribution</h2>
-<p>In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise — such as flipping a coin or checking if a customer buys a product — follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.</p>
-<p>A random variable <span class="math inline">\(X\)</span> is said to follow a <strong>Bernoulli distribution</strong> if it takes on only two possible values: <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. These values typically represent the outcomes of a binary trial — such as failure or success — with probabilities <span class="math inline">\(1 - p\)</span> and <span class="math inline">\(p\)</span> respectively. The distribution is written as:</p>
+<p>In probability theory, many random variables arise in contexts that follow well-known and well-studied distributions. For example, a variable that takes the value 1 when an event occurs and 0 otherwise, such as flipping a coin or checking if a customer buys a product, follows a Bernoulli distribution. When this type of binary trial is repeated independently a fixed number of times, and we count the number of successes, the resulting variable follows a Binomial distribution. These distributions not only help us describe real-world phenomena succinctly but also allow us to use established formulas to compute probabilities, expectations, variances, and more.</p>
+<p>A random variable <span class="math inline">\(X\)</span> is said to follow a <strong>Bernoulli distribution</strong> if it takes on only two possible values: <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. These values typically represent the outcomes of a binary trial (such as failure or success) with probabilities <span class="math inline">\(1 - p\)</span> and <span class="math inline">\(p\)</span> respectively. The distribution is written as:</p>
 <p><span class="math display">\[
 X \sim \text{Bernoulli}(p)
 \]</span></p>

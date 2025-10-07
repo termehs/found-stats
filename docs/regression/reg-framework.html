@@ -517,7 +517,7 @@ window.Quarto = {
 </blockquote>
 <p>This leads to the concept of conditional expectation: <span class="math display">\[
 E(Y \mid X)
-\]</span> and represents the expected (mean) value of <span class="math inline">\(Y\)</span> given a specific value of <span class="math inline">\(X\)</span>. Regression analysis helps us estimate this quantity—typically using a model such as a linear function.</p>
+\]</span> and represents the expected (mean) value of <span class="math inline">\(Y\)</span> given a specific value of <span class="math inline">\(X\)</span>. Regression analysis helps us estimate this quantity, typically using a model such as a linear function.</p>
 <p>At its core, regression is about estimating and interpreting how the average value of <span class="math inline">\(Y\)</span> changes conditionally on <span class="math inline">\(X\)</span>.</p>
 <p>In the next section, we’ll formally introduce the simple linear regression model, estimate its parameters, and interpret the results.</p>
 <div id="fig-slrex" class="center quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -537,7 +537,7 @@ Figure&nbsp;26.1: Visualizing the conditional structure of a negatively correlat
 <p><span class="math display">\[
 E(Y \mid X)
 \]</span></p>
-<p>This function gives us the expected (average) value of <span class="math inline">\(Y\)</span>, given a specific value of <span class="math inline">\(X\)</span>. Rather than modeling the entire distribution of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>, regression focuses on modeling this average behavior—summarized by the <strong>Conditional Expectation Function (CEF)</strong>.</p>
+<p>This function gives us the expected (average) value of <span class="math inline">\(Y\)</span>, given a specific value of <span class="math inline">\(X\)</span>. Rather than modeling the entire distribution of <span class="math inline">\(Y\)</span> for each value of <span class="math inline">\(X\)</span>, regression focuses on modeling this average behavior, summarized by the <strong>Conditional Expectation Function (CEF)</strong>.</p>
 <section id="the-conditional-expectation-function-cef" class="level3" data-number="26.1.1">
 <h3 data-number="26.1.1" class="anchored" data-anchor-id="the-conditional-expectation-function-cef"><span class="header-section-number">26.1.1</span> The Conditional Expectation Function (CEF)</h3>
 <p>The CEF, <span class="math inline">\(E(Y \mid X)\)</span>, captures how the mean of <span class="math inline">\(Y\)</span> varies with <span class="math inline">\(X\)</span>. It represents the best estimate of <span class="math inline">\(Y\)</span> we can make, on average, given that we know the value of <span class="math inline">\(X\)</span>. In essence, the CEF describes the <strong>population regression function</strong>:</p>
@@ -546,7 +546,7 @@ Y = f(X) = E(Y \mid X)
 \]</span></p>
 <p>This function answers the question:</p>
 <blockquote class="blockquote">
-<p><em>“What is the average value of <span class="math inline">\(Y\)</span>, given each possible value of <span class="math inline">\(X\)</span>?”</em></p>
+<p>*“What is the average value of* <span class="math inline">\(Y\)</span>, given each possible value of <span class="math inline">\(X\)</span>?”</p>
 </blockquote>
 </section>
 <section id="linear-conditional-expectation-population-linear-regression-function" class="level3" data-number="26.1.2">
@@ -627,11 +627,11 @@ E(\varepsilon \mid X) = 0
 E(Y \mid X) = \beta_0 + \beta_1 X
 \]</span></p>
 <p>and ensures our model correctly captures the conditional mean of <span class="math inline">\(Y\)</span>.</p></li>
-<li><p><strong>Uncorrelatedness with <span class="math inline">\(X\)</span></strong>:</p>
+<li><p><strong>Uncorrelatedness with</strong> <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[
 \text{Cov}(X, \varepsilon) = 0
 \]</span></p>
-<p>This implies that <span class="math inline">\(X\)</span> and <span class="math inline">\(\varepsilon\)</span> are uncorrelated in the population—i.e., the explanatory variable <span class="math inline">\(X\)</span> contains no information about the error term. If this assumption is violated, our estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> may be biased.</p></li>
+<p>This implies that <span class="math inline">\(X\)</span> and <span class="math inline">\(\varepsilon\)</span> are uncorrelated in the population, i.e., the explanatory variable <span class="math inline">\(X\)</span> contains no information about the error term. If this assumption is violated, our estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> may be biased.</p></li>
 </ol>
 </section>
 <section id="interpreting-the-zero-conditional-mean" class="level3" data-number="26.2.2">
@@ -694,8 +694,8 @@ Table&nbsp;26.1: Summary of regression concepts so far.
 <div aria-describedby="tbl-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="center caption-top table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 35%">
+<col style="width: 64%">
 </colgroup>
 <thead>
 <tr class="header">
