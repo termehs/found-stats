@@ -79,7 +79,8 @@ $$ Since 50% of values are below this point, the median represents the central v
 
 ### Third Quartile (Q3) - 75th Percentile {.unnumbered}
 
-The third quartile (Q3) is the value below which 75% of the observations fall. This is particularly useful for understanding the upper range of the dataset and is calculated as: $$
+The third quartile (Q3) is the value below which 75% of the observations fall. This is particularly useful for understanding the upper range of the dataset and is calculated as: 
+$$
 Q3 = \text{value at position } 0.75(n+1)
 $$
 
@@ -197,17 +198,47 @@ To better understand the distribution of the two datasets, we use a boxplot to v
 #| fig-width: 7
 #| fig-align: center
 
-# Create datasets
-data_A <- data.frame(Group = "Dataset A", Score = c(4, 4, 5, 5, 5, 6, 6, 7))
-data_B <- data.frame(Group = "Dataset B", Score = c(0, 1, 4, 5, 6, 7, 8, 11))
-data_combined <- rbind(data_A, data_B)
+library(ggplot2)
 
-# Boxplot
-ggplot(data_combined, aes(x = Group, y = Score, fill = Group)) +
-  geom_boxplot(outlier.shape = 16, outlier.color = "red", alpha = 0.6) +
-  labs(title = "",
-       x = "Dataset",
-       y = "Score") +
+# Data
+data_A <- c(4, 4, 5, 5, 5, 6, 6, 7)
+data_B <- c(0, 1, 4, 5, 6, 7, 8, 11)
+
+# Function to compute boxplot stats using quantile(type = 6)
+box_stats <- function(x, group) {
+  qs <- quantile(x, probs = c(0.25, 0.5, 0.75), type = 6)
+  iqr <- qs[3] - qs[1]
+  lower_fence <- qs[1] - 1.5 * iqr
+  upper_fence <- qs[3] + 1.5 * iqr
+  
+  data.frame(
+    Group = group,
+    ymin = min(x[x >= lower_fence]),
+    lower = qs[1],
+    middle = qs[2],
+    upper = qs[3],
+    ymax = max(x[x <= upper_fence])
+  )
+}
+
+box_data <- rbind(
+  box_stats(data_A, "Dataset A"),
+  box_stats(data_B, "Dataset B")
+)
+
+box_data$Group <- factor(box_data$Group, levels = c("Dataset A", "Dataset B"))
+
+ggplot(box_data, aes(x = Group)) +
+  geom_boxplot(
+    aes(ymin = ymin, lower = lower, middle = middle, upper = upper, ymax = ymax, fill = Group),
+    stat = "identity",
+    alpha = 0.6
+  ) +
+  scale_y_continuous(
+    breaks = 0:12,        # show 1,2,3,4,5,6,7
+    limits = c(0, 12)     # restrict view to this range
+  ) +
+  labs(x = "Dataset", y = "Score") +
   theme_minimal() +
   theme(legend.position = "none")
 ```
