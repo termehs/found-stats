@@ -145,7 +145,7 @@ To compare voting behavior between married and non-married individuals, we calcu
 
 This table shows the **conditional distribution** of voting behavior, given marital status.
 
--   Among married individuals, 1496 × 100 = 0.965= 96.5% voted while 54 × 100 = 0.035 =3.5% did not.
+-   Among married individuals, 1496/1550 = 0.965= 96.5% voted while 54 × 1550 = 0.035 =3.5% did not.
 
 -   Among non-married individuals, 88.1% voted, while 11.9% did not.
 
