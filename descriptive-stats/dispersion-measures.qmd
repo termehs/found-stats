@@ -107,6 +107,8 @@ The boxplot visually represents the distribution and spread of the data using th
 
 The median (Q2) represents the central value, while outliers (if any) are shown as red points beyond the whiskers of the box. This boxplot effectively summarizes the data set, making it easy to identify skewness, dispersion, and potential outliers at a glance.
 
+
+
 ::: {#fig-box .center}
 ```{r}
 #| echo: false
@@ -136,6 +138,33 @@ ggplot(data, aes(x = factor(1), y = Value)) +
 
 Boxplot with labels for each component of the Five-Number Summary
 :::
+
+::: {.callout-note}
+## How Whiskers Are Computed in a Boxplot
+
+In a standard boxplot, whiskers are based on the interquartile range (IQR), not simply the minimum and maximum values.
+
+First compute:
+
+- $Q_1$: 25th percentile  
+- $Q_3$: 75th percentile  
+- $IQR = Q_3 - Q_1$
+
+Whiskers extend to the most extreme data points within:
+
+- Lower bound: $Q_1 - 1.5 \times IQR$  
+- Upper bound: $Q_3 + 1.5 \times IQR$
+
+Thus:
+
+- The **lower whisker** is the smallest value $\geq Q_1 - 1.5 \times IQR$  
+- The **upper whisker** is the largest value $\leq Q_3 + 1.5 \times IQR$
+
+Values outside these bounds are shown as **outliers**.
+
+Whiskers are not necessarily symmetric, they reflect the data distribution.
+:::
+
 
 #### Example: Test Scores {.unnumbered}
 

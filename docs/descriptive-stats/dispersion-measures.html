@@ -551,6 +551,45 @@ Q3 = \text{value at position } 0.75(n+1)
 Figure&nbsp;7.1: Boxplot with labels for each component of the Five-Number Summary
 </figcaption></figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How Whiskers Are Computed in a Boxplot
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In a standard boxplot, whiskers are based on the interquartile range (IQR), not simply the minimum and maximum values.</p>
+<p>First compute:</p>
+<ul>
+<li>
+<span class="math inline">\(Q_1\)</span>: 25th percentile<br>
+</li>
+<li>
+<span class="math inline">\(Q_3\)</span>: 75th percentile<br>
+</li>
+<li><span class="math inline">\(IQR = Q_3 - Q_1\)</span></li>
+</ul>
+<p>Whiskers extend to the most extreme data points within:</p>
+<ul>
+<li>Lower bound: <span class="math inline">\(Q_1 - 1.5 \times IQR\)</span><br>
+</li>
+<li>Upper bound: <span class="math inline">\(Q_3 + 1.5 \times IQR\)</span>
+</li>
+</ul>
+<p>Thus:</p>
+<ul>
+<li>The <strong>lower whisker</strong> is the smallest value <span class="math inline">\(\geq Q_1 - 1.5 \times IQR\)</span><br>
+</li>
+<li>The <strong>upper whisker</strong> is the largest value <span class="math inline">\(\leq Q_3 + 1.5 \times IQR\)</span>
+</li>
+</ul>
+<p>Values outside these bounds are shown as <strong>outliers</strong>.</p>
+<p>Whiskers are not necessarily symmetric, they reflect the data distribution.</p>
+</div>
+</div>
 <section id="example-test-scores-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-test-scores-1">Example: Test Scores</h4>
 <p>We compute the Five-Number Summary for the two datasets, A and B, representing test scores.</p>
 <p><strong>Data A</strong></p>
