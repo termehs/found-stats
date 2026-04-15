@@ -64,11 +64,11 @@ ggplot(pref_data, aes(x = "", y = Percentage, fill = Preference)) +
   theme_void()
 ```
 
-While a standard pie chart is a great way to visualize data, 3D pie charts are the dark side of data visualization. They may look fancy, but they distort proportions, making it difficult to accurately compare slice sizes. Due to the perspective effect, some slices appear larger or smaller than they actually are, leading to misleading interpretations. In short: if you want your data to be clear and not just flashy, stick to 2D pies - your audience will thank you.
+While a standard pie chart is a great way to visualize data, 3D pie charts are the dark side of data visualization. They may look fancy, but they distort proportions, making it difficult to accurately compare slice sizes. Due to the perspective effect, some slices appear larger or smaller than they actually are, leading to misleading interpretations. In short: if you want your data to be clear and not just flashy, stick to 2D pies, your audience will thank you!
 
 ### Bar Chart
 
-Bar charts are a great way to visualize qualitative data, making it easy to compare different categories. Each category is represented by a bar, with the height corresponding to its frequency or percentage. For example, a bar chart would clearly display the difference between coffee and tea lovers, making it easy to interpret at a glance. Unlike pie charts, bar charts work well even when multiple categories are involved, ensuring your audience can quickly grasp the data - without any risk of 3D chart-induced confusion!
+Bar charts are a great way to visualize qualitative data, making it easy to compare different categories. Each category is represented by a bar, with the height corresponding to its frequency or percentage. For example, a bar chart would clearly display the difference between coffee and tea lovers, making it easy to interpret at a glance. Unlike pie charts, bar charts work well even when multiple categories are involved, ensuring your audience can quickly grasp the data, without any risk of 3D chart-induced confusion!
 
 ```{r}
 #| echo: false
@@ -319,7 +319,10 @@ A **Stem-and-leaf plot** is a compact way to display numerical data while preser
 
 For example, in the dataset of candy bar weights, a stem-and-leaf plot can show whether weights cluster around a certain value and help identify any inconsistencies. This is shown in the follwing.
 
-We split each value from our candy bar weight dataset into - **Stem** (e.g., 20, 21, 22, etc.) - **Leaf** (the decimal part, such as .1, .2, .3, etc.)
+We split each value from our candy bar weight dataset into 
+
+- **Stem** (e.g., 20, 21, 22, etc.) 
+- **Leaf** (the decimal part, such as .1, .2, .3, etc.)
 
 The **Stem-and-Leaf Table** is then given as:
 
