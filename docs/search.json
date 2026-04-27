@@ -68,7 +68,7 @@
     "href": "introduction/intro-math.html#the-sum-and-the-product",
     "title": "2  The Unavoidable Math",
     "section": "",
-    "text": "2.1.1 Example\nAssume 5 values on \\(x\\) denoted \\(x_1,x_2,x_3,x_4,x_5\\). How can we write the sum of the squared difference of each of these values to their mean value \\(\\overline{x}\\)? \\[(x_1-\\overline{x})^2 + (x_2-\\overline{x})^2 + (x_3-\\overline{x})^2 + (x_4-\\overline{x})^2 + (x_1-\\overline{x})^5 \\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\[\\sum_{i=1}^n (x_i-\\overline{x})^2\\]",
+    "text": "2.1.1 Example\nAssume 5 values on \\(x\\) denoted \\(x_1,x_2,x_3,x_4,x_5\\). How can we write the sum of the squared difference of each of these values to their mean value \\(\\overline{x}\\)? \\[(x_1-\\overline{x})^2 + (x_2-\\overline{x})^2 + (x_3-\\overline{x})^2 + (x_4-\\overline{x})^2 + (x_5-\\overline{x})^2 \\]\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\\[\\sum_{i=1}^n (x_i-\\overline{x})^2\\]",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>The Unavoidable Math</span>"

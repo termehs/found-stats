@@ -10,7 +10,7 @@ Similarly, the product of $n$ numbers denoted $x_1,x_2,\ldots,x_n$ is written as
 
 ### Example
 
-Assume 5 values on $x$ denoted $x_1,x_2,x_3,x_4,x_5$. How can we write the sum of the squared difference of each of these values to their mean value $\overline{x}$? $$(x_1-\overline{x})^2 + (x_2-\overline{x})^2 + (x_3-\overline{x})^2 + (x_4-\overline{x})^2 + (x_1-\overline{x})^5 $$
+Assume 5 values on $x$ denoted $x_1,x_2,x_3,x_4,x_5$. How can we write the sum of the squared difference of each of these values to their mean value $\overline{x}$? $$(x_1-\overline{x})^2 + (x_2-\overline{x})^2 + (x_3-\overline{x})^2 + (x_4-\overline{x})^2 + (x_5-\overline{x})^2 $$
 
 ::: {.callout-tip collapse="true"}
 ## Solution
