@@ -20,7 +20,7 @@ Our hypotheses are as follows:
 - Null hypothesis: The variables are **independent**; there is no association between income and housing cost.\
 - Alternative hypothesis: The variables are **not independent**; there is an association between income and housing cost.
 
-To explore this further, we can examine the relative percentages across income categories:
+To explore this further, we can examine the relative percentages across income categories, i.e. the distribution of housing costs within each income category:
 
 | Housing Cost | Low Income | Medium Income | High Income | Total |
 |--------------|------------|----------------|-------------|--------|
@@ -29,19 +29,42 @@ To explore this further, we can examine the relative percentages across income c
 | High         | 15%        | 32%            | 70%         | 40%    |
 | **Total**    | 100%       | 100%           | 100%        | 100%   |
 
+
+Note that what we've actually computed above is:
+$$
+P(\text{Housing Cost} \mid \text{Income})
+$$
+
+because each income column sums to 100%.
+
 From this, we can see that the distributions vary across income levels, suggesting **dependence**.
 
 > *So what would independence look like?*\
 
 Under complete independence, the same distribution of housing costs would occur across all income groups. Based on the total column proportions, expected percentages would be:
 
-| Housing Cost | Expected % | Low Income | Medium Income | High Income |
+| Housing Cost | Low Income | Medium Income | High Income |
 |--------------|-------------|------------|----------------|-------------|
-| Low          | 20%         | 20%        | 20%            | 20%         |
-| Medium       | 40%         | 40%        | 40%            | 40%         |
-| High         | 40%         | 40%        | 40%            | 40%         |
+| Low          |  20%        | 20%            | 20%         |
+| Medium       |  40%        | 40%            | 40%         |
+| High         |  40%        | 40%            | 40%         |
 
-Using expected proportions, the expected counts under $H_0$ are:
+These conditional distributions should all equal the marginal distribution, i.e.
+$$ P(\text{Housing Cost}\mid\text{Income}) =P(\text{Housing Cost})
+$$
+
+Using expected proportions, the expected counts under $H_0$ computed as
+$$E_{ij}=\frac{(\text{Row Total}_i)(\text{Column Total}_j)}{\text{Grand Total}}
+$$
+
+which directly come from
+$$
+P(\text{Housing Cost and Income})
+=
+P(\text{Housing Cost})P(\text{Income}).
+$$
+These values are giveen in below table:
+
 
 | Housing Cost | Low Income | Medium Income | High Income | Total |
 |--------------|------------|----------------|-------------|--------|

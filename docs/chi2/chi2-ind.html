@@ -540,7 +540,7 @@ window.Quarto = {
 </li>
 <li>Alternative hypothesis: The variables are <strong>not independent</strong>; there is an association between income and housing cost.</li>
 </ul>
-<p>To explore this further, we can examine the relative percentages across income categories:</p>
+<p>To explore this further, we can examine the relative percentages across income categories, i.e.&nbsp;the distribution of housing costs within each income category:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -582,6 +582,10 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+<p>Note that what we’ve actually computed above is: <span class="math display">\[
+P(\text{Housing Cost} \mid \text{Income})
+\]</span></p>
+<p>because each income column sums to 100%.</p>
 <p>From this, we can see that the distributions vary across income levels, suggesting <strong>dependence</strong>.</p>
 <blockquote class="blockquote">
 <p><em>So what would independence look like?</em><br>
@@ -599,10 +603,10 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th>Housing Cost</th>
-<th>Expected %</th>
 <th>Low Income</th>
 <th>Medium Income</th>
 <th>High Income</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -611,25 +615,33 @@ window.Quarto = {
 <td>20%</td>
 <td>20%</td>
 <td>20%</td>
-<td>20%</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>Medium</td>
 <td>40%</td>
 <td>40%</td>
 <td>40%</td>
-<td>40%</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>High</td>
 <td>40%</td>
 <td>40%</td>
 <td>40%</td>
-<td>40%</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>Using expected proportions, the expected counts under <span class="math inline">\(H_0\)</span> are:</p>
+<p>These conditional distributions should all equal the marginal distribution, i.e. <span class="math display">\[ P(\text{Housing Cost}\mid\text{Income}) =P(\text{Housing Cost})
+\]</span></p>
+<p>Using expected proportions, the expected counts under <span class="math inline">\(H_0\)</span> computed as <span class="math display">\[E_{ij}=\frac{(\text{Row Total}_i)(\text{Column Total}_j)}{\text{Grand Total}}
+\]</span></p>
+<p>which directly come from <span class="math display">\[
+P(\text{Housing Cost and Income})
+=
+P(\text{Housing Cost})P(\text{Income}).
+\]</span> These values are giveen in below table:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
