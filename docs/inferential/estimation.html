@@ -732,7 +732,7 @@ Table&nbsp;21.1: Commonly used confidence levels and their corresponding critica
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-cfi-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-confidence-interval" class="quarto-float quarto-figure quarto-figure-center anchored" width="672" data-fig-align="center">
+<div id="fig-confidence-interval" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="672">
 <figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-confidence-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="estimation_files/figure-html/fig-confidence-interval-1.png" id="fig-confidence-interval" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" data-ref-parent="fig-cfi-2" width="672">
 </div>
@@ -2005,14 +2005,24 @@ Solution
 \\ &amp; = \sqrt{0.934 + 1.96} = \sqrt{2.894} \approx 1.702
 \end{split}
 \]</span></p>
-<p>We find the correct degrees of freedom using Welch-Satterthwaite approximation: <span class="math display">\[
-\nu \approx \frac{ \left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2 }
-{ \frac{ \left( \frac{s_1^2}{n_1} \right)^2 }{n_1 - 1} + \frac{ \left( \frac{s_2^2}{n_2} \right)^2 }{n_2 - 1} }
-= \frac{(0.934 + 1.96)^2}{\frac{0.934^2}{17} + \frac{1.96^2}{15}} \approx \frac{8.38}{0.0513 + 0.256} \approx 25.1
-\]</span> Thus, we use <span class="math inline">\(t_{25} \approx 2.060\)</span> for 95% confidence. The confidence interval is then given by <span class="math display">\[
--3.5 \pm 2.060 \cdot 1.702 = -3.5 \pm 3.508
-\implies [-7.01,\ 0.01]
-\]</span> The 95% confidence interval for the difference in study hours ranges from −7.01 to 0.01 hours. Since the interval includes zero, we cannot conclude that there is a difference in average study hours between the two majors.</p>
+<p>We find the correct degrees of freedom using Welch-Satterthwaite approximation:</p>
+<p><span class="math display">\[
+\nu \approx
+\frac{\left(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\right)^2}
+{\dfrac{\left(\dfrac{s_1^2}{n_1}\right)^2}{n_1-1}
++\dfrac{\left(\dfrac{s_2^2}{n_2}\right)^2}{n_2-1}}
+=
+\frac{(0.934+1.96)^2}
+{\dfrac{0.934^2}{17}+\dfrac{1.96^2}{15}}
+\approx
+\frac{8.38}{0.0513+0.256}
+\approx
+27.2.
+\]</span> Thus, we use <span class="math inline">\(t_{27} \approx 2.052\)</span> for 95% confidence. The confidence interval is then given by <span class="math display">\[
+-3.5 \pm 2.052 \cdot 1.702
+= -3.5 \pm 3.49
+\implies [-6.99,\,-0.01].
+\]</span> The 95% confidence interval for the difference in study hours ranges from −6.99 to −0.01 hours. Because the interval does not include zero, there is evidence of a significant difference in average study hours between the two majors.</p>
 </div>
 </div>
 </div>

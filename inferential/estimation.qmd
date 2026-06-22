@@ -1451,17 +1451,27 @@ $$
 $$
 
 We find the correct degrees of freedom using Welch-Satterthwaite approximation:
+
 $$
-\nu \approx \frac{ \left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2 }
-{ \frac{ \left( \frac{s_1^2}{n_1} \right)^2 }{n_1 - 1} + \frac{ \left( \frac{s_2^2}{n_2} \right)^2 }{n_2 - 1} }
-= \frac{(0.934 + 1.96)^2}{\frac{0.934^2}{17} + \frac{1.96^2}{15}} \approx \frac{8.38}{0.0513 + 0.256} \approx 25.1
+\nu \approx
+\frac{\left(\dfrac{s_1^2}{n_1}+\dfrac{s_2^2}{n_2}\right)^2}
+{\dfrac{\left(\dfrac{s_1^2}{n_1}\right)^2}{n_1-1}
++\dfrac{\left(\dfrac{s_2^2}{n_2}\right)^2}{n_2-1}}
+=
+\frac{(0.934+1.96)^2}
+{\dfrac{0.934^2}{17}+\dfrac{1.96^2}{15}}
+\approx
+\frac{8.38}{0.0513+0.256}
+\approx
+27.2.
 $$
-Thus, we use $t_{25} \approx 2.060$ for 95% confidence.
+Thus, we use $t_{27} \approx 2.052$ for 95% confidence.
 The confidence interval is then given by
 $$
--3.5 \pm 2.060 \cdot 1.702 = -3.5 \pm 3.508
-\implies [-7.01,\ 0.01]
+-3.5 \pm 2.052 \cdot 1.702
+= -3.5 \pm 3.49
+\implies [-6.99,\,-0.01].
 $$
-The 95% confidence interval for the difference in study hours ranges from −7.01 to 0.01 hours. Since the interval includes zero, we cannot conclude that there is a difference in average study hours between the two majors.
+The 95% confidence interval for the difference in study hours ranges from −6.99 to −0.01 hours. Because the interval does not include zero, there is evidence of a significant difference in average study hours between the two majors.
 :::
   

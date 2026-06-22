@@ -63,7 +63,7 @@ P(\text{Housing Cost and Income})
 =
 P(\text{Housing Cost})P(\text{Income}).
 $$
-These values are giveen in below table:
+These values are given in below table:
 
 
 | Housing Cost | Low Income | Medium Income | High Income | Total |
