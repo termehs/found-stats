@@ -10,7 +10,7 @@ This is where residual analysis and model diagnostics come in: they help us veri
 
 ## Constant Variance Assumption (Homoskedasticity)
 
-One of the key assumptions of the classical linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as **homoskedasticity**, and it is formally stated as:
+One of the key assumptions of the classicxal linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as **homoskedasticity**, and it is formally stated as:
 
 > The error term has constant variance, i.e.  
 > $\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2$ for all $i$.
@@ -115,13 +115,13 @@ The null hypothesis of the BP test is that the error variance is constant across
 We test:
 
 $$
-H_0: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) = \sigma^2 \quad \text{(homoskedasticity)}
+H_0: \operatorname{Var}(e_i \mid x_1, x_2, \dots, x_k) = \sigma^2 \quad \text{(homoskedasticity)}
 $$
 
 against
 
 $$
-H_1: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text{(heteroskedasticity)}
+H_1: \operatorname{Var}(e_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text{(heteroskedasticity)}
 $$
 
 STep-by-step, we then do the folllwing:
@@ -396,6 +396,7 @@ Formal tests like the **Shapiro-Wilk test** or **Jarque-Bera test** also exist b
 :::
 
 
+
 ## Zero Conditional Mean Assumption
 
 A key assumption in multiple linear regression is the *zero conditional mean* assumption:
@@ -455,7 +456,11 @@ When endogeneity is present, we can no longer trust OLS estimates to reflect the
 :::
 
 
-#### Example 31.3: John Snow and the London Cholera Epidemic{.unnumbered}
+Although endogeneity presents a serious challenge for regression analysis, it does not mean that causal effects can never be identified. When suitable sources of exogenous variation are available, alternative estimation methods can recover consistent estimates even when OLS fails. The most widely used of these methods is **instrumental variables (IV) estimation**, which we introduce in the next chapter @sec-iv.
+
+
+
+#### Example 31.3: John Snow and the London Cholera Epidemic {.unnumbered}
 
 In 1855, physician John Snow famously investigated the causes of cholera in London. He hypothesized that cholera was waterborne, a radical claim at the time. However, he faced a challenge: people who consumed contaminated water were also more likely to be poor, live in overcrowded housing, and be exposed to poor sanitation, factors that could independently contribute to illness. This made it difficult to establish a causal link between water quality and cholera using simple correlation.
 

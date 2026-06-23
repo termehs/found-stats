@@ -67,6 +67,7 @@ book:
       - regression/reg-inf.qmd
       - regression/reg-cats.qmd
       - regression/reg-diagnostics.qmd
+      - regression/iv-est.qmd
   appendices:
   - appendix/normal-table.qmd
   - appendix/t-table.qmd

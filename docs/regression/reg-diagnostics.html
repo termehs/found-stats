@@ -27,7 +27,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendix/normal-table.html" rel="next">
+<link href="../regression/iv-est.html" rel="next">
 <link href="../regression/reg-cats.html" rel="prev">
 <link href="../cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -401,6 +401,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Residual Analysis and Model Diagnostics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/iv-est.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Instrumental Variables Estimation</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -507,7 +513,7 @@ window.Quarto = {
 <p>This is where residual analysis and model diagnostics come in: they help us verify whether the assumptions behind the regression model hold in practice. In the following section, we will review these assumptions and learn how to evaluate them using graphical and statistical tools.</p>
 <section id="constant-variance-assumption-homoskedasticity" class="level2" data-number="31.1"><h2 data-number="31.1" class="anchored" data-anchor-id="constant-variance-assumption-homoskedasticity">
 <span class="header-section-number">31.1</span> Constant Variance Assumption (Homoskedasticity)</h2>
-<p>One of the key assumptions of the classical linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as <strong>homoskedasticity</strong>, and it is formally stated as:</p>
+<p>One of the key assumptions of the classicxal linear regression model is that the variance of the error term remains constant across all observations. This assumption is known as <strong>homoskedasticity</strong>, and it is formally stated as:</p>
 <blockquote class="blockquote">
 <p>The error term has constant variance, i.e.<br><span class="math inline">\(\operatorname{Var}(\varepsilon_i \mid X) = \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
 </blockquote>
@@ -585,11 +591,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>The null hypothesis of the BP test is that the error variance is constant across all observations (i.e., homoskedasticity). The alternative is that the variance of the errors depends on one or more of the explanatory variables.</p>
 <p>We test:</p>
 <p><span class="math display">\[
-H_0: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) = \sigma^2 \quad \text{(homoskedasticity)}
+H_0: \operatorname{Var}(e_i \mid x_1, x_2, \dots, x_k) = \sigma^2 \quad \text{(homoskedasticity)}
 \]</span></p>
 <p>against</p>
 <p><span class="math display">\[
-H_1: \operatorname{Var}(u_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text{(heteroskedasticity)}
+H_1: \operatorname{Var}(e_i \mid x_1, x_2, \dots, x_k) \neq \sigma^2 \quad \text{(heteroskedasticity)}
 \]</span></p>
 <p>STep-by-step, we then do the folllwing:</p>
 <ol type="1">
@@ -871,6 +877,7 @@ Endogeneity undermines causal inference
 <p>When endogeneity is present, we can no longer trust OLS estimates to reflect the true causal effects of our explanatory variables.</p>
 </div>
 </div>
+<p>Although endogeneity presents a serious challenge for regression analysis, it does not mean that causal effects can never be identified. When suitable sources of exogenous variation are available, alternative estimation methods can recover consistent estimates even when OLS fails. The most widely used of these methods is <strong>instrumental variables (IV) estimation</strong>, which we introduce in the next chapter <a href="iv-est.html" class="quarto-xref"><span>Chapter 32</span></a>.</p>
 <section id="example-31.3-john-snow-and-the-london-cholera-epidemic" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="example-31.3-john-snow-and-the-london-cholera-epidemic">Example 31.3: John Snow and the London Cholera Epidemic</h4>
 <p>In 1855, physician John Snow famously investigated the causes of cholera in London. He hypothesized that cholera was waterborne, a radical claim at the time. However, he faced a challenge: people who consumed contaminated water were also more likely to be poor, live in overcrowded housing, and be exposed to poor sanitation, factors that could independently contribute to illness. This made it difficult to establish a causal link between water quality and cholera using simple correlation.</p>
 <p>To overcome this, Snow employed an instrumental variable strategy. He used the identity of the water company supplying a household as an instrument for water quality. Specifically, the Lambeth Water Company sourced its water from an upstream location on the Thames, above the main sewage discharge points, while other companies collected water downstream, from more polluted sections of the river.</p>
@@ -1401,8 +1408,8 @@ The residuals do not center around zero consistently. For small and large fitted
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendix/normal-table.html" class="pagination-link" aria-label="The Standard Normal Distribution Table">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">The Standard Normal Distribution Table</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../regression/iv-est.html" class="pagination-link" aria-label="Instrumental Variables Estimation">
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Instrumental Variables Estimation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
