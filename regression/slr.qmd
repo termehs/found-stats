@@ -95,6 +95,7 @@ But what does "best-fitting" mean? In this context, it refers to the line that m
 
 $\text{SSE} =  \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - b_0 - b_1 x_i)^2$
 
+
 Squaring the residuals serves two purposes. First, it ensures that all errors contribute positively to the total (so they don’t cancel out), and second, it gives disproportionately more weight to larger errors, thereby penalizing predictions that are far from the observed data.
 
 By finding the values of $b_0$ and $b_1$ that minimize this sum, the least squares method provides a regression line that captures the overall trend in the data as effectively as possible. This line represents the best linear approximation to the relationship between $x$ and $y$ in the sense that it minimizes total prediction error under the squared loss criterion.
@@ -218,6 +219,27 @@ $$
 
 
 $b_1$ (slope) is the main coefficient of interest. It tells us how much we expect $y$ to change, on average, for a one-unit increase in $x$. Its sign tells us the direction (positive or negative association), and its magnitude tells us the strength of the relationship.
+
+::: {.callout-note title="A Key Property of OLS Residuals"}
+
+When a regression model includes an intercept, the OLS residuals always sum to zero:
+
+$$
+\sum_{i=1}^{n} e_i = 0.
+$$
+
+This means that the positive and negative residuals balance each other out. In other words, the fitted regression line does not systematically overpredict or underpredict the observed values.
+
+This property follows from the least squares method: OLS chooses the intercept and slope to minimize
+
+$$
+SSE = \sum_{i=1}^{n} e_i^2.
+$$
+
+One consequence of this minimization is that, with an intercept included, the residuals must sum to zero.
+
+:::
+
 
 ::: {.callout-note }
 ## Derivation of OLS Estimators

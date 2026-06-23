@@ -626,6 +626,28 @@ b_1 = \frac{\sum xy - n \bar{x} \bar{y}}{\sum x^2 - n \bar{x}^2}
 b_0 = \bar{y} - b_1 \bar{x}
 \]</span></p>
 <p><span class="math inline">\(b_1\)</span> (slope) is the main coefficient of interest. It tells us how much we expect <span class="math inline">\(y\)</span> to change, on average, for a one-unit increase in <span class="math inline">\(x\)</span>. Its sign tells us the direction (positive or negative association), and its magnitude tells us the strength of the relationship.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="A Key Property of OLS Residuals">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Key Property of OLS Residuals
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When a regression model includes an intercept, the OLS residuals always sum to zero:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n} e_i = 0.
+\]</span></p>
+<p>This means that the positive and negative residuals balance each other out. In other words, the fitted regression line does not systematically overpredict or underpredict the observed values.</p>
+<p>This property follows from the least squares method: OLS chooses the intercept and slope to minimize</p>
+<p><span class="math display">\[
+SSE = \sum_{i=1}^{n} e_i^2.
+\]</span></p>
+<p>One consequence of this minimization is that, with an intercept included, the residuals must sum to zero.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1176,7 +1198,7 @@ y = b_0 + b_1 x + \varepsilon
 <li>Write out the estimated regression line</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1185,7 +1207,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>(a) Compute the means</strong></p>
 <p><span class="math display">\[
@@ -1304,7 +1326,7 @@ F-statistic: 45.46 on 1 and 30 DF,  p-value: 1.788e-07</code></pre>
 <li>Interpret the slope <span class="math inline">\(b_1\)</span> in context.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1313,7 +1335,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>Based on the regression output we get:</li>
