@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/chi2/chi2.html</loc>
-    <lastmod>2025-07-02T06:57:45.862Z</lastmod>
+    <lastmod>2026-06-23T14:08:36.514Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/chi2/chi2-gof.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/chi2/chi2-ind.html</loc>
-    <lastmod>2026-06-16T07:58:40.989Z</lastmod>
+    <lastmod>2026-06-16T08:38:52.144Z</lastmod>
   </url>
   <url>
     <loc>https://termehs.github.io/found-stats/regression/reg-framework.html</loc>
@@ -129,6 +129,10 @@
     <lastmod>2026-06-23T12:32:09.310Z</lastmod>
   </url>
   <url>
+    <loc>https://termehs.github.io/found-stats/regression/iv-est.html</loc>
+    <lastmod>2026-06-23T13:50:11.473Z</lastmod>
+  </url>
+  <url>
     <loc>https://termehs.github.io/found-stats/appendix/normal-table.html</loc>
     <lastmod>2025-06-04T10:50:44.180Z</lastmod>
   </url>
@@ -139,9 +143,5 @@
   <url>
     <loc>https://termehs.github.io/found-stats/appendix/chi2-table.html</loc>
     <lastmod>2025-07-16T13:35:26.737Z</lastmod>
-  </url>
-  <url>
-    <loc>https://termehs.github.io/found-stats/regression/iv-est.html</loc>
-    <lastmod>2026-06-23T13:50:11.473Z</lastmod>
   </url>
 </urlset>

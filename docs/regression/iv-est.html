@@ -521,8 +521,8 @@ E(\varepsilon \mid X_1, X_2, \ldots, X_K) = 0,
 <div class="cell">
 <div id="fig-iv-intuition" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-iv-intuition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-9c9be6736909c53c5253" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-9c9be6736909c53c5253">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\n  shape = circle,\n  style = filled,\n  fillcolor = LightGray,\n  fontsize = 16\n]\n\nz [label = \"z\"]\nx [label = \"x\"]\ny [label = \"y\"]\ne [label = \"ε\"]\n\nz -> x [label = \"relevance\"]\nx -> y [label = \"causal effect\"]\ne -> y\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-52116a5bbc4da741e515" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-52116a5bbc4da741e515">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\n  shape = circle,\n  style = filled,\n  fillcolor = LightGray,\n  fontsize = 16\n]\n\nz [label = \"z\"]\nx [label = \"x\"]\ny [label = \"y\"]\ne [label = \"ε\"]\n\nz -> x [label = \"relevance\"]\nx -> y [label = \"causal effect\"]\ne -> y\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-iv-intuition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;32.1: The basic idea of instrumental variables estimation. The instrument <span class="math inline">\(z\)</span> affects the outcome only indirectly through the endogenous explanatory variable <span class="math inline">\(x\)</span>.
@@ -560,8 +560,8 @@ y_i = \beta_0 + \beta_1 x_i + \varepsilon_i,
 <div class="cell">
 <div id="fig-health-iv" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-health-iv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-1819ad919ca2477491e2" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-1819ad919ca2477491e2">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\nshape = rectangle,\nstyle = rounded,\nfontsize = 15\n]\n\nz [label=\"Per capita\nincome\n(zᵢ)\"]\nx [label=\"Public health\nexpenditure\n(xᵢ)\"]\ny [label=\"Health\noutcomes\n(yᵢ)\"]\nu [label=\"Unobserved\nhealth factors\n(εᵢ)\"]\n\nz -> x\nx -> y\nu -> y\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-3b708029a35b4e49af09" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3b708029a35b4e49af09">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\nshape = rectangle,\nstyle = rounded,\nfontsize = 15\n]\n\nz [label=\"Per capita\nincome\n(zᵢ)\"]\nx [label=\"Public health\nexpenditure\n(xᵢ)\"]\ny [label=\"Health\noutcomes\n(yᵢ)\"]\nu [label=\"Unobserved\nhealth factors\n(εᵢ)\"]\n\nz -> x\nx -> y\nu -> y\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-health-iv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;32.2: Per capita income (<span class="math inline">\(z_i\)</span>) is used as an instrument for public health expenditure (<span class="math inline">\(x_i\)</span>).
@@ -584,8 +584,8 @@ Figure&nbsp;32.2: Per capita income (<span class="math inline">\(z_i\)</span>) i
 <div class="cell">
 <div id="fig-valid-iv" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-valid-iv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-42b4a0f3ef70e0960b39" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-42b4a0f3ef70e0960b39">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\nshape = rectangle,\nstyle = rounded,\nfontsize = 15\n]\n\nz [label=\"Instrument\n(zᵢ)\"]\nx [label=\"Endogenous\nvariable\n(xᵢ)\"]\ny [label=\"Outcome\n(yᵢ)\"]\ne [label=\"Structural\nerror\n(εᵢ)\"]\n\nz -> x [label=\"Relevance\"]\nx -> y [label=\"Causal effect\"]\ne -> y\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d5bb21db184a1cc848eb" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-d5bb21db184a1cc848eb">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\nshape = rectangle,\nstyle = rounded,\nfontsize = 15\n]\n\nz [label=\"Instrument\n(zᵢ)\"]\nx [label=\"Endogenous\nvariable\n(xᵢ)\"]\ny [label=\"Outcome\n(yᵢ)\"]\ne [label=\"Structural\nerror\n(εᵢ)\"]\n\nz -> x [label=\"Relevance\"]\nx -> y [label=\"Causal effect\"]\ne -> y\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-valid-iv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;32.3: A valid instrument influences the outcome only indirectly through the endogenous explanatory variable.
@@ -667,8 +667,8 @@ y_i=\beta_0+\beta_1\hat{x}_i+\varepsilon_i.
 <div class="cell">
 <div id="fig-twostage" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-twostage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-692948558b57e6299027" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-692948558b57e6299027">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\nshape = rectangle,\nstyle = rounded,\nfontsize = 15\n]\n\nz [label=\"Instrument\nzᵢ\"]\nx [label=\"Endogenous\nvariable\nxᵢ\"]\nxh [label=\"Predicted\nvalue\nx̂ᵢ\"]\ny [label=\"Outcome\nyᵢ\"]\n\nz -> x [label=\"Stage 1\"]\nx -> xh [label=\"Fitted values\"]\nxh -> y [label=\"Stage 2\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-5ce7816fd91e121e8cbc" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-5ce7816fd91e121e8cbc">{"x":{"diagram":"\ndigraph {\n\ngraph [layout = dot, rankdir = LR]\n\nnode [\nshape = rectangle,\nstyle = rounded,\nfontsize = 15\n]\n\nz [label=\"Instrument\nzᵢ\"]\nx [label=\"Endogenous\nvariable\nxᵢ\"]\nxh [label=\"Predicted\nvalue\nx̂ᵢ\"]\ny [label=\"Outcome\nyᵢ\"]\n\nz -> x [label=\"Stage 1\"]\nx -> xh [label=\"Fitted values\"]\nxh -> y [label=\"Stage 2\"]\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twostage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;32.4: The logic of two-stage least squares (2SLS).

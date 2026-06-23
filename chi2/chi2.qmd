@@ -79,36 +79,58 @@ The shape of the $\chi^2$ distribution depends on its degrees of freedom. For a 
 
 ::: {#fig-chi2df .center}
 ```{r}
+```{r}
 #| message: false
 #| warning: false
 #| fig-align: center
 #| fig-height: 6
-#| fig-width: 9
-#| 
-# Load required packages
+#| fig-width: 8
+
 library(ggplot2)
-library(gganimate)
 library(dplyr)
 
-# Generate chi-square density data for varying degrees of freedom
-df_vals <- 3:20
+# Degrees of freedom to display
+df_vals <- c(3, 5, 7, 10, 15, 20)
+
+# Values of x
 x_vals <- seq(0, 40, length.out = 400)
 
-chi_data <- expand.grid(x = x_vals, df = df_vals) %>%
-  mutate(density = dchisq(x, df))
+# Compute chi-square densities
+chi_data <- expand.grid(
+  x = x_vals,
+  df = df_vals
+) |>
+  mutate(
+    density = dchisq(x, df),
+    df = factor(df)
+  )
 
 # Plot
-p <- ggplot(chi_data, aes(x = x, y = density)) +
-  geom_line(color = "black", linewidth = 1) +
-  labs(title = "Chi-square distribution with df = {closest_state}",
-       x = "x", y = "Density") +
-  theme_minimal(base_size = 12) +
-  transition_states(df, transition_length = 2, state_length = 1, wrap = FALSE) +
-  ease_aes("linear") 
-
-p
-
+ggplot(chi_data, aes(x = x, y = density, colour = df)) +
+  geom_line(linewidth = 1.2) +
+  scale_colour_manual(
+    values = c(
+      "3"  = "#0072B2",  # blue
+      "5"  = "#E69F00",  # orange
+      "7"  = "#009E73",  # green
+      "10" = "#D55E00",  # vermillion
+      "15" = "#CC79A7",  # purple
+      "20" = "#56B4E9"   # sky blue
+    )
+  ) +
+  labs(
+    x = "x",
+    y = "Density",
+    colour = "Degrees of freedom"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "right",
+    legend.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
 ```
 
-Animated visualization of the $\chi^2$-distribution as the degrees of freedom increase from 3 to 20. As the degrees of freedom grow, the distribution becomes more symmetric and approaches the shape of the normal distribution. This demonstrates how the chi-square distribution’s skewness diminishes with larger sample sizes.
+Visualization of the $\chi^2$-distribution as the degrees of freedom increase from 3 to 20. As the degrees of freedom grow, the distribution becomes more symmetric and approaches the shape of the normal distribution. This demonstrates how the chi-square distribution’s skewness diminishes with larger sample sizes.
 :::
