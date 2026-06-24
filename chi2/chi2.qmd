@@ -130,7 +130,7 @@ ggplot(chi_data, aes(x = x, y = density, colour = df)) +
     panel.grid.minor = element_blank()
   )
 ```
-```
+
 
 Visualization of the $\chi^2$-distribution as the degrees of freedom increase from 3 to 20. As the degrees of freedom grow, the distribution becomes more symmetric and approaches the shape of the normal distribution. This demonstrates how the chi-square distribution’s skewness diminishes with larger sample sizes.
 :::
